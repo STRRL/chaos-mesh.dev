@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>cron - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.0/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.0/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.0/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 8055e25. Generated at Sun Jan 16 10:55:28 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package cron
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/controllers/schedule/cron"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#NewController">func NewController(mgr ctrl.Manager, client client.Client, log logr.Logger, lister *utils.ActiveLister, recorderBuilder *recorder.RecorderBuilder) (types.Controller, error)</a></dd>
+			
+			
+				
+				<dd><a href="#Reconciler">type Reconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Reconciler.Reconcile">func (r *Reconciler) Reconcile(req ctrl.Request) (ctrl.Result, error)</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/controllers/schedule/cron/controller.go">controller.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/controllers/schedule/cron/utils.go">utils.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="NewController">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/controllers/schedule/cron/controller.go#L197">NewController</a>
+				<a class="permalink" href="#NewController">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewController(mgr <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>, client <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, log <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>, lister *<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/schedule/utils/">utils</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/schedule/utils/#ActiveLister">ActiveLister</a>, recorderBuilder *<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#RecorderBuilder">RecorderBuilder</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/types/">types</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/types/#Controller">Controller</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Reconciler">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/controllers/schedule/cron/controller.go#L38">Reconciler</a>
+				<a class="permalink" href="#Reconciler">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Reconciler struct {
+    <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+<span id="Reconciler.Log"></span>    Log          <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+<span id="Reconciler.ActiveLister"></span>    ActiveLister *<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/schedule/utils/">utils</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/schedule/utils/#ActiveLister">ActiveLister</a>
+
+<span id="Reconciler.Recorder"></span>    Recorder <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#ChaosRecorder">ChaosRecorder</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Reconciler.Reconcile">func (*Reconciler) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/controllers/schedule/cron/controller.go#L48">Reconcile</a>
+					<a class="permalink" href="#Reconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Reconciler">Reconciler</a>) Reconcile(req <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

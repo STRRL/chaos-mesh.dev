@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>mock_node - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.0/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.0/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.0/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 8055e25. Generated at Sun Jan 16 10:55:28 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package mock_node
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>
+Package mock_node is a generated GoMock package.
+</p>
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#MockNode">type MockNode</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewMockNode">func NewMockNode(ctrl *gomock.Controller) *MockNode</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNode.EXPECT">func (m *MockNode) EXPECT() *MockNodeMockRecorder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNode.Name">func (m *MockNode) Name() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNode.NodePhase">func (m *MockNode) NodePhase() node.NodePhase</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNode.ParentNodeName">func (m *MockNode) ParentNodeName() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNode.TemplateName">func (m *MockNode) TemplateName() string</a></dd>
+				
+			
+				
+				<dd><a href="#MockNodeMockRecorder">type MockNodeMockRecorder</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeMockRecorder.Name">func (mr *MockNodeMockRecorder) Name() *gomock.Call</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeMockRecorder.NodePhase">func (mr *MockNodeMockRecorder) NodePhase() *gomock.Call</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeMockRecorder.ParentNodeName">func (mr *MockNodeMockRecorder) ParentNodeName() *gomock.Call</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeMockRecorder.TemplateName">func (mr *MockNodeMockRecorder) TemplateName() *gomock.Call</a></dd>
+				
+			
+				
+				<dd><a href="#MockNodeTreeChildren">type MockNodeTreeChildren</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewMockNodeTreeChildren">func NewMockNodeTreeChildren(ctrl *gomock.Controller) *MockNodeTreeChildren</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeTreeChildren.EXPECT">func (m *MockNodeTreeChildren) EXPECT() *MockNodeTreeChildrenMockRecorder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeTreeChildren.GetAllChildrenNode">func (m *MockNodeTreeChildren) GetAllChildrenNode() []node.NodeTreeNode</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeTreeChildren.Length">func (m *MockNodeTreeChildren) Length() int</a></dd>
+				
+			
+				
+				<dd><a href="#MockNodeTreeChildrenMockRecorder">type MockNodeTreeChildrenMockRecorder</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeTreeChildrenMockRecorder.GetAllChildrenNode">func (mr *MockNodeTreeChildrenMockRecorder) GetAllChildrenNode() *gomock.Call</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeTreeChildrenMockRecorder.Length">func (mr *MockNodeTreeChildrenMockRecorder) Length() *gomock.Call</a></dd>
+				
+			
+				
+				<dd><a href="#MockNodeTreeNode">type MockNodeTreeNode</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewMockNodeTreeNode">func NewMockNodeTreeNode(ctrl *gomock.Controller) *MockNodeTreeNode</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeTreeNode.Children">func (m *MockNodeTreeNode) Children() node.NodeTreeChildren</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeTreeNode.EXPECT">func (m *MockNodeTreeNode) EXPECT() *MockNodeTreeNodeMockRecorder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeTreeNode.FetchNodeByName">func (m *MockNodeTreeNode) FetchNodeByName(nodeName string) (node.NodeTreeNode, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeTreeNode.Name">func (m *MockNodeTreeNode) Name() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeTreeNode.TemplateName">func (m *MockNodeTreeNode) TemplateName() string</a></dd>
+				
+			
+				
+				<dd><a href="#MockNodeTreeNodeMockRecorder">type MockNodeTreeNodeMockRecorder</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeTreeNodeMockRecorder.Children">func (mr *MockNodeTreeNodeMockRecorder) Children() *gomock.Call</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeTreeNodeMockRecorder.FetchNodeByName">func (mr *MockNodeTreeNodeMockRecorder) FetchNodeByName(nodeName interface{}) *gomock.Call</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeTreeNodeMockRecorder.Name">func (mr *MockNodeTreeNodeMockRecorder) Name() *gomock.Call</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockNodeTreeNodeMockRecorder.TemplateName">func (mr *MockNodeTreeNodeMockRecorder) TemplateName() *gomock.Call</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go">mock_node.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="MockNode">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L29">MockNode</a>
+				<a class="permalink" href="#MockNode">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+MockNode is a mock of Node interface.
+</p>
+
+			<pre>type MockNode struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewMockNode">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L40">NewMockNode</a>
+					<a class="permalink" href="#NewMockNode">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewMockNode(ctrl *<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/#Controller">Controller</a>) *<a href="#MockNode">MockNode</a></pre>
+				<p>
+NewMockNode creates a new mock instance.
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="MockNode.EXPECT">func (*MockNode) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L47">EXPECT</a>
+					<a class="permalink" href="#MockNode.EXPECT">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockNode">MockNode</a>) EXPECT() *<a href="#MockNodeMockRecorder">MockNodeMockRecorder</a></pre>
+				<p>
+EXPECT returns an object that allows the caller to indicate expected use.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNode.Name">func (*MockNode) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L52">Name</a>
+					<a class="permalink" href="#MockNode.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockNode">MockNode</a>) Name() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a></pre>
+				<p>
+Name mocks base method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNode.NodePhase">func (*MockNode) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L66">NodePhase</a>
+					<a class="permalink" href="#MockNode.NodePhase">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockNode">MockNode</a>) NodePhase() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/">node</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/#NodePhase">NodePhase</a></pre>
+				<p>
+NodePhase mocks base method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNode.ParentNodeName">func (*MockNode) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L80">ParentNodeName</a>
+					<a class="permalink" href="#MockNode.ParentNodeName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockNode">MockNode</a>) ParentNodeName() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a></pre>
+				<p>
+ParentNodeName mocks base method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNode.TemplateName">func (*MockNode) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L94">TemplateName</a>
+					<a class="permalink" href="#MockNode.TemplateName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockNode">MockNode</a>) TemplateName() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a></pre>
+				<p>
+TemplateName mocks base method.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="MockNodeMockRecorder">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L35">MockNodeMockRecorder</a>
+				<a class="permalink" href="#MockNodeMockRecorder">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+MockNodeMockRecorder is the mock recorder for MockNode.
+</p>
+
+			<pre>type MockNodeMockRecorder struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="MockNodeMockRecorder.Name">func (*MockNodeMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L60">Name</a>
+					<a class="permalink" href="#MockNodeMockRecorder.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockNodeMockRecorder">MockNodeMockRecorder</a>) Name() *<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+Name indicates an expected call of Name.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNodeMockRecorder.NodePhase">func (*MockNodeMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L74">NodePhase</a>
+					<a class="permalink" href="#MockNodeMockRecorder.NodePhase">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockNodeMockRecorder">MockNodeMockRecorder</a>) NodePhase() *<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+NodePhase indicates an expected call of NodePhase.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNodeMockRecorder.ParentNodeName">func (*MockNodeMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L88">ParentNodeName</a>
+					<a class="permalink" href="#MockNodeMockRecorder.ParentNodeName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockNodeMockRecorder">MockNodeMockRecorder</a>) ParentNodeName() *<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+ParentNodeName indicates an expected call of ParentNodeName.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNodeMockRecorder.TemplateName">func (*MockNodeMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L102">TemplateName</a>
+					<a class="permalink" href="#MockNodeMockRecorder.TemplateName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockNodeMockRecorder">MockNodeMockRecorder</a>) TemplateName() *<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+TemplateName indicates an expected call of TemplateName.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="MockNodeTreeChildren">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L188">MockNodeTreeChildren</a>
+				<a class="permalink" href="#MockNodeTreeChildren">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+MockNodeTreeChildren is a mock of NodeTreeChildren interface.
+</p>
+
+			<pre>type MockNodeTreeChildren struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewMockNodeTreeChildren">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L199">NewMockNodeTreeChildren</a>
+					<a class="permalink" href="#NewMockNodeTreeChildren">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewMockNodeTreeChildren(ctrl *<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/#Controller">Controller</a>) *<a href="#MockNodeTreeChildren">MockNodeTreeChildren</a></pre>
+				<p>
+NewMockNodeTreeChildren creates a new mock instance.
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="MockNodeTreeChildren.EXPECT">func (*MockNodeTreeChildren) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L206">EXPECT</a>
+					<a class="permalink" href="#MockNodeTreeChildren.EXPECT">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockNodeTreeChildren">MockNodeTreeChildren</a>) EXPECT() *<a href="#MockNodeTreeChildrenMockRecorder">MockNodeTreeChildrenMockRecorder</a></pre>
+				<p>
+EXPECT returns an object that allows the caller to indicate expected use.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNodeTreeChildren.GetAllChildrenNode">func (*MockNodeTreeChildren) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L211">GetAllChildrenNode</a>
+					<a class="permalink" href="#MockNodeTreeChildren.GetAllChildrenNode">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockNodeTreeChildren">MockNodeTreeChildren</a>) GetAllChildrenNode() []<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/">node</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/#NodeTreeNode">NodeTreeNode</a></pre>
+				<p>
+GetAllChildrenNode mocks base method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNodeTreeChildren.Length">func (*MockNodeTreeChildren) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L225">Length</a>
+					<a class="permalink" href="#MockNodeTreeChildren.Length">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockNodeTreeChildren">MockNodeTreeChildren</a>) Length() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#int">int</a></pre>
+				<p>
+Length mocks base method.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="MockNodeTreeChildrenMockRecorder">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L194">MockNodeTreeChildrenMockRecorder</a>
+				<a class="permalink" href="#MockNodeTreeChildrenMockRecorder">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+MockNodeTreeChildrenMockRecorder is the mock recorder for MockNodeTreeChildren.
+</p>
+
+			<pre>type MockNodeTreeChildrenMockRecorder struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="MockNodeTreeChildrenMockRecorder.GetAllChildrenNode">func (*MockNodeTreeChildrenMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L219">GetAllChildrenNode</a>
+					<a class="permalink" href="#MockNodeTreeChildrenMockRecorder.GetAllChildrenNode">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockNodeTreeChildrenMockRecorder">MockNodeTreeChildrenMockRecorder</a>) GetAllChildrenNode() *<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+GetAllChildrenNode indicates an expected call of GetAllChildrenNode.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNodeTreeChildrenMockRecorder.Length">func (*MockNodeTreeChildrenMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L233">Length</a>
+					<a class="permalink" href="#MockNodeTreeChildrenMockRecorder.Length">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockNodeTreeChildrenMockRecorder">MockNodeTreeChildrenMockRecorder</a>) Length() *<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+Length indicates an expected call of Length.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="MockNodeTreeNode">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L108">MockNodeTreeNode</a>
+				<a class="permalink" href="#MockNodeTreeNode">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+MockNodeTreeNode is a mock of NodeTreeNode interface.
+</p>
+
+			<pre>type MockNodeTreeNode struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewMockNodeTreeNode">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L119">NewMockNodeTreeNode</a>
+					<a class="permalink" href="#NewMockNodeTreeNode">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewMockNodeTreeNode(ctrl *<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/#Controller">Controller</a>) *<a href="#MockNodeTreeNode">MockNodeTreeNode</a></pre>
+				<p>
+NewMockNodeTreeNode creates a new mock instance.
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="MockNodeTreeNode.Children">func (*MockNodeTreeNode) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L131">Children</a>
+					<a class="permalink" href="#MockNodeTreeNode.Children">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockNodeTreeNode">MockNodeTreeNode</a>) Children() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/">node</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/#NodeTreeChildren">NodeTreeChildren</a></pre>
+				<p>
+Children mocks base method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNodeTreeNode.EXPECT">func (*MockNodeTreeNode) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L126">EXPECT</a>
+					<a class="permalink" href="#MockNodeTreeNode.EXPECT">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockNodeTreeNode">MockNodeTreeNode</a>) EXPECT() *<a href="#MockNodeTreeNodeMockRecorder">MockNodeTreeNodeMockRecorder</a></pre>
+				<p>
+EXPECT returns an object that allows the caller to indicate expected use.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNodeTreeNode.FetchNodeByName">func (*MockNodeTreeNode) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L145">FetchNodeByName</a>
+					<a class="permalink" href="#MockNodeTreeNode.FetchNodeByName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockNodeTreeNode">MockNodeTreeNode</a>) FetchNodeByName(nodeName <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/">node</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/#NodeTreeNode">NodeTreeNode</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#error">error</a>)</pre>
+				<p>
+FetchNodeByName mocks base method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNodeTreeNode.Name">func (*MockNodeTreeNode) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L160">Name</a>
+					<a class="permalink" href="#MockNodeTreeNode.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockNodeTreeNode">MockNodeTreeNode</a>) Name() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a></pre>
+				<p>
+Name mocks base method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNodeTreeNode.TemplateName">func (*MockNodeTreeNode) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L174">TemplateName</a>
+					<a class="permalink" href="#MockNodeTreeNode.TemplateName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockNodeTreeNode">MockNodeTreeNode</a>) TemplateName() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a></pre>
+				<p>
+TemplateName mocks base method.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="MockNodeTreeNodeMockRecorder">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L114">MockNodeTreeNodeMockRecorder</a>
+				<a class="permalink" href="#MockNodeTreeNodeMockRecorder">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+MockNodeTreeNodeMockRecorder is the mock recorder for MockNodeTreeNode.
+</p>
+
+			<pre>type MockNodeTreeNodeMockRecorder struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="MockNodeTreeNodeMockRecorder.Children">func (*MockNodeTreeNodeMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L139">Children</a>
+					<a class="permalink" href="#MockNodeTreeNodeMockRecorder.Children">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockNodeTreeNodeMockRecorder">MockNodeTreeNodeMockRecorder</a>) Children() *<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+Children indicates an expected call of Children.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNodeTreeNodeMockRecorder.FetchNodeByName">func (*MockNodeTreeNodeMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L154">FetchNodeByName</a>
+					<a class="permalink" href="#MockNodeTreeNodeMockRecorder.FetchNodeByName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockNodeTreeNodeMockRecorder">MockNodeTreeNodeMockRecorder</a>) FetchNodeByName(nodeName interface{}) *<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+FetchNodeByName indicates an expected call of FetchNodeByName.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNodeTreeNodeMockRecorder.Name">func (*MockNodeTreeNodeMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L168">Name</a>
+					<a class="permalink" href="#MockNodeTreeNodeMockRecorder.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockNodeTreeNodeMockRecorder">MockNodeTreeNodeMockRecorder</a>) Name() *<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+Name indicates an expected call of Name.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockNodeTreeNodeMockRecorder.TemplateName">func (*MockNodeTreeNodeMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_node/mock_node.go#L182">TemplateName</a>
+					<a class="permalink" href="#MockNodeTreeNodeMockRecorder.TemplateName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockNodeTreeNodeMockRecorder">MockNodeTreeNodeMockRecorder</a>) TemplateName() *<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+TemplateName indicates an expected call of TemplateName.
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>template - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.0/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.0/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.0/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 8055e25. Generated at Sun Jan 16 10:55:28 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package template
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#NetworkChaosTemplate">type NetworkChaosTemplate</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParseNetworkChaosTemplate">func ParseNetworkChaosTemplate(raw interface{}) (NetworkChaosTemplate, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ParallelTemplate">type ParallelTemplate</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParseParallelTemplate">func ParseParallelTemplate(raw interface{}) (ParallelTemplate, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodChaosTemplate">type PodChaosTemplate</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParsePodChaosTemplate">func ParsePodChaosTemplate(raw interface{}) (PodChaosTemplate, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#SerialTemplate">type SerialTemplate</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParseSerialTemplate">func ParseSerialTemplate(raw interface{}) (SerialTemplate, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#SuspendTemplate">type SuspendTemplate</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParseSuspendTemplate">func ParseSuspendTemplate(raw interface{}) (SuspendTemplate, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TaskTemplate">type TaskTemplate</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParseTaskTemplate">func ParseTaskTemplate(raw interface{}) (TaskTemplate, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Template">type Template</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TemplateType">type TemplateType</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TemplateType.IsCompositeType">func (it TemplateType) IsCompositeType() bool</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/network_chaos.go">network_chaos.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/parallel.go">parallel.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/pod_chaos.go">pod_chaos.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/serial.go">serial.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/suspend.go">suspend.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/task.go">task.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/template.go">template.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="NetworkChaosTemplate">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/network_chaos.go#L23">NetworkChaosTemplate</a>
+				<a class="permalink" href="#NetworkChaosTemplate">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type NetworkChaosTemplate interface {
+    <a href="#Template">Template</a>
+    ChaosNamePrefix() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a>
+    NetworkChaosSpec() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">chaosmeshv1alph1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#NetworkChaosSpec">NetworkChaosSpec</a>
+    Duration() (<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/time/#Duration">Duration</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="ParseNetworkChaosTemplate">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/network_chaos.go#L30">ParseNetworkChaosTemplate</a>
+					<a class="permalink" href="#ParseNetworkChaosTemplate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func ParseNetworkChaosTemplate(raw interface{}) (<a href="#NetworkChaosTemplate">NetworkChaosTemplate</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="ParallelTemplate">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/parallel.go#L16">ParallelTemplate</a>
+				<a class="permalink" href="#ParallelTemplate">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ParallelTemplate interface {
+    <a href="#Template">Template</a>
+    ParallelChildrenList() []<a href="#Template">Template</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="ParseParallelTemplate">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/parallel.go#L21">ParseParallelTemplate</a>
+					<a class="permalink" href="#ParseParallelTemplate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func ParseParallelTemplate(raw interface{}) (<a href="#ParallelTemplate">ParallelTemplate</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="PodChaosTemplate">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/pod_chaos.go#L23">PodChaosTemplate</a>
+				<a class="permalink" href="#PodChaosTemplate">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PodChaosTemplate interface {
+    <a href="#Template">Template</a>
+    ChaosNamePrefix() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a>
+    PodChaosSpec() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">chaosmeshv1alph1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodChaosSpec">PodChaosSpec</a>
+    Duration() (<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/time/#Duration">Duration</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="ParsePodChaosTemplate">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/pod_chaos.go#L30">ParsePodChaosTemplate</a>
+					<a class="permalink" href="#ParsePodChaosTemplate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func ParsePodChaosTemplate(raw interface{}) (<a href="#PodChaosTemplate">PodChaosTemplate</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="SerialTemplate">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/serial.go#L18">SerialTemplate</a>
+				<a class="permalink" href="#SerialTemplate">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type SerialTemplate interface {
+    <a href="#Template">Template</a>
+    <span class="comment">// TODO: make it return only template name</span>
+    SerialChildrenList() []<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="ParseSerialTemplate">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/serial.go#L24">ParseSerialTemplate</a>
+					<a class="permalink" href="#ParseSerialTemplate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func ParseSerialTemplate(raw interface{}) (<a href="#SerialTemplate">SerialTemplate</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="SuspendTemplate">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/suspend.go#L22">SuspendTemplate</a>
+				<a class="permalink" href="#SuspendTemplate">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type SuspendTemplate interface {
+    <a href="#Template">Template</a>
+    Duration() (<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/time/#Duration">Duration</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="ParseSuspendTemplate">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/suspend.go#L27">ParseSuspendTemplate</a>
+					<a class="permalink" href="#ParseSuspendTemplate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func ParseSuspendTemplate(raw interface{}) (<a href="#SuspendTemplate">SuspendTemplate</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="TaskTemplate">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/task.go#L16">TaskTemplate</a>
+				<a class="permalink" href="#TaskTemplate">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type TaskTemplate interface {
+    <a href="#Template">Template</a>
+    AllTemplates() []<a href="#Template">Template</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="ParseTaskTemplate">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/task.go#L21">ParseTaskTemplate</a>
+					<a class="permalink" href="#ParseTaskTemplate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func ParseTaskTemplate(raw interface{}) (<a href="#TaskTemplate">TaskTemplate</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="Template">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/template.go#L34">Template</a>
+				<a class="permalink" href="#Template">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Template interface {
+    Name() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a>
+    TemplateType() <a href="#TemplateType">TemplateType</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TemplateType">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/template.go#L16">TemplateType</a>
+				<a class="permalink" href="#TemplateType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type TemplateType <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="Task">Task</span>         <a href="#TemplateType">TemplateType</a> = &#34;Task&#34;
+    <span id="Serial">Serial</span>       <a href="#TemplateType">TemplateType</a> = &#34;Serial&#34;
+    <span id="Parallel">Parallel</span>     <a href="#TemplateType">TemplateType</a> = &#34;Parallel&#34;
+    <span id="Suspend">Suspend</span>      <a href="#TemplateType">TemplateType</a> = &#34;Suspend&#34;
+    <span id="IOChaos">IOChaos</span>      <a href="#TemplateType">TemplateType</a> = &#34;IOChaos&#34;
+    <span id="NetworkChaos">NetworkChaos</span> <a href="#TemplateType">TemplateType</a> = &#34;NetworkChaos&#34;
+    <span id="StressChaos">StressChaos</span>  <a href="#TemplateType">TemplateType</a> = &#34;StressChaos&#34;
+    <span id="PodChaos">PodChaos</span>     <a href="#TemplateType">TemplateType</a> = &#34;PodChaos&#34;
+    <span id="TimeChaos">TimeChaos</span>    <a href="#TemplateType">TemplateType</a> = &#34;TimeChaos&#34;
+    <span id="KernelChaos">KernelChaos</span>  <a href="#TemplateType">TemplateType</a> = &#34;KernelChaos&#34;
+    <span id="DnsChaos">DnsChaos</span>     <a href="#TemplateType">TemplateType</a> = &#34;DnsChaos&#34;
+    <span id="HttpChaos">HttpChaos</span>    <a href="#TemplateType">TemplateType</a> = &#34;HttpChaos&#34;
+    <span id="JvmChaos">JvmChaos</span>     <a href="#TemplateType">TemplateType</a> = &#34;JvmChaos&#34;
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="TemplateType.IsCompositeType">func (TemplateType) <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/template.go#L40">IsCompositeType</a>
+					<a class="permalink" href="#TemplateType.IsCompositeType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#TemplateType">TemplateType</a>) IsCompositeType() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#bool">bool</a></pre>
+				<p>
+func IsCompositeType. CompositeType means this Template could have children Templates.
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

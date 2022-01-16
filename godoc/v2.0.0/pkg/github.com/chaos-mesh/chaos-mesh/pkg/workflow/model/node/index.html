@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>node - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.0/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.0/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.0/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 8055e25. Generated at Sun Jan 16 10:55:28 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package node
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#Node">type Node</a></dd>
+				
+				
+			
+				
+				<dd><a href="#NodePhase">type NodePhase</a></dd>
+				
+				
+			
+				
+				<dd><a href="#NodeTreeChildren">type NodeTreeChildren</a></dd>
+				
+				
+			
+				
+				<dd><a href="#NodeTreeNode">type NodeTreeNode</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/node.go">node.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="Node">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/node.go#L31">Node</a>
+				<a class="permalink" href="#Node">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Node interface {
+    Name() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a>
+    NodePhase() <a href="#NodePhase">NodePhase</a>
+    ParentNodeName() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a>
+    TemplateName() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="NodePhase">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/node.go#L16">NodePhase</a>
+				<a class="permalink" href="#NodePhase">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type NodePhase <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="Init">Init</span>               <a href="#NodePhase">NodePhase</a> = &#34;Init&#34;
+    <span id="WaitingForSchedule">WaitingForSchedule</span> <a href="#NodePhase">NodePhase</a> = &#34;WaitingForSchedule&#34;
+    <span id="Running">Running</span>            <a href="#NodePhase">NodePhase</a> = &#34;Running&#34;
+    <span class="comment">// It means current node is not changing something, but waiting for some signal. It&#39;s still alive.</span>
+    <span class="comment">// It&#39;s the most common state for most of Node which referenced Template contains duration or deadline.</span>
+    <span id="Holding">Holding</span>         <a href="#NodePhase">NodePhase</a> = &#34;Holding&#34;
+    <span id="Succeed">Succeed</span>         <a href="#NodePhase">NodePhase</a> = &#34;Succeed&#34;
+    <span id="Failed">Failed</span>          <a href="#NodePhase">NodePhase</a> = &#34;Failed&#34;
+    <span id="WaitingForChild">WaitingForChild</span> <a href="#NodePhase">NodePhase</a> = &#34;WaitingForChild&#34;
+    <span id="Evaluating">Evaluating</span>      <a href="#NodePhase">NodePhase</a> = &#34;Evaluating&#34;
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="NodeTreeChildren">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/node.go#L47">NodeTreeChildren</a>
+				<a class="permalink" href="#NodeTreeChildren">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type NodeTreeChildren interface {
+    Length() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#int">int</a>
+    GetAllChildrenNode() []<a href="#NodeTreeNode">NodeTreeNode</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="NodeTreeNode">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/node.go#L39">NodeTreeNode</a>
+				<a class="permalink" href="#NodeTreeNode">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+FIXME: remove this interface, it&#39;s should belongs to node status
+</p>
+
+			<pre>type NodeTreeNode interface {
+    Name() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a>
+    TemplateName() <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a>
+    Children() <a href="#NodeTreeChildren">NodeTreeChildren</a>
+    <span class="comment">// Find node by name, might return itself, or find from children nodes recursively</span>
+    FetchNodeByName(nodeName <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#string">string</a>) (<a href="#NodeTreeNode">NodeTreeNode</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.0/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
