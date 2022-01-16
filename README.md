@@ -9,7 +9,7 @@ This site is under heavy construction, welcome to any contributes!
 This side provides two type of document now:
 
 - [godoc](https://chaos-mesh.dev/godoc), godoc like [https://pkg.go.dev/k8s.io/kubernetes](https://pkg.go.dev/k8s.io/kubernetes)
-- (WIP) [API Refernce](https://chaos-mesh.dev/reference), API reference like [https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/)
+- [API Reference](https://chaos-mesh.dev/reference), API reference like [https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/)
 
 ## Others
 
