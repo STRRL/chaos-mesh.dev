@@ -1,0 +1,287 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#375EAB"/>
+
+  <title>src/github.com/chaos-mesh/chaos-mesh/e2e-test/e2e/chaos/timechaos/time_skew.go - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.6/lib/godoc/style.css"/>
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.6/lib/godoc/jquery.js" defer=""></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.6/lib/godoc/godocs.js" defer=""></script>
+</head>
+<body>
+
+<div id="lowframe" style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.6/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 425ea13. Generated at Sun Jan 16 11:13:32 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.6/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Source file
+    <a href="https:/chaos-mesh.dev/godoc/v2.0.6/src">src</a>/<a href="https:/chaos-mesh.dev/godoc/v2.0.6/src/github.com">github.com</a>/<a href="https:/chaos-mesh.dev/godoc/v2.0.6/src/github.com/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/v2.0.6/src/github.com/chaos-mesh/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/v2.0.6/src/github.com/chaos-mesh/chaos-mesh/e2e-test">e2e-test</a>/<a href="https:/chaos-mesh.dev/godoc/v2.0.6/src/github.com/chaos-mesh/chaos-mesh/e2e-test/e2e">e2e</a>/<a href="https:/chaos-mesh.dev/godoc/v2.0.6/src/github.com/chaos-mesh/chaos-mesh/e2e-test/e2e/chaos">chaos</a>/<a href="https:/chaos-mesh.dev/godoc/v2.0.6/src/github.com/chaos-mesh/chaos-mesh/e2e-test/e2e/chaos/timechaos">timechaos</a>/<span class="text-muted">time_skew.go</span>
+  </h1>
+
+
+
+
+
+  <h2>
+    Documentation: <a href="https:/chaos-mesh.dev/godoc/v2.0.6/pkg/github.com/chaos-mesh/chaos-mesh/e2e-test/e2e/chaos/timechaos">github.com/chaos-mesh/chaos-mesh/e2e-test/e2e/chaos/timechaos</a>
+  </h2>
+
+
+
+<div id="nav"></div>
+
+
+<script type="text/javascript">document.ANALYSIS_DATA = null;</script>
+<pre><span id="L1" class="ln">     1  </span><span class="comment">// Copyright 2020 Chaos Mesh Authors.</span>
+<span id="L2" class="ln">     2  </span><span class="comment">//</span>
+<span id="L3" class="ln">     3  </span><span class="comment">// Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span>
+<span id="L4" class="ln">     4  </span><span class="comment">// you may not use this file except in compliance with the License.</span>
+<span id="L5" class="ln">     5  </span><span class="comment">// You may obtain a copy of the License at</span>
+<span id="L6" class="ln">     6  </span><span class="comment">//</span>
+<span id="L7" class="ln">     7  </span><span class="comment">//     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span id="L8" class="ln">     8  </span><span class="comment">//</span>
+<span id="L9" class="ln">     9  </span><span class="comment">// Unless required by applicable law or agreed to in writing, software</span>
+<span id="L10" class="ln">    10  </span><span class="comment">// distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span>
+<span id="L11" class="ln">    11  </span><span class="comment">// See the License for the specific language governing permissions and</span>
+<span id="L12" class="ln">    12  </span><span class="comment">// limitations under the License.</span>
+<span id="L13" class="ln">    13  </span>
+<span id="L14" class="ln">    14  </span>package timechaos
+<span id="L15" class="ln">    15  </span>
+<span id="L16" class="ln">    16  </span>import (
+<span id="L17" class="ln">    17  </span>	&#34;context&#34;
+<span id="L18" class="ln">    18  </span>	&#34;net/http&#34;
+<span id="L19" class="ln">    19  </span>	&#34;time&#34;
+<span id="L20" class="ln">    20  </span>
+<span id="L21" class="ln">    21  </span>	. &#34;github.com/onsi/ginkgo&#34;
+<span id="L22" class="ln">    22  </span>	metav1 &#34;k8s.io/apimachinery/pkg/apis/meta/v1&#34;
+<span id="L23" class="ln">    23  </span>	&#34;k8s.io/apimachinery/pkg/types&#34;
+<span id="L24" class="ln">    24  </span>	&#34;k8s.io/apimachinery/pkg/util/wait&#34;
+<span id="L25" class="ln">    25  </span>	&#34;k8s.io/kubernetes/test/e2e/framework&#34;
+<span id="L26" class="ln">    26  </span>	&#34;k8s.io/utils/pointer&#34;
+<span id="L27" class="ln">    27  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/client&#34;
+<span id="L28" class="ln">    28  </span>
+<span id="L29" class="ln">    29  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
+<span id="L30" class="ln">    30  </span>	&#34;github.com/chaos-mesh/chaos-mesh/e2e-test/e2e/util&#34;
+<span id="L31" class="ln">    31  </span>)
+<span id="L32" class="ln">    32  </span>
+<span id="L33" class="ln">    33  </span>func TestcaseTimeSkewOnceThenRecover(
+<span id="L34" class="ln">    34  </span>	ns string,
+<span id="L35" class="ln">    35  </span>	cli client.Client,
+<span id="L36" class="ln">    36  </span>	c http.Client,
+<span id="L37" class="ln">    37  </span>	port uint16,
+<span id="L38" class="ln">    38  </span>) {
+<span id="L39" class="ln">    39  </span>
+<span id="L40" class="ln">    40  </span>	ctx, cancel := context.WithCancel(context.Background())
+<span id="L41" class="ln">    41  </span>	defer cancel()
+<span id="L42" class="ln">    42  </span>
+<span id="L43" class="ln">    43  </span>	By(&#34;wait e2e helper ready&#34;)
+<span id="L44" class="ln">    44  </span>	err := util.WaitE2EHelperReady(c, port)
+<span id="L45" class="ln">    45  </span>	framework.ExpectNoError(err, &#34;wait e2e helper ready error&#34;)
+<span id="L46" class="ln">    46  </span>
+<span id="L47" class="ln">    47  </span>	By(&#34;create chaos CRD objects&#34;)
+<span id="L48" class="ln">    48  </span>	initTime, err := getPodTimeNS(c, port)
+<span id="L49" class="ln">    49  </span>	framework.ExpectNoError(err, &#34;failed to get pod time&#34;)
+<span id="L50" class="ln">    50  </span>
+<span id="L51" class="ln">    51  </span>	timeChaos := &amp;v1alpha1.TimeChaos{
+<span id="L52" class="ln">    52  </span>		ObjectMeta: metav1.ObjectMeta{
+<span id="L53" class="ln">    53  </span>			Name:      &#34;timer-time-chaos&#34;,
+<span id="L54" class="ln">    54  </span>			Namespace: ns,
+<span id="L55" class="ln">    55  </span>		},
+<span id="L56" class="ln">    56  </span>		Spec: v1alpha1.TimeChaosSpec{
+<span id="L57" class="ln">    57  </span>			Duration:   pointer.StringPtr(&#34;9m&#34;),
+<span id="L58" class="ln">    58  </span>			TimeOffset: &#34;-1h&#34;,
+<span id="L59" class="ln">    59  </span>			ContainerSelector: v1alpha1.ContainerSelector{
+<span id="L60" class="ln">    60  </span>				PodSelector: v1alpha1.PodSelector{
+<span id="L61" class="ln">    61  </span>					Selector: v1alpha1.PodSelectorSpec{
+<span id="L62" class="ln">    62  </span>						Namespaces:     []string{ns},
+<span id="L63" class="ln">    63  </span>						LabelSelectors: map[string]string{&#34;app&#34;: &#34;timer&#34;},
+<span id="L64" class="ln">    64  </span>					},
+<span id="L65" class="ln">    65  </span>					Mode: v1alpha1.OnePodMode,
+<span id="L66" class="ln">    66  </span>				},
+<span id="L67" class="ln">    67  </span>			},
+<span id="L68" class="ln">    68  </span>		},
+<span id="L69" class="ln">    69  </span>	}
+<span id="L70" class="ln">    70  </span>	err = cli.Create(ctx, timeChaos)
+<span id="L71" class="ln">    71  </span>	framework.ExpectNoError(err, &#34;create time chaos error&#34;)
+<span id="L72" class="ln">    72  </span>
+<span id="L73" class="ln">    73  </span>	By(&#34;waiting for assertion&#34;)
+<span id="L74" class="ln">    74  </span>	err = wait.PollImmediate(5*time.Second, 5*time.Minute, func() (done bool, err error) {
+<span id="L75" class="ln">    75  </span>		podTime, err := getPodTimeNS(c, port)
+<span id="L76" class="ln">    76  </span>		framework.ExpectNoError(err, &#34;failed to get pod time&#34;)
+<span id="L77" class="ln">    77  </span>		if podTime.Before(*initTime) {
+<span id="L78" class="ln">    78  </span>			return true, nil
+<span id="L79" class="ln">    79  </span>		}
+<span id="L80" class="ln">    80  </span>		return false, nil
+<span id="L81" class="ln">    81  </span>	})
+<span id="L82" class="ln">    82  </span>	framework.ExpectNoError(err, &#34;time chaos doesn&#39;t work as expected&#34;)
+<span id="L83" class="ln">    83  </span>
+<span id="L84" class="ln">    84  </span>	By(&#34;delete chaos CRD objects&#34;)
+<span id="L85" class="ln">    85  </span>	err = cli.Delete(ctx, timeChaos)
+<span id="L86" class="ln">    86  </span>	framework.ExpectNoError(err, &#34;failed to delete time chaos&#34;)
+<span id="L87" class="ln">    87  </span>
+<span id="L88" class="ln">    88  </span>	By(&#34;waiting for assertion recovering&#34;)
+<span id="L89" class="ln">    89  </span>	err = wait.Poll(5*time.Second, 1*time.Minute, func() (done bool, err error) {
+<span id="L90" class="ln">    90  </span>		podTime, err := getPodTimeNS(c, port)
+<span id="L91" class="ln">    91  </span>		framework.ExpectNoError(err, &#34;failed to get pod time&#34;)
+<span id="L92" class="ln">    92  </span>		<span class="comment">// since there is no timechaos now, current pod time should not be earlier</span>
+<span id="L93" class="ln">    93  </span>		<span class="comment">// than the init time</span>
+<span id="L94" class="ln">    94  </span>		if podTime.Before(*initTime) {
+<span id="L95" class="ln">    95  </span>			return true, nil
+<span id="L96" class="ln">    96  </span>		}
+<span id="L97" class="ln">    97  </span>		return false, nil
+<span id="L98" class="ln">    98  </span>	})
+<span id="L99" class="ln">    99  </span>	framework.ExpectError(err, &#34;wait no timechaos error&#34;)
+<span id="L100" class="ln">   100  </span>	framework.ExpectEqual(err.Error(), wait.ErrWaitTimeout.Error())
+<span id="L101" class="ln">   101  </span>	By(&#34;success to perform time chaos&#34;)
+<span id="L102" class="ln">   102  </span>}
+<span id="L103" class="ln">   103  </span>
+<span id="L104" class="ln">   104  </span>func TestcaseTimeSkewPauseThenUnpause(
+<span id="L105" class="ln">   105  </span>	ns string,
+<span id="L106" class="ln">   106  </span>	cli client.Client,
+<span id="L107" class="ln">   107  </span>	c http.Client,
+<span id="L108" class="ln">   108  </span>	port uint16,
+<span id="L109" class="ln">   109  </span>) {
+<span id="L110" class="ln">   110  </span>	ctx, cancel := context.WithCancel(context.Background())
+<span id="L111" class="ln">   111  </span>	defer cancel()
+<span id="L112" class="ln">   112  </span>
+<span id="L113" class="ln">   113  </span>	By(&#34;wait e2e helper ready&#34;)
+<span id="L114" class="ln">   114  </span>	err := util.WaitE2EHelperReady(c, port)
+<span id="L115" class="ln">   115  </span>	framework.ExpectNoError(err, &#34;wait e2e helper ready error&#34;)
+<span id="L116" class="ln">   116  </span>
+<span id="L117" class="ln">   117  </span>	initTime, err := getPodTimeNS(c, port)
+<span id="L118" class="ln">   118  </span>	framework.ExpectNoError(err, &#34;failed to get pod time&#34;)
+<span id="L119" class="ln">   119  </span>
+<span id="L120" class="ln">   120  </span>	By(&#34;create chaos CRD objects&#34;)
+<span id="L121" class="ln">   121  </span>	timeChaos := &amp;v1alpha1.TimeChaos{
+<span id="L122" class="ln">   122  </span>		ObjectMeta: metav1.ObjectMeta{
+<span id="L123" class="ln">   123  </span>			Name:      &#34;timer-time-chaos&#34;,
+<span id="L124" class="ln">   124  </span>			Namespace: ns,
+<span id="L125" class="ln">   125  </span>		},
+<span id="L126" class="ln">   126  </span>		Spec: v1alpha1.TimeChaosSpec{
+<span id="L127" class="ln">   127  </span>			Duration:   pointer.StringPtr(&#34;9m&#34;),
+<span id="L128" class="ln">   128  </span>			TimeOffset: &#34;-1h&#34;,
+<span id="L129" class="ln">   129  </span>			ContainerSelector: v1alpha1.ContainerSelector{
+<span id="L130" class="ln">   130  </span>				PodSelector: v1alpha1.PodSelector{
+<span id="L131" class="ln">   131  </span>					Selector: v1alpha1.PodSelectorSpec{
+<span id="L132" class="ln">   132  </span>						Namespaces:     []string{ns},
+<span id="L133" class="ln">   133  </span>						LabelSelectors: map[string]string{&#34;app&#34;: &#34;timer&#34;},
+<span id="L134" class="ln">   134  </span>					},
+<span id="L135" class="ln">   135  </span>					Mode: v1alpha1.OnePodMode,
+<span id="L136" class="ln">   136  </span>				},
+<span id="L137" class="ln">   137  </span>			},
+<span id="L138" class="ln">   138  </span>		},
+<span id="L139" class="ln">   139  </span>	}
+<span id="L140" class="ln">   140  </span>	err = cli.Create(ctx, timeChaos)
+<span id="L141" class="ln">   141  </span>	framework.ExpectNoError(err, &#34;create time chaos error&#34;)
+<span id="L142" class="ln">   142  </span>
+<span id="L143" class="ln">   143  </span>	By(&#34;waiting for assertion&#34;)
+<span id="L144" class="ln">   144  </span>	err = wait.PollImmediate(5*time.Second, 5*time.Minute, func() (done bool, err error) {
+<span id="L145" class="ln">   145  </span>		podTime, err := getPodTimeNS(c, port)
+<span id="L146" class="ln">   146  </span>		framework.ExpectNoError(err, &#34;failed to get pod time&#34;)
+<span id="L147" class="ln">   147  </span>		if podTime.Before(*initTime) {
+<span id="L148" class="ln">   148  </span>			return true, nil
+<span id="L149" class="ln">   149  </span>		}
+<span id="L150" class="ln">   150  </span>		return false, nil
+<span id="L151" class="ln">   151  </span>	})
+<span id="L152" class="ln">   152  </span>	framework.ExpectNoError(err, &#34;time chaos doesn&#39;t work as expected&#34;)
+<span id="L153" class="ln">   153  </span>
+<span id="L154" class="ln">   154  </span>	chaosKey := types.NamespacedName{
+<span id="L155" class="ln">   155  </span>		Namespace: ns,
+<span id="L156" class="ln">   156  </span>		Name:      &#34;timer-time-chaos&#34;,
+<span id="L157" class="ln">   157  </span>	}
+<span id="L158" class="ln">   158  </span>
+<span id="L159" class="ln">   159  </span>	By(&#34;pause time skew chaos experiment&#34;)
+<span id="L160" class="ln">   160  </span>	<span class="comment">// pause experiment</span>
+<span id="L161" class="ln">   161  </span>	err = util.PauseChaos(ctx, cli, timeChaos)
+<span id="L162" class="ln">   162  </span>	framework.ExpectNoError(err, &#34;pause chaos error&#34;)
+<span id="L163" class="ln">   163  </span>
+<span id="L164" class="ln">   164  </span>	By(&#34;assert pause is effective&#34;)
+<span id="L165" class="ln">   165  </span>	err = wait.Poll(5*time.Second, 5*time.Minute, func() (done bool, err error) {
+<span id="L166" class="ln">   166  </span>		chaos := &amp;v1alpha1.TimeChaos{}
+<span id="L167" class="ln">   167  </span>		err = cli.Get(ctx, chaosKey, chaos)
+<span id="L168" class="ln">   168  </span>		framework.ExpectNoError(err, &#34;get time chaos error&#34;)
+<span id="L169" class="ln">   169  </span>		if chaos.Status.Experiment.DesiredPhase == v1alpha1.StoppedPhase {
+<span id="L170" class="ln">   170  </span>			return true, nil
+<span id="L171" class="ln">   171  </span>		}
+<span id="L172" class="ln">   172  </span>		return false, err
+<span id="L173" class="ln">   173  </span>	})
+<span id="L174" class="ln">   174  </span>	framework.ExpectNoError(err, &#34;check paused chaos failed&#34;)
+<span id="L175" class="ln">   175  </span>
+<span id="L176" class="ln">   176  </span>	<span class="comment">// wait for 1 minutes and check timer</span>
+<span id="L177" class="ln">   177  </span>	framework.ExpectNoError(err, &#34;get timer pod error&#34;)
+<span id="L178" class="ln">   178  </span>	err = wait.Poll(5*time.Second, 1*time.Minute, func() (done bool, err error) {
+<span id="L179" class="ln">   179  </span>		podTime, err := getPodTimeNS(c, port)
+<span id="L180" class="ln">   180  </span>		framework.ExpectNoError(err, &#34;failed to get pod time&#34;)
+<span id="L181" class="ln">   181  </span>		if podTime.Before(*initTime) {
+<span id="L182" class="ln">   182  </span>			return true, nil
+<span id="L183" class="ln">   183  </span>		}
+<span id="L184" class="ln">   184  </span>		return false, nil
+<span id="L185" class="ln">   185  </span>	})
+<span id="L186" class="ln">   186  </span>	framework.ExpectError(err, &#34;wait time chaos paused error&#34;)
+<span id="L187" class="ln">   187  </span>	framework.ExpectEqual(err.Error(), wait.ErrWaitTimeout.Error())
+<span id="L188" class="ln">   188  </span>
+<span id="L189" class="ln">   189  </span>	By(&#34;resume time skew chaos experiment&#34;)
+<span id="L190" class="ln">   190  </span>	err = util.UnPauseChaos(ctx, cli, timeChaos)
+<span id="L191" class="ln">   191  </span>	framework.ExpectNoError(err, &#34;resume chaos error&#34;)
+<span id="L192" class="ln">   192  </span>
+<span id="L193" class="ln">   193  </span>	By(&#34;assert chaos experiment resumed&#34;)
+<span id="L194" class="ln">   194  </span>	err = wait.Poll(5*time.Second, 5*time.Minute, func() (done bool, err error) {
+<span id="L195" class="ln">   195  </span>		chaos := &amp;v1alpha1.TimeChaos{}
+<span id="L196" class="ln">   196  </span>		err = cli.Get(ctx, chaosKey, chaos)
+<span id="L197" class="ln">   197  </span>		framework.ExpectNoError(err, &#34;get time chaos error&#34;)
+<span id="L198" class="ln">   198  </span>		if chaos.Status.Experiment.DesiredPhase == v1alpha1.RunningPhase {
+<span id="L199" class="ln">   199  </span>			return true, nil
+<span id="L200" class="ln">   200  </span>		}
+<span id="L201" class="ln">   201  </span>		return false, err
+<span id="L202" class="ln">   202  </span>	})
+<span id="L203" class="ln">   203  </span>	framework.ExpectNoError(err, &#34;check resumed chaos failed&#34;)
+<span id="L204" class="ln">   204  </span>
+<span id="L205" class="ln">   205  </span>	<span class="comment">// timechaos is running again, we want to check pod</span>
+<span id="L206" class="ln">   206  </span>	<span class="comment">// whether time is earlier than init time,</span>
+<span id="L207" class="ln">   207  </span>	err = wait.PollImmediate(5*time.Second, 1*time.Minute, func() (done bool, err error) {
+<span id="L208" class="ln">   208  </span>		podTime, err := getPodTimeNS(c, port)
+<span id="L209" class="ln">   209  </span>		framework.ExpectNoError(err, &#34;failed to get pod time&#34;)
+<span id="L210" class="ln">   210  </span>		if podTime.Before(*initTime) {
+<span id="L211" class="ln">   211  </span>			return true, nil
+<span id="L212" class="ln">   212  </span>		}
+<span id="L213" class="ln">   213  </span>		return false, nil
+<span id="L214" class="ln">   214  </span>	})
+<span id="L215" class="ln">   215  </span>	framework.ExpectNoError(err, &#34;time chaos failed&#34;)
+<span id="L216" class="ln">   216  </span>
+<span id="L217" class="ln">   217  </span>	By(&#34;delete chaos CRD objects&#34;)
+<span id="L218" class="ln">   218  </span>	cli.Delete(ctx, timeChaos)
+<span id="L219" class="ln">   219  </span>}
+<span id="L220" class="ln">   220  </span>
+</pre><p></p>
+
+<div id="footer">
+Build version go1.17.6.<br/>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+
+
+</body></html>
