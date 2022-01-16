@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>router - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v1.2.0/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v1.2.0/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v1.2.0/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e9dc905. Generated at Sun Jan 16 10:56:04 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package router
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/router"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#Register">func Register(name string, obj runtime.Object, routeFunc func(runtime.Object) bool, newEndpoint endpoint.NewEndpoint)</a></dd>
+			
+				
+				<dd><a href="#SetupWithManagerAndConfigs">func SetupWithManagerAndConfigs(mgr ctrl.Manager, cfg *config.ChaosControllerConfig) error</a></dd>
+			
+			
+				
+				<dd><a href="#Reconciler">type Reconciler</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewReconciler">func NewReconciler(name string, object runtime.Object, mgr ctrl.Manager, endpoints []routeEndpoint, clusterScoped bool, targetNamespace string) *Reconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Reconciler.Reconcile">func (r *Reconciler) Reconcile(req ctrl.Request) (result ctrl.Result, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Reconciler.SetupWithManager">func (r *Reconciler) SetupWithManager(mgr ctrl.Manager) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/router/reconciler.go">reconciler.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/router/route_table.go">route_table.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/v1.2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/router/route_table.go#L52">Register</a>
+				<a class="permalink" href="#Register">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Register(name <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/builtin/#string">string</a>, obj <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>, routeFunc func(<a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/builtin/#bool">bool</a>, newEndpoint <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/router/endpoint/">endpoint</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/router/endpoint/#NewEndpoint">NewEndpoint</a>)</pre>
+			<p>
+Register registers an endpoint
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="SetupWithManagerAndConfigs">func <a href="./https:/chaos-mesh.dev/godoc/v1.2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/router/route_table.go#L72">SetupWithManagerAndConfigs</a>
+				<a class="permalink" href="#SetupWithManagerAndConfigs">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SetupWithManagerAndConfigs(mgr <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>, cfg *<a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/">config</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/#ChaosControllerConfig">ChaosControllerConfig</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/builtin/#error">error</a></pre>
+			<p>
+SetupWithManagerAndConfigs setups reconciler with manager and controller configs
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Reconciler">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/router/reconciler.go#L40">Reconciler</a>
+				<a class="permalink" href="#Reconciler">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Reconciler reconciles a chaos resource
+</p>
+
+			<pre>type Reconciler struct {
+<span id="Reconciler.Name"></span>    Name            <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/builtin/#string">string</a>
+<span id="Reconciler.Object"></span>    Object          <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>
+<span id="Reconciler.Endpoints"></span>    Endpoints       []routeEndpoint
+<span id="Reconciler.ClusterScoped"></span>    ClusterScoped   <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/builtin/#bool">bool</a>
+<span id="Reconciler.TargetNamespace"></span>    TargetNamespace <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/builtin/#string">string</a>
+
+    <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/router/context/">ctx</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/router/context/#Context">Context</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewReconciler">func <a href="./https:/chaos-mesh.dev/godoc/v1.2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/router/reconciler.go#L121">NewReconciler</a>
+					<a class="permalink" href="#NewReconciler">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewReconciler(name <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/builtin/#string">string</a>, object <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>, mgr <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>, endpoints []routeEndpoint, clusterScoped <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/builtin/#bool">bool</a>, targetNamespace <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/builtin/#string">string</a>) *<a href="#Reconciler">Reconciler</a></pre>
+				<p>
+NewReconciler creates a new reconciler
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="Reconciler.Reconcile">func (*Reconciler) <a href="./https:/chaos-mesh.dev/godoc/v1.2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/router/reconciler.go#L51">Reconcile</a>
+					<a class="permalink" href="#Reconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Reconciler">Reconciler</a>) Reconcile(req <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (result <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, err <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Reconcile reconciles a chaos resource
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Reconciler.SetupWithManager">func (*Reconciler) <a href="./https:/chaos-mesh.dev/godoc/v1.2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/router/reconciler.go#L139">SetupWithManager</a>
+					<a class="permalink" href="#Reconciler.SetupWithManager">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Reconciler">Reconciler</a>) SetupWithManager(mgr <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.0/pkg/builtin/#error">error</a></pre>
+				<p>
+SetupWithManager registers controller to manager
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="context/">context</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="endpoint/">endpoint</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
