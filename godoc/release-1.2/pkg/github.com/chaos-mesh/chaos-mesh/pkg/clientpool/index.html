@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>clientpool - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-1.2/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.2/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.2/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 04047c8. Generated at Sun Jan 16 12:18:38 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package clientpool
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/clientpool"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#ExtractTokenAndGetAuthClient">func ExtractTokenAndGetAuthClient(header http.Header) (authorizationv1.AuthorizationV1Interface, error)</a></dd>
+			
+				
+				<dd><a href="#ExtractTokenAndGetClient">func ExtractTokenAndGetClient(header http.Header) (pkgclient.Client, error)</a></dd>
+			
+				
+				<dd><a href="#ExtractTokenFromHeader">func ExtractTokenFromHeader(header http.Header) string</a></dd>
+			
+			
+				
+				<dd><a href="#Clients">type Clients</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewClientPool">func NewClientPool(localConfig *rest.Config, scheme *runtime.Scheme, maxClientNum int) (Clients, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewLocalClient">func NewLocalClient(localConfig *rest.Config, scheme *runtime.Scheme) (Clients, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ClientsPool">type ClientsPool</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ClientsPool.AuthClient">func (c *ClientsPool) AuthClient(token string) (authorizationv1.AuthorizationV1Interface, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ClientsPool.Client">func (c *ClientsPool) Client(token string) (pkgclient.Client, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ClientsPool.Contains">func (c *ClientsPool) Contains(token string) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ClientsPool.Num">func (c *ClientsPool) Num() int</a></dd>
+				
+			
+				
+				<dd><a href="#LocalClient">type LocalClient</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#LocalClient.AuthClient">func (c *LocalClient) AuthClient(token string) (authorizationv1.AuthorizationV1Interface, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#LocalClient.Client">func (c *LocalClient) Client(token string) (pkgclient.Client, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#LocalClient.Contains">func (c *LocalClient) Contains(token string) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#LocalClient.Num">func (c *LocalClient) Num() int</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go">client.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="ExtractTokenAndGetAuthClient">func <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go#L208">ExtractTokenAndGetAuthClient</a>
+				<a class="permalink" href="#ExtractTokenAndGetAuthClient">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ExtractTokenAndGetAuthClient(header <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/net/http/">http</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/net/http/#Header">Header</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/">authorizationv1</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/#AuthorizationV1Interface">AuthorizationV1Interface</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#error">error</a>)</pre>
+			<p>
+ExtractTokenAndGetAuthClient extracts token from http header, and get the authority client of this token
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="ExtractTokenAndGetClient">func <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go#L202">ExtractTokenAndGetClient</a>
+				<a class="permalink" href="#ExtractTokenAndGetClient">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ExtractTokenAndGetClient(header <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/net/http/">http</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/net/http/#Header">Header</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/sigs.k8s.io/controller-runtime/pkg/client/">pkgclient</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#error">error</a>)</pre>
+			<p>
+ExtractTokenAndGetClient extracts token from http header, and get the k8s client of this token
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="ExtractTokenFromHeader">func <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go#L192">ExtractTokenFromHeader</a>
+				<a class="permalink" href="#ExtractTokenFromHeader">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ExtractTokenFromHeader(header <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/net/http/">http</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/net/http/#Header">Header</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a></pre>
+			<p>
+ExtractTokenFromHeader extracts token from http header
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Clients">type <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go#L34">Clients</a>
+				<a class="permalink" href="#Clients">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Clients interface {
+    Client(token <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/sigs.k8s.io/controller-runtime/pkg/client/">pkgclient</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#error">error</a>)
+    AuthClient(token <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/">authorizationv1</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/#AuthorizationV1Interface">AuthorizationV1Interface</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#error">error</a>)
+    Num() <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#int">int</a>
+    Contains(token <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#bool">bool</a>
+}</pre>
+
+			
+
+			
+				<p>
+K8sClients is an object of Clients
+</p>
+
+				<pre>var <span id="K8sClients">K8sClients</span> <a href="#Clients">Clients</a></pre>
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewClientPool">func <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go#L95">NewClientPool</a>
+					<a class="permalink" href="#NewClientPool">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewClientPool(localConfig *<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/client-go/rest/">rest</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/client-go/rest/#Config">Config</a>, scheme *<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/apimachinery/pkg/runtime/#Scheme">Scheme</a>, maxClientNum <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#int">int</a>) (<a href="#Clients">Clients</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#error">error</a>)</pre>
+				<p>
+New creates a new Clients
+</p>
+
+				
+				
+			
+				
+				<h3 id="NewLocalClient">func <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go#L46">NewLocalClient</a>
+					<a class="permalink" href="#NewLocalClient">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewLocalClient(localConfig *<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/client-go/rest/">rest</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/client-go/rest/#Config">Config</a>, scheme *<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/apimachinery/pkg/runtime/#Scheme">Scheme</a>) (<a href="#Clients">Clients</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="ClientsPool">type <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go#L85">ClientsPool</a>
+				<a class="permalink" href="#ClientsPool">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Clients is the client pool of k8s client
+</p>
+
+			<pre>type ClientsPool struct {
+    <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/sync/">sync</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/sync/#RWMutex">RWMutex</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ClientsPool.AuthClient">func (*ClientsPool) <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go#L150">AuthClient</a>
+					<a class="permalink" href="#ClientsPool.AuthClient">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ClientsPool">ClientsPool</a>) AuthClient(token <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/">authorizationv1</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/#AuthorizationV1Interface">AuthorizationV1Interface</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ClientsPool.Client">func (*ClientsPool) <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go#L115">Client</a>
+					<a class="permalink" href="#ClientsPool.Client">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ClientsPool">ClientsPool</a>) Client(token <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/sigs.k8s.io/controller-runtime/pkg/client/">pkgclient</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Client returns a k8s client according to the token
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ClientsPool.Contains">func (*ClientsPool) <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go#L183">Contains</a>
+					<a class="permalink" href="#ClientsPool.Contains">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ClientsPool">ClientsPool</a>) Contains(token <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#bool">bool</a></pre>
+				<p>
+Contains return true if have client for the token
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ClientsPool.Num">func (*ClientsPool) <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go#L178">Num</a>
+					<a class="permalink" href="#ClientsPool.Num">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ClientsPool">ClientsPool</a>) Num() <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#int">int</a></pre>
+				<p>
+Num returns the num of clients
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="LocalClient">type <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go#L41">LocalClient</a>
+				<a class="permalink" href="#LocalClient">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type LocalClient struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="LocalClient.AuthClient">func (*LocalClient) <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go#L70">AuthClient</a>
+					<a class="permalink" href="#LocalClient.AuthClient">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#LocalClient">LocalClient</a>) AuthClient(token <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/">authorizationv1</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/#AuthorizationV1Interface">AuthorizationV1Interface</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="LocalClient.Client">func (*LocalClient) <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go#L66">Client</a>
+					<a class="permalink" href="#LocalClient.Client">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#LocalClient">LocalClient</a>) Client(token <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/sigs.k8s.io/controller-runtime/pkg/client/">pkgclient</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Client returns the local k8s client
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="LocalClient.Contains">func (*LocalClient) <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go#L80">Contains</a>
+					<a class="permalink" href="#LocalClient.Contains">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#LocalClient">LocalClient</a>) Contains(token <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#bool">bool</a></pre>
+				<p>
+Contains return false for LocalClient
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="LocalClient.Num">func (*LocalClient) <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/clientpool/client.go#L75">Num</a>
+					<a class="permalink" href="#LocalClient.Num">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#LocalClient">LocalClient</a>) Num() <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#int">int</a></pre>
+				<p>
+Num returns the num of clients
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
