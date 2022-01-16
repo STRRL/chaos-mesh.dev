@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>command - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.1.2/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.2/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.2/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.1.2/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.1.2/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package command
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/command"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+			
+				
+				<dd><a href="#Marshal">func Marshal(i interface{}) (string, []string, error)</a></dd>
+			
+				
+				<dd><a href="#SearchKey">func SearchKey(value reflect.Value) (string, bool)</a></dd>
+			
+				
+				<dd><a href="#ToCommand">func ToCommand(i interface{}) (*exec.Cmd, error)</a></dd>
+			
+			
+				
+				<dd><a href="#Exec">type Exec</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewExec">func NewExec() Exec</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/command/command.go">command.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				<p>
+ExecTag stands for the path of executable file in command.
+If we want this util works ,
+we must add Exec in the struct and use NewExec() to initialize it,
+because the default way to initialize Exec means None in code.
+</p>
+
+				<pre>const <span id="ExecTag">ExecTag</span> = &#34;exec&#34;</pre>
+			
+				<p>
+ParaTag stands for parameters in command.
+We can use it in struct fields as a tag.
+Just like Port below
+type Iptables Struct {
+</p>
+<pre>Exec
+Port string `para:&#34;-p&#34;`
+</pre>
+<p>
+}
+If the field is not string type or []string type , it will bring an error.
+If the tag value like &#34;-p&#34; is empty string ,
+the para will just add the field value into the command just as some single value parameter in command.
+If the value of field is empty string or empty string slice or empty slice, the field and tag will all be skipped.
+</p>
+
+				<pre>const <span id="ParaTag">ParaTag</span> = &#34;para&#34;</pre>
+			
+				<p>
+SubCommandTag stands for the sub command in common command.
+We can use it in struct fields as a tag.
+Just like MatchExtension below
+type Iptables Struct {
+</p>
+<pre>Exec
+MatchExtension Match `sub_command:&#34;&#34;`
+</pre>
+<p>
+}
+</p>
+<p>
+type Match Struct {
+</p>
+<pre>Exec
+Port string `para:&#34;-p&#34;`
+</pre>
+<p>
+}
+Field with SubcommandTag needs to be a struct with Exec.
+</p>
+
+				<pre>const <span id="SubCommandTag">SubCommandTag</span> = &#34;sub_command&#34;</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="Marshal">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/command/command.go#L83">Marshal</a>
+				<a class="permalink" href="#Marshal">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Marshal(i interface{}) (<a href="https:/chaos-mesh.dev/godoc/v2.1.2/pkg/builtin/#string">string</a>, []<a href="https:/chaos-mesh.dev/godoc/v2.1.2/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.2/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="SearchKey">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/command/command.go#L137">SearchKey</a>
+				<a class="permalink" href="#SearchKey">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SearchKey(value <a href="https:/chaos-mesh.dev/godoc/v2.1.2/pkg/reflect/">reflect</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.2/pkg/reflect/#Value">Value</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.2/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.2/pkg/builtin/#bool">bool</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="ToCommand">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/command/command.go#L75">ToCommand</a>
+				<a class="permalink" href="#ToCommand">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ToCommand(i interface{}) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.2/pkg/os/exec/">exec</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.2/pkg/os/exec/#Cmd">Cmd</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.2/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Exec">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/command/command.go#L67">Exec</a>
+				<a class="permalink" href="#Exec">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Exec is the interface of a command.
+We need to inherit it in the struct of command.
+User must add ExecTag as the tag of Exec field.
+Example:
+type Iptables struct {
+</p>
+<pre>Exec           `exec:&#34;iptables&#34;`
+Tables         string `para:&#34;-t&#34;`
+</pre>
+<p>
+}
+</p>
+
+			<pre>type Exec struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewExec">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.2/src/github.com/chaos-mesh/chaos-mesh/pkg/command/command.go#L71">NewExec</a>
+					<a class="permalink" href="#NewExec">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewExec() <a href="#Exec">Exec</a></pre>
+				
+				
+				
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
