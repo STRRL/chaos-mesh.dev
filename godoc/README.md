@@ -32,7 +32,7 @@ Here is the directory for all the Go documentation.
 - [release-1.1](./release-1.1)
 - [release-1.0](./release-1.0)
 
-## End-if-life Releases
+## End-of-life Releases
 
 ### v1.2.z
 
