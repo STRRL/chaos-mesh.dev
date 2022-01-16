@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>schedule - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.3/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.3/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.3/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c417f2b. Generated at Sun Jan 16 10:55:03 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package schedule
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/store/schedule"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#DeleteIncompleteSchedules">func DeleteIncompleteSchedules(es core.ScheduleStore, _ core.EventStore)</a></dd>
+			
+				
+				<dd><a href="#NewStore">func NewStore(db *dbstore.DB) core.ScheduleStore</a></dd>
+			
+			
+				
+				<dd><a href="#ScheduleStore">type ScheduleStore</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleStore.Archive">func (e *ScheduleStore) Archive(_ context.Context, ns, name string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleStore.Delete">func (e *ScheduleStore) Delete(_ context.Context, exp *core.Schedule) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleStore.DeleteByFinishTime">func (e *ScheduleStore) DeleteByFinishTime(_ context.Context, ttl time.Duration) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleStore.DeleteByUIDs">func (e *ScheduleStore) DeleteByUIDs(_ context.Context, uids []string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleStore.DeleteIncompleteSchedules">func (e *ScheduleStore) DeleteIncompleteSchedules(_ context.Context) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleStore.FindByUID">func (e *ScheduleStore) FindByUID(_ context.Context, uid string) (*core.Schedule, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleStore.FindMetaByUID">func (e *ScheduleStore) FindMetaByUID(_ context.Context, uid string) (*core.ScheduleMeta, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleStore.ListMeta">func (e *ScheduleStore) ListMeta(_ context.Context, namespace, name string, archived bool) ([]*core.ScheduleMeta, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleStore.Set">func (e *ScheduleStore) Set(_ context.Context, schedule *core.Schedule) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/store/schedule/schedule.go">schedule.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="DeleteIncompleteSchedules">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/store/schedule/schedule.go#L37">DeleteIncompleteSchedules</a>
+				<a class="permalink" href="#DeleteIncompleteSchedules">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func DeleteIncompleteSchedules(es <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/#ScheduleStore">ScheduleStore</a>, _ <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/#EventStore">EventStore</a>)</pre>
+			<p>
+DeleteIncompleteSchedules call core.ScheduleStore.DeleteIncompleteSchedules to deletes all incomplete schedules.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="NewStore">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/store/schedule/schedule.go#L30">NewStore</a>
+				<a class="permalink" href="#NewStore">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewStore(db *<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/store/dbstore/">dbstore</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/store/dbstore/#DB">DB</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/#ScheduleStore">ScheduleStore</a></pre>
+			<p>
+NewStore returns a new ScheduleStore.
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="ScheduleStore">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/store/schedule/schedule.go#L43">ScheduleStore</a>
+				<a class="permalink" href="#ScheduleStore">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ScheduleStore struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ScheduleStore.Archive">func (*ScheduleStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/store/schedule/schedule.go#L89">Archive</a>
+					<a class="permalink" href="#ScheduleStore.Archive">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#ScheduleStore">ScheduleStore</a>) Archive(_ <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/#Context">Context</a>, ns, name <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#error">error</a></pre>
+				<p>
+Archive implements the core.ScheduleStore.Archive method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ScheduleStore.Delete">func (*ScheduleStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/store/schedule/schedule.go#L100">Delete</a>
+					<a class="permalink" href="#ScheduleStore.Delete">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#ScheduleStore">ScheduleStore</a>) Delete(_ <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/#Context">Context</a>, exp *<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/#Schedule">Schedule</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#error">error</a></pre>
+				<p>
+Delete deletes the experiment from the datastore.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ScheduleStore.DeleteByFinishTime">func (*ScheduleStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/store/schedule/schedule.go#L106">DeleteByFinishTime</a>
+					<a class="permalink" href="#ScheduleStore.DeleteByFinishTime">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#ScheduleStore">ScheduleStore</a>) DeleteByFinishTime(_ <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/#Context">Context</a>, ttl <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/time/#Duration">Duration</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#error">error</a></pre>
+				<p>
+DeleteByFinishTime deletes schedules whose time difference is greater than the given time from FinishTime.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ScheduleStore.DeleteByUIDs">func (*ScheduleStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/store/schedule/schedule.go#L125">DeleteByUIDs</a>
+					<a class="permalink" href="#ScheduleStore.DeleteByUIDs">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#ScheduleStore">ScheduleStore</a>) DeleteByUIDs(_ <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/#Context">Context</a>, uids []<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#error">error</a></pre>
+				<p>
+DeleteByUIDs deletes schedules by the uid list.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ScheduleStore.DeleteIncompleteSchedules">func (*ScheduleStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/store/schedule/schedule.go#L130">DeleteIncompleteSchedules</a>
+					<a class="permalink" href="#ScheduleStore.DeleteIncompleteSchedules">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#ScheduleStore">ScheduleStore</a>) DeleteIncompleteSchedules(_ <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/#Context">Context</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#error">error</a></pre>
+				<p>
+DeleteIncompleteSchedules implements the core.ScheduleStore.DeleteIncompleteSchedules method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ScheduleStore.FindByUID">func (*ScheduleStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/store/schedule/schedule.go#L61">FindByUID</a>
+					<a class="permalink" href="#ScheduleStore.FindByUID">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#ScheduleStore">ScheduleStore</a>) FindByUID(_ <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/#Context">Context</a>, uid <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/#Schedule">Schedule</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#error">error</a>)</pre>
+				<p>
+FindByUID implements the core.ScheduleStore.FindByUID method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ScheduleStore.FindMetaByUID">func (*ScheduleStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/store/schedule/schedule.go#L72">FindMetaByUID</a>
+					<a class="permalink" href="#ScheduleStore.FindMetaByUID">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#ScheduleStore">ScheduleStore</a>) FindMetaByUID(_ <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/#Context">Context</a>, uid <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/#ScheduleMeta">ScheduleMeta</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#error">error</a>)</pre>
+				<p>
+FindMetaByUID implements the core.ScheduleStore.FindMetaByUID method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ScheduleStore.ListMeta">func (*ScheduleStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/store/schedule/schedule.go#L48">ListMeta</a>
+					<a class="permalink" href="#ScheduleStore.ListMeta">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#ScheduleStore">ScheduleStore</a>) ListMeta(_ <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>, archived <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#bool">bool</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/#ScheduleMeta">ScheduleMeta</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#error">error</a>)</pre>
+				<p>
+ListMeta implements the core.ScheduleStore.ListMeta method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ScheduleStore.Set">func (*ScheduleStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/store/schedule/schedule.go#L84">Set</a>
+					<a class="permalink" href="#ScheduleStore.Set">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#ScheduleStore">ScheduleStore</a>) Set(_ <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/context/#Context">Context</a>, schedule *<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/#Schedule">Schedule</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#error">error</a></pre>
+				<p>
+Set implements the core.ScheduleStore.Set method.
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

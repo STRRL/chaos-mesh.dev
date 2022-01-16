@@ -1,0 +1,2651 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>recorder - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.3/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.3/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.3/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c417f2b. Generated at Sun Jan 16 10:55:03 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package recorder
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#NewDebugRecorder">func NewDebugRecorder() *debugRecorder</a></dd>
+			
+			
+				
+				<dd><a href="#Applied">type Applied</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Applied.Message">func (a Applied) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Applied.Reason">func (a Applied) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Applied.Type">func (a Applied) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#ChaosCustomResourceCreateFailed">type ChaosCustomResourceCreateFailed</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ChaosCustomResourceCreateFailed.Message">func (it ChaosCustomResourceCreateFailed) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ChaosCustomResourceCreateFailed.Reason">func (it ChaosCustomResourceCreateFailed) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ChaosCustomResourceCreateFailed.Type">func (it ChaosCustomResourceCreateFailed) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#ChaosCustomResourceCreated">type ChaosCustomResourceCreated</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ChaosCustomResourceCreated.Message">func (it ChaosCustomResourceCreated) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ChaosCustomResourceCreated.Reason">func (it ChaosCustomResourceCreated) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ChaosCustomResourceCreated.Type">func (it ChaosCustomResourceCreated) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#ChaosCustomResourceDeleteFailed">type ChaosCustomResourceDeleteFailed</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ChaosCustomResourceDeleteFailed.Message">func (it ChaosCustomResourceDeleteFailed) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ChaosCustomResourceDeleteFailed.Reason">func (it ChaosCustomResourceDeleteFailed) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ChaosCustomResourceDeleteFailed.Type">func (it ChaosCustomResourceDeleteFailed) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#ChaosCustomResourceDeleted">type ChaosCustomResourceDeleted</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ChaosCustomResourceDeleted.Message">func (it ChaosCustomResourceDeleted) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ChaosCustomResourceDeleted.Reason">func (it ChaosCustomResourceDeleted) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ChaosCustomResourceDeleted.Type">func (it ChaosCustomResourceDeleted) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#ChaosEvent">type ChaosEvent</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FromAnnotations">func FromAnnotations(annotations map[string]string) (ChaosEvent, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ChaosRecorder">type ChaosRecorder</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ConditionalBranchesSelected">type ConditionalBranchesSelected</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConditionalBranchesSelected.Message">func (it ConditionalBranchesSelected) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConditionalBranchesSelected.Reason">func (it ConditionalBranchesSelected) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConditionalBranchesSelected.Type">func (it ConditionalBranchesSelected) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#DeadlineExceed">type DeadlineExceed</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DeadlineExceed.Message">func (it DeadlineExceed) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DeadlineExceed.Reason">func (it DeadlineExceed) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DeadlineExceed.Type">func (it DeadlineExceed) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#Deleted">type Deleted</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Deleted.Message">func (d Deleted) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Deleted.Reason">func (d Deleted) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Deleted.Type">func (d Deleted) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#EntryCreated">type EntryCreated</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EntryCreated.Message">func (it EntryCreated) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EntryCreated.Reason">func (it EntryCreated) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EntryCreated.Type">func (it EntryCreated) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#Failed">type Failed</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Failed.Message">func (f Failed) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Failed.Reason">func (f Failed) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Failed.Type">func (f Failed) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#FinalizerInited">type FinalizerInited</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FinalizerInited.Message">func (p FinalizerInited) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FinalizerInited.Reason">func (p FinalizerInited) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FinalizerInited.Type">func (p FinalizerInited) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#FinalizerRemoved">type FinalizerRemoved</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FinalizerRemoved.Message">func (p FinalizerRemoved) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FinalizerRemoved.Reason">func (p FinalizerRemoved) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FinalizerRemoved.Type">func (p FinalizerRemoved) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#InvalidEntry">type InvalidEntry</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InvalidEntry.Message">func (it InvalidEntry) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InvalidEntry.Reason">func (it InvalidEntry) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InvalidEntry.Type">func (it InvalidEntry) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#MissedSchedule">type MissedSchedule</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MissedSchedule.Message">func (m MissedSchedule) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MissedSchedule.Reason">func (m MissedSchedule) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MissedSchedule.Type">func (m MissedSchedule) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#NodeAccomplished">type NodeAccomplished</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NodeAccomplished.Message">func (it NodeAccomplished) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NodeAccomplished.Reason">func (it NodeAccomplished) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NodeAccomplished.Type">func (it NodeAccomplished) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#NodesCreated">type NodesCreated</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NodesCreated.Message">func (it NodesCreated) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NodesCreated.Reason">func (it NodesCreated) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NodesCreated.Type">func (it NodesCreated) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#NotSupported">type NotSupported</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NotSupported.Message">func (r NotSupported) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NotSupported.Reason">func (r NotSupported) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NotSupported.Type">func (r NotSupported) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#ParentNodeDeadlineExceed">type ParentNodeDeadlineExceed</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParentNodeDeadlineExceed.Message">func (it ParentNodeDeadlineExceed) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParentNodeDeadlineExceed.Reason">func (it ParentNodeDeadlineExceed) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParentNodeDeadlineExceed.Type">func (it ParentNodeDeadlineExceed) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#Paused">type Paused</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Paused.Message">func (p Paused) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Paused.Reason">func (p Paused) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Paused.Type">func (p Paused) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#RecorderBuilder">type RecorderBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewRecorderBuilder">func NewRecorderBuilder(c client.Client, logger logr.Logger, scheme *runtime.Scheme) *RecorderBuilder</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RecorderBuilder.Build">func (b *RecorderBuilder) Build(name string) ChaosRecorder</a></dd>
+				
+			
+				
+				<dd><a href="#Recovered">type Recovered</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Recovered.Message">func (r Recovered) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Recovered.Reason">func (r Recovered) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Recovered.Type">func (r Recovered) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#RerunBySpecChanged">type RerunBySpecChanged</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RerunBySpecChanged.Message">func (it RerunBySpecChanged) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RerunBySpecChanged.Reason">func (it RerunBySpecChanged) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RerunBySpecChanged.Type">func (it RerunBySpecChanged) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#ScheduleForbid">type ScheduleForbid</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleForbid.Message">func (s ScheduleForbid) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleForbid.Reason">func (s ScheduleForbid) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleForbid.Type">func (s ScheduleForbid) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#ScheduleSkipRemoveHistory">type ScheduleSkipRemoveHistory</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleSkipRemoveHistory.Message">func (s ScheduleSkipRemoveHistory) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleSkipRemoveHistory.Reason">func (s ScheduleSkipRemoveHistory) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleSkipRemoveHistory.Type">func (s ScheduleSkipRemoveHistory) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#ScheduleSpawn">type ScheduleSpawn</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleSpawn.Message">func (s ScheduleSpawn) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleSpawn.Reason">func (s ScheduleSpawn) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleSpawn.Type">func (s ScheduleSpawn) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#Started">type Started</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Started.Message">func (p Started) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Started.Reason">func (p Started) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Started.Type">func (p Started) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#TaskPodPodCompleted">type TaskPodPodCompleted</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskPodPodCompleted.Message">func (it TaskPodPodCompleted) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskPodPodCompleted.Reason">func (it TaskPodPodCompleted) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskPodPodCompleted.Type">func (it TaskPodPodCompleted) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#TaskPodSpawnFailed">type TaskPodSpawnFailed</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskPodSpawnFailed.Message">func (it TaskPodSpawnFailed) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskPodSpawnFailed.Reason">func (it TaskPodSpawnFailed) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskPodSpawnFailed.Type">func (it TaskPodSpawnFailed) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#TaskPodSpawned">type TaskPodSpawned</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskPodSpawned.Message">func (it TaskPodSpawned) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskPodSpawned.Reason">func (it TaskPodSpawned) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskPodSpawned.Type">func (it TaskPodSpawned) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#TimeUp">type TimeUp</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TimeUp.Message">func (t TimeUp) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TimeUp.Reason">func (t TimeUp) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TimeUp.Type">func (t TimeUp) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#Updated">type Updated</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Updated.Message">func (u Updated) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Updated.Reason">func (u Updated) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Updated.Type">func (u Updated) Type() string</a></dd>
+				
+			
+				
+				<dd><a href="#WorkflowAccomplished">type WorkflowAccomplished</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowAccomplished.Message">func (it WorkflowAccomplished) Message() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowAccomplished.Reason">func (it WorkflowAccomplished) Reason() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowAccomplished.Type">func (it WorkflowAccomplished) Type() string</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/annotations.go">annotations.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/common.go">common.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/controller.go">controller.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go">desiredphase.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/error.go">error.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/finalizer.go">finalizer.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/recorder.go">recorder.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go">schedule.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go">workflow.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var <span id="ErrInvalidType">ErrInvalidType</span> = <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/errors/">errors</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/errors/#New">New</a>(&#34;invalid type of fields&#34;)</pre>
+			
+				
+				<pre>var <span id="ErrUknownType">ErrUknownType</span> = <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/errors/">errors</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/errors/#New">New</a>(&#34;uknown type of fields&#34;)</pre>
+			
+		
+		
+			
+			
+			<h2 id="NewDebugRecorder">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/recorder.go#L158">NewDebugRecorder</a>
+				<a class="permalink" href="#NewDebugRecorder">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewDebugRecorder() *debugRecorder</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Applied">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/common.go#L20">Applied</a>
+				<a class="permalink" href="#Applied">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Applied struct {
+<span id="Applied.Id"></span>    Id <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Applied.Message">func (Applied) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/common.go#L32">Message</a>
+					<a class="permalink" href="#Applied.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (a <a href="#Applied">Applied</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Applied.Reason">func (Applied) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/common.go#L28">Reason</a>
+					<a class="permalink" href="#Applied.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (a <a href="#Applied">Applied</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Applied.Type">func (Applied) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/common.go#L24">Type</a>
+					<a class="permalink" href="#Applied.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (a <a href="#Applied">Applied</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ChaosCustomResourceCreateFailed">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L90">ChaosCustomResourceCreateFailed</a>
+				<a class="permalink" href="#ChaosCustomResourceCreateFailed">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ChaosCustomResourceCreateFailed struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ChaosCustomResourceCreateFailed.Message">func (ChaosCustomResourceCreateFailed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L101">Message</a>
+					<a class="permalink" href="#ChaosCustomResourceCreateFailed.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ChaosCustomResourceCreateFailed">ChaosCustomResourceCreateFailed</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ChaosCustomResourceCreateFailed.Reason">func (ChaosCustomResourceCreateFailed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L97">Reason</a>
+					<a class="permalink" href="#ChaosCustomResourceCreateFailed.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ChaosCustomResourceCreateFailed">ChaosCustomResourceCreateFailed</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ChaosCustomResourceCreateFailed.Type">func (ChaosCustomResourceCreateFailed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L93">Type</a>
+					<a class="permalink" href="#ChaosCustomResourceCreateFailed.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ChaosCustomResourceCreateFailed">ChaosCustomResourceCreateFailed</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ChaosCustomResourceCreated">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L73">ChaosCustomResourceCreated</a>
+				<a class="permalink" href="#ChaosCustomResourceCreated">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ChaosCustomResourceCreated struct {
+<span id="ChaosCustomResourceCreated.Name"></span>    Name <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+<span id="ChaosCustomResourceCreated.Kind"></span>    Kind <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ChaosCustomResourceCreated.Message">func (ChaosCustomResourceCreated) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L86">Message</a>
+					<a class="permalink" href="#ChaosCustomResourceCreated.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ChaosCustomResourceCreated">ChaosCustomResourceCreated</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ChaosCustomResourceCreated.Reason">func (ChaosCustomResourceCreated) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L82">Reason</a>
+					<a class="permalink" href="#ChaosCustomResourceCreated.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ChaosCustomResourceCreated">ChaosCustomResourceCreated</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ChaosCustomResourceCreated.Type">func (ChaosCustomResourceCreated) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L78">Type</a>
+					<a class="permalink" href="#ChaosCustomResourceCreated.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ChaosCustomResourceCreated">ChaosCustomResourceCreated</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ChaosCustomResourceDeleteFailed">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L122">ChaosCustomResourceDeleteFailed</a>
+				<a class="permalink" href="#ChaosCustomResourceDeleteFailed">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ChaosCustomResourceDeleteFailed struct {
+<span id="ChaosCustomResourceDeleteFailed.Name"></span>    Name <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+<span id="ChaosCustomResourceDeleteFailed.Kind"></span>    Kind <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ChaosCustomResourceDeleteFailed.Message">func (ChaosCustomResourceDeleteFailed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L135">Message</a>
+					<a class="permalink" href="#ChaosCustomResourceDeleteFailed.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ChaosCustomResourceDeleteFailed">ChaosCustomResourceDeleteFailed</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ChaosCustomResourceDeleteFailed.Reason">func (ChaosCustomResourceDeleteFailed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L131">Reason</a>
+					<a class="permalink" href="#ChaosCustomResourceDeleteFailed.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ChaosCustomResourceDeleteFailed">ChaosCustomResourceDeleteFailed</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ChaosCustomResourceDeleteFailed.Type">func (ChaosCustomResourceDeleteFailed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L127">Type</a>
+					<a class="permalink" href="#ChaosCustomResourceDeleteFailed.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ChaosCustomResourceDeleteFailed">ChaosCustomResourceDeleteFailed</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ChaosCustomResourceDeleted">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L105">ChaosCustomResourceDeleted</a>
+				<a class="permalink" href="#ChaosCustomResourceDeleted">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ChaosCustomResourceDeleted struct {
+<span id="ChaosCustomResourceDeleted.Name"></span>    Name <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+<span id="ChaosCustomResourceDeleted.Kind"></span>    Kind <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ChaosCustomResourceDeleted.Message">func (ChaosCustomResourceDeleted) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L118">Message</a>
+					<a class="permalink" href="#ChaosCustomResourceDeleted.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ChaosCustomResourceDeleted">ChaosCustomResourceDeleted</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ChaosCustomResourceDeleted.Reason">func (ChaosCustomResourceDeleted) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L114">Reason</a>
+					<a class="permalink" href="#ChaosCustomResourceDeleted.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ChaosCustomResourceDeleted">ChaosCustomResourceDeleted</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ChaosCustomResourceDeleted.Type">func (ChaosCustomResourceDeleted) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L110">Type</a>
+					<a class="permalink" href="#ChaosCustomResourceDeleted.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ChaosCustomResourceDeleted">ChaosCustomResourceDeleted</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ChaosEvent">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/recorder.go#L98">ChaosEvent</a>
+				<a class="permalink" href="#ChaosEvent">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ChaosEvent interface {
+    Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+    Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+    Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="FromAnnotations">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/annotations.go#L75">FromAnnotations</a>
+					<a class="permalink" href="#FromAnnotations">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func FromAnnotations(annotations map[<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>) (<a href="#ChaosEvent">ChaosEvent</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#error">error</a>)</pre>
+				<p>
+FromAnnotations will iterate over all the registered event,
+return `nil` if there is no suitable event.
+</p>
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="ChaosRecorder">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/recorder.go#L34">ChaosRecorder</a>
+				<a class="permalink" href="#ChaosRecorder">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ChaosRecorder interface {
+    Event(object <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>, ev <a href="#ChaosEvent">ChaosEvent</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ConditionalBranchesSelected">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L247">ConditionalBranchesSelected</a>
+				<a class="permalink" href="#ConditionalBranchesSelected">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ConditionalBranchesSelected struct {
+<span id="ConditionalBranchesSelected.SelectedBranches"></span>    SelectedBranches []<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ConditionalBranchesSelected.Message">func (ConditionalBranchesSelected) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L259">Message</a>
+					<a class="permalink" href="#ConditionalBranchesSelected.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ConditionalBranchesSelected">ConditionalBranchesSelected</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConditionalBranchesSelected.Reason">func (ConditionalBranchesSelected) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L255">Reason</a>
+					<a class="permalink" href="#ConditionalBranchesSelected.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ConditionalBranchesSelected">ConditionalBranchesSelected</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConditionalBranchesSelected.Type">func (ConditionalBranchesSelected) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L251">Type</a>
+					<a class="permalink" href="#ConditionalBranchesSelected.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ConditionalBranchesSelected">ConditionalBranchesSelected</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="DeadlineExceed">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L139">DeadlineExceed</a>
+				<a class="permalink" href="#DeadlineExceed">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type DeadlineExceed struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="DeadlineExceed.Message">func (DeadlineExceed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L150">Message</a>
+					<a class="permalink" href="#DeadlineExceed.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#DeadlineExceed">DeadlineExceed</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DeadlineExceed.Reason">func (DeadlineExceed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L146">Reason</a>
+					<a class="permalink" href="#DeadlineExceed.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#DeadlineExceed">DeadlineExceed</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DeadlineExceed.Type">func (DeadlineExceed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L142">Type</a>
+					<a class="permalink" href="#DeadlineExceed.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#DeadlineExceed">DeadlineExceed</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Deleted">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go#L16">Deleted</a>
+				<a class="permalink" href="#Deleted">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Deleted struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Deleted.Message">func (Deleted) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go#L27">Message</a>
+					<a class="permalink" href="#Deleted.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (d <a href="#Deleted">Deleted</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Deleted.Reason">func (Deleted) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go#L23">Reason</a>
+					<a class="permalink" href="#Deleted.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (d <a href="#Deleted">Deleted</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Deleted.Type">func (Deleted) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go#L19">Type</a>
+					<a class="permalink" href="#Deleted.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (d <a href="#Deleted">Deleted</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="EntryCreated">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L41">EntryCreated</a>
+				<a class="permalink" href="#EntryCreated">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type EntryCreated struct {
+<span id="EntryCreated.Entry"></span>    Entry <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="EntryCreated.Message">func (EntryCreated) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L53">Message</a>
+					<a class="permalink" href="#EntryCreated.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#EntryCreated">EntryCreated</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="EntryCreated.Reason">func (EntryCreated) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L49">Reason</a>
+					<a class="permalink" href="#EntryCreated.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#EntryCreated">EntryCreated</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="EntryCreated.Type">func (EntryCreated) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L45">Type</a>
+					<a class="permalink" href="#EntryCreated.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#EntryCreated">EntryCreated</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Failed">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/error.go#L20">Failed</a>
+				<a class="permalink" href="#Failed">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Failed struct {
+<span id="Failed.Activity"></span>    Activity <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+
+<span id="Failed.Err"></span>    Err <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Failed.Message">func (Failed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/error.go#L34">Message</a>
+					<a class="permalink" href="#Failed.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (f <a href="#Failed">Failed</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Failed.Reason">func (Failed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/error.go#L30">Reason</a>
+					<a class="permalink" href="#Failed.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (f <a href="#Failed">Failed</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Failed.Type">func (Failed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/error.go#L26">Type</a>
+					<a class="permalink" href="#Failed.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (f <a href="#Failed">Failed</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="FinalizerInited">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/finalizer.go#L16">FinalizerInited</a>
+				<a class="permalink" href="#FinalizerInited">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type FinalizerInited struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="FinalizerInited.Message">func (FinalizerInited) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/finalizer.go#L27">Message</a>
+					<a class="permalink" href="#FinalizerInited.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="#FinalizerInited">FinalizerInited</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FinalizerInited.Reason">func (FinalizerInited) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/finalizer.go#L23">Reason</a>
+					<a class="permalink" href="#FinalizerInited.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="#FinalizerInited">FinalizerInited</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FinalizerInited.Type">func (FinalizerInited) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/finalizer.go#L19">Type</a>
+					<a class="permalink" href="#FinalizerInited.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="#FinalizerInited">FinalizerInited</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="FinalizerRemoved">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/finalizer.go#L31">FinalizerRemoved</a>
+				<a class="permalink" href="#FinalizerRemoved">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type FinalizerRemoved struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="FinalizerRemoved.Message">func (FinalizerRemoved) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/finalizer.go#L42">Message</a>
+					<a class="permalink" href="#FinalizerRemoved.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="#FinalizerRemoved">FinalizerRemoved</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FinalizerRemoved.Reason">func (FinalizerRemoved) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/finalizer.go#L38">Reason</a>
+					<a class="permalink" href="#FinalizerRemoved.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="#FinalizerRemoved">FinalizerRemoved</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FinalizerRemoved.Type">func (FinalizerRemoved) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/finalizer.go#L34">Type</a>
+					<a class="permalink" href="#FinalizerRemoved.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="#FinalizerRemoved">FinalizerRemoved</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="InvalidEntry">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L25">InvalidEntry</a>
+				<a class="permalink" href="#InvalidEntry">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type InvalidEntry struct {
+<span id="InvalidEntry.EntryTemplate"></span>    EntryTemplate <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="InvalidEntry.Message">func (InvalidEntry) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L37">Message</a>
+					<a class="permalink" href="#InvalidEntry.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#InvalidEntry">InvalidEntry</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InvalidEntry.Reason">func (InvalidEntry) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L33">Reason</a>
+					<a class="permalink" href="#InvalidEntry.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#InvalidEntry">InvalidEntry</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InvalidEntry.Type">func (InvalidEntry) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L29">Type</a>
+					<a class="permalink" href="#InvalidEntry.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#InvalidEntry">InvalidEntry</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="MissedSchedule">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go#L21">MissedSchedule</a>
+				<a class="permalink" href="#MissedSchedule">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type MissedSchedule struct {
+<span id="MissedSchedule.MissedRun"></span>    MissedRun <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/time/#Time">Time</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="MissedSchedule.Message">func (MissedSchedule) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go#L33">Message</a>
+					<a class="permalink" href="#MissedSchedule.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#MissedSchedule">MissedSchedule</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="MissedSchedule.Reason">func (MissedSchedule) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go#L29">Reason</a>
+					<a class="permalink" href="#MissedSchedule.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#MissedSchedule">MissedSchedule</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="MissedSchedule.Type">func (MissedSchedule) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go#L25">Type</a>
+					<a class="permalink" href="#MissedSchedule.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#MissedSchedule">MissedSchedule</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="NodeAccomplished">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L185">NodeAccomplished</a>
+				<a class="permalink" href="#NodeAccomplished">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type NodeAccomplished struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="NodeAccomplished.Message">func (NodeAccomplished) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L196">Message</a>
+					<a class="permalink" href="#NodeAccomplished.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#NodeAccomplished">NodeAccomplished</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="NodeAccomplished.Reason">func (NodeAccomplished) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L192">Reason</a>
+					<a class="permalink" href="#NodeAccomplished.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#NodeAccomplished">NodeAccomplished</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="NodeAccomplished.Type">func (NodeAccomplished) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L188">Type</a>
+					<a class="permalink" href="#NodeAccomplished.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#NodeAccomplished">NodeAccomplished</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="NodesCreated">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L57">NodesCreated</a>
+				<a class="permalink" href="#NodesCreated">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type NodesCreated struct {
+<span id="NodesCreated.ChildNodes"></span>    ChildNodes []<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="NodesCreated.Message">func (NodesCreated) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L69">Message</a>
+					<a class="permalink" href="#NodesCreated.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#NodesCreated">NodesCreated</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="NodesCreated.Reason">func (NodesCreated) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L65">Reason</a>
+					<a class="permalink" href="#NodesCreated.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#NodesCreated">NodesCreated</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="NodesCreated.Type">func (NodesCreated) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L61">Type</a>
+					<a class="permalink" href="#NodesCreated.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#NodesCreated">NodesCreated</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="NotSupported">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/common.go#L52">NotSupported</a>
+				<a class="permalink" href="#NotSupported">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type NotSupported struct {
+<span id="NotSupported.Activity"></span>    Activity <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="NotSupported.Message">func (NotSupported) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/common.go#L64">Message</a>
+					<a class="permalink" href="#NotSupported.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#NotSupported">NotSupported</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="NotSupported.Reason">func (NotSupported) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/common.go#L60">Reason</a>
+					<a class="permalink" href="#NotSupported.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#NotSupported">NotSupported</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="NotSupported.Type">func (NotSupported) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/common.go#L56">Type</a>
+					<a class="permalink" href="#NotSupported.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#NotSupported">NotSupported</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ParentNodeDeadlineExceed">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L154">ParentNodeDeadlineExceed</a>
+				<a class="permalink" href="#ParentNodeDeadlineExceed">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ParentNodeDeadlineExceed struct {
+<span id="ParentNodeDeadlineExceed.ParentNodeName"></span>    ParentNodeName <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ParentNodeDeadlineExceed.Message">func (ParentNodeDeadlineExceed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L166">Message</a>
+					<a class="permalink" href="#ParentNodeDeadlineExceed.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ParentNodeDeadlineExceed">ParentNodeDeadlineExceed</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ParentNodeDeadlineExceed.Reason">func (ParentNodeDeadlineExceed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L162">Reason</a>
+					<a class="permalink" href="#ParentNodeDeadlineExceed.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ParentNodeDeadlineExceed">ParentNodeDeadlineExceed</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ParentNodeDeadlineExceed.Type">func (ParentNodeDeadlineExceed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L158">Type</a>
+					<a class="permalink" href="#ParentNodeDeadlineExceed.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ParentNodeDeadlineExceed">ParentNodeDeadlineExceed</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Paused">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go#L46">Paused</a>
+				<a class="permalink" href="#Paused">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Paused struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Paused.Message">func (Paused) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go#L57">Message</a>
+					<a class="permalink" href="#Paused.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="#Paused">Paused</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Paused.Reason">func (Paused) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go#L53">Reason</a>
+					<a class="permalink" href="#Paused.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="#Paused">Paused</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Paused.Type">func (Paused) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go#L49">Type</a>
+					<a class="permalink" href="#Paused.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="#Paused">Paused</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="RecorderBuilder">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/recorder.go#L115">RecorderBuilder</a>
+				<a class="permalink" href="#RecorderBuilder">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type RecorderBuilder struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewRecorderBuilder">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/recorder.go#L132">NewRecorderBuilder</a>
+					<a class="permalink" href="#NewRecorderBuilder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewRecorderBuilder(c <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, logger <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/go-logr/logr/#Logger">Logger</a>, scheme *<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/k8s.io/apimachinery/pkg/runtime/#Scheme">Scheme</a>) *<a href="#RecorderBuilder">RecorderBuilder</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="RecorderBuilder.Build">func (*RecorderBuilder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/recorder.go#L121">Build</a>
+					<a class="permalink" href="#RecorderBuilder.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#RecorderBuilder">RecorderBuilder</a>) Build(name <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>) <a href="#ChaosRecorder">ChaosRecorder</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Recovered">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/common.go#L36">Recovered</a>
+				<a class="permalink" href="#Recovered">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Recovered struct {
+<span id="Recovered.Id"></span>    Id <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Recovered.Message">func (Recovered) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/common.go#L48">Message</a>
+					<a class="permalink" href="#Recovered.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Recovered">Recovered</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Recovered.Reason">func (Recovered) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/common.go#L44">Reason</a>
+					<a class="permalink" href="#Recovered.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Recovered">Recovered</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Recovered.Type">func (Recovered) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/common.go#L40">Type</a>
+					<a class="permalink" href="#Recovered.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Recovered">Recovered</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="RerunBySpecChanged">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L263">RerunBySpecChanged</a>
+				<a class="permalink" href="#RerunBySpecChanged">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type RerunBySpecChanged struct {
+<span id="RerunBySpecChanged.CleanedChildrenNode"></span>    CleanedChildrenNode []<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="RerunBySpecChanged.Message">func (RerunBySpecChanged) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L275">Message</a>
+					<a class="permalink" href="#RerunBySpecChanged.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#RerunBySpecChanged">RerunBySpecChanged</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="RerunBySpecChanged.Reason">func (RerunBySpecChanged) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L271">Reason</a>
+					<a class="permalink" href="#RerunBySpecChanged.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#RerunBySpecChanged">RerunBySpecChanged</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="RerunBySpecChanged.Type">func (RerunBySpecChanged) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L267">Type</a>
+					<a class="permalink" href="#RerunBySpecChanged.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#RerunBySpecChanged">RerunBySpecChanged</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ScheduleForbid">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go#L53">ScheduleForbid</a>
+				<a class="permalink" href="#ScheduleForbid">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ScheduleForbid struct {
+<span id="ScheduleForbid.RunningName"></span>    RunningName <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ScheduleForbid.Message">func (ScheduleForbid) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go#L65">Message</a>
+					<a class="permalink" href="#ScheduleForbid.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="#ScheduleForbid">ScheduleForbid</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ScheduleForbid.Reason">func (ScheduleForbid) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go#L61">Reason</a>
+					<a class="permalink" href="#ScheduleForbid.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="#ScheduleForbid">ScheduleForbid</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ScheduleForbid.Type">func (ScheduleForbid) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go#L57">Type</a>
+					<a class="permalink" href="#ScheduleForbid.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="#ScheduleForbid">ScheduleForbid</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ScheduleSkipRemoveHistory">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go#L69">ScheduleSkipRemoveHistory</a>
+				<a class="permalink" href="#ScheduleSkipRemoveHistory">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ScheduleSkipRemoveHistory struct {
+<span id="ScheduleSkipRemoveHistory.RunningName"></span>    RunningName <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ScheduleSkipRemoveHistory.Message">func (ScheduleSkipRemoveHistory) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go#L81">Message</a>
+					<a class="permalink" href="#ScheduleSkipRemoveHistory.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="#ScheduleSkipRemoveHistory">ScheduleSkipRemoveHistory</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ScheduleSkipRemoveHistory.Reason">func (ScheduleSkipRemoveHistory) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go#L77">Reason</a>
+					<a class="permalink" href="#ScheduleSkipRemoveHistory.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="#ScheduleSkipRemoveHistory">ScheduleSkipRemoveHistory</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ScheduleSkipRemoveHistory.Type">func (ScheduleSkipRemoveHistory) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go#L73">Type</a>
+					<a class="permalink" href="#ScheduleSkipRemoveHistory.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="#ScheduleSkipRemoveHistory">ScheduleSkipRemoveHistory</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ScheduleSpawn">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go#L37">ScheduleSpawn</a>
+				<a class="permalink" href="#ScheduleSpawn">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ScheduleSpawn struct {
+<span id="ScheduleSpawn.Name"></span>    Name <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ScheduleSpawn.Message">func (ScheduleSpawn) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go#L49">Message</a>
+					<a class="permalink" href="#ScheduleSpawn.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="#ScheduleSpawn">ScheduleSpawn</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ScheduleSpawn.Reason">func (ScheduleSpawn) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go#L45">Reason</a>
+					<a class="permalink" href="#ScheduleSpawn.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="#ScheduleSpawn">ScheduleSpawn</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ScheduleSpawn.Type">func (ScheduleSpawn) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/schedule.go#L41">Type</a>
+					<a class="permalink" href="#ScheduleSpawn.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="#ScheduleSpawn">ScheduleSpawn</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Started">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go#L61">Started</a>
+				<a class="permalink" href="#Started">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Started struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Started.Message">func (Started) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go#L72">Message</a>
+					<a class="permalink" href="#Started.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="#Started">Started</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Started.Reason">func (Started) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go#L68">Reason</a>
+					<a class="permalink" href="#Started.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="#Started">Started</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Started.Type">func (Started) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go#L64">Type</a>
+					<a class="permalink" href="#Started.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="#Started">Started</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="TaskPodPodCompleted">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L231">TaskPodPodCompleted</a>
+				<a class="permalink" href="#TaskPodPodCompleted">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type TaskPodPodCompleted struct {
+<span id="TaskPodPodCompleted.PodName"></span>    PodName <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="TaskPodPodCompleted.Message">func (TaskPodPodCompleted) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L243">Message</a>
+					<a class="permalink" href="#TaskPodPodCompleted.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#TaskPodPodCompleted">TaskPodPodCompleted</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TaskPodPodCompleted.Reason">func (TaskPodPodCompleted) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L239">Reason</a>
+					<a class="permalink" href="#TaskPodPodCompleted.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#TaskPodPodCompleted">TaskPodPodCompleted</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TaskPodPodCompleted.Type">func (TaskPodPodCompleted) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L235">Type</a>
+					<a class="permalink" href="#TaskPodPodCompleted.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#TaskPodPodCompleted">TaskPodPodCompleted</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="TaskPodSpawnFailed">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L216">TaskPodSpawnFailed</a>
+				<a class="permalink" href="#TaskPodSpawnFailed">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type TaskPodSpawnFailed struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="TaskPodSpawnFailed.Message">func (TaskPodSpawnFailed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L227">Message</a>
+					<a class="permalink" href="#TaskPodSpawnFailed.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#TaskPodSpawnFailed">TaskPodSpawnFailed</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TaskPodSpawnFailed.Reason">func (TaskPodSpawnFailed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L223">Reason</a>
+					<a class="permalink" href="#TaskPodSpawnFailed.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#TaskPodSpawnFailed">TaskPodSpawnFailed</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TaskPodSpawnFailed.Type">func (TaskPodSpawnFailed) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L219">Type</a>
+					<a class="permalink" href="#TaskPodSpawnFailed.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#TaskPodSpawnFailed">TaskPodSpawnFailed</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="TaskPodSpawned">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L200">TaskPodSpawned</a>
+				<a class="permalink" href="#TaskPodSpawned">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type TaskPodSpawned struct {
+<span id="TaskPodSpawned.PodName"></span>    PodName <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="TaskPodSpawned.Message">func (TaskPodSpawned) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L212">Message</a>
+					<a class="permalink" href="#TaskPodSpawned.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#TaskPodSpawned">TaskPodSpawned</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TaskPodSpawned.Reason">func (TaskPodSpawned) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L208">Reason</a>
+					<a class="permalink" href="#TaskPodSpawned.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#TaskPodSpawned">TaskPodSpawned</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TaskPodSpawned.Type">func (TaskPodSpawned) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L204">Type</a>
+					<a class="permalink" href="#TaskPodSpawned.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#TaskPodSpawned">TaskPodSpawned</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="TimeUp">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go#L31">TimeUp</a>
+				<a class="permalink" href="#TimeUp">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type TimeUp struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="TimeUp.Message">func (TimeUp) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go#L42">Message</a>
+					<a class="permalink" href="#TimeUp.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#TimeUp">TimeUp</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TimeUp.Reason">func (TimeUp) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go#L38">Reason</a>
+					<a class="permalink" href="#TimeUp.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#TimeUp">TimeUp</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TimeUp.Type">func (TimeUp) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/desiredphase.go#L34">Type</a>
+					<a class="permalink" href="#TimeUp.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#TimeUp">TimeUp</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Updated">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/controller.go#L20">Updated</a>
+				<a class="permalink" href="#Updated">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Updated struct {
+<span id="Updated.Field"></span>    Field <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Updated.Message">func (Updated) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/controller.go#L32">Message</a>
+					<a class="permalink" href="#Updated.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (u <a href="#Updated">Updated</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Updated.Reason">func (Updated) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/controller.go#L28">Reason</a>
+					<a class="permalink" href="#Updated.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (u <a href="#Updated">Updated</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Updated.Type">func (Updated) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/controller.go#L24">Type</a>
+					<a class="permalink" href="#Updated.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (u <a href="#Updated">Updated</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="WorkflowAccomplished">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L170">WorkflowAccomplished</a>
+				<a class="permalink" href="#WorkflowAccomplished">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type WorkflowAccomplished struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="WorkflowAccomplished.Message">func (WorkflowAccomplished) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L181">Message</a>
+					<a class="permalink" href="#WorkflowAccomplished.Message">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#WorkflowAccomplished">WorkflowAccomplished</a>) Message() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="WorkflowAccomplished.Reason">func (WorkflowAccomplished) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L177">Reason</a>
+					<a class="permalink" href="#WorkflowAccomplished.Reason">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#WorkflowAccomplished">WorkflowAccomplished</a>) Reason() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="WorkflowAccomplished.Type">func (WorkflowAccomplished) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/workflow.go#L173">Type</a>
+					<a class="permalink" href="#WorkflowAccomplished.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#WorkflowAccomplished">WorkflowAccomplished</a>) Type() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

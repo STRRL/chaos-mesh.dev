@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>mock_workflow - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.3/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.3/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.3/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c417f2b. Generated at Sun Jan 16 10:55:03 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package mock_workflow
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>
+Package mock_workflow is a generated GoMock package.
+</p>
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#MockWorkflowSpec">type MockWorkflowSpec</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewMockWorkflowSpec">func NewMockWorkflowSpec(ctrl *gomock.Controller) *MockWorkflowSpec</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowSpec.EXPECT">func (m *MockWorkflowSpec) EXPECT() *MockWorkflowSpecMockRecorder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowSpec.Entry">func (m *MockWorkflowSpec) Entry() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowSpec.FetchTemplateByName">func (m *MockWorkflowSpec) FetchTemplateByName(templateName string) (template.Template, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowSpec.Name">func (m *MockWorkflowSpec) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="#MockWorkflowSpecMockRecorder">type MockWorkflowSpecMockRecorder</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowSpecMockRecorder.Entry">func (mr *MockWorkflowSpecMockRecorder) Entry() *gomock.Call</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowSpecMockRecorder.FetchTemplateByName">func (mr *MockWorkflowSpecMockRecorder) FetchTemplateByName(templateName interface{}) *gomock.Call</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowSpecMockRecorder.Name">func (mr *MockWorkflowSpecMockRecorder) Name() *gomock.Call</a></dd>
+				
+			
+				
+				<dd><a href="#MockWorkflowStatus">type MockWorkflowStatus</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewMockWorkflowStatus">func NewMockWorkflowStatus(ctrl *gomock.Controller) *MockWorkflowStatus</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowStatus.EXPECT">func (m *MockWorkflowStatus) EXPECT() *MockWorkflowStatusMockRecorder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowStatus.FetchNodeByName">func (m *MockWorkflowStatus) FetchNodeByName(nodeName string) (node.Node, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowStatus.Nodes">func (m *MockWorkflowStatus) Nodes() []node.Node</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowStatus.NodesMap">func (m *MockWorkflowStatus) NodesMap() map[string]node.Node</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowStatus.NodesTree">func (m *MockWorkflowStatus) NodesTree() (node.NodeTreeNode, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowStatus.Phase">func (m *MockWorkflowStatus) Phase() workflow.WorkflowPhase</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowStatus.WorkflowSpecName">func (m *MockWorkflowStatus) WorkflowSpecName() string</a></dd>
+				
+			
+				
+				<dd><a href="#MockWorkflowStatusMockRecorder">type MockWorkflowStatusMockRecorder</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowStatusMockRecorder.FetchNodeByName">func (mr *MockWorkflowStatusMockRecorder) FetchNodeByName(nodeName interface{}) *gomock.Call</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowStatusMockRecorder.Nodes">func (mr *MockWorkflowStatusMockRecorder) Nodes() *gomock.Call</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowStatusMockRecorder.NodesMap">func (mr *MockWorkflowStatusMockRecorder) NodesMap() *gomock.Call</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowStatusMockRecorder.NodesTree">func (mr *MockWorkflowStatusMockRecorder) NodesTree() *gomock.Call</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowStatusMockRecorder.Phase">func (mr *MockWorkflowStatusMockRecorder) Phase() *gomock.Call</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockWorkflowStatusMockRecorder.WorkflowSpecName">func (mr *MockWorkflowStatusMockRecorder) WorkflowSpecName() *gomock.Call</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go">mock_workflow.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="MockWorkflowSpec">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L31">MockWorkflowSpec</a>
+				<a class="permalink" href="#MockWorkflowSpec">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+MockWorkflowSpec is a mock of WorkflowSpec interface.
+</p>
+
+			<pre>type MockWorkflowSpec struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewMockWorkflowSpec">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L42">NewMockWorkflowSpec</a>
+					<a class="permalink" href="#NewMockWorkflowSpec">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewMockWorkflowSpec(ctrl *<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/#Controller">Controller</a>) *<a href="#MockWorkflowSpec">MockWorkflowSpec</a></pre>
+				<p>
+NewMockWorkflowSpec creates a new mock instance.
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="MockWorkflowSpec.EXPECT">func (*MockWorkflowSpec) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L49">EXPECT</a>
+					<a class="permalink" href="#MockWorkflowSpec.EXPECT">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockWorkflowSpec">MockWorkflowSpec</a>) EXPECT() *<a href="#MockWorkflowSpecMockRecorder">MockWorkflowSpecMockRecorder</a></pre>
+				<p>
+EXPECT returns an object that allows the caller to indicate expected use.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockWorkflowSpec.Entry">func (*MockWorkflowSpec) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L54">Entry</a>
+					<a class="permalink" href="#MockWorkflowSpec.Entry">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockWorkflowSpec">MockWorkflowSpec</a>) Entry() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				<p>
+Entry mocks base method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockWorkflowSpec.FetchTemplateByName">func (*MockWorkflowSpec) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L68">FetchTemplateByName</a>
+					<a class="permalink" href="#MockWorkflowSpec.FetchTemplateByName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockWorkflowSpec">MockWorkflowSpec</a>) FetchTemplateByName(templateName <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/">template</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/template/#Template">Template</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#error">error</a>)</pre>
+				<p>
+FetchTemplateByName mocks base method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockWorkflowSpec.Name">func (*MockWorkflowSpec) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L83">Name</a>
+					<a class="permalink" href="#MockWorkflowSpec.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockWorkflowSpec">MockWorkflowSpec</a>) Name() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				<p>
+Name mocks base method.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="MockWorkflowSpecMockRecorder">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L37">MockWorkflowSpecMockRecorder</a>
+				<a class="permalink" href="#MockWorkflowSpecMockRecorder">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+MockWorkflowSpecMockRecorder is the mock recorder for MockWorkflowSpec.
+</p>
+
+			<pre>type MockWorkflowSpecMockRecorder struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="MockWorkflowSpecMockRecorder.Entry">func (*MockWorkflowSpecMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L62">Entry</a>
+					<a class="permalink" href="#MockWorkflowSpecMockRecorder.Entry">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockWorkflowSpecMockRecorder">MockWorkflowSpecMockRecorder</a>) Entry() *<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+Entry indicates an expected call of Entry.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockWorkflowSpecMockRecorder.FetchTemplateByName">func (*MockWorkflowSpecMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L77">FetchTemplateByName</a>
+					<a class="permalink" href="#MockWorkflowSpecMockRecorder.FetchTemplateByName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockWorkflowSpecMockRecorder">MockWorkflowSpecMockRecorder</a>) FetchTemplateByName(templateName interface{}) *<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+FetchTemplateByName indicates an expected call of FetchTemplateByName.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockWorkflowSpecMockRecorder.Name">func (*MockWorkflowSpecMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L91">Name</a>
+					<a class="permalink" href="#MockWorkflowSpecMockRecorder.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockWorkflowSpecMockRecorder">MockWorkflowSpecMockRecorder</a>) Name() *<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+Name indicates an expected call of Name.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="MockWorkflowStatus">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L97">MockWorkflowStatus</a>
+				<a class="permalink" href="#MockWorkflowStatus">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+MockWorkflowStatus is a mock of WorkflowStatus interface.
+</p>
+
+			<pre>type MockWorkflowStatus struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewMockWorkflowStatus">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L108">NewMockWorkflowStatus</a>
+					<a class="permalink" href="#NewMockWorkflowStatus">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewMockWorkflowStatus(ctrl *<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/#Controller">Controller</a>) *<a href="#MockWorkflowStatus">MockWorkflowStatus</a></pre>
+				<p>
+NewMockWorkflowStatus creates a new mock instance.
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="MockWorkflowStatus.EXPECT">func (*MockWorkflowStatus) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L115">EXPECT</a>
+					<a class="permalink" href="#MockWorkflowStatus.EXPECT">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockWorkflowStatus">MockWorkflowStatus</a>) EXPECT() *<a href="#MockWorkflowStatusMockRecorder">MockWorkflowStatusMockRecorder</a></pre>
+				<p>
+EXPECT returns an object that allows the caller to indicate expected use.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockWorkflowStatus.FetchNodeByName">func (*MockWorkflowStatus) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L120">FetchNodeByName</a>
+					<a class="permalink" href="#MockWorkflowStatus.FetchNodeByName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockWorkflowStatus">MockWorkflowStatus</a>) FetchNodeByName(nodeName <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/">node</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/#Node">Node</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#error">error</a>)</pre>
+				<p>
+FetchNodeByName mocks base method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockWorkflowStatus.Nodes">func (*MockWorkflowStatus) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L135">Nodes</a>
+					<a class="permalink" href="#MockWorkflowStatus.Nodes">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockWorkflowStatus">MockWorkflowStatus</a>) Nodes() []<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/">node</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/#Node">Node</a></pre>
+				<p>
+Nodes mocks base method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockWorkflowStatus.NodesMap">func (*MockWorkflowStatus) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L149">NodesMap</a>
+					<a class="permalink" href="#MockWorkflowStatus.NodesMap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockWorkflowStatus">MockWorkflowStatus</a>) NodesMap() map[<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/">node</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/#Node">Node</a></pre>
+				<p>
+NodesMap mocks base method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockWorkflowStatus.NodesTree">func (*MockWorkflowStatus) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L163">NodesTree</a>
+					<a class="permalink" href="#MockWorkflowStatus.NodesTree">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockWorkflowStatus">MockWorkflowStatus</a>) NodesTree() (<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/">node</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/node/#NodeTreeNode">NodeTreeNode</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#error">error</a>)</pre>
+				<p>
+NodesTree mocks base method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockWorkflowStatus.Phase">func (*MockWorkflowStatus) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L178">Phase</a>
+					<a class="permalink" href="#MockWorkflowStatus.Phase">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockWorkflowStatus">MockWorkflowStatus</a>) Phase() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/workflow/">workflow</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/model/workflow/#WorkflowPhase">WorkflowPhase</a></pre>
+				<p>
+Phase mocks base method.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockWorkflowStatus.WorkflowSpecName">func (*MockWorkflowStatus) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L192">WorkflowSpecName</a>
+					<a class="permalink" href="#MockWorkflowStatus.WorkflowSpecName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#MockWorkflowStatus">MockWorkflowStatus</a>) WorkflowSpecName() <a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/builtin/#string">string</a></pre>
+				<p>
+WorkflowSpecName mocks base method.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="MockWorkflowStatusMockRecorder">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L103">MockWorkflowStatusMockRecorder</a>
+				<a class="permalink" href="#MockWorkflowStatusMockRecorder">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+MockWorkflowStatusMockRecorder is the mock recorder for MockWorkflowStatus.
+</p>
+
+			<pre>type MockWorkflowStatusMockRecorder struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="MockWorkflowStatusMockRecorder.FetchNodeByName">func (*MockWorkflowStatusMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L129">FetchNodeByName</a>
+					<a class="permalink" href="#MockWorkflowStatusMockRecorder.FetchNodeByName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockWorkflowStatusMockRecorder">MockWorkflowStatusMockRecorder</a>) FetchNodeByName(nodeName interface{}) *<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+FetchNodeByName indicates an expected call of FetchNodeByName.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockWorkflowStatusMockRecorder.Nodes">func (*MockWorkflowStatusMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L143">Nodes</a>
+					<a class="permalink" href="#MockWorkflowStatusMockRecorder.Nodes">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockWorkflowStatusMockRecorder">MockWorkflowStatusMockRecorder</a>) Nodes() *<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+Nodes indicates an expected call of Nodes.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockWorkflowStatusMockRecorder.NodesMap">func (*MockWorkflowStatusMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L157">NodesMap</a>
+					<a class="permalink" href="#MockWorkflowStatusMockRecorder.NodesMap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockWorkflowStatusMockRecorder">MockWorkflowStatusMockRecorder</a>) NodesMap() *<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+NodesMap indicates an expected call of NodesMap.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockWorkflowStatusMockRecorder.NodesTree">func (*MockWorkflowStatusMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L172">NodesTree</a>
+					<a class="permalink" href="#MockWorkflowStatusMockRecorder.NodesTree">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockWorkflowStatusMockRecorder">MockWorkflowStatusMockRecorder</a>) NodesTree() *<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+NodesTree indicates an expected call of NodesTree.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockWorkflowStatusMockRecorder.Phase">func (*MockWorkflowStatusMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L186">Phase</a>
+					<a class="permalink" href="#MockWorkflowStatusMockRecorder.Phase">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockWorkflowStatusMockRecorder">MockWorkflowStatusMockRecorder</a>) Phase() *<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+Phase indicates an expected call of Phase.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockWorkflowStatusMockRecorder.WorkflowSpecName">func (*MockWorkflowStatusMockRecorder) <a href="./https:/chaos-mesh.dev/godoc/v2.0.3/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/mock/model/mock_workflow/mock_workflow.go#L200">WorkflowSpecName</a>
+					<a class="permalink" href="#MockWorkflowStatusMockRecorder.WorkflowSpecName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (mr *<a href="#MockWorkflowStatusMockRecorder">MockWorkflowStatusMockRecorder</a>) WorkflowSpecName() *<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/">gomock</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.3/pkg/github.com/golang/mock/gomock/#Call">Call</a></pre>
+				<p>
+WorkflowSpecName indicates an expected call of WorkflowSpecName.
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
