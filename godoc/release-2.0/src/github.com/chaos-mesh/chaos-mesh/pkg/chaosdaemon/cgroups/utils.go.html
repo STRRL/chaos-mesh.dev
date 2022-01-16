@@ -1,0 +1,136 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#375EAB"/>
+
+  <title>src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/utils.go - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-2.0/lib/godoc/style.css"/>
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.0/lib/godoc/jquery.js" defer=""></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.0/lib/godoc/godocs.js" defer=""></script>
+</head>
+<body>
+
+<div id="lowframe" style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 51d8a29. Generated at Sun Jan 16 10:54:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Source file
+    <a href="https:/chaos-mesh.dev/godoc/release-2.0/src">src</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.0/src/github.com">github.com</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg">pkg</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon">chaosdaemon</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups">cgroups</a>/<span class="text-muted">utils.go</span>
+  </h1>
+
+
+
+
+
+  <h2>
+    Documentation: <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups">github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups</a>
+  </h2>
+
+
+
+<div id="nav"></div>
+
+
+<script type="text/javascript">document.ANALYSIS_DATA = null;</script>
+<pre><span id="L1" class="ln">     1  </span><span class="comment">// Copyright 2021 Chaos Mesh Authors.</span>
+<span id="L2" class="ln">     2  </span><span class="comment">//</span>
+<span id="L3" class="ln">     3  </span><span class="comment">// Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span>
+<span id="L4" class="ln">     4  </span><span class="comment">// you may not use this file except in compliance with the License.</span>
+<span id="L5" class="ln">     5  </span><span class="comment">// You may obtain a copy of the License at</span>
+<span id="L6" class="ln">     6  </span><span class="comment">//</span>
+<span id="L7" class="ln">     7  </span><span class="comment">//     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span id="L8" class="ln">     8  </span><span class="comment">//</span>
+<span id="L9" class="ln">     9  </span><span class="comment">// Unless required by applicable law or agreed to in writing, software</span>
+<span id="L10" class="ln">    10  </span><span class="comment">// distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span>
+<span id="L11" class="ln">    11  </span><span class="comment">// See the License for the specific language governing permissions and</span>
+<span id="L12" class="ln">    12  </span><span class="comment">// limitations under the License.</span>
+<span id="L13" class="ln">    13  </span>
+<span id="L14" class="ln">    14  </span>package cgroups
+<span id="L15" class="ln">    15  </span>
+<span id="L16" class="ln">    16  </span>import (
+<span id="L17" class="ln">    17  </span>	&#34;os&#34;
+<span id="L18" class="ln">    18  </span>
+<span id="L19" class="ln">    19  </span>	&#34;github.com/containerd/cgroups&#34;
+<span id="L20" class="ln">    20  </span>)
+<span id="L21" class="ln">    21  </span>
+<span id="L22" class="ln">    22  </span><span class="comment">// defaults returns all known groups</span>
+<span id="L23" class="ln">    23  </span>func defaults(root string) ([]cgroups.Subsystem, error) {
+<span id="L24" class="ln">    24  </span>	h, err := cgroups.NewHugetlb(root)
+<span id="L25" class="ln">    25  </span>	if err != nil &amp;&amp; !os.IsNotExist(err) {
+<span id="L26" class="ln">    26  </span>		return nil, err
+<span id="L27" class="ln">    27  </span>	}
+<span id="L28" class="ln">    28  </span>	s := []cgroups.Subsystem{
+<span id="L29" class="ln">    29  </span>		cgroups.NewNamed(root, &#34;systemd&#34;),
+<span id="L30" class="ln">    30  </span>		cgroups.NewFreezer(root),
+<span id="L31" class="ln">    31  </span>		cgroups.NewPids(root),
+<span id="L32" class="ln">    32  </span>		cgroups.NewNetCls(root),
+<span id="L33" class="ln">    33  </span>		cgroups.NewNetPrio(root),
+<span id="L34" class="ln">    34  </span>		cgroups.NewPerfEvent(root),
+<span id="L35" class="ln">    35  </span>		cgroups.NewCpuset(root),
+<span id="L36" class="ln">    36  </span>		cgroups.NewCpu(root),
+<span id="L37" class="ln">    37  </span>		cgroups.NewCpuacct(root),
+<span id="L38" class="ln">    38  </span>		cgroups.NewMemory(root),
+<span id="L39" class="ln">    39  </span>		cgroups.NewBlkio(root),
+<span id="L40" class="ln">    40  </span>		cgroups.NewRdma(root),
+<span id="L41" class="ln">    41  </span>	}
+<span id="L42" class="ln">    42  </span>	<span class="comment">// only add the devices cgroup if we are not in a user namespace</span>
+<span id="L43" class="ln">    43  </span>	<span class="comment">// because modifications are not allowed</span>
+<span id="L44" class="ln">    44  </span>	if !cgroups.RunningInUserNS() {
+<span id="L45" class="ln">    45  </span>		s = append(s, cgroups.NewDevices(root))
+<span id="L46" class="ln">    46  </span>	}
+<span id="L47" class="ln">    47  </span>	<span class="comment">// add the hugetlb cgroup if error wasn&#39;t due to missing hugetlb</span>
+<span id="L48" class="ln">    48  </span>	<span class="comment">// cgroup support on the host</span>
+<span id="L49" class="ln">    49  </span>	if err == nil {
+<span id="L50" class="ln">    50  </span>		s = append(s, h)
+<span id="L51" class="ln">    51  </span>	}
+<span id="L52" class="ln">    52  </span>	return s, nil
+<span id="L53" class="ln">    53  </span>}
+<span id="L54" class="ln">    54  </span>
+<span id="L55" class="ln">    55  </span>type pather interface {
+<span id="L56" class="ln">    56  </span>	cgroups.Subsystem
+<span id="L57" class="ln">    57  </span>	Path(path string) string
+<span id="L58" class="ln">    58  </span>}
+<span id="L59" class="ln">    59  </span>
+<span id="L60" class="ln">    60  </span>func pathers(subystems []cgroups.Subsystem) []pather {
+<span id="L61" class="ln">    61  </span>	var out []pather
+<span id="L62" class="ln">    62  </span>	for _, s := range subystems {
+<span id="L63" class="ln">    63  </span>		if p, ok := s.(pather); ok {
+<span id="L64" class="ln">    64  </span>			out = append(out, p)
+<span id="L65" class="ln">    65  </span>		}
+<span id="L66" class="ln">    66  </span>	}
+<span id="L67" class="ln">    67  </span>	return out
+<span id="L68" class="ln">    68  </span>}
+<span id="L69" class="ln">    69  </span>
+</pre><p></p>
+
+<div id="footer">
+Build version go1.17.6.<br/>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+
+
+</body></html>

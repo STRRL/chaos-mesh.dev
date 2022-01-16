@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>test - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-2.0/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.0/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.0/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 51d8a29. Generated at Sun Jan 16 10:54:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package test
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/controllers/test"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#MockChaosDaemonClient">type MockChaosDaemonClient</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.ApplyHttpChaos">func (c *MockChaosDaemonClient) ApplyHttpChaos(ctx context.Context, in *chaosdaemon.ApplyHttpChaosRequest, opts ...grpc.CallOption) (*chaosdaemon.ApplyHttpChaosResponse, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.ApplyIOChaos">func (c *MockChaosDaemonClient) ApplyIOChaos(ctx context.Context, in *chaosdaemon.ApplyIOChaosRequest, opts ...grpc.CallOption) (*chaosdaemon.ApplyIOChaosResponse, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.CancelStressors">func (c *MockChaosDaemonClient) CancelStressors(ctx context.Context, in *chaosdaemon.CancelStressRequest, opts ...grpc.CallOption) (*empty.Empty, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.Close">func (c *MockChaosDaemonClient) Close() error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.ContainerGetPid">func (c *MockChaosDaemonClient) ContainerGetPid(ctx context.Context, in *chaosdaemon.ContainerRequest, opts ...grpc.CallOption) (*chaosdaemon.ContainerResponse, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.ContainerKill">func (c *MockChaosDaemonClient) ContainerKill(ctx context.Context, in *chaosdaemon.ContainerRequest, opts ...grpc.CallOption) (*empty.Empty, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.ExecStressors">func (c *MockChaosDaemonClient) ExecStressors(ctx context.Context, in *chaosdaemon.ExecStressRequest, opts ...grpc.CallOption) (*chaosdaemon.ExecStressResponse, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.FlushIPSets">func (c *MockChaosDaemonClient) FlushIPSets(ctx context.Context, in *chaosdaemon.IPSetsRequest, opts ...grpc.CallOption) (*empty.Empty, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.RecoverTimeOffset">func (c *MockChaosDaemonClient) RecoverTimeOffset(ctx context.Context, in *chaosdaemon.TimeRequest, opts ...grpc.CallOption) (*empty.Empty, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.SetDNSServer">func (c *MockChaosDaemonClient) SetDNSServer(ctx context.Context, in *chaosdaemon.SetDNSServerRequest, opts ...grpc.CallOption) (*empty.Empty, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.SetIptablesChains">func (c *MockChaosDaemonClient) SetIptablesChains(ctx context.Context, in *chaosdaemon.IptablesChainsRequest, opts ...grpc.CallOption) (*empty.Empty, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.SetTcs">func (c *MockChaosDaemonClient) SetTcs(ctx context.Context, in *chaosdaemon.TcsRequest, opts ...grpc.CallOption) (*empty.Empty, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.SetTimeOffset">func (c *MockChaosDaemonClient) SetTimeOffset(ctx context.Context, in *chaosdaemon.TimeRequest, opts ...grpc.CallOption) (*empty.Empty, error)</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go">types.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="MockChaosDaemonClient">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L32">MockChaosDaemonClient</a>
+				<a class="permalink" href="#MockChaosDaemonClient">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+MockChaosDaemonClient implements ChaosDaemonClientInterface for unit testing
+</p>
+
+			<pre>type MockChaosDaemonClient struct{}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="MockChaosDaemonClient.ApplyHttpChaos">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L82">ApplyHttpChaos</a>
+					<a class="permalink" href="#MockChaosDaemonClient.ApplyHttpChaos">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) ApplyHttpChaos(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/#Context">Context</a>, in *<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ApplyHttpChaosRequest">ApplyHttpChaosRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ApplyHttpChaosResponse">ApplyHttpChaosResponse</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="MockChaosDaemonClient.ApplyIOChaos">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L78">ApplyIOChaos</a>
+					<a class="permalink" href="#MockChaosDaemonClient.ApplyIOChaos">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) ApplyIOChaos(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/#Context">Context</a>, in *<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ApplyIOChaosRequest">ApplyIOChaosRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ApplyIOChaosResponse">ApplyIOChaosResponse</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="MockChaosDaemonClient.CancelStressors">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L40">CancelStressors</a>
+					<a class="permalink" href="#MockChaosDaemonClient.CancelStressors">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) CancelStressors(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/#Context">Context</a>, in *<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#CancelStressRequest">CancelStressRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)</pre>
+				<p>
+CancelStressors mocks canceling pod stressors on chaos-daemon
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockChaosDaemonClient.Close">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L94">Close</a>
+					<a class="permalink" href="#MockChaosDaemonClient.Close">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) Close() <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="MockChaosDaemonClient.ContainerGetPid">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L44">ContainerGetPid</a>
+					<a class="permalink" href="#MockChaosDaemonClient.ContainerGetPid">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) ContainerGetPid(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/#Context">Context</a>, in *<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ContainerRequest">ContainerRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ContainerResponse">ContainerResponse</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="MockChaosDaemonClient.ContainerKill">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L74">ContainerKill</a>
+					<a class="permalink" href="#MockChaosDaemonClient.ContainerKill">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) ContainerKill(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/#Context">Context</a>, in *<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ContainerRequest">ContainerRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="MockChaosDaemonClient.ExecStressors">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L35">ExecStressors</a>
+					<a class="permalink" href="#MockChaosDaemonClient.ExecStressors">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) ExecStressors(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/#Context">Context</a>, in *<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ExecStressRequest">ExecStressRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ExecStressResponse">ExecStressResponse</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)</pre>
+				<p>
+ExecStressors mocks executing pod stressors on chaos-daemon
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MockChaosDaemonClient.FlushIPSets">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L58">FlushIPSets</a>
+					<a class="permalink" href="#MockChaosDaemonClient.FlushIPSets">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) FlushIPSets(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/#Context">Context</a>, in *<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#IPSetsRequest">IPSetsRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="MockChaosDaemonClient.RecoverTimeOffset">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L70">RecoverTimeOffset</a>
+					<a class="permalink" href="#MockChaosDaemonClient.RecoverTimeOffset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) RecoverTimeOffset(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/#Context">Context</a>, in *<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#TimeRequest">TimeRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="MockChaosDaemonClient.SetDNSServer">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L86">SetDNSServer</a>
+					<a class="permalink" href="#MockChaosDaemonClient.SetDNSServer">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) SetDNSServer(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/#Context">Context</a>, in *<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#SetDNSServerRequest">SetDNSServerRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="MockChaosDaemonClient.SetIptablesChains">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L62">SetIptablesChains</a>
+					<a class="permalink" href="#MockChaosDaemonClient.SetIptablesChains">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) SetIptablesChains(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/#Context">Context</a>, in *<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#IptablesChainsRequest">IptablesChainsRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="MockChaosDaemonClient.SetTcs">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L90">SetTcs</a>
+					<a class="permalink" href="#MockChaosDaemonClient.SetTcs">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) SetTcs(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/#Context">Context</a>, in *<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#TcsRequest">TcsRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="MockChaosDaemonClient.SetTimeOffset">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L66">SetTimeOffset</a>
+					<a class="permalink" href="#MockChaosDaemonClient.SetTimeOffset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) SetTimeOffset(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/#Context">Context</a>, in *<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#TimeRequest">TimeRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

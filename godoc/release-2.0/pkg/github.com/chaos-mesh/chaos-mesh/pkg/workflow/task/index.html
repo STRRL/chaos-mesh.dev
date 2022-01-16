@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>task - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-2.0/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.0/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.0/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 51d8a29. Generated at Sun Jan 16 10:54:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package task
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/workflow/task"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>
+Package task contains the tools for build an customized job and assert the condition branches
+</p>
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+			
+				
+				<dd><a href="#SpawnPodForTask">func SpawnPodForTask(task v1alpha1.Task) (corev1.PodSpec, error)</a></dd>
+			
+			
+				
+				<dd><a href="#Evaluator">type Evaluator</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewEvaluator">func NewEvaluator(logger logr.Logger, kubeclient client.Client) *Evaluator</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Evaluator.EvaluateConditionBranches">func (it *Evaluator) EvaluateConditionBranches(tasks []v1alpha1.ConditionalBranch, resultEnv map[string]interface{}) (branches []v1alpha1.ConditionalBranchStatus, err error)</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/doc.go">doc.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/evaluator.go">evaluator.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/pod.go">pod.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				
+				<pre>const (
+    <span id="PodMetadataVolumeName">PodMetadataVolumeName</span>            = &#34;podmetadata&#34;
+    <span id="PodMetadataAnnotationsVolumePath">PodMetadataAnnotationsVolumePath</span> = &#34;&#34;
+    <span id="PodMetadataMountPath">PodMetadataMountPath</span>             = &#34;/var/run/chaos-mesh/&#34;
+)</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="SpawnPodForTask">func <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/pod.go#L28">SpawnPodForTask</a>
+				<a class="permalink" href="#SpawnPodForTask">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SpawnPodForTask(task <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Task">Task</a>) (<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/k8s.io/api/core/v1/#PodSpec">PodSpec</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Evaluator">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/evaluator.go#L25">Evaluator</a>
+				<a class="permalink" href="#Evaluator">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Evaluator struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewEvaluator">func <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/evaluator.go#L30">NewEvaluator</a>
+					<a class="permalink" href="#NewEvaluator">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewEvaluator(logger <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>, kubeclient <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>) *<a href="#Evaluator">Evaluator</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="Evaluator.EvaluateConditionBranches">func (*Evaluator) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/evaluator.go#L34">EvaluateConditionBranches</a>
+					<a class="permalink" href="#Evaluator.EvaluateConditionBranches">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#Evaluator">Evaluator</a>) EvaluateConditionBranches(tasks []<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#ConditionalBranch">ConditionalBranch</a>, resultEnv map[<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#string">string</a>]interface{}) (branches []<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#ConditionalBranchStatus">ConditionalBranchStatus</a>, err <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="collector/">collector</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
