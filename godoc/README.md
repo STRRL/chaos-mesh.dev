@@ -1,5 +1,7 @@
 # godoc
 
+[Back To Home](../)
+
 Here is the directory for all the Go documentation.
 
 ## Active Branches
