@@ -22,7 +22,7 @@ Here is the directory for API References for each Versions
 
 ## Inactive Branches
 
-(WIP)
+Would not provide API reference for inactive branches.
 
 ## End-of-life Releases
 
