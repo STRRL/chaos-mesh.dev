@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>test - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-1.2/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.2/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.2/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 04047c8. Generated at Sun Jan 16 12:18:38 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package test
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/test"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#Config">type Config</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewDefaultConfig">func NewDefaultConfig() *Config</a></dd>
+				
+				
+			
+				
+				<dd><a href="#DaemonConfig">type DaemonConfig</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ManagerConfig">type ManagerConfig</a></dd>
+				
+				
+			
+				
+				<dd><a href="#OperatorAction">type OperatorAction</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewOperatorAction">func NewOperatorAction(kubeCli kubernetes.Interface, aggrCli aggregatorclientset.Interface, apiExtCli apiextensionsclientset.Interface, cfg *Config) OperatorAction</a></dd>
+				
+				
+			
+				
+				<dd><a href="#OperatorConfig">type OperatorConfig</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewDefaultOperatorConfig">func NewDefaultOperatorConfig() OperatorConfig</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/action.go">action.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/config.go">config.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/types.go">types.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="Config">type <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/config.go#L17">Config</a>
+				<a class="permalink" href="#Config">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Config describe the basic config for the operator test
+</p>
+
+			<pre>type Config struct {
+<span id="Config.ChartDir"></span>    ChartDir         <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="Config.ManifestDir"></span>    ManifestDir      <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="Config.Tag"></span>    Tag              <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="Config.ManagerImage"></span>    ManagerImage     <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="Config.ManagerTag"></span>    ManagerTag       <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="Config.DaemonImage"></span>    DaemonImage      <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="Config.DaemonTag"></span>    DaemonTag        <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="Config.E2EImage"></span>    E2EImage         <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="Config.ChaosDNSImage"></span>    ChaosDNSImage    <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="Config.InstallChaosMesh"></span>    InstallChaosMesh <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#bool">bool</a>
+<span id="Config.EnableDashboard"></span>    EnableDashboard  <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#bool">bool</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewDefaultConfig">func <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/config.go#L32">NewDefaultConfig</a>
+					<a class="permalink" href="#NewDefaultConfig">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewDefaultConfig() *<a href="#Config">Config</a></pre>
+				<p>
+NewDefaultConfig describe the default configuration for operator test
+</p>
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="DaemonConfig">type <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/types.go#L52">DaemonConfig</a>
+				<a class="permalink" href="#DaemonConfig">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+DaemonConfig describe the chaos-daemon configuration during installing chaos-mesh
+</p>
+
+			<pre>type DaemonConfig struct {
+<span id="DaemonConfig.Image"></span>    Image           <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="DaemonConfig.Tag"></span>    Tag             <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="DaemonConfig.Runtime"></span>    Runtime         <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="DaemonConfig.SocketPath"></span>    SocketPath      <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="DaemonConfig.ImagePullPolicy"></span>    ImagePullPolicy <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ManagerConfig">type <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/types.go#L45">ManagerConfig</a>
+				<a class="permalink" href="#ManagerConfig">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ManagerConfig describe the chaos-operator configuration during installing chaos-mesh
+</p>
+
+			<pre>type ManagerConfig struct {
+<span id="ManagerConfig.Image"></span>    Image           <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="ManagerConfig.Tag"></span>    Tag             <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="ManagerConfig.ImagePullPolicy"></span>    ImagePullPolicy <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="OperatorAction">type <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/action.go#L41">OperatorAction</a>
+				<a class="permalink" href="#OperatorAction">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+OperatorAction describe the common operation during test (e2e/stability/etc..)
+</p>
+
+			<pre>type OperatorAction interface {
+    CleanCRDOrDie()
+    DeployOperator(config <a href="#OperatorConfig">OperatorConfig</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#error">error</a>
+    InstallCRD(config <a href="#OperatorConfig">OperatorConfig</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewOperatorAction">func <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/action.go#L48">NewOperatorAction</a>
+					<a class="permalink" href="#NewOperatorAction">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewOperatorAction(
+    kubeCli <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/client-go/kubernetes/">kubernetes</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/client-go/kubernetes/#Interface">Interface</a>,
+    aggrCli <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/kube-aggregator/pkg/client/clientset_generated/clientset/">aggregatorclientset</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/kube-aggregator/pkg/client/clientset_generated/clientset/#Interface">Interface</a>,
+    apiExtCli <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset/">apiextensionsclientset</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset/#Interface">Interface</a>,
+    cfg *<a href="#Config">Config</a>) <a href="#OperatorAction">OperatorAction</a></pre>
+				<p>
+NewOperatorAction create an OperatorAction interface instance
+</p>
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="OperatorConfig">type <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/types.go#L34">OperatorConfig</a>
+				<a class="permalink" href="#OperatorConfig">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+OperatorConfig describe the configuration during installing chaos-mesh
+</p>
+
+			<pre>type OperatorConfig struct {
+<span id="OperatorConfig.Namespace"></span>    Namespace       <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="OperatorConfig.ReleaseName"></span>    ReleaseName     <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="OperatorConfig.Manager"></span>    Manager         <a href="#ManagerConfig">ManagerConfig</a>
+<span id="OperatorConfig.Daemon"></span>    Daemon          <a href="#DaemonConfig">DaemonConfig</a>
+<span id="OperatorConfig.Tag"></span>    Tag             <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="OperatorConfig.DNSImage"></span>    DNSImage        <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>
+<span id="OperatorConfig.EnableDashboard"></span>    EnableDashboard <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#bool">bool</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewDefaultOperatorConfig">func <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/types.go#L61">NewDefaultOperatorConfig</a>
+					<a class="permalink" href="#NewDefaultOperatorConfig">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewDefaultOperatorConfig() <a href="#OperatorConfig">OperatorConfig</a></pre>
+				<p>
+NewDefaultOperatorConfig create the default configuration for chaos-mesh test
+</p>
+
+				
+				
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="cmd/">cmd</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="cmd/e2e_helper/">e2e_helper</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="cmd/timer/">timer</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="e2e/">e2e</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="e2e/chaos/">chaos</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="e2e/chaos/dnschaos/">dnschaos</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="e2e/chaos/iochaos/">iochaos</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="e2e/chaos/networkchaos/">networkchaos</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="e2e/chaos/podchaos/">podchaos</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="e2e/chaos/sidecar/">sidecar</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="e2e/chaos/testcasetemplate/">testcasetemplate</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="e2e/chaos/timechaos/">timechaos</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="e2e/config/">config</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="e2e/e2econst/">e2econst</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="e2e/util/">util</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="pkg/">pkg</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="pkg/fixture/">fixture</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="pkg/timer/">timer</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

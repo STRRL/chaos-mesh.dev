@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>fixture - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-1.2/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.2/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.2/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 04047c8. Generated at Sun Jan 16 12:18:38 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package fixture
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/test/pkg/fixture"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#HaveSameUIDs">func HaveSameUIDs(pods1 []corev1.Pod, pods2 []corev1.Pod) bool</a></dd>
+			
+				
+				<dd><a href="#NewCommonNginxDeployment">func NewCommonNginxDeployment(name, namespace string, replicas int32) *appsv1.Deployment</a></dd>
+			
+				
+				<dd><a href="#NewCommonNginxPod">func NewCommonNginxPod(name, namespace string) *corev1.Pod</a></dd>
+			
+				
+				<dd><a href="#NewE2EService">func NewE2EService(name, namespace string) *corev1.Service</a></dd>
+			
+				
+				<dd><a href="#NewIOTestDeployment">func NewIOTestDeployment(name, namespace string) *appsv1.Deployment</a></dd>
+			
+				
+				<dd><a href="#NewNetworkTestDeployment">func NewNetworkTestDeployment(name, namespace string, extraLabels map[string]string) *appsv1.Deployment</a></dd>
+			
+				
+				<dd><a href="#NewTimerDeployment">func NewTimerDeployment(name, namespace string) *appsv1.Deployment</a></dd>
+			
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/pkg/fixture/fixture.go">fixture.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="HaveSameUIDs">func <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/pkg/fixture/fixture.go#L254">HaveSameUIDs</a>
+				<a class="permalink" href="#HaveSameUIDs">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func HaveSameUIDs(pods1 []<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, pods2 []<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#bool">bool</a></pre>
+			<p>
+HaveSameUIDs returns if pods1 and pods2 are same based on their UIDs
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="NewCommonNginxDeployment">func <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/pkg/fixture/fixture.go#L51">NewCommonNginxDeployment</a>
+				<a class="permalink" href="#NewCommonNginxDeployment">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewCommonNginxDeployment(name, namespace <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>, replicas <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#int32">int32</a>) *<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/api/apps/v1/">appsv1</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/api/apps/v1/#Deployment">Deployment</a></pre>
+			<p>
+NewCommonNginxDeployment would create a nginx deployment
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="NewCommonNginxPod">func <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/pkg/fixture/fixture.go#L29">NewCommonNginxPod</a>
+				<a class="permalink" href="#NewCommonNginxPod">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewCommonNginxPod(name, namespace <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>) *<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/api/core/v1/#Pod">Pod</a></pre>
+			<p>
+NewCommonNginxPod describe that we use common nginx pod to be tested in our chaos-operator test
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="NewE2EService">func <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/pkg/fixture/fixture.go#L219">NewE2EService</a>
+				<a class="permalink" href="#NewE2EService">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewE2EService(name, namespace <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>) *<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/api/core/v1/#Service">Service</a></pre>
+			<p>
+NewE2EService creates a service for the E2E helper deployment
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="NewIOTestDeployment">func <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/pkg/fixture/fixture.go#L164">NewIOTestDeployment</a>
+				<a class="permalink" href="#NewIOTestDeployment">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewIOTestDeployment(name, namespace <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>) *<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/api/apps/v1/">appsv1</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/api/apps/v1/#Deployment">Deployment</a></pre>
+			<p>
+NewIOTestDeployment creates a deployment for e2e test
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="NewNetworkTestDeployment">func <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/pkg/fixture/fixture.go#L126">NewNetworkTestDeployment</a>
+				<a class="permalink" href="#NewNetworkTestDeployment">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewNetworkTestDeployment(name, namespace <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>, extraLabels map[<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>) *<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/api/apps/v1/">appsv1</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/api/apps/v1/#Deployment">Deployment</a></pre>
+			<p>
+NewNetworkTestDeployment creates a deployment for e2e test
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="NewTimerDeployment">func <a href="./https:/chaos-mesh.dev/godoc/release-1.2/src/github.com/chaos-mesh/chaos-mesh/test/pkg/fixture/fixture.go#L88">NewTimerDeployment</a>
+				<a class="permalink" href="#NewTimerDeployment">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewTimerDeployment(name, namespace <a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/builtin/#string">string</a>) *<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/api/apps/v1/">appsv1</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.2/pkg/k8s.io/api/apps/v1/#Deployment">Deployment</a></pre>
+			<p>
+NewTimerDeployment creates a timer deployment
+</p>
+
+			
+			
+
+		
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

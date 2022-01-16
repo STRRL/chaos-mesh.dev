@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>cmd - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v1.2.2/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v1.2.2/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v1.2.2/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 828bf42. Generated at Sun Jan 16 12:19:08 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package cmd
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#Execute">func Execute()</a></dd>
+			
+				
+				<dd><a href="#NewDebugCommand">func NewDebugCommand(logger logr.Logger) (*cobra.Command, error)</a></dd>
+			
+				
+				<dd><a href="#NewLogsCmd">func NewLogsCmd(logger logr.Logger) (*cobra.Command, error)</a></dd>
+			
+			
+				
+				<dd><a href="#DebugOptions">type DebugOptions</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DebugOptions.Run">func (o *DebugOptions) Run(chaosType string, args []string, c *cm.ClientSet) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.2/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/completion.go">completion.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.2/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go">debug.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.2/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/logs.go">logs.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.2/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/root.go">root.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="Execute">func <a href="./https:/chaos-mesh.dev/godoc/v1.2.2/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/root.go#L42">Execute</a>
+				<a class="permalink" href="#Execute">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Execute()</pre>
+			<p>
+Execute adds all child commands to the root command and sets flags appropriately.
+This is called by main.main(). It only needs to happen once to the rootCmd.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="NewDebugCommand">func <a href="./https:/chaos-mesh.dev/godoc/v1.2.2/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go#L50">NewDebugCommand</a>
+				<a class="permalink" href="#NewDebugCommand">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewDebugCommand(logger <a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (*<a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewLogsCmd">func <a href="./https:/chaos-mesh.dev/godoc/v1.2.2/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/logs.go#L40">NewLogsCmd</a>
+				<a class="permalink" href="#NewLogsCmd">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewLogsCmd(logger <a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (*<a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="DebugOptions">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.2/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go#L35">DebugOptions</a>
+				<a class="permalink" href="#DebugOptions">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type DebugOptions struct {
+<span id="DebugOptions.CaCertFile"></span>    CaCertFile <a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/builtin/#string">string</a>
+<span id="DebugOptions.CertFile"></span>    CertFile   <a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/builtin/#string">string</a>
+<span id="DebugOptions.KeyFile"></span>    KeyFile    <a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/builtin/#string">string</a>
+<span id="DebugOptions.Insecure"></span>    Insecure   <a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/builtin/#bool">bool</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="DebugOptions.Run">func (*DebugOptions) <a href="./https:/chaos-mesh.dev/godoc/v1.2.2/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go#L167">Run</a>
+					<a class="permalink" href="#DebugOptions.Run">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="#DebugOptions">DebugOptions</a>) Run(chaosType <a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/builtin/#string">string</a>, args []<a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/builtin/#string">string</a>, c *<a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/">cm</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/#ClientSet">ClientSet</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.2/pkg/builtin/#error">error</a></pre>
+				<p>
+Run debug
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
