@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>workflow - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.2/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.2/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.2/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 5254db9. Generated at Sun Jan 16 10:55:11 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package workflow
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/store/workflow"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#NewStore">func NewStore(db *dbstore.DB) core.WorkflowStore</a></dd>
+			
+			
+				
+				<dd><a href="#WorkflowStore">type WorkflowStore</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowStore.DeleteByUID">func (it *WorkflowStore) DeleteByUID(ctx context.Context, uid string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowStore.DeleteByUIDs">func (it *WorkflowStore) DeleteByUIDs(ctx context.Context, uids []string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowStore.FindByID">func (it *WorkflowStore) FindByID(ctx context.Context, id uint) (*core.WorkflowEntity, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowStore.FindByUID">func (it *WorkflowStore) FindByUID(ctx context.Context, uid string) (*core.WorkflowEntity, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowStore.FindMetaByUID">func (it *WorkflowStore) FindMetaByUID(ctx context.Context, UID string) (*core.WorkflowMeta, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowStore.List">func (it *WorkflowStore) List(ctx context.Context, namespace, name string, archived bool) ([]*core.WorkflowEntity, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowStore.ListMeta">func (it *WorkflowStore) ListMeta(ctx context.Context, namespace, name string, archived bool) ([]*core.WorkflowMeta, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowStore.MarkAsArchived">func (it *WorkflowStore) MarkAsArchived(ctx context.Context, namespace, name string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowStore.MarkAsArchivedWithUID">func (it *WorkflowStore) MarkAsArchivedWithUID(ctx context.Context, uid string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowStore.Save">func (it *WorkflowStore) Save(ctx context.Context, entity *core.WorkflowEntity) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/pkg/store/workflow/workflow.go">workflow.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="NewStore">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/pkg/store/workflow/workflow.go#L29">NewStore</a>
+				<a class="permalink" href="#NewStore">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewStore(db *<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/store/dbstore/">dbstore</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/store/dbstore/#DB">DB</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/#WorkflowStore">WorkflowStore</a></pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="WorkflowStore">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/pkg/store/workflow/workflow.go#L25">WorkflowStore</a>
+				<a class="permalink" href="#WorkflowStore">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type WorkflowStore struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="WorkflowStore.DeleteByUID">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/pkg/store/workflow/workflow.go#L99">DeleteByUID</a>
+					<a class="permalink" href="#WorkflowStore.DeleteByUID">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#WorkflowStore">WorkflowStore</a>) DeleteByUID(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/#Context">Context</a>, uid <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="WorkflowStore.DeleteByUIDs">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/pkg/store/workflow/workflow.go#L104">DeleteByUIDs</a>
+					<a class="permalink" href="#WorkflowStore.DeleteByUIDs">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#WorkflowStore">WorkflowStore</a>) DeleteByUIDs(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/#Context">Context</a>, uids []<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="WorkflowStore.FindByID">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/pkg/store/workflow/workflow.go#L65">FindByID</a>
+					<a class="permalink" href="#WorkflowStore.FindByID">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#WorkflowStore">WorkflowStore</a>) FindByID(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/#Context">Context</a>, id <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#uint">uint</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/#WorkflowEntity">WorkflowEntity</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="WorkflowStore.FindByUID">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/pkg/store/workflow/workflow.go#L76">FindByUID</a>
+					<a class="permalink" href="#WorkflowStore.FindByUID">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#WorkflowStore">WorkflowStore</a>) FindByUID(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/#Context">Context</a>, uid <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#string">string</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/#WorkflowEntity">WorkflowEntity</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="WorkflowStore.FindMetaByUID">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/pkg/store/workflow/workflow.go#L87">FindMetaByUID</a>
+					<a class="permalink" href="#WorkflowStore.FindMetaByUID">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#WorkflowStore">WorkflowStore</a>) FindMetaByUID(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/#Context">Context</a>, UID <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#string">string</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/#WorkflowMeta">WorkflowMeta</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="WorkflowStore.List">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/pkg/store/workflow/workflow.go#L35">List</a>
+					<a class="permalink" href="#WorkflowStore.List">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#WorkflowStore">WorkflowStore</a>) List(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#string">string</a>, archived <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#bool">bool</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/#WorkflowEntity">WorkflowEntity</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="WorkflowStore.ListMeta">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/pkg/store/workflow/workflow.go#L52">ListMeta</a>
+					<a class="permalink" href="#WorkflowStore.ListMeta">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#WorkflowStore">WorkflowStore</a>) ListMeta(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#string">string</a>, archived <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#bool">bool</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/#WorkflowMeta">WorkflowMeta</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="WorkflowStore.MarkAsArchived">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/pkg/store/workflow/workflow.go#L108">MarkAsArchived</a>
+					<a class="permalink" href="#WorkflowStore.MarkAsArchived">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#WorkflowStore">WorkflowStore</a>) MarkAsArchived(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="WorkflowStore.MarkAsArchivedWithUID">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/pkg/store/workflow/workflow.go#L117">MarkAsArchivedWithUID</a>
+					<a class="permalink" href="#WorkflowStore.MarkAsArchivedWithUID">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#WorkflowStore">WorkflowStore</a>) MarkAsArchivedWithUID(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/#Context">Context</a>, uid <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="WorkflowStore.Save">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/pkg/store/workflow/workflow.go#L95">Save</a>
+					<a class="permalink" href="#WorkflowStore.Save">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#WorkflowStore">WorkflowStore</a>) Save(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/#Context">Context</a>, entity *<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/core/#WorkflowEntity">WorkflowEntity</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

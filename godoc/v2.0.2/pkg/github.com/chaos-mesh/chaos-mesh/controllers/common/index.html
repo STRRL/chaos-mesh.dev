@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>common - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.2/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.2/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.2/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 5254db9. Generated at Sun Jan 16 10:55:11 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package common
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/controllers/common"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#NewController">func NewController(params Params) (types.Controller, error)</a></dd>
+			
+			
+				
+				<dd><a href="#ChaosImpl">type ChaosImpl</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ChaosImplPair">type ChaosImplPair</a></dd>
+				
+				
+			
+				
+				<dd><a href="#InnerObjectWithCustomStatus">type InnerObjectWithCustomStatus</a></dd>
+				
+				
+			
+				
+				<dd><a href="#InnerObjectWithSelector">type InnerObjectWithSelector</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Operation">type Operation</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Params">type Params</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Reconciler">type Reconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Reconciler.Reconcile">func (r *Reconciler) Reconcile(req ctrl.Request) (ctrl.Result, error)</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/controllers/common/controller.go">controller.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go">fx.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="NewController">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go#L58">NewController</a>
+				<a class="permalink" href="#NewController">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewController(params <a href="#Params">Params</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/controllers/types/">types</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/controllers/types/#Controller">Controller</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="ChaosImpl">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/controllers/common/controller.go#L44">ChaosImpl</a>
+				<a class="permalink" href="#ChaosImpl">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ChaosImpl interface {
+    Apply(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/#Context">Context</a>, index <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#int">int</a>, records []*<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Record">Record</a>, obj <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Phase">Phase</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#error">error</a>)
+    Recover(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/context/#Context">Context</a>, index <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#int">int</a>, records []*<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Record">Record</a>, obj <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Phase">Phase</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ChaosImplPair">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go#L37">ChaosImplPair</a>
+				<a class="permalink" href="#ChaosImplPair">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ChaosImplPair struct {
+<span id="ChaosImplPair.Name"></span>    Name   <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#string">string</a>
+<span id="ChaosImplPair.Object"></span>    Object <a href="#InnerObjectWithSelector">InnerObjectWithSelector</a>
+<span id="ChaosImplPair.Impl"></span>    Impl   <a href="#ChaosImpl">ChaosImpl</a>
+
+<span id="ChaosImplPair.ObjectList"></span>    ObjectList <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>
+<span id="ChaosImplPair.Controlls"></span>    Controlls  []<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="InnerObjectWithCustomStatus">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/controllers/common/controller.go#L32">InnerObjectWithCustomStatus</a>
+				<a class="permalink" href="#InnerObjectWithCustomStatus">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type InnerObjectWithCustomStatus interface {
+    <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>
+
+    GetCustomStatus() interface{}
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="InnerObjectWithSelector">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/controllers/common/controller.go#L38">InnerObjectWithSelector</a>
+				<a class="permalink" href="#InnerObjectWithSelector">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type InnerObjectWithSelector interface {
+    <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>
+
+    GetSelectorSpecs() map[<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#string">string</a>]interface{}
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Operation">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/controllers/common/controller.go#L67">Operation</a>
+				<a class="permalink" href="#Operation">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Operation <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#string">string</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="Apply">Apply</span>   <a href="#Operation">Operation</a> = &#34;apply&#34;
+    <span id="Recover">Recover</span> <a href="#Operation">Operation</a> = &#34;recover&#34;
+    <span id="Nothing">Nothing</span> <a href="#Operation">Operation</a> = &#34;&#34;
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Params">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go#L46">Params</a>
+				<a class="permalink" href="#Params">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Params struct {
+    <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/go.uber.org/fx/#In">In</a>
+
+<span id="Params.Mgr"></span>    Mgr             <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>
+<span id="Params.Client"></span>    Client          <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+<span id="Params.Logger"></span>    Logger          <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+<span id="Params.Selector"></span>    Selector        *<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/selector/">selector</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/selector/#Selector">Selector</a>
+<span id="Params.RecorderBuilder"></span>    RecorderBuilder *<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#RecorderBuilder">RecorderBuilder</a>
+<span id="Params.Impls"></span>    Impls           []*<a href="#ChaosImplPair">ChaosImplPair</a> `group:&#34;impl&#34;`
+<span id="Params.Reader"></span>    Reader          <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>    `name:&#34;no-cache&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Reconciler">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/controllers/common/controller.go#L50">Reconciler</a>
+				<a class="permalink" href="#Reconciler">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Reconciler for common chaos
+</p>
+
+			<pre>type Reconciler struct {
+<span id="Reconciler.Impl"></span>    Impl <a href="#ChaosImpl">ChaosImpl</a>
+
+<span id="Reconciler.Object"></span>    <span class="comment">// Object is used to mark the target type of this Reconciler</span>
+    Object <a href="#InnerObjectWithSelector">InnerObjectWithSelector</a>
+
+    <span class="comment">// Client is used to operate on the Kubernetes cluster</span>
+    <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+    <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>
+
+<span id="Reconciler.Recorder"></span>    Recorder <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#ChaosRecorder">ChaosRecorder</a>
+
+<span id="Reconciler.Selector"></span>    Selector *<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/selector/">selector</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/chaos-mesh/chaos-mesh/pkg/selector/#Selector">Selector</a>
+
+<span id="Reconciler.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Reconciler.Reconcile">func (*Reconciler) <a href="./https:/chaos-mesh.dev/godoc/v2.0.2/src/github.com/chaos-mesh/chaos-mesh/controllers/common/controller.go#L76">Reconcile</a>
+					<a class="permalink" href="#Reconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Reconciler">Reconciler</a>) Reconcile(req <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.2/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Reconcile the common chaos
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
