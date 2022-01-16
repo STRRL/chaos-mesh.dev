@@ -16,7 +16,7 @@ Here is the directory for API References for each Versions
 
 ### v2.0.z
 
-- [github.com/chaos-mesh/chaos-mesh/api/v1alpha1@v0.0.0-20211229061749-425ea13eaab2](v0.0.0-20211229061749-425ea13eaab2) used with Chaos Mesh v2.0.6
+- [github.com/chaos-mesh/chaos-mesh/api/v1alpha1@v0.0.0-20211229061749-425ea13eaab2](./v0.0.0-20211229061749-425ea13eaab2) used with Chaos Mesh v2.0.6
 
 ## Inactive Branches
 
@@ -26,4 +26,4 @@ Here is the directory for API References for each Versions
 
 ### v1.2.z
 
-- [github.com/chaos-mesh/chaos-mesh/api/v1alpha1@v0.0.0-20211125081150-04047c866016](v0.0.0-20211125081150-04047c866016) used with Chaos Mesh v1.2.4
+- [github.com/chaos-mesh/chaos-mesh/api/v1alpha1@v0.0.0-20211125081150-04047c866016](./v0.0.0-20211125081150-04047c866016) used with Chaos Mesh v1.2.4
