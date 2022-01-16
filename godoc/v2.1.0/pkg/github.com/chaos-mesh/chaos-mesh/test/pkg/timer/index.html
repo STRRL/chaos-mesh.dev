@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>timer - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.1.0/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.0/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.0/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 802bf85. Generated at Sun Jan 16 10:54:01 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package timer
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/test/pkg/timer"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#TimeResult">type TimeResult</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Timer">type Timer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StartTimer">func StartTimer() (*Timer, error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Timer.GetTime">func (timer *Timer) GetTime() (*time.Time, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Timer.Pid">func (timer *Timer) Pid() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Timer.Stop">func (timer *Timer) Stop() error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/test/pkg/timer/timer.go">timer.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="TimeResult">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/test/pkg/timer/timer.go#L42">TimeResult</a>
+				<a class="permalink" href="#TimeResult">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+TimeResult represents a get time result with an error
+</p>
+
+			<pre>type TimeResult struct {
+<span id="TimeResult.Time"></span>    Time  *<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/time/#Time">Time</a>
+<span id="TimeResult.Error"></span>    Error <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#error">error</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Timer">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/test/pkg/timer/timer.go#L29">Timer</a>
+				<a class="permalink" href="#Timer">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Timer represents a running timer process
+</p>
+
+			<pre>type Timer struct {
+<span id="Timer.Stdin"></span>    Stdin    <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/io/">io</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/io/#WriteCloser">WriteCloser</a>
+<span id="Timer.TimeChan"></span>    TimeChan chan <a href="#TimeResult">TimeResult</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="StartTimer">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/test/pkg/timer/timer.go#L48">StartTimer</a>
+					<a class="permalink" href="#StartTimer">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func StartTimer() (*<a href="#Timer">Timer</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#error">error</a>)</pre>
+				<p>
+StartTimer will start a timer process
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="Timer.GetTime">func (*Timer) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/test/pkg/timer/timer.go#L107">GetTime</a>
+					<a class="permalink" href="#Timer.GetTime">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (timer *<a href="#Timer">Timer</a>) GetTime() (*<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#error">error</a>)</pre>
+				<p>
+GetTime will run `time.Now()` in timer
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Timer.Pid">func (*Timer) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/test/pkg/timer/timer.go#L37">Pid</a>
+					<a class="permalink" href="#Timer.Pid">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (timer *<a href="#Timer">Timer</a>) Pid() <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#int">int</a></pre>
+				<p>
+Pid returns the pid of timer
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Timer.Stop">func (*Timer) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/test/pkg/timer/timer.go#L122">Stop</a>
+					<a class="permalink" href="#Timer.Stop">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (timer *<a href="#Timer">Timer</a>) Stop() <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#error">error</a></pre>
+				<p>
+Stop stops the process
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>controllers - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.1.0/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.0/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.0/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 802bf85. Generated at Sun Jan 16 10:54:01 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package controllers
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#BootstrapWorkflowControllers">func BootstrapWorkflowControllers(mgr manager.Manager, logger logr.Logger, recorderBuilder *recorder.RecorderBuilder) error</a></dd>
+			
+				
+				<dd><a href="#ConditionEqualsTo">func ConditionEqualsTo(status v1alpha1.WorkflowNodeStatus, conditionType v1alpha1.WorkflowNodeConditionType, expected corev1.ConditionStatus) bool</a></dd>
+			
+				
+				<dd><a href="#GetCondition">func GetCondition(status v1alpha1.WorkflowNodeStatus, conditionType v1alpha1.WorkflowNodeConditionType) *v1alpha1.WorkflowNodeCondition</a></dd>
+			
+				
+				<dd><a href="#GetWorkflowCondition">func GetWorkflowCondition(status v1alpha1.WorkflowStatus, conditionType v1alpha1.WorkflowConditionType) *v1alpha1.WorkflowCondition</a></dd>
+			
+				
+				<dd><a href="#SetCondition">func SetCondition(status *v1alpha1.WorkflowNodeStatus, condition v1alpha1.WorkflowNodeCondition)</a></dd>
+			
+				
+				<dd><a href="#SetWorkflowCondition">func SetWorkflowCondition(status *v1alpha1.WorkflowStatus, condition v1alpha1.WorkflowCondition)</a></dd>
+			
+				
+				<dd><a href="#WorkflowConditionEqualsTo">func WorkflowConditionEqualsTo(status v1alpha1.WorkflowStatus, conditionType v1alpha1.WorkflowConditionType, expected corev1.ConditionStatus) bool</a></dd>
+			
+				
+				<dd><a href="#WorkflowNodeFinished">func WorkflowNodeFinished(status v1alpha1.WorkflowNodeStatus) bool</a></dd>
+			
+			
+				
+				<dd><a href="#ChaosNodeReconciler">type ChaosNodeReconciler</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewChaosNodeReconciler">func NewChaosNodeReconciler(kubeClient client.Client, eventRecorder recorder.ChaosRecorder, logger logr.Logger) *ChaosNodeReconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ChaosNodeReconciler.Reconcile">func (it *ChaosNodeReconciler) Reconcile(ctx context.Context, request reconcile.Request) (reconcile.Result, error)</a></dd>
+				
+			
+				
+				<dd><a href="#ChildNodesFetcher">type ChildNodesFetcher</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewChildNodesFetcher">func NewChildNodesFetcher(kubeClient client.Client, logger logr.Logger) *ChildNodesFetcher</a></dd>
+				
+				
+			
+				
+				<dd><a href="#DeadlineReconciler">type DeadlineReconciler</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewDeadlineReconciler">func NewDeadlineReconciler(kubeClient client.Client, eventRecorder recorder.ChaosRecorder, logger logr.Logger) *DeadlineReconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DeadlineReconciler.Reconcile">func (it *DeadlineReconciler) Reconcile(ctx context.Context, request reconcile.Request) (reconcile.Result, error)</a></dd>
+				
+			
+				
+				<dd><a href="#ParallelNodeReconciler">type ParallelNodeReconciler</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewParallelNodeReconciler">func NewParallelNodeReconciler(kubeClient client.Client, eventRecorder recorder.ChaosRecorder, logger logr.Logger) *ParallelNodeReconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParallelNodeReconciler.Reconcile">func (it *ParallelNodeReconciler) Reconcile(ctx context.Context, request reconcile.Request) (reconcile.Result, error)</a></dd>
+				
+			
+				
+				<dd><a href="#SerialNodeReconciler">type SerialNodeReconciler</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewSerialNodeReconciler">func NewSerialNodeReconciler(kubeClient client.Client, eventRecorder recorder.ChaosRecorder, logger logr.Logger) *SerialNodeReconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SerialNodeReconciler.Reconcile">func (it *SerialNodeReconciler) Reconcile(ctx context.Context, request reconcile.Request) (reconcile.Result, error)</a></dd>
+				
+			
+				
+				<dd><a href="#SortByCreationTimestamp">type SortByCreationTimestamp</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SortByCreationTimestamp.Len">func (it SortByCreationTimestamp) Len() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SortByCreationTimestamp.Less">func (it SortByCreationTimestamp) Less(i, j int) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SortByCreationTimestamp.Swap">func (it SortByCreationTimestamp) Swap(i, j int)</a></dd>
+				
+			
+				
+				<dd><a href="#SortGenericChaosByCreationTimestamp">type SortGenericChaosByCreationTimestamp</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SortGenericChaosByCreationTimestamp.Len">func (it SortGenericChaosByCreationTimestamp) Len() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SortGenericChaosByCreationTimestamp.Less">func (it SortGenericChaosByCreationTimestamp) Less(i, j int) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SortGenericChaosByCreationTimestamp.Swap">func (it SortGenericChaosByCreationTimestamp) Swap(i, j int)</a></dd>
+				
+			
+				
+				<dd><a href="#SortScheduleByCreationTimestamp">type SortScheduleByCreationTimestamp</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SortScheduleByCreationTimestamp.Len">func (it SortScheduleByCreationTimestamp) Len() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SortScheduleByCreationTimestamp.Less">func (it SortScheduleByCreationTimestamp) Less(i, j int) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SortScheduleByCreationTimestamp.Swap">func (it SortScheduleByCreationTimestamp) Swap(i, j int)</a></dd>
+				
+			
+				
+				<dd><a href="#TaskReconciler">type TaskReconciler</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewTaskReconciler">func NewTaskReconciler(kubeClient client.Client, restConfig *rest.Config, eventRecorder recorder.ChaosRecorder, logger logr.Logger) *TaskReconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskReconciler.FetchPodControlledByThisWorkflowNode">func (it *TaskReconciler) FetchPodControlledByThisWorkflowNode(ctx context.Context, node v1alpha1.WorkflowNode) ([]corev1.Pod, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskReconciler.Reconcile">func (it *TaskReconciler) Reconcile(ctx context.Context, request reconcile.Request) (reconcile.Result, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskReconciler.SpawnTaskPod">func (it *TaskReconciler) SpawnTaskPod(ctx context.Context, node *v1alpha1.WorkflowNode, workflow *v1alpha1.Workflow) (*corev1.Pod, error)</a></dd>
+				
+			
+				
+				<dd><a href="#WorkflowEntryReconciler">type WorkflowEntryReconciler</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewWorkflowEntryReconciler">func NewWorkflowEntryReconciler(kubeClient client.Client, eventRecorder recorder.ChaosRecorder, logger logr.Logger) *WorkflowEntryReconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowEntryReconciler.Reconcile">func (it *WorkflowEntryReconciler) Reconcile(ctx context.Context, request reconcile.Request) (reconcile.Result, error)</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/bootstrap.go">bootstrap.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/chaos_node_reconciler.go">chaos_node_reconciler.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/deadline_reconciler.go">deadline_reconciler.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/new_node.go">new_node.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/parallel_node_reconciler.go">parallel_node_reconciler.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/serial_node_reconciler.go">serial_node_reconciler.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/task_reconciler.go">task_reconciler.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/utils.go">utils.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/workflow_entry_reconciler.go">workflow_entry_reconciler.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var (
+    <span id="ApiVersion">ApiVersion</span>       = <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#GroupVersion">GroupVersion</a>.<a href="#String">String</a>()
+    <span id="KindWorkflow">KindWorkflow</span>     = &#34;Workflow&#34;
+    <span id="KindWorkflowNode">KindWorkflowNode</span> = &#34;WorkflowNode&#34;
+)</pre>
+			
+		
+		
+			
+			
+			<h2 id="BootstrapWorkflowControllers">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/bootstrap.go#L30">BootstrapWorkflowControllers</a>
+				<a class="permalink" href="#BootstrapWorkflowControllers">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func BootstrapWorkflowControllers(mgr <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/manager/">manager</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/manager/#Manager">Manager</a>, logger <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>, recorderBuilder *<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#RecorderBuilder">RecorderBuilder</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#error">error</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="ConditionEqualsTo">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/utils.go#L50">ConditionEqualsTo</a>
+				<a class="permalink" href="#ConditionEqualsTo">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ConditionEqualsTo(status <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowNodeStatus">WorkflowNodeStatus</a>, conditionType <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowNodeConditionType">WorkflowNodeConditionType</a>, expected <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/k8s.io/api/core/v1/#ConditionStatus">ConditionStatus</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#bool">bool</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="GetCondition">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/utils.go#L41">GetCondition</a>
+				<a class="permalink" href="#GetCondition">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GetCondition(status <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowNodeStatus">WorkflowNodeStatus</a>, conditionType <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowNodeConditionType">WorkflowNodeConditionType</a>) *<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowNodeCondition">WorkflowNodeCondition</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="GetWorkflowCondition">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/utils.go#L83">GetWorkflowCondition</a>
+				<a class="permalink" href="#GetWorkflowCondition">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GetWorkflowCondition(status <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowStatus">WorkflowStatus</a>, conditionType <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowConditionType">WorkflowConditionType</a>) *<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowCondition">WorkflowCondition</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="SetCondition">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/utils.go#L32">SetCondition</a>
+				<a class="permalink" href="#SetCondition">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SetCondition(status *<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowNodeStatus">WorkflowNodeStatus</a>, condition <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowNodeCondition">WorkflowNodeCondition</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="SetWorkflowCondition">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/utils.go#L74">SetWorkflowCondition</a>
+				<a class="permalink" href="#SetWorkflowCondition">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SetWorkflowCondition(status *<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowStatus">WorkflowStatus</a>, condition <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowCondition">WorkflowCondition</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="WorkflowConditionEqualsTo">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/utils.go#L92">WorkflowConditionEqualsTo</a>
+				<a class="permalink" href="#WorkflowConditionEqualsTo">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func WorkflowConditionEqualsTo(status <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowStatus">WorkflowStatus</a>, conditionType <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowConditionType">WorkflowConditionType</a>, expected <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/k8s.io/api/core/v1/#ConditionStatus">ConditionStatus</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#bool">bool</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="WorkflowNodeFinished">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/utils.go#L69">WorkflowNodeFinished</a>
+				<a class="permalink" href="#WorkflowNodeFinished">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func WorkflowNodeFinished(status <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowNodeStatus">WorkflowNodeStatus</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#bool">bool</a></pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="ChaosNodeReconciler">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/chaos_node_reconciler.go#L35">ChaosNodeReconciler</a>
+				<a class="permalink" href="#ChaosNodeReconciler">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ChaosNodeReconciler struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewChaosNodeReconciler">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/chaos_node_reconciler.go#L41">NewChaosNodeReconciler</a>
+					<a class="permalink" href="#NewChaosNodeReconciler">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewChaosNodeReconciler(kubeClient <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, eventRecorder <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#ChaosRecorder">ChaosRecorder</a>, logger <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#ChaosNodeReconciler">ChaosNodeReconciler</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="ChaosNodeReconciler.Reconcile">func (*ChaosNodeReconciler) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/chaos_node_reconciler.go#L45">Reconcile</a>
+					<a class="permalink" href="#ChaosNodeReconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#ChaosNodeReconciler">ChaosNodeReconciler</a>) Reconcile(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/context/#Context">Context</a>, request <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ChildNodesFetcher">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/utils.go#L125">ChildNodesFetcher</a>
+				<a class="permalink" href="#ChildNodesFetcher">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ChildNodesFetcher struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewChildNodesFetcher">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/utils.go#L130">NewChildNodesFetcher</a>
+					<a class="permalink" href="#NewChildNodesFetcher">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewChildNodesFetcher(kubeClient <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, logger <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#ChildNodesFetcher">ChildNodesFetcher</a></pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="DeadlineReconciler">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/deadline_reconciler.go#L35">DeadlineReconciler</a>
+				<a class="permalink" href="#DeadlineReconciler">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type DeadlineReconciler struct {
+    *<a href="#ChildNodesFetcher">ChildNodesFetcher</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewDeadlineReconciler">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/deadline_reconciler.go#L42">NewDeadlineReconciler</a>
+					<a class="permalink" href="#NewDeadlineReconciler">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewDeadlineReconciler(kubeClient <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, eventRecorder <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#ChaosRecorder">ChaosRecorder</a>, logger <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#DeadlineReconciler">DeadlineReconciler</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="DeadlineReconciler.Reconcile">func (*DeadlineReconciler) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/deadline_reconciler.go#L50">Reconcile</a>
+					<a class="permalink" href="#DeadlineReconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#DeadlineReconciler">DeadlineReconciler</a>) Reconcile(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/context/#Context">Context</a>, request <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ParallelNodeReconciler">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/parallel_node_reconciler.go#L35">ParallelNodeReconciler</a>
+				<a class="permalink" href="#ParallelNodeReconciler">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ParallelNodeReconciler watches on nodes which type is Parallel
+</p>
+
+			<pre>type ParallelNodeReconciler struct {
+    *<a href="#ChildNodesFetcher">ChildNodesFetcher</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewParallelNodeReconciler">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/parallel_node_reconciler.go#L42">NewParallelNodeReconciler</a>
+					<a class="permalink" href="#NewParallelNodeReconciler">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewParallelNodeReconciler(kubeClient <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, eventRecorder <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#ChaosRecorder">ChaosRecorder</a>, logger <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#ParallelNodeReconciler">ParallelNodeReconciler</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="ParallelNodeReconciler.Reconcile">func (*ParallelNodeReconciler) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/parallel_node_reconciler.go#L52">Reconcile</a>
+					<a class="permalink" href="#ParallelNodeReconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#ParallelNodeReconciler">ParallelNodeReconciler</a>) Reconcile(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/context/#Context">Context</a>, request <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Reconcile is extremely like the one in SerialNodeReconciler, only allows the parallel schedule, and respawn **all** the children tasks during retry
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="SerialNodeReconciler">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/serial_node_reconciler.go#L36">SerialNodeReconciler</a>
+				<a class="permalink" href="#SerialNodeReconciler">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+SerialNodeReconciler watches on nodes which type is Serial
+</p>
+
+			<pre>type SerialNodeReconciler struct {
+    *<a href="#ChildNodesFetcher">ChildNodesFetcher</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewSerialNodeReconciler">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/serial_node_reconciler.go#L43">NewSerialNodeReconciler</a>
+					<a class="permalink" href="#NewSerialNodeReconciler">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewSerialNodeReconciler(kubeClient <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, eventRecorder <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#ChaosRecorder">ChaosRecorder</a>, logger <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#SerialNodeReconciler">SerialNodeReconciler</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="SerialNodeReconciler.Reconcile">func (*SerialNodeReconciler) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/serial_node_reconciler.go#L68">Reconcile</a>
+					<a class="permalink" href="#SerialNodeReconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#SerialNodeReconciler">SerialNodeReconciler</a>) Reconcile(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/context/#Context">Context</a>, request <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Reconcile should be invoked by: changes on a serial node, or changes on a node which controlled by serial node.
+So we need to setup EnqueueRequestForOwner while setting up this reconciler.
+</p>
+<p>
+Reconcile does these things:
+1. walk through on tasks in spec, compare them with the node instances (listed with v1alpha1.LabelControlledBy),
+remove the outdated instance;
+2. find out the node needs to be created, then create one if exists;
+3. update the status of serial node;
+</p>
+<p>
+In this reconciler, we SHOULD NOT use v1alpha1.WorkflowNodeStatus as the state.
+Because v1alpha1.WorkflowNodeStatus is generated by this reconciler, if that itself also depends on that state,
+it will be complex to decide when to update the status, and even require to update status more than one time,
+that sounds not good.
+And We MUST update v1alpha1.WorkflowNodeStatus by &#34;observing real world&#34; at EACH TIME, such as listing controlled
+children nodes.
+We only update v1alpha1.WorkflowNodeStatus once(wrapped with retry on conflict), at the end of this method.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="SortByCreationTimestamp">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/utils.go#L111">SortByCreationTimestamp</a>
+				<a class="permalink" href="#SortByCreationTimestamp">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type SortByCreationTimestamp []<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowNode">WorkflowNode</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="SortByCreationTimestamp.Len">func (SortByCreationTimestamp) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/utils.go#L113">Len</a>
+					<a class="permalink" href="#SortByCreationTimestamp.Len">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#SortByCreationTimestamp">SortByCreationTimestamp</a>) Len() <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SortByCreationTimestamp.Less">func (SortByCreationTimestamp) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/utils.go#L117">Less</a>
+					<a class="permalink" href="#SortByCreationTimestamp.Less">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#SortByCreationTimestamp">SortByCreationTimestamp</a>) Less(i, j <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SortByCreationTimestamp.Swap">func (SortByCreationTimestamp) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/utils.go#L121">Swap</a>
+					<a class="permalink" href="#SortByCreationTimestamp.Swap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#SortByCreationTimestamp">SortByCreationTimestamp</a>) Swap(i, j <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#int">int</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="SortGenericChaosByCreationTimestamp">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/chaos_node_reconciler.go#L427">SortGenericChaosByCreationTimestamp</a>
+				<a class="permalink" href="#SortGenericChaosByCreationTimestamp">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type SortGenericChaosByCreationTimestamp []<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#GenericChaos">GenericChaos</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="SortGenericChaosByCreationTimestamp.Len">func (SortGenericChaosByCreationTimestamp) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/chaos_node_reconciler.go#L429">Len</a>
+					<a class="permalink" href="#SortGenericChaosByCreationTimestamp.Len">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#SortGenericChaosByCreationTimestamp">SortGenericChaosByCreationTimestamp</a>) Len() <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SortGenericChaosByCreationTimestamp.Less">func (SortGenericChaosByCreationTimestamp) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/chaos_node_reconciler.go#L433">Less</a>
+					<a class="permalink" href="#SortGenericChaosByCreationTimestamp.Less">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#SortGenericChaosByCreationTimestamp">SortGenericChaosByCreationTimestamp</a>) Less(i, j <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SortGenericChaosByCreationTimestamp.Swap">func (SortGenericChaosByCreationTimestamp) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/chaos_node_reconciler.go#L437">Swap</a>
+					<a class="permalink" href="#SortGenericChaosByCreationTimestamp.Swap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#SortGenericChaosByCreationTimestamp">SortGenericChaosByCreationTimestamp</a>) Swap(i, j <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#int">int</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="SortScheduleByCreationTimestamp">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/chaos_node_reconciler.go#L441">SortScheduleByCreationTimestamp</a>
+				<a class="permalink" href="#SortScheduleByCreationTimestamp">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type SortScheduleByCreationTimestamp []<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Schedule">Schedule</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="SortScheduleByCreationTimestamp.Len">func (SortScheduleByCreationTimestamp) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/chaos_node_reconciler.go#L443">Len</a>
+					<a class="permalink" href="#SortScheduleByCreationTimestamp.Len">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#SortScheduleByCreationTimestamp">SortScheduleByCreationTimestamp</a>) Len() <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SortScheduleByCreationTimestamp.Less">func (SortScheduleByCreationTimestamp) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/chaos_node_reconciler.go#L447">Less</a>
+					<a class="permalink" href="#SortScheduleByCreationTimestamp.Less">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#SortScheduleByCreationTimestamp">SortScheduleByCreationTimestamp</a>) Less(i, j <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SortScheduleByCreationTimestamp.Swap">func (SortScheduleByCreationTimestamp) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/chaos_node_reconciler.go#L451">Swap</a>
+					<a class="permalink" href="#SortScheduleByCreationTimestamp.Swap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#SortScheduleByCreationTimestamp">SortScheduleByCreationTimestamp</a>) Swap(i, j <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#int">int</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="TaskReconciler">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/task_reconciler.go#L40">TaskReconciler</a>
+				<a class="permalink" href="#TaskReconciler">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type TaskReconciler struct {
+    *<a href="#ChildNodesFetcher">ChildNodesFetcher</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewTaskReconciler">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/task_reconciler.go#L48">NewTaskReconciler</a>
+					<a class="permalink" href="#NewTaskReconciler">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewTaskReconciler(kubeClient <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, restConfig *<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/k8s.io/client-go/rest/">rest</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/k8s.io/client-go/rest/#Config">Config</a>, eventRecorder <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#ChaosRecorder">ChaosRecorder</a>, logger <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#TaskReconciler">TaskReconciler</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="TaskReconciler.FetchPodControlledByThisWorkflowNode">func (*TaskReconciler) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/task_reconciler.go#L399">FetchPodControlledByThisWorkflowNode</a>
+					<a class="permalink" href="#TaskReconciler.FetchPodControlledByThisWorkflowNode">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#TaskReconciler">TaskReconciler</a>) FetchPodControlledByThisWorkflowNode(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/context/#Context">Context</a>, node <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowNode">WorkflowNode</a>) ([]<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TaskReconciler.Reconcile">func (*TaskReconciler) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/task_reconciler.go#L58">Reconcile</a>
+					<a class="permalink" href="#TaskReconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#TaskReconciler">TaskReconciler</a>) Reconcile(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/context/#Context">Context</a>, request <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TaskReconciler.SpawnTaskPod">func (*TaskReconciler) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/task_reconciler.go#L423">SpawnTaskPod</a>
+					<a class="permalink" href="#TaskReconciler.SpawnTaskPod">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#TaskReconciler">TaskReconciler</a>) SpawnTaskPod(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/context/#Context">Context</a>, node *<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WorkflowNode">WorkflowNode</a>, workflow *<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Workflow">Workflow</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="WorkflowEntryReconciler">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/workflow_entry_reconciler.go#L37">WorkflowEntryReconciler</a>
+				<a class="permalink" href="#WorkflowEntryReconciler">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+WorkflowEntryReconciler watches on Workflow, creates new Entry Node for created Workflow.
+</p>
+
+			<pre>type WorkflowEntryReconciler struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewWorkflowEntryReconciler">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/workflow_entry_reconciler.go#L43">NewWorkflowEntryReconciler</a>
+					<a class="permalink" href="#NewWorkflowEntryReconciler">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewWorkflowEntryReconciler(kubeClient <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, eventRecorder <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#ChaosRecorder">ChaosRecorder</a>, logger <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#WorkflowEntryReconciler">WorkflowEntryReconciler</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="WorkflowEntryReconciler.Reconcile">func (*WorkflowEntryReconciler) <a href="./https:/chaos-mesh.dev/godoc/v2.1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/workflow_entry_reconciler.go#L47">Reconcile</a>
+					<a class="permalink" href="#WorkflowEntryReconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#WorkflowEntryReconciler">WorkflowEntryReconciler</a>) Reconcile(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/context/#Context">Context</a>, request <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
