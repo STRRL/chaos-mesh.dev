@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>genericwebhook - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 54c090f. Generated at Sun Jan 16 10:11:52 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package genericwebhook
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/api/v1alpha1/genericwebhook"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#Aggregate">func Aggregate(errs field.ErrorList) error</a></dd>
+			
+				
+				<dd><a href="#Default">func Default(obj interface{}) field.ErrorList</a></dd>
+			
+				
+				<dd><a href="#Register">func Register(name string, obj reflect.Type)</a></dd>
+			
+				
+				<dd><a href="#Validate">func Validate(obj interface{}) field.ErrorList</a></dd>
+			
+			
+				
+				<dd><a href="#Defaulter">type Defaulter</a></dd>
+				
+				
+			
+				
+				<dd><a href="#FieldValidator">type FieldValidator</a></dd>
+				
+				
+			
+				
+				<dd><a href="#FieldWalker">type FieldWalker</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewFieldWalker">func NewFieldWalker(obj interface{}, callback fieldCallback) *FieldWalker</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FieldWalker.Walk">func (w *FieldWalker) Walk()</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/genericwebhook/bfs.go">bfs.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/genericwebhook/defaulter.go">defaulter.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/genericwebhook/validater.go">validater.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/genericwebhook/webhook.go">webhook.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="Aggregate">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/genericwebhook/validater.go#L71">Aggregate</a>
+				<a class="permalink" href="#Aggregate">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Aggregate(errs <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/util/validation/field/">field</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/util/validation/field/#ErrorList">ErrorList</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="Default">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/genericwebhook/defaulter.go#L34">Default</a>
+				<a class="permalink" href="#Default">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Default(obj interface{}) <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/util/validation/field/">field</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/util/validation/field/#ErrorList">ErrorList</a></pre>
+			<p>
+Default would walk through all the fields of target struct recursively, and set the default value which declared with struct tag &#34;default&#34;.
+</p>
+<p>
+Parameter obj should be a pointer to a data struct.
+</p>
+<p>
+Default should return an empty field.ErrorList.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/genericwebhook/webhook.go#L22">Register</a>
+				<a class="permalink" href="#Register">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Register(name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, obj <a href="https:/chaos-mesh.dev/godoc/master/pkg/reflect/">reflect</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/reflect/#Type">Type</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="Validate">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/genericwebhook/validater.go#L36">Validate</a>
+				<a class="permalink" href="#Validate">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Validate(obj interface{}) <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/util/validation/field/">field</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/util/validation/field/#ErrorList">ErrorList</a></pre>
+			<p>
+Validate would walk through all the fields of target struct recursively, and validate the value with validator declared with struct tag &#34;webhook&#34;.
+</p>
+<p>
+Parameter obj should be a pointer to a data struct.
+</p>
+<p>
+Validate should return an empty field.ErrorList if all the fields are valid, or return each field.Error for every invalid values.
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Defaulter">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/genericwebhook/defaulter.go#L25">Defaulter</a>
+				<a class="permalink" href="#Defaulter">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Defaulter interface {
+    Default(root interface{}, field *<a href="https:/chaos-mesh.dev/godoc/master/pkg/reflect/">reflect</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/reflect/#StructField">StructField</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="FieldValidator">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/genericwebhook/validater.go#L27">FieldValidator</a>
+				<a class="permalink" href="#FieldValidator">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type FieldValidator interface {
+    Validate(root interface{}, path *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/util/validation/field/">field</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/util/validation/field/#Path">Path</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/util/validation/field/">field</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/util/validation/field/#ErrorList">ErrorList</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="FieldWalker">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/genericwebhook/bfs.go#L27">FieldWalker</a>
+				<a class="permalink" href="#FieldWalker">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type FieldWalker struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewFieldWalker">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/genericwebhook/bfs.go#L32">NewFieldWalker</a>
+					<a class="permalink" href="#NewFieldWalker">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewFieldWalker(obj interface{}, callback fieldCallback) *<a href="#FieldWalker">FieldWalker</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="FieldWalker.Walk">func (*FieldWalker) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/genericwebhook/bfs.go#L45">Walk</a>
+					<a class="permalink" href="#FieldWalker.Walk">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (w *<a href="#FieldWalker">FieldWalker</a>) Walk()</pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
