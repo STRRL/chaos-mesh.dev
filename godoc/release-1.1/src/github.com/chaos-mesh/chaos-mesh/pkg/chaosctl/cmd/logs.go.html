@@ -1,0 +1,189 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#375EAB"/>
+
+  <title>src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/logs.go - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-1.1/lib/godoc/style.css"/>
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.1/lib/godoc/jquery.js" defer=""></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.1/lib/godoc/godocs.js" defer=""></script>
+</head>
+<body>
+
+<div id="lowframe" style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-1.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 5b1f3e4. Generated at Sun Jan 16 10:54:16 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-1.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Source file
+    <a href="https:/chaos-mesh.dev/godoc/release-1.1/src">src</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.1/src/github.com">github.com</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.1/src/github.com/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.1/src/github.com/chaos-mesh/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.1/src/github.com/chaos-mesh/chaos-mesh/pkg">pkg</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl">chaosctl</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd">cmd</a>/<span class="text-muted">logs.go</span>
+  </h1>
+
+
+
+
+
+  <h2>
+    Documentation: <a href="https:/chaos-mesh.dev/godoc/release-1.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd">github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd</a>
+  </h2>
+
+
+
+<div id="nav"></div>
+
+
+<script type="text/javascript">document.ANALYSIS_DATA = null;</script>
+<pre><span id="L1" class="ln">     1  </span><span class="comment">// Copyright 2020 Chaos Mesh Authors.</span>
+<span id="L2" class="ln">     2  </span><span class="comment">//</span>
+<span id="L3" class="ln">     3  </span><span class="comment">// Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span>
+<span id="L4" class="ln">     4  </span><span class="comment">// you may not use this file except in compliance with the License.</span>
+<span id="L5" class="ln">     5  </span><span class="comment">// You may obtain a copy of the License at</span>
+<span id="L6" class="ln">     6  </span><span class="comment">//</span>
+<span id="L7" class="ln">     7  </span><span class="comment">//     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span id="L8" class="ln">     8  </span><span class="comment">//</span>
+<span id="L9" class="ln">     9  </span><span class="comment">// Unless required by applicable law or agreed to in writing, software</span>
+<span id="L10" class="ln">    10  </span><span class="comment">// distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span>
+<span id="L11" class="ln">    11  </span><span class="comment">// See the License for the specific language governing permissions and</span>
+<span id="L12" class="ln">    12  </span><span class="comment">// limitations under the License.</span>
+<span id="L13" class="ln">    13  </span>
+<span id="L14" class="ln">    14  </span>package cmd
+<span id="L15" class="ln">    15  </span>
+<span id="L16" class="ln">    16  </span>import (
+<span id="L17" class="ln">    17  </span>	&#34;context&#34;
+<span id="L18" class="ln">    18  </span>	&#34;fmt&#34;
+<span id="L19" class="ln">    19  </span>	&#34;log&#34;
+<span id="L20" class="ln">    20  </span>	&#34;strings&#34;
+<span id="L21" class="ln">    21  </span>
+<span id="L22" class="ln">    22  </span>	&#34;github.com/spf13/cobra&#34;
+<span id="L23" class="ln">    23  </span>	v1 &#34;k8s.io/apimachinery/pkg/apis/meta/v1&#34;
+<span id="L24" class="ln">    24  </span>	&#34;k8s.io/client-go/kubernetes&#34;
+<span id="L25" class="ln">    25  </span>
+<span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
+<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/config&#34;
+<span id="L28" class="ln">    28  </span>	cm &#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common&#34;
+<span id="L29" class="ln">    29  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/selector&#34;
+<span id="L30" class="ln">    30  </span>)
+<span id="L31" class="ln">    31  </span>
+<span id="L32" class="ln">    32  </span>type logsOptions struct {
+<span id="L33" class="ln">    33  </span>	tail int64
+<span id="L34" class="ln">    34  </span>	node string
+<span id="L35" class="ln">    35  </span>}
+<span id="L36" class="ln">    36  </span>
+<span id="L37" class="ln">    37  </span>func NewLogsCmd() (*cobra.Command, error) {
+<span id="L38" class="ln">    38  </span>	o := &amp;logsOptions{}
+<span id="L39" class="ln">    39  </span>
+<span id="L40" class="ln">    40  </span>	logsCmd := &amp;cobra.Command{
+<span id="L41" class="ln">    41  </span>		Use:   `logs [-t LINE]`,
+<span id="L42" class="ln">    42  </span>		Short: `Print logs of controller-manager, chaos-daemon and chaos-dashboard`,
+<span id="L43" class="ln">    43  </span>		Long: `Print logs of controller-manager, chaos-daemon and chaos-dashboard, to provide debug information.
+<span id="L44" class="ln">    44  </span>
+<span id="L45" class="ln">    45  </span>Examples:
+<span id="L46" class="ln">    46  </span>  # Default print all log of all chaosmesh components
+<span id="L47" class="ln">    47  </span>  chaosctl logs
+<span id="L48" class="ln">    48  </span>
+<span id="L49" class="ln">    49  </span>  # Print 100 log lines for chaosmesh components in node NODENAME
+<span id="L50" class="ln">    50  </span>  chaosctl logs -t 100 -n NODENAME`,
+<span id="L51" class="ln">    51  </span>		Run: func(cmd *cobra.Command, args []string) {
+<span id="L52" class="ln">    52  </span>			if err := o.Run(args); err != nil {
+<span id="L53" class="ln">    53  </span>				log.Fatal(err)
+<span id="L54" class="ln">    54  </span>			}
+<span id="L55" class="ln">    55  </span>		},
+<span id="L56" class="ln">    56  </span>		ValidArgsFunction: noCompletions,
+<span id="L57" class="ln">    57  </span>	}
+<span id="L58" class="ln">    58  </span>
+<span id="L59" class="ln">    59  </span>	logsCmd.Flags().Int64VarP(&amp;o.tail, &#34;tail&#34;, &#34;t&#34;, -1, &#34;Number of lines of recent log&#34;)
+<span id="L60" class="ln">    60  </span>	logsCmd.Flags().StringVarP(&amp;o.node, &#34;node&#34;, &#34;n&#34;, &#34;&#34;, &#34;Number of lines of recent log&#34;)
+<span id="L61" class="ln">    61  </span>	err := logsCmd.RegisterFlagCompletionFunc(&#34;node&#34;, func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+<span id="L62" class="ln">    62  </span>		clientset, err := cm.InitClientSet()
+<span id="L63" class="ln">    63  </span>		if err != nil {
+<span id="L64" class="ln">    64  </span>			return nil, cobra.ShellCompDirectiveDefault
+<span id="L65" class="ln">    65  </span>		}
+<span id="L66" class="ln">    66  </span>		return listNodes(toComplete, clientset.KubeCli)
+<span id="L67" class="ln">    67  </span>	})
+<span id="L68" class="ln">    68  </span>	if err != nil {
+<span id="L69" class="ln">    69  </span>		return nil, err
+<span id="L70" class="ln">    70  </span>	}
+<span id="L71" class="ln">    71  </span>	return logsCmd, nil
+<span id="L72" class="ln">    72  </span>}
+<span id="L73" class="ln">    73  </span>
+<span id="L74" class="ln">    74  </span><span class="comment">// Run logs</span>
+<span id="L75" class="ln">    75  </span>func (o *logsOptions) Run(args []string) error {
+<span id="L76" class="ln">    76  </span>	ctx, cancel := context.WithCancel(context.Background())
+<span id="L77" class="ln">    77  </span>	defer cancel()
+<span id="L78" class="ln">    78  </span>	c, err := cm.InitClientSet()
+<span id="L79" class="ln">    79  </span>	if err != nil {
+<span id="L80" class="ln">    80  </span>		return err
+<span id="L81" class="ln">    81  </span>	}
+<span id="L82" class="ln">    82  </span>
+<span id="L83" class="ln">    83  </span>	componentsNeeded := []string{&#34;controller-manager&#34;, &#34;chaos-daemon&#34;, &#34;chaos-dashboard&#34;}
+<span id="L84" class="ln">    84  </span>	for _, name := range componentsNeeded {
+<span id="L85" class="ln">    85  </span>		selectorSpec := v1alpha1.SelectorSpec{
+<span id="L86" class="ln">    86  </span>			LabelSelectors: map[string]string{&#34;app.kubernetes.io/component&#34;: name},
+<span id="L87" class="ln">    87  </span>		}
+<span id="L88" class="ln">    88  </span>		if o.node != &#34;&#34; {
+<span id="L89" class="ln">    89  </span>			selectorSpec.Nodes = []string{o.node}
+<span id="L90" class="ln">    90  </span>		}
+<span id="L91" class="ln">    91  </span>
+<span id="L92" class="ln">    92  </span>		components, err := selector.SelectPods(ctx, c.CtrlCli, nil, selectorSpec, config.ControllerCfg.ClusterScoped, config.ControllerCfg.TargetNamespace, config.ControllerCfg.AllowedNamespaces, config.ControllerCfg.IgnoredNamespaces)
+<span id="L93" class="ln">    93  </span>		if err != nil {
+<span id="L94" class="ln">    94  </span>			return fmt.Errorf(&#34;failed to SelectPods with: %s&#34;, err.Error())
+<span id="L95" class="ln">    95  </span>		}
+<span id="L96" class="ln">    96  </span>		for _, comp := range components {
+<span id="L97" class="ln">    97  </span>			cm.PrettyPrint(fmt.Sprintf(&#34;[%s]&#34;, comp.Name), 0, &#34;Cyan&#34;)
+<span id="L98" class="ln">    98  </span>			comLog, err := cm.Log(comp, o.tail, c.KubeCli)
+<span id="L99" class="ln">    99  </span>			if err != nil {
+<span id="L100" class="ln">   100  </span>				cm.PrettyPrint(err.Error(), 1, &#34;Red&#34;)
+<span id="L101" class="ln">   101  </span>			} else {
+<span id="L102" class="ln">   102  </span>				cm.PrettyPrint(comLog, 1, &#34;&#34;)
+<span id="L103" class="ln">   103  </span>			}
+<span id="L104" class="ln">   104  </span>		}
+<span id="L105" class="ln">   105  </span>	}
+<span id="L106" class="ln">   106  </span>	return nil
+<span id="L107" class="ln">   107  </span>}
+<span id="L108" class="ln">   108  </span>
+<span id="L109" class="ln">   109  </span>func listNodes(toComplete string, c *kubernetes.Clientset) ([]string, cobra.ShellCompDirective) {
+<span id="L110" class="ln">   110  </span>	nodes, err := c.CoreV1().Nodes().List(v1.ListOptions{})
+<span id="L111" class="ln">   111  </span>	if err != nil {
+<span id="L112" class="ln">   112  </span>		return nil, cobra.ShellCompDirectiveDefault
+<span id="L113" class="ln">   113  </span>	}
+<span id="L114" class="ln">   114  </span>	var ret []string
+<span id="L115" class="ln">   115  </span>	for _, ns := range nodes.Items {
+<span id="L116" class="ln">   116  </span>		if strings.HasPrefix(ns.Name, toComplete) {
+<span id="L117" class="ln">   117  </span>			ret = append(ret, ns.Name)
+<span id="L118" class="ln">   118  </span>		}
+<span id="L119" class="ln">   119  </span>	}
+<span id="L120" class="ln">   120  </span>	return ret, cobra.ShellCompDirectiveNoFileComp
+<span id="L121" class="ln">   121  </span>}
+<span id="L122" class="ln">   122  </span>
+</pre><p></p>
+
+<div id="footer">
+Build version go1.17.6.<br/>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+
+
+</body></html>
