@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>curl - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package curl
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/curl"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+				<dd><a href="#pkg-examples" class="examplesLink">Examples</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>
+Package curl contains the tools about rendering and parsing curl command
+</p>
+
+				<div id="example__parseCommands" class="toggle">
+	<div class="collapsed">
+		<p class="exampleHeading toggleButton">▹ <span class="text">Example (ParseCommands)</span></p>
+	</div>
+	<div class="expanded">
+		<p class="exampleHeading toggleButton">▾ <span class="text">Example (ParseCommands)</span></p>
+		
+		
+		
+			<p>Code:</p>
+			<pre class="code">cmd := []string{&#34;curl&#34;, &#34;-i&#34;, &#34;-s&#34;, &#34;-L&#34;, &#34;https://github.com/chaos-mesh/chaos-mesh&#34;}
+flags, err := parseCommands(cmd)
+if err != nil {
+    fmt.Println(err.Error())
+}
+
+fmt.Printf(&#34;%+v&#34;, flags)
+<span class="comment"></pre>
+			
+			<p>Output:</p>
+			<pre class="output">&amp;{Method:GET URL:https://github.com/chaos-mesh/chaos-mesh Header:map[] Body: FollowLocation:true JsonContent:false}
+</pre>
+			
+		
+	</div>
+</div>
+<div id="example__renderCommands" class="toggle">
+	<div class="collapsed">
+		<p class="exampleHeading toggleButton">▹ <span class="text">Example (RenderCommands)</span></p>
+	</div>
+	<div class="expanded">
+		<p class="exampleHeading toggleButton">▾ <span class="text">Example (RenderCommands)</span></p>
+		<p>some example usage of renderCommands
+notice that the output could not be used in shell directly, you need quotes and escape
+</p>
+		
+		
+			<p>Code:</p>
+			<pre class="code">commands, _ := renderCommands(CommandFlags{
+    Method:         http.MethodGet,
+    URL:            &#34;https://github.com/chaos-mesh/chaos-mesh&#34;,
+    Header:         nil,
+    Body:           &#34;&#34;,
+    FollowLocation: true,
+    JsonContent:    false,
+})
+
+fmt.Println(strings.Join(commands, &#34; &#34;))
+<span class="comment"></pre>
+			
+			<p>Output:</p>
+			<pre class="output">curl -i -s -L https://github.com/chaos-mesh/chaos-mesh
+</pre>
+			
+		
+	</div>
+</div>
+
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+			
+				
+				<dd><a href="#IsValidRenderedTask">func IsValidRenderedTask(template *v1alpha1.Template) bool</a></dd>
+			
+				
+				<dd><a href="#RenderWorkflowTaskTemplate">func RenderWorkflowTaskTemplate(request RequestForm) (*v1alpha1.Template, error)</a></dd>
+			
+			
+				
+				<dd><a href="#CommandFlags">type CommandFlags</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Commands">type Commands</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Header">type Header</a></dd>
+				
+				
+			
+				
+				<dd><a href="#RequestForm">type RequestForm</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParseWorkflowTaskTemplate">func ParseWorkflowTaskTemplate(template *v1alpha1.Template) (*RequestForm, error)</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+		<div id="pkg-examples">
+			<h3>Examples</h3>
+			<div class="js-expandAll expandAll collapsed">(Expand All)</div>
+			<dl>
+			
+			<dd><a class="exampleLink" href="#example__parseCommands">Package (ParseCommands)</a></dd>
+			
+			<dd><a class="exampleLink" href="#example__renderCommands">Package (RenderCommands)</a></dd>
+			
+			</dl>
+		</div>
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/curl/doc.go">doc.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/curl/parser.go">parser.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/curl/render.go">render.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/curl/types.go">types.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				
+				<pre>const <span id="ApplicationJson">ApplicationJson</span> = &#34;application/json&#34;</pre>
+			
+				
+				<pre>const <span id="HeaderContentType">HeaderContentType</span> = &#34;Content-Type&#34;</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="IsValidRenderedTask">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/curl/parser.go#L90">IsValidRenderedTask</a>
+				<a class="permalink" href="#IsValidRenderedTask">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func IsValidRenderedTask(template *<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Template">Template</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#bool">bool</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="RenderWorkflowTaskTemplate">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/curl/render.go#L70">RenderWorkflowTaskTemplate</a>
+				<a class="permalink" href="#RenderWorkflowTaskTemplate">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RenderWorkflowTaskTemplate(request <a href="#RequestForm">RequestForm</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Template">Template</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="CommandFlags">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/curl/types.go#L31">CommandFlags</a>
+				<a class="permalink" href="#CommandFlags">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+CommandFlags could be parsed from flags of curl command line.
+</p>
+
+			<pre>type CommandFlags struct {
+<span id="CommandFlags.Method"></span>    Method         <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;method&#34;`
+<span id="CommandFlags.URL"></span>    URL            <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;url&#34;`
+<span id="CommandFlags.Header"></span>    Header         <a href="#Header">Header</a> `json:&#34;header&#34;`
+<span id="CommandFlags.Body"></span>    Body           <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;body&#34;`
+<span id="CommandFlags.FollowLocation"></span>    FollowLocation <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#bool">bool</a>   `json:&#34;followLocation&#34;`
+<span id="CommandFlags.JsonContent"></span>    JsonContent    <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#bool">bool</a>   `json:&#34;jsonContent&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Commands">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/curl/types.go#L40">Commands</a>
+				<a class="permalink" href="#Commands">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Commands []<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Header">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/curl/types.go#L28">Header</a>
+				<a class="permalink" href="#Header">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Header is copied from http.Header, for speed up swagger_spec code generator without --parseDependency
+</p>
+
+			<pre>type Header map[<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>][]<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="RequestForm">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/curl/types.go#L22">RequestForm</a>
+				<a class="permalink" href="#RequestForm">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+RequestForm should contain all the fields shown on frontend
+</p>
+
+			<pre>type RequestForm struct {
+    <a href="#CommandFlags">CommandFlags</a>
+<span id="RequestForm.Name"></span>    Name <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;name&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="ParseWorkflowTaskTemplate">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/curl/parser.go#L76">ParseWorkflowTaskTemplate</a>
+					<a class="permalink" href="#ParseWorkflowTaskTemplate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func ParseWorkflowTaskTemplate(template *<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Template">Template</a>) (*<a href="#RequestForm">RequestForm</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

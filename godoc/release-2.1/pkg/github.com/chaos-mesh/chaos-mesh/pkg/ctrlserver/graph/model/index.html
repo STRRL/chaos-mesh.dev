@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>model - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package model
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+			
+				
+				<dd><a href="#Component">type Component</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Component.IsValid">func (e Component) IsValid() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Component.MarshalGQL">func (e Component) MarshalGQL(w io.Writer)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Component.String">func (e Component) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Component.UnmarshalGQL">func (e *Component) UnmarshalGQL(v interface{}) error</a></dd>
+				
+			
+				
+				<dd><a href="#Fd">type Fd</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Namespace">type Namespace</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Process">type Process</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/models_gen.go">models_gen.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var <span id="AllComponent">AllComponent</span> = []<a href="#Component">Component</a>{
+    <a href="#ComponentManager">ComponentManager</a>,
+    <a href="#ComponentDaemon">ComponentDaemon</a>,
+    <a href="#ComponentDashboard">ComponentDashboard</a>,
+    <a href="#ComponentDNSServer">ComponentDNSServer</a>,
+}</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="Component">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/models_gen.go#L40">Component</a>
+				<a class="permalink" href="#Component">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Component <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="ComponentManager">ComponentManager</span>   <a href="#Component">Component</a> = &#34;MANAGER&#34;
+    <span id="ComponentDaemon">ComponentDaemon</span>    <a href="#Component">Component</a> = &#34;DAEMON&#34;
+    <span id="ComponentDashboard">ComponentDashboard</span> <a href="#Component">Component</a> = &#34;DASHBOARD&#34;
+    <span id="ComponentDNSServer">ComponentDNSServer</span> <a href="#Component">Component</a> = &#34;DNSSERVER&#34;
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Component.IsValid">func (Component) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/models_gen.go#L56">IsValid</a>
+					<a class="permalink" href="#Component.IsValid">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e <a href="#Component">Component</a>) IsValid() <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Component.MarshalGQL">func (Component) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/models_gen.go#L81">MarshalGQL</a>
+					<a class="permalink" href="#Component.MarshalGQL">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e <a href="#Component">Component</a>) MarshalGQL(w <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/io/">io</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/io/#Writer">Writer</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Component.String">func (Component) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/models_gen.go#L64">String</a>
+					<a class="permalink" href="#Component.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e <a href="#Component">Component</a>) String() <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Component.UnmarshalGQL">func (*Component) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/models_gen.go#L68">UnmarshalGQL</a>
+					<a class="permalink" href="#Component.UnmarshalGQL">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#Component">Component</a>) UnmarshalGQL(v interface{}) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Fd">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/models_gen.go#L15">Fd</a>
+				<a class="permalink" href="#Fd">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Fd struct {
+<span id="Fd.Fd"></span>    Fd     <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;fd&#34;`
+<span id="Fd.Target"></span>    Target <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;target&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Namespace">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/models_gen.go#L20">Namespace</a>
+				<a class="permalink" href="#Namespace">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Namespace struct {
+<span id="Namespace.Ns"></span>    Ns              <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>                      `json:&#34;ns&#34;`
+<span id="Namespace.Component"></span>    Component       []*<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/k8s.io/api/core/v1/#Pod">Pod</a>                   `json:&#34;component&#34;`
+<span id="Namespace.Pod"></span>    Pod             []*<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/k8s.io/api/core/v1/#Pod">Pod</a>                   `json:&#34;pod&#34;`
+<span id="Namespace.Stresschaos"></span>    Stresschaos     []*<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#StressChaos">StressChaos</a>     `json:&#34;stresschaos&#34;`
+<span id="Namespace.Iochaos"></span>    Iochaos         []*<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaos">IOChaos</a>         `json:&#34;iochaos&#34;`
+<span id="Namespace.Podiochaos"></span>    Podiochaos      []*<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodIOChaos">PodIOChaos</a>      `json:&#34;podiochaos&#34;`
+<span id="Namespace.Httpchaos"></span>    Httpchaos       []*<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#HTTPChaos">HTTPChaos</a>       `json:&#34;httpchaos&#34;`
+<span id="Namespace.Podhttpchaos"></span>    Podhttpchaos    []*<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaos">PodHttpChaos</a>    `json:&#34;podhttpchaos&#34;`
+<span id="Namespace.Networkchaos"></span>    Networkchaos    []*<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#NetworkChaos">NetworkChaos</a>    `json:&#34;networkchaos&#34;`
+<span id="Namespace.Podnetworkchaos"></span>    Podnetworkchaos []*<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodNetworkChaos">PodNetworkChaos</a> `json:&#34;podnetworkchaos&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Process">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/models_gen.go#L33">Process</a>
+				<a class="permalink" href="#Process">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Process struct {
+<span id="Process.Pod"></span>    Pod     *<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/k8s.io/api/core/v1/#Pod">Pod</a> `json:&#34;pod&#34;`
+<span id="Process.Pid"></span>    Pid     <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>  `json:&#34;pid&#34;`
+<span id="Process.Command"></span>    Command <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>  `json:&#34;command&#34;`
+<span id="Process.Fds"></span>    Fds     []*<a href="#Fd">Fd</a>   `json:&#34;fds&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

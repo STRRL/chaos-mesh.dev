@@ -1,0 +1,217 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#375EAB"/>
+
+  <title>src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/server.go - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/style.css"/>
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/jquery.js" defer=""></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/godocs.js" defer=""></script>
+</head>
+<body>
+
+<div id="lowframe" style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Source file
+    <a href="https:/chaos-mesh.dev/godoc/release-2.1/src">src</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.1/src/github.com">github.com</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg">pkg</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard">dashboard</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector">collector</a>/<span class="text-muted">server.go</span>
+  </h1>
+
+
+
+
+
+  <h2>
+    Documentation: <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector">github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector</a>
+  </h2>
+
+
+
+<div id="nav"></div>
+
+
+<script type="text/javascript">document.ANALYSIS_DATA = null;</script>
+<pre><span id="L1" class="ln">     1  </span><span class="comment">// Copyright 2021 Chaos Mesh Authors.</span>
+<span id="L2" class="ln">     2  </span><span class="comment">//</span>
+<span id="L3" class="ln">     3  </span><span class="comment">// Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span>
+<span id="L4" class="ln">     4  </span><span class="comment">// you may not use this file except in compliance with the License.</span>
+<span id="L5" class="ln">     5  </span><span class="comment">// You may obtain a copy of the License at</span>
+<span id="L6" class="ln">     6  </span><span class="comment">//</span>
+<span id="L7" class="ln">     7  </span><span class="comment">// http://www.apache.org/licenses/LICENSE-2.0</span>
+<span id="L8" class="ln">     8  </span><span class="comment">//</span>
+<span id="L9" class="ln">     9  </span><span class="comment">// Unless required by applicable law or agreed to in writing, software</span>
+<span id="L10" class="ln">    10  </span><span class="comment">// distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span>
+<span id="L11" class="ln">    11  </span><span class="comment">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span id="L12" class="ln">    12  </span><span class="comment">// See the License for the specific language governing permissions and</span>
+<span id="L13" class="ln">    13  </span><span class="comment">// limitations under the License.</span>
+<span id="L14" class="ln">    14  </span><span class="comment">//</span>
+<span id="L15" class="ln">    15  </span>
+<span id="L16" class="ln">    16  </span>package collector
+<span id="L17" class="ln">    17  </span>
+<span id="L18" class="ln">    18  </span>import (
+<span id="L19" class="ln">    19  </span>	&#34;context&#34;
+<span id="L20" class="ln">    20  </span>	&#34;os&#34;
+<span id="L21" class="ln">    21  </span>
+<span id="L22" class="ln">    22  </span>	v1 &#34;k8s.io/api/core/v1&#34;
+<span id="L23" class="ln">    23  </span>	&#34;k8s.io/apimachinery/pkg/runtime&#34;
+<span id="L24" class="ln">    24  </span>	clientgoscheme &#34;k8s.io/client-go/kubernetes/scheme&#34;
+<span id="L25" class="ln">    25  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
+<span id="L26" class="ln">    26  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/client&#34;
+<span id="L27" class="ln">    27  </span>
+<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
+<span id="L29" class="ln">    29  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/clientpool&#34;
+<span id="L30" class="ln">    30  </span>	config &#34;github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard&#34;
+<span id="L31" class="ln">    31  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core&#34;
+<span id="L32" class="ln">    32  </span>)
+<span id="L33" class="ln">    33  </span>
+<span id="L34" class="ln">    34  </span>var (
+<span id="L35" class="ln">    35  </span>	scheme = runtime.NewScheme()
+<span id="L36" class="ln">    36  </span>	log    = ctrl.Log.WithName(&#34;collector&#34;)
+<span id="L37" class="ln">    37  </span>)
+<span id="L38" class="ln">    38  </span>
+<span id="L39" class="ln">    39  </span>func init() {
+<span id="L40" class="ln">    40  </span>	_ = clientgoscheme.AddToScheme(scheme)
+<span id="L41" class="ln">    41  </span>
+<span id="L42" class="ln">    42  </span>	_ = v1alpha1.AddToScheme(scheme)
+<span id="L43" class="ln">    43  </span>}
+<span id="L44" class="ln">    44  </span>
+<span id="L45" class="ln">    45  </span><span class="comment">// Server defines a server to manage collectors.</span>
+<span id="L46" class="ln">    46  </span>type Server struct {
+<span id="L47" class="ln">    47  </span>	Manager ctrl.Manager
+<span id="L48" class="ln">    48  </span>}
+<span id="L49" class="ln">    49  </span>
+<span id="L50" class="ln">    50  </span><span class="comment">// NewServer returns a CollectorServer and Client.</span>
+<span id="L51" class="ln">    51  </span>func NewServer(
+<span id="L52" class="ln">    52  </span>	conf *config.ChaosDashboardConfig,
+<span id="L53" class="ln">    53  </span>	experimentArchive core.ExperimentStore,
+<span id="L54" class="ln">    54  </span>	scheduleArchive core.ScheduleStore,
+<span id="L55" class="ln">    55  </span>	event core.EventStore,
+<span id="L56" class="ln">    56  </span>	workflowStore core.WorkflowStore,
+<span id="L57" class="ln">    57  </span>) (*Server, client.Client, client.Reader, *runtime.Scheme) {
+<span id="L58" class="ln">    58  </span>	s := &amp;Server{}
+<span id="L59" class="ln">    59  </span>
+<span id="L60" class="ln">    60  </span>	<span class="comment">// namespace scoped</span>
+<span id="L61" class="ln">    61  </span>	options := ctrl.Options{
+<span id="L62" class="ln">    62  </span>		Scheme:             scheme,
+<span id="L63" class="ln">    63  </span>		MetricsBindAddress: conf.MetricAddress,
+<span id="L64" class="ln">    64  </span>		LeaderElection:     conf.EnableLeaderElection,
+<span id="L65" class="ln">    65  </span>		Port:               9443,
+<span id="L66" class="ln">    66  </span>	}
+<span id="L67" class="ln">    67  </span>	if conf.ClusterScoped {
+<span id="L68" class="ln">    68  </span>		log.Info(&#34;Chaos controller manager is running in cluster scoped mode.&#34;)
+<span id="L69" class="ln">    69  </span>	} else {
+<span id="L70" class="ln">    70  </span>		log.Info(&#34;Chaos controller manager is running in namespace scoped mode.&#34;, &#34;targetNamespace&#34;, conf.TargetNamespace)
+<span id="L71" class="ln">    71  </span>		options.Namespace = conf.TargetNamespace
+<span id="L72" class="ln">    72  </span>	}
+<span id="L73" class="ln">    73  </span>
+<span id="L74" class="ln">    74  </span>	var err error
+<span id="L75" class="ln">    75  </span>
+<span id="L76" class="ln">    76  </span>	cfg := ctrl.GetConfigOrDie()
+<span id="L77" class="ln">    77  </span>	s.Manager, err = ctrl.NewManager(cfg, options)
+<span id="L78" class="ln">    78  </span>	if err != nil {
+<span id="L79" class="ln">    79  </span>		log.Error(err, &#34;unable to start collector&#34;)
+<span id="L80" class="ln">    80  </span>		os.Exit(1)
+<span id="L81" class="ln">    81  </span>	}
+<span id="L82" class="ln">    82  </span>
+<span id="L83" class="ln">    83  </span>	if conf.SecurityMode {
+<span id="L84" class="ln">    84  </span>		clientpool.K8sClients, err = clientpool.NewClientPool(cfg, scheme, 100)
+<span id="L85" class="ln">    85  </span>		if err != nil {
+<span id="L86" class="ln">    86  </span>			<span class="comment">// this should never happen</span>
+<span id="L87" class="ln">    87  </span>			log.Error(err, &#34;fail to create client pool&#34;)
+<span id="L88" class="ln">    88  </span>			os.Exit(1)
+<span id="L89" class="ln">    89  </span>		}
+<span id="L90" class="ln">    90  </span>	} else {
+<span id="L91" class="ln">    91  </span>		clientpool.K8sClients, err = clientpool.NewLocalClient(cfg, scheme)
+<span id="L92" class="ln">    92  </span>		if err != nil {
+<span id="L93" class="ln">    93  </span>			log.Error(err, &#34;fail to create client pool&#34;)
+<span id="L94" class="ln">    94  </span>			os.Exit(1)
+<span id="L95" class="ln">    95  </span>		}
+<span id="L96" class="ln">    96  </span>	}
+<span id="L97" class="ln">    97  </span>
+<span id="L98" class="ln">    98  </span>	for kind, chaosKind := range v1alpha1.AllKinds() {
+<span id="L99" class="ln">    99  </span>		if err = (&amp;ChaosCollector{
+<span id="L100" class="ln">   100  </span>			Client:  s.Manager.GetClient(),
+<span id="L101" class="ln">   101  </span>			Log:     ctrl.Log.WithName(&#34;collector&#34;).WithName(kind),
+<span id="L102" class="ln">   102  </span>			archive: experimentArchive,
+<span id="L103" class="ln">   103  </span>			event:   event,
+<span id="L104" class="ln">   104  </span>		}).Setup(s.Manager, chaosKind.SpawnObject()); err != nil {
+<span id="L105" class="ln">   105  </span>			log.Error(err, &#34;unable to create collector&#34;, &#34;collector&#34;, kind)
+<span id="L106" class="ln">   106  </span>			os.Exit(1)
+<span id="L107" class="ln">   107  </span>		}
+<span id="L108" class="ln">   108  </span>	}
+<span id="L109" class="ln">   109  </span>
+<span id="L110" class="ln">   110  </span>	if err = (&amp;ScheduleCollector{
+<span id="L111" class="ln">   111  </span>		Client:  s.Manager.GetClient(),
+<span id="L112" class="ln">   112  </span>		Log:     ctrl.Log.WithName(&#34;schedule-collector&#34;).WithName(v1alpha1.KindSchedule),
+<span id="L113" class="ln">   113  </span>		archive: scheduleArchive,
+<span id="L114" class="ln">   114  </span>	}).Setup(s.Manager, &amp;v1alpha1.Schedule{}); err != nil {
+<span id="L115" class="ln">   115  </span>		log.Error(err, &#34;unable to create collector&#34;, &#34;collector&#34;, v1alpha1.KindSchedule)
+<span id="L116" class="ln">   116  </span>		os.Exit(1)
+<span id="L117" class="ln">   117  </span>	}
+<span id="L118" class="ln">   118  </span>
+<span id="L119" class="ln">   119  </span>	if err = (&amp;EventCollector{
+<span id="L120" class="ln">   120  </span>		Client: s.Manager.GetClient(),
+<span id="L121" class="ln">   121  </span>		Log:    ctrl.Log.WithName(&#34;event-collector&#34;).WithName(&#34;Event&#34;),
+<span id="L122" class="ln">   122  </span>		event:  event,
+<span id="L123" class="ln">   123  </span>	}).Setup(s.Manager, &amp;v1.Event{}); err != nil {
+<span id="L124" class="ln">   124  </span>		log.Error(err, &#34;unable to create collector&#34;, &#34;collector&#34;, v1alpha1.KindSchedule)
+<span id="L125" class="ln">   125  </span>		os.Exit(1)
+<span id="L126" class="ln">   126  </span>	}
+<span id="L127" class="ln">   127  </span>
+<span id="L128" class="ln">   128  </span>	if err = (&amp;WorkflowCollector{
+<span id="L129" class="ln">   129  </span>		kubeClient: s.Manager.GetClient(),
+<span id="L130" class="ln">   130  </span>		Log:        ctrl.Log.WithName(&#34;workflow-collector&#34;).WithName(v1alpha1.KindWorkflow),
+<span id="L131" class="ln">   131  </span>		store:      workflowStore,
+<span id="L132" class="ln">   132  </span>	}).Setup(s.Manager, &amp;v1alpha1.Workflow{}); err != nil {
+<span id="L133" class="ln">   133  </span>		log.Error(err, &#34;unable to create collector&#34;, &#34;collector&#34;, v1alpha1.KindWorkflow)
+<span id="L134" class="ln">   134  </span>		os.Exit(1)
+<span id="L135" class="ln">   135  </span>	}
+<span id="L136" class="ln">   136  </span>
+<span id="L137" class="ln">   137  </span>	return s, s.Manager.GetClient(), s.Manager.GetAPIReader(), s.Manager.GetScheme()
+<span id="L138" class="ln">   138  </span>}
+<span id="L139" class="ln">   139  </span>
+<span id="L140" class="ln">   140  </span><span class="comment">// Register starts collectors manager.</span>
+<span id="L141" class="ln">   141  </span>func Register(ctx context.Context, s *Server) {
+<span id="L142" class="ln">   142  </span>	go func() {
+<span id="L143" class="ln">   143  </span>		log.Info(&#34;Starting collector&#34;)
+<span id="L144" class="ln">   144  </span>		if err := s.Manager.Start(ctx); err != nil {
+<span id="L145" class="ln">   145  </span>			log.Error(err, &#34;could not start collector&#34;)
+<span id="L146" class="ln">   146  </span>			os.Exit(1)
+<span id="L147" class="ln">   147  </span>		}
+<span id="L148" class="ln">   148  </span>	}()
+<span id="L149" class="ln">   149  </span>}
+<span id="L150" class="ln">   150  </span>
+</pre><p></p>
+
+<div id="footer">
+Build version go1.17.6.<br/>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+
+
+</body></html>

@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>core - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package core
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#WorkflowEntity2WorkflowCR">func WorkflowEntity2WorkflowCR(entity *WorkflowEntity) (*v1alpha1.Workflow, error)</a></dd>
+			
+			
+				
+				<dd><a href="#ConditionalBranch">type ConditionalBranch</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Event">type Event</a></dd>
+				
+				
+			
+				
+				<dd><a href="#EventStore">type EventStore</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Experiment">type Experiment</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ExperimentMeta">type ExperimentMeta</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ExperimentStore">type ExperimentStore</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Filter">type Filter</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Filter.ConstructQueryArgs">func (f *Filter) ConstructQueryArgs() (string, []interface{})</a></dd>
+				
+			
+				
+				<dd><a href="#KubeObjectDesc">type KubeObjectDesc</a></dd>
+				
+				
+			
+				
+				<dd><a href="#KubeObjectMeta">type KubeObjectMeta</a></dd>
+				
+				
+			
+				
+				<dd><a href="#KubeWorkflowRepository">type KubeWorkflowRepository</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewKubeWorkflowRepository">func NewKubeWorkflowRepository(kubeclient client.Client) *KubeWorkflowRepository</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#KubeWorkflowRepository.Create">func (it *KubeWorkflowRepository) Create(ctx context.Context, workflow v1alpha1.Workflow) (WorkflowDetail, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#KubeWorkflowRepository.Delete">func (it *KubeWorkflowRepository) Delete(ctx context.Context, namespace, name string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#KubeWorkflowRepository.Get">func (it *KubeWorkflowRepository) Get(ctx context.Context, namespace, name string) (WorkflowDetail, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#KubeWorkflowRepository.List">func (it *KubeWorkflowRepository) List(ctx context.Context) ([]WorkflowMeta, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#KubeWorkflowRepository.ListByNamespace">func (it *KubeWorkflowRepository) ListByNamespace(ctx context.Context, namespace string) ([]WorkflowMeta, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#KubeWorkflowRepository.Update">func (it *KubeWorkflowRepository) Update(ctx context.Context, namespace, name string, workflow v1alpha1.Workflow) (WorkflowDetail, error)</a></dd>
+				
+			
+				
+				<dd><a href="#Node">type Node</a></dd>
+				
+				
+			
+				
+				<dd><a href="#NodeNameWithTemplate">type NodeNameWithTemplate</a></dd>
+				
+				
+			
+				
+				<dd><a href="#NodeState">type NodeState</a></dd>
+				
+				
+			
+				
+				<dd><a href="#NodeType">type NodeType</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ObjectBase">type ObjectBase</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Schedule">type Schedule</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ScheduleMeta">type ScheduleMeta</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ScheduleStore">type ScheduleStore</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Topology">type Topology</a></dd>
+				
+				
+			
+				
+				<dd><a href="#WorkflowDetail">type WorkflowDetail</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowEntity2WorkflowDetail">func WorkflowEntity2WorkflowDetail(entity *WorkflowEntity) (*WorkflowDetail, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#WorkflowEntity">type WorkflowEntity</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowCR2WorkflowEntity">func WorkflowCR2WorkflowEntity(workflow *v1alpha1.Workflow) (*WorkflowEntity, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#WorkflowMeta">type WorkflowMeta</a></dd>
+				
+				
+			
+				
+				<dd><a href="#WorkflowRepository">type WorkflowRepository</a></dd>
+				
+				
+			
+				
+				<dd><a href="#WorkflowStatus">type WorkflowStatus</a></dd>
+				
+				
+			
+				
+				<dd><a href="#WorkflowStore">type WorkflowStore</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/common.go">common.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/event.go">event.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/experiment.go">experiment.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/schedule.go">schedule.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go">workflow.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="WorkflowEntity2WorkflowCR">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L461">WorkflowEntity2WorkflowCR</a>
+				<a class="permalink" href="#WorkflowEntity2WorkflowCR">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func WorkflowEntity2WorkflowCR(entity *<a href="#WorkflowEntity">WorkflowEntity</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Workflow">Workflow</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="ConditionalBranch">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L101">ConditionalBranch</a>
+				<a class="permalink" href="#ConditionalBranch">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ConditionalBranch struct {
+    <a href="#NodeNameWithTemplate">NodeNameWithTemplate</a> `json:&#34;,inline,omitempty&#34;`
+<span id="ConditionalBranch.Expression"></span>    Expression           <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;expression,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Event">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/event.go#L58">Event</a>
+				<a class="permalink" href="#Event">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Event struct {
+<span id="Event.ID"></span>    ID        <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint">uint</a>      `gorm:&#34;primary_key&#34; json:&#34;id&#34;`
+<span id="Event.ObjectID"></span>    ObjectID  <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `gorm:&#34;index:object_id&#34; json:&#34;object_id&#34;`
+<span id="Event.CreatedAt"></span>    CreatedAt <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/#Time">Time</a> `json:&#34;created_at&#34;`
+<span id="Event.Namespace"></span>    Namespace <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `json:&#34;namespace&#34;`
+<span id="Event.Name"></span>    Name      <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `json:&#34;name&#34;`
+<span id="Event.Kind"></span>    Kind      <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `json:&#34;kind&#34;`
+<span id="Event.Type"></span>    Type      <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `json:&#34;type&#34;`
+<span id="Event.Reason"></span>    Reason    <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `json:&#34;reason&#34;`
+<span id="Event.Message"></span>    Message   <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `json:&#34;message&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="EventStore">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/event.go#L24">EventStore</a>
+				<a class="permalink" href="#EventStore">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+EventStore defines operations for working with events.
+</p>
+
+			<pre>type EventStore interface {
+    <span class="comment">// List returns an event list from the datastore.</span>
+    List(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>) ([]*<a href="#Event">Event</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// ListByUID returns an event list by the UID.</span>
+    ListByUID(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) ([]*<a href="#Event">Event</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// ListByUIDs returns an event list by the UID list.</span>
+    ListByUIDs(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, []<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) ([]*<a href="#Event">Event</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// ListByExperiment returns an event list by the namespace, name, or kind.</span>
+    ListByExperiment(context <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, namespace <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, name <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, kind <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) ([]*<a href="#Event">Event</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+
+    ListByFilter(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, <a href="#Filter">Filter</a>) ([]*<a href="#Event">Event</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// Find returns an event by ID.</span>
+    Find(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint">uint</a>) (*<a href="#Event">Event</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// Create persists a new event to the datastore.</span>
+    Create(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, *<a href="#Event">Event</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteByUID deletes events by the UID.</span>
+    DeleteByUID(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteByUIDs deletes events by the UID list.</span>
+    DeleteByUIDs(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, []<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteByTime deletes events within the specified time interval.</span>
+    DeleteByTime(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteByDuration selete events that exceed duration.</span>
+    DeleteByDuration(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/#Duration">Duration</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Experiment">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/experiment.go#L62">Experiment</a>
+				<a class="permalink" href="#Experiment">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Experiment represents an experiment instance. Use in db.
+</p>
+
+			<pre>type Experiment struct {
+    <a href="#ExperimentMeta">ExperimentMeta</a>
+<span id="Experiment.Experiment"></span>    Experiment <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `gorm:&#34;size:2048&#34;` <span class="comment">// JSON string</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ExperimentMeta">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/experiment.go#L68">ExperimentMeta</a>
+				<a class="permalink" href="#ExperimentMeta">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ExperimentMeta defines the metadata of an experiment. Use in db.
+</p>
+
+			<pre>type ExperimentMeta struct {
+    <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/jinzhu/gorm/">gorm</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/jinzhu/gorm/#Model">Model</a>
+<span id="ExperimentMeta.UID"></span>    UID        <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `gorm:&#34;index:uid&#34; json:&#34;uid&#34;`
+<span id="ExperimentMeta.Kind"></span>    Kind       <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `json:&#34;kind&#34;`
+<span id="ExperimentMeta.Name"></span>    Name       <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `json:&#34;name&#34;`
+<span id="ExperimentMeta.Namespace"></span>    Namespace  <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `json:&#34;namespace&#34;`
+<span id="ExperimentMeta.Action"></span>    Action     <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `json:&#34;action&#34;`
+<span id="ExperimentMeta.StartTime"></span>    StartTime  <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/#Time">Time</a> `json:&#34;start_time&#34;`
+<span id="ExperimentMeta.FinishTime"></span>    FinishTime <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/#Time">Time</a> `json:&#34;finish_time&#34;`
+<span id="ExperimentMeta.Archived"></span>    Archived   <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#bool">bool</a>      `json:&#34;archived&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ExperimentStore">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/experiment.go#L26">ExperimentStore</a>
+				<a class="permalink" href="#ExperimentStore">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ExperimentStore defines operations for working with experiments.
+</p>
+
+			<pre>type ExperimentStore interface {
+    <span class="comment">// ListMeta returns experiment metadata list from the datastore.</span>
+    ListMeta(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, kind, namespace, name <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, archived <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#bool">bool</a>) ([]*<a href="#ExperimentMeta">ExperimentMeta</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// FindByUID returns an experiment by UID.</span>
+    FindByUID(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, UID <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) (*<a href="#Experiment">Experiment</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// FindManagedByNamespaceName returns experiment list which are managed by schedule or workflow.</span>
+    FindManagedByNamespaceName(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) ([]*<a href="#Experiment">Experiment</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// FindMetaByUID returns an experiment metadata by UID.</span>
+    FindMetaByUID(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) (*<a href="#ExperimentMeta">ExperimentMeta</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// Set saves the experiment to datastore.</span>
+    Set(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, *<a href="#Experiment">Experiment</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+
+    <span class="comment">// Archive archives experiments which &#34;archived&#34; field is false.</span>
+    Archive(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+
+    <span class="comment">// Delete deletes the archive from the datastore.</span>
+    Delete(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, *<a href="#Experiment">Experiment</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteByFinishTime deletes archives which time difference is greater than the given time from FinishTime.</span>
+    DeleteByFinishTime(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/#Duration">Duration</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteByUIDs deletes archives by the uid list.</span>
+    DeleteByUIDs(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, []<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteIncompleteExperiments deletes all incomplete experiments.</span>
+    <span class="comment">// If the chaos-dashboard was restarted and the experiment is completed during the restart,</span>
+    <span class="comment">// which means the experiment would never save the finish_time.</span>
+    <span class="comment">// DeleteIncompleteExperiments can be used to delete all incomplete experiments to avoid this case.</span>
+    DeleteIncompleteExperiments(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Filter">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/common.go#L48">Filter</a>
+				<a class="permalink" href="#Filter">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Filter struct {
+<span id="Filter.ObjectID"></span>    ObjectID  <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;object_id&#34;`
+<span id="Filter.Start"></span>    Start     <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;start&#34;`
+<span id="Filter.End"></span>    End       <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;end&#34;`
+<span id="Filter.Namespace"></span>    Namespace <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;namespace&#34;`
+<span id="Filter.Name"></span>    Name      <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;name&#34;`
+<span id="Filter.Kind"></span>    Kind      <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;kind&#34;`
+<span id="Filter.Limit"></span>    Limit     <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;limit&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Filter.ConstructQueryArgs">func (*Filter) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/common.go#L69">ConstructQueryArgs</a>
+					<a class="permalink" href="#Filter.ConstructQueryArgs">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (f *<a href="#Filter">Filter</a>) ConstructQueryArgs() (<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, []interface{})</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="KubeObjectDesc">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/common.go#L34">KubeObjectDesc</a>
+				<a class="permalink" href="#KubeObjectDesc">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+KubeObjectDesc defines a simple kube object description which uses in apiserver.
+</p>
+
+			<pre>type KubeObjectDesc struct {
+    <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/k8s.io/apimachinery/pkg/apis/meta/v1/">metav1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/k8s.io/apimachinery/pkg/apis/meta/v1/#TypeMeta">TypeMeta</a>
+<span id="KubeObjectDesc.Meta"></span>    Meta <a href="#KubeObjectMeta">KubeObjectMeta</a> `json:&#34;metadata&#34;`
+<span id="KubeObjectDesc.Spec"></span>    Spec interface{}    `json:&#34;spec&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="KubeObjectMeta">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/common.go#L41">KubeObjectMeta</a>
+				<a class="permalink" href="#KubeObjectMeta">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+KubeObjectMetadata extracts the required fields from metav1.ObjectMeta.
+</p>
+
+			<pre>type KubeObjectMeta struct {
+<span id="KubeObjectMeta.Namespace"></span>    Namespace   <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>            `json:&#34;namespace&#34;`
+<span id="KubeObjectMeta.Name"></span>    Name        <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>            `json:&#34;name&#34;`
+<span id="KubeObjectMeta.Labels"></span>    Labels      map[<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;labels,omitempty&#34;`
+<span id="KubeObjectMeta.Annotations"></span>    Annotations map[<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;annotations,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="KubeWorkflowRepository">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L138">KubeWorkflowRepository</a>
+				<a class="permalink" href="#KubeWorkflowRepository">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type KubeWorkflowRepository struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewKubeWorkflowRepository">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L142">NewKubeWorkflowRepository</a>
+					<a class="permalink" href="#NewKubeWorkflowRepository">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewKubeWorkflowRepository(kubeclient <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>) *<a href="#KubeWorkflowRepository">KubeWorkflowRepository</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="KubeWorkflowRepository.Create">func (*KubeWorkflowRepository) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L146">Create</a>
+					<a class="permalink" href="#KubeWorkflowRepository.Create">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#KubeWorkflowRepository">KubeWorkflowRepository</a>) Create(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, workflow <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Workflow">Workflow</a>) (<a href="#WorkflowDetail">WorkflowDetail</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="KubeWorkflowRepository.Delete">func (*KubeWorkflowRepository) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L230">Delete</a>
+					<a class="permalink" href="#KubeWorkflowRepository.Delete">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#KubeWorkflowRepository">KubeWorkflowRepository</a>) Delete(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="KubeWorkflowRepository.Get">func (*KubeWorkflowRepository) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L197">Get</a>
+					<a class="permalink" href="#KubeWorkflowRepository.Get">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#KubeWorkflowRepository">KubeWorkflowRepository</a>) Get(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) (<a href="#WorkflowDetail">WorkflowDetail</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="KubeWorkflowRepository.List">func (*KubeWorkflowRepository) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L193">List</a>
+					<a class="permalink" href="#KubeWorkflowRepository.List">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#KubeWorkflowRepository">KubeWorkflowRepository</a>) List(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>) ([]<a href="#WorkflowMeta">WorkflowMeta</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="KubeWorkflowRepository.ListByNamespace">func (*KubeWorkflowRepository) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L175">ListByNamespace</a>
+					<a class="permalink" href="#KubeWorkflowRepository.ListByNamespace">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#KubeWorkflowRepository">KubeWorkflowRepository</a>) ListByNamespace(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, namespace <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) ([]<a href="#WorkflowMeta">WorkflowMeta</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="KubeWorkflowRepository.Update">func (*KubeWorkflowRepository) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L155">Update</a>
+					<a class="permalink" href="#KubeWorkflowRepository.Update">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#KubeWorkflowRepository">KubeWorkflowRepository</a>) Update(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, workflow <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Workflow">Workflow</a>) (<a href="#WorkflowDetail">WorkflowDetail</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Node">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L85">Node</a>
+				<a class="permalink" href="#Node">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Node defines a single step of a workflow.
+</p>
+
+			<pre>type Node struct {
+<span id="Node.Name"></span>    Name                <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>                 `json:&#34;name&#34;`
+<span id="Node.Type"></span>    Type                <a href="#NodeType">NodeType</a>               `json:&#34;type&#34;`
+<span id="Node.State"></span>    State               <a href="#NodeState">NodeState</a>              `json:&#34;state&#34;`
+<span id="Node.Serial"></span>    Serial              []<a href="#NodeNameWithTemplate">NodeNameWithTemplate</a> `json:&#34;serial,omitempty&#34;`
+<span id="Node.Parallel"></span>    Parallel            []<a href="#NodeNameWithTemplate">NodeNameWithTemplate</a> `json:&#34;parallel,omitempty&#34;`
+<span id="Node.ConditionalBranches"></span>    ConditionalBranches []<a href="#ConditionalBranch">ConditionalBranch</a>    `json:&#34;conditional_branches,omitempty&#34;`
+<span id="Node.Template"></span>    Template            <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>                 `json:&#34;template&#34;`
+<span id="Node.UID"></span>    UID                 <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>                 `json:&#34;uid&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="NodeNameWithTemplate">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L96">NodeNameWithTemplate</a>
+				<a class="permalink" href="#NodeNameWithTemplate">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type NodeNameWithTemplate struct {
+<span id="NodeNameWithTemplate.Name"></span>    Name     <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;name,omitempty&#34;`
+<span id="NodeNameWithTemplate.Template"></span>    Template <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;template,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="NodeState">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L76">NodeState</a>
+				<a class="permalink" href="#NodeState">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type NodeState <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="NodeRunning">NodeRunning</span> <a href="#NodeState">NodeState</a> = &#34;Running&#34;
+    <span id="NodeSucceed">NodeSucceed</span> <a href="#NodeState">NodeState</a> = &#34;Succeed&#34;
+    <span id="NodeFailed">NodeFailed</span>  <a href="#NodeState">NodeState</a> = &#34;Failed&#34;
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="NodeType">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L112">NodeType</a>
+				<a class="permalink" href="#NodeType">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+NodeType represents the type of a workflow node.
+</p>
+<p>
+There will be five types can be referred as NodeType:
+ChaosNode, SerialNode, ParallelNode, SuspendNode, TaskNode.
+</p>
+<p>
+Const definitions can be found below this type.
+</p>
+
+			<pre>type NodeType <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a></pre>
+
+			
+				
+				<pre>const (
+    <span class="comment">// ChaosNode represents a node will perform a single Chaos Experiment.</span>
+    <span id="ChaosNode">ChaosNode</span> <a href="#NodeType">NodeType</a> = &#34;ChaosNode&#34;
+
+    <span class="comment">// SerialNode represents a node that will perform continuous templates.</span>
+    <span id="SerialNode">SerialNode</span> <a href="#NodeType">NodeType</a> = &#34;SerialNode&#34;
+
+    <span class="comment">// ParallelNode represents a node that will perform parallel templates.</span>
+    <span id="ParallelNode">ParallelNode</span> <a href="#NodeType">NodeType</a> = &#34;ParallelNode&#34;
+
+    <span class="comment">// SuspendNode represents a node that will perform wait operation.</span>
+    <span id="SuspendNode">SuspendNode</span> <a href="#NodeType">NodeType</a> = &#34;SuspendNode&#34;
+
+    <span class="comment">// TaskNode represents a node that will perform user-defined task.</span>
+    <span id="TaskNode">TaskNode</span> <a href="#NodeType">NodeType</a> = &#34;TaskNode&#34;
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ObjectBase">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/common.go#L25">ObjectBase</a>
+				<a class="permalink" href="#ObjectBase">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ObjectBase struct {
+<span id="ObjectBase.Namespace"></span>    Namespace <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;namespace&#34;`
+<span id="ObjectBase.Name"></span>    Name      <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;name&#34;`
+<span id="ObjectBase.Kind"></span>    Kind      <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;kind&#34;`
+<span id="ObjectBase.UID"></span>    UID       <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;uid&#34;`
+<span id="ObjectBase.Created"></span>    Created   <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `json:&#34;created_at&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Schedule">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/schedule.go#L59">Schedule</a>
+				<a class="permalink" href="#Schedule">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Schedule represents a schedule instance. Use in db.
+</p>
+
+			<pre>type Schedule struct {
+    <a href="#ScheduleMeta">ScheduleMeta</a>
+<span id="Schedule.Schedule"></span>    Schedule <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `gorm:&#34;size:2048&#34;` <span class="comment">// JSON string</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ScheduleMeta">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/schedule.go#L65">ScheduleMeta</a>
+				<a class="permalink" href="#ScheduleMeta">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ScheduleMeta defines the metadata of a schedule instance. Use in db.
+</p>
+
+			<pre>type ScheduleMeta struct {
+    <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/jinzhu/gorm/">gorm</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/jinzhu/gorm/#Model">Model</a>
+<span id="ScheduleMeta.UID"></span>    UID        <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `gorm:&#34;index:schedule_uid&#34; json:&#34;uid&#34;`
+<span id="ScheduleMeta.Kind"></span>    Kind       <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `json:&#34;kind&#34;`
+<span id="ScheduleMeta.Name"></span>    Name       <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `json:&#34;name&#34;`
+<span id="ScheduleMeta.Namespace"></span>    Namespace  <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `json:&#34;namespace&#34;`
+<span id="ScheduleMeta.Action"></span>    Action     <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>    `json:&#34;action&#34;`
+<span id="ScheduleMeta.StartTime"></span>    StartTime  <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/#Time">Time</a> `json:&#34;start_time&#34;`
+<span id="ScheduleMeta.FinishTime"></span>    FinishTime <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/#Time">Time</a> `json:&#34;finish_time&#34;`
+<span id="ScheduleMeta.Archived"></span>    Archived   <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#bool">bool</a>      `json:&#34;archived&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ScheduleStore">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/schedule.go#L26">ScheduleStore</a>
+				<a class="permalink" href="#ScheduleStore">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ScheduleStore defines operations for working with schedules.
+</p>
+
+			<pre>type ScheduleStore interface {
+    <span class="comment">// ListMeta returns schedule metadata list from the datastore.</span>
+    ListMeta(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, archived <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#bool">bool</a>) ([]*<a href="#ScheduleMeta">ScheduleMeta</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// FindByUID returns a schedule by UID.</span>
+    FindByUID(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, UID <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) (*<a href="#Schedule">Schedule</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// FindMetaByUID returns a schedule metadata by UID.</span>
+    FindMetaByUID(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) (*<a href="#ScheduleMeta">ScheduleMeta</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// Set saves the schedule to datastore.</span>
+    Set(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, *<a href="#Schedule">Schedule</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+
+    <span class="comment">// Archive archives schedules which &#34;archived&#34; field is false.</span>
+    Archive(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+
+    <span class="comment">// Delete deletes the archive from the datastore.</span>
+    Delete(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, *<a href="#Schedule">Schedule</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteByFinishTime deletes archives which time difference is greater than the given time from FinishTime.</span>
+    DeleteByFinishTime(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/#Duration">Duration</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteByUIDs deletes archives by the uid list.</span>
+    DeleteByUIDs(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, []<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteIncompleteSchedules deletes all incomplete schedules.</span>
+    <span class="comment">// If the chaos-dashboard was restarted and the schedule is completed during the restart,</span>
+    <span class="comment">// which means the schedule would never save the finish_time.</span>
+    <span class="comment">// DeleteIncompleteSchedules can be used to delete all incomplete schedules to avoid this case.</span>
+    DeleteIncompleteSchedules(<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Topology">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L72">Topology</a>
+				<a class="permalink" href="#Topology">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Topology describes the process of a workflow.
+</p>
+
+			<pre>type Topology struct {
+<span id="Topology.Nodes"></span>    Nodes []<a href="#Node">Node</a> `json:&#34;nodes&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="WorkflowDetail">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L65">WorkflowDetail</a>
+				<a class="permalink" href="#WorkflowDetail">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type WorkflowDetail struct {
+    <a href="#WorkflowMeta">WorkflowMeta</a> `json:&#34;,inline&#34;`
+<span id="WorkflowDetail.Topology"></span>    Topology     <a href="#Topology">Topology</a>       `json:&#34;topology&#34;`
+<span id="WorkflowDetail.KubeObject"></span>    KubeObject   <a href="#KubeObjectDesc">KubeObjectDesc</a> `json:&#34;kube_object,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="WorkflowEntity2WorkflowDetail">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L473">WorkflowEntity2WorkflowDetail</a>
+					<a class="permalink" href="#WorkflowEntity2WorkflowDetail">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func WorkflowEntity2WorkflowDetail(entity *<a href="#WorkflowEntity">WorkflowEntity</a>) (*<a href="#WorkflowDetail">WorkflowDetail</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="WorkflowEntity">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L440">WorkflowEntity</a>
+				<a class="permalink" href="#WorkflowEntity">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+WorkflowEntity is the gorm entity, refers to a row of data
+</p>
+
+			<pre>type WorkflowEntity struct {
+    <a href="#WorkflowMeta">WorkflowMeta</a>
+<span id="WorkflowEntity.Workflow"></span>    Workflow <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> `gorm:&#34;type:text;size:32768&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="WorkflowCR2WorkflowEntity">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L445">WorkflowCR2WorkflowEntity</a>
+					<a class="permalink" href="#WorkflowCR2WorkflowEntity">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func WorkflowCR2WorkflowEntity(workflow *<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Workflow">Workflow</a>) (*<a href="#WorkflowEntity">WorkflowEntity</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="WorkflowMeta">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L53">WorkflowMeta</a>
+				<a class="permalink" href="#WorkflowMeta">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+WorkflowMeta defines the root structure of a workflow.
+</p>
+
+			<pre>type WorkflowMeta struct {
+<span id="WorkflowMeta.ID"></span>    ID        <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint">uint</a>           `gorm:&#34;primary_key&#34; json:&#34;id&#34;`
+<span id="WorkflowMeta.UID"></span>    UID       <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>         `gorm:&#34;index:workflow_uid&#34; json:&#34;uid&#34;`
+<span id="WorkflowMeta.Namespace"></span>    Namespace <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>         `json:&#34;namespace&#34;`
+<span id="WorkflowMeta.Name"></span>    Name      <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>         `json:&#34;name&#34;`
+<span id="WorkflowMeta.Entry"></span>    Entry     <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>         `json:&#34;entry&#34;` <span class="comment">// the entry node name</span>
+<span id="WorkflowMeta.CreatedAt"></span>    CreatedAt <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/time/#Time">Time</a>      `json:&#34;created_at&#34;`
+<span id="WorkflowMeta.EndTime"></span>    EndTime   <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>         `json:&#34;end_time&#34;`
+<span id="WorkflowMeta.Status"></span>    Status    <a href="#WorkflowStatus">WorkflowStatus</a> `json:&#34;status,omitempty&#34;`
+<span id="WorkflowMeta.Archived"></span>    Archived  <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#bool">bool</a>           `json:&#34;-&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="WorkflowRepository">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L34">WorkflowRepository</a>
+				<a class="permalink" href="#WorkflowRepository">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type WorkflowRepository interface {
+    List(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>) ([]<a href="#WorkflowMeta">WorkflowMeta</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+    ListByNamespace(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, namespace <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) ([]<a href="#WorkflowMeta">WorkflowMeta</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+    Create(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, workflow <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Workflow">Workflow</a>) (<a href="#WorkflowDetail">WorkflowDetail</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+    Get(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) (<a href="#WorkflowDetail">WorkflowDetail</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+    Delete(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+    Update(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, workflow <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Workflow">Workflow</a>) (<a href="#WorkflowDetail">WorkflowDetail</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="WorkflowStatus">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L43">WorkflowStatus</a>
+				<a class="permalink" href="#WorkflowStatus">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type WorkflowStatus <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="WorkflowRunning">WorkflowRunning</span> <a href="#WorkflowStatus">WorkflowStatus</a> = &#34;running&#34;
+    <span id="WorkflowSucceed">WorkflowSucceed</span> <a href="#WorkflowStatus">WorkflowStatus</a> = &#34;finished&#34;
+    <span id="WorkflowFailed">WorkflowFailed</span>  <a href="#WorkflowStatus">WorkflowStatus</a> = &#34;failed&#34;
+    <span id="WorkflowUnknown">WorkflowUnknown</span> <a href="#WorkflowStatus">WorkflowStatus</a> = &#34;unknown&#34;
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="WorkflowStore">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/workflow.go#L426">WorkflowStore</a>
+				<a class="permalink" href="#WorkflowStore">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+The WorkflowStore of workflow is not so similar with others store.
+</p>
+
+			<pre>type WorkflowStore interface {
+    List(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, archived <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#bool">bool</a>) ([]*<a href="#WorkflowEntity">WorkflowEntity</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+    ListMeta(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, archived <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#bool">bool</a>) ([]*<a href="#WorkflowMeta">WorkflowMeta</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+    FindByID(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, ID <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint">uint</a>) (*<a href="#WorkflowEntity">WorkflowEntity</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+    FindByUID(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, UID <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) (*<a href="#WorkflowEntity">WorkflowEntity</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+    FindMetaByUID(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, UID <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) (*<a href="#WorkflowMeta">WorkflowMeta</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+    Save(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, entity *<a href="#WorkflowEntity">WorkflowEntity</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+    DeleteByUID(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, UID <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+    DeleteByUIDs(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, UIDs []<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+    MarkAsArchived(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+    MarkAsArchivedWithUID(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, UID <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

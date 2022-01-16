@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>collector - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package collector
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+			
+			
+				
+				<dd><a href="#Collector">type Collector</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DefaultCollector">func DefaultCollector(kubeClient client.Client, restConfig *rest.Config, namespace, podName, containerName string) Collector</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ComposeCollector">type ComposeCollector</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ComposeCollector.CollectContext">func (it *ComposeCollector) CollectContext(ctx context.Context) (env map[string]interface{}, err error)</a></dd>
+				
+			
+				
+				<dd><a href="#ExitCodeCollector">type ExitCodeCollector</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewExitCodeCollector">func NewExitCodeCollector(kubeClient client.Client, namespace string, podName string, containerName string) *ExitCodeCollector</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ExitCodeCollector.CollectContext">func (it *ExitCodeCollector) CollectContext(ctx context.Context) (env map[string]interface{}, err error)</a></dd>
+				
+			
+				
+				<dd><a href="#StdoutCollector">type StdoutCollector</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewStdoutCollector">func NewStdoutCollector(restConfig *rest.Config, namespace string, podName string, containerName string) *StdoutCollector</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StdoutCollector.CollectContext">func (it *StdoutCollector) CollectContext(ctx context.Context) (env map[string]interface{}, err error)</a></dd>
+				
+			
+				
+				<dd><a href="#ValuedCollector">type ValuedCollector</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewValuedCollector">func NewValuedCollector(status v1alpha1.ConditionalBranchesStatus) *ValuedCollector</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ValuedCollector.CollectContext">func (it *ValuedCollector) CollectContext() (env map[string]interface{}, err error)</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/collector.go">collector.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/exit_code.go">exit_code.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/stdout.go">stdout.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/valued_collector.go">valued_collector.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				
+				<pre>const <span id="ExitCode">ExitCode</span> <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> = &#34;exitCode&#34;</pre>
+			
+				
+				<pre>const <span id="Stdout">Stdout</span> <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a> = &#34;stdout&#34;</pre>
+			
+		
+		
+		
+		
+			
+			
+			<h2 id="Collector">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/collector.go#L26">Collector</a>
+				<a class="permalink" href="#Collector">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Collector is a set of tools for collecting parameters/context from user defined task
+</p>
+
+			<pre>type Collector interface {
+    CollectContext(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>) (env map[<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>]interface{}, err <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="DefaultCollector">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/collector.go#L64">DefaultCollector</a>
+					<a class="permalink" href="#DefaultCollector">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func DefaultCollector(kubeClient <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, restConfig *<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/k8s.io/client-go/rest/">rest</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/k8s.io/client-go/rest/#Config">Config</a>, namespace, podName, containerName <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) <a href="#Collector">Collector</a></pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="ComposeCollector">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/collector.go#L30">ComposeCollector</a>
+				<a class="permalink" href="#ComposeCollector">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ComposeCollector struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ComposeCollector.CollectContext">func (*ComposeCollector) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/collector.go#L34">CollectContext</a>
+					<a class="permalink" href="#ComposeCollector.CollectContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#ComposeCollector">ComposeCollector</a>) CollectContext(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>) (env map[<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>]interface{}, err <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ExitCodeCollector">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/exit_code.go#L30">ExitCodeCollector</a>
+				<a class="permalink" href="#ExitCodeCollector">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ExitCodeCollector struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewExitCodeCollector">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/exit_code.go#L37">NewExitCodeCollector</a>
+					<a class="permalink" href="#NewExitCodeCollector">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewExitCodeCollector(kubeClient <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, namespace <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, podName <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, containerName <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) *<a href="#ExitCodeCollector">ExitCodeCollector</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="ExitCodeCollector.CollectContext">func (*ExitCodeCollector) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/exit_code.go#L41">CollectContext</a>
+					<a class="permalink" href="#ExitCodeCollector.CollectContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#ExitCodeCollector">ExitCodeCollector</a>) CollectContext(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>) (env map[<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>]interface{}, err <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="StdoutCollector">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/stdout.go#L30">StdoutCollector</a>
+				<a class="permalink" href="#StdoutCollector">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type StdoutCollector struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewStdoutCollector">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/stdout.go#L37">NewStdoutCollector</a>
+					<a class="permalink" href="#NewStdoutCollector">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewStdoutCollector(restConfig *<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/k8s.io/client-go/rest/">rest</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/k8s.io/client-go/rest/#Config">Config</a>, namespace <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, podName <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, containerName <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) *<a href="#StdoutCollector">StdoutCollector</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="StdoutCollector.CollectContext">func (*StdoutCollector) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/stdout.go#L41">CollectContext</a>
+					<a class="permalink" href="#StdoutCollector.CollectContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#StdoutCollector">StdoutCollector</a>) CollectContext(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>) (env map[<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>]interface{}, err <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ValuedCollector">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/valued_collector.go#L24">ValuedCollector</a>
+				<a class="permalink" href="#ValuedCollector">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ValuedCollector struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewValuedCollector">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/valued_collector.go#L28">NewValuedCollector</a>
+					<a class="permalink" href="#NewValuedCollector">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewValuedCollector(status <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#ConditionalBranchesStatus">ConditionalBranchesStatus</a>) *<a href="#ValuedCollector">ValuedCollector</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="ValuedCollector.CollectContext">func (*ValuedCollector) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/task/collector/valued_collector.go#L32">CollectContext</a>
+					<a class="permalink" href="#ValuedCollector.CollectContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#ValuedCollector">ValuedCollector</a>) CollectContext() (env map[<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>]interface{}, err <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

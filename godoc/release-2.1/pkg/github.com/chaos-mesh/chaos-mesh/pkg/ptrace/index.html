@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>ptrace - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package ptrace
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/ptrace"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#RegisterLogger">func RegisterLogger(logger logr.Logger)</a></dd>
+			
+			
+				
+				<dd><a href="#TracedProgram">type TracedProgram</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Trace">func Trace(pid int) (*TracedProgram, error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.Detach">func (p *TracedProgram) Detach() error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.FindSymbolInEntry">func (p *TracedProgram) FindSymbolInEntry(symbolName string, entry *mapreader.Entry) (uint64, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.GetLibBuffer">func (p *TracedProgram) GetLibBuffer(entry *mapreader.Entry) (*[]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.JumpToFakeFunc">func (p *TracedProgram) JumpToFakeFunc(originAddr uint64, targetAddr uint64) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.Mmap">func (p *TracedProgram) Mmap(length uint64, fd uint64) (uint64, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.MmapSlice">func (p *TracedProgram) MmapSlice(slice []byte) (*mapreader.Entry, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.Pid">func (p *TracedProgram) Pid() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.Protect">func (p *TracedProgram) Protect() error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.PtraceWriteSlice">func (p *TracedProgram) PtraceWriteSlice(addr uint64, buffer []byte) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.ReadSlice">func (p *TracedProgram) ReadSlice(addr uint64, size uint64) (*[]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.Restore">func (p *TracedProgram) Restore() error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.Step">func (p *TracedProgram) Step() error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.Syscall">func (p *TracedProgram) Syscall(number uint64, args ...uint64) (uint64, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.Wait">func (p *TracedProgram) Wait() error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.WriteSlice">func (p *TracedProgram) WriteSlice(addr uint64, buffer []byte) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.WriteUint64ToAddr">func (p *TracedProgram) WriteUint64ToAddr(addr uint64, value uint64) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/cwrapper_linux.go">cwrapper_linux.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go">ptrace_linux_amd64.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="RegisterLogger">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L49">RegisterLogger</a>
+				<a class="permalink" href="#RegisterLogger">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RegisterLogger(logger <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/go-logr/logr/#Logger">Logger</a>)</pre>
+			<p>
+RegisterLogger registers a logger on ptrace pkg
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="TracedProgram">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L63">TracedProgram</a>
+				<a class="permalink" href="#TracedProgram">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+TracedProgram is a program traced by ptrace
+</p>
+
+			<pre>type TracedProgram struct {
+<span id="TracedProgram.Entries"></span>    Entries []<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/">mapreader</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/#Entry">Entry</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="Trace">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L87">Trace</a>
+					<a class="permalink" href="#Trace">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Trace(pid <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int">int</a>) (*<a href="#TracedProgram">TracedProgram</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Trace ptrace all threads of a process
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="TracedProgram.Detach">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L187">Detach</a>
+					<a class="permalink" href="#TracedProgram.Detach">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) Detach() <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				<p>
+Detach detaches from all threads of the processes
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TracedProgram.FindSymbolInEntry">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L434">FindSymbolInEntry</a>
+					<a class="permalink" href="#TracedProgram.FindSymbolInEntry">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) FindSymbolInEntry(symbolName <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, entry *<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/">mapreader</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/#Entry">Entry</a>) (<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				<p>
+FindSymbolInEntry finds symbol in entry through parsing elf
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TracedProgram.GetLibBuffer">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L400">GetLibBuffer</a>
+					<a class="permalink" href="#TracedProgram.GetLibBuffer">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) GetLibBuffer(entry *<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/">mapreader</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/#Entry">Entry</a>) (*[]<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#byte">byte</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				<p>
+GetLibBuffer reads an entry
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TracedProgram.JumpToFakeFunc">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L480">JumpToFakeFunc</a>
+					<a class="permalink" href="#TracedProgram.JumpToFakeFunc">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) JumpToFakeFunc(originAddr <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>, targetAddr <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				<p>
+JumpToFakeFunc writes jmp instruction to jump to fake function
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TracedProgram.Mmap">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L310">Mmap</a>
+					<a class="permalink" href="#TracedProgram.Mmap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) Mmap(length <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>, fd <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>) (<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Mmap runs mmap syscall
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TracedProgram.MmapSlice">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L411">MmapSlice</a>
+					<a class="permalink" href="#TracedProgram.MmapSlice">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) MmapSlice(slice []<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#byte">byte</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/">mapreader</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/#Entry">Entry</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				<p>
+MmapSlice mmaps a slice and return it&#39;s addr
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TracedProgram.Pid">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L73">Pid</a>
+					<a class="permalink" href="#TracedProgram.Pid">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) Pid() <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int">int</a></pre>
+				<p>
+Pid return the pid of traced program
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TracedProgram.Protect">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L206">Protect</a>
+					<a class="permalink" href="#TracedProgram.Protect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) Protect() <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				<p>
+Protect will backup regs and rip into fields
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TracedProgram.PtraceWriteSlice">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L378">PtraceWriteSlice</a>
+					<a class="permalink" href="#TracedProgram.PtraceWriteSlice">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) PtraceWriteSlice(addr <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>, buffer []<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#byte">byte</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				<p>
+PtraceWriteSlice uses ptrace rather than process_vm_write to write a buffer into addr
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TracedProgram.ReadSlice">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L315">ReadSlice</a>
+					<a class="permalink" href="#TracedProgram.ReadSlice">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) ReadSlice(addr <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>, size <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>) (*[]<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#byte">byte</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				<p>
+ReadSlice reads from addr and return a slice
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TracedProgram.Restore">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L221">Restore</a>
+					<a class="permalink" href="#TracedProgram.Restore">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) Restore() <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				<p>
+Restore will restore regs and rip from fields
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TracedProgram.Step">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L241">Step</a>
+					<a class="permalink" href="#TracedProgram.Step">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) Step() <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				<p>
+Step moves one step forward
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TracedProgram.Syscall">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L251">Syscall</a>
+					<a class="permalink" href="#TracedProgram.Syscall">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) Syscall(number <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>, args ...<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>) (<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Syscall runs a syscall at main thread of process
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TracedProgram.Wait">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L236">Wait</a>
+					<a class="permalink" href="#TracedProgram.Wait">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) Wait() <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				<p>
+Wait waits until the process stops
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TracedProgram.WriteSlice">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L339">WriteSlice</a>
+					<a class="permalink" href="#TracedProgram.WriteSlice">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) WriteSlice(addr <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>, buffer []<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#byte">byte</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				<p>
+WriteSlice writes a buffer into addr
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TracedProgram.WriteUint64ToAddr">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L472">WriteUint64ToAddr</a>
+					<a class="permalink" href="#TracedProgram.WriteUint64ToAddr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) WriteUint64ToAddr(addr <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>, value <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				<p>
+WriteUint64ToAddr writes uint64 to addr
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
