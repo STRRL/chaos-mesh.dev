@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>config - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.1/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.1/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.1/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2989e66. Generated at Sun Jan 16 10:55:20 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package config
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#ParsePersistTTLConfig">func ParsePersistTTLConfig(config *PersistTTLConfig) (*ttlcontroller.TTLconfig, error)</a></dd>
+			
+			
+				
+				<dd><a href="#ChaosDashboardConfig">type ChaosDashboardConfig</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GetChaosDashboardEnv">func GetChaosDashboardEnv() (*ChaosDashboardConfig, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#DatabaseConfig">type DatabaseConfig</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PersistTTLConfig">type PersistTTLConfig</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go">dashboard.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="ParsePersistTTLConfig">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L70">ParsePersistTTLConfig</a>
+				<a class="permalink" href="#ParsePersistTTLConfig">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ParsePersistTTLConfig(config *<a href="#PersistTTLConfig">PersistTTLConfig</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ttlcontroller/">ttlcontroller</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ttlcontroller/#TTLconfig">TTLconfig</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#error">error</a>)</pre>
+			<p>
+ParsePersistTTLConfig parse PersistTTLConfig to persistTTLConfigParsed.
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="ChaosDashboardConfig">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L25">ChaosDashboardConfig</a>
+				<a class="permalink" href="#ChaosDashboardConfig">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ChaosDashboardConfig defines the configuration for Chaos Dashboard
+</p>
+
+			<pre>type ChaosDashboardConfig struct {
+<span id="ChaosDashboardConfig.ListenHost"></span>    ListenHost           <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a>            `envconfig:&#34;LISTEN_HOST&#34; default:&#34;0.0.0.0&#34; json:&#34;listen_host&#34;`
+<span id="ChaosDashboardConfig.ListenPort"></span>    ListenPort           <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#int">int</a>               `envconfig:&#34;LISTEN_PORT&#34; default:&#34;2333&#34; json:&#34;listen_port&#34;`
+<span id="ChaosDashboardConfig.MetricAddress"></span>    MetricAddress        <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a>            `envconfig:&#34;METRIC_ADDRESS&#34; json:&#34;-&#34;`
+<span id="ChaosDashboardConfig.EnableLeaderElection"></span>    EnableLeaderElection <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#bool">bool</a>              `envconfig:&#34;ENABLE_LEADER_ELECTION&#34; json:&#34;-&#34;`
+<span id="ChaosDashboardConfig.Database"></span>    Database             *<a href="#DatabaseConfig">DatabaseConfig</a>   `json:&#34;-&#34;`
+<span id="ChaosDashboardConfig.PersistTTL"></span>    PersistTTL           *<a href="#PersistTTLConfig">PersistTTLConfig</a> `json:&#34;-&#34;`
+<span id="ChaosDashboardConfig.ClusterScoped"></span>    <span class="comment">// ClusterScoped means control Chaos Object in cluster level(all namespace),</span>
+    ClusterScoped <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#bool">bool</a> `envconfig:&#34;CLUSTER_SCOPED&#34; default:&#34;true&#34; json:&#34;cluster_mode&#34;`
+<span id="ChaosDashboardConfig.TargetNamespace"></span>    <span class="comment">// TargetNamespace is the target namespace to injecting chaos.</span>
+    <span class="comment">// It only works with ClusterScoped is false;</span>
+    TargetNamespace <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a> `envconfig:&#34;TARGET_NAMESPACE&#34; default:&#34;&#34; json:&#34;target_namespace&#34;`
+<span id="ChaosDashboardConfig.EnableFilterNamespace"></span>    <span class="comment">// EnableFilterNamespace will filter namespace with annotation. Only the pods/containers in namespace</span>
+    <span class="comment">// annotated with `chaos-mesh.org/inject=enabled` will be injected</span>
+    EnableFilterNamespace <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#bool">bool</a> `envconfig:&#34;ENABLE_FILTER_NAMESPACE&#34; default:&#34;false&#34;`
+<span id="ChaosDashboardConfig.SecurityMode"></span>    <span class="comment">// SecurityMode will use the token login by the user if set to true</span>
+    SecurityMode    <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#bool">bool</a>   `envconfig:&#34;SECURITY_MODE&#34; default:&#34;true&#34; json:&#34;security_mode&#34;`
+<span id="ChaosDashboardConfig.DNSServerCreate"></span>    DNSServerCreate <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#bool">bool</a>   `envconfig:&#34;DNS_SERVER_CREATE&#34; default:&#34;false&#34; json:&#34;dns_server_create&#34;`
+<span id="ChaosDashboardConfig.Version"></span>    Version         <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a> `json:&#34;version&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="GetChaosDashboardEnv">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L63">GetChaosDashboardEnv</a>
+					<a class="permalink" href="#GetChaosDashboardEnv">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func GetChaosDashboardEnv() (*<a href="#ChaosDashboardConfig">ChaosDashboardConfig</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#error">error</a>)</pre>
+				<p>
+GetChaosDashboardEnv gets all env variables related to dashboard.
+</p>
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="DatabaseConfig">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L54">DatabaseConfig</a>
+				<a class="permalink" href="#DatabaseConfig">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+DatabaseConfig defines the configuration for databases
+</p>
+
+			<pre>type DatabaseConfig struct {
+<span id="DatabaseConfig.Archive"></span>    <span class="comment">// Archive Chaos Experiments to DB</span>
+    Archive    <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#bool">bool</a>
+<span id="DatabaseConfig.Driver"></span>    Driver     <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a> `envconfig:&#34;DATABASE_DRIVER&#34;     default:&#34;sqlite3&#34;`
+<span id="DatabaseConfig.Datasource"></span>    Datasource <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a> `envconfig:&#34;DATABASE_DATASOURCE&#34; default:&#34;core.sqlite&#34;`
+<span id="DatabaseConfig.Secret"></span>    Secret     <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a> `envconfig:&#34;DATABASE_SECRET&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PersistTTLConfig">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L47">PersistTTLConfig</a>
+				<a class="permalink" href="#PersistTTLConfig">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+PersistTTLConfig defines the configuration of ttl
+</p>
+
+			<pre>type PersistTTLConfig struct {
+<span id="PersistTTLConfig.SyncPeriod"></span>    SyncPeriod <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a> `envconfig:&#34;CLEAN_SYNC_PERIOD&#34; default:&#34;12h&#34;`
+<span id="PersistTTLConfig.Event"></span>    Event      <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a> `envconfig:&#34;TTL_EVENT&#34;       default:&#34;168h&#34;` <span class="comment">// one week</span>
+<span id="PersistTTLConfig.Experiment"></span>    Experiment <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a> `envconfig:&#34;TTL_EXPERIMENT&#34;  default:&#34;336h&#34;` <span class="comment">// two weeks</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

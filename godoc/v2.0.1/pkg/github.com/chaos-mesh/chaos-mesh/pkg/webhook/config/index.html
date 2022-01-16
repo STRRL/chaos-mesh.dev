@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>config - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.1/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.1/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.1/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2989e66. Generated at Sun Jan 16 10:55:20 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package config
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/webhook/config"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#Config">type Config</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewConfigWatcherConf">func NewConfigWatcherConf() *Config</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Config.GetRequestedConfig">func (c *Config) GetRequestedConfig(namespace, key string) (*InjectionConfig, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Config.ReplaceInjectionConfigs">func (c *Config) ReplaceInjectionConfigs(updatedConfigs map[string][]*InjectionConfig)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Config.RequestAnnotationKey">func (c *Config) RequestAnnotationKey() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Config.RequestInitAnnotationKey">func (c *Config) RequestInitAnnotationKey() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Config.StatusAnnotationKey">func (c *Config) StatusAnnotationKey() string</a></dd>
+				
+			
+				
+				<dd><a href="#ExecAction">type ExecAction</a></dd>
+				
+				
+			
+				
+				<dd><a href="#InjectionConfig">type InjectionConfig</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TemplateArgs">type TemplateArgs</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#LoadTemplateArgs">func LoadTemplateArgs(reader io.Reader) (*TemplateArgs, error)</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/config.go">config.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="Config">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/config.go#L71">Config</a>
+				<a class="permalink" href="#Config">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Config is a struct indicating how a given injection should be configured
+</p>
+
+			<pre>type Config struct {
+    <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/sync/">sync</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/sync/#RWMutex">RWMutex</a>
+<span id="Config.AnnotationNamespace"></span>    AnnotationNamespace <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a>
+<span id="Config.Injections"></span>    Injections          map[<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a>][]*<a href="#InjectionConfig">InjectionConfig</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewConfigWatcherConf">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/config.go#L89">NewConfigWatcherConf</a>
+					<a class="permalink" href="#NewConfigWatcherConf">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewConfigWatcherConf() *<a href="#Config">Config</a></pre>
+				<p>
+NewConfigWatcherConf creates a configuration for watcher
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="Config.GetRequestedConfig">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/config.go#L109">GetRequestedConfig</a>
+					<a class="permalink" href="#Config.GetRequestedConfig">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Config">Config</a>) GetRequestedConfig(namespace, key <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a>) (*<a href="#InjectionConfig">InjectionConfig</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#error">error</a>)</pre>
+				<p>
+GetRequestedConfig returns the InjectionConfig given a requested key
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Config.ReplaceInjectionConfigs">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/config.go#L150">ReplaceInjectionConfigs</a>
+					<a class="permalink" href="#Config.ReplaceInjectionConfigs">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Config">Config</a>) ReplaceInjectionConfigs(updatedConfigs map[<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a>][]*<a href="#InjectionConfig">InjectionConfig</a>)</pre>
+				<p>
+ReplaceInjectionConfigs will update the injection configs.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Config.RequestAnnotationKey">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/config.go#L96">RequestAnnotationKey</a>
+					<a class="permalink" href="#Config.RequestAnnotationKey">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Config">Config</a>) RequestAnnotationKey() <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Config.RequestInitAnnotationKey">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/config.go#L104">RequestInitAnnotationKey</a>
+					<a class="permalink" href="#Config.RequestInitAnnotationKey">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Config">Config</a>) RequestInitAnnotationKey() <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Config.StatusAnnotationKey">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/config.go#L100">StatusAnnotationKey</a>
+					<a class="permalink" href="#Config.StatusAnnotationKey">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Config">Config</a>) StatusAnnotationKey() <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ExecAction">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/config.go#L39">ExecAction</a>
+				<a class="permalink" href="#ExecAction">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ExecAction describes a &#34;run in container&#34; action.
+</p>
+
+			<pre>type ExecAction struct {
+<span id="ExecAction.Command"></span>    <span class="comment">// Command is the command line to execute inside the container, the working directory for the</span>
+    <span class="comment">// command  is root (&#39;/&#39;) in the container&#39;s filesystem. The command is simply exec&#39;d, it is</span>
+    <span class="comment">// not run inside a shell, so traditional shell instructions (&#39;|&#39;, etc) won&#39;t work. To use</span>
+    <span class="comment">// a shell, you need to explicitly call out to that shell.</span>
+    <span class="comment">// Exit status of 0 is treated as live/healthy and non-zero is unhealthy.</span>
+    <span class="comment">// +optional</span>
+    Command []<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a> `json:&#34;command,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="InjectionConfig">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/config.go#L50">InjectionConfig</a>
+				<a class="permalink" href="#InjectionConfig">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+InjectionConfig is a specific instance of an injected config, for a given annotation
+</p>
+
+			<pre>type InjectionConfig struct {
+<span id="InjectionConfig.Name"></span>    Name <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a>
+<span id="InjectionConfig.Selector"></span>    <span class="comment">// Selector is used to select pods that are used to inject sidecar.</span>
+    Selector *<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodSelectorSpec">PodSelectorSpec</a>
+
+<span id="InjectionConfig.Containers"></span>    Containers            []<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/k8s.io/api/core/v1/#Container">Container</a>   `json:&#34;containers&#34;`
+<span id="InjectionConfig.Volumes"></span>    Volumes               []<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/k8s.io/api/core/v1/#Volume">Volume</a>      `json:&#34;volumes&#34;`
+<span id="InjectionConfig.Environment"></span>    Environment           []<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/k8s.io/api/core/v1/#EnvVar">EnvVar</a>      `json:&#34;env&#34;`
+<span id="InjectionConfig.VolumeMounts"></span>    VolumeMounts          []<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/k8s.io/api/core/v1/#VolumeMount">VolumeMount</a> `json:&#34;volumeMounts&#34;`
+<span id="InjectionConfig.HostAliases"></span>    HostAliases           []<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/k8s.io/api/core/v1/#HostAlias">HostAlias</a>   `json:&#34;hostAliases&#34;`
+<span id="InjectionConfig.InitContainers"></span>    InitContainers        []<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/k8s.io/api/core/v1/#Container">Container</a>   `json:&#34;initContainers&#34;`
+<span id="InjectionConfig.ShareProcessNamespace"></span>    ShareProcessNamespace <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#bool">bool</a>                 `json:&#34;shareProcessNamespace&#34;`
+<span id="InjectionConfig.PostStart"></span>    <span class="comment">// PostStart is called after a container is created first.</span>
+    <span class="comment">// If the handler fails, the containers will failed.</span>
+    <span class="comment">// Key defines for the name of deployment container.</span>
+    <span class="comment">// Value defines for the Commands for stating container.</span>
+    <span class="comment">// +optional</span>
+    PostStart map[<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a>]<a href="#ExecAction">ExecAction</a> `json:&#34;postStart,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TemplateArgs">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/config.go#L78">TemplateArgs</a>
+				<a class="permalink" href="#TemplateArgs">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+TemplateArgs is a set of arguments to render template
+</p>
+
+			<pre>type TemplateArgs struct {
+<span id="TemplateArgs.Namespace"></span>    Namespace <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a>
+<span id="TemplateArgs.Name"></span>    Name      <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a> `yaml:&#34;name&#34;`
+    <span class="comment">// Name of the template</span>
+<span id="TemplateArgs.Template"></span>    Template  <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a>            `yaml:&#34;template&#34;`
+<span id="TemplateArgs.Arguments"></span>    Arguments map[<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a> `yaml:&#34;arguments&#34;`
+<span id="TemplateArgs.Selector"></span>    <span class="comment">// Selector is used to select pods that are used to inject sidecar.</span>
+    Selector *<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodSelectorSpec">PodSelectorSpec</a> `json:&#34;selector,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="LoadTemplateArgs">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/config.go#L127">LoadTemplateArgs</a>
+					<a class="permalink" href="#LoadTemplateArgs">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func LoadTemplateArgs(reader <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/io/">io</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/io/#Reader">Reader</a>) (*<a href="#TemplateArgs">TemplateArgs</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#error">error</a>)</pre>
+				<p>
+LoadTemplateArgs takes an io.Reader and parses out an template args
+</p>
+
+				
+				
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="watcher/">watcher</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

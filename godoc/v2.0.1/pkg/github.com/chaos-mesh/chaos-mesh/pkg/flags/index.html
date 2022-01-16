@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>flags - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.1/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.1/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.1/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2989e66. Generated at Sun Jan 16 10:55:20 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package flags
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/flags"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#MapStringStringFlag">type MapStringStringFlag</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewMapStringStringFlag">func NewMapStringStringFlag() MapStringStringFlag</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MapStringStringFlag.Set">func (s *MapStringStringFlag) Set(value string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MapStringStringFlag.String">func (s *MapStringStringFlag) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MapStringStringFlag.ToMapStringString">func (s *MapStringStringFlag) ToMapStringString() map[string]string</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/flags/flags.go">flags.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="MapStringStringFlag">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/flags/flags.go#L22">MapStringStringFlag</a>
+				<a class="permalink" href="#MapStringStringFlag">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+MapStringStringFlag is a flag struct for key=value pairs
+</p>
+
+			<pre>type MapStringStringFlag struct {
+<span id="MapStringStringFlag.Values"></span>    Values map[<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewMapStringStringFlag">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/flags/flags.go#L56">NewMapStringStringFlag</a>
+					<a class="permalink" href="#NewMapStringStringFlag">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewMapStringStringFlag() <a href="#MapStringStringFlag">MapStringStringFlag</a></pre>
+				<p>
+NewMapStringStringFlag creates a new flag var for storing key=value pairs
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="MapStringStringFlag.Set">func (*MapStringStringFlag) <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/flags/flags.go#L36">Set</a>
+					<a class="permalink" href="#MapStringStringFlag.Set">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#MapStringStringFlag">MapStringStringFlag</a>) Set(value <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#error">error</a></pre>
+				<p>
+Set implements the flag.Var interface
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MapStringStringFlag.String">func (*MapStringStringFlag) <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/flags/flags.go#L27">String</a>
+					<a class="permalink" href="#MapStringStringFlag.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#MapStringStringFlag">MapStringStringFlag</a>) String() <a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a></pre>
+				<p>
+String implements the flag.Var interface
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="MapStringStringFlag.ToMapStringString">func (*MapStringStringFlag) <a href="./https:/chaos-mesh.dev/godoc/v2.0.1/src/github.com/chaos-mesh/chaos-mesh/pkg/flags/flags.go#L51">ToMapStringString</a>
+					<a class="permalink" href="#MapStringStringFlag.ToMapStringString">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#MapStringStringFlag">MapStringStringFlag</a>) ToMapStringString() map[<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/v2.0.1/pkg/builtin/#string">string</a></pre>
+				<p>
+ToMapStringString returns the underlying representation of the map of key=value pairs
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
