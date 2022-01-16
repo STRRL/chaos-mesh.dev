@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>generic - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package generic
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/selector/generic"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+			
+				
+				<dd><a href="#FilterObjectsByMode">func FilterObjectsByMode(mode v1alpha1.SelectorMode, value string, count int) ([]uint, error)</a></dd>
+			
+				
+				<dd><a href="#RandomFixedIndexes">func RandomFixedIndexes(start, end, count uint) []uint</a></dd>
+			
+			
+				
+				<dd><a href="#ListFunc">type ListFunc</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Option">type Option</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Selector">type Selector</a></dd>
+				
+				
+			
+				
+				<dd><a href="#SelectorChain">type SelectorChain</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SelectorChain.ListObjects">func (s SelectorChain) ListObjects(c client.Client, r client.Reader, listObj func(listFunc ListFunc, opts client.ListOptions) error) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SelectorChain.Match">func (s SelectorChain) Match(obj client.Object) bool</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/generic/mode.go">mode.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/generic/selector.go">selector.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				
+				<pre>const <span id="InjectAnnotationKey">InjectAnnotationKey</span> = &#34;chaos-mesh.org/inject&#34;</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="FilterObjectsByMode">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/generic/mode.go#L30">FilterObjectsByMode</a>
+				<a class="permalink" href="#FilterObjectsByMode">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func FilterObjectsByMode(mode <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#SelectorMode">SelectorMode</a>, value <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, count <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint">uint</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			<p>
+FilterObjectsByMode filters objects by mode
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="RandomFixedIndexes">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/generic/mode.go#L98">RandomFixedIndexes</a>
+				<a class="permalink" href="#RandomFixedIndexes">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RandomFixedIndexes(start, end, count <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint">uint</a>) []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint">uint</a></pre>
+			<p>
+RandomFixedIndexes returns the `count` random indexes between `start` and `end`.
+[start, end)
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="ListFunc">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/generic/selector.go#L32">ListFunc</a>
+				<a class="permalink" href="#ListFunc">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ListFunc func(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, list <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#ObjectList">ObjectList</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#ListOption">ListOption</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Option">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/generic/selector.go#L26">Option</a>
+				<a class="permalink" href="#Option">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Option struct {
+<span id="Option.ClusterScoped"></span>    ClusterScoped         <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>
+<span id="Option.TargetNamespace"></span>    TargetNamespace       <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="Option.EnableFilterNamespace"></span>    EnableFilterNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Selector">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/generic/selector.go#L35">Selector</a>
+				<a class="permalink" href="#Selector">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Selector is an interface implemented by things that know how to list objects from cluster and whether this object matches the selector.
+</p>
+
+			<pre>type Selector interface {
+    <span class="comment">// ListFunc returns the function to list object from kubernetes cluster.</span>
+    <span class="comment">// If no method is specified, returns `nil` directly. (default: `List` function of `client.Client`)</span>
+    <span class="comment">// If needed, `List` function of `client.Reader` can be returned. Only `field selector` uses it for now.</span>
+    <span class="comment">// When registering the Selector, it&#39;s important to note that multiple ListFunc will be overwritten in the SelectorChain.</span>
+    ListFunc(<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>) <a href="#ListFunc">ListFunc</a>
+    <span class="comment">// ListOption returns the client.ListOption that modifies options for a list request.</span>
+    <span class="comment">// If no option is specified, returns `nil` directly.</span>
+    <span class="comment">// When registering a Selector, it is important to note that multiple ListOptions will all apply to</span>
+    <span class="comment">// the same `client.ListOptions` and will be overwritten if they have the same fields in the SelectorChain.</span>
+    ListOption() <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#ListOption">ListOption</a>
+    <span class="comment">// Match returns whether the object matches the selector</span>
+    Match(<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="SelectorChain">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/generic/selector.go#L50">SelectorChain</a>
+				<a class="permalink" href="#SelectorChain">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type SelectorChain []<a href="#Selector">Selector</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="SelectorChain.ListObjects">func (SelectorChain) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/generic/selector.go#L52">ListObjects</a>
+					<a class="permalink" href="#SelectorChain.ListObjects">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="#SelectorChain">SelectorChain</a>) ListObjects(c <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, r <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>,
+    listObj func(listFunc <a href="#ListFunc">ListFunc</a>, opts <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#ListOptions">ListOptions</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SelectorChain.Match">func (SelectorChain) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/generic/selector.go#L70">Match</a>
+					<a class="permalink" href="#SelectorChain.Match">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="#SelectorChain">SelectorChain</a>) Match(obj <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="annotation/">annotation</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="field/">field</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="label/">label</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="namespace/">namespace</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="registry/">registry</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

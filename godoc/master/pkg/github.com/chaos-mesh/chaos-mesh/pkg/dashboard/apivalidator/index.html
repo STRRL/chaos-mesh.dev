@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>apivalidator - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package apivalidator
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apivalidator"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#CronValid">func CronValid(fl validator.FieldLevel) bool</a></dd>
+			
+				
+				<dd><a href="#DurationValid">func DurationValid(fl validator.FieldLevel) bool</a></dd>
+			
+				
+				<dd><a href="#MapSelectorsValid">func MapSelectorsValid(fl validator.FieldLevel) bool</a></dd>
+			
+				
+				<dd><a href="#NameValid">func NameValid(fl validator.FieldLevel) bool</a></dd>
+			
+				
+				<dd><a href="#NamespaceSelectorsValid">func NamespaceSelectorsValid(fl validator.FieldLevel) bool</a></dd>
+			
+				
+				<dd><a href="#PhaseSelectorsValid">func PhaseSelectorsValid(fl validator.FieldLevel) bool</a></dd>
+			
+				
+				<dd><a href="#PhysicalMachineValid">func PhysicalMachineValid(fl validator.FieldLevel) bool</a></dd>
+			
+				
+				<dd><a href="#PodsValid">func PodsValid(fl validator.FieldLevel) bool</a></dd>
+			
+				
+				<dd><a href="#RequiredFieldEqualValid">func RequiredFieldEqualValid(fl validator.FieldLevel) bool</a></dd>
+			
+				
+				<dd><a href="#RequirementSelectorsValid">func RequirementSelectorsValid(fl validator.FieldLevel) bool</a></dd>
+			
+				
+				<dd><a href="#ValueValid">func ValueValid(fl validator.FieldLevel) bool</a></dd>
+			
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apivalidator/base_validator.go">base_validator.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apivalidator/scope_validator.go">scope_validator.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apivalidator/target_validator.go">target_validator.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="CronValid">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apivalidator/base_validator.go#L52">CronValid</a>
+				<a class="permalink" href="#CronValid">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func CronValid(fl validator.<a href="#FieldLevel">FieldLevel</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+			<p>
+CronValid can be used to check whether the given cron valid.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="DurationValid">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apivalidator/base_validator.go#L66">DurationValid</a>
+				<a class="permalink" href="#DurationValid">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func DurationValid(fl validator.<a href="#FieldLevel">FieldLevel</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+			<p>
+DurationValid can be used to check whether the given duration valid.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="MapSelectorsValid">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apivalidator/scope_validator.go#L48">MapSelectorsValid</a>
+				<a class="permalink" href="#MapSelectorsValid">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func MapSelectorsValid(fl validator.<a href="#FieldLevel">FieldLevel</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+			<p>
+MapSelectorsValid can be used to check whether map selectors is valid.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="NameValid">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apivalidator/base_validator.go#L27">NameValid</a>
+				<a class="permalink" href="#NameValid">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NameValid(fl validator.<a href="#FieldLevel">FieldLevel</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+			<p>
+NameValid can be used to check whether the given name is valid.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="NamespaceSelectorsValid">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apivalidator/scope_validator.go#L28">NamespaceSelectorsValid</a>
+				<a class="permalink" href="#NamespaceSelectorsValid">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NamespaceSelectorsValid(fl validator.<a href="#FieldLevel">FieldLevel</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+			<p>
+NamespaceSelectorsValid can be used to check whether namespace selectors is valid.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="PhaseSelectorsValid">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apivalidator/scope_validator.go#L102">PhaseSelectorsValid</a>
+				<a class="permalink" href="#PhaseSelectorsValid">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func PhaseSelectorsValid(fl validator.<a href="#FieldLevel">FieldLevel</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+			<p>
+PhaseSelectorsValid can be used to check whether phase selectors is valid.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="PhysicalMachineValid">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apivalidator/scope_validator.go#L182">PhysicalMachineValid</a>
+				<a class="permalink" href="#PhysicalMachineValid">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func PhysicalMachineValid(fl validator.<a href="#FieldLevel">FieldLevel</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+			<p>
+PhysicalMachineValid can be used to check whether the physicalMachine name is valid.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="PodsValid">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apivalidator/scope_validator.go#L156">PodsValid</a>
+				<a class="permalink" href="#PodsValid">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func PodsValid(fl validator.<a href="#FieldLevel">FieldLevel</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+			<p>
+PodsValid can be used to check whether the pod name is valid.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="RequiredFieldEqualValid">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apivalidator/target_validator.go#L28">RequiredFieldEqualValid</a>
+				<a class="permalink" href="#RequiredFieldEqualValid">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RequiredFieldEqualValid(fl validator.<a href="#FieldLevel">FieldLevel</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+			<p>
+RequiredFieldEqualValid can be used to check the required field is not empty.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="RequirementSelectorsValid">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apivalidator/scope_validator.go#L68">RequirementSelectorsValid</a>
+				<a class="permalink" href="#RequirementSelectorsValid">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RequirementSelectorsValid(fl validator.<a href="#FieldLevel">FieldLevel</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+			<p>
+RequirementSelectorsValid can be used to check whether label requirement selectors is valid.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="ValueValid">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apivalidator/scope_validator.go#L118">ValueValid</a>
+				<a class="permalink" href="#ValueValid">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ValueValid(fl validator.<a href="#FieldLevel">FieldLevel</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+			<p>
+ValueValid can be used to check whether the mode value is valid.
+</p>
+
+			
+			
+
+		
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

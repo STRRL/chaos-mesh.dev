@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>time - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package time
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/time"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#ModifyTime">func ModifyTime(pid int, deltaSec int64, deltaNsec int64, clockIdsMask uint64) error</a></dd>
+			
+				
+				<dd><a href="#RegisterLogger">func RegisterLogger(logger logr.Logger)</a></dd>
+			
+			
+				
+				<dd><a href="#FakeClockInjector">type FakeClockInjector</a></dd>
+				
+				
+			
+				
+				<dd><a href="#FakeImage">type FakeImage</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#LoadFakeImageFromEmbedFs">func LoadFakeImageFromEmbedFs(filename string) (*FakeImage, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TimeSkew">type TimeSkew</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewTimeSkew">func NewTimeSkew(deltaSeconds int64, deltaNanoSeconds int64, clockIDsMask uint64) (*TimeSkew, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewTimeSkewWithCustomFakeImage">func NewTimeSkewWithCustomFakeImage(deltaSeconds int64, deltaNanoSeconds int64, clockIDsMask uint64, fakeImage *FakeImage) *TimeSkew</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TimeSkew.Inject">func (it *TimeSkew) Inject(pid int) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TimeSkew.Recover">func (it *TimeSkew) Recover(pid int) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/asset.go">asset.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fakeclock.go">fakeclock.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_linux_amd64.go">time_linux_amd64.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go">time_skew_amd64.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/utils.go">utils.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="ModifyTime">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_linux_amd64.go#L24">ModifyTime</a>
+				<a class="permalink" href="#ModifyTime">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ModifyTime(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, deltaSec <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>, deltaNsec <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>, clockIdsMask <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint64">uint64</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+			<p>
+ModifyTime modifies time of target process
+Deprecated:  Please use FakeClockInjector.Inject and FakeClockInjector.Recover instead.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="RegisterLogger">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/utils.go#L27">RegisterLogger</a>
+				<a class="permalink" href="#RegisterLogger">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RegisterLogger(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>)</pre>
+			<p>
+RegisterLogger registers a logger on time pkg
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="FakeClockInjector">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fakeclock.go#L20">FakeClockInjector</a>
+				<a class="permalink" href="#FakeClockInjector">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+FakeClockInjector could modify the time of certain process.
+TODO: rename this interface, it brings confusing with .c files under pkg/time/fakeclock.
+</p>
+
+			<pre>type FakeClockInjector interface {
+    Inject(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>
+    Recover(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="FakeImage">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/asset.go#L31">FakeImage</a>
+				<a class="permalink" href="#FakeImage">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+FakeImage introduce the replacement of VDSO ELF entry and customizable variables.
+FakeImage could be constructed by LoadFakeImageFromEmbedFs(), and then used by FakeClockInjector.
+</p>
+
+			<pre>type FakeImage struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="LoadFakeImageFromEmbedFs">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/asset.go#L40">LoadFakeImageFromEmbedFs</a>
+					<a class="permalink" href="#LoadFakeImageFromEmbedFs">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func LoadFakeImageFromEmbedFs(filename <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (*<a href="#FakeImage">FakeImage</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<p>
+LoadFakeImageFromEmbedFs builds FakeImage from the embed filesystem. It parses the ELF file and extract the variables from the relocation section, reserves the space for them at the end of content, then calculates and saves offsets as &#34;manually relocation&#34;
+</p>
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="TimeSkew">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L44">TimeSkew</a>
+				<a class="permalink" href="#TimeSkew">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type TimeSkew struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewTimeSkew">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L51">NewTimeSkew</a>
+					<a class="permalink" href="#NewTimeSkew">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewTimeSkew(deltaSeconds <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>, deltaNanoSeconds <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>, clockIDsMask <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint64">uint64</a>) (*<a href="#TimeSkew">TimeSkew</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+				
+				<h3 id="NewTimeSkewWithCustomFakeImage">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L62">NewTimeSkewWithCustomFakeImage</a>
+					<a class="permalink" href="#NewTimeSkewWithCustomFakeImage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewTimeSkewWithCustomFakeImage(deltaSeconds <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>, deltaNanoSeconds <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>, clockIDsMask <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint64">uint64</a>, fakeImage *<a href="#FakeImage">FakeImage</a>) *<a href="#TimeSkew">TimeSkew</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="TimeSkew.Inject">func (*TimeSkew) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L66">Inject</a>
+					<a class="permalink" href="#TimeSkew.Inject">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#TimeSkew">TimeSkew</a>) Inject(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TimeSkew.Recover">func (*TimeSkew) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L153">Recover</a>
+					<a class="permalink" href="#TimeSkew.Recover">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#TimeSkew">TimeSkew</a>) Recover(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="utils/">utils</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

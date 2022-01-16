@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>metrics - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package metrics
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/metrics"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#Register">func Register(params Params)</a></dd>
+			
+			
+				
+				<dd><a href="#Collector">type Collector</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewCollector">func NewCollector(experimentStore core.ExperimentStore, scheduleStore core.ScheduleStore, workflowStore core.WorkflowStore) *Collector</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Collector.Collect">func (collector *Collector) Collect(ch chan&lt;- prometheus.Metric)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Collector.Describe">func (collector *Collector) Describe(ch chan&lt;- *prometheus.Desc)</a></dd>
+				
+			
+				
+				<dd><a href="#Params">type Params</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/metrics/metrics.go">metrics.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/metrics/metrics.go#L156">Register</a>
+				<a class="permalink" href="#Register">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Register(params <a href="#Params">Params</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Collector">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/metrics/metrics.go#L33">Collector</a>
+				<a class="permalink" href="#Collector">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Collector implements prometheus.Collector interface
+</p>
+
+			<pre>type Collector struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewCollector">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/metrics/metrics.go#L44">NewCollector</a>
+					<a class="permalink" href="#NewCollector">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewCollector(experimentStore <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ExperimentStore">ExperimentStore</a>, scheduleStore <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ScheduleStore">ScheduleStore</a>, workflowStore <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#WorkflowStore">WorkflowStore</a>) *<a href="#Collector">Collector</a></pre>
+				<p>
+NewCollector initializes metrics and collector
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="Collector.Collect">func (*Collector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/metrics/metrics.go#L75">Collect</a>
+					<a class="permalink" href="#Collector.Collect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (collector *<a href="#Collector">Collector</a>) Collect(ch chan&lt;- <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/">prometheus</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/#Metric">Metric</a>)</pre>
+				<p>
+Collect implements the prometheus.Collector interface.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Collector.Describe">func (*Collector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/metrics/metrics.go#L68">Describe</a>
+					<a class="permalink" href="#Collector.Describe">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (collector *<a href="#Collector">Collector</a>) Describe(ch chan&lt;- *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/">prometheus</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/#Desc">Desc</a>)</pre>
+				<p>
+Describe implements the prometheus.Collector interface.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Params">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/metrics/metrics.go#L147">Params</a>
+				<a class="permalink" href="#Params">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Params struct {
+    <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#In">In</a>
+
+<span id="Params.Registry"></span>    Registry        *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/">prometheus</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/#Registry">Registry</a>
+<span id="Params.ExperimentStore"></span>    ExperimentStore <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ExperimentStore">ExperimentStore</a>
+<span id="Params.ScheduleStore"></span>    ScheduleStore   <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ScheduleStore">ScheduleStore</a>
+<span id="Params.WorkflowStore"></span>    WorkflowStore   <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#WorkflowStore">WorkflowStore</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

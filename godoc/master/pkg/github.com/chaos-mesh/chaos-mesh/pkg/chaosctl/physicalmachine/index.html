@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>physicalmachine - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package physicalmachine
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+			
+				
+				<dd><a href="#CreatePhysicalMachine">func CreatePhysicalMachine(ctx context.Context, c client.Client, namespace, name, address string, labels map[string]string) error</a></dd>
+			
+				
+				<dd><a href="#EncodeCertPEM">func EncodeCertPEM(cert *x509.Certificate) []byte</a></dd>
+			
+				
+				<dd><a href="#GetChaosdCAFileFromCluster">func GetChaosdCAFileFromCluster(ctx context.Context, namespace string, c client.Client) (caCert *x509.Certificate, caKey crypto.Signer, err error)</a></dd>
+			
+				
+				<dd><a href="#GetChaosdCAFileFromFile">func GetChaosdCAFileFromFile(caCertFile, caKeyFile string) (*x509.Certificate, crypto.Signer, error)</a></dd>
+			
+				
+				<dd><a href="#NewCertAndKey">func NewCertAndKey(caCert *x509.Certificate, caKey crypto.Signer) (*x509.Certificate, crypto.Signer, error)</a></dd>
+			
+				
+				<dd><a href="#NewPhysicalMachineCreateCmd">func NewPhysicalMachineCreateCmd(logger logr.Logger) (*cobra.Command, error)</a></dd>
+			
+				
+				<dd><a href="#NewPhysicalMachineGenerateCmd">func NewPhysicalMachineGenerateCmd(logger logr.Logger) (*cobra.Command, error)</a></dd>
+			
+				
+				<dd><a href="#NewPhysicalMachineInitCmd">func NewPhysicalMachineInitCmd(logger logr.Logger) (*cobra.Command, error)</a></dd>
+			
+				
+				<dd><a href="#NewPrivateKey">func NewPrivateKey(keyType x509.PublicKeyAlgorithm) (crypto.Signer, error)</a></dd>
+			
+				
+				<dd><a href="#NewSignedCert">func NewSignedCert(key crypto.Signer, caCert *x509.Certificate, caKey crypto.Signer, isCA bool) (*x509.Certificate, error)</a></dd>
+			
+				
+				<dd><a href="#ParseCert">func ParseCert(data []byte) (*x509.Certificate, error)</a></dd>
+			
+				
+				<dd><a href="#ParseCertAndKey">func ParseCertAndKey(certData, keyData []byte) (*x509.Certificate, crypto.Signer, error)</a></dd>
+			
+				
+				<dd><a href="#ParsePrivateKey">func ParsePrivateKey(data []byte) (crypto.Signer, error)</a></dd>
+			
+				
+				<dd><a href="#WriteCert">func WriteCert(pkiPath, name string, cert *x509.Certificate) error</a></dd>
+			
+				
+				<dd><a href="#WriteCertAndKey">func WriteCertAndKey(pkiPath string, name string, cert *x509.Certificate, key crypto.Signer) error</a></dd>
+			
+				
+				<dd><a href="#WriteKey">func WriteKey(pkiPath, name string, key crypto.Signer) error</a></dd>
+			
+			
+				
+				<dd><a href="#PhysicalMachineCreateOptions">type PhysicalMachineCreateOptions</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PhysicalMachineCreateOptions.Run">func (o *PhysicalMachineCreateOptions) Run(args []string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PhysicalMachineCreateOptions.Validate">func (o *PhysicalMachineCreateOptions) Validate() error</a></dd>
+				
+			
+				
+				<dd><a href="#PhysicalMachineGenerateOptions">type PhysicalMachineGenerateOptions</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PhysicalMachineGenerateOptions.Run">func (o *PhysicalMachineGenerateOptions) Run() error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PhysicalMachineGenerateOptions.Validate">func (o *PhysicalMachineGenerateOptions) Validate() error</a></dd>
+				
+			
+				
+				<dd><a href="#PhysicalMachineInitOptions">type PhysicalMachineInitOptions</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PhysicalMachineInitOptions.Run">func (o *PhysicalMachineInitOptions) Run(args []string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PhysicalMachineInitOptions.Validate">func (o *PhysicalMachineInitOptions) Validate() error</a></dd>
+				
+			
+				
+				<dd><a href="#SshTunnel">type SshTunnel</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewSshTunnel">func NewSshTunnel(ip, port string, user, privateKeyFile string) (*SshTunnel, error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SshTunnel.Close">func (s *SshTunnel) Close() error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SshTunnel.Open">func (s *SshTunnel) Open() error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SshTunnel.SFTP">func (s *SshTunnel) SFTP(filename string, data []byte) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/create.go">create.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/generate.go">generate.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/init.go">init.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/pki.go">pki.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/ssh.go">ssh.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				
+				<pre>const (
+    <span id="ChaosdPkiName">ChaosdPkiName</span> = &#34;chaosd&#34;
+    <span class="comment">// CertificateBlockType is a possible value for pem.Block.Type.</span>
+    <span id="CertificateBlockType">CertificateBlockType</span> = &#34;CERTIFICATE&#34;
+    <span class="comment">// CertificateValidity defines the validity for all the signed certificates generated by kubeadm</span>
+    <span id="CertificateValidity">CertificateValidity</span> = <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Hour">Hour</a> * 24 * 1825
+)</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="CreatePhysicalMachine">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/create.go#L97">CreatePhysicalMachine</a>
+				<a class="permalink" href="#CreatePhysicalMachine">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func CreatePhysicalMachine(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, c <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>,
+    namespace, name, address <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, labels map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="EncodeCertPEM">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/pki.go#L185">EncodeCertPEM</a>
+				<a class="permalink" href="#EncodeCertPEM">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EncodeCertPEM(cert *<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/">x509</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/#Certificate">Certificate</a>) []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#byte">byte</a></pre>
+			<p>
+EncodeCertPEM returns PEM-endcoded certificate data
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="GetChaosdCAFileFromCluster">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/init.go#L145">GetChaosdCAFileFromCluster</a>
+				<a class="permalink" href="#GetChaosdCAFileFromCluster">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GetChaosdCAFileFromCluster(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, namespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, c <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>) (caCert *<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/">x509</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/#Certificate">Certificate</a>, caKey <a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/">crypto</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/#Signer">Signer</a>, err <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="GetChaosdCAFileFromFile">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/generate.go#L83">GetChaosdCAFileFromFile</a>
+				<a class="permalink" href="#GetChaosdCAFileFromFile">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GetChaosdCAFileFromFile(caCertFile, caKeyFile <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/">x509</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/#Certificate">Certificate</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/">crypto</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/#Signer">Signer</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewCertAndKey">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/pki.go#L88">NewCertAndKey</a>
+				<a class="permalink" href="#NewCertAndKey">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewCertAndKey(caCert *<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/">x509</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/#Certificate">Certificate</a>, caKey <a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/">crypto</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/#Signer">Signer</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/">x509</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/#Certificate">Certificate</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/">crypto</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/#Signer">Signer</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			<p>
+NewCertAndKey creates new certificate and key by passing the certificate authority certificate and key
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="NewPhysicalMachineCreateCmd">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/create.go#L42">NewPhysicalMachineCreateCmd</a>
+				<a class="permalink" href="#NewPhysicalMachineCreateCmd">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewPhysicalMachineCreateCmd(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewPhysicalMachineGenerateCmd">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/generate.go#L35">NewPhysicalMachineGenerateCmd</a>
+				<a class="permalink" href="#NewPhysicalMachineGenerateCmd">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewPhysicalMachineGenerateCmd(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewPhysicalMachineInitCmd">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/init.go#L52">NewPhysicalMachineInitCmd</a>
+				<a class="permalink" href="#NewPhysicalMachineInitCmd">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewPhysicalMachineInitCmd(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewPrivateKey">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/pki.go#L102">NewPrivateKey</a>
+				<a class="permalink" href="#NewPrivateKey">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewPrivateKey(keyType <a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/">x509</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/#PublicKeyAlgorithm">PublicKeyAlgorithm</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/">crypto</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/#Signer">Signer</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewSignedCert">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/pki.go#L111">NewSignedCert</a>
+				<a class="permalink" href="#NewSignedCert">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewSignedCert(key <a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/">crypto</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/#Signer">Signer</a>, caCert *<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/">x509</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/#Certificate">Certificate</a>, caKey <a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/">crypto</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/#Signer">Signer</a>, isCA <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/">x509</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/#Certificate">Certificate</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			<p>
+NewSignedCert creates a signed certificate using the given CA certificate and key
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="ParseCert">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/pki.go#L79">ParseCert</a>
+				<a class="permalink" href="#ParseCert">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ParseCert(data []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#byte">byte</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/">x509</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/#Certificate">Certificate</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="ParseCertAndKey">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/pki.go#L47">ParseCertAndKey</a>
+				<a class="permalink" href="#ParseCertAndKey">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ParseCertAndKey(certData, keyData []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#byte">byte</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/">x509</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/#Certificate">Certificate</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/">crypto</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/#Signer">Signer</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="ParsePrivateKey">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/pki.go#L60">ParsePrivateKey</a>
+				<a class="permalink" href="#ParsePrivateKey">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ParsePrivateKey(data []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#byte">byte</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/">crypto</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/#Signer">Signer</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="WriteCert">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/pki.go#L153">WriteCert</a>
+				<a class="permalink" href="#WriteCert">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func WriteCert(pkiPath, name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, cert *<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/">x509</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/#Certificate">Certificate</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+			<p>
+WriteCert stores the given certificate at the given location
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="WriteCertAndKey">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/pki.go#L144">WriteCertAndKey</a>
+				<a class="permalink" href="#WriteCertAndKey">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func WriteCertAndKey(pkiPath <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, cert *<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/">x509</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/x509/#Certificate">Certificate</a>, key <a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/">crypto</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/#Signer">Signer</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+			<p>
+WriteCertAndKey stores certificate and key at the specified location
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="WriteKey">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/pki.go#L167">WriteKey</a>
+				<a class="permalink" href="#WriteKey">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func WriteKey(pkiPath, name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, key <a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/">crypto</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/crypto/#Signer">Signer</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+			<p>
+WriteKey stores the given key at the given location
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="PhysicalMachineCreateOptions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/create.go#L33">PhysicalMachineCreateOptions</a>
+				<a class="permalink" href="#PhysicalMachineCreateOptions">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PhysicalMachineCreateOptions struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="PhysicalMachineCreateOptions.Run">func (*PhysicalMachineCreateOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/create.go#L76">Run</a>
+					<a class="permalink" href="#PhysicalMachineCreateOptions.Run">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="#PhysicalMachineCreateOptions">PhysicalMachineCreateOptions</a>) Run(args []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="PhysicalMachineCreateOptions.Validate">func (*PhysicalMachineCreateOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/create.go#L69">Validate</a>
+					<a class="permalink" href="#PhysicalMachineCreateOptions.Validate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="#PhysicalMachineCreateOptions">PhysicalMachineCreateOptions</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="PhysicalMachineGenerateOptions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/generate.go#L28">PhysicalMachineGenerateOptions</a>
+				<a class="permalink" href="#PhysicalMachineGenerateOptions">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PhysicalMachineGenerateOptions struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="PhysicalMachineGenerateOptions.Run">func (*PhysicalMachineGenerateOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/generate.go#L69">Run</a>
+					<a class="permalink" href="#PhysicalMachineGenerateOptions.Run">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="#PhysicalMachineGenerateOptions">PhysicalMachineGenerateOptions</a>) Run() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="PhysicalMachineGenerateOptions.Validate">func (*PhysicalMachineGenerateOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/generate.go#L59">Validate</a>
+					<a class="permalink" href="#PhysicalMachineGenerateOptions.Validate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="#PhysicalMachineGenerateOptions">PhysicalMachineGenerateOptions</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="PhysicalMachineInitOptions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/init.go#L39">PhysicalMachineInitOptions</a>
+				<a class="permalink" href="#PhysicalMachineInitOptions">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PhysicalMachineInitOptions struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="PhysicalMachineInitOptions.Run">func (*PhysicalMachineInitOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/init.go#L97">Run</a>
+					<a class="permalink" href="#PhysicalMachineInitOptions.Run">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="#PhysicalMachineInitOptions">PhysicalMachineInitOptions</a>) Run(args []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="PhysicalMachineInitOptions.Validate">func (*PhysicalMachineInitOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/init.go#L90">Validate</a>
+					<a class="permalink" href="#PhysicalMachineInitOptions.Validate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="#PhysicalMachineInitOptions">PhysicalMachineInitOptions</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="SshTunnel">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/ssh.go#L34">SshTunnel</a>
+				<a class="permalink" href="#SshTunnel">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type SshTunnel struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewSshTunnel">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/ssh.go#L41">NewSshTunnel</a>
+					<a class="permalink" href="#NewSshTunnel">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewSshTunnel(ip, port <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, user, privateKeyFile <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (*<a href="#SshTunnel">SshTunnel</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="SshTunnel.Close">func (*SshTunnel) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/ssh.go#L89">Close</a>
+					<a class="permalink" href="#SshTunnel.Close">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#SshTunnel">SshTunnel</a>) Close() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SshTunnel.Open">func (*SshTunnel) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/ssh.go#L80">Open</a>
+					<a class="permalink" href="#SshTunnel.Open">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#SshTunnel">SshTunnel</a>) Open() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SshTunnel.SFTP">func (*SshTunnel) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/ssh.go#L96">SFTP</a>
+					<a class="permalink" href="#SshTunnel.SFTP">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#SshTunnel">SshTunnel</a>) SFTP(filename <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, data []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#byte">byte</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

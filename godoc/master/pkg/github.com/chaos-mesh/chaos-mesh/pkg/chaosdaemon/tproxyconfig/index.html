@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>tproxyconfig - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package tproxyconfig
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#Config">type Config</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodHttpChaosActions">type PodHttpChaosActions</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodHttpChaosBaseRule">type PodHttpChaosBaseRule</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodHttpChaosBodyPatchContent">type PodHttpChaosBodyPatchContent</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodHttpChaosBodyReplaceContent">type PodHttpChaosBodyReplaceContent</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodHttpChaosPatchActions">type PodHttpChaosPatchActions</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodHttpChaosPatchBody">type PodHttpChaosPatchBody</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PodHttpChaosPatchBody.UnmarshalJSON">func (p *PodHttpChaosPatchBody) UnmarshalJSON(data []byte) error</a></dd>
+				
+			
+				
+				<dd><a href="#PodHttpChaosReplaceActions">type PodHttpChaosReplaceActions</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodHttpChaosReplaceBody">type PodHttpChaosReplaceBody</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PodHttpChaosReplaceBody.UnmarshalJSON">func (p *PodHttpChaosReplaceBody) UnmarshalJSON(data []byte) error</a></dd>
+				
+			
+				
+				<dd><a href="#PodHttpChaosSelector">type PodHttpChaosSelector</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodHttpChaosTarget">type PodHttpChaosTarget</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go">config.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="Config">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L22">Config</a>
+				<a class="permalink" href="#Config">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Config struct {
+<span id="Config.ProxyPorts"></span>    ProxyPorts []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint32">uint32</a>               `json:&#34;proxy_ports,omitempty&#34;`
+<span id="Config.Rules"></span>    Rules      []<a href="#PodHttpChaosBaseRule">PodHttpChaosBaseRule</a> `json:&#34;rules&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodHttpChaosActions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L68">PodHttpChaosActions</a>
+				<a class="permalink" href="#PodHttpChaosActions">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+PodHttpChaosActions defines possible actions of HttpChaos.
+</p>
+
+			<pre>type PodHttpChaosActions struct {
+<span id="PodHttpChaosActions.Abort"></span>    <span class="comment">// Abort is a rule to abort a http session.</span>
+    <span class="comment">// +optional</span>
+    Abort *<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a> `json:&#34;abort,omitempty&#34;`
+
+<span id="PodHttpChaosActions.Delay"></span>    <span class="comment">// Delay represents the delay of the target request/response.</span>
+    <span class="comment">// A duration string is a possibly unsigned sequence of</span>
+    <span class="comment">// decimal numbers, each with optional fraction and a unit suffix,</span>
+    <span class="comment">// such as &#34;300ms&#34;, &#34;2h45m&#34;.</span>
+    <span class="comment">// Valid time units are &#34;ns&#34;, &#34;us&#34; (or &#34;µs&#34;), &#34;ms&#34;, &#34;s&#34;, &#34;m&#34;, &#34;h&#34;.</span>
+    <span class="comment">// +optional</span>
+    Delay *<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;delay,omitempty&#34;`
+
+<span id="PodHttpChaosActions.Replace"></span>    <span class="comment">// Replace is a rule to replace some contents in target.</span>
+    <span class="comment">// +optional</span>
+    Replace *<a href="#PodHttpChaosReplaceActions">PodHttpChaosReplaceActions</a> `json:&#34;replace,omitempty&#34;`
+
+<span id="PodHttpChaosActions.Patch"></span>    <span class="comment">// Patch is a rule to patch some contents in target.</span>
+    <span class="comment">// +optional</span>
+    Patch *<a href="#PodHttpChaosPatchActions">PodHttpChaosPatchActions</a> `json:&#34;patch,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodHttpChaosBaseRule">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L28">PodHttpChaosBaseRule</a>
+				<a class="permalink" href="#PodHttpChaosBaseRule">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+PodHttpChaosBaseRule defines the injection rule without source and port.
+</p>
+
+			<pre>type PodHttpChaosBaseRule struct {
+<span id="PodHttpChaosBaseRule.Target"></span>    <span class="comment">// Target is the object to be selected and injected, &lt;Request|Response&gt;.</span>
+    Target <a href="#PodHttpChaosTarget">PodHttpChaosTarget</a> `json:&#34;target&#34;`
+
+<span id="PodHttpChaosBaseRule.Selector"></span>    <span class="comment">// Selector contains the rules to select target.</span>
+    Selector <a href="#PodHttpChaosSelector">PodHttpChaosSelector</a> `json:&#34;selector&#34;`
+
+<span id="PodHttpChaosBaseRule.Actions"></span>    <span class="comment">// Actions contains rules to inject target.</span>
+    Actions <a href="#PodHttpChaosActions">PodHttpChaosActions</a> `json:&#34;actions&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodHttpChaosBodyPatchContent">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L95">PodHttpChaosBodyPatchContent</a>
+				<a class="permalink" href="#PodHttpChaosBodyPatchContent">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PodHttpChaosBodyPatchContent struct {
+<span id="PodHttpChaosBodyPatchContent.Type"></span>    <span class="comment">// Type represents the patch type, only support `JSON` as [merge patch json](https://tools.ietf.org/html/rfc7396) currently.</span>
+    Type <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;type&#34;`
+
+<span id="PodHttpChaosBodyPatchContent.Value"></span>    <span class="comment">// Value is the patch contents.</span>
+    Value <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;value&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodHttpChaosBodyReplaceContent">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L135">PodHttpChaosBodyReplaceContent</a>
+				<a class="permalink" href="#PodHttpChaosBodyReplaceContent">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PodHttpChaosBodyReplaceContent struct {
+<span id="PodHttpChaosBodyReplaceContent.Type"></span>    <span class="comment">// Type represents the patch type, only support `JSON` as [merge patch json](https://tools.ietf.org/html/rfc7396) currently.</span>
+    Type <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;type&#34;`
+
+<span id="PodHttpChaosBodyReplaceContent.Value"></span>    <span class="comment">// Value is the patch contents.</span>
+    Value <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;value&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodHttpChaosPatchActions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L114">PodHttpChaosPatchActions</a>
+				<a class="permalink" href="#PodHttpChaosPatchActions">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+PodHttpChaosPatchActions defines possible patch-actions of HttpChaos.
+</p>
+
+			<pre>type PodHttpChaosPatchActions struct {
+<span id="PodHttpChaosPatchActions.Body"></span>    <span class="comment">// Body is a rule to patch message body of target.</span>
+    <span class="comment">// +optional</span>
+    Body *<a href="#PodHttpChaosPatchBody">PodHttpChaosPatchBody</a> `json:&#34;body,omitempty&#34;`
+
+<span id="PodHttpChaosPatchActions.Queries"></span>    <span class="comment">// Queries is a rule to append uri queries of target(Request only).</span>
+    <span class="comment">// For example: `[[&#34;foo&#34;, &#34;bar&#34;], [&#34;foo&#34;, &#34;unknown&#34;]]`.</span>
+    <span class="comment">// +optional</span>
+    Queries [][]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;queries,omitempty&#34;`
+
+<span id="PodHttpChaosPatchActions.Headers"></span>    <span class="comment">// Headers is a rule to append http headers of target.</span>
+    <span class="comment">// For example: `[[&#34;Set-Cookie&#34;, &#34;&lt;one cookie&gt;&#34;], [&#34;Set-Cookie&#34;, &#34;&lt;another cookie&gt;&#34;]]`.</span>
+    <span class="comment">// +optional</span>
+    Headers [][]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;headers,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodHttpChaosPatchBody">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L91">PodHttpChaosPatchBody</a>
+				<a class="permalink" href="#PodHttpChaosPatchBody">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+PodHttpChaosPatchBody defines the patch-body action of HttpChaos.
+</p>
+
+			<pre>type PodHttpChaosPatchBody struct {
+<span id="PodHttpChaosPatchBody.Contents"></span>    Contents <a href="#PodHttpChaosBodyPatchContent">PodHttpChaosBodyPatchContent</a> `json:&#34;contents&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="PodHttpChaosPatchBody.UnmarshalJSON">func (*PodHttpChaosPatchBody) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L103">UnmarshalJSON</a>
+					<a class="permalink" href="#PodHttpChaosPatchBody.UnmarshalJSON">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#PodHttpChaosPatchBody">PodHttpChaosPatchBody</a>) UnmarshalJSON(data []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#byte">byte</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="PodHttpChaosReplaceActions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L164">PodHttpChaosReplaceActions</a>
+				<a class="permalink" href="#PodHttpChaosReplaceActions">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+PodHttpChaosReplaceActions defines possible replace-actions of HttpChaos.
+</p>
+
+			<pre>type PodHttpChaosReplaceActions struct {
+<span id="PodHttpChaosReplaceActions.Path"></span>    <span class="comment">// Path is rule to to replace uri path in http request.</span>
+    <span class="comment">// +optional</span>
+    Path *<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;path,omitempty&#34;`
+
+<span id="PodHttpChaosReplaceActions.Method"></span>    <span class="comment">// Method is a rule to replace http method in request.</span>
+    <span class="comment">// +optional</span>
+    Method *<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;method,omitempty&#34;`
+
+<span id="PodHttpChaosReplaceActions.Code"></span>    <span class="comment">// Code is a rule to replace http status code in response.</span>
+    <span class="comment">// +optional</span>
+    Code *<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int32">int32</a> `json:&#34;code,omitempty&#34;`
+
+<span id="PodHttpChaosReplaceActions.Body"></span>    <span class="comment">// Body is a rule to replace http message body in target.</span>
+    <span class="comment">// +optional</span>
+    Body <a href="#PodHttpChaosReplaceBody">PodHttpChaosReplaceBody</a> `json:&#34;body,omitempty&#34;`
+
+<span id="PodHttpChaosReplaceActions.Queries"></span>    <span class="comment">// Queries is a rule to replace uri queries in http request.</span>
+    <span class="comment">// For example, with value `{ &#34;foo&#34;: &#34;unknown&#34; }`, the `/?foo=bar` will be altered to `/?foo=unknown`,</span>
+    <span class="comment">// +optional</span>
+    Queries map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;queries,omitempty&#34;`
+
+<span id="PodHttpChaosReplaceActions.Headers"></span>    <span class="comment">// Headers is a rule to replace http headers of target.</span>
+    <span class="comment">// The key-value pairs represent header name and header value pairs.</span>
+    <span class="comment">// +optional</span>
+    Headers map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;headers,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodHttpChaosReplaceBody">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L131">PodHttpChaosReplaceBody</a>
+				<a class="permalink" href="#PodHttpChaosReplaceBody">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+PodHttpChaosReplaceBody defines the replace-body of HttpChaos.
+</p>
+
+			<pre>type PodHttpChaosReplaceBody struct {
+<span id="PodHttpChaosReplaceBody.Contents"></span>    Contents <a href="#PodHttpChaosBodyReplaceContent">PodHttpChaosBodyReplaceContent</a> `json:&#34;contents&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="PodHttpChaosReplaceBody.UnmarshalJSON">func (*PodHttpChaosReplaceBody) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L143">UnmarshalJSON</a>
+					<a class="permalink" href="#PodHttpChaosReplaceBody.UnmarshalJSON">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="#PodHttpChaosReplaceBody">PodHttpChaosReplaceBody</a>) UnmarshalJSON(data []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#byte">byte</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="PodHttpChaosSelector">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L39">PodHttpChaosSelector</a>
+				<a class="permalink" href="#PodHttpChaosSelector">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PodHttpChaosSelector struct {
+<span id="PodHttpChaosSelector.Port"></span>    <span class="comment">// Port is a rule to select server listening on specific port.</span>
+    <span class="comment">// +optional</span>
+    Port *<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int32">int32</a> `json:&#34;port,omitempty&#34;`
+
+<span id="PodHttpChaosSelector.Path"></span>    <span class="comment">// Path is a rule to select target by uri path in http request.</span>
+    <span class="comment">// +optional</span>
+    Path *<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;path,omitempty&#34;`
+
+<span id="PodHttpChaosSelector.Method"></span>    <span class="comment">// Method is a rule to select target by http method in request.</span>
+    <span class="comment">// +optional</span>
+    Method *<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;method,omitempty&#34;`
+
+<span id="PodHttpChaosSelector.Code"></span>    <span class="comment">// Code is a rule to select target by http status code in response.</span>
+    <span class="comment">// +optional</span>
+    Code *<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int32">int32</a> `json:&#34;code,omitempty&#34;`
+
+<span id="PodHttpChaosSelector.RequestHeaders"></span>    <span class="comment">// RequestHeaders is a rule to select target by http headers in request.</span>
+    <span class="comment">// The key-value pairs represent header name and header value pairs.</span>
+    <span class="comment">// +optional</span>
+    RequestHeaders map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;request_headers,omitempty&#34;`
+
+<span id="PodHttpChaosSelector.ResponseHeaders"></span>    <span class="comment">// ResponseHeaders is a rule to select target by http headers in response.</span>
+    <span class="comment">// The key-value pairs represent header name and header value pairs.</span>
+    <span class="comment">// +optional</span>
+    ResponseHeaders map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;response_headers,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodHttpChaosTarget">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L193">PodHttpChaosTarget</a>
+				<a class="permalink" href="#PodHttpChaosTarget">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+PodHttpChaosTarget represents the type of an HttpChaos Action
+</p>
+
+			<pre>type PodHttpChaosTarget <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

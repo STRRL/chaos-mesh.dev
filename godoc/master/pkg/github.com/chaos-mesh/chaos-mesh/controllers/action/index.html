@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>action - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package action
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/controllers/action"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+				<dd><a href="#pkg-examples" class="examplesLink">Examples</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>
+Package action introduces a multiplexer for actions.
+</p>
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#ErrorUnknownAction">type ErrorUnknownAction</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewErrorUnknownAction">func NewErrorUnknownAction(GVK string, action string) ErrorUnknownAction</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ErrorUnknownAction.Error">func (it ErrorUnknownAction) Error() string</a></dd>
+				
+			
+				
+				<dd><a href="#Multiplexer">type Multiplexer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewMultiplexer">func NewMultiplexer(impl interface{}) Multiplexer</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Multiplexer.Apply">func (i *Multiplexer) Apply(ctx context.Context, index int, records []*v1alpha1.Record, obj v1alpha1.InnerObject) (v1alpha1.Phase, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Multiplexer.Recover">func (i *Multiplexer) Recover(ctx context.Context, index int, records []*v1alpha1.Record, obj v1alpha1.InnerObject) (v1alpha1.Phase, error)</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+		<div id="pkg-examples">
+			<h3>Examples</h3>
+			<div class="js-expandAll expandAll collapsed">(Expand All)</div>
+			<dl>
+			
+			<dd><a class="exampleLink" href="#example_Multiplexer">Multiplexer</a></dd>
+			
+			</dl>
+		</div>
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/action/multiplexer.go">multiplexer.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="ErrorUnknownAction">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/action/multiplexer.go#L96">ErrorUnknownAction</a>
+				<a class="permalink" href="#ErrorUnknownAction">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ErrorUnknownAction struct {
+<span id="ErrorUnknownAction.GroupVersionKind"></span>    GroupVersionKind <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="ErrorUnknownAction.Action"></span>    Action           <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewErrorUnknownAction">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/action/multiplexer.go#L101">NewErrorUnknownAction</a>
+					<a class="permalink" href="#NewErrorUnknownAction">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewErrorUnknownAction(GVK <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, action <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="#ErrorUnknownAction">ErrorUnknownAction</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="ErrorUnknownAction.Error">func (ErrorUnknownAction) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/action/multiplexer.go#L105">Error</a>
+					<a class="permalink" href="#ErrorUnknownAction.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it <a href="#ErrorUnknownAction">ErrorUnknownAction</a>) Error() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Multiplexer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/action/multiplexer.go#L59">Multiplexer</a>
+				<a class="permalink" href="#Multiplexer">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Multiplexer could combine ChaosImpl implementations into one, and route them by Action in the ChaosSpec.
+Field impl should be a struct which contains several fields with struct tag &#34;action&#34;, each field should be an implementation of ChaosImpl.
+For example:
+</p>
+<pre>type tempStruct struct {
+  Impl1 impltypes.ChaosImpl `action:&#34;action1&#34;`
+  Impl2 impltypes.ChaosImpl `action:&#34;action2&#34;`
+}
+</pre>
+<p>
+is valid to be the field in Multiplexer.
+</p>
+<p>
+Because we use reflect fo iterate fields in tempStruct, so fields in tempStruct should be public/exported.
+</p>
+<p>
+When some Chaos like:
+</p>
+<pre>type SomeChaos struct {
+  ***
+  Spec SomeChaosSpec `json:&#34;spec&#34;`
+  ***
+}
+type SomeChaosSpec struct {
+  ***
+  // available actions: action1, action2
+  Action string `json:&#34;action&#34;`
+  ***
+}
+</pre>
+<p>
+is created, the corresponding ChaosImpl(s) for each action will be invoked by struct tag.
+</p>
+
+			<pre>type Multiplexer struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			<div id="example_Multiplexer" class="toggle">
+	<div class="collapsed">
+		<p class="exampleHeading toggleButton">▹ <span class="text">Example</span></p>
+	</div>
+	<div class="expanded">
+		<p class="exampleHeading toggleButton">▾ <span class="text">Example</span></p>
+		
+		
+		
+			<p>Code:</p>
+			<pre class="code">package action
+
+import (
+    &#34;context&#34;
+    &#34;fmt&#34;
+
+    &#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
+)
+
+type chaosImplForAction1 struct {
+}
+
+func (it *chaosImplForAction1) Apply(ctx context.Context, index int, records []*v1alpha1.Record, obj v1alpha1.InnerObject) (v1alpha1.Phase, error) {
+    fmt.Println(&#34;action1-apply&#34;)
+    return v1alpha1.Injected, nil
+}
+
+func (it *chaosImplForAction1) Recover(ctx context.Context, index int, records []*v1alpha1.Record, obj v1alpha1.InnerObject) (v1alpha1.Phase, error) {
+    fmt.Println(&#34;action1-recover&#34;)
+    return v1alpha1.NotInjected, nil
+}
+
+type chaosImplForAction2 struct {
+}
+
+func (it *chaosImplForAction2) Apply(ctx context.Context, index int, records []*v1alpha1.Record, obj v1alpha1.InnerObject) (v1alpha1.Phase, error) {
+    fmt.Println(&#34;action2-apply&#34;)
+    return v1alpha1.Injected, nil
+}
+
+func (it *chaosImplForAction2) Recover(ctx context.Context, index int, records []*v1alpha1.Record, obj v1alpha1.InnerObject) (v1alpha1.Phase, error) {
+    fmt.Println(&#34;action2-recover&#34;)
+    return v1alpha1.NotInjected, nil
+}
+
+func ExampleMultiplexer() {
+    type adHoc struct {
+        AnyName1        *chaosImplForAction1 `action:&#34;struct-tag&#34;`
+        WhateverTheName *chaosImplForAction2 `action:&#34;is-important&#34;`
+    }
+    multiplexer := NewMultiplexer(&amp;adHoc{
+        AnyName1:        &amp;chaosImplForAction1{},
+        WhateverTheName: &amp;chaosImplForAction2{},
+    })
+
+    <span class="comment">// Just use PodChaos as example, you could use any struct that contains Spec.Action for it.</span>
+    chaosA := v1alpha1.PodChaos{
+        Spec: v1alpha1.PodChaosSpec{
+            Action: &#34;struct-tag&#34;,
+        },
+    }
+    chaosB := v1alpha1.PodChaos{
+        Spec: v1alpha1.PodChaosSpec{
+            Action: &#34;is-important&#34;,
+        },
+    }
+
+    if _, err := multiplexer.Apply(context.Background(), 0, nil, &amp;chaosA); err != nil {
+        panic(err)
+    }
+    if _, err := multiplexer.Recover(context.Background(), 0, nil, &amp;chaosA); err != nil {
+        panic(err)
+    }
+    if _, err := multiplexer.Apply(context.Background(), 0, nil, &amp;chaosB); err != nil {
+        panic(err)
+    }
+    if _, err := multiplexer.Recover(context.Background(), 0, nil, &amp;chaosB); err != nil {
+        panic(err)
+    }
+
+    <span class="comment">// Output: action1-apply</span>
+    <span class="comment">// action1-recover</span>
+    <span class="comment">// action2-apply</span>
+    <span class="comment">// action2-recover</span>
+}
+</pre>
+			
+		
+	</div>
+</div>
+
+			
+			
+
+			
+				
+				<h3 id="NewMultiplexer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/action/multiplexer.go#L124">NewMultiplexer</a>
+					<a class="permalink" href="#NewMultiplexer">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewMultiplexer(impl interface{}) <a href="#Multiplexer">Multiplexer</a></pre>
+				<p>
+NewMultiplexer is a constructor of Multiplexer.
+For the detail of the parameter &#34;impl&#34;, see the comment of type Multiplexer.
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="Multiplexer.Apply">func (*Multiplexer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/action/multiplexer.go#L114">Apply</a>
+					<a class="permalink" href="#Multiplexer.Apply">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (i *<a href="#Multiplexer">Multiplexer</a>) Apply(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, index <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, records []*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Record">Record</a>, obj <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Phase">Phase</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Multiplexer.Recover">func (*Multiplexer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/action/multiplexer.go#L118">Recover</a>
+					<a class="permalink" href="#Multiplexer.Recover">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (i *<a href="#Multiplexer">Multiplexer</a>) Recover(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, index <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, records []*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Record">Record</a>, obj <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Phase">Phase</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
