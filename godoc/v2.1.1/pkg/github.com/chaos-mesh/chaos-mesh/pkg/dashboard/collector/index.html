@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>collector - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.1.1/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.1/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.1/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package collector
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#Register">func Register(ctx context.Context, s *Server)</a></dd>
+			
+			
+				
+				<dd><a href="#ChaosCollector">type ChaosCollector</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ChaosCollector.Reconcile">func (r *ChaosCollector) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ChaosCollector.Setup">func (r *ChaosCollector) Setup(mgr ctrl.Manager, apiType client.Object) error</a></dd>
+				
+			
+				
+				<dd><a href="#EventCollector">type EventCollector</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EventCollector.Reconcile">func (r *EventCollector) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EventCollector.Setup">func (r *EventCollector) Setup(mgr ctrl.Manager, apiType client.Object) error</a></dd>
+				
+			
+				
+				<dd><a href="#ScheduleCollector">type ScheduleCollector</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleCollector.Reconcile">func (r *ScheduleCollector) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ScheduleCollector.Setup">func (r *ScheduleCollector) Setup(mgr ctrl.Manager, apiType client.Object) error</a></dd>
+				
+			
+				
+				<dd><a href="#Server">type Server</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewServer">func NewServer(conf *config.ChaosDashboardConfig, experimentArchive core.ExperimentStore, scheduleArchive core.ScheduleStore, event core.EventStore, workflowStore core.WorkflowStore) (*Server, client.Client, client.Reader, *runtime.Scheme)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#WorkflowCollector">type WorkflowCollector</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowCollector.Reconcile">func (it *WorkflowCollector) Reconcile(ctx context.Context, request reconcile.Request) (reconcile.Result, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowCollector.Setup">func (it *WorkflowCollector) Setup(mgr ctrl.Manager, apiType client.Object) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/collector.go">collector.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/event_collector.go">event_collector.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/schedule_collector.go">schedule_collector.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/server.go">server.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/workflow_collector.go">workflow_collector.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/server.go#L141">Register</a>
+				<a class="permalink" href="#Register">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Register(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/#Context">Context</a>, s *<a href="#Server">Server</a>)</pre>
+			<p>
+Register starts collectors manager.
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="ChaosCollector">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/collector.go#L36">ChaosCollector</a>
+				<a class="permalink" href="#ChaosCollector">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ChaosCollector represents a collector for Chaos Object.
+</p>
+
+			<pre>type ChaosCollector struct {
+    <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+<span id="ChaosCollector.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ChaosCollector.Reconcile">func (*ChaosCollector) <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/collector.go#L45">Reconcile</a>
+					<a class="permalink" href="#ChaosCollector.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#ChaosCollector">ChaosCollector</a>) Reconcile(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/#Context">Context</a>, req <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Reconcile reconciles a chaos collector.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ChaosCollector.Setup">func (*ChaosCollector) <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/collector.go#L120">Setup</a>
+					<a class="permalink" href="#ChaosCollector.Setup">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#ChaosCollector">ChaosCollector</a>) Setup(mgr <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>, apiType <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#error">error</a></pre>
+				<p>
+Setup setups collectors by Manager.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="EventCollector">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/event_collector.go#L36">EventCollector</a>
+				<a class="permalink" href="#EventCollector">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+EventCollector represents a collector for Event Object.
+</p>
+
+			<pre>type EventCollector struct {
+    <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+<span id="EventCollector.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="EventCollector.Reconcile">func (*EventCollector) <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/event_collector.go#L44">Reconcile</a>
+					<a class="permalink" href="#EventCollector.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#EventCollector">EventCollector</a>) Reconcile(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/#Context">Context</a>, req <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Reconcile reconciles a Event collector.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="EventCollector.Setup">func (*EventCollector) <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/event_collector.go#L112">Setup</a>
+					<a class="permalink" href="#EventCollector.Setup">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#EventCollector">EventCollector</a>) Setup(mgr <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>, apiType <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#error">error</a></pre>
+				<p>
+Setup setups collectors by Manager.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ScheduleCollector">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/schedule_collector.go#L35">ScheduleCollector</a>
+				<a class="permalink" href="#ScheduleCollector">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ScheduleCollector represents a collector for Schedule Object.
+</p>
+
+			<pre>type ScheduleCollector struct {
+    <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+<span id="ScheduleCollector.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ScheduleCollector.Reconcile">func (*ScheduleCollector) <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/schedule_collector.go#L43">Reconcile</a>
+					<a class="permalink" href="#ScheduleCollector.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#ScheduleCollector">ScheduleCollector</a>) Reconcile(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/#Context">Context</a>, req <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Reconcile reconciles a Schedule collector.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ScheduleCollector.Setup">func (*ScheduleCollector) <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/schedule_collector.go#L78">Setup</a>
+					<a class="permalink" href="#ScheduleCollector.Setup">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#ScheduleCollector">ScheduleCollector</a>) Setup(mgr <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>, apiType <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#error">error</a></pre>
+				<p>
+Setup setups collectors by Manager.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Server">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/server.go#L46">Server</a>
+				<a class="permalink" href="#Server">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Server defines a server to manage collectors.
+</p>
+
+			<pre>type Server struct {
+<span id="Server.Manager"></span>    Manager <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewServer">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/server.go#L51">NewServer</a>
+					<a class="permalink" href="#NewServer">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewServer(
+    conf *<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/">config</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/#ChaosDashboardConfig">ChaosDashboardConfig</a>,
+    experimentArchive <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ExperimentStore">ExperimentStore</a>,
+    scheduleArchive <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ScheduleStore">ScheduleStore</a>,
+    event <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#EventStore">EventStore</a>,
+    workflowStore <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#WorkflowStore">WorkflowStore</a>,
+) (*<a href="#Server">Server</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>, *<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/k8s.io/apimachinery/pkg/runtime/#Scheme">Scheme</a>)</pre>
+				<p>
+NewServer returns a CollectorServer and Client.
+</p>
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="WorkflowCollector">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/workflow_collector.go#L33">WorkflowCollector</a>
+				<a class="permalink" href="#WorkflowCollector">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type WorkflowCollector struct {
+<span id="WorkflowCollector.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="WorkflowCollector.Reconcile">func (*WorkflowCollector) <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/workflow_collector.go#L48">Reconcile</a>
+					<a class="permalink" href="#WorkflowCollector.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#WorkflowCollector">WorkflowCollector</a>) Reconcile(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/#Context">Context</a>, request <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="WorkflowCollector.Setup">func (*WorkflowCollector) <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/workflow_collector.go#L40">Setup</a>
+					<a class="permalink" href="#WorkflowCollector.Setup">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#WorkflowCollector">WorkflowCollector</a>) Setup(mgr <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>, apiType <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

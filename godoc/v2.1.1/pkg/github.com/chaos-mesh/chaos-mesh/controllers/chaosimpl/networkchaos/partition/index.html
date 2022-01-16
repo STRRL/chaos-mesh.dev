@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>partition - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.1.1/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.1/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.1/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package partition
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/networkchaos/partition"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#Impl">type Impl</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewImpl">func NewImpl(c client.Client, b *podnetworkchaosmanager.Builder, log logr.Logger) *Impl</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Impl.Apply">func (impl *Impl) Apply(ctx context.Context, index int, records []*v1alpha1.Record, obj v1alpha1.InnerObject) (v1alpha1.Phase, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Impl.Recover">func (impl *Impl) Recover(ctx context.Context, index int, records []*v1alpha1.Record, obj v1alpha1.InnerObject) (v1alpha1.Phase, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Impl.SetDrop">func (impl *Impl) SetDrop(ctx context.Context, m *podnetworkchaosmanager.PodNetworkManager, targets []*v1alpha1.Record, networkchaos *v1alpha1.NetworkChaos, ipSetPostFix string, chainDirection v1alpha1.ChainDirection, device string) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/networkchaos/partition/impl.go">impl.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="Impl">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/networkchaos/partition/impl.go#L46">Impl</a>
+				<a class="permalink" href="#Impl">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Impl struct {
+    <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+
+<span id="Impl.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewImpl">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/networkchaos/partition/impl.go#L378">NewImpl</a>
+					<a class="permalink" href="#NewImpl">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewImpl(c <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, b *<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/networkchaos/podnetworkchaosmanager/">podnetworkchaosmanager</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/networkchaos/podnetworkchaosmanager/#Builder">Builder</a>, log <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#Impl">Impl</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="Impl.Apply">func (*Impl) <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/networkchaos/partition/impl.go#L59">Apply</a>
+					<a class="permalink" href="#Impl.Apply">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (impl *<a href="#Impl">Impl</a>) Apply(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/#Context">Context</a>, index <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#int">int</a>, records []*<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Record">Record</a>, obj <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Phase">Phase</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Impl.Recover">func (*Impl) <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/networkchaos/partition/impl.go#L244">Recover</a>
+					<a class="permalink" href="#Impl.Recover">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (impl *<a href="#Impl">Impl</a>) Recover(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/#Context">Context</a>, index <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#int">int</a>, records []*<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Record">Record</a>, obj <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Phase">Phase</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Impl.SetDrop">func (*Impl) <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/networkchaos/partition/impl.go#L324">SetDrop</a>
+					<a class="permalink" href="#Impl.SetDrop">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (impl *<a href="#Impl">Impl</a>) SetDrop(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/#Context">Context</a>, m *<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/networkchaos/podnetworkchaosmanager/">podnetworkchaosmanager</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/networkchaos/podnetworkchaosmanager/#PodNetworkManager">PodNetworkManager</a>, targets []*<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Record">Record</a>, networkchaos *<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#NetworkChaos">NetworkChaos</a>, ipSetPostFix <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#string">string</a>, chainDirection <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#ChainDirection">ChainDirection</a>, device <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

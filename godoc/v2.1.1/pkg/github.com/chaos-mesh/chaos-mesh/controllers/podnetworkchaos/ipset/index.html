@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>ipset - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.1.1/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.1/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.1/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package ipset
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/ipset"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#BuildIPSet">func BuildIPSet(pods []v1.Pod, externalCidrs []string, networkchaos *v1alpha1.NetworkChaos, namePostFix string, source string) v1alpha1.RawIPSet</a></dd>
+			
+				
+				<dd><a href="#FlushIPSets">func FlushIPSets(ctx context.Context, builder *chaosdaemon.ChaosDaemonClientBuilder, pod *v1.Pod, ipsets []*pb.IPSet) error</a></dd>
+			
+				
+				<dd><a href="#GenerateIPSetName">func GenerateIPSetName(networkchaos *v1alpha1.NetworkChaos, namePostFix string) string</a></dd>
+			
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/ipset/ipset.go">ipset.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="BuildIPSet">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/ipset/ipset.go#L35">BuildIPSet</a>
+				<a class="permalink" href="#BuildIPSet">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func BuildIPSet(pods []<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, externalCidrs []<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#string">string</a>, networkchaos *<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#NetworkChaos">NetworkChaos</a>, namePostFix <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#string">string</a>, source <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#RawIPSet">RawIPSet</a></pre>
+			<p>
+BuildIPSet builds an ipset with provided pod ip list
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="FlushIPSets">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/ipset/ipset.go#L60">FlushIPSets</a>
+				<a class="permalink" href="#FlushIPSets">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func FlushIPSets(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/context/#Context">Context</a>, builder *<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon/#ChaosDaemonClientBuilder">ChaosDaemonClientBuilder</a>, pod *<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, ipsets []*<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">pb</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#IPSet">IPSet</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#error">error</a></pre>
+			<p>
+FlushIPSets makes grpc calls to chaosdaemon to save ipset
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="GenerateIPSetName">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/ipset/ipset.go#L55">GenerateIPSetName</a>
+				<a class="permalink" href="#GenerateIPSetName">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GenerateIPSetName(networkchaos *<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#NetworkChaos">NetworkChaos</a>, namePostFix <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/builtin/#string">string</a></pre>
+			<p>
+GenerateIPSetName generates name for ipset
+</p>
+
+			
+			
+
+		
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

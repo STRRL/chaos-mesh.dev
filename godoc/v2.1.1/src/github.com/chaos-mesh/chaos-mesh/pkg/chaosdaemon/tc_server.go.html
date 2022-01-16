@@ -1,0 +1,562 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#375EAB"/>
+
+  <title>src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tc_server.go - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.1.1/lib/godoc/style.css"/>
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.1/lib/godoc/jquery.js" defer=""></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.1/lib/godoc/godocs.js" defer=""></script>
+</head>
+<body>
+
+<div id="lowframe" style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Source file
+    <a href="https:/chaos-mesh.dev/godoc/v2.1.1/src">src</a>/<a href="https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com">github.com</a>/<a href="https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg">pkg</a>/<a href="https:/chaos-mesh.dev/godoc/v2.1.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon">chaosdaemon</a>/<span class="text-muted">tc_server.go</span>
+  </h1>
+
+
+
+
+
+  <h2>
+    Documentation: <a href="https:/chaos-mesh.dev/godoc/v2.1.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon">github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon</a>
+  </h2>
+
+
+
+<div id="nav"></div>
+
+
+<script type="text/javascript">document.ANALYSIS_DATA = null;</script>
+<pre><span id="L1" class="ln">     1  </span><span class="comment">// Copyright 2021 Chaos Mesh Authors.</span>
+<span id="L2" class="ln">     2  </span><span class="comment">//</span>
+<span id="L3" class="ln">     3  </span><span class="comment">// Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span>
+<span id="L4" class="ln">     4  </span><span class="comment">// you may not use this file except in compliance with the License.</span>
+<span id="L5" class="ln">     5  </span><span class="comment">// You may obtain a copy of the License at</span>
+<span id="L6" class="ln">     6  </span><span class="comment">//</span>
+<span id="L7" class="ln">     7  </span><span class="comment">// http://www.apache.org/licenses/LICENSE-2.0</span>
+<span id="L8" class="ln">     8  </span><span class="comment">//</span>
+<span id="L9" class="ln">     9  </span><span class="comment">// Unless required by applicable law or agreed to in writing, software</span>
+<span id="L10" class="ln">    10  </span><span class="comment">// distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span>
+<span id="L11" class="ln">    11  </span><span class="comment">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span id="L12" class="ln">    12  </span><span class="comment">// See the License for the specific language governing permissions and</span>
+<span id="L13" class="ln">    13  </span><span class="comment">// limitations under the License.</span>
+<span id="L14" class="ln">    14  </span><span class="comment">//</span>
+<span id="L15" class="ln">    15  </span>
+<span id="L16" class="ln">    16  </span>package chaosdaemon
+<span id="L17" class="ln">    17  </span>
+<span id="L18" class="ln">    18  </span>import (
+<span id="L19" class="ln">    19  </span>	&#34;context&#34;
+<span id="L20" class="ln">    20  </span>	&#34;encoding/json&#34;
+<span id="L21" class="ln">    21  </span>	&#34;fmt&#34;
+<span id="L22" class="ln">    22  </span>	&#34;strings&#34;
+<span id="L23" class="ln">    23  </span>
+<span id="L24" class="ln">    24  </span>	&#34;google.golang.org/grpc/codes&#34;
+<span id="L25" class="ln">    25  </span>	&#34;google.golang.org/grpc/status&#34;
+<span id="L26" class="ln">    26  </span>
+<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/bpm&#34;
+<span id="L28" class="ln">    28  </span>	pb &#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb&#34;
+<span id="L29" class="ln">    29  </span>
+<span id="L30" class="ln">    30  </span>	&#34;github.com/golang/protobuf/ptypes/empty&#34;
+<span id="L31" class="ln">    31  </span>)
+<span id="L32" class="ln">    32  </span>
+<span id="L33" class="ln">    33  </span>const (
+<span id="L34" class="ln">    34  </span>	ruleNotExist             = &#34;Cannot delete qdisc with handle of zero.&#34;
+<span id="L35" class="ln">    35  </span>	ruleNotExistLowerVersion = &#34;RTNETLINK answers: No such file or directory&#34;
+<span id="L36" class="ln">    36  </span>
+<span id="L37" class="ln">    37  </span>	defaultDevice = &#34;eth0&#34;
+<span id="L38" class="ln">    38  </span>)
+<span id="L39" class="ln">    39  </span>
+<span id="L40" class="ln">    40  </span>func generateQdiscArgs(action string, qdisc *pb.Qdisc) ([]string, error) {
+<span id="L41" class="ln">    41  </span>	if qdisc == nil {
+<span id="L42" class="ln">    42  </span>		return nil, fmt.Errorf(&#34;qdisc is required&#34;)
+<span id="L43" class="ln">    43  </span>	}
+<span id="L44" class="ln">    44  </span>
+<span id="L45" class="ln">    45  </span>	if qdisc.Type == &#34;&#34; {
+<span id="L46" class="ln">    46  </span>		return nil, fmt.Errorf(&#34;qdisc.Type is required&#34;)
+<span id="L47" class="ln">    47  </span>	}
+<span id="L48" class="ln">    48  </span>
+<span id="L49" class="ln">    49  </span>	args := []string{&#34;qdisc&#34;, action, &#34;dev&#34;, &#34;eth0&#34;}
+<span id="L50" class="ln">    50  </span>
+<span id="L51" class="ln">    51  </span>	if qdisc.Parent == nil {
+<span id="L52" class="ln">    52  </span>		args = append(args, &#34;root&#34;)
+<span id="L53" class="ln">    53  </span>	} else if qdisc.Parent.Major == 1 &amp;&amp; qdisc.Parent.Minor == 0 {
+<span id="L54" class="ln">    54  </span>		args = append(args, &#34;root&#34;)
+<span id="L55" class="ln">    55  </span>	} else {
+<span id="L56" class="ln">    56  </span>		args = append(args, &#34;parent&#34;, fmt.Sprintf(&#34;%d:%d&#34;, qdisc.Parent.Major, qdisc.Parent.Minor))
+<span id="L57" class="ln">    57  </span>	}
+<span id="L58" class="ln">    58  </span>
+<span id="L59" class="ln">    59  </span>	if qdisc.Handle == nil {
+<span id="L60" class="ln">    60  </span>		args = append(args, &#34;handle&#34;, fmt.Sprintf(&#34;%d:%d&#34;, 1, 0))
+<span id="L61" class="ln">    61  </span>	} else {
+<span id="L62" class="ln">    62  </span>		args = append(args, &#34;handle&#34;, fmt.Sprintf(&#34;%d:%d&#34;, qdisc.Handle.Major, qdisc.Handle.Minor))
+<span id="L63" class="ln">    63  </span>	}
+<span id="L64" class="ln">    64  </span>
+<span id="L65" class="ln">    65  </span>	args = append(args, qdisc.Type)
+<span id="L66" class="ln">    66  </span>
+<span id="L67" class="ln">    67  </span>	if qdisc.Args != nil {
+<span id="L68" class="ln">    68  </span>		args = append(args, qdisc.Args...)
+<span id="L69" class="ln">    69  </span>	}
+<span id="L70" class="ln">    70  </span>
+<span id="L71" class="ln">    71  </span>	return args, nil
+<span id="L72" class="ln">    72  </span>}
+<span id="L73" class="ln">    73  </span>
+<span id="L74" class="ln">    74  </span>func getAllInterfaces(pid uint32) ([]string, error) {
+<span id="L75" class="ln">    75  </span>	ipOutput, err := bpm.DefaultProcessBuilder(&#34;ip&#34;, &#34;-j&#34;, &#34;addr&#34;, &#34;show&#34;).SetNS(pid, bpm.NetNS).Build().CombinedOutput()
+<span id="L76" class="ln">    76  </span>	if err != nil {
+<span id="L77" class="ln">    77  </span>		return []string{}, err
+<span id="L78" class="ln">    78  </span>	}
+<span id="L79" class="ln">    79  </span>	var data []map[string]interface{}
+<span id="L80" class="ln">    80  </span>
+<span id="L81" class="ln">    81  </span>	err = json.Unmarshal(ipOutput, &amp;data)
+<span id="L82" class="ln">    82  </span>	if err != nil {
+<span id="L83" class="ln">    83  </span>		return []string{}, err
+<span id="L84" class="ln">    84  </span>	}
+<span id="L85" class="ln">    85  </span>
+<span id="L86" class="ln">    86  </span>	var ifaces []string
+<span id="L87" class="ln">    87  </span>	for _, iface := range data {
+<span id="L88" class="ln">    88  </span>		name, ok := iface[&#34;ifname&#34;]
+<span id="L89" class="ln">    89  </span>		if !ok {
+<span id="L90" class="ln">    90  </span>			return []string{}, fmt.Errorf(&#34;fail to read ifname from ip -j addr show&#34;)
+<span id="L91" class="ln">    91  </span>		}
+<span id="L92" class="ln">    92  </span>
+<span id="L93" class="ln">    93  </span>		ifaces = append(ifaces, name.(string))
+<span id="L94" class="ln">    94  </span>	}
+<span id="L95" class="ln">    95  </span>
+<span id="L96" class="ln">    96  </span>	log.Info(&#34;get interfaces from ip command&#34;, &#34;ifaces&#34;, ifaces)
+<span id="L97" class="ln">    97  </span>	return ifaces, nil
+<span id="L98" class="ln">    98  </span>}
+<span id="L99" class="ln">    99  </span>
+<span id="L100" class="ln">   100  </span>func (s *DaemonServer) SetTcs(ctx context.Context, in *pb.TcsRequest) (*empty.Empty, error) {
+<span id="L101" class="ln">   101  </span>	log.Info(&#34;handling tc request&#34;, &#34;tcs&#34;, in)
+<span id="L102" class="ln">   102  </span>
+<span id="L103" class="ln">   103  </span>	pid, err := s.crClient.GetPidFromContainerID(ctx, in.ContainerId)
+<span id="L104" class="ln">   104  </span>	if err != nil {
+<span id="L105" class="ln">   105  </span>		return nil, status.Errorf(codes.Internal, &#34;get pid from containerID error: %v&#34;, err)
+<span id="L106" class="ln">   106  </span>	}
+<span id="L107" class="ln">   107  </span>
+<span id="L108" class="ln">   108  </span>	tcCli := buildTcClient(ctx, in.EnterNS, pid)
+<span id="L109" class="ln">   109  </span>
+<span id="L110" class="ln">   110  </span>	ifaces, err := getAllInterfaces(pid)
+<span id="L111" class="ln">   111  </span>	if err != nil {
+<span id="L112" class="ln">   112  </span>		log.Error(err, &#34;error while getting interfaces&#34;)
+<span id="L113" class="ln">   113  </span>		return nil, err
+<span id="L114" class="ln">   114  </span>	}
+<span id="L115" class="ln">   115  </span>	for _, iface := range ifaces {
+<span id="L116" class="ln">   116  </span>		err = tcCli.flush(iface)
+<span id="L117" class="ln">   117  </span>		if err != nil {
+<span id="L118" class="ln">   118  </span>			log.Error(err, &#34;fail to flush tc rules on device&#34;, &#34;device&#34;, iface)
+<span id="L119" class="ln">   119  </span>		}
+<span id="L120" class="ln">   120  </span>	}
+<span id="L121" class="ln">   121  </span>	if err != nil {
+<span id="L122" class="ln">   122  </span>		return &amp;empty.Empty{}, err
+<span id="L123" class="ln">   123  </span>	}
+<span id="L124" class="ln">   124  </span>
+<span id="L125" class="ln">   125  </span>	for device, rules := range s.groupRulesAccordingToDevices(in.Tcs) {
+<span id="L126" class="ln">   126  </span>		<span class="comment">// tc rules are split into two different kinds according to whether it has filter.</span>
+<span id="L127" class="ln">   127  </span>		<span class="comment">// all tc rules without filter are called `globalTc` and the tc rules with filter will be called `filterTc`.</span>
+<span id="L128" class="ln">   128  </span>		<span class="comment">// the `globalTc` rules will be piped one by one from root, and the last `globalTc` will be connected with a PRIO</span>
+<span id="L129" class="ln">   129  </span>		<span class="comment">// qdisc, which has `3 + len(filterTc)` bands. Then the 4.. bands will be connected to `filterTc` and a filter will</span>
+<span id="L130" class="ln">   130  </span>		<span class="comment">// be setuped to flow packet from PRIO qdisc to it.</span>
+<span id="L131" class="ln">   131  </span>
+<span id="L132" class="ln">   132  </span>		<span class="comment">// for example, four tc rules:</span>
+<span id="L133" class="ln">   133  </span>		<span class="comment">// - NETEM: 50ms latency without filter</span>
+<span id="L134" class="ln">   134  </span>		<span class="comment">// - NETEM: 100ms latency without filter</span>
+<span id="L135" class="ln">   135  </span>		<span class="comment">// - NETEM: 50ms latency with filter ipset A</span>
+<span id="L136" class="ln">   136  </span>		<span class="comment">// - NETEM: 100ms latency with filter ipset B</span>
+<span id="L137" class="ln">   137  </span>		<span class="comment">// will generate tc rules:</span>
+<span id="L138" class="ln">   138  </span>		<span class="comment">//	tc qdisc del dev eth0 root</span>
+<span id="L139" class="ln">   139  </span>		<span class="comment">//  tc qdisc add dev eth0 root handle 1: netem delay 50000</span>
+<span id="L140" class="ln">   140  </span>		<span class="comment">//  tc qdisc add dev eth0 parent 1: handle 2: netem delay 100000</span>
+<span id="L141" class="ln">   141  </span>		<span class="comment">//  tc qdisc add dev eth0 parent 2: handle 3: prio bands 5 priomap 1 2 2 2 1 2 0 0 1 1 1 1 1 1 1 1</span>
+<span id="L142" class="ln">   142  </span>		<span class="comment">//  tc qdisc add dev eth0 parent 3:1 handle 4: sfq</span>
+<span id="L143" class="ln">   143  </span>		<span class="comment">//  tc qdisc add dev eth0 parent 3:2 handle 5: sfq</span>
+<span id="L144" class="ln">   144  </span>		<span class="comment">//  tc qdisc add dev eth0 parent 3:3 handle 6: sfq</span>
+<span id="L145" class="ln">   145  </span>		<span class="comment">//  tc qdisc add dev eth0 parent 3:4 handle 7: netem delay 50000</span>
+<span id="L146" class="ln">   146  </span>		<span class="comment">//  iptables -A TC-TABLES-0 -o eth0 -m set --match-set A dst -j CLASSIFY --set-class 3:4 -w 5</span>
+<span id="L147" class="ln">   147  </span>		<span class="comment">//  tc qdisc add dev eth0 parent 3:5 handle 8: netem delay 100000</span>
+<span id="L148" class="ln">   148  </span>		<span class="comment">//  iptables -A TC-TABLES-1 -o eth0 -m set --match-set B dst -j CLASSIFY --set-class 3:5 -w 5</span>
+<span id="L149" class="ln">   149  </span>
+<span id="L150" class="ln">   150  </span>		globalTc := []*pb.Tc{}
+<span id="L151" class="ln">   151  </span>		filterTc := make(map[string][]*pb.Tc)
+<span id="L152" class="ln">   152  </span>
+<span id="L153" class="ln">   153  </span>		for _, tc := range rules {
+<span id="L154" class="ln">   154  </span>			filter := abstractTcFilter(tc)
+<span id="L155" class="ln">   155  </span>			if len(filter) &gt; 0 {
+<span id="L156" class="ln">   156  </span>				filterTc[filter] = append(filterTc[filter], tc)
+<span id="L157" class="ln">   157  </span>				continue
+<span id="L158" class="ln">   158  </span>			}
+<span id="L159" class="ln">   159  </span>			globalTc = append(globalTc, tc)
+<span id="L160" class="ln">   160  </span>		}
+<span id="L161" class="ln">   161  </span>
+<span id="L162" class="ln">   162  </span>		if len(globalTc) &gt; 0 {
+<span id="L163" class="ln">   163  </span>			if err := s.setGlobalTcs(tcCli, globalTc, device); err != nil {
+<span id="L164" class="ln">   164  </span>				log.Error(err, &#34;error while setting global tc&#34;)
+<span id="L165" class="ln">   165  </span>				return &amp;empty.Empty{}, err
+<span id="L166" class="ln">   166  </span>			}
+<span id="L167" class="ln">   167  </span>		}
+<span id="L168" class="ln">   168  </span>
+<span id="L169" class="ln">   169  </span>		if len(filterTc) &gt; 0 {
+<span id="L170" class="ln">   170  </span>			iptablesCli := buildIptablesClient(ctx, in.EnterNS, pid)
+<span id="L171" class="ln">   171  </span>			if err := s.setFilterTcs(tcCli, iptablesCli, filterTc, device, len(globalTc)); err != nil {
+<span id="L172" class="ln">   172  </span>				log.Error(err, &#34;error while setting filter tc&#34;)
+<span id="L173" class="ln">   173  </span>				return &amp;empty.Empty{}, err
+<span id="L174" class="ln">   174  </span>			}
+<span id="L175" class="ln">   175  </span>		}
+<span id="L176" class="ln">   176  </span>	}
+<span id="L177" class="ln">   177  </span>
+<span id="L178" class="ln">   178  </span>	return &amp;empty.Empty{}, nil
+<span id="L179" class="ln">   179  </span>}
+<span id="L180" class="ln">   180  </span>
+<span id="L181" class="ln">   181  </span>func (s *DaemonServer) groupRulesAccordingToDevices(tcs []*pb.Tc) map[string][]*pb.Tc {
+<span id="L182" class="ln">   182  </span>	rules := make(map[string][]*pb.Tc)
+<span id="L183" class="ln">   183  </span>	for _, tc := range tcs {
+<span id="L184" class="ln">   184  </span>		if tc.Device == &#34;&#34; {
+<span id="L185" class="ln">   185  </span>			tc.Device = defaultDevice
+<span id="L186" class="ln">   186  </span>		}
+<span id="L187" class="ln">   187  </span>		rules[tc.Device] = append(rules[tc.Device], tc)
+<span id="L188" class="ln">   188  </span>	}
+<span id="L189" class="ln">   189  </span>	return rules
+<span id="L190" class="ln">   190  </span>}
+<span id="L191" class="ln">   191  </span>
+<span id="L192" class="ln">   192  </span>func (s *DaemonServer) setGlobalTcs(cli tcClient, tcs []*pb.Tc, device string) error {
+<span id="L193" class="ln">   193  </span>	for index, tc := range tcs {
+<span id="L194" class="ln">   194  </span>		parentArg := &#34;root&#34;
+<span id="L195" class="ln">   195  </span>		if index &gt; 0 {
+<span id="L196" class="ln">   196  </span>			parentArg = fmt.Sprintf(&#34;parent %d:&#34;, index)
+<span id="L197" class="ln">   197  </span>		}
+<span id="L198" class="ln">   198  </span>
+<span id="L199" class="ln">   199  </span>		handleArg := fmt.Sprintf(&#34;handle %d:&#34;, index+1)
+<span id="L200" class="ln">   200  </span>
+<span id="L201" class="ln">   201  </span>		err := cli.addTc(device, parentArg, handleArg, tc)
+<span id="L202" class="ln">   202  </span>		if err != nil {
+<span id="L203" class="ln">   203  </span>			log.Error(err, &#34;error while adding tc&#34;)
+<span id="L204" class="ln">   204  </span>			return err
+<span id="L205" class="ln">   205  </span>		}
+<span id="L206" class="ln">   206  </span>	}
+<span id="L207" class="ln">   207  </span>
+<span id="L208" class="ln">   208  </span>	return nil
+<span id="L209" class="ln">   209  </span>}
+<span id="L210" class="ln">   210  </span>
+<span id="L211" class="ln">   211  </span>func (s *DaemonServer) setFilterTcs(
+<span id="L212" class="ln">   212  </span>	tcCli tcClient,
+<span id="L213" class="ln">   213  </span>	iptablesCli iptablesClient,
+<span id="L214" class="ln">   214  </span>	filterTc map[string][]*pb.Tc,
+<span id="L215" class="ln">   215  </span>	device string,
+<span id="L216" class="ln">   216  </span>	baseIndex int,
+<span id="L217" class="ln">   217  </span>) error {
+<span id="L218" class="ln">   218  </span>	parent := baseIndex
+<span id="L219" class="ln">   219  </span>	band := 3 + len(filterTc) <span class="comment">// 3 handlers for normal sfq on prio qdisc</span>
+<span id="L220" class="ln">   220  </span>	if err := tcCli.addPrio(device, parent, band); err != nil {
+<span id="L221" class="ln">   221  </span>		log.Error(err, &#34;error while adding prio&#34;)
+<span id="L222" class="ln">   222  </span>		return err
+<span id="L223" class="ln">   223  </span>	}
+<span id="L224" class="ln">   224  </span>
+<span id="L225" class="ln">   225  </span>	parent++
+<span id="L226" class="ln">   226  </span>	index := 0
+<span id="L227" class="ln">   227  </span>	currentHandler := parent + 3 <span class="comment">// 3 handlers for sfq on prio qdisc</span>
+<span id="L228" class="ln">   228  </span>
+<span id="L229" class="ln">   229  </span>	<span class="comment">// iptables chain has been initialized by previous grpc request to set iptables</span>
+<span id="L230" class="ln">   230  </span>	<span class="comment">// and iptables rules are recovered by previous call too, so there is no need</span>
+<span id="L231" class="ln">   231  </span>	<span class="comment">// to remove these rules here</span>
+<span id="L232" class="ln">   232  </span>	chains := []*pb.Chain{}
+<span id="L233" class="ln">   233  </span>	for _, tcs := range filterTc {
+<span id="L234" class="ln">   234  </span>		for i, tc := range tcs {
+<span id="L235" class="ln">   235  </span>			parentArg := fmt.Sprintf(&#34;parent %d:%d&#34;, parent, index+4)
+<span id="L236" class="ln">   236  </span>			if i &gt; 0 {
+<span id="L237" class="ln">   237  </span>				parentArg = fmt.Sprintf(&#34;parent %d:&#34;, currentHandler)
+<span id="L238" class="ln">   238  </span>			}
+<span id="L239" class="ln">   239  </span>
+<span id="L240" class="ln">   240  </span>			currentHandler++
+<span id="L241" class="ln">   241  </span>			handleArg := fmt.Sprintf(&#34;handle %d:&#34;, currentHandler)
+<span id="L242" class="ln">   242  </span>
+<span id="L243" class="ln">   243  </span>			err := tcCli.addTc(device, parentArg, handleArg, tc)
+<span id="L244" class="ln">   244  </span>			if err != nil {
+<span id="L245" class="ln">   245  </span>				log.Error(err, &#34;error while adding tc&#34;)
+<span id="L246" class="ln">   246  </span>				return err
+<span id="L247" class="ln">   247  </span>			}
+<span id="L248" class="ln">   248  </span>		}
+<span id="L249" class="ln">   249  </span>
+<span id="L250" class="ln">   250  </span>		ch := &amp;pb.Chain{
+<span id="L251" class="ln">   251  </span>			Name:      fmt.Sprintf(&#34;TC-TABLES-%d&#34;, index),
+<span id="L252" class="ln">   252  </span>			Direction: pb.Chain_OUTPUT,
+<span id="L253" class="ln">   253  </span>			Target:    fmt.Sprintf(&#34;CLASSIFY --set-class %d:%d&#34;, parent, index+4),
+<span id="L254" class="ln">   254  </span>			Device:    device,
+<span id="L255" class="ln">   255  </span>		}
+<span id="L256" class="ln">   256  </span>
+<span id="L257" class="ln">   257  </span>		tc := tcs[0]
+<span id="L258" class="ln">   258  </span>		if len(tc.Ipset) &gt; 0 {
+<span id="L259" class="ln">   259  </span>			ch.Ipsets = []string{tc.Ipset}
+<span id="L260" class="ln">   260  </span>		}
+<span id="L261" class="ln">   261  </span>
+<span id="L262" class="ln">   262  </span>		ch.Protocol = tc.Protocol
+<span id="L263" class="ln">   263  </span>		ch.SourcePorts = tc.SourcePort
+<span id="L264" class="ln">   264  </span>		ch.DestinationPorts = tc.EgressPort
+<span id="L265" class="ln">   265  </span>
+<span id="L266" class="ln">   266  </span>		chains = append(chains, ch)
+<span id="L267" class="ln">   267  </span>
+<span id="L268" class="ln">   268  </span>		index++
+<span id="L269" class="ln">   269  </span>	}
+<span id="L270" class="ln">   270  </span>	if err := iptablesCli.setIptablesChains(chains); err != nil {
+<span id="L271" class="ln">   271  </span>		log.Error(err, &#34;error while setting iptables&#34;)
+<span id="L272" class="ln">   272  </span>		return err
+<span id="L273" class="ln">   273  </span>	}
+<span id="L274" class="ln">   274  </span>
+<span id="L275" class="ln">   275  </span>	return nil
+<span id="L276" class="ln">   276  </span>}
+<span id="L277" class="ln">   277  </span>
+<span id="L278" class="ln">   278  </span>type tcClient struct {
+<span id="L279" class="ln">   279  </span>	ctx     context.Context
+<span id="L280" class="ln">   280  </span>	enterNS bool
+<span id="L281" class="ln">   281  </span>	pid     uint32
+<span id="L282" class="ln">   282  </span>}
+<span id="L283" class="ln">   283  </span>
+<span id="L284" class="ln">   284  </span>func buildTcClient(ctx context.Context, enterNS bool, pid uint32) tcClient {
+<span id="L285" class="ln">   285  </span>	return tcClient{
+<span id="L286" class="ln">   286  </span>		ctx,
+<span id="L287" class="ln">   287  </span>		enterNS,
+<span id="L288" class="ln">   288  </span>		pid,
+<span id="L289" class="ln">   289  </span>	}
+<span id="L290" class="ln">   290  </span>}
+<span id="L291" class="ln">   291  </span>
+<span id="L292" class="ln">   292  </span>func (c *tcClient) flush(device string) error {
+<span id="L293" class="ln">   293  </span>	processBuilder := bpm.DefaultProcessBuilder(&#34;tc&#34;, &#34;qdisc&#34;, &#34;del&#34;, &#34;dev&#34;, device, &#34;root&#34;).SetContext(c.ctx)
+<span id="L294" class="ln">   294  </span>	if c.enterNS {
+<span id="L295" class="ln">   295  </span>		processBuilder = processBuilder.SetNS(c.pid, bpm.NetNS)
+<span id="L296" class="ln">   296  </span>	}
+<span id="L297" class="ln">   297  </span>	cmd := processBuilder.Build()
+<span id="L298" class="ln">   298  </span>	output, err := cmd.CombinedOutput()
+<span id="L299" class="ln">   299  </span>	if err != nil {
+<span id="L300" class="ln">   300  </span>		if (!strings.Contains(string(output), ruleNotExistLowerVersion)) &amp;&amp; (!strings.Contains(string(output), ruleNotExist)) {
+<span id="L301" class="ln">   301  </span>			return encodeOutputToError(output, err)
+<span id="L302" class="ln">   302  </span>		}
+<span id="L303" class="ln">   303  </span>	}
+<span id="L304" class="ln">   304  </span>	return nil
+<span id="L305" class="ln">   305  </span>}
+<span id="L306" class="ln">   306  </span>
+<span id="L307" class="ln">   307  </span>func (c *tcClient) addTc(device string, parentArg string, handleArg string, tc *pb.Tc) error {
+<span id="L308" class="ln">   308  </span>	log.Info(&#34;add tc&#34;, &#34;tc&#34;, tc)
+<span id="L309" class="ln">   309  </span>
+<span id="L310" class="ln">   310  </span>	if tc.Type == pb.Tc_BANDWIDTH {
+<span id="L311" class="ln">   311  </span>
+<span id="L312" class="ln">   312  </span>		if tc.Tbf == nil {
+<span id="L313" class="ln">   313  </span>			return fmt.Errorf(&#34;tbf is nil while type is BANDWIDTH&#34;)
+<span id="L314" class="ln">   314  </span>		}
+<span id="L315" class="ln">   315  </span>		err := c.addTbf(device, parentArg, handleArg, tc.Tbf)
+<span id="L316" class="ln">   316  </span>		if err != nil {
+<span id="L317" class="ln">   317  </span>			return err
+<span id="L318" class="ln">   318  </span>		}
+<span id="L319" class="ln">   319  </span>
+<span id="L320" class="ln">   320  </span>	} else if tc.Type == pb.Tc_NETEM {
+<span id="L321" class="ln">   321  </span>
+<span id="L322" class="ln">   322  </span>		if tc.Netem == nil {
+<span id="L323" class="ln">   323  </span>			return fmt.Errorf(&#34;netem is nil while type is NETEM&#34;)
+<span id="L324" class="ln">   324  </span>		}
+<span id="L325" class="ln">   325  </span>		err := c.addNetem(device, parentArg, handleArg, tc.Netem)
+<span id="L326" class="ln">   326  </span>		if err != nil {
+<span id="L327" class="ln">   327  </span>			return err
+<span id="L328" class="ln">   328  </span>		}
+<span id="L329" class="ln">   329  </span>
+<span id="L330" class="ln">   330  </span>	} else {
+<span id="L331" class="ln">   331  </span>		return fmt.Errorf(&#34;unknown tc qdisc type&#34;)
+<span id="L332" class="ln">   332  </span>	}
+<span id="L333" class="ln">   333  </span>
+<span id="L334" class="ln">   334  </span>	return nil
+<span id="L335" class="ln">   335  </span>}
+<span id="L336" class="ln">   336  </span>
+<span id="L337" class="ln">   337  </span>func (c *tcClient) addPrio(device string, parent int, band int) error {
+<span id="L338" class="ln">   338  </span>	log.Info(&#34;adding prio&#34;, &#34;parent&#34;, parent)
+<span id="L339" class="ln">   339  </span>
+<span id="L340" class="ln">   340  </span>	parentArg := &#34;root&#34;
+<span id="L341" class="ln">   341  </span>	if parent &gt; 0 {
+<span id="L342" class="ln">   342  </span>		parentArg = fmt.Sprintf(&#34;parent %d:&#34;, parent)
+<span id="L343" class="ln">   343  </span>	}
+<span id="L344" class="ln">   344  </span>	args := fmt.Sprintf(&#34;qdisc add dev %s %s handle %d: prio bands %d priomap 1 2 2 2 1 2 0 0 1 1 1 1 1 1 1 1&#34;, device, parentArg, parent+1, band)
+<span id="L345" class="ln">   345  </span>
+<span id="L346" class="ln">   346  </span>	processBuilder := bpm.DefaultProcessBuilder(&#34;tc&#34;, strings.Split(args, &#34; &#34;)...).SetContext(c.ctx)
+<span id="L347" class="ln">   347  </span>	if c.enterNS {
+<span id="L348" class="ln">   348  </span>		processBuilder = processBuilder.SetNS(c.pid, bpm.NetNS)
+<span id="L349" class="ln">   349  </span>	}
+<span id="L350" class="ln">   350  </span>	cmd := processBuilder.Build()
+<span id="L351" class="ln">   351  </span>	output, err := cmd.CombinedOutput()
+<span id="L352" class="ln">   352  </span>	if err != nil {
+<span id="L353" class="ln">   353  </span>		return encodeOutputToError(output, err)
+<span id="L354" class="ln">   354  </span>	}
+<span id="L355" class="ln">   355  </span>
+<span id="L356" class="ln">   356  </span>	for index := 1; index &lt;= 3; index++ {
+<span id="L357" class="ln">   357  </span>		args := fmt.Sprintf(&#34;qdisc add dev %s parent %d:%d handle %d: sfq&#34;, device, parent+1, index, parent+1+index)
+<span id="L358" class="ln">   358  </span>
+<span id="L359" class="ln">   359  </span>		processBuilder := bpm.DefaultProcessBuilder(&#34;tc&#34;, strings.Split(args, &#34; &#34;)...).SetContext(c.ctx)
+<span id="L360" class="ln">   360  </span>		if c.enterNS {
+<span id="L361" class="ln">   361  </span>			processBuilder = processBuilder.SetNS(c.pid, bpm.NetNS)
+<span id="L362" class="ln">   362  </span>		}
+<span id="L363" class="ln">   363  </span>		cmd := processBuilder.Build()
+<span id="L364" class="ln">   364  </span>		output, err := cmd.CombinedOutput()
+<span id="L365" class="ln">   365  </span>		if err != nil {
+<span id="L366" class="ln">   366  </span>			return encodeOutputToError(output, err)
+<span id="L367" class="ln">   367  </span>		}
+<span id="L368" class="ln">   368  </span>	}
+<span id="L369" class="ln">   369  </span>
+<span id="L370" class="ln">   370  </span>	return nil
+<span id="L371" class="ln">   371  </span>}
+<span id="L372" class="ln">   372  </span>
+<span id="L373" class="ln">   373  </span>func (c *tcClient) addNetem(device string, parent string, handle string, netem *pb.Netem) error {
+<span id="L374" class="ln">   374  </span>	log.Info(&#34;adding netem&#34;, &#34;device&#34;, device, &#34;parent&#34;, parent, &#34;handle&#34;, handle)
+<span id="L375" class="ln">   375  </span>
+<span id="L376" class="ln">   376  </span>	args := fmt.Sprintf(&#34;qdisc add dev %s %s %s netem %s&#34;, device, parent, handle, convertNetemToArgs(netem))
+<span id="L377" class="ln">   377  </span>	processBuilder := bpm.DefaultProcessBuilder(&#34;tc&#34;, strings.Split(args, &#34; &#34;)...).SetContext(c.ctx)
+<span id="L378" class="ln">   378  </span>	if c.enterNS {
+<span id="L379" class="ln">   379  </span>		processBuilder = processBuilder.SetNS(c.pid, bpm.NetNS)
+<span id="L380" class="ln">   380  </span>	}
+<span id="L381" class="ln">   381  </span>	cmd := processBuilder.Build()
+<span id="L382" class="ln">   382  </span>	output, err := cmd.CombinedOutput()
+<span id="L383" class="ln">   383  </span>	if err != nil {
+<span id="L384" class="ln">   384  </span>		return encodeOutputToError(output, err)
+<span id="L385" class="ln">   385  </span>	}
+<span id="L386" class="ln">   386  </span>	return nil
+<span id="L387" class="ln">   387  </span>}
+<span id="L388" class="ln">   388  </span>
+<span id="L389" class="ln">   389  </span>func (c *tcClient) addTbf(device string, parent string, handle string, tbf *pb.Tbf) error {
+<span id="L390" class="ln">   390  </span>	log.Info(&#34;adding tbf&#34;, &#34;device&#34;, device, &#34;parent&#34;, parent, &#34;handle&#34;, handle)
+<span id="L391" class="ln">   391  </span>
+<span id="L392" class="ln">   392  </span>	args := fmt.Sprintf(&#34;qdisc add dev %s %s %s tbf %s&#34;, device, parent, handle, convertTbfToArgs(tbf))
+<span id="L393" class="ln">   393  </span>	processBuilder := bpm.DefaultProcessBuilder(&#34;tc&#34;, strings.Split(args, &#34; &#34;)...).SetContext(c.ctx)
+<span id="L394" class="ln">   394  </span>	if c.enterNS {
+<span id="L395" class="ln">   395  </span>		processBuilder = processBuilder.SetNS(c.pid, bpm.NetNS)
+<span id="L396" class="ln">   396  </span>	}
+<span id="L397" class="ln">   397  </span>	cmd := processBuilder.Build()
+<span id="L398" class="ln">   398  </span>	output, err := cmd.CombinedOutput()
+<span id="L399" class="ln">   399  </span>	if err != nil {
+<span id="L400" class="ln">   400  </span>		return encodeOutputToError(output, err)
+<span id="L401" class="ln">   401  </span>	}
+<span id="L402" class="ln">   402  </span>	return nil
+<span id="L403" class="ln">   403  </span>}
+<span id="L404" class="ln">   404  </span>
+<span id="L405" class="ln">   405  </span>func convertNetemToArgs(netem *pb.Netem) string {
+<span id="L406" class="ln">   406  </span>	args := &#34;&#34;
+<span id="L407" class="ln">   407  </span>	if netem.Time &gt; 0 {
+<span id="L408" class="ln">   408  </span>		args = fmt.Sprintf(&#34;delay %d&#34;, netem.Time)
+<span id="L409" class="ln">   409  </span>		if netem.Jitter &gt; 0 {
+<span id="L410" class="ln">   410  </span>			args = fmt.Sprintf(&#34;%s %d&#34;, args, netem.Jitter)
+<span id="L411" class="ln">   411  </span>
+<span id="L412" class="ln">   412  </span>			if netem.DelayCorr &gt; 0 {
+<span id="L413" class="ln">   413  </span>				args = fmt.Sprintf(&#34;%s %f&#34;, args, netem.DelayCorr)
+<span id="L414" class="ln">   414  </span>			}
+<span id="L415" class="ln">   415  </span>		}
+<span id="L416" class="ln">   416  </span>
+<span id="L417" class="ln">   417  </span>		<span class="comment">// reordering not possible without specifying some delay</span>
+<span id="L418" class="ln">   418  </span>		if netem.Reorder &gt; 0 {
+<span id="L419" class="ln">   419  </span>			args = fmt.Sprintf(&#34;%s reorder %f&#34;, args, netem.Reorder)
+<span id="L420" class="ln">   420  </span>			if netem.ReorderCorr &gt; 0 {
+<span id="L421" class="ln">   421  </span>				args = fmt.Sprintf(&#34;%s %f&#34;, args, netem.ReorderCorr)
+<span id="L422" class="ln">   422  </span>			}
+<span id="L423" class="ln">   423  </span>
+<span id="L424" class="ln">   424  </span>			if netem.Gap &gt; 0 {
+<span id="L425" class="ln">   425  </span>				args = fmt.Sprintf(&#34;%s gap %d&#34;, args, netem.Gap)
+<span id="L426" class="ln">   426  </span>			}
+<span id="L427" class="ln">   427  </span>		}
+<span id="L428" class="ln">   428  </span>	}
+<span id="L429" class="ln">   429  </span>
+<span id="L430" class="ln">   430  </span>	if netem.Limit &gt; 0 {
+<span id="L431" class="ln">   431  </span>		args = fmt.Sprintf(&#34;%s limit %d&#34;, args, netem.Limit)
+<span id="L432" class="ln">   432  </span>	}
+<span id="L433" class="ln">   433  </span>
+<span id="L434" class="ln">   434  </span>	if netem.Loss &gt; 0 {
+<span id="L435" class="ln">   435  </span>		args = fmt.Sprintf(&#34;%s loss %f&#34;, args, netem.Loss)
+<span id="L436" class="ln">   436  </span>		if netem.LossCorr &gt; 0 {
+<span id="L437" class="ln">   437  </span>			args = fmt.Sprintf(&#34;%s %f&#34;, args, netem.LossCorr)
+<span id="L438" class="ln">   438  </span>		}
+<span id="L439" class="ln">   439  </span>	}
+<span id="L440" class="ln">   440  </span>
+<span id="L441" class="ln">   441  </span>	if netem.Duplicate &gt; 0 {
+<span id="L442" class="ln">   442  </span>		args = fmt.Sprintf(&#34;%s duplicate %f&#34;, args, netem.Duplicate)
+<span id="L443" class="ln">   443  </span>		if netem.DuplicateCorr &gt; 0 {
+<span id="L444" class="ln">   444  </span>			args = fmt.Sprintf(&#34;%s %f&#34;, args, netem.DuplicateCorr)
+<span id="L445" class="ln">   445  </span>		}
+<span id="L446" class="ln">   446  </span>	}
+<span id="L447" class="ln">   447  </span>
+<span id="L448" class="ln">   448  </span>	if netem.Corrupt &gt; 0 {
+<span id="L449" class="ln">   449  </span>		args = fmt.Sprintf(&#34;%s corrupt %f&#34;, args, netem.Corrupt)
+<span id="L450" class="ln">   450  </span>		if netem.CorruptCorr &gt; 0 {
+<span id="L451" class="ln">   451  </span>			args = fmt.Sprintf(&#34;%s %f&#34;, args, netem.CorruptCorr)
+<span id="L452" class="ln">   452  </span>		}
+<span id="L453" class="ln">   453  </span>	}
+<span id="L454" class="ln">   454  </span>
+<span id="L455" class="ln">   455  </span>	trimedArgs := []string{}
+<span id="L456" class="ln">   456  </span>
+<span id="L457" class="ln">   457  </span>	for _, part := range strings.Split(args, &#34; &#34;) {
+<span id="L458" class="ln">   458  </span>		if len(part) &gt; 0 {
+<span id="L459" class="ln">   459  </span>			trimedArgs = append(trimedArgs, part)
+<span id="L460" class="ln">   460  </span>		}
+<span id="L461" class="ln">   461  </span>	}
+<span id="L462" class="ln">   462  </span>
+<span id="L463" class="ln">   463  </span>	return strings.Join(trimedArgs, &#34; &#34;)
+<span id="L464" class="ln">   464  </span>}
+<span id="L465" class="ln">   465  </span>
+<span id="L466" class="ln">   466  </span>func convertTbfToArgs(tbf *pb.Tbf) string {
+<span id="L467" class="ln">   467  </span>	args := fmt.Sprintf(&#34;rate %d burst %d&#34;, tbf.Rate, tbf.Buffer)
+<span id="L468" class="ln">   468  </span>	if tbf.Limit &gt; 0 {
+<span id="L469" class="ln">   469  </span>		args = fmt.Sprintf(&#34;%s limit %d&#34;, args, tbf.Limit)
+<span id="L470" class="ln">   470  </span>	}
+<span id="L471" class="ln">   471  </span>	if tbf.PeakRate &gt; 0 {
+<span id="L472" class="ln">   472  </span>		args = fmt.Sprintf(&#34;%s peakrate %d mtu %d&#34;, args, tbf.PeakRate, tbf.MinBurst)
+<span id="L473" class="ln">   473  </span>	}
+<span id="L474" class="ln">   474  </span>
+<span id="L475" class="ln">   475  </span>	return args
+<span id="L476" class="ln">   476  </span>}
+<span id="L477" class="ln">   477  </span>
+<span id="L478" class="ln">   478  </span>func abstractTcFilter(tc *pb.Tc) string {
+<span id="L479" class="ln">   479  </span>	filter := tc.Ipset
+<span id="L480" class="ln">   480  </span>
+<span id="L481" class="ln">   481  </span>	if len(tc.Protocol) &gt; 0 {
+<span id="L482" class="ln">   482  </span>		filter += &#34;-&#34; + tc.Protocol
+<span id="L483" class="ln">   483  </span>	}
+<span id="L484" class="ln">   484  </span>
+<span id="L485" class="ln">   485  </span>	if len(tc.EgressPort) &gt; 0 {
+<span id="L486" class="ln">   486  </span>		filter += &#34;-&#34; + tc.EgressPort
+<span id="L487" class="ln">   487  </span>	}
+<span id="L488" class="ln">   488  </span>
+<span id="L489" class="ln">   489  </span>	if len(tc.SourcePort) &gt; 0 {
+<span id="L490" class="ln">   490  </span>		filter += &#34;-&#34; + tc.EgressPort
+<span id="L491" class="ln">   491  </span>	}
+<span id="L492" class="ln">   492  </span>
+<span id="L493" class="ln">   493  </span>	return filter
+<span id="L494" class="ln">   494  </span>}
+<span id="L495" class="ln">   495  </span>
+</pre><p></p>
+
+<div id="footer">
+Build version go1.17.6.<br/>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+
+
+</body></html>
