@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>utils - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.4/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.4/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.4/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 1374b11. Generated at Sun Jan 16 10:55:03 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package utils
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/apiserver/utils"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#AuthRequired">func AuthRequired(c *gin.Context, clusterScoped bool, targetNamespace string)</a></dd>
+			
+				
+				<dd><a href="#MWHandleErrors">func MWHandleErrors() gin.HandlerFunc</a></dd>
+			
+				
+				<dd><a href="#SetErrorForGinCtx">func SetErrorForGinCtx(c *gin.Context, err error)</a></dd>
+			
+			
+				
+				<dd><a href="#APIError">type APIError</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ChaosStatusString">type ChaosStatusString</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GetChaosState">func GetChaosState(obj v1alpha1.InnerObject) ChaosStatusString</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ScheduleStatusString">type ScheduleStatusString</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GetScheduleState">func GetScheduleState(sch v1alpha1.Schedule) ScheduleStatusString</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/pkg/apiserver/utils/auth.go">auth.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/pkg/apiserver/utils/error.go">error.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/pkg/apiserver/utils/state.go">state.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var (
+    <span id="ErrNS">ErrNS</span>                   = <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/joomcode/errorx/">errorx</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/joomcode/errorx/#NewNamespace">NewNamespace</a>(&#34;error.api&#34;)
+    <span id="ErrUnknown">ErrUnknown</span>              = <a href="#ErrNS">ErrNS</a>.<a href="#NewType">NewType</a>(&#34;unknown&#34;)
+    <span id="ErrInvalidRequest">ErrInvalidRequest</span>       = <a href="#ErrNS">ErrNS</a>.<a href="#NewType">NewType</a>(&#34;invalid_request&#34;)
+    <span id="ErrInternalServer">ErrInternalServer</span>       = <a href="#ErrNS">ErrNS</a>.<a href="#NewType">NewType</a>(&#34;internal_server_error&#34;)
+    <span id="ErrNotFound">ErrNotFound</span>             = <a href="#ErrNS">ErrNS</a>.<a href="#NewType">NewType</a>(&#34;resource_not_found&#34;)
+    <span id="ErrNoClusterPrivilege">ErrNoClusterPrivilege</span>   = <a href="#ErrNS">ErrNS</a>.<a href="#NewType">NewType</a>(&#34;no_cluster_privilege&#34;)
+    <span id="ErrNoNamespacePrivilege">ErrNoNamespacePrivilege</span> = <a href="#ErrNS">ErrNS</a>.<a href="#NewType">NewType</a>(&#34;no_namespace_privilege&#34;)
+)</pre>
+			
+		
+		
+			
+			
+			<h2 id="AuthRequired">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/pkg/apiserver/utils/auth.go#L26">AuthRequired</a>
+				<a class="permalink" href="#AuthRequired">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func AuthRequired(c *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/gin-gonic/gin/#Context">Context</a>, clusterScoped <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#bool">bool</a>, targetNamespace <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="MWHandleErrors">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/pkg/apiserver/utils/error.go#L48">MWHandleErrors</a>
+				<a class="permalink" href="#MWHandleErrors">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func MWHandleErrors() <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/gin-gonic/gin/#HandlerFunc">HandlerFunc</a></pre>
+			<p>
+MWHandleErrors creates a middleware that turns (last) error in the context into an APIError json response.
+In handlers, `c.Error(err)` can be used to attach the error to the context.
+When error is attached in the context:
+- The handler can optionally assign the HTTP status code.
+- The handler must not self-generate a response body.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="SetErrorForGinCtx">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/pkg/apiserver/utils/error.go#L76">SetErrorForGinCtx</a>
+				<a class="permalink" href="#SetErrorForGinCtx">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SetErrorForGinCtx(c *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/gin-gonic/gin/#Context">Context</a>, err <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="APIError">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/pkg/apiserver/utils/error.go#L36">APIError</a>
+				<a class="permalink" href="#APIError">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type APIError struct {
+<span id="APIError.Message"></span>    Message  <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a> `json:&#34;message&#34;`
+<span id="APIError.Code"></span>    Code     <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a> `json:&#34;code&#34;`
+<span id="APIError.FullText"></span>    FullText <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a> `json:&#34;full_text&#34;`
+<span id="APIError.Status"></span>    Status   <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a> `json:&#34;status&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ChaosStatusString">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/pkg/apiserver/utils/state.go#L25">ChaosStatusString</a>
+				<a class="permalink" href="#ChaosStatusString">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ChaosStatusString <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="Injecting">Injecting</span> <a href="#ChaosStatusString">ChaosStatusString</a> = &#34;injecting&#34;
+    <span id="Running">Running</span>   <a href="#ChaosStatusString">ChaosStatusString</a> = &#34;running&#34;
+    <span id="Finished">Finished</span>  <a href="#ChaosStatusString">ChaosStatusString</a> = &#34;finished&#34;
+    <span id="Paused">Paused</span>    <a href="#ChaosStatusString">ChaosStatusString</a> = &#34;paused&#34;
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="GetChaosState">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/pkg/apiserver/utils/state.go#L41">GetChaosState</a>
+					<a class="permalink" href="#GetChaosState">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func GetChaosState(obj <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>) <a href="#ChaosStatusString">ChaosStatusString</a></pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="ScheduleStatusString">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/pkg/apiserver/utils/state.go#L34">ScheduleStatusString</a>
+				<a class="permalink" href="#ScheduleStatusString">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ScheduleStatusString <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="ScheduleRunning">ScheduleRunning</span> <a href="#ScheduleStatusString">ScheduleStatusString</a> = &#34;running&#34;
+    <span id="SchedulePaused">SchedulePaused</span>  <a href="#ScheduleStatusString">ScheduleStatusString</a> = &#34;paused&#34;
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="GetScheduleState">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/pkg/apiserver/utils/state.go#L65">GetScheduleState</a>
+					<a class="permalink" href="#GetScheduleState">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func GetScheduleState(sch <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Schedule">Schedule</a>) <a href="#ScheduleStatusString">ScheduleStatusString</a></pre>
+				
+				
+				
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

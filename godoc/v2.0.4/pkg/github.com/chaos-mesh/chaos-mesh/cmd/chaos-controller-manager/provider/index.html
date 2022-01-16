@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>provider - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.4/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.4/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.4/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 1374b11. Generated at Sun Jan 16 10:55:03 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package provider
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#NewAuthCli">func NewAuthCli(cfg *rest.Config) (*authorizationv1.AuthorizationV1Client, error)</a></dd>
+			
+				
+				<dd><a href="#NewClient">func NewClient(mgr ctrl.Manager, scheme *runtime.Scheme) (client.Client, error)</a></dd>
+			
+				
+				<dd><a href="#NewConfig">func NewConfig() *rest.Config</a></dd>
+			
+				
+				<dd><a href="#NewControlPlaneCacheReader">func NewControlPlaneCacheReader(logger logr.Logger) (controlPlaneCacheReader, error)</a></dd>
+			
+				
+				<dd><a href="#NewGlobalCacheReader">func NewGlobalCacheReader(mgr ctrl.Manager) globalCacheReader</a></dd>
+			
+				
+				<dd><a href="#NewLogger">func NewLogger() logr.Logger</a></dd>
+			
+				
+				<dd><a href="#NewManager">func NewManager(options *ctrl.Options, cfg *rest.Config) (ctrl.Manager, error)</a></dd>
+			
+				
+				<dd><a href="#NewNoCacheReader">func NewNoCacheReader(mgr ctrl.Manager) noCacheReader</a></dd>
+			
+				
+				<dd><a href="#NewOption">func NewOption(logger logr.Logger) *ctrl.Options</a></dd>
+			
+				
+				<dd><a href="#NewScheme">func NewScheme() *runtime.Scheme</a></dd>
+			
+			
+				
+				<dd><a href="#UpdatedClient">type UpdatedClient</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UpdatedClient.Create">func (c *UpdatedClient) Create(ctx context.Context, obj runtime.Object, opts ...client.CreateOption) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UpdatedClient.Delete">func (c *UpdatedClient) Delete(ctx context.Context, obj runtime.Object, opts ...client.DeleteOption) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UpdatedClient.DeleteAllOf">func (c *UpdatedClient) DeleteAllOf(ctx context.Context, obj runtime.Object, opts ...client.DeleteAllOfOption) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UpdatedClient.Get">func (c *UpdatedClient) Get(ctx context.Context, key client.ObjectKey, obj runtime.Object) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UpdatedClient.List">func (c *UpdatedClient) List(ctx context.Context, list runtime.Object, opts ...client.ListOption) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UpdatedClient.Patch">func (c *UpdatedClient) Patch(ctx context.Context, obj runtime.Object, patch client.Patch, opts ...client.PatchOption) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UpdatedClient.Status">func (c *UpdatedClient) Status() client.StatusWriter</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UpdatedClient.Update">func (c *UpdatedClient) Update(ctx context.Context, obj runtime.Object, opts ...client.UpdateOption) error</a></dd>
+				
+			
+				
+				<dd><a href="#UpdatedStatusWriter">type UpdatedStatusWriter</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UpdatedStatusWriter.Patch">func (c *UpdatedStatusWriter) Patch(ctx context.Context, obj runtime.Object, patch client.Patch, opts ...client.PatchOption) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UpdatedStatusWriter.Update">func (c *UpdatedStatusWriter) Update(ctx context.Context, obj runtime.Object, opts ...client.UpdateOption) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go">controller.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go">updated_client.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var <span id="Module">Module</span> = <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/go.uber.org/fx/#Provide">Provide</a>(
+    <a href="#NewOption">NewOption</a>,
+    <a href="#NewClient">NewClient</a>,
+    <a href="#NewManager">NewManager</a>,
+    <a href="#NewLogger">NewLogger</a>,
+    <a href="#NewAuthCli">NewAuthCli</a>,
+    <a href="#NewScheme">NewScheme</a>,
+    <a href="#NewConfig">NewConfig</a>,
+    <a href="#NewNoCacheReader">NewNoCacheReader</a>,
+    <a href="#NewGlobalCacheReader">NewGlobalCacheReader</a>,
+    <a href="#NewControlPlaneCacheReader">NewControlPlaneCacheReader</a>,
+)</pre>
+			
+		
+		
+			
+			
+			<h2 id="NewAuthCli">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L93">NewAuthCli</a>
+				<a class="permalink" href="#NewAuthCli">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewAuthCli(cfg *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/client-go/rest/">rest</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/client-go/rest/#Config">Config</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/">authorizationv1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/#AuthorizationV1Client">AuthorizationV1Client</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewClient">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L105">NewClient</a>
+				<a class="permalink" href="#NewClient">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewClient(mgr <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>, scheme *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/#Scheme">Scheme</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewConfig">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L78">NewConfig</a>
+				<a class="permalink" href="#NewConfig">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewConfig() *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/client-go/rest/">rest</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/client-go/rest/#Config">Config</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewControlPlaneCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L152">NewControlPlaneCacheReader</a>
+				<a class="permalink" href="#NewControlPlaneCacheReader">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewControlPlaneCacheReader(logger <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (controlPlaneCacheReader, <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewGlobalCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L140">NewGlobalCacheReader</a>
+				<a class="permalink" href="#NewGlobalCacheReader">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewGlobalCacheReader(mgr <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>) globalCacheReader</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewLogger">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L118">NewLogger</a>
+				<a class="permalink" href="#NewLogger">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewLogger() <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/go-logr/logr/#Logger">Logger</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewManager">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L82">NewManager</a>
+				<a class="permalink" href="#NewManager">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewManager(options *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/#Options">Options</a>, cfg *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/client-go/rest/">rest</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/client-go/rest/#Config">Config</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewNoCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L128">NewNoCacheReader</a>
+				<a class="permalink" href="#NewNoCacheReader">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewNoCacheReader(mgr <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>) noCacheReader</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewOption">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L52">NewOption</a>
+				<a class="permalink" href="#NewOption">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewOption(logger <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/#Options">Options</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewScheme">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L48">NewScheme</a>
+				<a class="permalink" href="#NewScheme">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewScheme() *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/#Scheme">Scheme</a></pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="UpdatedClient">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L31">UpdatedClient</a>
+				<a class="permalink" href="#UpdatedClient">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type UpdatedClient struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="UpdatedClient.Create">func (*UpdatedClient) <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L92">Create</a>
+					<a class="permalink" href="#UpdatedClient.Create">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#UpdatedClient">UpdatedClient</a>) Create(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/#Context">Context</a>, obj <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/#CreateOption">CreateOption</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UpdatedClient.Delete">func (*UpdatedClient) <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L96">Delete</a>
+					<a class="permalink" href="#UpdatedClient.Delete">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#UpdatedClient">UpdatedClient</a>) Delete(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/#Context">Context</a>, obj <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/#DeleteOption">DeleteOption</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UpdatedClient.DeleteAllOf">func (*UpdatedClient) <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L137">DeleteAllOf</a>
+					<a class="permalink" href="#UpdatedClient.DeleteAllOf">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#UpdatedClient">UpdatedClient</a>) DeleteAllOf(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/#Context">Context</a>, obj <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/#DeleteAllOfOption">DeleteAllOfOption</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UpdatedClient.Get">func (*UpdatedClient) <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L47">Get</a>
+					<a class="permalink" href="#UpdatedClient.Get">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#UpdatedClient">UpdatedClient</a>) Get(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/#Context">Context</a>, key <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/#ObjectKey">ObjectKey</a>, obj <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UpdatedClient.List">func (*UpdatedClient) <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L88">List</a>
+					<a class="permalink" href="#UpdatedClient.List">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#UpdatedClient">UpdatedClient</a>) List(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/#Context">Context</a>, list <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/#ListOption">ListOption</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UpdatedClient.Patch">func (*UpdatedClient) <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L133">Patch</a>
+					<a class="permalink" href="#UpdatedClient.Patch">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#UpdatedClient">UpdatedClient</a>) Patch(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/#Context">Context</a>, obj <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>, patch <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Patch">Patch</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/#PatchOption">PatchOption</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UpdatedClient.Status">func (*UpdatedClient) <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L141">Status</a>
+					<a class="permalink" href="#UpdatedClient.Status">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#UpdatedClient">UpdatedClient</a>) Status() <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/#StatusWriter">StatusWriter</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UpdatedClient.Update">func (*UpdatedClient) <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L100">Update</a>
+					<a class="permalink" href="#UpdatedClient.Update">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#UpdatedClient">UpdatedClient</a>) Update(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/#Context">Context</a>, obj <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/#UpdateOption">UpdateOption</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="UpdatedStatusWriter">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L148">UpdatedStatusWriter</a>
+				<a class="permalink" href="#UpdatedStatusWriter">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type UpdatedStatusWriter struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="UpdatedStatusWriter.Patch">func (*UpdatedStatusWriter) <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L167">Patch</a>
+					<a class="permalink" href="#UpdatedStatusWriter.Patch">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#UpdatedStatusWriter">UpdatedStatusWriter</a>) Patch(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/#Context">Context</a>, obj <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>, patch <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Patch">Patch</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/#PatchOption">PatchOption</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UpdatedStatusWriter.Update">func (*UpdatedStatusWriter) <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L153">Update</a>
+					<a class="permalink" href="#UpdatedStatusWriter.Update">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#UpdatedStatusWriter">UpdatedStatusWriter</a>) Update(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/#Context">Context</a>, obj <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/#UpdateOption">UpdateOption</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

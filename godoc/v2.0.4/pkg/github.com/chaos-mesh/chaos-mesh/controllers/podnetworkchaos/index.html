@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>podnetworkchaos - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.4/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.4/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.4/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 1374b11. Generated at Sun Jan 16 10:55:03 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package podnetworkchaos
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#NewController">func NewController(mgr ctrl.Manager, client client.Client, logger logr.Logger, b *chaosdaemon.ChaosDaemonClientBuilder, recorderBuilder *recorder.RecorderBuilder) (types.Controller, error)</a></dd>
+			
+			
+				
+				<dd><a href="#NetemSpec">type NetemSpec</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Reconciler">type Reconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Reconciler.Reconcile">func (r *Reconciler) Reconcile(req ctrl.Request) (ctrl.Result, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Reconciler.SetIPSets">func (r *Reconciler) SetIPSets(ctx context.Context, pod *corev1.Pod, chaos *v1alpha1.PodNetworkChaos) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Reconciler.SetIptables">func (r *Reconciler) SetIptables(ctx context.Context, pod *corev1.Pod, chaos *v1alpha1.PodNetworkChaos) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Reconciler.SetTcs">func (r *Reconciler) SetTcs(ctx context.Context, pod *corev1.Pod, chaos *v1alpha1.PodNetworkChaos) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/controller.go">controller.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/fx.go">fx.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="NewController">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/fx.go#L33">NewController</a>
+				<a class="permalink" href="#NewController">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewController(mgr <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>, client <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, logger <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/go-logr/logr/#Logger">Logger</a>, b *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon/#ChaosDaemonClientBuilder">ChaosDaemonClientBuilder</a>, recorderBuilder *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#RecorderBuilder">RecorderBuilder</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/controllers/types/">types</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/controllers/types/#Controller">Controller</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="NetemSpec">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/controller.go#L235">NetemSpec</a>
+				<a class="permalink" href="#NetemSpec">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+NetemSpec defines the interface to convert to a Netem protobuf
+</p>
+
+			<pre>type NetemSpec interface {
+    ToNetem() (*<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">pb</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#Netem">Netem</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Reconciler">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/controller.go#L45">Reconciler</a>
+				<a class="permalink" href="#Reconciler">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Reconciler applys podnetworkchaos
+</p>
+
+			<pre>type Reconciler struct {
+    <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+<span id="Reconciler.Recorder"></span>    Recorder <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#ChaosRecorder">ChaosRecorder</a>
+
+<span id="Reconciler.Log"></span>    Log                      <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+<span id="Reconciler.AllowHostNetworkTesting"></span>    AllowHostNetworkTesting  <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#bool">bool</a>
+<span id="Reconciler.ChaosDaemonClientBuilder"></span>    ChaosDaemonClientBuilder *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon/#ChaosDaemonClientBuilder">ChaosDaemonClientBuilder</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Reconciler.Reconcile">func (*Reconciler) <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/controller.go#L54">Reconcile</a>
+					<a class="permalink" href="#Reconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Reconciler">Reconciler</a>) Reconcile(req <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Reconciler.SetIPSets">func (*Reconciler) <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/controller.go#L166">SetIPSets</a>
+					<a class="permalink" href="#Reconciler.SetIPSets">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Reconciler">Reconciler</a>) SetIPSets(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/#Context">Context</a>, pod *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, chaos *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodNetworkChaos">PodNetworkChaos</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a></pre>
+				<p>
+SetIPSets sets ipset on pod
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Reconciler.SetIptables">func (*Reconciler) <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/controller.go#L178">SetIptables</a>
+					<a class="permalink" href="#Reconciler.SetIptables">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Reconciler">Reconciler</a>) SetIptables(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/#Context">Context</a>, pod *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, chaos *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodNetworkChaos">PodNetworkChaos</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a></pre>
+				<p>
+SetIptables sets iptables on pod
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Reconciler.SetTcs">func (*Reconciler) <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/controller.go#L202">SetTcs</a>
+					<a class="permalink" href="#Reconciler.SetTcs">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Reconciler">Reconciler</a>) SetTcs(ctx <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/context/#Context">Context</a>, pod *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/api/core/v1/">corev1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, chaos *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodNetworkChaos">PodNetworkChaos</a>) <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a></pre>
+				<p>
+SetTcs sets traffic control related chaos on pod
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="ipset/">ipset</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="iptable/">iptable</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="netutils/">netutils</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="tc/">tc</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

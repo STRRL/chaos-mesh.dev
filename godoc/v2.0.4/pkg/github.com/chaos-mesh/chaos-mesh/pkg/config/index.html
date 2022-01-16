@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>config - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.0.4/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.4/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.0.4/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 1374b11. Generated at Sun Jan 16 10:55:03 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package config
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/config"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#ChaosControllerConfig">type ChaosControllerConfig</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EnvironChaosController">func EnvironChaosController() (ChaosControllerConfig, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TLSConfig">type TLSConfig</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/pkg/config/controller.go">controller.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="ChaosControllerConfig">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/pkg/config/controller.go#L35">ChaosControllerConfig</a>
+				<a class="permalink" href="#ChaosControllerConfig">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ChaosControllerConfig defines the configuration for Chaos Controller
+</p>
+
+			<pre>type ChaosControllerConfig struct {
+<span id="ChaosControllerConfig.ChaosDaemonPort"></span>    <span class="comment">// ChaosDaemonPort is the port which grpc server listens on</span>
+    ChaosDaemonPort <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#int">int</a> `envconfig:&#34;CHAOS_DAEMON_SERVICE_PORT&#34; default:&#34;31767&#34;`
+
+    <a href="#TLSConfig">TLSConfig</a>
+
+    <span class="comment">// The QPS config for kubernetes client</span>
+<span id="ChaosControllerConfig.QPS"></span>    QPS <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#float32">float32</a> `envconfig:&#34;QPS&#34; default:&#34;30&#34;`
+    <span class="comment">// The Burst config for kubernetes client</span>
+<span id="ChaosControllerConfig.Burst"></span>    Burst <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#int">int</a> `envconfig:&#34;BURST&#34; default:&#34;50&#34;`
+
+<span id="ChaosControllerConfig.BPFKIPort"></span>    <span class="comment">// BPFKIPort is the port which BFFKI grpc server listens on</span>
+    BPFKIPort <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#int">int</a> `envconfig:&#34;BPFKI_PORT&#34; default:&#34;50051&#34;`
+<span id="ChaosControllerConfig.MetricsAddr"></span>    <span class="comment">// MetricsAddr is the address the metric endpoint binds to</span>
+    MetricsAddr <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a> `envconfig:&#34;METRICS_ADDR&#34; default:&#34;:10080&#34;`
+<span id="ChaosControllerConfig.PprofAddr"></span>    <span class="comment">// PprofAddr is the address the pprof endpoint binds to.</span>
+    PprofAddr <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a> `envconfig:&#34;PPROF_ADDR&#34; default:&#34;0&#34;`
+<span id="ChaosControllerConfig.EnableLeaderElection"></span>    <span class="comment">// EnableLeaderElection enables leader election for controller manager</span>
+    <span class="comment">// Enabling this will ensure there is only one active controller manager</span>
+    EnableLeaderElection <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#bool">bool</a> `envconfig:&#34;ENABLE_LEADER_ELECTION&#34; default:&#34;false&#34;`
+<span id="ChaosControllerConfig.EnableFilterNamespace"></span>    <span class="comment">// EnableFilterNamespace will filter namespace with annotation. Only the pods/containers in namespace</span>
+    <span class="comment">// annotated with `chaos-mesh.org/inject=enabled` will be injected</span>
+    EnableFilterNamespace <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#bool">bool</a> `envconfig:&#34;ENABLE_FILTER_NAMESPACE&#34; default:&#34;false&#34;`
+<span id="ChaosControllerConfig.CertsDir"></span>    <span class="comment">// CertsDir is the directory for storing certs key file and cert file</span>
+    CertsDir <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a> `envconfig:&#34;CERTS_DIR&#34; default:&#34;/etc/webhook/certs&#34;`
+<span id="ChaosControllerConfig.RPCTimeout"></span>    <span class="comment">// RPCTimeout is timeout of RPC between controllers and chaos-operator</span>
+    RPCTimeout    <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/time/#Duration">Duration</a> `envconfig:&#34;RPC_TIMEOUT&#34; default:&#34;1m&#34;`
+<span id="ChaosControllerConfig.WatcherConfig"></span>    WatcherConfig *<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/">watcher</a>.<a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/#Config">Config</a>
+<span id="ChaosControllerConfig.ClusterScoped"></span>    <span class="comment">// ClusterScoped means control Chaos Object in cluster level(all namespace),</span>
+    ClusterScoped <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#bool">bool</a> `envconfig:&#34;CLUSTER_SCOPED&#34; default:&#34;true&#34;`
+<span id="ChaosControllerConfig.TargetNamespace"></span>    <span class="comment">// TargetNamespace is the target namespace to injecting chaos.</span>
+    <span class="comment">// It only works with ClusterScoped is false;</span>
+    TargetNamespace <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a> `envconfig:&#34;TARGET_NAMESPACE&#34; default:&#34;&#34;`
+
+<span id="ChaosControllerConfig.DNSServiceName"></span>    <span class="comment">// DNSServiceName is the name of DNS service, which is used for DNS chaos</span>
+    DNSServiceName <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a> `envconfig:&#34;CHAOS_DNS_SERVICE_NAME&#34; default:&#34;&#34;`
+<span id="ChaosControllerConfig.DNSServicePort"></span>    DNSServicePort <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#int">int</a>    `envconfig:&#34;CHAOS_DNS_SERVICE_PORT&#34; default:&#34;&#34;`
+
+<span id="ChaosControllerConfig.SecurityMode"></span>    <span class="comment">// SecurityMode is used for enable authority validation in admission webhook</span>
+    SecurityMode <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#bool">bool</a> `envconfig:&#34;SECURITY_MODE&#34; default:&#34;true&#34; json:&#34;security_mode&#34;`
+
+<span id="ChaosControllerConfig.Namespace"></span>    <span class="comment">// Namespace is the namespace which the controller manager run in</span>
+    Namespace <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a> `envconfig:&#34;NAMESPACE&#34; default:&#34;&#34;`
+
+<span id="ChaosControllerConfig.AllowHostNetworkTesting"></span>    <span class="comment">// AllowHostNetworkTesting removes the restriction on chaos testing pods with `hostNetwork` set to true</span>
+    AllowHostNetworkTesting <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#bool">bool</a> `envconfig:&#34;ALLOW_HOST_NETWORK_TESTING&#34; default:&#34;false&#34;`
+
+<span id="ChaosControllerConfig.PodFailurePauseImage"></span>    <span class="comment">// PodFailurePauseImage is used to set a custom image for pod failure</span>
+    PodFailurePauseImage <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a> `envconfig:&#34;POD_FAILURE_PAUSE_IMAGE&#34; default:&#34;gcr.io/google-containers/pause:latest&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="EnvironChaosController">func <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/pkg/config/controller.go#L87">EnvironChaosController</a>
+					<a class="permalink" href="#EnvironChaosController">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func EnvironChaosController() (<a href="#ChaosControllerConfig">ChaosControllerConfig</a>, <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#error">error</a>)</pre>
+				<p>
+EnvironChaosController returns the settings from the environment.
+</p>
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="TLSConfig">type <a href="./https:/chaos-mesh.dev/godoc/v2.0.4/src/github.com/chaos-mesh/chaos-mesh/pkg/config/controller.go#L25">TLSConfig</a>
+				<a class="permalink" href="#TLSConfig">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+TLSConfig defines the configuration for chaos-daemon tls client
+</p>
+
+			<pre>type TLSConfig struct {
+<span id="TLSConfig.ChaosDaemonClientCert"></span>    <span class="comment">// ChaosDaemonClientCert is the path of chaos daemon certificate</span>
+    ChaosDaemonClientCert <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a> `envconfig:&#34;CHAOS_DAEMON_CLIENT_CERT&#34; default:&#34;&#34;`
+<span id="TLSConfig.ChaosDaemonClientKey"></span>    <span class="comment">// ChaosDaemonClientKey is the path of chaos daemon certificate key</span>
+    ChaosDaemonClientKey <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a> `envconfig:&#34;CHAOS_DAEMON_CLIENT_KEY&#34; default:&#34;&#34;`
+<span id="TLSConfig.ChaosMeshCACert"></span>    <span class="comment">// ChaosMeshCACert is the path of chaos mesh ca cert</span>
+    ChaosMeshCACert <a href="https:/chaos-mesh.dev/godoc/v2.0.4/pkg/builtin/#string">string</a> `envconfig:&#34;CHAOS_MESH_CA_CERT&#34; default:&#34;&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="dashboard/">dashboard</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
