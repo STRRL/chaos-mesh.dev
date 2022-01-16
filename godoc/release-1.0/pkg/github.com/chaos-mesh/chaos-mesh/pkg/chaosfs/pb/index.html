@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>injure - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e9b3817. Generated at Sun Jan 16 10:54:25 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package injure
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#RegisterInjureServer">func RegisterInjureServer(s *grpc.Server, srv InjureServer)</a></dd>
+			
+			
+				
+				<dd><a href="#InjectedResponse">type InjectedResponse</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjectedResponse.Descriptor">func (*InjectedResponse) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjectedResponse.GetInjected">func (m *InjectedResponse) GetInjected() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjectedResponse.ProtoMessage">func (*InjectedResponse) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjectedResponse.Reset">func (m *InjectedResponse) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjectedResponse.String">func (m *InjectedResponse) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjectedResponse.XXX_DiscardUnknown">func (m *InjectedResponse) XXX_DiscardUnknown()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjectedResponse.XXX_Marshal">func (m *InjectedResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjectedResponse.XXX_Merge">func (dst *InjectedResponse) XXX_Merge(src proto.Message)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjectedResponse.XXX_Size">func (m *InjectedResponse) XXX_Size() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjectedResponse.XXX_Unmarshal">func (m *InjectedResponse) XXX_Unmarshal(b []byte) error</a></dd>
+				
+			
+				
+				<dd><a href="#InjureClient">type InjureClient</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewInjureClient">func NewInjureClient(cc *grpc.ClientConn) InjureClient</a></dd>
+				
+				
+			
+				
+				<dd><a href="#InjureServer">type InjureServer</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Request">type Request</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Request.Descriptor">func (*Request) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Request.GetDelay">func (m *Request) GetDelay() uint32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Request.GetErrno">func (m *Request) GetErrno() uint32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Request.GetMethods">func (m *Request) GetMethods() []string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Request.GetPath">func (m *Request) GetPath() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Request.GetPct">func (m *Request) GetPct() uint32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Request.GetRandom">func (m *Request) GetRandom() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Request.ProtoMessage">func (*Request) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Request.Reset">func (m *Request) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Request.String">func (m *Request) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Request.XXX_DiscardUnknown">func (m *Request) XXX_DiscardUnknown()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Request.XXX_Marshal">func (m *Request) XXX_Marshal(b []byte, deterministic bool) ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Request.XXX_Merge">func (dst *Request) XXX_Merge(src proto.Message)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Request.XXX_Size">func (m *Request) XXX_Size() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Request.XXX_Unmarshal">func (m *Request) XXX_Unmarshal(b []byte) error</a></dd>
+				
+			
+				
+				<dd><a href="#Response">type Response</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Response.Descriptor">func (*Response) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Response.GetMethods">func (m *Response) GetMethods() []string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Response.ProtoMessage">func (*Response) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Response.Reset">func (m *Response) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Response.String">func (m *Response) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Response.XXX_DiscardUnknown">func (m *Response) XXX_DiscardUnknown()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Response.XXX_Marshal">func (m *Response) XXX_Marshal(b []byte, deterministic bool) ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Response.XXX_Merge">func (dst *Response) XXX_Merge(src proto.Message)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Response.XXX_Size">func (m *Response) XXX_Size() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Response.XXX_Unmarshal">func (m *Response) XXX_Unmarshal(b []byte) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go">injure.pb.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="RegisterInjureServer">func <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L283">RegisterInjureServer</a>
+				<a class="permalink" href="#RegisterInjureServer">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RegisterInjureServer(s *<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/google.golang.org/grpc/#Server">Server</a>, srv <a href="#InjureServer">InjureServer</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="InjectedResponse">type <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L147">InjectedResponse</a>
+				<a class="permalink" href="#InjectedResponse">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type InjectedResponse struct {
+<span id="InjectedResponse.Injected"></span>    Injected             <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>     `protobuf:&#34;varint,1,opt,name=injected,proto3&#34; json:&#34;injected,omitempty&#34;`
+<span id="InjectedResponse.XXX_NoUnkeyedLiteral"></span>    XXX_NoUnkeyedLiteral struct{} `json:&#34;-&#34;`
+<span id="InjectedResponse.XXX_unrecognized"></span>    XXX_unrecognized     []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>   `json:&#34;-&#34;`
+<span id="InjectedResponse.XXX_sizecache"></span>    XXX_sizecache        <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>    `json:&#34;-&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="InjectedResponse.Descriptor">func (*InjectedResponse) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L157">Descriptor</a>
+					<a class="permalink" href="#InjectedResponse.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#InjectedResponse">InjectedResponse</a>) Descriptor() ([]<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>, []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int">int</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjectedResponse.GetInjected">func (*InjectedResponse) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L178">GetInjected</a>
+					<a class="permalink" href="#InjectedResponse.GetInjected">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#InjectedResponse">InjectedResponse</a>) GetInjected() <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjectedResponse.ProtoMessage">func (*InjectedResponse) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L156">ProtoMessage</a>
+					<a class="permalink" href="#InjectedResponse.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#InjectedResponse">InjectedResponse</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjectedResponse.Reset">func (*InjectedResponse) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L154">Reset</a>
+					<a class="permalink" href="#InjectedResponse.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#InjectedResponse">InjectedResponse</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjectedResponse.String">func (*InjectedResponse) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L155">String</a>
+					<a class="permalink" href="#InjectedResponse.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#InjectedResponse">InjectedResponse</a>) String() <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjectedResponse.XXX_DiscardUnknown">func (*InjectedResponse) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L172">XXX_DiscardUnknown</a>
+					<a class="permalink" href="#InjectedResponse.XXX_DiscardUnknown">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#InjectedResponse">InjectedResponse</a>) XXX_DiscardUnknown()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjectedResponse.XXX_Marshal">func (*InjectedResponse) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L163">XXX_Marshal</a>
+					<a class="permalink" href="#InjectedResponse.XXX_Marshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#InjectedResponse">InjectedResponse</a>) XXX_Marshal(b []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>, deterministic <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>) ([]<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjectedResponse.XXX_Merge">func (*InjectedResponse) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L166">XXX_Merge</a>
+					<a class="permalink" href="#InjectedResponse.XXX_Merge">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (dst *<a href="#InjectedResponse">InjectedResponse</a>) XXX_Merge(src <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/proto/">proto</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/proto/#Message">Message</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjectedResponse.XXX_Size">func (*InjectedResponse) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L169">XXX_Size</a>
+					<a class="permalink" href="#InjectedResponse.XXX_Size">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#InjectedResponse">InjectedResponse</a>) XXX_Size() <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjectedResponse.XXX_Unmarshal">func (*InjectedResponse) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L160">XXX_Unmarshal</a>
+					<a class="permalink" href="#InjectedResponse.XXX_Unmarshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#InjectedResponse">InjectedResponse</a>) XXX_Unmarshal(b []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="InjureClient">type <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L202">InjureClient</a>
+				<a class="permalink" href="#InjureClient">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+InjureClient is the client API for Injure service.
+</p>
+<p>
+For semantics around ctx use and closing/ending streaming RPCs, please refer to <a href="https://godoc.org/google.golang.org/grpc#ClientConn.NewStream">https://godoc.org/google.golang.org/grpc#ClientConn.NewStream</a>.
+</p>
+
+			<pre>type InjureClient interface {
+    Methods(ctx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/#Context">Context</a>, in *<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="#Response">Response</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)
+    RecoverAll(ctx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/#Context">Context</a>, in *<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)
+    RecoverMethod(ctx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/#Context">Context</a>, in *<a href="#Request">Request</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)
+    SetFault(ctx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/#Context">Context</a>, in *<a href="#Request">Request</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)
+    SetFaultAll(ctx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/#Context">Context</a>, in *<a href="#Request">Request</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)
+    Injected(ctx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/#Context">Context</a>, in *<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="#InjectedResponse">InjectedResponse</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewInjureClient">func <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L215">NewInjureClient</a>
+					<a class="permalink" href="#NewInjureClient">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewInjureClient(cc *<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/google.golang.org/grpc/#ClientConn">ClientConn</a>) <a href="#InjureClient">InjureClient</a></pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="InjureServer">type <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L274">InjureServer</a>
+				<a class="permalink" href="#InjureServer">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+InjureServer is the server API for Injure service.
+</p>
+
+			<pre>type InjureServer interface {
+    Methods(<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/#Context">Context</a>, *<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>) (*<a href="#Response">Response</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)
+    RecoverAll(<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/#Context">Context</a>, *<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)
+    RecoverMethod(<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/#Context">Context</a>, *<a href="#Request">Request</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)
+    SetFault(<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/#Context">Context</a>, *<a href="#Request">Request</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)
+    SetFaultAll(<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/#Context">Context</a>, *<a href="#Request">Request</a>) (*<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)
+    Injected(<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/golang.org/x/net/context/#Context">Context</a>, *<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>) (*<a href="#InjectedResponse">InjectedResponse</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Request">type <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L31">Request</a>
+				<a class="permalink" href="#Request">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Request struct {
+<span id="Request.Methods"></span>    Methods              []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,1,rep,name=methods,proto3&#34; json:&#34;methods,omitempty&#34;`
+<span id="Request.Errno"></span>    Errno                <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>   `protobuf:&#34;varint,2,opt,name=errno,proto3&#34; json:&#34;errno,omitempty&#34;`
+<span id="Request.Random"></span>    Random               <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>     `protobuf:&#34;varint,3,opt,name=random,proto3&#34; json:&#34;random,omitempty&#34;`
+<span id="Request.Pct"></span>    Pct                  <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>   `protobuf:&#34;varint,4,opt,name=pct,proto3&#34; json:&#34;pct,omitempty&#34;`
+<span id="Request.Path"></span>    Path                 <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>   `protobuf:&#34;bytes,5,opt,name=path,proto3&#34; json:&#34;path,omitempty&#34;`
+<span id="Request.Delay"></span>    Delay                <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>   `protobuf:&#34;varint,6,opt,name=delay,proto3&#34; json:&#34;delay,omitempty&#34;`
+<span id="Request.XXX_NoUnkeyedLiteral"></span>    XXX_NoUnkeyedLiteral struct{} `json:&#34;-&#34;`
+<span id="Request.XXX_unrecognized"></span>    XXX_unrecognized     []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>   `json:&#34;-&#34;`
+<span id="Request.XXX_sizecache"></span>    XXX_sizecache        <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>    `json:&#34;-&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Request.Descriptor">func (*Request) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L46">Descriptor</a>
+					<a class="permalink" href="#Request.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Request">Request</a>) Descriptor() ([]<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>, []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int">int</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Request.GetDelay">func (*Request) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L102">GetDelay</a>
+					<a class="permalink" href="#Request.GetDelay">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Request">Request</a>) GetDelay() <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Request.GetErrno">func (*Request) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L74">GetErrno</a>
+					<a class="permalink" href="#Request.GetErrno">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Request">Request</a>) GetErrno() <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Request.GetMethods">func (*Request) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L67">GetMethods</a>
+					<a class="permalink" href="#Request.GetMethods">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Request">Request</a>) GetMethods() []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Request.GetPath">func (*Request) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L95">GetPath</a>
+					<a class="permalink" href="#Request.GetPath">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Request">Request</a>) GetPath() <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Request.GetPct">func (*Request) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L88">GetPct</a>
+					<a class="permalink" href="#Request.GetPct">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Request">Request</a>) GetPct() <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Request.GetRandom">func (*Request) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L81">GetRandom</a>
+					<a class="permalink" href="#Request.GetRandom">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Request">Request</a>) GetRandom() <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Request.ProtoMessage">func (*Request) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L45">ProtoMessage</a>
+					<a class="permalink" href="#Request.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Request">Request</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Request.Reset">func (*Request) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L43">Reset</a>
+					<a class="permalink" href="#Request.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Request">Request</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Request.String">func (*Request) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L44">String</a>
+					<a class="permalink" href="#Request.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Request">Request</a>) String() <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Request.XXX_DiscardUnknown">func (*Request) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L61">XXX_DiscardUnknown</a>
+					<a class="permalink" href="#Request.XXX_DiscardUnknown">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Request">Request</a>) XXX_DiscardUnknown()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Request.XXX_Marshal">func (*Request) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L52">XXX_Marshal</a>
+					<a class="permalink" href="#Request.XXX_Marshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Request">Request</a>) XXX_Marshal(b []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>, deterministic <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>) ([]<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Request.XXX_Merge">func (*Request) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L55">XXX_Merge</a>
+					<a class="permalink" href="#Request.XXX_Merge">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (dst *<a href="#Request">Request</a>) XXX_Merge(src <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/proto/">proto</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/proto/#Message">Message</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Request.XXX_Size">func (*Request) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L58">XXX_Size</a>
+					<a class="permalink" href="#Request.XXX_Size">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Request">Request</a>) XXX_Size() <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Request.XXX_Unmarshal">func (*Request) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L49">XXX_Unmarshal</a>
+					<a class="permalink" href="#Request.XXX_Unmarshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Request">Request</a>) XXX_Unmarshal(b []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Response">type <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L109">Response</a>
+				<a class="permalink" href="#Response">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Response struct {
+<span id="Response.Methods"></span>    Methods              []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,1,rep,name=methods,proto3&#34; json:&#34;methods,omitempty&#34;`
+<span id="Response.XXX_NoUnkeyedLiteral"></span>    XXX_NoUnkeyedLiteral struct{} `json:&#34;-&#34;`
+<span id="Response.XXX_unrecognized"></span>    XXX_unrecognized     []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>   `json:&#34;-&#34;`
+<span id="Response.XXX_sizecache"></span>    XXX_sizecache        <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>    `json:&#34;-&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Response.Descriptor">func (*Response) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L119">Descriptor</a>
+					<a class="permalink" href="#Response.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Response">Response</a>) Descriptor() ([]<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>, []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int">int</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Response.GetMethods">func (*Response) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L140">GetMethods</a>
+					<a class="permalink" href="#Response.GetMethods">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Response">Response</a>) GetMethods() []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Response.ProtoMessage">func (*Response) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L118">ProtoMessage</a>
+					<a class="permalink" href="#Response.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Response">Response</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Response.Reset">func (*Response) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L116">Reset</a>
+					<a class="permalink" href="#Response.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Response">Response</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Response.String">func (*Response) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L117">String</a>
+					<a class="permalink" href="#Response.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Response">Response</a>) String() <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Response.XXX_DiscardUnknown">func (*Response) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L134">XXX_DiscardUnknown</a>
+					<a class="permalink" href="#Response.XXX_DiscardUnknown">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Response">Response</a>) XXX_DiscardUnknown()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Response.XXX_Marshal">func (*Response) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L125">XXX_Marshal</a>
+					<a class="permalink" href="#Response.XXX_Marshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Response">Response</a>) XXX_Marshal(b []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>, deterministic <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>) ([]<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Response.XXX_Merge">func (*Response) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L128">XXX_Merge</a>
+					<a class="permalink" href="#Response.XXX_Merge">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (dst *<a href="#Response">Response</a>) XXX_Merge(src <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/proto/">proto</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/golang/protobuf/proto/#Message">Message</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Response.XXX_Size">func (*Response) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L131">XXX_Size</a>
+					<a class="permalink" href="#Response.XXX_Size">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Response">Response</a>) XXX_Size() <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Response.XXX_Unmarshal">func (*Response) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/pb/injure.pb.go#L122">XXX_Unmarshal</a>
+					<a class="permalink" href="#Response.XXX_Unmarshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Response">Response</a>) XXX_Unmarshal(b []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

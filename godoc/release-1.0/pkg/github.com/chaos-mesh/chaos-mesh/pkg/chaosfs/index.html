@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>chaosfs - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e9b3817. Generated at Sun Jan 16 10:54:25 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package chaosfs
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/chaosfs"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#StartServer">func StartServer(addr string)</a></dd>
+			
+			
+				
+				<dd><a href="#InjuredHook">type InjuredHook</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.Init">func (h *InjuredHook) Init() error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostAccess">func (h *InjuredHook) PostAccess(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostAllocate">func (h *InjuredHook) PostAllocate(realRetCode int32, prehookCtx hookfs.HookContext) (hooked bool, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostChmod">func (h *InjuredHook) PostChmod(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostChown">func (h *InjuredHook) PostChown(realRetCode int32, prehookCtx hookfs.HookContext) (hooked bool, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostCreate">func (h *InjuredHook) PostCreate(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostFlush">func (h *InjuredHook) PostFlush(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostFsync">func (h *InjuredHook) PostFsync(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostGetAttr">func (h *InjuredHook) PostGetAttr(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostGetLk">func (h *InjuredHook) PostGetLk(realRetCode int32, prehookCtx hookfs.HookContext) (hooked bool, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostGetXAttr">func (h *InjuredHook) PostGetXAttr(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostLink">func (h *InjuredHook) PostLink(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostListXAttr">func (h *InjuredHook) PostListXAttr(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostMkdir">func (h *InjuredHook) PostMkdir(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostMknod">func (h *InjuredHook) PostMknod(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostOpen">func (h *InjuredHook) PostOpen(int32, hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostOpenDir">func (h *InjuredHook) PostOpenDir(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostRead">func (h *InjuredHook) PostRead(realRetCode int32, realBuf []byte, prehookCtx hookfs.HookContext) ([]byte, bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostReadlink">func (h *InjuredHook) PostReadlink(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostRelease">func (h *InjuredHook) PostRelease(prehookCtx hookfs.HookContext) (hooked bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostRemoveXAttr">func (h *InjuredHook) PostRemoveXAttr(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostRename">func (h *InjuredHook) PostRename(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostRmdir">func (h *InjuredHook) PostRmdir(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostSetLk">func (h *InjuredHook) PostSetLk(realRetCode int32, prehookCtx hookfs.HookContext) (hooked bool, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostSetLkw">func (h *InjuredHook) PostSetLkw(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostSetXAttr">func (h *InjuredHook) PostSetXAttr(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostStatFs">func (h *InjuredHook) PostStatFs(prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostSymlink">func (h *InjuredHook) PostSymlink(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostTruncate">func (h *InjuredHook) PostTruncate(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostUnlink">func (h *InjuredHook) PostUnlink(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostUtimens">func (h *InjuredHook) PostUtimens(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PostWrite">func (h *InjuredHook) PostWrite(realRetCode int32, prehookCtx hookfs.HookContext) (bool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreAccess">func (h *InjuredHook) PreAccess(name string, mode uint32) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreAllocate">func (h *InjuredHook) PreAllocate(path string, off uint64, size uint64, mode uint32) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreChmod">func (h *InjuredHook) PreChmod(path string, perms uint32) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreChown">func (h *InjuredHook) PreChown(path string, uid uint32, gid uint32) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreCreate">func (h *InjuredHook) PreCreate(name string, flags uint32, mode uint32) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreFlush">func (h *InjuredHook) PreFlush(path string) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreFsync">func (h *InjuredHook) PreFsync(path string, flags uint32) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreGetAttr">func (h *InjuredHook) PreGetAttr(path string) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreGetLk">func (h *InjuredHook) PreGetLk(path string, owner uint64, lk *fuse.FileLock, flags uint32, out *fuse.FileLock) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreGetXAttr">func (h *InjuredHook) PreGetXAttr(name string, attribute string) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreLink">func (h *InjuredHook) PreLink(oldName string, newName string) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreListXAttr">func (h *InjuredHook) PreListXAttr(name string) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreMkdir">func (h *InjuredHook) PreMkdir(path string, mode uint32) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreMknod">func (h *InjuredHook) PreMknod(name string, mode uint32, dev uint32) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreOpen">func (h *InjuredHook) PreOpen(path string, flags uint32) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreOpenDir">func (h *InjuredHook) PreOpenDir(path string) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreRead">func (h *InjuredHook) PreRead(path string, length int64, offset int64) ([]byte, bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreReadlink">func (h *InjuredHook) PreReadlink(name string) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreRelease">func (h *InjuredHook) PreRelease(path string) (bool, hookfs.HookContext)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreRemoveXAttr">func (h *InjuredHook) PreRemoveXAttr(name string, attr string) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreRename">func (h *InjuredHook) PreRename(oldName string, newName string) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreRmdir">func (h *InjuredHook) PreRmdir(path string) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreSetLk">func (h *InjuredHook) PreSetLk(path string, owner uint64, lk *fuse.FileLock, flags uint32) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreSetLkw">func (h *InjuredHook) PreSetLkw(path string, owner uint64, lk *fuse.FileLock, flags uint32) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreSetXAttr">func (h *InjuredHook) PreSetXAttr(name string, attr string, data []byte, flags int) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreStatFs">func (h *InjuredHook) PreStatFs(path string) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreSymlink">func (h *InjuredHook) PreSymlink(value string, linkName string) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreTruncate">func (h *InjuredHook) PreTruncate(path string, size uint64) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreUnlink">func (h *InjuredHook) PreUnlink(name string) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreUtimens">func (h *InjuredHook) PreUtimens(path string, atime *time.Time, mtime *time.Time) (bool, hookfs.HookContext, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InjuredHook.PreWrite">func (h *InjuredHook) PreWrite(path string, buf []byte, offset int64) (bool, hookfs.HookContext, error)</a></dd>
+				
+			
+				
+				<dd><a href="#InjuredHookContext">type InjuredHookContext</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go">hook.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/server.go">server.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="StartServer">func <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/server.go#L230">StartServer</a>
+				<a class="permalink" href="#StartServer">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func StartServer(addr <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="InjuredHook">type <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L26">InjuredHook</a>
+				<a class="permalink" href="#InjuredHook">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type InjuredHook struct {
+<span id="InjuredHook.Addr"></span>    Addr <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="InjuredHook.Init">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L30">Init</a>
+					<a class="permalink" href="#InjuredHook.Init">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) Init() <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostAccess">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L331">PostAccess</a>
+					<a class="permalink" href="#InjuredHook.PostAccess">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostAccess(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostAllocate">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L223">PostAllocate</a>
+					<a class="permalink" href="#InjuredHook.PostAllocate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostAllocate(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (hooked <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, err <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostChmod">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L197">PostChmod</a>
+					<a class="permalink" href="#InjuredHook.PostChmod">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostChmod(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostChown">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L184">PostChown</a>
+					<a class="permalink" href="#InjuredHook.PostChown">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostChown(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (hooked <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, err <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostCreate">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L318">PostCreate</a>
+					<a class="permalink" href="#InjuredHook.PostCreate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostCreate(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostFlush">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L135">PostFlush</a>
+					<a class="permalink" href="#InjuredHook.PostFlush">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostFlush(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostFsync">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L122">PostFsync</a>
+					<a class="permalink" href="#InjuredHook.PostFsync">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostFsync(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostGetAttr">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L171">PostGetAttr</a>
+					<a class="permalink" href="#InjuredHook.PostGetAttr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostGetAttr(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostGetLk">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L236">PostGetLk</a>
+					<a class="permalink" href="#InjuredHook.PostGetLk">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostGetLk(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (hooked <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, err <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostGetXAttr">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L404">PostGetXAttr</a>
+					<a class="permalink" href="#InjuredHook.PostGetXAttr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostGetXAttr(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostLink">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L348">PostLink</a>
+					<a class="permalink" href="#InjuredHook.PostLink">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostLink(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostListXAttr">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L417">PostListXAttr</a>
+					<a class="permalink" href="#InjuredHook.PostListXAttr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostListXAttr(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostMkdir">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L83">PostMkdir</a>
+					<a class="permalink" href="#InjuredHook.PostMkdir">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostMkdir(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostMknod">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L361">PostMknod</a>
+					<a class="permalink" href="#InjuredHook.PostMknod">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostMknod(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostOpen">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L44">PostOpen</a>
+					<a class="permalink" href="#InjuredHook.PostOpen">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostOpen(<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostOpenDir">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L109">PostOpenDir</a>
+					<a class="permalink" href="#InjuredHook.PostOpenDir">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostOpenDir(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostRead">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L57">PostRead</a>
+					<a class="permalink" href="#InjuredHook.PostRead">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostRead(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, realBuf []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) ([]<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostReadlink">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L288">PostReadlink</a>
+					<a class="permalink" href="#InjuredHook.PostReadlink">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostReadlink(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostRelease">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L145">PostRelease</a>
+					<a class="permalink" href="#InjuredHook.PostRelease">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostRelease(prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (hooked <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostRemoveXAttr">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L430">PostRemoveXAttr</a>
+					<a class="permalink" href="#InjuredHook.PostRemoveXAttr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostRemoveXAttr(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostRename">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L378">PostRename</a>
+					<a class="permalink" href="#InjuredHook.PostRename">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostRename(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostRmdir">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L96">PostRmdir</a>
+					<a class="permalink" href="#InjuredHook.PostRmdir">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostRmdir(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostSetLk">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L249">PostSetLk</a>
+					<a class="permalink" href="#InjuredHook.PostSetLk">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostSetLk(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (hooked <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, err <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostSetLkw">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L262">PostSetLkw</a>
+					<a class="permalink" href="#InjuredHook.PostSetLkw">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostSetLkw(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostSetXAttr">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L443">PostSetXAttr</a>
+					<a class="permalink" href="#InjuredHook.PostSetXAttr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostSetXAttr(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostStatFs">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L275">PostStatFs</a>
+					<a class="permalink" href="#InjuredHook.PostStatFs">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostStatFs(prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostSymlink">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L305">PostSymlink</a>
+					<a class="permalink" href="#InjuredHook.PostSymlink">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostSymlink(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostTruncate">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L158">PostTruncate</a>
+					<a class="permalink" href="#InjuredHook.PostTruncate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostTruncate(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostUnlink">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L391">PostUnlink</a>
+					<a class="permalink" href="#InjuredHook.PostUnlink">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostUnlink(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostUtimens">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L210">PostUtimens</a>
+					<a class="permalink" href="#InjuredHook.PostUtimens">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostUtimens(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PostWrite">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L70">PostWrite</a>
+					<a class="permalink" href="#InjuredHook.PostWrite">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PostWrite(realRetCode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int32">int32</a>, prehookCtx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreAccess">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L322">PreAccess</a>
+					<a class="permalink" href="#InjuredHook.PreAccess">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreAccess(name <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, mode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreAllocate">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L214">PreAllocate</a>
+					<a class="permalink" href="#InjuredHook.PreAllocate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreAllocate(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, off <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint64">uint64</a>, size <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint64">uint64</a>, mode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreChmod">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L188">PreChmod</a>
+					<a class="permalink" href="#InjuredHook.PreChmod">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreChmod(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, perms <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreChown">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L175">PreChown</a>
+					<a class="permalink" href="#InjuredHook.PreChown">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreChown(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, uid <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>, gid <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreCreate">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L309">PreCreate</a>
+					<a class="permalink" href="#InjuredHook.PreCreate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreCreate(name <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, flags <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>, mode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreFlush">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L126">PreFlush</a>
+					<a class="permalink" href="#InjuredHook.PreFlush">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreFlush(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreFsync">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L113">PreFsync</a>
+					<a class="permalink" href="#InjuredHook.PreFsync">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreFsync(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, flags <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreGetAttr">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L162">PreGetAttr</a>
+					<a class="permalink" href="#InjuredHook.PreGetAttr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreGetAttr(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreGetLk">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L227">PreGetLk</a>
+					<a class="permalink" href="#InjuredHook.PreGetLk">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreGetLk(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, owner <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint64">uint64</a>, lk *<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/hanwen/go-fuse/fuse/">fuse</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/hanwen/go-fuse/fuse/#FileLock">FileLock</a>, flags <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>, out *<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/hanwen/go-fuse/fuse/">fuse</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/hanwen/go-fuse/fuse/#FileLock">FileLock</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreGetXAttr">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L395">PreGetXAttr</a>
+					<a class="permalink" href="#InjuredHook.PreGetXAttr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreGetXAttr(name <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, attribute <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreLink">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L335">PreLink</a>
+					<a class="permalink" href="#InjuredHook.PreLink">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreLink(oldName <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, newName <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreListXAttr">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L408">PreListXAttr</a>
+					<a class="permalink" href="#InjuredHook.PreListXAttr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreListXAttr(name <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreMkdir">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L74">PreMkdir</a>
+					<a class="permalink" href="#InjuredHook.PreMkdir">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreMkdir(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, mode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreMknod">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L352">PreMknod</a>
+					<a class="permalink" href="#InjuredHook.PreMknod">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreMknod(name <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, mode <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>, dev <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreOpen">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L35">PreOpen</a>
+					<a class="permalink" href="#InjuredHook.PreOpen">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreOpen(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, flags <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreOpenDir">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L100">PreOpenDir</a>
+					<a class="permalink" href="#InjuredHook.PreOpenDir">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreOpenDir(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreRead">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L48">PreRead</a>
+					<a class="permalink" href="#InjuredHook.PreRead">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreRead(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, length <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int64">int64</a>, offset <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int64">int64</a>) ([]<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreReadlink">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L279">PreReadlink</a>
+					<a class="permalink" href="#InjuredHook.PreReadlink">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreReadlink(name <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreRelease">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L139">PreRelease</a>
+					<a class="permalink" href="#InjuredHook.PreRelease">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreRelease(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreRemoveXAttr">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L421">PreRemoveXAttr</a>
+					<a class="permalink" href="#InjuredHook.PreRemoveXAttr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreRemoveXAttr(name <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, attr <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreRename">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L365">PreRename</a>
+					<a class="permalink" href="#InjuredHook.PreRename">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreRename(oldName <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, newName <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreRmdir">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L87">PreRmdir</a>
+					<a class="permalink" href="#InjuredHook.PreRmdir">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreRmdir(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreSetLk">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L240">PreSetLk</a>
+					<a class="permalink" href="#InjuredHook.PreSetLk">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreSetLk(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, owner <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint64">uint64</a>, lk *<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/hanwen/go-fuse/fuse/">fuse</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/hanwen/go-fuse/fuse/#FileLock">FileLock</a>, flags <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreSetLkw">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L253">PreSetLkw</a>
+					<a class="permalink" href="#InjuredHook.PreSetLkw">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreSetLkw(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, owner <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint64">uint64</a>, lk *<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/hanwen/go-fuse/fuse/">fuse</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/hanwen/go-fuse/fuse/#FileLock">FileLock</a>, flags <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint32">uint32</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreSetXAttr">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L434">PreSetXAttr</a>
+					<a class="permalink" href="#InjuredHook.PreSetXAttr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreSetXAttr(name <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, attr <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, data []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>, flags <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int">int</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreStatFs">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L266">PreStatFs</a>
+					<a class="permalink" href="#InjuredHook.PreStatFs">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreStatFs(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreSymlink">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L292">PreSymlink</a>
+					<a class="permalink" href="#InjuredHook.PreSymlink">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreSymlink(value <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, linkName <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreTruncate">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L149">PreTruncate</a>
+					<a class="permalink" href="#InjuredHook.PreTruncate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreTruncate(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, size <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#uint64">uint64</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreUnlink">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L382">PreUnlink</a>
+					<a class="permalink" href="#InjuredHook.PreUnlink">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreUnlink(name <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreUtimens">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L201">PreUtimens</a>
+					<a class="permalink" href="#InjuredHook.PreUtimens">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreUtimens(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, atime *<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/time/#Time">Time</a>, mtime *<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/time/#Time">Time</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="InjuredHook.PreWrite">func (*InjuredHook) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L61">PreWrite</a>
+					<a class="permalink" href="#InjuredHook.PreWrite">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#InjuredHook">InjuredHook</a>) PreWrite(path <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#string">string</a>, buf []<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#byte">byte</a>, offset <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#int64">int64</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/">hookfs</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/ethercflow/hookfs/hookfs/#HookContext">HookContext</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="InjuredHookContext">type <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosfs/hook.go#L23">InjuredHookContext</a>
+				<a class="permalink" href="#InjuredHookContext">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type InjuredHookContext struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="client/">client</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="pb/">pb</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

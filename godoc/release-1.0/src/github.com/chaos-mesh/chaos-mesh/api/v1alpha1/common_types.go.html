@@ -1,0 +1,291 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#375EAB"/>
+
+  <title>src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/common_types.go - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/style.css"/>
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/jquery.js" defer=""></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/godocs.js" defer=""></script>
+</head>
+<body>
+
+<div id="lowframe" style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e9b3817. Generated at Sun Jan 16 10:54:25 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Source file
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/src">src</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.0/src/github.com">github.com</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/api">api</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1">v1alpha1</a>/<span class="text-muted">common_types.go</span>
+  </h1>
+
+
+
+
+
+  <h2>
+    Documentation: <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1">github.com/chaos-mesh/chaos-mesh/api/v1alpha1</a>
+  </h2>
+
+
+
+<div id="nav"></div>
+
+
+<script type="text/javascript">document.ANALYSIS_DATA = null;</script>
+<pre><span id="L1" class="ln">     1  </span><span class="comment">// Copyright 2019 Chaos Mesh Authors.</span>
+<span id="L2" class="ln">     2  </span><span class="comment">//</span>
+<span id="L3" class="ln">     3  </span><span class="comment">// Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span>
+<span id="L4" class="ln">     4  </span><span class="comment">// you may not use this file except in compliance with the License.</span>
+<span id="L5" class="ln">     5  </span><span class="comment">// You may obtain a copy of the License at</span>
+<span id="L6" class="ln">     6  </span><span class="comment">//</span>
+<span id="L7" class="ln">     7  </span><span class="comment">//     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span id="L8" class="ln">     8  </span><span class="comment">//</span>
+<span id="L9" class="ln">     9  </span><span class="comment">// Unless required by applicable law or agreed to in writing, software</span>
+<span id="L10" class="ln">    10  </span><span class="comment">// distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span>
+<span id="L11" class="ln">    11  </span><span class="comment">// See the License for the specific language governing permissions and</span>
+<span id="L12" class="ln">    12  </span><span class="comment">// limitations under the License.</span>
+<span id="L13" class="ln">    13  </span>
+<span id="L14" class="ln">    14  </span>package v1alpha1
+<span id="L15" class="ln">    15  </span>
+<span id="L16" class="ln">    16  </span>import (
+<span id="L17" class="ln">    17  </span>	&#34;time&#34;
+<span id="L18" class="ln">    18  </span>
+<span id="L19" class="ln">    19  </span>	metav1 &#34;k8s.io/apimachinery/pkg/apis/meta/v1&#34;
+<span id="L20" class="ln">    20  </span>	&#34;k8s.io/apimachinery/pkg/runtime&#34;
+<span id="L21" class="ln">    21  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
+<span id="L22" class="ln">    22  </span>)
+<span id="L23" class="ln">    23  </span>
+<span id="L24" class="ln">    24  </span>const (
+<span id="L25" class="ln">    25  </span>	<span class="comment">// PauseAnnotationKey defines the annotation used to pause a chaos</span>
+<span id="L26" class="ln">    26  </span>	PauseAnnotationKey = &#34;experiment.chaos-mesh.org/pause&#34;
+<span id="L27" class="ln">    27  </span>)
+<span id="L28" class="ln">    28  </span>
+<span id="L29" class="ln">    29  </span><span class="comment">// SelectorSpec defines the some selectors to select objects.</span>
+<span id="L30" class="ln">    30  </span><span class="comment">// If the all selectors are empty, all objects will be used in chaos experiment.</span>
+<span id="L31" class="ln">    31  </span>type SelectorSpec struct {
+<span id="L32" class="ln">    32  </span>	<span class="comment">// Namespaces is a set of namespace to which objects belong.</span>
+<span id="L33" class="ln">    33  </span>	<span class="comment">// +optional</span>
+<span id="L34" class="ln">    34  </span>	Namespaces []string `json:&#34;namespaces,omitempty&#34;`
+<span id="L35" class="ln">    35  </span>
+<span id="L36" class="ln">    36  </span>	<span class="comment">// Nodes is a set of node name and objects must belong to these nodes.</span>
+<span id="L37" class="ln">    37  </span>	<span class="comment">// +optional</span>
+<span id="L38" class="ln">    38  </span>	Nodes []string `json:&#34;nodes,omitempty&#34;`
+<span id="L39" class="ln">    39  </span>
+<span id="L40" class="ln">    40  </span>	<span class="comment">// Pods is a map of string keys and a set values that used to select pods.</span>
+<span id="L41" class="ln">    41  </span>	<span class="comment">// The key defines the namespace which pods belong,</span>
+<span id="L42" class="ln">    42  </span>	<span class="comment">// and the each values is a set of pod names.</span>
+<span id="L43" class="ln">    43  </span>	<span class="comment">// +optional</span>
+<span id="L44" class="ln">    44  </span>	Pods map[string][]string `json:&#34;pods,omitempty&#34;`
+<span id="L45" class="ln">    45  </span>
+<span id="L46" class="ln">    46  </span>	<span class="comment">// Map of string keys and values that can be used to select nodes.</span>
+<span id="L47" class="ln">    47  </span>	<span class="comment">// Selector which must match a node&#39;s labels,</span>
+<span id="L48" class="ln">    48  </span>	<span class="comment">// and objects must belong to these selected nodes.</span>
+<span id="L49" class="ln">    49  </span>	<span class="comment">// +optional</span>
+<span id="L50" class="ln">    50  </span>	NodeSelectors map[string]string `json:&#34;nodeSelectors,omitempty&#34;`
+<span id="L51" class="ln">    51  </span>
+<span id="L52" class="ln">    52  </span>	<span class="comment">// Map of string keys and values that can be used to select objects.</span>
+<span id="L53" class="ln">    53  </span>	<span class="comment">// A selector based on fields.</span>
+<span id="L54" class="ln">    54  </span>	<span class="comment">// +optional</span>
+<span id="L55" class="ln">    55  </span>	FieldSelectors map[string]string `json:&#34;fieldSelectors,omitempty&#34;`
+<span id="L56" class="ln">    56  </span>
+<span id="L57" class="ln">    57  </span>	<span class="comment">// Map of string keys and values that can be used to select objects.</span>
+<span id="L58" class="ln">    58  </span>	<span class="comment">// A selector based on labels.</span>
+<span id="L59" class="ln">    59  </span>	<span class="comment">// +optional</span>
+<span id="L60" class="ln">    60  </span>	LabelSelectors map[string]string `json:&#34;labelSelectors,omitempty&#34;`
+<span id="L61" class="ln">    61  </span>
+<span id="L62" class="ln">    62  </span>	<span class="comment">// Map of string keys and values that can be used to select objects.</span>
+<span id="L63" class="ln">    63  </span>	<span class="comment">// A selector based on annotations.</span>
+<span id="L64" class="ln">    64  </span>	<span class="comment">// +optional</span>
+<span id="L65" class="ln">    65  </span>	AnnotationSelectors map[string]string `json:&#34;annotationSelectors,omitempty&#34;`
+<span id="L66" class="ln">    66  </span>
+<span id="L67" class="ln">    67  </span>	<span class="comment">// PodPhaseSelectors is a set of condition of a pod at the current time.</span>
+<span id="L68" class="ln">    68  </span>	<span class="comment">// supported value: Pending / Running / Succeeded / Failed / Unknown</span>
+<span id="L69" class="ln">    69  </span>	<span class="comment">// +optional</span>
+<span id="L70" class="ln">    70  </span>	PodPhaseSelectors []string `json:&#34;podPhaseSelectors,omitempty&#34;`
+<span id="L71" class="ln">    71  </span>}
+<span id="L72" class="ln">    72  </span>
+<span id="L73" class="ln">    73  </span><span class="comment">// SchedulerSpec defines information about schedule of the chaos experiment.</span>
+<span id="L74" class="ln">    74  </span>type SchedulerSpec struct {
+<span id="L75" class="ln">    75  </span>	<span class="comment">// Cron defines a cron job rule.</span>
+<span id="L76" class="ln">    76  </span>	<span class="comment">//</span>
+<span id="L77" class="ln">    77  </span>	<span class="comment">// Some rule examples:</span>
+<span id="L78" class="ln">    78  </span>	<span class="comment">// &#34;0 30 * * * *&#34; means to &#34;Every hour on the half hour&#34;</span>
+<span id="L79" class="ln">    79  </span>	<span class="comment">// &#34;@hourly&#34;      means to &#34;Every hour&#34;</span>
+<span id="L80" class="ln">    80  </span>	<span class="comment">// &#34;@every 1h30m&#34; means to &#34;Every hour thirty&#34;</span>
+<span id="L81" class="ln">    81  </span>	<span class="comment">//</span>
+<span id="L82" class="ln">    82  </span>	<span class="comment">// More rule info: https://godoc.org/github.com/robfig/cron</span>
+<span id="L83" class="ln">    83  </span>	Cron string `json:&#34;cron&#34;`
+<span id="L84" class="ln">    84  </span>}
+<span id="L85" class="ln">    85  </span>
+<span id="L86" class="ln">    86  </span><span class="comment">// PodMode represents the mode to run pod chaos action.</span>
+<span id="L87" class="ln">    87  </span>type PodMode string
+<span id="L88" class="ln">    88  </span>
+<span id="L89" class="ln">    89  </span>const (
+<span id="L90" class="ln">    90  </span>	<span class="comment">// OnePodMode represents that the system will do the chaos action on one pod selected randomly.</span>
+<span id="L91" class="ln">    91  </span>	OnePodMode PodMode = &#34;one&#34;
+<span id="L92" class="ln">    92  </span>	<span class="comment">// AllPodMode represents that the system will do the chaos action on all pods</span>
+<span id="L93" class="ln">    93  </span>	<span class="comment">// regardless of status (not ready or not running pods includes).</span>
+<span id="L94" class="ln">    94  </span>	<span class="comment">// Use this label carefully.</span>
+<span id="L95" class="ln">    95  </span>	AllPodMode PodMode = &#34;all&#34;
+<span id="L96" class="ln">    96  </span>	<span class="comment">// FixedPodMode represents that the system will do the chaos action on a specific number of running pods.</span>
+<span id="L97" class="ln">    97  </span>	FixedPodMode PodMode = &#34;fixed&#34;
+<span id="L98" class="ln">    98  </span>	<span class="comment">// FixedPercentPodMode to specify a fixed % that can be inject chaos action.</span>
+<span id="L99" class="ln">    99  </span>	FixedPercentPodMode PodMode = &#34;fixed-percent&#34;
+<span id="L100" class="ln">   100  </span>	<span class="comment">// RandomMaxPercentPodMode to specify a maximum % that can be inject chaos action.</span>
+<span id="L101" class="ln">   101  </span>	RandomMaxPercentPodMode PodMode = &#34;random-max-percent&#34;
+<span id="L102" class="ln">   102  </span>)
+<span id="L103" class="ln">   103  </span>
+<span id="L104" class="ln">   104  </span><span class="comment">// ChaosPhase is the current status of chaos task.</span>
+<span id="L105" class="ln">   105  </span>type ChaosPhase string
+<span id="L106" class="ln">   106  </span>
+<span id="L107" class="ln">   107  </span>const (
+<span id="L108" class="ln">   108  </span>	ChaosPhaseNone     ChaosPhase = &#34;&#34;
+<span id="L109" class="ln">   109  </span>	ChaosPhaseNormal   ChaosPhase = &#34;Normal&#34;
+<span id="L110" class="ln">   110  </span>	ChaosPhaseAbnormal ChaosPhase = &#34;Abnormal&#34;
+<span id="L111" class="ln">   111  </span>)
+<span id="L112" class="ln">   112  </span>
+<span id="L113" class="ln">   113  </span>type ChaosStatus struct {
+<span id="L114" class="ln">   114  </span>	<span class="comment">// Phase is the chaos status.</span>
+<span id="L115" class="ln">   115  </span>	Phase         ChaosPhase `json:&#34;phase&#34;`
+<span id="L116" class="ln">   116  </span>	Reason        string     `json:&#34;reason,omitempty&#34;`
+<span id="L117" class="ln">   117  </span>	FailedMessage string     `json:&#34;failedMessage,omitempty&#34;`
+<span id="L118" class="ln">   118  </span>
+<span id="L119" class="ln">   119  </span>	Scheduler ScheduleStatus `json:&#34;scheduler,omitempty&#34;`
+<span id="L120" class="ln">   120  </span>
+<span id="L121" class="ln">   121  </span>	<span class="comment">// Experiment records the last experiment state.</span>
+<span id="L122" class="ln">   122  </span>	Experiment ExperimentStatus `json:&#34;experiment&#34;`
+<span id="L123" class="ln">   123  </span>}
+<span id="L124" class="ln">   124  </span>
+<span id="L125" class="ln">   125  </span><span class="comment">// ScheduleStatus is the current status of chaos scheduler.</span>
+<span id="L126" class="ln">   126  </span>type ScheduleStatus struct {
+<span id="L127" class="ln">   127  </span>	<span class="comment">// Next time when this action will be applied again</span>
+<span id="L128" class="ln">   128  </span>	<span class="comment">// +optional</span>
+<span id="L129" class="ln">   129  </span>	NextStart *metav1.Time `json:&#34;nextStart,omitempty&#34;`
+<span id="L130" class="ln">   130  </span>
+<span id="L131" class="ln">   131  </span>	<span class="comment">// Next time when this action will be recovered</span>
+<span id="L132" class="ln">   132  </span>	<span class="comment">// +optional</span>
+<span id="L133" class="ln">   133  </span>	NextRecover *metav1.Time `json:&#34;nextRecover,omitempty&#34;`
+<span id="L134" class="ln">   134  </span>}
+<span id="L135" class="ln">   135  </span>
+<span id="L136" class="ln">   136  </span><span class="comment">// ExperimentPhase is the current status of chaos experiment.</span>
+<span id="L137" class="ln">   137  </span>type ExperimentPhase string
+<span id="L138" class="ln">   138  </span>
+<span id="L139" class="ln">   139  </span>const (
+<span id="L140" class="ln">   140  </span>	ExperimentPhaseRunning  ExperimentPhase = &#34;Running&#34;
+<span id="L141" class="ln">   141  </span>	ExperimentPhaseWaiting  ExperimentPhase = &#34;Waiting&#34;
+<span id="L142" class="ln">   142  </span>	ExperimentPhasePaused   ExperimentPhase = &#34;Paused&#34;
+<span id="L143" class="ln">   143  </span>	ExperimentPhaseFailed   ExperimentPhase = &#34;Failed&#34;
+<span id="L144" class="ln">   144  </span>	ExperimentPhaseFinished ExperimentPhase = &#34;Finished&#34;
+<span id="L145" class="ln">   145  </span>)
+<span id="L146" class="ln">   146  </span>
+<span id="L147" class="ln">   147  </span>type ExperimentStatus struct {
+<span id="L148" class="ln">   148  </span>	<span class="comment">// +optional</span>
+<span id="L149" class="ln">   149  </span>	Phase ExperimentPhase `json:&#34;phase,omitempty&#34;`
+<span id="L150" class="ln">   150  </span>	<span class="comment">// +optional</span>
+<span id="L151" class="ln">   151  </span>	Reason string `json:&#34;reason,omitempty&#34;`
+<span id="L152" class="ln">   152  </span>	<span class="comment">// +optional</span>
+<span id="L153" class="ln">   153  </span>	StartTime *metav1.Time `json:&#34;startTime,omitempty&#34;`
+<span id="L154" class="ln">   154  </span>	<span class="comment">// +optional</span>
+<span id="L155" class="ln">   155  </span>	EndTime *metav1.Time `json:&#34;endTime,omitempty&#34;`
+<span id="L156" class="ln">   156  </span>	<span class="comment">// +optional</span>
+<span id="L157" class="ln">   157  </span>	Duration string `json:&#34;duration,omitempty&#34;`
+<span id="L158" class="ln">   158  </span>	<span class="comment">// +optional</span>
+<span id="L159" class="ln">   159  </span>	PodRecords []PodStatus `json:&#34;podRecords,omitempty&#34;`
+<span id="L160" class="ln">   160  </span>}
+<span id="L161" class="ln">   161  </span>
+<span id="L162" class="ln">   162  </span>const (
+<span id="L163" class="ln">   163  </span>	invalidConfigurationMsg = &#34;invalid configuration&#34;
+<span id="L164" class="ln">   164  </span>)
+<span id="L165" class="ln">   165  </span>
+<span id="L166" class="ln">   166  </span>var log = ctrl.Log.WithName(&#34;validate-webhook&#34;)
+<span id="L167" class="ln">   167  </span>
+<span id="L168" class="ln">   168  </span><span class="comment">// +kubebuilder:object:generate=false</span>
+<span id="L169" class="ln">   169  </span>
+<span id="L170" class="ln">   170  </span><span class="comment">// InnerSchedulerObject is the Object for the twophase reconcile</span>
+<span id="L171" class="ln">   171  </span>type InnerSchedulerObject interface {
+<span id="L172" class="ln">   172  </span>	InnerObject
+<span id="L173" class="ln">   173  </span>	GetDuration() (*time.Duration, error)
+<span id="L174" class="ln">   174  </span>
+<span id="L175" class="ln">   175  </span>	GetNextStart() time.Time
+<span id="L176" class="ln">   176  </span>	SetNextStart(time.Time)
+<span id="L177" class="ln">   177  </span>
+<span id="L178" class="ln">   178  </span>	GetNextRecover() time.Time
+<span id="L179" class="ln">   179  </span>	SetNextRecover(time.Time)
+<span id="L180" class="ln">   180  </span>
+<span id="L181" class="ln">   181  </span>	GetScheduler() *SchedulerSpec
+<span id="L182" class="ln">   182  </span>}
+<span id="L183" class="ln">   183  </span>
+<span id="L184" class="ln">   184  </span><span class="comment">// +kubebuilder:object:generate=false</span>
+<span id="L185" class="ln">   185  </span>
+<span id="L186" class="ln">   186  </span><span class="comment">// InnerObject is basic Object for the Reconciler</span>
+<span id="L187" class="ln">   187  </span>type InnerObject interface {
+<span id="L188" class="ln">   188  </span>	IsDeleted() bool
+<span id="L189" class="ln">   189  </span>	IsPaused() bool
+<span id="L190" class="ln">   190  </span>	GetChaos() *ChaosInstance
+<span id="L191" class="ln">   191  </span>	StatefulObject
+<span id="L192" class="ln">   192  </span>}
+<span id="L193" class="ln">   193  </span>
+<span id="L194" class="ln">   194  </span><span class="comment">// +kubebuilder:object:generate=false</span>
+<span id="L195" class="ln">   195  </span>
+<span id="L196" class="ln">   196  </span><span class="comment">// StatefulObject defines a basic Object that can get the status</span>
+<span id="L197" class="ln">   197  </span>type StatefulObject interface {
+<span id="L198" class="ln">   198  </span>	runtime.Object
+<span id="L199" class="ln">   199  </span>	GetStatus() *ChaosStatus
+<span id="L200" class="ln">   200  </span>}
+<span id="L201" class="ln">   201  </span>
+<span id="L202" class="ln">   202  </span><span class="comment">// +kubebuilder:object:generate=false</span>
+<span id="L203" class="ln">   203  </span>
+<span id="L204" class="ln">   204  </span><span class="comment">// ChaosInstance defines some common attribute for a chaos</span>
+<span id="L205" class="ln">   205  </span>type ChaosInstance struct {
+<span id="L206" class="ln">   206  </span>	Name      string
+<span id="L207" class="ln">   207  </span>	Namespace string
+<span id="L208" class="ln">   208  </span>	Kind      string
+<span id="L209" class="ln">   209  </span>	StartTime time.Time
+<span id="L210" class="ln">   210  </span>	EndTime   time.Time
+<span id="L211" class="ln">   211  </span>	Action    string
+<span id="L212" class="ln">   212  </span>	Duration  string
+<span id="L213" class="ln">   213  </span>	Status    string
+<span id="L214" class="ln">   214  </span>	UID       string
+<span id="L215" class="ln">   215  </span>}
+<span id="L216" class="ln">   216  </span>
+<span id="L217" class="ln">   217  </span><span class="comment">// +kubebuilder:object:generate=false</span>
+<span id="L218" class="ln">   218  </span>
+<span id="L219" class="ln">   219  </span><span class="comment">// ChaosList defines a common interface for chaos lists</span>
+<span id="L220" class="ln">   220  </span>type ChaosList interface {
+<span id="L221" class="ln">   221  </span>	runtime.Object
+<span id="L222" class="ln">   222  </span>	ListChaos() []*ChaosInstance
+<span id="L223" class="ln">   223  </span>}
+<span id="L224" class="ln">   224  </span>
+</pre><p></p>
+
+<div id="footer">
+Build version go1.17.6.<br/>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+
+
+</body></html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#375EAB"/>
+
+  <title>src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/style.css"/>
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/jquery.js" defer=""></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/godocs.js" defer=""></script>
+</head>
+<body>
+
+<div id="lowframe" style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e9b3817. Generated at Sun Jan 16 10:54:25 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Source file
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/src">src</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.0/src/github.com">github.com</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg">pkg</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl">chaosctl</a>/<a href="https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd">cmd</a>/<span class="text-muted">debug.go</span>
+  </h1>
+
+
+
+
+
+  <h2>
+    Documentation: <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd">github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd</a>
+  </h2>
+
+
+
+<div id="nav"></div>
+
+
+<script type="text/javascript">document.ANALYSIS_DATA = null;</script>
+<pre><span id="L1" class="ln">     1  </span><span class="comment">// Copyright 2020 Chaos Mesh Authors.</span>
+<span id="L2" class="ln">     2  </span><span class="comment">//</span>
+<span id="L3" class="ln">     3  </span><span class="comment">// Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span>
+<span id="L4" class="ln">     4  </span><span class="comment">// you may not use this file except in compliance with the License.</span>
+<span id="L5" class="ln">     5  </span><span class="comment">// You may obtain a copy of the License at</span>
+<span id="L6" class="ln">     6  </span><span class="comment">//</span>
+<span id="L7" class="ln">     7  </span><span class="comment">//     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span id="L8" class="ln">     8  </span><span class="comment">//</span>
+<span id="L9" class="ln">     9  </span><span class="comment">// Unless required by applicable law or agreed to in writing, software</span>
+<span id="L10" class="ln">    10  </span><span class="comment">// distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span>
+<span id="L11" class="ln">    11  </span><span class="comment">// See the License for the specific language governing permissions and</span>
+<span id="L12" class="ln">    12  </span><span class="comment">// limitations under the License.</span>
+<span id="L13" class="ln">    13  </span>
+<span id="L14" class="ln">    14  </span>package cmd
+<span id="L15" class="ln">    15  </span>
+<span id="L16" class="ln">    16  </span>import (
+<span id="L17" class="ln">    17  </span>	&#34;context&#34;
+<span id="L18" class="ln">    18  </span>	&#34;fmt&#34;
+<span id="L19" class="ln">    19  </span>	&#34;log&#34;
+<span id="L20" class="ln">    20  </span>	&#34;strings&#34;
+<span id="L21" class="ln">    21  </span>
+<span id="L22" class="ln">    22  </span>	&#34;github.com/spf13/cobra&#34;
+<span id="L23" class="ln">    23  </span>	v1 &#34;k8s.io/apimachinery/pkg/apis/meta/v1&#34;
+<span id="L24" class="ln">    24  </span>	&#34;k8s.io/client-go/kubernetes&#34;
+<span id="L25" class="ln">    25  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/client&#34;
+<span id="L26" class="ln">    26  </span>
+<span id="L27" class="ln">    27  </span>	cm &#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common&#34;
+<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/iochaos&#34;
+<span id="L29" class="ln">    29  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/networkchaos&#34;
+<span id="L30" class="ln">    30  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/stresschaos&#34;
+<span id="L31" class="ln">    31  </span>)
+<span id="L32" class="ln">    32  </span>
+<span id="L33" class="ln">    33  </span>type debugOptions struct {
+<span id="L34" class="ln">    34  </span>	namespace string
+<span id="L35" class="ln">    35  </span>}
+<span id="L36" class="ln">    36  </span>
+<span id="L37" class="ln">    37  </span>type chaosT int
+<span id="L38" class="ln">    38  </span>
+<span id="L39" class="ln">    39  </span>const (
+<span id="L40" class="ln">    40  </span>	networkChaos = &#34;networkchaos&#34;
+<span id="L41" class="ln">    41  </span>	stressChaos  = &#34;stresschaos&#34;
+<span id="L42" class="ln">    42  </span>	ioChaos      = &#34;iochaos&#34;
+<span id="L43" class="ln">    43  </span>)
+<span id="L44" class="ln">    44  </span>
+<span id="L45" class="ln">    45  </span>func init() {
+<span id="L46" class="ln">    46  </span>	o := &amp;debugOptions{}
+<span id="L47" class="ln">    47  </span>
+<span id="L48" class="ln">    48  </span>	c, err := cm.InitClientSet()
+<span id="L49" class="ln">    49  </span>	if err != nil {
+<span id="L50" class="ln">    50  </span>		log.Fatal(err)
+<span id="L51" class="ln">    51  </span>	}
+<span id="L52" class="ln">    52  </span>
+<span id="L53" class="ln">    53  </span>	debugCmd := &amp;cobra.Command{
+<span id="L54" class="ln">    54  </span>		Use:   `debug (CHAOSTYPE) [-c CHAOSNAME] [-n NAMESPACE]`,
+<span id="L55" class="ln">    55  </span>		Short: `Print the debug information for certain chaos`,
+<span id="L56" class="ln">    56  </span>		Long: `Print the debug information for certain chaos.
+<span id="L57" class="ln">    57  </span>Currently support networkchaos, stresschaos and iochaos.
+<span id="L58" class="ln">    58  </span>
+<span id="L59" class="ln">    59  </span>Examples:
+<span id="L60" class="ln">    60  </span>  # Return debug information from all networkchaos in default namespace
+<span id="L61" class="ln">    61  </span>  chaosctl debug networkchaos
+<span id="L62" class="ln">    62  </span>
+<span id="L63" class="ln">    63  </span>  # Return debug information from certain networkchaos
+<span id="L64" class="ln">    64  </span>  chaosctl debug networkchaos CHAOSNAME -n NAMESPACE`,
+<span id="L65" class="ln">    65  </span>		ValidArgsFunction: noCompletions,
+<span id="L66" class="ln">    66  </span>	}
+<span id="L67" class="ln">    67  </span>
+<span id="L68" class="ln">    68  </span>	<span class="comment">// Need to separately support chaos-level completion, so split each chaos apart</span>
+<span id="L69" class="ln">    69  </span>	networkCmd := &amp;cobra.Command{
+<span id="L70" class="ln">    70  </span>		Use:   `networkchaos (CHAOSNAME) [-n NAMESPACE]`,
+<span id="L71" class="ln">    71  </span>		Short: `Print the debug information for certain network chaos`,
+<span id="L72" class="ln">    72  </span>		Long:  `Print the debug information for certain network chaos`,
+<span id="L73" class="ln">    73  </span>		Run: func(cmd *cobra.Command, args []string) {
+<span id="L74" class="ln">    74  </span>			if err := o.Run(&#34;networkchaos&#34;, args, c); err != nil {
+<span id="L75" class="ln">    75  </span>				log.Fatal(err)
+<span id="L76" class="ln">    76  </span>			}
+<span id="L77" class="ln">    77  </span>		},
+<span id="L78" class="ln">    78  </span>		ValidArgsFunction: func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+<span id="L79" class="ln">    79  </span>			if len(args) != 0 {
+<span id="L80" class="ln">    80  </span>				return nil, cobra.ShellCompDirectiveNoFileComp
+<span id="L81" class="ln">    81  </span>			}
+<span id="L82" class="ln">    82  </span>			return listChaos(&#34;networkchaos&#34;, o.namespace, toComplete, c.CtrlCli)
+<span id="L83" class="ln">    83  </span>		},
+<span id="L84" class="ln">    84  </span>	}
+<span id="L85" class="ln">    85  </span>
+<span id="L86" class="ln">    86  </span>	stressCmd := &amp;cobra.Command{
+<span id="L87" class="ln">    87  </span>		Use:   `stresschaos (CHAOSNAME) [-n NAMESPACE]`,
+<span id="L88" class="ln">    88  </span>		Short: `Print the debug information for certain stress chaos`,
+<span id="L89" class="ln">    89  </span>		Long:  `Print the debug information for certain stress chaos`,
+<span id="L90" class="ln">    90  </span>		Run: func(cmd *cobra.Command, args []string) {
+<span id="L91" class="ln">    91  </span>			if err := o.Run(&#34;stresschaos&#34;, args, c); err != nil {
+<span id="L92" class="ln">    92  </span>				log.Fatal(err)
+<span id="L93" class="ln">    93  </span>			}
+<span id="L94" class="ln">    94  </span>		},
+<span id="L95" class="ln">    95  </span>		ValidArgsFunction: func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+<span id="L96" class="ln">    96  </span>			if len(args) != 0 {
+<span id="L97" class="ln">    97  </span>				return nil, cobra.ShellCompDirectiveNoFileComp
+<span id="L98" class="ln">    98  </span>			}
+<span id="L99" class="ln">    99  </span>			return listChaos(&#34;stresschaos&#34;, o.namespace, toComplete, c.CtrlCli)
+<span id="L100" class="ln">   100  </span>		},
+<span id="L101" class="ln">   101  </span>	}
+<span id="L102" class="ln">   102  </span>
+<span id="L103" class="ln">   103  </span>	ioCmd := &amp;cobra.Command{
+<span id="L104" class="ln">   104  </span>		Use:   `iochaos (CHAOSNAME) [-n NAMESPACE]`,
+<span id="L105" class="ln">   105  </span>		Short: `Print the debug information for certain io chaos`,
+<span id="L106" class="ln">   106  </span>		Long:  `Print the debug information for certain io chaos`,
+<span id="L107" class="ln">   107  </span>		Run: func(cmd *cobra.Command, args []string) {
+<span id="L108" class="ln">   108  </span>			if err := o.Run(&#34;iochaos&#34;, args, c); err != nil {
+<span id="L109" class="ln">   109  </span>				log.Fatal(err)
+<span id="L110" class="ln">   110  </span>			}
+<span id="L111" class="ln">   111  </span>		},
+<span id="L112" class="ln">   112  </span>		ValidArgsFunction: func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+<span id="L113" class="ln">   113  </span>			if len(args) != 0 {
+<span id="L114" class="ln">   114  </span>				return nil, cobra.ShellCompDirectiveNoFileComp
+<span id="L115" class="ln">   115  </span>			}
+<span id="L116" class="ln">   116  </span>			return listChaos(&#34;iochaos&#34;, o.namespace, toComplete, c.CtrlCli)
+<span id="L117" class="ln">   117  </span>		},
+<span id="L118" class="ln">   118  </span>	}
+<span id="L119" class="ln">   119  </span>
+<span id="L120" class="ln">   120  </span>	debugCmd.AddCommand(networkCmd)
+<span id="L121" class="ln">   121  </span>	debugCmd.AddCommand(stressCmd)
+<span id="L122" class="ln">   122  </span>	debugCmd.AddCommand(ioCmd)
+<span id="L123" class="ln">   123  </span>
+<span id="L124" class="ln">   124  </span>	debugCmd.PersistentFlags().StringVarP(&amp;o.namespace, &#34;namespace&#34;, &#34;n&#34;, &#34;default&#34;, &#34;namespace to find chaos&#34;)
+<span id="L125" class="ln">   125  </span>	err = debugCmd.RegisterFlagCompletionFunc(&#34;namespace&#34;, func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+<span id="L126" class="ln">   126  </span>		return listNamespace(toComplete, c.KubeCli)
+<span id="L127" class="ln">   127  </span>	})
+<span id="L128" class="ln">   128  </span>	if err != nil {
+<span id="L129" class="ln">   129  </span>		log.Fatal(err)
+<span id="L130" class="ln">   130  </span>	}
+<span id="L131" class="ln">   131  </span>
+<span id="L132" class="ln">   132  </span>	rootCmd.AddCommand(debugCmd)
+<span id="L133" class="ln">   133  </span>}
+<span id="L134" class="ln">   134  </span>
+<span id="L135" class="ln">   135  </span><span class="comment">// Run debug</span>
+<span id="L136" class="ln">   136  </span>func (o *debugOptions) Run(chaosType string, args []string, c *cm.ClientSet) error {
+<span id="L137" class="ln">   137  </span>	if len(args) &gt; 1 {
+<span id="L138" class="ln">   138  </span>		return fmt.Errorf(&#34;Only one chaos could be specified&#34;)
+<span id="L139" class="ln">   139  </span>	}
+<span id="L140" class="ln">   140  </span>	ctx, cancel := context.WithCancel(context.Background())
+<span id="L141" class="ln">   141  </span>	defer cancel()
+<span id="L142" class="ln">   142  </span>
+<span id="L143" class="ln">   143  </span>	chaosName := &#34;&#34;
+<span id="L144" class="ln">   144  </span>	if len(args) == 1 {
+<span id="L145" class="ln">   145  </span>		chaosName = args[0]
+<span id="L146" class="ln">   146  </span>	}
+<span id="L147" class="ln">   147  </span>
+<span id="L148" class="ln">   148  </span>	chaosList, chaosNameList, err := cm.GetChaosList(ctx, chaosType, chaosName, o.namespace, c.CtrlCli)
+<span id="L149" class="ln">   149  </span>	if err != nil {
+<span id="L150" class="ln">   150  </span>		return fmt.Errorf(err.Error())
+<span id="L151" class="ln">   151  </span>	}
+<span id="L152" class="ln">   152  </span>	var result []cm.ChaosResult
+<span id="L153" class="ln">   153  </span>
+<span id="L154" class="ln">   154  </span>	for i, chaos := range chaosList {
+<span id="L155" class="ln">   155  </span>		var chaosResult cm.ChaosResult
+<span id="L156" class="ln">   156  </span>		chaosResult.Name = chaosNameList[i]
+<span id="L157" class="ln">   157  </span>
+<span id="L158" class="ln">   158  </span>		var err error
+<span id="L159" class="ln">   159  </span>		switch chaosType {
+<span id="L160" class="ln">   160  </span>		case networkChaos:
+<span id="L161" class="ln">   161  </span>			err = networkchaos.Debug(ctx, chaos, c, &amp;chaosResult)
+<span id="L162" class="ln">   162  </span>		case stressChaos:
+<span id="L163" class="ln">   163  </span>			err = stresschaos.Debug(ctx, chaos, c, &amp;chaosResult)
+<span id="L164" class="ln">   164  </span>		case ioChaos:
+<span id="L165" class="ln">   165  </span>			err = iochaos.Debug(ctx, chaos, c, &amp;chaosResult)
+<span id="L166" class="ln">   166  </span>		default:
+<span id="L167" class="ln">   167  </span>			return fmt.Errorf(&#34;chaos type not supported&#34;)
+<span id="L168" class="ln">   168  </span>		}
+<span id="L169" class="ln">   169  </span>		result = append(result, chaosResult)
+<span id="L170" class="ln">   170  </span>		if err != nil {
+<span id="L171" class="ln">   171  </span>			cm.PrintResult(result)
+<span id="L172" class="ln">   172  </span>			return err
+<span id="L173" class="ln">   173  </span>		}
+<span id="L174" class="ln">   174  </span>	}
+<span id="L175" class="ln">   175  </span>	cm.PrintResult(result)
+<span id="L176" class="ln">   176  </span>	return nil
+<span id="L177" class="ln">   177  </span>}
+<span id="L178" class="ln">   178  </span>
+<span id="L179" class="ln">   179  </span>func listNamespace(toComplete string, c *kubernetes.Clientset) ([]string, cobra.ShellCompDirective) {
+<span id="L180" class="ln">   180  </span>	namespaces, err := c.CoreV1().Namespaces().List(v1.ListOptions{})
+<span id="L181" class="ln">   181  </span>	if err != nil {
+<span id="L182" class="ln">   182  </span>		return nil, cobra.ShellCompDirectiveDefault
+<span id="L183" class="ln">   183  </span>	}
+<span id="L184" class="ln">   184  </span>	var ret []string
+<span id="L185" class="ln">   185  </span>	for _, ns := range namespaces.Items {
+<span id="L186" class="ln">   186  </span>		if strings.HasPrefix(ns.Name, toComplete) {
+<span id="L187" class="ln">   187  </span>			ret = append(ret, ns.Name)
+<span id="L188" class="ln">   188  </span>		}
+<span id="L189" class="ln">   189  </span>	}
+<span id="L190" class="ln">   190  </span>	return ret, cobra.ShellCompDirectiveNoFileComp
+<span id="L191" class="ln">   191  </span>}
+<span id="L192" class="ln">   192  </span>
+<span id="L193" class="ln">   193  </span>func listChaos(chaosType string, namespace string, toComplete string, c client.Client) ([]string, cobra.ShellCompDirective) {
+<span id="L194" class="ln">   194  </span>	ctx, cancel := context.WithCancel(context.Background())
+<span id="L195" class="ln">   195  </span>	defer cancel()
+<span id="L196" class="ln">   196  </span>	_, chaosList, err := cm.GetChaosList(ctx, chaosType, &#34;&#34;, namespace, c)
+<span id="L197" class="ln">   197  </span>	if err != nil {
+<span id="L198" class="ln">   198  </span>		return nil, cobra.ShellCompDirectiveDefault
+<span id="L199" class="ln">   199  </span>	}
+<span id="L200" class="ln">   200  </span>	var ret []string
+<span id="L201" class="ln">   201  </span>	for _, chaos := range chaosList {
+<span id="L202" class="ln">   202  </span>		if strings.HasPrefix(chaos, toComplete) {
+<span id="L203" class="ln">   203  </span>			ret = append(ret, chaos)
+<span id="L204" class="ln">   204  </span>		}
+<span id="L205" class="ln">   205  </span>	}
+<span id="L206" class="ln">   206  </span>	return ret, cobra.ShellCompDirectiveNoFileComp
+<span id="L207" class="ln">   207  </span>}
+<span id="L208" class="ln">   208  </span>
+</pre><p></p>
+
+<div id="footer">
+Build version go1.17.6.<br/>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+
+
+</body></html>

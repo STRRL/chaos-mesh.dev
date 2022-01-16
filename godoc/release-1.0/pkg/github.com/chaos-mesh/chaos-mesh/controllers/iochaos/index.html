@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>iochaos - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e9b3817. Generated at Sun Jan 16 10:54:25 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package iochaos
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/controllers/iochaos"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#NewCommonReconciler">func NewCommonReconciler(c client.Client, r client.Reader, log logr.Logger, req ctrl.Request, recorder record.EventRecorder) *common.Reconciler</a></dd>
+			
+				
+				<dd><a href="#NewTwoPhaseReconciler">func NewTwoPhaseReconciler(c client.Client, r client.Reader, log logr.Logger, req ctrl.Request, recorder record.EventRecorder) *twophase.Reconciler</a></dd>
+			
+			
+				
+				<dd><a href="#Reconciler">type Reconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Reconciler.Apply">func (r *Reconciler) Apply(ctx context.Context, req ctrl.Request, chaos v1alpha1.InnerObject) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Reconciler.Object">func (r *Reconciler) Object() v1alpha1.InnerObject</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Reconciler.Recover">func (r *Reconciler) Recover(ctx context.Context, req ctrl.Request, chaos v1alpha1.InnerObject) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/iochaos/types.go">types.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="NewCommonReconciler">func <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/iochaos/types.go#L217">NewCommonReconciler</a>
+				<a class="permalink" href="#NewCommonReconciler">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewCommonReconciler(c <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, r <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>, log <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>, req <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>,
+    recorder <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/">record</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/#EventRecorder">EventRecorder</a>) *<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/common/">common</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/common/#Reconciler">Reconciler</a></pre>
+			<p>
+NewCommonReconciler would create Reconciler for common package
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="NewTwoPhaseReconciler">func <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/iochaos/types.go#L210">NewTwoPhaseReconciler</a>
+				<a class="permalink" href="#NewTwoPhaseReconciler">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewTwoPhaseReconciler(c <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, r <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>, log <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>, req <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>,
+    recorder <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/">record</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/#EventRecorder">EventRecorder</a>) *<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/twophase/">twophase</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/controllers/twophase/#Reconciler">Reconciler</a></pre>
+			<p>
+NewTwoPhaseReconciler would create Reconciler for twophase package
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Reconciler">type <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/iochaos/types.go#L37">Reconciler</a>
+				<a class="permalink" href="#Reconciler">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Reconciler struct {
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/">record</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/#EventRecorder">EventRecorder</a>
+<span id="Reconciler.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Reconciler.Apply">func (*Reconciler) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/iochaos/types.go#L49">Apply</a>
+					<a class="permalink" href="#Reconciler.Apply">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Reconciler">Reconciler</a>) Apply(ctx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/context/#Context">Context</a>, req <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>, chaos <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a></pre>
+				<p>
+Apply implements the reconciler.InnerReconciler.Apply
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Reconciler.Object">func (*Reconciler) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/iochaos/types.go#L44">Object</a>
+					<a class="permalink" href="#Reconciler.Object">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Reconciler">Reconciler</a>) Object() <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Reconciler.Recover">func (*Reconciler) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/iochaos/types.go#L141">Recover</a>
+					<a class="permalink" href="#Reconciler.Recover">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Reconciler">Reconciler</a>) Recover(ctx <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/context/#Context">Context</a>, req <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>, chaos <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a></pre>
+				<p>
+Recover implements the reconciler.InnerReconciler.Recover
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="podiochaosmanager/">podiochaosmanager</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

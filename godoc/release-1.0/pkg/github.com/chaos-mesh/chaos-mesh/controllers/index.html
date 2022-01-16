@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>controllers - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/release-1.0/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e9b3817. Generated at Sun Jan 16 10:54:25 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package controllers
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/controllers"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#IoChaosReconciler">type IoChaosReconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#IoChaosReconciler.Reconcile">func (r *IoChaosReconciler) Reconcile(req ctrl.Request) (result ctrl.Result, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#IoChaosReconciler.SetupWithManager">func (r *IoChaosReconciler) SetupWithManager(mgr ctrl.Manager) error</a></dd>
+				
+			
+				
+				<dd><a href="#KernelChaosReconciler">type KernelChaosReconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#KernelChaosReconciler.Reconcile">func (r *KernelChaosReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#KernelChaosReconciler.SetupWithManager">func (r *KernelChaosReconciler) SetupWithManager(mgr ctrl.Manager) error</a></dd>
+				
+			
+				
+				<dd><a href="#NetworkChaosReconciler">type NetworkChaosReconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NetworkChaosReconciler.Reconcile">func (r *NetworkChaosReconciler) Reconcile(req ctrl.Request) (result ctrl.Result, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NetworkChaosReconciler.SetupWithManager">func (r *NetworkChaosReconciler) SetupWithManager(mgr ctrl.Manager) error</a></dd>
+				
+			
+				
+				<dd><a href="#PodChaosReconciler">type PodChaosReconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PodChaosReconciler.Reconcile">func (r *PodChaosReconciler) Reconcile(req ctrl.Request) (result ctrl.Result, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PodChaosReconciler.SetupWithManager">func (r *PodChaosReconciler) SetupWithManager(mgr ctrl.Manager) error</a></dd>
+				
+			
+				
+				<dd><a href="#StressChaosReconciler">type StressChaosReconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StressChaosReconciler.Reconcile">func (r *StressChaosReconciler) Reconcile(req ctrl.Request) (result ctrl.Result, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StressChaosReconciler.SetupWithManager">func (r *StressChaosReconciler) SetupWithManager(mgr ctrl.Manager) error</a></dd>
+				
+			
+				
+				<dd><a href="#TimeChaosReconciler">type TimeChaosReconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TimeChaosReconciler.Reconcile">func (r *TimeChaosReconciler) Reconcile(req ctrl.Request) (result ctrl.Result, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TimeChaosReconciler.SetupWithManager">func (r *TimeChaosReconciler) SetupWithManager(mgr ctrl.Manager) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/iochaos_controller.go">iochaos_controller.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/kernelchaos_controller.go">kernelchaos_controller.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/networkchaos_controller.go">networkchaos_controller.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/podchaos_controller.go">podchaos_controller.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/stresschaos_controller.go">stresschaos_controller.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/timechaos_controller.go">timechaos_controller.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="IoChaosReconciler">type <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/iochaos_controller.go#L35">IoChaosReconciler</a>
+				<a class="permalink" href="#IoChaosReconciler">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+IoChaosReconciler reconciles an IoChaos object
+</p>
+
+			<pre>type IoChaosReconciler struct {
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/">record</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/#EventRecorder">EventRecorder</a>
+<span id="IoChaosReconciler.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="IoChaosReconciler.Reconcile">func (*IoChaosReconciler) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/iochaos_controller.go#L46">Reconcile</a>
+					<a class="permalink" href="#IoChaosReconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#IoChaosReconciler">IoChaosReconciler</a>) Reconcile(req <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (result <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, err <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Reconcile reconciles an IOChaos resource
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="IoChaosReconciler.SetupWithManager">func (*IoChaosReconciler) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/iochaos_controller.go#L98">SetupWithManager</a>
+					<a class="permalink" href="#IoChaosReconciler.SetupWithManager">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#IoChaosReconciler">IoChaosReconciler</a>) SetupWithManager(mgr <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="KernelChaosReconciler">type <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/kernelchaos_controller.go#L30">KernelChaosReconciler</a>
+				<a class="permalink" href="#KernelChaosReconciler">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+KernelChaosReconciler reconciles a KernelChaos object
+</p>
+
+			<pre>type KernelChaosReconciler struct {
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>
+<span id="KernelChaosReconciler.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/">record</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/#EventRecorder">EventRecorder</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="KernelChaosReconciler.Reconcile">func (*KernelChaosReconciler) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/kernelchaos_controller.go#L41">Reconcile</a>
+					<a class="permalink" href="#KernelChaosReconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#KernelChaosReconciler">KernelChaosReconciler</a>) Reconcile(req <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Reconcile reconciles a request from controller
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="KernelChaosReconciler.SetupWithManager">func (*KernelChaosReconciler) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/kernelchaos_controller.go#L62">SetupWithManager</a>
+					<a class="permalink" href="#KernelChaosReconciler.SetupWithManager">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#KernelChaosReconciler">KernelChaosReconciler</a>) SetupWithManager(mgr <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a></pre>
+				<p>
+SetupWithManager sets up a kernel chaos reconciler on controller-manager
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="NetworkChaosReconciler">type <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/networkchaos_controller.go#L34">NetworkChaosReconciler</a>
+				<a class="permalink" href="#NetworkChaosReconciler">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+NetworkChaosReconciler reconciles a NetworkChaos object
+</p>
+
+			<pre>type NetworkChaosReconciler struct {
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/">record</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/#EventRecorder">EventRecorder</a>
+<span id="NetworkChaosReconciler.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="NetworkChaosReconciler.Reconcile">func (*NetworkChaosReconciler) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/networkchaos_controller.go#L45">Reconcile</a>
+					<a class="permalink" href="#NetworkChaosReconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#NetworkChaosReconciler">NetworkChaosReconciler</a>) Reconcile(req <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (result <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, err <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Reconcile reconciles a NetworkChaos resource
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="NetworkChaosReconciler.SetupWithManager">func (*NetworkChaosReconciler) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/networkchaos_controller.go#L85">SetupWithManager</a>
+					<a class="permalink" href="#NetworkChaosReconciler.SetupWithManager">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#NetworkChaosReconciler">NetworkChaosReconciler</a>) SetupWithManager(mgr <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="PodChaosReconciler">type <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/podchaos_controller.go#L34">PodChaosReconciler</a>
+				<a class="permalink" href="#PodChaosReconciler">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+PodChaosReconciler reconciles a PodChaos object
+</p>
+
+			<pre>type PodChaosReconciler struct {
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/">record</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/#EventRecorder">EventRecorder</a>
+<span id="PodChaosReconciler.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="PodChaosReconciler.Reconcile">func (*PodChaosReconciler) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/podchaos_controller.go#L45">Reconcile</a>
+					<a class="permalink" href="#PodChaosReconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#PodChaosReconciler">PodChaosReconciler</a>) Reconcile(req <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (result <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, err <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Reconcile reconciles a PodChaos resource
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="PodChaosReconciler.SetupWithManager">func (*PodChaosReconciler) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/podchaos_controller.go#L85">SetupWithManager</a>
+					<a class="permalink" href="#PodChaosReconciler.SetupWithManager">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#PodChaosReconciler">PodChaosReconciler</a>) SetupWithManager(mgr <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="StressChaosReconciler">type <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/stresschaos_controller.go#L35">StressChaosReconciler</a>
+				<a class="permalink" href="#StressChaosReconciler">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+StressChaosReconciler reconciles a StressChaos object
+</p>
+
+			<pre>type StressChaosReconciler struct {
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/">record</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/#EventRecorder">EventRecorder</a>
+<span id="StressChaosReconciler.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="StressChaosReconciler.Reconcile">func (*StressChaosReconciler) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/stresschaos_controller.go#L46">Reconcile</a>
+					<a class="permalink" href="#StressChaosReconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#StressChaosReconciler">StressChaosReconciler</a>) Reconcile(req <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (result <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, err <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Reconcile reconciles a StressChaos resource
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="StressChaosReconciler.SetupWithManager">func (*StressChaosReconciler) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/stresschaos_controller.go#L87">SetupWithManager</a>
+					<a class="permalink" href="#StressChaosReconciler.SetupWithManager">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#StressChaosReconciler">StressChaosReconciler</a>) SetupWithManager(mgr <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a></pre>
+				<p>
+SetupWithManager setups a time chaos reconciler on controller-manager
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="TimeChaosReconciler">type <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/timechaos_controller.go#L34">TimeChaosReconciler</a>
+				<a class="permalink" href="#TimeChaosReconciler">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+TimeChaosReconciler reconciles a TimeChaos object
+</p>
+
+			<pre>type TimeChaosReconciler struct {
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>
+    <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/">record</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/k8s.io/client-go/tools/record/#EventRecorder">EventRecorder</a>
+<span id="TimeChaosReconciler.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="TimeChaosReconciler.Reconcile">func (*TimeChaosReconciler) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/timechaos_controller.go#L45">Reconcile</a>
+					<a class="permalink" href="#TimeChaosReconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#TimeChaosReconciler">TimeChaosReconciler</a>) Reconcile(req <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (result <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, err <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Reconcile reconciles a TimeChaos resource
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TimeChaosReconciler.SetupWithManager">func (*TimeChaosReconciler) <a href="./https:/chaos-mesh.dev/godoc/release-1.0/src/github.com/chaos-mesh/chaos-mesh/controllers/timechaos_controller.go#L85">SetupWithManager</a>
+					<a class="permalink" href="#TimeChaosReconciler.SetupWithManager">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#TimeChaosReconciler">TimeChaosReconciler</a>) SetupWithManager(mgr <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>) <a href="https:/chaos-mesh.dev/godoc/release-1.0/pkg/builtin/#error">error</a></pre>
+				<p>
+SetupWithManager setups a time chaos reconciler on controller-manager
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="common/">common</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="iochaos/">iochaos</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="iochaos/podiochaosmanager/">podiochaosmanager</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="kernelchaos/">kernelchaos</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="metrics/">metrics</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="networkchaos/">networkchaos</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="networkchaos/partition/">partition</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="networkchaos/podnetworkmanager/">podnetworkmanager</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="networkchaos/trafficcontrol/">trafficcontrol</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="podchaos/">podchaos</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="podchaos/containerkill/">containerkill</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="podchaos/podfailure/">podfailure</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="podchaos/podkill/">podkill</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="podiochaos/">podiochaos</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="podnetworkchaos/">podnetworkchaos</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="podnetworkchaos/ipset/">ipset</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="podnetworkchaos/iptable/">iptable</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="podnetworkchaos/netutils/">netutils</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="podnetworkchaos/tc/">tc</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="reconciler/">reconciler</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="stresschaos/">stresschaos</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="test/">test</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="timechaos/">timechaos</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="twophase/">twophase</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
