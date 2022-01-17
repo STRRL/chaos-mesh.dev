@@ -17,8 +17,11 @@ jobs:
       uses: cicirello/generate-sitemap@v1
       with:
         base-url-path: https://chaos-mesh.dev
+    - name: rename sitemap
+      run: |
+        mv sitemap.xml sitemap-html.xml
     - name: Push sitemap to repository
       run: |
-        git add sitemap.xml
+        git add sitemap-html.xml
         git commit -m "update sitemap"
         git push
