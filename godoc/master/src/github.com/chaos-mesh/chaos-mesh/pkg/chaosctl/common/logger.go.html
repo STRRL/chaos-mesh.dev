@@ -23,7 +23,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d37823e. Generated at Mon Jan 17 03:33:48 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 92b6be1. Generated at Mon Jan 17 10:01:46 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -76,8 +76,8 @@
 <span id="L20" class="ln">    20  </span>
 <span id="L21" class="ln">    21  </span>	&#34;github.com/go-logr/logr&#34;
 <span id="L22" class="ln">    22  </span>	&#34;github.com/spf13/pflag&#34;
-<span id="L23" class="ln">    23  </span>	&#34;k8s.io/klog&#34;
-<span id="L24" class="ln">    24  </span>	&#34;k8s.io/klog/klogr&#34;
+<span id="L23" class="ln">    23  </span>	&#34;k8s.io/klog/v2&#34;
+<span id="L24" class="ln">    24  </span>	&#34;k8s.io/klog/v2/klogr&#34;
 <span id="L25" class="ln">    25  </span>)
 <span id="L26" class="ln">    26  </span>
 <span id="L27" class="ln">    27  </span>type LoggerFlushFunc func()
@@ -101,7 +101,7 @@
 <span id="L45" class="ln">    45  </span>}
 <span id="L46" class="ln">    46  </span>
 <span id="L47" class="ln">    47  </span>func L() logr.Logger {
-<span id="L48" class="ln">    48  </span>	if globalLogger == nil {
+<span id="L48" class="ln">    48  </span>	if globalLogger.GetSink() == nil {
 <span id="L49" class="ln">    49  </span>		panic(&#34;global logger not initialized&#34;)
 <span id="L50" class="ln">    50  </span>	}
 <span id="L51" class="ln">    51  </span>	return globalLogger
