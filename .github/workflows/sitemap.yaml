@@ -1,0 +1,23 @@
+name: Generate xml sitemap
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - gh-pages
+
+jobs:
+  sitemap:
+    runs-on: ubuntu-latest
+    name: Generate a sitemap
+    steps:
+    - name: Checkout the repo
+      uses: actions/checkout@v2
+    - name: Generate sitemap
+      uses: cicirello/generate-sitemap@v1
+      with:
+        base-url-path: https://chaos-mesh.dev
+    - name: Push sitemap to repository
+      run: |
+        git add sitemap.xml
+        git commit -m "update sitemap"
+        git push
