@@ -2,3 +2,5 @@ title: chaos-mesh.dev
 description: Documentation site for Chaos Mesh.
 theme: jekyll-theme-cayman
 google_analytics: G-7DESCBGPBX
+plugins:
+  - jekyll-sitemap
