@@ -4,6 +4,3 @@ theme: jekyll-theme-cayman
 google_analytics: G-7DESCBGPBX
 plugins:
   - jekyll-sitemap
-defaults:
-  - scope:
-      path: "**/*.md"
