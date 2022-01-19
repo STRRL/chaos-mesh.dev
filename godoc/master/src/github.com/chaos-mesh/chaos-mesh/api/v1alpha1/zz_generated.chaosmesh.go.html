@@ -23,7 +23,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f771929. Generated at Tue Jan 18 22:10:46 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 618a4cb. Generated at Wed Jan 19 10:01:42 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -228,15 +228,15 @@
 <span id="L172" class="ln">   172  </span>	gw.Default(in)
 <span id="L173" class="ln">   173  </span>}
 <span id="L174" class="ln">   174  </span>
-<span id="L175" class="ln">   175  </span>const KindDNSChaos = &#34;DNSChaos&#34;
+<span id="L175" class="ln">   175  </span>const KindBlockChaos = &#34;BlockChaos&#34;
 <span id="L176" class="ln">   176  </span>
 <span id="L177" class="ln">   177  </span><span class="comment">// IsDeleted returns whether this resource has been deleted</span>
-<span id="L178" class="ln">   178  </span>func (in *DNSChaos) IsDeleted() bool {
+<span id="L178" class="ln">   178  </span>func (in *BlockChaos) IsDeleted() bool {
 <span id="L179" class="ln">   179  </span>	return !in.DeletionTimestamp.IsZero()
 <span id="L180" class="ln">   180  </span>}
 <span id="L181" class="ln">   181  </span>
 <span id="L182" class="ln">   182  </span><span class="comment">// IsPaused returns whether this resource has been paused</span>
-<span id="L183" class="ln">   183  </span>func (in *DNSChaos) IsPaused() bool {
+<span id="L183" class="ln">   183  </span>func (in *BlockChaos) IsPaused() bool {
 <span id="L184" class="ln">   184  </span>	if in.Annotations == nil || in.Annotations[PauseAnnotationKey] != &#34;true&#34; {
 <span id="L185" class="ln">   185  </span>		return false
 <span id="L186" class="ln">   186  </span>	}
@@ -244,12 +244,12 @@
 <span id="L188" class="ln">   188  </span>}
 <span id="L189" class="ln">   189  </span>
 <span id="L190" class="ln">   190  </span><span class="comment">// GetObjectMeta would return the ObjectMeta for chaos</span>
-<span id="L191" class="ln">   191  </span>func (in *DNSChaos) GetObjectMeta() *metav1.ObjectMeta {
+<span id="L191" class="ln">   191  </span>func (in *BlockChaos) GetObjectMeta() *metav1.ObjectMeta {
 <span id="L192" class="ln">   192  </span>	return &amp;in.ObjectMeta
 <span id="L193" class="ln">   193  </span>}
 <span id="L194" class="ln">   194  </span>
 <span id="L195" class="ln">   195  </span><span class="comment">// GetDuration would return the duration for chaos</span>
-<span id="L196" class="ln">   196  </span>func (in *DNSChaosSpec) GetDuration() (*time.Duration, error) {
+<span id="L196" class="ln">   196  </span>func (in *BlockChaosSpec) GetDuration() (*time.Duration, error) {
 <span id="L197" class="ln">   197  </span>	if in.Duration == nil {
 <span id="L198" class="ln">   198  </span>		return nil, nil
 <span id="L199" class="ln">   199  </span>	}
@@ -261,12 +261,12 @@
 <span id="L205" class="ln">   205  </span>}
 <span id="L206" class="ln">   206  </span>
 <span id="L207" class="ln">   207  </span><span class="comment">// GetStatus returns the status</span>
-<span id="L208" class="ln">   208  </span>func (in *DNSChaos) GetStatus() *ChaosStatus {
+<span id="L208" class="ln">   208  </span>func (in *BlockChaos) GetStatus() *ChaosStatus {
 <span id="L209" class="ln">   209  </span>	return &amp;in.Status.ChaosStatus
 <span id="L210" class="ln">   210  </span>}
 <span id="L211" class="ln">   211  </span>
 <span id="L212" class="ln">   212  </span><span class="comment">// GetSpecAndMetaString returns a string including the meta and spec field of this chaos object.</span>
-<span id="L213" class="ln">   213  </span>func (in *DNSChaos) GetSpecAndMetaString() (string, error) {
+<span id="L213" class="ln">   213  </span>func (in *BlockChaos) GetSpecAndMetaString() (string, error) {
 <span id="L214" class="ln">   214  </span>	spec, err := json.Marshal(in.Spec)
 <span id="L215" class="ln">   215  </span>	if err != nil {
 <span id="L216" class="ln">   216  </span>		return &#34;&#34;, err
@@ -281,19 +281,19 @@
 <span id="L225" class="ln">   225  </span>
 <span id="L226" class="ln">   226  </span><span class="comment">// +kubebuilder:object:root=true</span>
 <span id="L227" class="ln">   227  </span>
-<span id="L228" class="ln">   228  </span><span class="comment">// DNSChaosList contains a list of DNSChaos</span>
-<span id="L229" class="ln">   229  </span>type DNSChaosList struct {
+<span id="L228" class="ln">   228  </span><span class="comment">// BlockChaosList contains a list of BlockChaos</span>
+<span id="L229" class="ln">   229  </span>type BlockChaosList struct {
 <span id="L230" class="ln">   230  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
 <span id="L231" class="ln">   231  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
-<span id="L232" class="ln">   232  </span>	Items           []DNSChaos `json:&#34;items&#34;`
+<span id="L232" class="ln">   232  </span>	Items           []BlockChaos `json:&#34;items&#34;`
 <span id="L233" class="ln">   233  </span>}
 <span id="L234" class="ln">   234  </span>
-<span id="L235" class="ln">   235  </span>func (in *DNSChaosList) DeepCopyList() GenericChaosList {
+<span id="L235" class="ln">   235  </span>func (in *BlockChaosList) DeepCopyList() GenericChaosList {
 <span id="L236" class="ln">   236  </span>	return in.DeepCopy()
 <span id="L237" class="ln">   237  </span>}
 <span id="L238" class="ln">   238  </span>
 <span id="L239" class="ln">   239  </span><span class="comment">// ListChaos returns a list of chaos</span>
-<span id="L240" class="ln">   240  </span>func (in *DNSChaosList) ListChaos() []GenericChaos {
+<span id="L240" class="ln">   240  </span>func (in *BlockChaosList) ListChaos() []GenericChaos {
 <span id="L241" class="ln">   241  </span>	var result []GenericChaos
 <span id="L242" class="ln">   242  </span>	for _, item := range in.Items {
 <span id="L243" class="ln">   243  </span>		item := item
@@ -302,7 +302,7 @@
 <span id="L246" class="ln">   246  </span>	return result
 <span id="L247" class="ln">   247  </span>}
 <span id="L248" class="ln">   248  </span>
-<span id="L249" class="ln">   249  </span>func (in *DNSChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
+<span id="L249" class="ln">   249  </span>func (in *BlockChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
 <span id="L250" class="ln">   250  </span>	duration, err := in.Spec.GetDuration()
 <span id="L251" class="ln">   251  </span>	if err != nil {
 <span id="L252" class="ln">   252  </span>		return false, 0, err
@@ -320,56 +320,56 @@
 <span id="L264" class="ln">   264  </span>	return false, 0, nil
 <span id="L265" class="ln">   265  </span>}
 <span id="L266" class="ln">   266  </span>
-<span id="L267" class="ln">   267  </span>func (in *DNSChaos) IsOneShot() bool {
+<span id="L267" class="ln">   267  </span>func (in *BlockChaos) IsOneShot() bool {
 <span id="L268" class="ln">   268  </span>	return false
 <span id="L269" class="ln">   269  </span>}
 <span id="L270" class="ln">   270  </span>
-<span id="L271" class="ln">   271  </span>var DNSChaosWebhookLog = logf.Log.WithName(&#34;DNSChaos-resource&#34;)
+<span id="L271" class="ln">   271  </span>var BlockChaosWebhookLog = logf.Log.WithName(&#34;BlockChaos-resource&#34;)
 <span id="L272" class="ln">   272  </span>
-<span id="L273" class="ln">   273  </span>func (in *DNSChaos) ValidateCreate() error {
-<span id="L274" class="ln">   274  </span>	DNSChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
+<span id="L273" class="ln">   273  </span>func (in *BlockChaos) ValidateCreate() error {
+<span id="L274" class="ln">   274  </span>	BlockChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
 <span id="L275" class="ln">   275  </span>	return in.Validate()
 <span id="L276" class="ln">   276  </span>}
 <span id="L277" class="ln">   277  </span>
 <span id="L278" class="ln">   278  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L279" class="ln">   279  </span>func (in *DNSChaos) ValidateUpdate(old runtime.Object) error {
-<span id="L280" class="ln">   280  </span>	DNSChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
-<span id="L281" class="ln">   281  </span>	if !reflect.DeepEqual(in.Spec, old.(*DNSChaos).Spec) {
+<span id="L279" class="ln">   279  </span>func (in *BlockChaos) ValidateUpdate(old runtime.Object) error {
+<span id="L280" class="ln">   280  </span>	BlockChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
+<span id="L281" class="ln">   281  </span>	if !reflect.DeepEqual(in.Spec, old.(*BlockChaos).Spec) {
 <span id="L282" class="ln">   282  </span>		return ErrCanNotUpdateChaos
 <span id="L283" class="ln">   283  </span>	}
 <span id="L284" class="ln">   284  </span>	return in.Validate()
 <span id="L285" class="ln">   285  </span>}
 <span id="L286" class="ln">   286  </span>
 <span id="L287" class="ln">   287  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L288" class="ln">   288  </span>func (in *DNSChaos) ValidateDelete() error {
-<span id="L289" class="ln">   289  </span>	DNSChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
+<span id="L288" class="ln">   288  </span>func (in *BlockChaos) ValidateDelete() error {
+<span id="L289" class="ln">   289  </span>	BlockChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
 <span id="L290" class="ln">   290  </span>
 <span id="L291" class="ln">   291  </span>	<span class="comment">// Nothing to do?</span>
 <span id="L292" class="ln">   292  </span>	return nil
 <span id="L293" class="ln">   293  </span>}
 <span id="L294" class="ln">   294  </span>
-<span id="L295" class="ln">   295  </span>var _ webhook.Validator = &amp;DNSChaos{}
+<span id="L295" class="ln">   295  </span>var _ webhook.Validator = &amp;BlockChaos{}
 <span id="L296" class="ln">   296  </span>
-<span id="L297" class="ln">   297  </span>func (in *DNSChaos) Validate() error {
+<span id="L297" class="ln">   297  </span>func (in *BlockChaos) Validate() error {
 <span id="L298" class="ln">   298  </span>	errs := gw.Validate(in)
 <span id="L299" class="ln">   299  </span>	return gw.Aggregate(errs)
 <span id="L300" class="ln">   300  </span>}
 <span id="L301" class="ln">   301  </span>
-<span id="L302" class="ln">   302  </span>var _ webhook.Defaulter = &amp;DNSChaos{}
+<span id="L302" class="ln">   302  </span>var _ webhook.Defaulter = &amp;BlockChaos{}
 <span id="L303" class="ln">   303  </span>
-<span id="L304" class="ln">   304  </span>func (in *DNSChaos) Default() {
+<span id="L304" class="ln">   304  </span>func (in *BlockChaos) Default() {
 <span id="L305" class="ln">   305  </span>	gw.Default(in)
 <span id="L306" class="ln">   306  </span>}
 <span id="L307" class="ln">   307  </span>
-<span id="L308" class="ln">   308  </span>const KindGCPChaos = &#34;GCPChaos&#34;
+<span id="L308" class="ln">   308  </span>const KindDNSChaos = &#34;DNSChaos&#34;
 <span id="L309" class="ln">   309  </span>
 <span id="L310" class="ln">   310  </span><span class="comment">// IsDeleted returns whether this resource has been deleted</span>
-<span id="L311" class="ln">   311  </span>func (in *GCPChaos) IsDeleted() bool {
+<span id="L311" class="ln">   311  </span>func (in *DNSChaos) IsDeleted() bool {
 <span id="L312" class="ln">   312  </span>	return !in.DeletionTimestamp.IsZero()
 <span id="L313" class="ln">   313  </span>}
 <span id="L314" class="ln">   314  </span>
 <span id="L315" class="ln">   315  </span><span class="comment">// IsPaused returns whether this resource has been paused</span>
-<span id="L316" class="ln">   316  </span>func (in *GCPChaos) IsPaused() bool {
+<span id="L316" class="ln">   316  </span>func (in *DNSChaos) IsPaused() bool {
 <span id="L317" class="ln">   317  </span>	if in.Annotations == nil || in.Annotations[PauseAnnotationKey] != &#34;true&#34; {
 <span id="L318" class="ln">   318  </span>		return false
 <span id="L319" class="ln">   319  </span>	}
@@ -377,12 +377,12 @@
 <span id="L321" class="ln">   321  </span>}
 <span id="L322" class="ln">   322  </span>
 <span id="L323" class="ln">   323  </span><span class="comment">// GetObjectMeta would return the ObjectMeta for chaos</span>
-<span id="L324" class="ln">   324  </span>func (in *GCPChaos) GetObjectMeta() *metav1.ObjectMeta {
+<span id="L324" class="ln">   324  </span>func (in *DNSChaos) GetObjectMeta() *metav1.ObjectMeta {
 <span id="L325" class="ln">   325  </span>	return &amp;in.ObjectMeta
 <span id="L326" class="ln">   326  </span>}
 <span id="L327" class="ln">   327  </span>
 <span id="L328" class="ln">   328  </span><span class="comment">// GetDuration would return the duration for chaos</span>
-<span id="L329" class="ln">   329  </span>func (in *GCPChaosSpec) GetDuration() (*time.Duration, error) {
+<span id="L329" class="ln">   329  </span>func (in *DNSChaosSpec) GetDuration() (*time.Duration, error) {
 <span id="L330" class="ln">   330  </span>	if in.Duration == nil {
 <span id="L331" class="ln">   331  </span>		return nil, nil
 <span id="L332" class="ln">   332  </span>	}
@@ -394,12 +394,12 @@
 <span id="L338" class="ln">   338  </span>}
 <span id="L339" class="ln">   339  </span>
 <span id="L340" class="ln">   340  </span><span class="comment">// GetStatus returns the status</span>
-<span id="L341" class="ln">   341  </span>func (in *GCPChaos) GetStatus() *ChaosStatus {
+<span id="L341" class="ln">   341  </span>func (in *DNSChaos) GetStatus() *ChaosStatus {
 <span id="L342" class="ln">   342  </span>	return &amp;in.Status.ChaosStatus
 <span id="L343" class="ln">   343  </span>}
 <span id="L344" class="ln">   344  </span>
 <span id="L345" class="ln">   345  </span><span class="comment">// GetSpecAndMetaString returns a string including the meta and spec field of this chaos object.</span>
-<span id="L346" class="ln">   346  </span>func (in *GCPChaos) GetSpecAndMetaString() (string, error) {
+<span id="L346" class="ln">   346  </span>func (in *DNSChaos) GetSpecAndMetaString() (string, error) {
 <span id="L347" class="ln">   347  </span>	spec, err := json.Marshal(in.Spec)
 <span id="L348" class="ln">   348  </span>	if err != nil {
 <span id="L349" class="ln">   349  </span>		return &#34;&#34;, err
@@ -414,19 +414,19 @@
 <span id="L358" class="ln">   358  </span>
 <span id="L359" class="ln">   359  </span><span class="comment">// +kubebuilder:object:root=true</span>
 <span id="L360" class="ln">   360  </span>
-<span id="L361" class="ln">   361  </span><span class="comment">// GCPChaosList contains a list of GCPChaos</span>
-<span id="L362" class="ln">   362  </span>type GCPChaosList struct {
+<span id="L361" class="ln">   361  </span><span class="comment">// DNSChaosList contains a list of DNSChaos</span>
+<span id="L362" class="ln">   362  </span>type DNSChaosList struct {
 <span id="L363" class="ln">   363  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
 <span id="L364" class="ln">   364  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
-<span id="L365" class="ln">   365  </span>	Items           []GCPChaos `json:&#34;items&#34;`
+<span id="L365" class="ln">   365  </span>	Items           []DNSChaos `json:&#34;items&#34;`
 <span id="L366" class="ln">   366  </span>}
 <span id="L367" class="ln">   367  </span>
-<span id="L368" class="ln">   368  </span>func (in *GCPChaosList) DeepCopyList() GenericChaosList {
+<span id="L368" class="ln">   368  </span>func (in *DNSChaosList) DeepCopyList() GenericChaosList {
 <span id="L369" class="ln">   369  </span>	return in.DeepCopy()
 <span id="L370" class="ln">   370  </span>}
 <span id="L371" class="ln">   371  </span>
 <span id="L372" class="ln">   372  </span><span class="comment">// ListChaos returns a list of chaos</span>
-<span id="L373" class="ln">   373  </span>func (in *GCPChaosList) ListChaos() []GenericChaos {
+<span id="L373" class="ln">   373  </span>func (in *DNSChaosList) ListChaos() []GenericChaos {
 <span id="L374" class="ln">   374  </span>	var result []GenericChaos
 <span id="L375" class="ln">   375  </span>	for _, item := range in.Items {
 <span id="L376" class="ln">   376  </span>		item := item
@@ -435,7 +435,7 @@
 <span id="L379" class="ln">   379  </span>	return result
 <span id="L380" class="ln">   380  </span>}
 <span id="L381" class="ln">   381  </span>
-<span id="L382" class="ln">   382  </span>func (in *GCPChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
+<span id="L382" class="ln">   382  </span>func (in *DNSChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
 <span id="L383" class="ln">   383  </span>	duration, err := in.Spec.GetDuration()
 <span id="L384" class="ln">   384  </span>	if err != nil {
 <span id="L385" class="ln">   385  </span>		return false, 0, err
@@ -453,193 +453,193 @@
 <span id="L397" class="ln">   397  </span>	return false, 0, nil
 <span id="L398" class="ln">   398  </span>}
 <span id="L399" class="ln">   399  </span>
-<span id="L400" class="ln">   400  </span>func (in *GCPChaos) IsOneShot() bool {
-<span id="L401" class="ln">   401  </span>	if in.Spec.Action==NodeReset {
-<span id="L402" class="ln">   402  </span>		return true
-<span id="L403" class="ln">   403  </span>	}
-<span id="L404" class="ln">   404  </span>
-<span id="L405" class="ln">   405  </span>	return false
-<span id="L406" class="ln">   406  </span>}
-<span id="L407" class="ln">   407  </span>
-<span id="L408" class="ln">   408  </span>var GCPChaosWebhookLog = logf.Log.WithName(&#34;GCPChaos-resource&#34;)
-<span id="L409" class="ln">   409  </span>
-<span id="L410" class="ln">   410  </span>func (in *GCPChaos) ValidateCreate() error {
-<span id="L411" class="ln">   411  </span>	GCPChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
-<span id="L412" class="ln">   412  </span>	return in.Validate()
-<span id="L413" class="ln">   413  </span>}
-<span id="L414" class="ln">   414  </span>
-<span id="L415" class="ln">   415  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L416" class="ln">   416  </span>func (in *GCPChaos) ValidateUpdate(old runtime.Object) error {
-<span id="L417" class="ln">   417  </span>	GCPChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
-<span id="L418" class="ln">   418  </span>	if !reflect.DeepEqual(in.Spec, old.(*GCPChaos).Spec) {
-<span id="L419" class="ln">   419  </span>		return ErrCanNotUpdateChaos
-<span id="L420" class="ln">   420  </span>	}
-<span id="L421" class="ln">   421  </span>	return in.Validate()
-<span id="L422" class="ln">   422  </span>}
+<span id="L400" class="ln">   400  </span>func (in *DNSChaos) IsOneShot() bool {
+<span id="L401" class="ln">   401  </span>	return false
+<span id="L402" class="ln">   402  </span>}
+<span id="L403" class="ln">   403  </span>
+<span id="L404" class="ln">   404  </span>var DNSChaosWebhookLog = logf.Log.WithName(&#34;DNSChaos-resource&#34;)
+<span id="L405" class="ln">   405  </span>
+<span id="L406" class="ln">   406  </span>func (in *DNSChaos) ValidateCreate() error {
+<span id="L407" class="ln">   407  </span>	DNSChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
+<span id="L408" class="ln">   408  </span>	return in.Validate()
+<span id="L409" class="ln">   409  </span>}
+<span id="L410" class="ln">   410  </span>
+<span id="L411" class="ln">   411  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
+<span id="L412" class="ln">   412  </span>func (in *DNSChaos) ValidateUpdate(old runtime.Object) error {
+<span id="L413" class="ln">   413  </span>	DNSChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
+<span id="L414" class="ln">   414  </span>	if !reflect.DeepEqual(in.Spec, old.(*DNSChaos).Spec) {
+<span id="L415" class="ln">   415  </span>		return ErrCanNotUpdateChaos
+<span id="L416" class="ln">   416  </span>	}
+<span id="L417" class="ln">   417  </span>	return in.Validate()
+<span id="L418" class="ln">   418  </span>}
+<span id="L419" class="ln">   419  </span>
+<span id="L420" class="ln">   420  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
+<span id="L421" class="ln">   421  </span>func (in *DNSChaos) ValidateDelete() error {
+<span id="L422" class="ln">   422  </span>	DNSChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
 <span id="L423" class="ln">   423  </span>
-<span id="L424" class="ln">   424  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L425" class="ln">   425  </span>func (in *GCPChaos) ValidateDelete() error {
-<span id="L426" class="ln">   426  </span>	GCPChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
+<span id="L424" class="ln">   424  </span>	<span class="comment">// Nothing to do?</span>
+<span id="L425" class="ln">   425  </span>	return nil
+<span id="L426" class="ln">   426  </span>}
 <span id="L427" class="ln">   427  </span>
-<span id="L428" class="ln">   428  </span>	<span class="comment">// Nothing to do?</span>
-<span id="L429" class="ln">   429  </span>	return nil
-<span id="L430" class="ln">   430  </span>}
-<span id="L431" class="ln">   431  </span>
-<span id="L432" class="ln">   432  </span>var _ webhook.Validator = &amp;GCPChaos{}
-<span id="L433" class="ln">   433  </span>
-<span id="L434" class="ln">   434  </span>func (in *GCPChaos) Validate() error {
-<span id="L435" class="ln">   435  </span>	errs := gw.Validate(in)
-<span id="L436" class="ln">   436  </span>	return gw.Aggregate(errs)
-<span id="L437" class="ln">   437  </span>}
-<span id="L438" class="ln">   438  </span>
-<span id="L439" class="ln">   439  </span>var _ webhook.Defaulter = &amp;GCPChaos{}
+<span id="L428" class="ln">   428  </span>var _ webhook.Validator = &amp;DNSChaos{}
+<span id="L429" class="ln">   429  </span>
+<span id="L430" class="ln">   430  </span>func (in *DNSChaos) Validate() error {
+<span id="L431" class="ln">   431  </span>	errs := gw.Validate(in)
+<span id="L432" class="ln">   432  </span>	return gw.Aggregate(errs)
+<span id="L433" class="ln">   433  </span>}
+<span id="L434" class="ln">   434  </span>
+<span id="L435" class="ln">   435  </span>var _ webhook.Defaulter = &amp;DNSChaos{}
+<span id="L436" class="ln">   436  </span>
+<span id="L437" class="ln">   437  </span>func (in *DNSChaos) Default() {
+<span id="L438" class="ln">   438  </span>	gw.Default(in)
+<span id="L439" class="ln">   439  </span>}
 <span id="L440" class="ln">   440  </span>
-<span id="L441" class="ln">   441  </span>func (in *GCPChaos) Default() {
-<span id="L442" class="ln">   442  </span>	gw.Default(in)
-<span id="L443" class="ln">   443  </span>}
-<span id="L444" class="ln">   444  </span>
-<span id="L445" class="ln">   445  </span>const KindHTTPChaos = &#34;HTTPChaos&#34;
-<span id="L446" class="ln">   446  </span>
-<span id="L447" class="ln">   447  </span><span class="comment">// IsDeleted returns whether this resource has been deleted</span>
-<span id="L448" class="ln">   448  </span>func (in *HTTPChaos) IsDeleted() bool {
-<span id="L449" class="ln">   449  </span>	return !in.DeletionTimestamp.IsZero()
-<span id="L450" class="ln">   450  </span>}
-<span id="L451" class="ln">   451  </span>
-<span id="L452" class="ln">   452  </span><span class="comment">// IsPaused returns whether this resource has been paused</span>
-<span id="L453" class="ln">   453  </span>func (in *HTTPChaos) IsPaused() bool {
-<span id="L454" class="ln">   454  </span>	if in.Annotations == nil || in.Annotations[PauseAnnotationKey] != &#34;true&#34; {
-<span id="L455" class="ln">   455  </span>		return false
-<span id="L456" class="ln">   456  </span>	}
-<span id="L457" class="ln">   457  </span>	return true
-<span id="L458" class="ln">   458  </span>}
-<span id="L459" class="ln">   459  </span>
-<span id="L460" class="ln">   460  </span><span class="comment">// GetObjectMeta would return the ObjectMeta for chaos</span>
-<span id="L461" class="ln">   461  </span>func (in *HTTPChaos) GetObjectMeta() *metav1.ObjectMeta {
-<span id="L462" class="ln">   462  </span>	return &amp;in.ObjectMeta
-<span id="L463" class="ln">   463  </span>}
-<span id="L464" class="ln">   464  </span>
-<span id="L465" class="ln">   465  </span><span class="comment">// GetDuration would return the duration for chaos</span>
-<span id="L466" class="ln">   466  </span>func (in *HTTPChaosSpec) GetDuration() (*time.Duration, error) {
-<span id="L467" class="ln">   467  </span>	if in.Duration == nil {
-<span id="L468" class="ln">   468  </span>		return nil, nil
+<span id="L441" class="ln">   441  </span>const KindGCPChaos = &#34;GCPChaos&#34;
+<span id="L442" class="ln">   442  </span>
+<span id="L443" class="ln">   443  </span><span class="comment">// IsDeleted returns whether this resource has been deleted</span>
+<span id="L444" class="ln">   444  </span>func (in *GCPChaos) IsDeleted() bool {
+<span id="L445" class="ln">   445  </span>	return !in.DeletionTimestamp.IsZero()
+<span id="L446" class="ln">   446  </span>}
+<span id="L447" class="ln">   447  </span>
+<span id="L448" class="ln">   448  </span><span class="comment">// IsPaused returns whether this resource has been paused</span>
+<span id="L449" class="ln">   449  </span>func (in *GCPChaos) IsPaused() bool {
+<span id="L450" class="ln">   450  </span>	if in.Annotations == nil || in.Annotations[PauseAnnotationKey] != &#34;true&#34; {
+<span id="L451" class="ln">   451  </span>		return false
+<span id="L452" class="ln">   452  </span>	}
+<span id="L453" class="ln">   453  </span>	return true
+<span id="L454" class="ln">   454  </span>}
+<span id="L455" class="ln">   455  </span>
+<span id="L456" class="ln">   456  </span><span class="comment">// GetObjectMeta would return the ObjectMeta for chaos</span>
+<span id="L457" class="ln">   457  </span>func (in *GCPChaos) GetObjectMeta() *metav1.ObjectMeta {
+<span id="L458" class="ln">   458  </span>	return &amp;in.ObjectMeta
+<span id="L459" class="ln">   459  </span>}
+<span id="L460" class="ln">   460  </span>
+<span id="L461" class="ln">   461  </span><span class="comment">// GetDuration would return the duration for chaos</span>
+<span id="L462" class="ln">   462  </span>func (in *GCPChaosSpec) GetDuration() (*time.Duration, error) {
+<span id="L463" class="ln">   463  </span>	if in.Duration == nil {
+<span id="L464" class="ln">   464  </span>		return nil, nil
+<span id="L465" class="ln">   465  </span>	}
+<span id="L466" class="ln">   466  </span>	duration, err := time.ParseDuration(string(*in.Duration))
+<span id="L467" class="ln">   467  </span>	if err != nil {
+<span id="L468" class="ln">   468  </span>		return nil, err
 <span id="L469" class="ln">   469  </span>	}
-<span id="L470" class="ln">   470  </span>	duration, err := time.ParseDuration(string(*in.Duration))
-<span id="L471" class="ln">   471  </span>	if err != nil {
-<span id="L472" class="ln">   472  </span>		return nil, err
-<span id="L473" class="ln">   473  </span>	}
-<span id="L474" class="ln">   474  </span>	return &amp;duration, nil
-<span id="L475" class="ln">   475  </span>}
-<span id="L476" class="ln">   476  </span>
-<span id="L477" class="ln">   477  </span><span class="comment">// GetStatus returns the status</span>
-<span id="L478" class="ln">   478  </span>func (in *HTTPChaos) GetStatus() *ChaosStatus {
-<span id="L479" class="ln">   479  </span>	return &amp;in.Status.ChaosStatus
-<span id="L480" class="ln">   480  </span>}
-<span id="L481" class="ln">   481  </span>
-<span id="L482" class="ln">   482  </span><span class="comment">// GetSpecAndMetaString returns a string including the meta and spec field of this chaos object.</span>
-<span id="L483" class="ln">   483  </span>func (in *HTTPChaos) GetSpecAndMetaString() (string, error) {
-<span id="L484" class="ln">   484  </span>	spec, err := json.Marshal(in.Spec)
-<span id="L485" class="ln">   485  </span>	if err != nil {
-<span id="L486" class="ln">   486  </span>		return &#34;&#34;, err
-<span id="L487" class="ln">   487  </span>	}
+<span id="L470" class="ln">   470  </span>	return &amp;duration, nil
+<span id="L471" class="ln">   471  </span>}
+<span id="L472" class="ln">   472  </span>
+<span id="L473" class="ln">   473  </span><span class="comment">// GetStatus returns the status</span>
+<span id="L474" class="ln">   474  </span>func (in *GCPChaos) GetStatus() *ChaosStatus {
+<span id="L475" class="ln">   475  </span>	return &amp;in.Status.ChaosStatus
+<span id="L476" class="ln">   476  </span>}
+<span id="L477" class="ln">   477  </span>
+<span id="L478" class="ln">   478  </span><span class="comment">// GetSpecAndMetaString returns a string including the meta and spec field of this chaos object.</span>
+<span id="L479" class="ln">   479  </span>func (in *GCPChaos) GetSpecAndMetaString() (string, error) {
+<span id="L480" class="ln">   480  </span>	spec, err := json.Marshal(in.Spec)
+<span id="L481" class="ln">   481  </span>	if err != nil {
+<span id="L482" class="ln">   482  </span>		return &#34;&#34;, err
+<span id="L483" class="ln">   483  </span>	}
+<span id="L484" class="ln">   484  </span>
+<span id="L485" class="ln">   485  </span>	meta := in.ObjectMeta.DeepCopy()
+<span id="L486" class="ln">   486  </span>	meta.SetResourceVersion(&#34;&#34;)
+<span id="L487" class="ln">   487  </span>	meta.SetGeneration(0)
 <span id="L488" class="ln">   488  </span>
-<span id="L489" class="ln">   489  </span>	meta := in.ObjectMeta.DeepCopy()
-<span id="L490" class="ln">   490  </span>	meta.SetResourceVersion(&#34;&#34;)
-<span id="L491" class="ln">   491  </span>	meta.SetGeneration(0)
-<span id="L492" class="ln">   492  </span>
-<span id="L493" class="ln">   493  </span>	return string(spec) + meta.String(), nil
-<span id="L494" class="ln">   494  </span>}
-<span id="L495" class="ln">   495  </span>
-<span id="L496" class="ln">   496  </span><span class="comment">// +kubebuilder:object:root=true</span>
-<span id="L497" class="ln">   497  </span>
-<span id="L498" class="ln">   498  </span><span class="comment">// HTTPChaosList contains a list of HTTPChaos</span>
-<span id="L499" class="ln">   499  </span>type HTTPChaosList struct {
-<span id="L500" class="ln">   500  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
-<span id="L501" class="ln">   501  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
-<span id="L502" class="ln">   502  </span>	Items           []HTTPChaos `json:&#34;items&#34;`
+<span id="L489" class="ln">   489  </span>	return string(spec) + meta.String(), nil
+<span id="L490" class="ln">   490  </span>}
+<span id="L491" class="ln">   491  </span>
+<span id="L492" class="ln">   492  </span><span class="comment">// +kubebuilder:object:root=true</span>
+<span id="L493" class="ln">   493  </span>
+<span id="L494" class="ln">   494  </span><span class="comment">// GCPChaosList contains a list of GCPChaos</span>
+<span id="L495" class="ln">   495  </span>type GCPChaosList struct {
+<span id="L496" class="ln">   496  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
+<span id="L497" class="ln">   497  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
+<span id="L498" class="ln">   498  </span>	Items           []GCPChaos `json:&#34;items&#34;`
+<span id="L499" class="ln">   499  </span>}
+<span id="L500" class="ln">   500  </span>
+<span id="L501" class="ln">   501  </span>func (in *GCPChaosList) DeepCopyList() GenericChaosList {
+<span id="L502" class="ln">   502  </span>	return in.DeepCopy()
 <span id="L503" class="ln">   503  </span>}
 <span id="L504" class="ln">   504  </span>
-<span id="L505" class="ln">   505  </span>func (in *HTTPChaosList) DeepCopyList() GenericChaosList {
-<span id="L506" class="ln">   506  </span>	return in.DeepCopy()
-<span id="L507" class="ln">   507  </span>}
-<span id="L508" class="ln">   508  </span>
-<span id="L509" class="ln">   509  </span><span class="comment">// ListChaos returns a list of chaos</span>
-<span id="L510" class="ln">   510  </span>func (in *HTTPChaosList) ListChaos() []GenericChaos {
-<span id="L511" class="ln">   511  </span>	var result []GenericChaos
-<span id="L512" class="ln">   512  </span>	for _, item := range in.Items {
-<span id="L513" class="ln">   513  </span>		item := item
-<span id="L514" class="ln">   514  </span>		result = append(result, &amp;item)
-<span id="L515" class="ln">   515  </span>	}
-<span id="L516" class="ln">   516  </span>	return result
-<span id="L517" class="ln">   517  </span>}
-<span id="L518" class="ln">   518  </span>
-<span id="L519" class="ln">   519  </span>func (in *HTTPChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
-<span id="L520" class="ln">   520  </span>	duration, err := in.Spec.GetDuration()
-<span id="L521" class="ln">   521  </span>	if err != nil {
-<span id="L522" class="ln">   522  </span>		return false, 0, err
-<span id="L523" class="ln">   523  </span>	}
-<span id="L524" class="ln">   524  </span>
-<span id="L525" class="ln">   525  </span>	if duration != nil {
-<span id="L526" class="ln">   526  </span>		stopTime := in.GetCreationTimestamp().Add(*duration)
-<span id="L527" class="ln">   527  </span>		if stopTime.Before(now) {
-<span id="L528" class="ln">   528  </span>			return true, 0, nil
-<span id="L529" class="ln">   529  </span>		}
-<span id="L530" class="ln">   530  </span>
-<span id="L531" class="ln">   531  </span>		return false, stopTime.Sub(now), nil
-<span id="L532" class="ln">   532  </span>	}
-<span id="L533" class="ln">   533  </span>
-<span id="L534" class="ln">   534  </span>	return false, 0, nil
-<span id="L535" class="ln">   535  </span>}
-<span id="L536" class="ln">   536  </span>
-<span id="L537" class="ln">   537  </span>func (in *HTTPChaos) IsOneShot() bool {
+<span id="L505" class="ln">   505  </span><span class="comment">// ListChaos returns a list of chaos</span>
+<span id="L506" class="ln">   506  </span>func (in *GCPChaosList) ListChaos() []GenericChaos {
+<span id="L507" class="ln">   507  </span>	var result []GenericChaos
+<span id="L508" class="ln">   508  </span>	for _, item := range in.Items {
+<span id="L509" class="ln">   509  </span>		item := item
+<span id="L510" class="ln">   510  </span>		result = append(result, &amp;item)
+<span id="L511" class="ln">   511  </span>	}
+<span id="L512" class="ln">   512  </span>	return result
+<span id="L513" class="ln">   513  </span>}
+<span id="L514" class="ln">   514  </span>
+<span id="L515" class="ln">   515  </span>func (in *GCPChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
+<span id="L516" class="ln">   516  </span>	duration, err := in.Spec.GetDuration()
+<span id="L517" class="ln">   517  </span>	if err != nil {
+<span id="L518" class="ln">   518  </span>		return false, 0, err
+<span id="L519" class="ln">   519  </span>	}
+<span id="L520" class="ln">   520  </span>
+<span id="L521" class="ln">   521  </span>	if duration != nil {
+<span id="L522" class="ln">   522  </span>		stopTime := in.GetCreationTimestamp().Add(*duration)
+<span id="L523" class="ln">   523  </span>		if stopTime.Before(now) {
+<span id="L524" class="ln">   524  </span>			return true, 0, nil
+<span id="L525" class="ln">   525  </span>		}
+<span id="L526" class="ln">   526  </span>
+<span id="L527" class="ln">   527  </span>		return false, stopTime.Sub(now), nil
+<span id="L528" class="ln">   528  </span>	}
+<span id="L529" class="ln">   529  </span>
+<span id="L530" class="ln">   530  </span>	return false, 0, nil
+<span id="L531" class="ln">   531  </span>}
+<span id="L532" class="ln">   532  </span>
+<span id="L533" class="ln">   533  </span>func (in *GCPChaos) IsOneShot() bool {
+<span id="L534" class="ln">   534  </span>	if in.Spec.Action==NodeReset {
+<span id="L535" class="ln">   535  </span>		return true
+<span id="L536" class="ln">   536  </span>	}
+<span id="L537" class="ln">   537  </span>
 <span id="L538" class="ln">   538  </span>	return false
 <span id="L539" class="ln">   539  </span>}
 <span id="L540" class="ln">   540  </span>
-<span id="L541" class="ln">   541  </span>var HTTPChaosWebhookLog = logf.Log.WithName(&#34;HTTPChaos-resource&#34;)
+<span id="L541" class="ln">   541  </span>var GCPChaosWebhookLog = logf.Log.WithName(&#34;GCPChaos-resource&#34;)
 <span id="L542" class="ln">   542  </span>
-<span id="L543" class="ln">   543  </span>func (in *HTTPChaos) ValidateCreate() error {
-<span id="L544" class="ln">   544  </span>	HTTPChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
+<span id="L543" class="ln">   543  </span>func (in *GCPChaos) ValidateCreate() error {
+<span id="L544" class="ln">   544  </span>	GCPChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
 <span id="L545" class="ln">   545  </span>	return in.Validate()
 <span id="L546" class="ln">   546  </span>}
 <span id="L547" class="ln">   547  </span>
 <span id="L548" class="ln">   548  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L549" class="ln">   549  </span>func (in *HTTPChaos) ValidateUpdate(old runtime.Object) error {
-<span id="L550" class="ln">   550  </span>	HTTPChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
-<span id="L551" class="ln">   551  </span>	if !reflect.DeepEqual(in.Spec, old.(*HTTPChaos).Spec) {
+<span id="L549" class="ln">   549  </span>func (in *GCPChaos) ValidateUpdate(old runtime.Object) error {
+<span id="L550" class="ln">   550  </span>	GCPChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
+<span id="L551" class="ln">   551  </span>	if !reflect.DeepEqual(in.Spec, old.(*GCPChaos).Spec) {
 <span id="L552" class="ln">   552  </span>		return ErrCanNotUpdateChaos
 <span id="L553" class="ln">   553  </span>	}
 <span id="L554" class="ln">   554  </span>	return in.Validate()
 <span id="L555" class="ln">   555  </span>}
 <span id="L556" class="ln">   556  </span>
 <span id="L557" class="ln">   557  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L558" class="ln">   558  </span>func (in *HTTPChaos) ValidateDelete() error {
-<span id="L559" class="ln">   559  </span>	HTTPChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
+<span id="L558" class="ln">   558  </span>func (in *GCPChaos) ValidateDelete() error {
+<span id="L559" class="ln">   559  </span>	GCPChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
 <span id="L560" class="ln">   560  </span>
 <span id="L561" class="ln">   561  </span>	<span class="comment">// Nothing to do?</span>
 <span id="L562" class="ln">   562  </span>	return nil
 <span id="L563" class="ln">   563  </span>}
 <span id="L564" class="ln">   564  </span>
-<span id="L565" class="ln">   565  </span>var _ webhook.Validator = &amp;HTTPChaos{}
+<span id="L565" class="ln">   565  </span>var _ webhook.Validator = &amp;GCPChaos{}
 <span id="L566" class="ln">   566  </span>
-<span id="L567" class="ln">   567  </span>func (in *HTTPChaos) Validate() error {
+<span id="L567" class="ln">   567  </span>func (in *GCPChaos) Validate() error {
 <span id="L568" class="ln">   568  </span>	errs := gw.Validate(in)
 <span id="L569" class="ln">   569  </span>	return gw.Aggregate(errs)
 <span id="L570" class="ln">   570  </span>}
 <span id="L571" class="ln">   571  </span>
-<span id="L572" class="ln">   572  </span>var _ webhook.Defaulter = &amp;HTTPChaos{}
+<span id="L572" class="ln">   572  </span>var _ webhook.Defaulter = &amp;GCPChaos{}
 <span id="L573" class="ln">   573  </span>
-<span id="L574" class="ln">   574  </span>func (in *HTTPChaos) Default() {
+<span id="L574" class="ln">   574  </span>func (in *GCPChaos) Default() {
 <span id="L575" class="ln">   575  </span>	gw.Default(in)
 <span id="L576" class="ln">   576  </span>}
 <span id="L577" class="ln">   577  </span>
-<span id="L578" class="ln">   578  </span>const KindIOChaos = &#34;IOChaos&#34;
+<span id="L578" class="ln">   578  </span>const KindHTTPChaos = &#34;HTTPChaos&#34;
 <span id="L579" class="ln">   579  </span>
 <span id="L580" class="ln">   580  </span><span class="comment">// IsDeleted returns whether this resource has been deleted</span>
-<span id="L581" class="ln">   581  </span>func (in *IOChaos) IsDeleted() bool {
+<span id="L581" class="ln">   581  </span>func (in *HTTPChaos) IsDeleted() bool {
 <span id="L582" class="ln">   582  </span>	return !in.DeletionTimestamp.IsZero()
 <span id="L583" class="ln">   583  </span>}
 <span id="L584" class="ln">   584  </span>
 <span id="L585" class="ln">   585  </span><span class="comment">// IsPaused returns whether this resource has been paused</span>
-<span id="L586" class="ln">   586  </span>func (in *IOChaos) IsPaused() bool {
+<span id="L586" class="ln">   586  </span>func (in *HTTPChaos) IsPaused() bool {
 <span id="L587" class="ln">   587  </span>	if in.Annotations == nil || in.Annotations[PauseAnnotationKey] != &#34;true&#34; {
 <span id="L588" class="ln">   588  </span>		return false
 <span id="L589" class="ln">   589  </span>	}
@@ -647,12 +647,12 @@
 <span id="L591" class="ln">   591  </span>}
 <span id="L592" class="ln">   592  </span>
 <span id="L593" class="ln">   593  </span><span class="comment">// GetObjectMeta would return the ObjectMeta for chaos</span>
-<span id="L594" class="ln">   594  </span>func (in *IOChaos) GetObjectMeta() *metav1.ObjectMeta {
+<span id="L594" class="ln">   594  </span>func (in *HTTPChaos) GetObjectMeta() *metav1.ObjectMeta {
 <span id="L595" class="ln">   595  </span>	return &amp;in.ObjectMeta
 <span id="L596" class="ln">   596  </span>}
 <span id="L597" class="ln">   597  </span>
 <span id="L598" class="ln">   598  </span><span class="comment">// GetDuration would return the duration for chaos</span>
-<span id="L599" class="ln">   599  </span>func (in *IOChaosSpec) GetDuration() (*time.Duration, error) {
+<span id="L599" class="ln">   599  </span>func (in *HTTPChaosSpec) GetDuration() (*time.Duration, error) {
 <span id="L600" class="ln">   600  </span>	if in.Duration == nil {
 <span id="L601" class="ln">   601  </span>		return nil, nil
 <span id="L602" class="ln">   602  </span>	}
@@ -664,12 +664,12 @@
 <span id="L608" class="ln">   608  </span>}
 <span id="L609" class="ln">   609  </span>
 <span id="L610" class="ln">   610  </span><span class="comment">// GetStatus returns the status</span>
-<span id="L611" class="ln">   611  </span>func (in *IOChaos) GetStatus() *ChaosStatus {
+<span id="L611" class="ln">   611  </span>func (in *HTTPChaos) GetStatus() *ChaosStatus {
 <span id="L612" class="ln">   612  </span>	return &amp;in.Status.ChaosStatus
 <span id="L613" class="ln">   613  </span>}
 <span id="L614" class="ln">   614  </span>
 <span id="L615" class="ln">   615  </span><span class="comment">// GetSpecAndMetaString returns a string including the meta and spec field of this chaos object.</span>
-<span id="L616" class="ln">   616  </span>func (in *IOChaos) GetSpecAndMetaString() (string, error) {
+<span id="L616" class="ln">   616  </span>func (in *HTTPChaos) GetSpecAndMetaString() (string, error) {
 <span id="L617" class="ln">   617  </span>	spec, err := json.Marshal(in.Spec)
 <span id="L618" class="ln">   618  </span>	if err != nil {
 <span id="L619" class="ln">   619  </span>		return &#34;&#34;, err
@@ -684,19 +684,19 @@
 <span id="L628" class="ln">   628  </span>
 <span id="L629" class="ln">   629  </span><span class="comment">// +kubebuilder:object:root=true</span>
 <span id="L630" class="ln">   630  </span>
-<span id="L631" class="ln">   631  </span><span class="comment">// IOChaosList contains a list of IOChaos</span>
-<span id="L632" class="ln">   632  </span>type IOChaosList struct {
+<span id="L631" class="ln">   631  </span><span class="comment">// HTTPChaosList contains a list of HTTPChaos</span>
+<span id="L632" class="ln">   632  </span>type HTTPChaosList struct {
 <span id="L633" class="ln">   633  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
 <span id="L634" class="ln">   634  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
-<span id="L635" class="ln">   635  </span>	Items           []IOChaos `json:&#34;items&#34;`
+<span id="L635" class="ln">   635  </span>	Items           []HTTPChaos `json:&#34;items&#34;`
 <span id="L636" class="ln">   636  </span>}
 <span id="L637" class="ln">   637  </span>
-<span id="L638" class="ln">   638  </span>func (in *IOChaosList) DeepCopyList() GenericChaosList {
+<span id="L638" class="ln">   638  </span>func (in *HTTPChaosList) DeepCopyList() GenericChaosList {
 <span id="L639" class="ln">   639  </span>	return in.DeepCopy()
 <span id="L640" class="ln">   640  </span>}
 <span id="L641" class="ln">   641  </span>
 <span id="L642" class="ln">   642  </span><span class="comment">// ListChaos returns a list of chaos</span>
-<span id="L643" class="ln">   643  </span>func (in *IOChaosList) ListChaos() []GenericChaos {
+<span id="L643" class="ln">   643  </span>func (in *HTTPChaosList) ListChaos() []GenericChaos {
 <span id="L644" class="ln">   644  </span>	var result []GenericChaos
 <span id="L645" class="ln">   645  </span>	for _, item := range in.Items {
 <span id="L646" class="ln">   646  </span>		item := item
@@ -705,7 +705,7 @@
 <span id="L649" class="ln">   649  </span>	return result
 <span id="L650" class="ln">   650  </span>}
 <span id="L651" class="ln">   651  </span>
-<span id="L652" class="ln">   652  </span>func (in *IOChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
+<span id="L652" class="ln">   652  </span>func (in *HTTPChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
 <span id="L653" class="ln">   653  </span>	duration, err := in.Spec.GetDuration()
 <span id="L654" class="ln">   654  </span>	if err != nil {
 <span id="L655" class="ln">   655  </span>		return false, 0, err
@@ -723,56 +723,56 @@
 <span id="L667" class="ln">   667  </span>	return false, 0, nil
 <span id="L668" class="ln">   668  </span>}
 <span id="L669" class="ln">   669  </span>
-<span id="L670" class="ln">   670  </span>func (in *IOChaos) IsOneShot() bool {
+<span id="L670" class="ln">   670  </span>func (in *HTTPChaos) IsOneShot() bool {
 <span id="L671" class="ln">   671  </span>	return false
 <span id="L672" class="ln">   672  </span>}
 <span id="L673" class="ln">   673  </span>
-<span id="L674" class="ln">   674  </span>var IOChaosWebhookLog = logf.Log.WithName(&#34;IOChaos-resource&#34;)
+<span id="L674" class="ln">   674  </span>var HTTPChaosWebhookLog = logf.Log.WithName(&#34;HTTPChaos-resource&#34;)
 <span id="L675" class="ln">   675  </span>
-<span id="L676" class="ln">   676  </span>func (in *IOChaos) ValidateCreate() error {
-<span id="L677" class="ln">   677  </span>	IOChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
+<span id="L676" class="ln">   676  </span>func (in *HTTPChaos) ValidateCreate() error {
+<span id="L677" class="ln">   677  </span>	HTTPChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
 <span id="L678" class="ln">   678  </span>	return in.Validate()
 <span id="L679" class="ln">   679  </span>}
 <span id="L680" class="ln">   680  </span>
 <span id="L681" class="ln">   681  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L682" class="ln">   682  </span>func (in *IOChaos) ValidateUpdate(old runtime.Object) error {
-<span id="L683" class="ln">   683  </span>	IOChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
-<span id="L684" class="ln">   684  </span>	if !reflect.DeepEqual(in.Spec, old.(*IOChaos).Spec) {
+<span id="L682" class="ln">   682  </span>func (in *HTTPChaos) ValidateUpdate(old runtime.Object) error {
+<span id="L683" class="ln">   683  </span>	HTTPChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
+<span id="L684" class="ln">   684  </span>	if !reflect.DeepEqual(in.Spec, old.(*HTTPChaos).Spec) {
 <span id="L685" class="ln">   685  </span>		return ErrCanNotUpdateChaos
 <span id="L686" class="ln">   686  </span>	}
 <span id="L687" class="ln">   687  </span>	return in.Validate()
 <span id="L688" class="ln">   688  </span>}
 <span id="L689" class="ln">   689  </span>
 <span id="L690" class="ln">   690  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L691" class="ln">   691  </span>func (in *IOChaos) ValidateDelete() error {
-<span id="L692" class="ln">   692  </span>	IOChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
+<span id="L691" class="ln">   691  </span>func (in *HTTPChaos) ValidateDelete() error {
+<span id="L692" class="ln">   692  </span>	HTTPChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
 <span id="L693" class="ln">   693  </span>
 <span id="L694" class="ln">   694  </span>	<span class="comment">// Nothing to do?</span>
 <span id="L695" class="ln">   695  </span>	return nil
 <span id="L696" class="ln">   696  </span>}
 <span id="L697" class="ln">   697  </span>
-<span id="L698" class="ln">   698  </span>var _ webhook.Validator = &amp;IOChaos{}
+<span id="L698" class="ln">   698  </span>var _ webhook.Validator = &amp;HTTPChaos{}
 <span id="L699" class="ln">   699  </span>
-<span id="L700" class="ln">   700  </span>func (in *IOChaos) Validate() error {
+<span id="L700" class="ln">   700  </span>func (in *HTTPChaos) Validate() error {
 <span id="L701" class="ln">   701  </span>	errs := gw.Validate(in)
 <span id="L702" class="ln">   702  </span>	return gw.Aggregate(errs)
 <span id="L703" class="ln">   703  </span>}
 <span id="L704" class="ln">   704  </span>
-<span id="L705" class="ln">   705  </span>var _ webhook.Defaulter = &amp;IOChaos{}
+<span id="L705" class="ln">   705  </span>var _ webhook.Defaulter = &amp;HTTPChaos{}
 <span id="L706" class="ln">   706  </span>
-<span id="L707" class="ln">   707  </span>func (in *IOChaos) Default() {
+<span id="L707" class="ln">   707  </span>func (in *HTTPChaos) Default() {
 <span id="L708" class="ln">   708  </span>	gw.Default(in)
 <span id="L709" class="ln">   709  </span>}
 <span id="L710" class="ln">   710  </span>
-<span id="L711" class="ln">   711  </span>const KindJVMChaos = &#34;JVMChaos&#34;
+<span id="L711" class="ln">   711  </span>const KindIOChaos = &#34;IOChaos&#34;
 <span id="L712" class="ln">   712  </span>
 <span id="L713" class="ln">   713  </span><span class="comment">// IsDeleted returns whether this resource has been deleted</span>
-<span id="L714" class="ln">   714  </span>func (in *JVMChaos) IsDeleted() bool {
+<span id="L714" class="ln">   714  </span>func (in *IOChaos) IsDeleted() bool {
 <span id="L715" class="ln">   715  </span>	return !in.DeletionTimestamp.IsZero()
 <span id="L716" class="ln">   716  </span>}
 <span id="L717" class="ln">   717  </span>
 <span id="L718" class="ln">   718  </span><span class="comment">// IsPaused returns whether this resource has been paused</span>
-<span id="L719" class="ln">   719  </span>func (in *JVMChaos) IsPaused() bool {
+<span id="L719" class="ln">   719  </span>func (in *IOChaos) IsPaused() bool {
 <span id="L720" class="ln">   720  </span>	if in.Annotations == nil || in.Annotations[PauseAnnotationKey] != &#34;true&#34; {
 <span id="L721" class="ln">   721  </span>		return false
 <span id="L722" class="ln">   722  </span>	}
@@ -780,12 +780,12 @@
 <span id="L724" class="ln">   724  </span>}
 <span id="L725" class="ln">   725  </span>
 <span id="L726" class="ln">   726  </span><span class="comment">// GetObjectMeta would return the ObjectMeta for chaos</span>
-<span id="L727" class="ln">   727  </span>func (in *JVMChaos) GetObjectMeta() *metav1.ObjectMeta {
+<span id="L727" class="ln">   727  </span>func (in *IOChaos) GetObjectMeta() *metav1.ObjectMeta {
 <span id="L728" class="ln">   728  </span>	return &amp;in.ObjectMeta
 <span id="L729" class="ln">   729  </span>}
 <span id="L730" class="ln">   730  </span>
 <span id="L731" class="ln">   731  </span><span class="comment">// GetDuration would return the duration for chaos</span>
-<span id="L732" class="ln">   732  </span>func (in *JVMChaosSpec) GetDuration() (*time.Duration, error) {
+<span id="L732" class="ln">   732  </span>func (in *IOChaosSpec) GetDuration() (*time.Duration, error) {
 <span id="L733" class="ln">   733  </span>	if in.Duration == nil {
 <span id="L734" class="ln">   734  </span>		return nil, nil
 <span id="L735" class="ln">   735  </span>	}
@@ -797,12 +797,12 @@
 <span id="L741" class="ln">   741  </span>}
 <span id="L742" class="ln">   742  </span>
 <span id="L743" class="ln">   743  </span><span class="comment">// GetStatus returns the status</span>
-<span id="L744" class="ln">   744  </span>func (in *JVMChaos) GetStatus() *ChaosStatus {
+<span id="L744" class="ln">   744  </span>func (in *IOChaos) GetStatus() *ChaosStatus {
 <span id="L745" class="ln">   745  </span>	return &amp;in.Status.ChaosStatus
 <span id="L746" class="ln">   746  </span>}
 <span id="L747" class="ln">   747  </span>
 <span id="L748" class="ln">   748  </span><span class="comment">// GetSpecAndMetaString returns a string including the meta and spec field of this chaos object.</span>
-<span id="L749" class="ln">   749  </span>func (in *JVMChaos) GetSpecAndMetaString() (string, error) {
+<span id="L749" class="ln">   749  </span>func (in *IOChaos) GetSpecAndMetaString() (string, error) {
 <span id="L750" class="ln">   750  </span>	spec, err := json.Marshal(in.Spec)
 <span id="L751" class="ln">   751  </span>	if err != nil {
 <span id="L752" class="ln">   752  </span>		return &#34;&#34;, err
@@ -817,19 +817,19 @@
 <span id="L761" class="ln">   761  </span>
 <span id="L762" class="ln">   762  </span><span class="comment">// +kubebuilder:object:root=true</span>
 <span id="L763" class="ln">   763  </span>
-<span id="L764" class="ln">   764  </span><span class="comment">// JVMChaosList contains a list of JVMChaos</span>
-<span id="L765" class="ln">   765  </span>type JVMChaosList struct {
+<span id="L764" class="ln">   764  </span><span class="comment">// IOChaosList contains a list of IOChaos</span>
+<span id="L765" class="ln">   765  </span>type IOChaosList struct {
 <span id="L766" class="ln">   766  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
 <span id="L767" class="ln">   767  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
-<span id="L768" class="ln">   768  </span>	Items           []JVMChaos `json:&#34;items&#34;`
+<span id="L768" class="ln">   768  </span>	Items           []IOChaos `json:&#34;items&#34;`
 <span id="L769" class="ln">   769  </span>}
 <span id="L770" class="ln">   770  </span>
-<span id="L771" class="ln">   771  </span>func (in *JVMChaosList) DeepCopyList() GenericChaosList {
+<span id="L771" class="ln">   771  </span>func (in *IOChaosList) DeepCopyList() GenericChaosList {
 <span id="L772" class="ln">   772  </span>	return in.DeepCopy()
 <span id="L773" class="ln">   773  </span>}
 <span id="L774" class="ln">   774  </span>
 <span id="L775" class="ln">   775  </span><span class="comment">// ListChaos returns a list of chaos</span>
-<span id="L776" class="ln">   776  </span>func (in *JVMChaosList) ListChaos() []GenericChaos {
+<span id="L776" class="ln">   776  </span>func (in *IOChaosList) ListChaos() []GenericChaos {
 <span id="L777" class="ln">   777  </span>	var result []GenericChaos
 <span id="L778" class="ln">   778  </span>	for _, item := range in.Items {
 <span id="L779" class="ln">   779  </span>		item := item
@@ -838,7 +838,7 @@
 <span id="L782" class="ln">   782  </span>	return result
 <span id="L783" class="ln">   783  </span>}
 <span id="L784" class="ln">   784  </span>
-<span id="L785" class="ln">   785  </span>func (in *JVMChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
+<span id="L785" class="ln">   785  </span>func (in *IOChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
 <span id="L786" class="ln">   786  </span>	duration, err := in.Spec.GetDuration()
 <span id="L787" class="ln">   787  </span>	if err != nil {
 <span id="L788" class="ln">   788  </span>		return false, 0, err
@@ -856,56 +856,56 @@
 <span id="L800" class="ln">   800  </span>	return false, 0, nil
 <span id="L801" class="ln">   801  </span>}
 <span id="L802" class="ln">   802  </span>
-<span id="L803" class="ln">   803  </span>func (in *JVMChaos) IsOneShot() bool {
+<span id="L803" class="ln">   803  </span>func (in *IOChaos) IsOneShot() bool {
 <span id="L804" class="ln">   804  </span>	return false
 <span id="L805" class="ln">   805  </span>}
 <span id="L806" class="ln">   806  </span>
-<span id="L807" class="ln">   807  </span>var JVMChaosWebhookLog = logf.Log.WithName(&#34;JVMChaos-resource&#34;)
+<span id="L807" class="ln">   807  </span>var IOChaosWebhookLog = logf.Log.WithName(&#34;IOChaos-resource&#34;)
 <span id="L808" class="ln">   808  </span>
-<span id="L809" class="ln">   809  </span>func (in *JVMChaos) ValidateCreate() error {
-<span id="L810" class="ln">   810  </span>	JVMChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
+<span id="L809" class="ln">   809  </span>func (in *IOChaos) ValidateCreate() error {
+<span id="L810" class="ln">   810  </span>	IOChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
 <span id="L811" class="ln">   811  </span>	return in.Validate()
 <span id="L812" class="ln">   812  </span>}
 <span id="L813" class="ln">   813  </span>
 <span id="L814" class="ln">   814  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L815" class="ln">   815  </span>func (in *JVMChaos) ValidateUpdate(old runtime.Object) error {
-<span id="L816" class="ln">   816  </span>	JVMChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
-<span id="L817" class="ln">   817  </span>	if !reflect.DeepEqual(in.Spec, old.(*JVMChaos).Spec) {
+<span id="L815" class="ln">   815  </span>func (in *IOChaos) ValidateUpdate(old runtime.Object) error {
+<span id="L816" class="ln">   816  </span>	IOChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
+<span id="L817" class="ln">   817  </span>	if !reflect.DeepEqual(in.Spec, old.(*IOChaos).Spec) {
 <span id="L818" class="ln">   818  </span>		return ErrCanNotUpdateChaos
 <span id="L819" class="ln">   819  </span>	}
 <span id="L820" class="ln">   820  </span>	return in.Validate()
 <span id="L821" class="ln">   821  </span>}
 <span id="L822" class="ln">   822  </span>
 <span id="L823" class="ln">   823  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L824" class="ln">   824  </span>func (in *JVMChaos) ValidateDelete() error {
-<span id="L825" class="ln">   825  </span>	JVMChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
+<span id="L824" class="ln">   824  </span>func (in *IOChaos) ValidateDelete() error {
+<span id="L825" class="ln">   825  </span>	IOChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
 <span id="L826" class="ln">   826  </span>
 <span id="L827" class="ln">   827  </span>	<span class="comment">// Nothing to do?</span>
 <span id="L828" class="ln">   828  </span>	return nil
 <span id="L829" class="ln">   829  </span>}
 <span id="L830" class="ln">   830  </span>
-<span id="L831" class="ln">   831  </span>var _ webhook.Validator = &amp;JVMChaos{}
+<span id="L831" class="ln">   831  </span>var _ webhook.Validator = &amp;IOChaos{}
 <span id="L832" class="ln">   832  </span>
-<span id="L833" class="ln">   833  </span>func (in *JVMChaos) Validate() error {
+<span id="L833" class="ln">   833  </span>func (in *IOChaos) Validate() error {
 <span id="L834" class="ln">   834  </span>	errs := gw.Validate(in)
 <span id="L835" class="ln">   835  </span>	return gw.Aggregate(errs)
 <span id="L836" class="ln">   836  </span>}
 <span id="L837" class="ln">   837  </span>
-<span id="L838" class="ln">   838  </span>var _ webhook.Defaulter = &amp;JVMChaos{}
+<span id="L838" class="ln">   838  </span>var _ webhook.Defaulter = &amp;IOChaos{}
 <span id="L839" class="ln">   839  </span>
-<span id="L840" class="ln">   840  </span>func (in *JVMChaos) Default() {
+<span id="L840" class="ln">   840  </span>func (in *IOChaos) Default() {
 <span id="L841" class="ln">   841  </span>	gw.Default(in)
 <span id="L842" class="ln">   842  </span>}
 <span id="L843" class="ln">   843  </span>
-<span id="L844" class="ln">   844  </span>const KindKernelChaos = &#34;KernelChaos&#34;
+<span id="L844" class="ln">   844  </span>const KindJVMChaos = &#34;JVMChaos&#34;
 <span id="L845" class="ln">   845  </span>
 <span id="L846" class="ln">   846  </span><span class="comment">// IsDeleted returns whether this resource has been deleted</span>
-<span id="L847" class="ln">   847  </span>func (in *KernelChaos) IsDeleted() bool {
+<span id="L847" class="ln">   847  </span>func (in *JVMChaos) IsDeleted() bool {
 <span id="L848" class="ln">   848  </span>	return !in.DeletionTimestamp.IsZero()
 <span id="L849" class="ln">   849  </span>}
 <span id="L850" class="ln">   850  </span>
 <span id="L851" class="ln">   851  </span><span class="comment">// IsPaused returns whether this resource has been paused</span>
-<span id="L852" class="ln">   852  </span>func (in *KernelChaos) IsPaused() bool {
+<span id="L852" class="ln">   852  </span>func (in *JVMChaos) IsPaused() bool {
 <span id="L853" class="ln">   853  </span>	if in.Annotations == nil || in.Annotations[PauseAnnotationKey] != &#34;true&#34; {
 <span id="L854" class="ln">   854  </span>		return false
 <span id="L855" class="ln">   855  </span>	}
@@ -913,12 +913,12 @@
 <span id="L857" class="ln">   857  </span>}
 <span id="L858" class="ln">   858  </span>
 <span id="L859" class="ln">   859  </span><span class="comment">// GetObjectMeta would return the ObjectMeta for chaos</span>
-<span id="L860" class="ln">   860  </span>func (in *KernelChaos) GetObjectMeta() *metav1.ObjectMeta {
+<span id="L860" class="ln">   860  </span>func (in *JVMChaos) GetObjectMeta() *metav1.ObjectMeta {
 <span id="L861" class="ln">   861  </span>	return &amp;in.ObjectMeta
 <span id="L862" class="ln">   862  </span>}
 <span id="L863" class="ln">   863  </span>
 <span id="L864" class="ln">   864  </span><span class="comment">// GetDuration would return the duration for chaos</span>
-<span id="L865" class="ln">   865  </span>func (in *KernelChaosSpec) GetDuration() (*time.Duration, error) {
+<span id="L865" class="ln">   865  </span>func (in *JVMChaosSpec) GetDuration() (*time.Duration, error) {
 <span id="L866" class="ln">   866  </span>	if in.Duration == nil {
 <span id="L867" class="ln">   867  </span>		return nil, nil
 <span id="L868" class="ln">   868  </span>	}
@@ -930,12 +930,12 @@
 <span id="L874" class="ln">   874  </span>}
 <span id="L875" class="ln">   875  </span>
 <span id="L876" class="ln">   876  </span><span class="comment">// GetStatus returns the status</span>
-<span id="L877" class="ln">   877  </span>func (in *KernelChaos) GetStatus() *ChaosStatus {
+<span id="L877" class="ln">   877  </span>func (in *JVMChaos) GetStatus() *ChaosStatus {
 <span id="L878" class="ln">   878  </span>	return &amp;in.Status.ChaosStatus
 <span id="L879" class="ln">   879  </span>}
 <span id="L880" class="ln">   880  </span>
 <span id="L881" class="ln">   881  </span><span class="comment">// GetSpecAndMetaString returns a string including the meta and spec field of this chaos object.</span>
-<span id="L882" class="ln">   882  </span>func (in *KernelChaos) GetSpecAndMetaString() (string, error) {
+<span id="L882" class="ln">   882  </span>func (in *JVMChaos) GetSpecAndMetaString() (string, error) {
 <span id="L883" class="ln">   883  </span>	spec, err := json.Marshal(in.Spec)
 <span id="L884" class="ln">   884  </span>	if err != nil {
 <span id="L885" class="ln">   885  </span>		return &#34;&#34;, err
@@ -950,19 +950,19 @@
 <span id="L894" class="ln">   894  </span>
 <span id="L895" class="ln">   895  </span><span class="comment">// +kubebuilder:object:root=true</span>
 <span id="L896" class="ln">   896  </span>
-<span id="L897" class="ln">   897  </span><span class="comment">// KernelChaosList contains a list of KernelChaos</span>
-<span id="L898" class="ln">   898  </span>type KernelChaosList struct {
+<span id="L897" class="ln">   897  </span><span class="comment">// JVMChaosList contains a list of JVMChaos</span>
+<span id="L898" class="ln">   898  </span>type JVMChaosList struct {
 <span id="L899" class="ln">   899  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
 <span id="L900" class="ln">   900  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
-<span id="L901" class="ln">   901  </span>	Items           []KernelChaos `json:&#34;items&#34;`
+<span id="L901" class="ln">   901  </span>	Items           []JVMChaos `json:&#34;items&#34;`
 <span id="L902" class="ln">   902  </span>}
 <span id="L903" class="ln">   903  </span>
-<span id="L904" class="ln">   904  </span>func (in *KernelChaosList) DeepCopyList() GenericChaosList {
+<span id="L904" class="ln">   904  </span>func (in *JVMChaosList) DeepCopyList() GenericChaosList {
 <span id="L905" class="ln">   905  </span>	return in.DeepCopy()
 <span id="L906" class="ln">   906  </span>}
 <span id="L907" class="ln">   907  </span>
 <span id="L908" class="ln">   908  </span><span class="comment">// ListChaos returns a list of chaos</span>
-<span id="L909" class="ln">   909  </span>func (in *KernelChaosList) ListChaos() []GenericChaos {
+<span id="L909" class="ln">   909  </span>func (in *JVMChaosList) ListChaos() []GenericChaos {
 <span id="L910" class="ln">   910  </span>	var result []GenericChaos
 <span id="L911" class="ln">   911  </span>	for _, item := range in.Items {
 <span id="L912" class="ln">   912  </span>		item := item
@@ -971,7 +971,7 @@
 <span id="L915" class="ln">   915  </span>	return result
 <span id="L916" class="ln">   916  </span>}
 <span id="L917" class="ln">   917  </span>
-<span id="L918" class="ln">   918  </span>func (in *KernelChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
+<span id="L918" class="ln">   918  </span>func (in *JVMChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
 <span id="L919" class="ln">   919  </span>	duration, err := in.Spec.GetDuration()
 <span id="L920" class="ln">   920  </span>	if err != nil {
 <span id="L921" class="ln">   921  </span>		return false, 0, err
@@ -989,56 +989,56 @@
 <span id="L933" class="ln">   933  </span>	return false, 0, nil
 <span id="L934" class="ln">   934  </span>}
 <span id="L935" class="ln">   935  </span>
-<span id="L936" class="ln">   936  </span>func (in *KernelChaos) IsOneShot() bool {
+<span id="L936" class="ln">   936  </span>func (in *JVMChaos) IsOneShot() bool {
 <span id="L937" class="ln">   937  </span>	return false
 <span id="L938" class="ln">   938  </span>}
 <span id="L939" class="ln">   939  </span>
-<span id="L940" class="ln">   940  </span>var KernelChaosWebhookLog = logf.Log.WithName(&#34;KernelChaos-resource&#34;)
+<span id="L940" class="ln">   940  </span>var JVMChaosWebhookLog = logf.Log.WithName(&#34;JVMChaos-resource&#34;)
 <span id="L941" class="ln">   941  </span>
-<span id="L942" class="ln">   942  </span>func (in *KernelChaos) ValidateCreate() error {
-<span id="L943" class="ln">   943  </span>	KernelChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
+<span id="L942" class="ln">   942  </span>func (in *JVMChaos) ValidateCreate() error {
+<span id="L943" class="ln">   943  </span>	JVMChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
 <span id="L944" class="ln">   944  </span>	return in.Validate()
 <span id="L945" class="ln">   945  </span>}
 <span id="L946" class="ln">   946  </span>
 <span id="L947" class="ln">   947  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L948" class="ln">   948  </span>func (in *KernelChaos) ValidateUpdate(old runtime.Object) error {
-<span id="L949" class="ln">   949  </span>	KernelChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
-<span id="L950" class="ln">   950  </span>	if !reflect.DeepEqual(in.Spec, old.(*KernelChaos).Spec) {
+<span id="L948" class="ln">   948  </span>func (in *JVMChaos) ValidateUpdate(old runtime.Object) error {
+<span id="L949" class="ln">   949  </span>	JVMChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
+<span id="L950" class="ln">   950  </span>	if !reflect.DeepEqual(in.Spec, old.(*JVMChaos).Spec) {
 <span id="L951" class="ln">   951  </span>		return ErrCanNotUpdateChaos
 <span id="L952" class="ln">   952  </span>	}
 <span id="L953" class="ln">   953  </span>	return in.Validate()
 <span id="L954" class="ln">   954  </span>}
 <span id="L955" class="ln">   955  </span>
 <span id="L956" class="ln">   956  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L957" class="ln">   957  </span>func (in *KernelChaos) ValidateDelete() error {
-<span id="L958" class="ln">   958  </span>	KernelChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
+<span id="L957" class="ln">   957  </span>func (in *JVMChaos) ValidateDelete() error {
+<span id="L958" class="ln">   958  </span>	JVMChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
 <span id="L959" class="ln">   959  </span>
 <span id="L960" class="ln">   960  </span>	<span class="comment">// Nothing to do?</span>
 <span id="L961" class="ln">   961  </span>	return nil
 <span id="L962" class="ln">   962  </span>}
 <span id="L963" class="ln">   963  </span>
-<span id="L964" class="ln">   964  </span>var _ webhook.Validator = &amp;KernelChaos{}
+<span id="L964" class="ln">   964  </span>var _ webhook.Validator = &amp;JVMChaos{}
 <span id="L965" class="ln">   965  </span>
-<span id="L966" class="ln">   966  </span>func (in *KernelChaos) Validate() error {
+<span id="L966" class="ln">   966  </span>func (in *JVMChaos) Validate() error {
 <span id="L967" class="ln">   967  </span>	errs := gw.Validate(in)
 <span id="L968" class="ln">   968  </span>	return gw.Aggregate(errs)
 <span id="L969" class="ln">   969  </span>}
 <span id="L970" class="ln">   970  </span>
-<span id="L971" class="ln">   971  </span>var _ webhook.Defaulter = &amp;KernelChaos{}
+<span id="L971" class="ln">   971  </span>var _ webhook.Defaulter = &amp;JVMChaos{}
 <span id="L972" class="ln">   972  </span>
-<span id="L973" class="ln">   973  </span>func (in *KernelChaos) Default() {
+<span id="L973" class="ln">   973  </span>func (in *JVMChaos) Default() {
 <span id="L974" class="ln">   974  </span>	gw.Default(in)
 <span id="L975" class="ln">   975  </span>}
 <span id="L976" class="ln">   976  </span>
-<span id="L977" class="ln">   977  </span>const KindNetworkChaos = &#34;NetworkChaos&#34;
+<span id="L977" class="ln">   977  </span>const KindKernelChaos = &#34;KernelChaos&#34;
 <span id="L978" class="ln">   978  </span>
 <span id="L979" class="ln">   979  </span><span class="comment">// IsDeleted returns whether this resource has been deleted</span>
-<span id="L980" class="ln">   980  </span>func (in *NetworkChaos) IsDeleted() bool {
+<span id="L980" class="ln">   980  </span>func (in *KernelChaos) IsDeleted() bool {
 <span id="L981" class="ln">   981  </span>	return !in.DeletionTimestamp.IsZero()
 <span id="L982" class="ln">   982  </span>}
 <span id="L983" class="ln">   983  </span>
 <span id="L984" class="ln">   984  </span><span class="comment">// IsPaused returns whether this resource has been paused</span>
-<span id="L985" class="ln">   985  </span>func (in *NetworkChaos) IsPaused() bool {
+<span id="L985" class="ln">   985  </span>func (in *KernelChaos) IsPaused() bool {
 <span id="L986" class="ln">   986  </span>	if in.Annotations == nil || in.Annotations[PauseAnnotationKey] != &#34;true&#34; {
 <span id="L987" class="ln">   987  </span>		return false
 <span id="L988" class="ln">   988  </span>	}
@@ -1046,12 +1046,12 @@
 <span id="L990" class="ln">   990  </span>}
 <span id="L991" class="ln">   991  </span>
 <span id="L992" class="ln">   992  </span><span class="comment">// GetObjectMeta would return the ObjectMeta for chaos</span>
-<span id="L993" class="ln">   993  </span>func (in *NetworkChaos) GetObjectMeta() *metav1.ObjectMeta {
+<span id="L993" class="ln">   993  </span>func (in *KernelChaos) GetObjectMeta() *metav1.ObjectMeta {
 <span id="L994" class="ln">   994  </span>	return &amp;in.ObjectMeta
 <span id="L995" class="ln">   995  </span>}
 <span id="L996" class="ln">   996  </span>
 <span id="L997" class="ln">   997  </span><span class="comment">// GetDuration would return the duration for chaos</span>
-<span id="L998" class="ln">   998  </span>func (in *NetworkChaosSpec) GetDuration() (*time.Duration, error) {
+<span id="L998" class="ln">   998  </span>func (in *KernelChaosSpec) GetDuration() (*time.Duration, error) {
 <span id="L999" class="ln">   999  </span>	if in.Duration == nil {
 <span id="L1000" class="ln">  1000  </span>		return nil, nil
 <span id="L1001" class="ln">  1001  </span>	}
@@ -1063,12 +1063,12 @@
 <span id="L1007" class="ln">  1007  </span>}
 <span id="L1008" class="ln">  1008  </span>
 <span id="L1009" class="ln">  1009  </span><span class="comment">// GetStatus returns the status</span>
-<span id="L1010" class="ln">  1010  </span>func (in *NetworkChaos) GetStatus() *ChaosStatus {
+<span id="L1010" class="ln">  1010  </span>func (in *KernelChaos) GetStatus() *ChaosStatus {
 <span id="L1011" class="ln">  1011  </span>	return &amp;in.Status.ChaosStatus
 <span id="L1012" class="ln">  1012  </span>}
 <span id="L1013" class="ln">  1013  </span>
 <span id="L1014" class="ln">  1014  </span><span class="comment">// GetSpecAndMetaString returns a string including the meta and spec field of this chaos object.</span>
-<span id="L1015" class="ln">  1015  </span>func (in *NetworkChaos) GetSpecAndMetaString() (string, error) {
+<span id="L1015" class="ln">  1015  </span>func (in *KernelChaos) GetSpecAndMetaString() (string, error) {
 <span id="L1016" class="ln">  1016  </span>	spec, err := json.Marshal(in.Spec)
 <span id="L1017" class="ln">  1017  </span>	if err != nil {
 <span id="L1018" class="ln">  1018  </span>		return &#34;&#34;, err
@@ -1083,19 +1083,19 @@
 <span id="L1027" class="ln">  1027  </span>
 <span id="L1028" class="ln">  1028  </span><span class="comment">// +kubebuilder:object:root=true</span>
 <span id="L1029" class="ln">  1029  </span>
-<span id="L1030" class="ln">  1030  </span><span class="comment">// NetworkChaosList contains a list of NetworkChaos</span>
-<span id="L1031" class="ln">  1031  </span>type NetworkChaosList struct {
+<span id="L1030" class="ln">  1030  </span><span class="comment">// KernelChaosList contains a list of KernelChaos</span>
+<span id="L1031" class="ln">  1031  </span>type KernelChaosList struct {
 <span id="L1032" class="ln">  1032  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
 <span id="L1033" class="ln">  1033  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
-<span id="L1034" class="ln">  1034  </span>	Items           []NetworkChaos `json:&#34;items&#34;`
+<span id="L1034" class="ln">  1034  </span>	Items           []KernelChaos `json:&#34;items&#34;`
 <span id="L1035" class="ln">  1035  </span>}
 <span id="L1036" class="ln">  1036  </span>
-<span id="L1037" class="ln">  1037  </span>func (in *NetworkChaosList) DeepCopyList() GenericChaosList {
+<span id="L1037" class="ln">  1037  </span>func (in *KernelChaosList) DeepCopyList() GenericChaosList {
 <span id="L1038" class="ln">  1038  </span>	return in.DeepCopy()
 <span id="L1039" class="ln">  1039  </span>}
 <span id="L1040" class="ln">  1040  </span>
 <span id="L1041" class="ln">  1041  </span><span class="comment">// ListChaos returns a list of chaos</span>
-<span id="L1042" class="ln">  1042  </span>func (in *NetworkChaosList) ListChaos() []GenericChaos {
+<span id="L1042" class="ln">  1042  </span>func (in *KernelChaosList) ListChaos() []GenericChaos {
 <span id="L1043" class="ln">  1043  </span>	var result []GenericChaos
 <span id="L1044" class="ln">  1044  </span>	for _, item := range in.Items {
 <span id="L1045" class="ln">  1045  </span>		item := item
@@ -1104,7 +1104,7 @@
 <span id="L1048" class="ln">  1048  </span>	return result
 <span id="L1049" class="ln">  1049  </span>}
 <span id="L1050" class="ln">  1050  </span>
-<span id="L1051" class="ln">  1051  </span>func (in *NetworkChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
+<span id="L1051" class="ln">  1051  </span>func (in *KernelChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
 <span id="L1052" class="ln">  1052  </span>	duration, err := in.Spec.GetDuration()
 <span id="L1053" class="ln">  1053  </span>	if err != nil {
 <span id="L1054" class="ln">  1054  </span>		return false, 0, err
@@ -1122,56 +1122,56 @@
 <span id="L1066" class="ln">  1066  </span>	return false, 0, nil
 <span id="L1067" class="ln">  1067  </span>}
 <span id="L1068" class="ln">  1068  </span>
-<span id="L1069" class="ln">  1069  </span>func (in *NetworkChaos) IsOneShot() bool {
+<span id="L1069" class="ln">  1069  </span>func (in *KernelChaos) IsOneShot() bool {
 <span id="L1070" class="ln">  1070  </span>	return false
 <span id="L1071" class="ln">  1071  </span>}
 <span id="L1072" class="ln">  1072  </span>
-<span id="L1073" class="ln">  1073  </span>var NetworkChaosWebhookLog = logf.Log.WithName(&#34;NetworkChaos-resource&#34;)
+<span id="L1073" class="ln">  1073  </span>var KernelChaosWebhookLog = logf.Log.WithName(&#34;KernelChaos-resource&#34;)
 <span id="L1074" class="ln">  1074  </span>
-<span id="L1075" class="ln">  1075  </span>func (in *NetworkChaos) ValidateCreate() error {
-<span id="L1076" class="ln">  1076  </span>	NetworkChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
+<span id="L1075" class="ln">  1075  </span>func (in *KernelChaos) ValidateCreate() error {
+<span id="L1076" class="ln">  1076  </span>	KernelChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
 <span id="L1077" class="ln">  1077  </span>	return in.Validate()
 <span id="L1078" class="ln">  1078  </span>}
 <span id="L1079" class="ln">  1079  </span>
 <span id="L1080" class="ln">  1080  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1081" class="ln">  1081  </span>func (in *NetworkChaos) ValidateUpdate(old runtime.Object) error {
-<span id="L1082" class="ln">  1082  </span>	NetworkChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
-<span id="L1083" class="ln">  1083  </span>	if !reflect.DeepEqual(in.Spec, old.(*NetworkChaos).Spec) {
+<span id="L1081" class="ln">  1081  </span>func (in *KernelChaos) ValidateUpdate(old runtime.Object) error {
+<span id="L1082" class="ln">  1082  </span>	KernelChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
+<span id="L1083" class="ln">  1083  </span>	if !reflect.DeepEqual(in.Spec, old.(*KernelChaos).Spec) {
 <span id="L1084" class="ln">  1084  </span>		return ErrCanNotUpdateChaos
 <span id="L1085" class="ln">  1085  </span>	}
 <span id="L1086" class="ln">  1086  </span>	return in.Validate()
 <span id="L1087" class="ln">  1087  </span>}
 <span id="L1088" class="ln">  1088  </span>
 <span id="L1089" class="ln">  1089  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1090" class="ln">  1090  </span>func (in *NetworkChaos) ValidateDelete() error {
-<span id="L1091" class="ln">  1091  </span>	NetworkChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
+<span id="L1090" class="ln">  1090  </span>func (in *KernelChaos) ValidateDelete() error {
+<span id="L1091" class="ln">  1091  </span>	KernelChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
 <span id="L1092" class="ln">  1092  </span>
 <span id="L1093" class="ln">  1093  </span>	<span class="comment">// Nothing to do?</span>
 <span id="L1094" class="ln">  1094  </span>	return nil
 <span id="L1095" class="ln">  1095  </span>}
 <span id="L1096" class="ln">  1096  </span>
-<span id="L1097" class="ln">  1097  </span>var _ webhook.Validator = &amp;NetworkChaos{}
+<span id="L1097" class="ln">  1097  </span>var _ webhook.Validator = &amp;KernelChaos{}
 <span id="L1098" class="ln">  1098  </span>
-<span id="L1099" class="ln">  1099  </span>func (in *NetworkChaos) Validate() error {
+<span id="L1099" class="ln">  1099  </span>func (in *KernelChaos) Validate() error {
 <span id="L1100" class="ln">  1100  </span>	errs := gw.Validate(in)
 <span id="L1101" class="ln">  1101  </span>	return gw.Aggregate(errs)
 <span id="L1102" class="ln">  1102  </span>}
 <span id="L1103" class="ln">  1103  </span>
-<span id="L1104" class="ln">  1104  </span>var _ webhook.Defaulter = &amp;NetworkChaos{}
+<span id="L1104" class="ln">  1104  </span>var _ webhook.Defaulter = &amp;KernelChaos{}
 <span id="L1105" class="ln">  1105  </span>
-<span id="L1106" class="ln">  1106  </span>func (in *NetworkChaos) Default() {
+<span id="L1106" class="ln">  1106  </span>func (in *KernelChaos) Default() {
 <span id="L1107" class="ln">  1107  </span>	gw.Default(in)
 <span id="L1108" class="ln">  1108  </span>}
 <span id="L1109" class="ln">  1109  </span>
-<span id="L1110" class="ln">  1110  </span>const KindPhysicalMachineChaos = &#34;PhysicalMachineChaos&#34;
+<span id="L1110" class="ln">  1110  </span>const KindNetworkChaos = &#34;NetworkChaos&#34;
 <span id="L1111" class="ln">  1111  </span>
 <span id="L1112" class="ln">  1112  </span><span class="comment">// IsDeleted returns whether this resource has been deleted</span>
-<span id="L1113" class="ln">  1113  </span>func (in *PhysicalMachineChaos) IsDeleted() bool {
+<span id="L1113" class="ln">  1113  </span>func (in *NetworkChaos) IsDeleted() bool {
 <span id="L1114" class="ln">  1114  </span>	return !in.DeletionTimestamp.IsZero()
 <span id="L1115" class="ln">  1115  </span>}
 <span id="L1116" class="ln">  1116  </span>
 <span id="L1117" class="ln">  1117  </span><span class="comment">// IsPaused returns whether this resource has been paused</span>
-<span id="L1118" class="ln">  1118  </span>func (in *PhysicalMachineChaos) IsPaused() bool {
+<span id="L1118" class="ln">  1118  </span>func (in *NetworkChaos) IsPaused() bool {
 <span id="L1119" class="ln">  1119  </span>	if in.Annotations == nil || in.Annotations[PauseAnnotationKey] != &#34;true&#34; {
 <span id="L1120" class="ln">  1120  </span>		return false
 <span id="L1121" class="ln">  1121  </span>	}
@@ -1179,12 +1179,12 @@
 <span id="L1123" class="ln">  1123  </span>}
 <span id="L1124" class="ln">  1124  </span>
 <span id="L1125" class="ln">  1125  </span><span class="comment">// GetObjectMeta would return the ObjectMeta for chaos</span>
-<span id="L1126" class="ln">  1126  </span>func (in *PhysicalMachineChaos) GetObjectMeta() *metav1.ObjectMeta {
+<span id="L1126" class="ln">  1126  </span>func (in *NetworkChaos) GetObjectMeta() *metav1.ObjectMeta {
 <span id="L1127" class="ln">  1127  </span>	return &amp;in.ObjectMeta
 <span id="L1128" class="ln">  1128  </span>}
 <span id="L1129" class="ln">  1129  </span>
 <span id="L1130" class="ln">  1130  </span><span class="comment">// GetDuration would return the duration for chaos</span>
-<span id="L1131" class="ln">  1131  </span>func (in *PhysicalMachineChaosSpec) GetDuration() (*time.Duration, error) {
+<span id="L1131" class="ln">  1131  </span>func (in *NetworkChaosSpec) GetDuration() (*time.Duration, error) {
 <span id="L1132" class="ln">  1132  </span>	if in.Duration == nil {
 <span id="L1133" class="ln">  1133  </span>		return nil, nil
 <span id="L1134" class="ln">  1134  </span>	}
@@ -1196,12 +1196,12 @@
 <span id="L1140" class="ln">  1140  </span>}
 <span id="L1141" class="ln">  1141  </span>
 <span id="L1142" class="ln">  1142  </span><span class="comment">// GetStatus returns the status</span>
-<span id="L1143" class="ln">  1143  </span>func (in *PhysicalMachineChaos) GetStatus() *ChaosStatus {
+<span id="L1143" class="ln">  1143  </span>func (in *NetworkChaos) GetStatus() *ChaosStatus {
 <span id="L1144" class="ln">  1144  </span>	return &amp;in.Status.ChaosStatus
 <span id="L1145" class="ln">  1145  </span>}
 <span id="L1146" class="ln">  1146  </span>
 <span id="L1147" class="ln">  1147  </span><span class="comment">// GetSpecAndMetaString returns a string including the meta and spec field of this chaos object.</span>
-<span id="L1148" class="ln">  1148  </span>func (in *PhysicalMachineChaos) GetSpecAndMetaString() (string, error) {
+<span id="L1148" class="ln">  1148  </span>func (in *NetworkChaos) GetSpecAndMetaString() (string, error) {
 <span id="L1149" class="ln">  1149  </span>	spec, err := json.Marshal(in.Spec)
 <span id="L1150" class="ln">  1150  </span>	if err != nil {
 <span id="L1151" class="ln">  1151  </span>		return &#34;&#34;, err
@@ -1216,19 +1216,19 @@
 <span id="L1160" class="ln">  1160  </span>
 <span id="L1161" class="ln">  1161  </span><span class="comment">// +kubebuilder:object:root=true</span>
 <span id="L1162" class="ln">  1162  </span>
-<span id="L1163" class="ln">  1163  </span><span class="comment">// PhysicalMachineChaosList contains a list of PhysicalMachineChaos</span>
-<span id="L1164" class="ln">  1164  </span>type PhysicalMachineChaosList struct {
+<span id="L1163" class="ln">  1163  </span><span class="comment">// NetworkChaosList contains a list of NetworkChaos</span>
+<span id="L1164" class="ln">  1164  </span>type NetworkChaosList struct {
 <span id="L1165" class="ln">  1165  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
 <span id="L1166" class="ln">  1166  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
-<span id="L1167" class="ln">  1167  </span>	Items           []PhysicalMachineChaos `json:&#34;items&#34;`
+<span id="L1167" class="ln">  1167  </span>	Items           []NetworkChaos `json:&#34;items&#34;`
 <span id="L1168" class="ln">  1168  </span>}
 <span id="L1169" class="ln">  1169  </span>
-<span id="L1170" class="ln">  1170  </span>func (in *PhysicalMachineChaosList) DeepCopyList() GenericChaosList {
+<span id="L1170" class="ln">  1170  </span>func (in *NetworkChaosList) DeepCopyList() GenericChaosList {
 <span id="L1171" class="ln">  1171  </span>	return in.DeepCopy()
 <span id="L1172" class="ln">  1172  </span>}
 <span id="L1173" class="ln">  1173  </span>
 <span id="L1174" class="ln">  1174  </span><span class="comment">// ListChaos returns a list of chaos</span>
-<span id="L1175" class="ln">  1175  </span>func (in *PhysicalMachineChaosList) ListChaos() []GenericChaos {
+<span id="L1175" class="ln">  1175  </span>func (in *NetworkChaosList) ListChaos() []GenericChaos {
 <span id="L1176" class="ln">  1176  </span>	var result []GenericChaos
 <span id="L1177" class="ln">  1177  </span>	for _, item := range in.Items {
 <span id="L1178" class="ln">  1178  </span>		item := item
@@ -1237,7 +1237,7 @@
 <span id="L1181" class="ln">  1181  </span>	return result
 <span id="L1182" class="ln">  1182  </span>}
 <span id="L1183" class="ln">  1183  </span>
-<span id="L1184" class="ln">  1184  </span>func (in *PhysicalMachineChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
+<span id="L1184" class="ln">  1184  </span>func (in *NetworkChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
 <span id="L1185" class="ln">  1185  </span>	duration, err := in.Spec.GetDuration()
 <span id="L1186" class="ln">  1186  </span>	if err != nil {
 <span id="L1187" class="ln">  1187  </span>		return false, 0, err
@@ -1255,473 +1255,473 @@
 <span id="L1199" class="ln">  1199  </span>	return false, 0, nil
 <span id="L1200" class="ln">  1200  </span>}
 <span id="L1201" class="ln">  1201  </span>
-<span id="L1202" class="ln">  1202  </span>func (in *PhysicalMachineChaos) IsOneShot() bool {
+<span id="L1202" class="ln">  1202  </span>func (in *NetworkChaos) IsOneShot() bool {
 <span id="L1203" class="ln">  1203  </span>	return false
 <span id="L1204" class="ln">  1204  </span>}
 <span id="L1205" class="ln">  1205  </span>
-<span id="L1206" class="ln">  1206  </span>var PhysicalMachineChaosWebhookLog = logf.Log.WithName(&#34;PhysicalMachineChaos-resource&#34;)
+<span id="L1206" class="ln">  1206  </span>var NetworkChaosWebhookLog = logf.Log.WithName(&#34;NetworkChaos-resource&#34;)
 <span id="L1207" class="ln">  1207  </span>
-<span id="L1208" class="ln">  1208  </span>func (in *PhysicalMachineChaos) ValidateCreate() error {
-<span id="L1209" class="ln">  1209  </span>	PhysicalMachineChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
+<span id="L1208" class="ln">  1208  </span>func (in *NetworkChaos) ValidateCreate() error {
+<span id="L1209" class="ln">  1209  </span>	NetworkChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
 <span id="L1210" class="ln">  1210  </span>	return in.Validate()
 <span id="L1211" class="ln">  1211  </span>}
 <span id="L1212" class="ln">  1212  </span>
 <span id="L1213" class="ln">  1213  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1214" class="ln">  1214  </span>func (in *PhysicalMachineChaos) ValidateUpdate(old runtime.Object) error {
-<span id="L1215" class="ln">  1215  </span>	PhysicalMachineChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
-<span id="L1216" class="ln">  1216  </span>	if !reflect.DeepEqual(in.Spec, old.(*PhysicalMachineChaos).Spec) {
+<span id="L1214" class="ln">  1214  </span>func (in *NetworkChaos) ValidateUpdate(old runtime.Object) error {
+<span id="L1215" class="ln">  1215  </span>	NetworkChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
+<span id="L1216" class="ln">  1216  </span>	if !reflect.DeepEqual(in.Spec, old.(*NetworkChaos).Spec) {
 <span id="L1217" class="ln">  1217  </span>		return ErrCanNotUpdateChaos
 <span id="L1218" class="ln">  1218  </span>	}
 <span id="L1219" class="ln">  1219  </span>	return in.Validate()
 <span id="L1220" class="ln">  1220  </span>}
 <span id="L1221" class="ln">  1221  </span>
 <span id="L1222" class="ln">  1222  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1223" class="ln">  1223  </span>func (in *PhysicalMachineChaos) ValidateDelete() error {
-<span id="L1224" class="ln">  1224  </span>	PhysicalMachineChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
+<span id="L1223" class="ln">  1223  </span>func (in *NetworkChaos) ValidateDelete() error {
+<span id="L1224" class="ln">  1224  </span>	NetworkChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
 <span id="L1225" class="ln">  1225  </span>
 <span id="L1226" class="ln">  1226  </span>	<span class="comment">// Nothing to do?</span>
 <span id="L1227" class="ln">  1227  </span>	return nil
 <span id="L1228" class="ln">  1228  </span>}
 <span id="L1229" class="ln">  1229  </span>
-<span id="L1230" class="ln">  1230  </span>var _ webhook.Validator = &amp;PhysicalMachineChaos{}
+<span id="L1230" class="ln">  1230  </span>var _ webhook.Validator = &amp;NetworkChaos{}
 <span id="L1231" class="ln">  1231  </span>
-<span id="L1232" class="ln">  1232  </span>func (in *PhysicalMachineChaos) Validate() error {
+<span id="L1232" class="ln">  1232  </span>func (in *NetworkChaos) Validate() error {
 <span id="L1233" class="ln">  1233  </span>	errs := gw.Validate(in)
 <span id="L1234" class="ln">  1234  </span>	return gw.Aggregate(errs)
 <span id="L1235" class="ln">  1235  </span>}
 <span id="L1236" class="ln">  1236  </span>
-<span id="L1237" class="ln">  1237  </span>var _ webhook.Defaulter = &amp;PhysicalMachineChaos{}
+<span id="L1237" class="ln">  1237  </span>var _ webhook.Defaulter = &amp;NetworkChaos{}
 <span id="L1238" class="ln">  1238  </span>
-<span id="L1239" class="ln">  1239  </span>func (in *PhysicalMachineChaos) Default() {
+<span id="L1239" class="ln">  1239  </span>func (in *NetworkChaos) Default() {
 <span id="L1240" class="ln">  1240  </span>	gw.Default(in)
 <span id="L1241" class="ln">  1241  </span>}
 <span id="L1242" class="ln">  1242  </span>
-<span id="L1243" class="ln">  1243  </span>const KindPhysicalMachine = &#34;PhysicalMachine&#34;
+<span id="L1243" class="ln">  1243  </span>const KindPhysicalMachineChaos = &#34;PhysicalMachineChaos&#34;
 <span id="L1244" class="ln">  1244  </span>
-<span id="L1245" class="ln">  1245  </span>var PhysicalMachineWebhookLog = logf.Log.WithName(&#34;PhysicalMachine-resource&#34;)
-<span id="L1246" class="ln">  1246  </span>
-<span id="L1247" class="ln">  1247  </span>func (in *PhysicalMachine) ValidateCreate() error {
-<span id="L1248" class="ln">  1248  </span>	PhysicalMachineWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
-<span id="L1249" class="ln">  1249  </span>	return in.Validate()
-<span id="L1250" class="ln">  1250  </span>}
-<span id="L1251" class="ln">  1251  </span>
-<span id="L1252" class="ln">  1252  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1253" class="ln">  1253  </span>func (in *PhysicalMachine) ValidateUpdate(old runtime.Object) error {
-<span id="L1254" class="ln">  1254  </span>	PhysicalMachineWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
-<span id="L1255" class="ln">  1255  </span>	if !reflect.DeepEqual(in.Spec, old.(*PhysicalMachine).Spec) {
-<span id="L1256" class="ln">  1256  </span>		return ErrCanNotUpdateChaos
-<span id="L1257" class="ln">  1257  </span>	}
-<span id="L1258" class="ln">  1258  </span>	return in.Validate()
-<span id="L1259" class="ln">  1259  </span>}
-<span id="L1260" class="ln">  1260  </span>
-<span id="L1261" class="ln">  1261  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1262" class="ln">  1262  </span>func (in *PhysicalMachine) ValidateDelete() error {
-<span id="L1263" class="ln">  1263  </span>	PhysicalMachineWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
-<span id="L1264" class="ln">  1264  </span>
-<span id="L1265" class="ln">  1265  </span>	<span class="comment">// Nothing to do?</span>
-<span id="L1266" class="ln">  1266  </span>	return nil
-<span id="L1267" class="ln">  1267  </span>}
-<span id="L1268" class="ln">  1268  </span>
-<span id="L1269" class="ln">  1269  </span>var _ webhook.Validator = &amp;PhysicalMachine{}
-<span id="L1270" class="ln">  1270  </span>
-<span id="L1271" class="ln">  1271  </span>func (in *PhysicalMachine) Validate() error {
-<span id="L1272" class="ln">  1272  </span>	errs := gw.Validate(in)
-<span id="L1273" class="ln">  1273  </span>	return gw.Aggregate(errs)
-<span id="L1274" class="ln">  1274  </span>}
-<span id="L1275" class="ln">  1275  </span>
-<span id="L1276" class="ln">  1276  </span>var _ webhook.Defaulter = &amp;PhysicalMachine{}
-<span id="L1277" class="ln">  1277  </span>
-<span id="L1278" class="ln">  1278  </span>func (in *PhysicalMachine) Default() {
-<span id="L1279" class="ln">  1279  </span>	gw.Default(in)
-<span id="L1280" class="ln">  1280  </span>}
-<span id="L1281" class="ln">  1281  </span>
-<span id="L1282" class="ln">  1282  </span>const KindPodChaos = &#34;PodChaos&#34;
-<span id="L1283" class="ln">  1283  </span>
-<span id="L1284" class="ln">  1284  </span><span class="comment">// IsDeleted returns whether this resource has been deleted</span>
-<span id="L1285" class="ln">  1285  </span>func (in *PodChaos) IsDeleted() bool {
-<span id="L1286" class="ln">  1286  </span>	return !in.DeletionTimestamp.IsZero()
-<span id="L1287" class="ln">  1287  </span>}
-<span id="L1288" class="ln">  1288  </span>
-<span id="L1289" class="ln">  1289  </span><span class="comment">// IsPaused returns whether this resource has been paused</span>
-<span id="L1290" class="ln">  1290  </span>func (in *PodChaos) IsPaused() bool {
-<span id="L1291" class="ln">  1291  </span>	if in.Annotations == nil || in.Annotations[PauseAnnotationKey] != &#34;true&#34; {
-<span id="L1292" class="ln">  1292  </span>		return false
-<span id="L1293" class="ln">  1293  </span>	}
-<span id="L1294" class="ln">  1294  </span>	return true
-<span id="L1295" class="ln">  1295  </span>}
-<span id="L1296" class="ln">  1296  </span>
-<span id="L1297" class="ln">  1297  </span><span class="comment">// GetObjectMeta would return the ObjectMeta for chaos</span>
-<span id="L1298" class="ln">  1298  </span>func (in *PodChaos) GetObjectMeta() *metav1.ObjectMeta {
-<span id="L1299" class="ln">  1299  </span>	return &amp;in.ObjectMeta
-<span id="L1300" class="ln">  1300  </span>}
-<span id="L1301" class="ln">  1301  </span>
-<span id="L1302" class="ln">  1302  </span><span class="comment">// GetDuration would return the duration for chaos</span>
-<span id="L1303" class="ln">  1303  </span>func (in *PodChaosSpec) GetDuration() (*time.Duration, error) {
-<span id="L1304" class="ln">  1304  </span>	if in.Duration == nil {
-<span id="L1305" class="ln">  1305  </span>		return nil, nil
-<span id="L1306" class="ln">  1306  </span>	}
-<span id="L1307" class="ln">  1307  </span>	duration, err := time.ParseDuration(string(*in.Duration))
-<span id="L1308" class="ln">  1308  </span>	if err != nil {
-<span id="L1309" class="ln">  1309  </span>		return nil, err
-<span id="L1310" class="ln">  1310  </span>	}
-<span id="L1311" class="ln">  1311  </span>	return &amp;duration, nil
-<span id="L1312" class="ln">  1312  </span>}
-<span id="L1313" class="ln">  1313  </span>
-<span id="L1314" class="ln">  1314  </span><span class="comment">// GetStatus returns the status</span>
-<span id="L1315" class="ln">  1315  </span>func (in *PodChaos) GetStatus() *ChaosStatus {
-<span id="L1316" class="ln">  1316  </span>	return &amp;in.Status.ChaosStatus
-<span id="L1317" class="ln">  1317  </span>}
-<span id="L1318" class="ln">  1318  </span>
-<span id="L1319" class="ln">  1319  </span><span class="comment">// GetSpecAndMetaString returns a string including the meta and spec field of this chaos object.</span>
-<span id="L1320" class="ln">  1320  </span>func (in *PodChaos) GetSpecAndMetaString() (string, error) {
-<span id="L1321" class="ln">  1321  </span>	spec, err := json.Marshal(in.Spec)
-<span id="L1322" class="ln">  1322  </span>	if err != nil {
-<span id="L1323" class="ln">  1323  </span>		return &#34;&#34;, err
-<span id="L1324" class="ln">  1324  </span>	}
-<span id="L1325" class="ln">  1325  </span>
-<span id="L1326" class="ln">  1326  </span>	meta := in.ObjectMeta.DeepCopy()
-<span id="L1327" class="ln">  1327  </span>	meta.SetResourceVersion(&#34;&#34;)
-<span id="L1328" class="ln">  1328  </span>	meta.SetGeneration(0)
-<span id="L1329" class="ln">  1329  </span>
-<span id="L1330" class="ln">  1330  </span>	return string(spec) + meta.String(), nil
-<span id="L1331" class="ln">  1331  </span>}
-<span id="L1332" class="ln">  1332  </span>
-<span id="L1333" class="ln">  1333  </span><span class="comment">// +kubebuilder:object:root=true</span>
+<span id="L1245" class="ln">  1245  </span><span class="comment">// IsDeleted returns whether this resource has been deleted</span>
+<span id="L1246" class="ln">  1246  </span>func (in *PhysicalMachineChaos) IsDeleted() bool {
+<span id="L1247" class="ln">  1247  </span>	return !in.DeletionTimestamp.IsZero()
+<span id="L1248" class="ln">  1248  </span>}
+<span id="L1249" class="ln">  1249  </span>
+<span id="L1250" class="ln">  1250  </span><span class="comment">// IsPaused returns whether this resource has been paused</span>
+<span id="L1251" class="ln">  1251  </span>func (in *PhysicalMachineChaos) IsPaused() bool {
+<span id="L1252" class="ln">  1252  </span>	if in.Annotations == nil || in.Annotations[PauseAnnotationKey] != &#34;true&#34; {
+<span id="L1253" class="ln">  1253  </span>		return false
+<span id="L1254" class="ln">  1254  </span>	}
+<span id="L1255" class="ln">  1255  </span>	return true
+<span id="L1256" class="ln">  1256  </span>}
+<span id="L1257" class="ln">  1257  </span>
+<span id="L1258" class="ln">  1258  </span><span class="comment">// GetObjectMeta would return the ObjectMeta for chaos</span>
+<span id="L1259" class="ln">  1259  </span>func (in *PhysicalMachineChaos) GetObjectMeta() *metav1.ObjectMeta {
+<span id="L1260" class="ln">  1260  </span>	return &amp;in.ObjectMeta
+<span id="L1261" class="ln">  1261  </span>}
+<span id="L1262" class="ln">  1262  </span>
+<span id="L1263" class="ln">  1263  </span><span class="comment">// GetDuration would return the duration for chaos</span>
+<span id="L1264" class="ln">  1264  </span>func (in *PhysicalMachineChaosSpec) GetDuration() (*time.Duration, error) {
+<span id="L1265" class="ln">  1265  </span>	if in.Duration == nil {
+<span id="L1266" class="ln">  1266  </span>		return nil, nil
+<span id="L1267" class="ln">  1267  </span>	}
+<span id="L1268" class="ln">  1268  </span>	duration, err := time.ParseDuration(string(*in.Duration))
+<span id="L1269" class="ln">  1269  </span>	if err != nil {
+<span id="L1270" class="ln">  1270  </span>		return nil, err
+<span id="L1271" class="ln">  1271  </span>	}
+<span id="L1272" class="ln">  1272  </span>	return &amp;duration, nil
+<span id="L1273" class="ln">  1273  </span>}
+<span id="L1274" class="ln">  1274  </span>
+<span id="L1275" class="ln">  1275  </span><span class="comment">// GetStatus returns the status</span>
+<span id="L1276" class="ln">  1276  </span>func (in *PhysicalMachineChaos) GetStatus() *ChaosStatus {
+<span id="L1277" class="ln">  1277  </span>	return &amp;in.Status.ChaosStatus
+<span id="L1278" class="ln">  1278  </span>}
+<span id="L1279" class="ln">  1279  </span>
+<span id="L1280" class="ln">  1280  </span><span class="comment">// GetSpecAndMetaString returns a string including the meta and spec field of this chaos object.</span>
+<span id="L1281" class="ln">  1281  </span>func (in *PhysicalMachineChaos) GetSpecAndMetaString() (string, error) {
+<span id="L1282" class="ln">  1282  </span>	spec, err := json.Marshal(in.Spec)
+<span id="L1283" class="ln">  1283  </span>	if err != nil {
+<span id="L1284" class="ln">  1284  </span>		return &#34;&#34;, err
+<span id="L1285" class="ln">  1285  </span>	}
+<span id="L1286" class="ln">  1286  </span>
+<span id="L1287" class="ln">  1287  </span>	meta := in.ObjectMeta.DeepCopy()
+<span id="L1288" class="ln">  1288  </span>	meta.SetResourceVersion(&#34;&#34;)
+<span id="L1289" class="ln">  1289  </span>	meta.SetGeneration(0)
+<span id="L1290" class="ln">  1290  </span>
+<span id="L1291" class="ln">  1291  </span>	return string(spec) + meta.String(), nil
+<span id="L1292" class="ln">  1292  </span>}
+<span id="L1293" class="ln">  1293  </span>
+<span id="L1294" class="ln">  1294  </span><span class="comment">// +kubebuilder:object:root=true</span>
+<span id="L1295" class="ln">  1295  </span>
+<span id="L1296" class="ln">  1296  </span><span class="comment">// PhysicalMachineChaosList contains a list of PhysicalMachineChaos</span>
+<span id="L1297" class="ln">  1297  </span>type PhysicalMachineChaosList struct {
+<span id="L1298" class="ln">  1298  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
+<span id="L1299" class="ln">  1299  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
+<span id="L1300" class="ln">  1300  </span>	Items           []PhysicalMachineChaos `json:&#34;items&#34;`
+<span id="L1301" class="ln">  1301  </span>}
+<span id="L1302" class="ln">  1302  </span>
+<span id="L1303" class="ln">  1303  </span>func (in *PhysicalMachineChaosList) DeepCopyList() GenericChaosList {
+<span id="L1304" class="ln">  1304  </span>	return in.DeepCopy()
+<span id="L1305" class="ln">  1305  </span>}
+<span id="L1306" class="ln">  1306  </span>
+<span id="L1307" class="ln">  1307  </span><span class="comment">// ListChaos returns a list of chaos</span>
+<span id="L1308" class="ln">  1308  </span>func (in *PhysicalMachineChaosList) ListChaos() []GenericChaos {
+<span id="L1309" class="ln">  1309  </span>	var result []GenericChaos
+<span id="L1310" class="ln">  1310  </span>	for _, item := range in.Items {
+<span id="L1311" class="ln">  1311  </span>		item := item
+<span id="L1312" class="ln">  1312  </span>		result = append(result, &amp;item)
+<span id="L1313" class="ln">  1313  </span>	}
+<span id="L1314" class="ln">  1314  </span>	return result
+<span id="L1315" class="ln">  1315  </span>}
+<span id="L1316" class="ln">  1316  </span>
+<span id="L1317" class="ln">  1317  </span>func (in *PhysicalMachineChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
+<span id="L1318" class="ln">  1318  </span>	duration, err := in.Spec.GetDuration()
+<span id="L1319" class="ln">  1319  </span>	if err != nil {
+<span id="L1320" class="ln">  1320  </span>		return false, 0, err
+<span id="L1321" class="ln">  1321  </span>	}
+<span id="L1322" class="ln">  1322  </span>
+<span id="L1323" class="ln">  1323  </span>	if duration != nil {
+<span id="L1324" class="ln">  1324  </span>		stopTime := in.GetCreationTimestamp().Add(*duration)
+<span id="L1325" class="ln">  1325  </span>		if stopTime.Before(now) {
+<span id="L1326" class="ln">  1326  </span>			return true, 0, nil
+<span id="L1327" class="ln">  1327  </span>		}
+<span id="L1328" class="ln">  1328  </span>
+<span id="L1329" class="ln">  1329  </span>		return false, stopTime.Sub(now), nil
+<span id="L1330" class="ln">  1330  </span>	}
+<span id="L1331" class="ln">  1331  </span>
+<span id="L1332" class="ln">  1332  </span>	return false, 0, nil
+<span id="L1333" class="ln">  1333  </span>}
 <span id="L1334" class="ln">  1334  </span>
-<span id="L1335" class="ln">  1335  </span><span class="comment">// PodChaosList contains a list of PodChaos</span>
-<span id="L1336" class="ln">  1336  </span>type PodChaosList struct {
-<span id="L1337" class="ln">  1337  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
-<span id="L1338" class="ln">  1338  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
-<span id="L1339" class="ln">  1339  </span>	Items           []PodChaos `json:&#34;items&#34;`
-<span id="L1340" class="ln">  1340  </span>}
-<span id="L1341" class="ln">  1341  </span>
-<span id="L1342" class="ln">  1342  </span>func (in *PodChaosList) DeepCopyList() GenericChaosList {
-<span id="L1343" class="ln">  1343  </span>	return in.DeepCopy()
+<span id="L1335" class="ln">  1335  </span>func (in *PhysicalMachineChaos) IsOneShot() bool {
+<span id="L1336" class="ln">  1336  </span>	return false
+<span id="L1337" class="ln">  1337  </span>}
+<span id="L1338" class="ln">  1338  </span>
+<span id="L1339" class="ln">  1339  </span>var PhysicalMachineChaosWebhookLog = logf.Log.WithName(&#34;PhysicalMachineChaos-resource&#34;)
+<span id="L1340" class="ln">  1340  </span>
+<span id="L1341" class="ln">  1341  </span>func (in *PhysicalMachineChaos) ValidateCreate() error {
+<span id="L1342" class="ln">  1342  </span>	PhysicalMachineChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
+<span id="L1343" class="ln">  1343  </span>	return in.Validate()
 <span id="L1344" class="ln">  1344  </span>}
 <span id="L1345" class="ln">  1345  </span>
-<span id="L1346" class="ln">  1346  </span><span class="comment">// ListChaos returns a list of chaos</span>
-<span id="L1347" class="ln">  1347  </span>func (in *PodChaosList) ListChaos() []GenericChaos {
-<span id="L1348" class="ln">  1348  </span>	var result []GenericChaos
-<span id="L1349" class="ln">  1349  </span>	for _, item := range in.Items {
-<span id="L1350" class="ln">  1350  </span>		item := item
-<span id="L1351" class="ln">  1351  </span>		result = append(result, &amp;item)
-<span id="L1352" class="ln">  1352  </span>	}
-<span id="L1353" class="ln">  1353  </span>	return result
-<span id="L1354" class="ln">  1354  </span>}
-<span id="L1355" class="ln">  1355  </span>
-<span id="L1356" class="ln">  1356  </span>func (in *PodChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
-<span id="L1357" class="ln">  1357  </span>	duration, err := in.Spec.GetDuration()
-<span id="L1358" class="ln">  1358  </span>	if err != nil {
-<span id="L1359" class="ln">  1359  </span>		return false, 0, err
-<span id="L1360" class="ln">  1360  </span>	}
-<span id="L1361" class="ln">  1361  </span>
-<span id="L1362" class="ln">  1362  </span>	if duration != nil {
-<span id="L1363" class="ln">  1363  </span>		stopTime := in.GetCreationTimestamp().Add(*duration)
-<span id="L1364" class="ln">  1364  </span>		if stopTime.Before(now) {
-<span id="L1365" class="ln">  1365  </span>			return true, 0, nil
-<span id="L1366" class="ln">  1366  </span>		}
-<span id="L1367" class="ln">  1367  </span>
-<span id="L1368" class="ln">  1368  </span>		return false, stopTime.Sub(now), nil
-<span id="L1369" class="ln">  1369  </span>	}
-<span id="L1370" class="ln">  1370  </span>
-<span id="L1371" class="ln">  1371  </span>	return false, 0, nil
-<span id="L1372" class="ln">  1372  </span>}
-<span id="L1373" class="ln">  1373  </span>
-<span id="L1374" class="ln">  1374  </span>func (in *PodChaos) IsOneShot() bool {
-<span id="L1375" class="ln">  1375  </span>	if in.Spec.Action==PodKillAction || in.Spec.Action==ContainerKillAction {
-<span id="L1376" class="ln">  1376  </span>		return true
-<span id="L1377" class="ln">  1377  </span>	}
-<span id="L1378" class="ln">  1378  </span>
-<span id="L1379" class="ln">  1379  </span>	return false
-<span id="L1380" class="ln">  1380  </span>}
-<span id="L1381" class="ln">  1381  </span>
-<span id="L1382" class="ln">  1382  </span>var PodChaosWebhookLog = logf.Log.WithName(&#34;PodChaos-resource&#34;)
-<span id="L1383" class="ln">  1383  </span>
-<span id="L1384" class="ln">  1384  </span>func (in *PodChaos) ValidateCreate() error {
-<span id="L1385" class="ln">  1385  </span>	PodChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
-<span id="L1386" class="ln">  1386  </span>	return in.Validate()
-<span id="L1387" class="ln">  1387  </span>}
-<span id="L1388" class="ln">  1388  </span>
-<span id="L1389" class="ln">  1389  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1390" class="ln">  1390  </span>func (in *PodChaos) ValidateUpdate(old runtime.Object) error {
-<span id="L1391" class="ln">  1391  </span>	PodChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
-<span id="L1392" class="ln">  1392  </span>	if !reflect.DeepEqual(in.Spec, old.(*PodChaos).Spec) {
-<span id="L1393" class="ln">  1393  </span>		return ErrCanNotUpdateChaos
-<span id="L1394" class="ln">  1394  </span>	}
-<span id="L1395" class="ln">  1395  </span>	return in.Validate()
-<span id="L1396" class="ln">  1396  </span>}
+<span id="L1346" class="ln">  1346  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
+<span id="L1347" class="ln">  1347  </span>func (in *PhysicalMachineChaos) ValidateUpdate(old runtime.Object) error {
+<span id="L1348" class="ln">  1348  </span>	PhysicalMachineChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
+<span id="L1349" class="ln">  1349  </span>	if !reflect.DeepEqual(in.Spec, old.(*PhysicalMachineChaos).Spec) {
+<span id="L1350" class="ln">  1350  </span>		return ErrCanNotUpdateChaos
+<span id="L1351" class="ln">  1351  </span>	}
+<span id="L1352" class="ln">  1352  </span>	return in.Validate()
+<span id="L1353" class="ln">  1353  </span>}
+<span id="L1354" class="ln">  1354  </span>
+<span id="L1355" class="ln">  1355  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
+<span id="L1356" class="ln">  1356  </span>func (in *PhysicalMachineChaos) ValidateDelete() error {
+<span id="L1357" class="ln">  1357  </span>	PhysicalMachineChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
+<span id="L1358" class="ln">  1358  </span>
+<span id="L1359" class="ln">  1359  </span>	<span class="comment">// Nothing to do?</span>
+<span id="L1360" class="ln">  1360  </span>	return nil
+<span id="L1361" class="ln">  1361  </span>}
+<span id="L1362" class="ln">  1362  </span>
+<span id="L1363" class="ln">  1363  </span>var _ webhook.Validator = &amp;PhysicalMachineChaos{}
+<span id="L1364" class="ln">  1364  </span>
+<span id="L1365" class="ln">  1365  </span>func (in *PhysicalMachineChaos) Validate() error {
+<span id="L1366" class="ln">  1366  </span>	errs := gw.Validate(in)
+<span id="L1367" class="ln">  1367  </span>	return gw.Aggregate(errs)
+<span id="L1368" class="ln">  1368  </span>}
+<span id="L1369" class="ln">  1369  </span>
+<span id="L1370" class="ln">  1370  </span>var _ webhook.Defaulter = &amp;PhysicalMachineChaos{}
+<span id="L1371" class="ln">  1371  </span>
+<span id="L1372" class="ln">  1372  </span>func (in *PhysicalMachineChaos) Default() {
+<span id="L1373" class="ln">  1373  </span>	gw.Default(in)
+<span id="L1374" class="ln">  1374  </span>}
+<span id="L1375" class="ln">  1375  </span>
+<span id="L1376" class="ln">  1376  </span>const KindPhysicalMachine = &#34;PhysicalMachine&#34;
+<span id="L1377" class="ln">  1377  </span>
+<span id="L1378" class="ln">  1378  </span>var PhysicalMachineWebhookLog = logf.Log.WithName(&#34;PhysicalMachine-resource&#34;)
+<span id="L1379" class="ln">  1379  </span>
+<span id="L1380" class="ln">  1380  </span>func (in *PhysicalMachine) ValidateCreate() error {
+<span id="L1381" class="ln">  1381  </span>	PhysicalMachineWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
+<span id="L1382" class="ln">  1382  </span>	return in.Validate()
+<span id="L1383" class="ln">  1383  </span>}
+<span id="L1384" class="ln">  1384  </span>
+<span id="L1385" class="ln">  1385  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
+<span id="L1386" class="ln">  1386  </span>func (in *PhysicalMachine) ValidateUpdate(old runtime.Object) error {
+<span id="L1387" class="ln">  1387  </span>	PhysicalMachineWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
+<span id="L1388" class="ln">  1388  </span>	if !reflect.DeepEqual(in.Spec, old.(*PhysicalMachine).Spec) {
+<span id="L1389" class="ln">  1389  </span>		return ErrCanNotUpdateChaos
+<span id="L1390" class="ln">  1390  </span>	}
+<span id="L1391" class="ln">  1391  </span>	return in.Validate()
+<span id="L1392" class="ln">  1392  </span>}
+<span id="L1393" class="ln">  1393  </span>
+<span id="L1394" class="ln">  1394  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
+<span id="L1395" class="ln">  1395  </span>func (in *PhysicalMachine) ValidateDelete() error {
+<span id="L1396" class="ln">  1396  </span>	PhysicalMachineWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
 <span id="L1397" class="ln">  1397  </span>
-<span id="L1398" class="ln">  1398  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1399" class="ln">  1399  </span>func (in *PodChaos) ValidateDelete() error {
-<span id="L1400" class="ln">  1400  </span>	PodChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
+<span id="L1398" class="ln">  1398  </span>	<span class="comment">// Nothing to do?</span>
+<span id="L1399" class="ln">  1399  </span>	return nil
+<span id="L1400" class="ln">  1400  </span>}
 <span id="L1401" class="ln">  1401  </span>
-<span id="L1402" class="ln">  1402  </span>	<span class="comment">// Nothing to do?</span>
-<span id="L1403" class="ln">  1403  </span>	return nil
-<span id="L1404" class="ln">  1404  </span>}
-<span id="L1405" class="ln">  1405  </span>
-<span id="L1406" class="ln">  1406  </span>var _ webhook.Validator = &amp;PodChaos{}
-<span id="L1407" class="ln">  1407  </span>
-<span id="L1408" class="ln">  1408  </span>func (in *PodChaos) Validate() error {
-<span id="L1409" class="ln">  1409  </span>	errs := gw.Validate(in)
-<span id="L1410" class="ln">  1410  </span>	return gw.Aggregate(errs)
-<span id="L1411" class="ln">  1411  </span>}
-<span id="L1412" class="ln">  1412  </span>
-<span id="L1413" class="ln">  1413  </span>var _ webhook.Defaulter = &amp;PodChaos{}
+<span id="L1402" class="ln">  1402  </span>var _ webhook.Validator = &amp;PhysicalMachine{}
+<span id="L1403" class="ln">  1403  </span>
+<span id="L1404" class="ln">  1404  </span>func (in *PhysicalMachine) Validate() error {
+<span id="L1405" class="ln">  1405  </span>	errs := gw.Validate(in)
+<span id="L1406" class="ln">  1406  </span>	return gw.Aggregate(errs)
+<span id="L1407" class="ln">  1407  </span>}
+<span id="L1408" class="ln">  1408  </span>
+<span id="L1409" class="ln">  1409  </span>var _ webhook.Defaulter = &amp;PhysicalMachine{}
+<span id="L1410" class="ln">  1410  </span>
+<span id="L1411" class="ln">  1411  </span>func (in *PhysicalMachine) Default() {
+<span id="L1412" class="ln">  1412  </span>	gw.Default(in)
+<span id="L1413" class="ln">  1413  </span>}
 <span id="L1414" class="ln">  1414  </span>
-<span id="L1415" class="ln">  1415  </span>func (in *PodChaos) Default() {
-<span id="L1416" class="ln">  1416  </span>	gw.Default(in)
-<span id="L1417" class="ln">  1417  </span>}
-<span id="L1418" class="ln">  1418  </span>
-<span id="L1419" class="ln">  1419  </span>const KindPodHttpChaos = &#34;PodHttpChaos&#34;
-<span id="L1420" class="ln">  1420  </span>
-<span id="L1421" class="ln">  1421  </span>var PodHttpChaosWebhookLog = logf.Log.WithName(&#34;PodHttpChaos-resource&#34;)
-<span id="L1422" class="ln">  1422  </span>
-<span id="L1423" class="ln">  1423  </span>func (in *PodHttpChaos) ValidateCreate() error {
-<span id="L1424" class="ln">  1424  </span>	PodHttpChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
-<span id="L1425" class="ln">  1425  </span>	return in.Validate()
-<span id="L1426" class="ln">  1426  </span>}
-<span id="L1427" class="ln">  1427  </span>
-<span id="L1428" class="ln">  1428  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1429" class="ln">  1429  </span>func (in *PodHttpChaos) ValidateUpdate(old runtime.Object) error {
-<span id="L1430" class="ln">  1430  </span>	PodHttpChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
-<span id="L1431" class="ln">  1431  </span>	return in.Validate()
-<span id="L1432" class="ln">  1432  </span>}
-<span id="L1433" class="ln">  1433  </span>
-<span id="L1434" class="ln">  1434  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1435" class="ln">  1435  </span>func (in *PodHttpChaos) ValidateDelete() error {
-<span id="L1436" class="ln">  1436  </span>	PodHttpChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
-<span id="L1437" class="ln">  1437  </span>
-<span id="L1438" class="ln">  1438  </span>	<span class="comment">// Nothing to do?</span>
-<span id="L1439" class="ln">  1439  </span>	return nil
-<span id="L1440" class="ln">  1440  </span>}
-<span id="L1441" class="ln">  1441  </span>
-<span id="L1442" class="ln">  1442  </span>var _ webhook.Validator = &amp;PodHttpChaos{}
-<span id="L1443" class="ln">  1443  </span>
-<span id="L1444" class="ln">  1444  </span>func (in *PodHttpChaos) Validate() error {
-<span id="L1445" class="ln">  1445  </span>	errs := gw.Validate(in)
-<span id="L1446" class="ln">  1446  </span>	return gw.Aggregate(errs)
-<span id="L1447" class="ln">  1447  </span>}
-<span id="L1448" class="ln">  1448  </span>
-<span id="L1449" class="ln">  1449  </span>var _ webhook.Defaulter = &amp;PodHttpChaos{}
-<span id="L1450" class="ln">  1450  </span>
-<span id="L1451" class="ln">  1451  </span>func (in *PodHttpChaos) Default() {
-<span id="L1452" class="ln">  1452  </span>	gw.Default(in)
-<span id="L1453" class="ln">  1453  </span>}
-<span id="L1454" class="ln">  1454  </span>
-<span id="L1455" class="ln">  1455  </span>const KindPodIOChaos = &#34;PodIOChaos&#34;
-<span id="L1456" class="ln">  1456  </span>
-<span id="L1457" class="ln">  1457  </span>var PodIOChaosWebhookLog = logf.Log.WithName(&#34;PodIOChaos-resource&#34;)
+<span id="L1415" class="ln">  1415  </span>const KindPodChaos = &#34;PodChaos&#34;
+<span id="L1416" class="ln">  1416  </span>
+<span id="L1417" class="ln">  1417  </span><span class="comment">// IsDeleted returns whether this resource has been deleted</span>
+<span id="L1418" class="ln">  1418  </span>func (in *PodChaos) IsDeleted() bool {
+<span id="L1419" class="ln">  1419  </span>	return !in.DeletionTimestamp.IsZero()
+<span id="L1420" class="ln">  1420  </span>}
+<span id="L1421" class="ln">  1421  </span>
+<span id="L1422" class="ln">  1422  </span><span class="comment">// IsPaused returns whether this resource has been paused</span>
+<span id="L1423" class="ln">  1423  </span>func (in *PodChaos) IsPaused() bool {
+<span id="L1424" class="ln">  1424  </span>	if in.Annotations == nil || in.Annotations[PauseAnnotationKey] != &#34;true&#34; {
+<span id="L1425" class="ln">  1425  </span>		return false
+<span id="L1426" class="ln">  1426  </span>	}
+<span id="L1427" class="ln">  1427  </span>	return true
+<span id="L1428" class="ln">  1428  </span>}
+<span id="L1429" class="ln">  1429  </span>
+<span id="L1430" class="ln">  1430  </span><span class="comment">// GetObjectMeta would return the ObjectMeta for chaos</span>
+<span id="L1431" class="ln">  1431  </span>func (in *PodChaos) GetObjectMeta() *metav1.ObjectMeta {
+<span id="L1432" class="ln">  1432  </span>	return &amp;in.ObjectMeta
+<span id="L1433" class="ln">  1433  </span>}
+<span id="L1434" class="ln">  1434  </span>
+<span id="L1435" class="ln">  1435  </span><span class="comment">// GetDuration would return the duration for chaos</span>
+<span id="L1436" class="ln">  1436  </span>func (in *PodChaosSpec) GetDuration() (*time.Duration, error) {
+<span id="L1437" class="ln">  1437  </span>	if in.Duration == nil {
+<span id="L1438" class="ln">  1438  </span>		return nil, nil
+<span id="L1439" class="ln">  1439  </span>	}
+<span id="L1440" class="ln">  1440  </span>	duration, err := time.ParseDuration(string(*in.Duration))
+<span id="L1441" class="ln">  1441  </span>	if err != nil {
+<span id="L1442" class="ln">  1442  </span>		return nil, err
+<span id="L1443" class="ln">  1443  </span>	}
+<span id="L1444" class="ln">  1444  </span>	return &amp;duration, nil
+<span id="L1445" class="ln">  1445  </span>}
+<span id="L1446" class="ln">  1446  </span>
+<span id="L1447" class="ln">  1447  </span><span class="comment">// GetStatus returns the status</span>
+<span id="L1448" class="ln">  1448  </span>func (in *PodChaos) GetStatus() *ChaosStatus {
+<span id="L1449" class="ln">  1449  </span>	return &amp;in.Status.ChaosStatus
+<span id="L1450" class="ln">  1450  </span>}
+<span id="L1451" class="ln">  1451  </span>
+<span id="L1452" class="ln">  1452  </span><span class="comment">// GetSpecAndMetaString returns a string including the meta and spec field of this chaos object.</span>
+<span id="L1453" class="ln">  1453  </span>func (in *PodChaos) GetSpecAndMetaString() (string, error) {
+<span id="L1454" class="ln">  1454  </span>	spec, err := json.Marshal(in.Spec)
+<span id="L1455" class="ln">  1455  </span>	if err != nil {
+<span id="L1456" class="ln">  1456  </span>		return &#34;&#34;, err
+<span id="L1457" class="ln">  1457  </span>	}
 <span id="L1458" class="ln">  1458  </span>
-<span id="L1459" class="ln">  1459  </span>func (in *PodIOChaos) ValidateCreate() error {
-<span id="L1460" class="ln">  1460  </span>	PodIOChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
-<span id="L1461" class="ln">  1461  </span>	return in.Validate()
-<span id="L1462" class="ln">  1462  </span>}
-<span id="L1463" class="ln">  1463  </span>
-<span id="L1464" class="ln">  1464  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1465" class="ln">  1465  </span>func (in *PodIOChaos) ValidateUpdate(old runtime.Object) error {
-<span id="L1466" class="ln">  1466  </span>	PodIOChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
-<span id="L1467" class="ln">  1467  </span>	return in.Validate()
-<span id="L1468" class="ln">  1468  </span>}
-<span id="L1469" class="ln">  1469  </span>
-<span id="L1470" class="ln">  1470  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1471" class="ln">  1471  </span>func (in *PodIOChaos) ValidateDelete() error {
-<span id="L1472" class="ln">  1472  </span>	PodIOChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
-<span id="L1473" class="ln">  1473  </span>
-<span id="L1474" class="ln">  1474  </span>	<span class="comment">// Nothing to do?</span>
-<span id="L1475" class="ln">  1475  </span>	return nil
-<span id="L1476" class="ln">  1476  </span>}
-<span id="L1477" class="ln">  1477  </span>
-<span id="L1478" class="ln">  1478  </span>var _ webhook.Validator = &amp;PodIOChaos{}
-<span id="L1479" class="ln">  1479  </span>
-<span id="L1480" class="ln">  1480  </span>func (in *PodIOChaos) Validate() error {
-<span id="L1481" class="ln">  1481  </span>	errs := gw.Validate(in)
-<span id="L1482" class="ln">  1482  </span>	return gw.Aggregate(errs)
-<span id="L1483" class="ln">  1483  </span>}
-<span id="L1484" class="ln">  1484  </span>
-<span id="L1485" class="ln">  1485  </span>var _ webhook.Defaulter = &amp;PodIOChaos{}
-<span id="L1486" class="ln">  1486  </span>
-<span id="L1487" class="ln">  1487  </span>func (in *PodIOChaos) Default() {
-<span id="L1488" class="ln">  1488  </span>	gw.Default(in)
-<span id="L1489" class="ln">  1489  </span>}
-<span id="L1490" class="ln">  1490  </span>
-<span id="L1491" class="ln">  1491  </span>const KindPodNetworkChaos = &#34;PodNetworkChaos&#34;
-<span id="L1492" class="ln">  1492  </span>
-<span id="L1493" class="ln">  1493  </span>var PodNetworkChaosWebhookLog = logf.Log.WithName(&#34;PodNetworkChaos-resource&#34;)
+<span id="L1459" class="ln">  1459  </span>	meta := in.ObjectMeta.DeepCopy()
+<span id="L1460" class="ln">  1460  </span>	meta.SetResourceVersion(&#34;&#34;)
+<span id="L1461" class="ln">  1461  </span>	meta.SetGeneration(0)
+<span id="L1462" class="ln">  1462  </span>
+<span id="L1463" class="ln">  1463  </span>	return string(spec) + meta.String(), nil
+<span id="L1464" class="ln">  1464  </span>}
+<span id="L1465" class="ln">  1465  </span>
+<span id="L1466" class="ln">  1466  </span><span class="comment">// +kubebuilder:object:root=true</span>
+<span id="L1467" class="ln">  1467  </span>
+<span id="L1468" class="ln">  1468  </span><span class="comment">// PodChaosList contains a list of PodChaos</span>
+<span id="L1469" class="ln">  1469  </span>type PodChaosList struct {
+<span id="L1470" class="ln">  1470  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
+<span id="L1471" class="ln">  1471  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
+<span id="L1472" class="ln">  1472  </span>	Items           []PodChaos `json:&#34;items&#34;`
+<span id="L1473" class="ln">  1473  </span>}
+<span id="L1474" class="ln">  1474  </span>
+<span id="L1475" class="ln">  1475  </span>func (in *PodChaosList) DeepCopyList() GenericChaosList {
+<span id="L1476" class="ln">  1476  </span>	return in.DeepCopy()
+<span id="L1477" class="ln">  1477  </span>}
+<span id="L1478" class="ln">  1478  </span>
+<span id="L1479" class="ln">  1479  </span><span class="comment">// ListChaos returns a list of chaos</span>
+<span id="L1480" class="ln">  1480  </span>func (in *PodChaosList) ListChaos() []GenericChaos {
+<span id="L1481" class="ln">  1481  </span>	var result []GenericChaos
+<span id="L1482" class="ln">  1482  </span>	for _, item := range in.Items {
+<span id="L1483" class="ln">  1483  </span>		item := item
+<span id="L1484" class="ln">  1484  </span>		result = append(result, &amp;item)
+<span id="L1485" class="ln">  1485  </span>	}
+<span id="L1486" class="ln">  1486  </span>	return result
+<span id="L1487" class="ln">  1487  </span>}
+<span id="L1488" class="ln">  1488  </span>
+<span id="L1489" class="ln">  1489  </span>func (in *PodChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
+<span id="L1490" class="ln">  1490  </span>	duration, err := in.Spec.GetDuration()
+<span id="L1491" class="ln">  1491  </span>	if err != nil {
+<span id="L1492" class="ln">  1492  </span>		return false, 0, err
+<span id="L1493" class="ln">  1493  </span>	}
 <span id="L1494" class="ln">  1494  </span>
-<span id="L1495" class="ln">  1495  </span>func (in *PodNetworkChaos) ValidateCreate() error {
-<span id="L1496" class="ln">  1496  </span>	PodNetworkChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
-<span id="L1497" class="ln">  1497  </span>	return in.Validate()
-<span id="L1498" class="ln">  1498  </span>}
-<span id="L1499" class="ln">  1499  </span>
-<span id="L1500" class="ln">  1500  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1501" class="ln">  1501  </span>func (in *PodNetworkChaos) ValidateUpdate(old runtime.Object) error {
-<span id="L1502" class="ln">  1502  </span>	PodNetworkChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
-<span id="L1503" class="ln">  1503  </span>	return in.Validate()
-<span id="L1504" class="ln">  1504  </span>}
-<span id="L1505" class="ln">  1505  </span>
-<span id="L1506" class="ln">  1506  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1507" class="ln">  1507  </span>func (in *PodNetworkChaos) ValidateDelete() error {
-<span id="L1508" class="ln">  1508  </span>	PodNetworkChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
-<span id="L1509" class="ln">  1509  </span>
-<span id="L1510" class="ln">  1510  </span>	<span class="comment">// Nothing to do?</span>
-<span id="L1511" class="ln">  1511  </span>	return nil
-<span id="L1512" class="ln">  1512  </span>}
-<span id="L1513" class="ln">  1513  </span>
-<span id="L1514" class="ln">  1514  </span>var _ webhook.Validator = &amp;PodNetworkChaos{}
-<span id="L1515" class="ln">  1515  </span>
-<span id="L1516" class="ln">  1516  </span>func (in *PodNetworkChaos) Validate() error {
-<span id="L1517" class="ln">  1517  </span>	errs := gw.Validate(in)
-<span id="L1518" class="ln">  1518  </span>	return gw.Aggregate(errs)
-<span id="L1519" class="ln">  1519  </span>}
-<span id="L1520" class="ln">  1520  </span>
-<span id="L1521" class="ln">  1521  </span>var _ webhook.Defaulter = &amp;PodNetworkChaos{}
-<span id="L1522" class="ln">  1522  </span>
-<span id="L1523" class="ln">  1523  </span>func (in *PodNetworkChaos) Default() {
-<span id="L1524" class="ln">  1524  </span>	gw.Default(in)
-<span id="L1525" class="ln">  1525  </span>}
-<span id="L1526" class="ln">  1526  </span>
-<span id="L1527" class="ln">  1527  </span>const KindStressChaos = &#34;StressChaos&#34;
-<span id="L1528" class="ln">  1528  </span>
-<span id="L1529" class="ln">  1529  </span><span class="comment">// IsDeleted returns whether this resource has been deleted</span>
-<span id="L1530" class="ln">  1530  </span>func (in *StressChaos) IsDeleted() bool {
-<span id="L1531" class="ln">  1531  </span>	return !in.DeletionTimestamp.IsZero()
-<span id="L1532" class="ln">  1532  </span>}
-<span id="L1533" class="ln">  1533  </span>
-<span id="L1534" class="ln">  1534  </span><span class="comment">// IsPaused returns whether this resource has been paused</span>
-<span id="L1535" class="ln">  1535  </span>func (in *StressChaos) IsPaused() bool {
-<span id="L1536" class="ln">  1536  </span>	if in.Annotations == nil || in.Annotations[PauseAnnotationKey] != &#34;true&#34; {
-<span id="L1537" class="ln">  1537  </span>		return false
-<span id="L1538" class="ln">  1538  </span>	}
-<span id="L1539" class="ln">  1539  </span>	return true
-<span id="L1540" class="ln">  1540  </span>}
-<span id="L1541" class="ln">  1541  </span>
-<span id="L1542" class="ln">  1542  </span><span class="comment">// GetObjectMeta would return the ObjectMeta for chaos</span>
-<span id="L1543" class="ln">  1543  </span>func (in *StressChaos) GetObjectMeta() *metav1.ObjectMeta {
-<span id="L1544" class="ln">  1544  </span>	return &amp;in.ObjectMeta
-<span id="L1545" class="ln">  1545  </span>}
-<span id="L1546" class="ln">  1546  </span>
-<span id="L1547" class="ln">  1547  </span><span class="comment">// GetDuration would return the duration for chaos</span>
-<span id="L1548" class="ln">  1548  </span>func (in *StressChaosSpec) GetDuration() (*time.Duration, error) {
-<span id="L1549" class="ln">  1549  </span>	if in.Duration == nil {
-<span id="L1550" class="ln">  1550  </span>		return nil, nil
-<span id="L1551" class="ln">  1551  </span>	}
-<span id="L1552" class="ln">  1552  </span>	duration, err := time.ParseDuration(string(*in.Duration))
-<span id="L1553" class="ln">  1553  </span>	if err != nil {
-<span id="L1554" class="ln">  1554  </span>		return nil, err
-<span id="L1555" class="ln">  1555  </span>	}
-<span id="L1556" class="ln">  1556  </span>	return &amp;duration, nil
-<span id="L1557" class="ln">  1557  </span>}
-<span id="L1558" class="ln">  1558  </span>
-<span id="L1559" class="ln">  1559  </span><span class="comment">// GetStatus returns the status</span>
-<span id="L1560" class="ln">  1560  </span>func (in *StressChaos) GetStatus() *ChaosStatus {
-<span id="L1561" class="ln">  1561  </span>	return &amp;in.Status.ChaosStatus
-<span id="L1562" class="ln">  1562  </span>}
-<span id="L1563" class="ln">  1563  </span>
-<span id="L1564" class="ln">  1564  </span><span class="comment">// GetSpecAndMetaString returns a string including the meta and spec field of this chaos object.</span>
-<span id="L1565" class="ln">  1565  </span>func (in *StressChaos) GetSpecAndMetaString() (string, error) {
-<span id="L1566" class="ln">  1566  </span>	spec, err := json.Marshal(in.Spec)
-<span id="L1567" class="ln">  1567  </span>	if err != nil {
-<span id="L1568" class="ln">  1568  </span>		return &#34;&#34;, err
-<span id="L1569" class="ln">  1569  </span>	}
+<span id="L1495" class="ln">  1495  </span>	if duration != nil {
+<span id="L1496" class="ln">  1496  </span>		stopTime := in.GetCreationTimestamp().Add(*duration)
+<span id="L1497" class="ln">  1497  </span>		if stopTime.Before(now) {
+<span id="L1498" class="ln">  1498  </span>			return true, 0, nil
+<span id="L1499" class="ln">  1499  </span>		}
+<span id="L1500" class="ln">  1500  </span>
+<span id="L1501" class="ln">  1501  </span>		return false, stopTime.Sub(now), nil
+<span id="L1502" class="ln">  1502  </span>	}
+<span id="L1503" class="ln">  1503  </span>
+<span id="L1504" class="ln">  1504  </span>	return false, 0, nil
+<span id="L1505" class="ln">  1505  </span>}
+<span id="L1506" class="ln">  1506  </span>
+<span id="L1507" class="ln">  1507  </span>func (in *PodChaos) IsOneShot() bool {
+<span id="L1508" class="ln">  1508  </span>	if in.Spec.Action==PodKillAction || in.Spec.Action==ContainerKillAction {
+<span id="L1509" class="ln">  1509  </span>		return true
+<span id="L1510" class="ln">  1510  </span>	}
+<span id="L1511" class="ln">  1511  </span>
+<span id="L1512" class="ln">  1512  </span>	return false
+<span id="L1513" class="ln">  1513  </span>}
+<span id="L1514" class="ln">  1514  </span>
+<span id="L1515" class="ln">  1515  </span>var PodChaosWebhookLog = logf.Log.WithName(&#34;PodChaos-resource&#34;)
+<span id="L1516" class="ln">  1516  </span>
+<span id="L1517" class="ln">  1517  </span>func (in *PodChaos) ValidateCreate() error {
+<span id="L1518" class="ln">  1518  </span>	PodChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
+<span id="L1519" class="ln">  1519  </span>	return in.Validate()
+<span id="L1520" class="ln">  1520  </span>}
+<span id="L1521" class="ln">  1521  </span>
+<span id="L1522" class="ln">  1522  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
+<span id="L1523" class="ln">  1523  </span>func (in *PodChaos) ValidateUpdate(old runtime.Object) error {
+<span id="L1524" class="ln">  1524  </span>	PodChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
+<span id="L1525" class="ln">  1525  </span>	if !reflect.DeepEqual(in.Spec, old.(*PodChaos).Spec) {
+<span id="L1526" class="ln">  1526  </span>		return ErrCanNotUpdateChaos
+<span id="L1527" class="ln">  1527  </span>	}
+<span id="L1528" class="ln">  1528  </span>	return in.Validate()
+<span id="L1529" class="ln">  1529  </span>}
+<span id="L1530" class="ln">  1530  </span>
+<span id="L1531" class="ln">  1531  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
+<span id="L1532" class="ln">  1532  </span>func (in *PodChaos) ValidateDelete() error {
+<span id="L1533" class="ln">  1533  </span>	PodChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
+<span id="L1534" class="ln">  1534  </span>
+<span id="L1535" class="ln">  1535  </span>	<span class="comment">// Nothing to do?</span>
+<span id="L1536" class="ln">  1536  </span>	return nil
+<span id="L1537" class="ln">  1537  </span>}
+<span id="L1538" class="ln">  1538  </span>
+<span id="L1539" class="ln">  1539  </span>var _ webhook.Validator = &amp;PodChaos{}
+<span id="L1540" class="ln">  1540  </span>
+<span id="L1541" class="ln">  1541  </span>func (in *PodChaos) Validate() error {
+<span id="L1542" class="ln">  1542  </span>	errs := gw.Validate(in)
+<span id="L1543" class="ln">  1543  </span>	return gw.Aggregate(errs)
+<span id="L1544" class="ln">  1544  </span>}
+<span id="L1545" class="ln">  1545  </span>
+<span id="L1546" class="ln">  1546  </span>var _ webhook.Defaulter = &amp;PodChaos{}
+<span id="L1547" class="ln">  1547  </span>
+<span id="L1548" class="ln">  1548  </span>func (in *PodChaos) Default() {
+<span id="L1549" class="ln">  1549  </span>	gw.Default(in)
+<span id="L1550" class="ln">  1550  </span>}
+<span id="L1551" class="ln">  1551  </span>
+<span id="L1552" class="ln">  1552  </span>const KindPodHttpChaos = &#34;PodHttpChaos&#34;
+<span id="L1553" class="ln">  1553  </span>
+<span id="L1554" class="ln">  1554  </span>var PodHttpChaosWebhookLog = logf.Log.WithName(&#34;PodHttpChaos-resource&#34;)
+<span id="L1555" class="ln">  1555  </span>
+<span id="L1556" class="ln">  1556  </span>func (in *PodHttpChaos) ValidateCreate() error {
+<span id="L1557" class="ln">  1557  </span>	PodHttpChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
+<span id="L1558" class="ln">  1558  </span>	return in.Validate()
+<span id="L1559" class="ln">  1559  </span>}
+<span id="L1560" class="ln">  1560  </span>
+<span id="L1561" class="ln">  1561  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
+<span id="L1562" class="ln">  1562  </span>func (in *PodHttpChaos) ValidateUpdate(old runtime.Object) error {
+<span id="L1563" class="ln">  1563  </span>	PodHttpChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
+<span id="L1564" class="ln">  1564  </span>	return in.Validate()
+<span id="L1565" class="ln">  1565  </span>}
+<span id="L1566" class="ln">  1566  </span>
+<span id="L1567" class="ln">  1567  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
+<span id="L1568" class="ln">  1568  </span>func (in *PodHttpChaos) ValidateDelete() error {
+<span id="L1569" class="ln">  1569  </span>	PodHttpChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
 <span id="L1570" class="ln">  1570  </span>
-<span id="L1571" class="ln">  1571  </span>	meta := in.ObjectMeta.DeepCopy()
-<span id="L1572" class="ln">  1572  </span>	meta.SetResourceVersion(&#34;&#34;)
-<span id="L1573" class="ln">  1573  </span>	meta.SetGeneration(0)
+<span id="L1571" class="ln">  1571  </span>	<span class="comment">// Nothing to do?</span>
+<span id="L1572" class="ln">  1572  </span>	return nil
+<span id="L1573" class="ln">  1573  </span>}
 <span id="L1574" class="ln">  1574  </span>
-<span id="L1575" class="ln">  1575  </span>	return string(spec) + meta.String(), nil
-<span id="L1576" class="ln">  1576  </span>}
-<span id="L1577" class="ln">  1577  </span>
-<span id="L1578" class="ln">  1578  </span><span class="comment">// +kubebuilder:object:root=true</span>
-<span id="L1579" class="ln">  1579  </span>
-<span id="L1580" class="ln">  1580  </span><span class="comment">// StressChaosList contains a list of StressChaos</span>
-<span id="L1581" class="ln">  1581  </span>type StressChaosList struct {
-<span id="L1582" class="ln">  1582  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
-<span id="L1583" class="ln">  1583  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
-<span id="L1584" class="ln">  1584  </span>	Items           []StressChaos `json:&#34;items&#34;`
-<span id="L1585" class="ln">  1585  </span>}
-<span id="L1586" class="ln">  1586  </span>
-<span id="L1587" class="ln">  1587  </span>func (in *StressChaosList) DeepCopyList() GenericChaosList {
-<span id="L1588" class="ln">  1588  </span>	return in.DeepCopy()
-<span id="L1589" class="ln">  1589  </span>}
-<span id="L1590" class="ln">  1590  </span>
-<span id="L1591" class="ln">  1591  </span><span class="comment">// ListChaos returns a list of chaos</span>
-<span id="L1592" class="ln">  1592  </span>func (in *StressChaosList) ListChaos() []GenericChaos {
-<span id="L1593" class="ln">  1593  </span>	var result []GenericChaos
-<span id="L1594" class="ln">  1594  </span>	for _, item := range in.Items {
-<span id="L1595" class="ln">  1595  </span>		item := item
-<span id="L1596" class="ln">  1596  </span>		result = append(result, &amp;item)
-<span id="L1597" class="ln">  1597  </span>	}
-<span id="L1598" class="ln">  1598  </span>	return result
-<span id="L1599" class="ln">  1599  </span>}
-<span id="L1600" class="ln">  1600  </span>
-<span id="L1601" class="ln">  1601  </span>func (in *StressChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
-<span id="L1602" class="ln">  1602  </span>	duration, err := in.Spec.GetDuration()
-<span id="L1603" class="ln">  1603  </span>	if err != nil {
-<span id="L1604" class="ln">  1604  </span>		return false, 0, err
-<span id="L1605" class="ln">  1605  </span>	}
+<span id="L1575" class="ln">  1575  </span>var _ webhook.Validator = &amp;PodHttpChaos{}
+<span id="L1576" class="ln">  1576  </span>
+<span id="L1577" class="ln">  1577  </span>func (in *PodHttpChaos) Validate() error {
+<span id="L1578" class="ln">  1578  </span>	errs := gw.Validate(in)
+<span id="L1579" class="ln">  1579  </span>	return gw.Aggregate(errs)
+<span id="L1580" class="ln">  1580  </span>}
+<span id="L1581" class="ln">  1581  </span>
+<span id="L1582" class="ln">  1582  </span>var _ webhook.Defaulter = &amp;PodHttpChaos{}
+<span id="L1583" class="ln">  1583  </span>
+<span id="L1584" class="ln">  1584  </span>func (in *PodHttpChaos) Default() {
+<span id="L1585" class="ln">  1585  </span>	gw.Default(in)
+<span id="L1586" class="ln">  1586  </span>}
+<span id="L1587" class="ln">  1587  </span>
+<span id="L1588" class="ln">  1588  </span>const KindPodIOChaos = &#34;PodIOChaos&#34;
+<span id="L1589" class="ln">  1589  </span>
+<span id="L1590" class="ln">  1590  </span>var PodIOChaosWebhookLog = logf.Log.WithName(&#34;PodIOChaos-resource&#34;)
+<span id="L1591" class="ln">  1591  </span>
+<span id="L1592" class="ln">  1592  </span>func (in *PodIOChaos) ValidateCreate() error {
+<span id="L1593" class="ln">  1593  </span>	PodIOChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
+<span id="L1594" class="ln">  1594  </span>	return in.Validate()
+<span id="L1595" class="ln">  1595  </span>}
+<span id="L1596" class="ln">  1596  </span>
+<span id="L1597" class="ln">  1597  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
+<span id="L1598" class="ln">  1598  </span>func (in *PodIOChaos) ValidateUpdate(old runtime.Object) error {
+<span id="L1599" class="ln">  1599  </span>	PodIOChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
+<span id="L1600" class="ln">  1600  </span>	return in.Validate()
+<span id="L1601" class="ln">  1601  </span>}
+<span id="L1602" class="ln">  1602  </span>
+<span id="L1603" class="ln">  1603  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
+<span id="L1604" class="ln">  1604  </span>func (in *PodIOChaos) ValidateDelete() error {
+<span id="L1605" class="ln">  1605  </span>	PodIOChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
 <span id="L1606" class="ln">  1606  </span>
-<span id="L1607" class="ln">  1607  </span>	if duration != nil {
-<span id="L1608" class="ln">  1608  </span>		stopTime := in.GetCreationTimestamp().Add(*duration)
-<span id="L1609" class="ln">  1609  </span>		if stopTime.Before(now) {
-<span id="L1610" class="ln">  1610  </span>			return true, 0, nil
-<span id="L1611" class="ln">  1611  </span>		}
+<span id="L1607" class="ln">  1607  </span>	<span class="comment">// Nothing to do?</span>
+<span id="L1608" class="ln">  1608  </span>	return nil
+<span id="L1609" class="ln">  1609  </span>}
+<span id="L1610" class="ln">  1610  </span>
+<span id="L1611" class="ln">  1611  </span>var _ webhook.Validator = &amp;PodIOChaos{}
 <span id="L1612" class="ln">  1612  </span>
-<span id="L1613" class="ln">  1613  </span>		return false, stopTime.Sub(now), nil
-<span id="L1614" class="ln">  1614  </span>	}
-<span id="L1615" class="ln">  1615  </span>
-<span id="L1616" class="ln">  1616  </span>	return false, 0, nil
-<span id="L1617" class="ln">  1617  </span>}
-<span id="L1618" class="ln">  1618  </span>
-<span id="L1619" class="ln">  1619  </span>func (in *StressChaos) IsOneShot() bool {
-<span id="L1620" class="ln">  1620  </span>	return false
-<span id="L1621" class="ln">  1621  </span>}
-<span id="L1622" class="ln">  1622  </span>
-<span id="L1623" class="ln">  1623  </span>var StressChaosWebhookLog = logf.Log.WithName(&#34;StressChaos-resource&#34;)
-<span id="L1624" class="ln">  1624  </span>
-<span id="L1625" class="ln">  1625  </span>func (in *StressChaos) ValidateCreate() error {
-<span id="L1626" class="ln">  1626  </span>	StressChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
-<span id="L1627" class="ln">  1627  </span>	return in.Validate()
-<span id="L1628" class="ln">  1628  </span>}
-<span id="L1629" class="ln">  1629  </span>
-<span id="L1630" class="ln">  1630  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1631" class="ln">  1631  </span>func (in *StressChaos) ValidateUpdate(old runtime.Object) error {
-<span id="L1632" class="ln">  1632  </span>	StressChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
-<span id="L1633" class="ln">  1633  </span>	if !reflect.DeepEqual(in.Spec, old.(*StressChaos).Spec) {
-<span id="L1634" class="ln">  1634  </span>		return ErrCanNotUpdateChaos
-<span id="L1635" class="ln">  1635  </span>	}
+<span id="L1613" class="ln">  1613  </span>func (in *PodIOChaos) Validate() error {
+<span id="L1614" class="ln">  1614  </span>	errs := gw.Validate(in)
+<span id="L1615" class="ln">  1615  </span>	return gw.Aggregate(errs)
+<span id="L1616" class="ln">  1616  </span>}
+<span id="L1617" class="ln">  1617  </span>
+<span id="L1618" class="ln">  1618  </span>var _ webhook.Defaulter = &amp;PodIOChaos{}
+<span id="L1619" class="ln">  1619  </span>
+<span id="L1620" class="ln">  1620  </span>func (in *PodIOChaos) Default() {
+<span id="L1621" class="ln">  1621  </span>	gw.Default(in)
+<span id="L1622" class="ln">  1622  </span>}
+<span id="L1623" class="ln">  1623  </span>
+<span id="L1624" class="ln">  1624  </span>const KindPodNetworkChaos = &#34;PodNetworkChaos&#34;
+<span id="L1625" class="ln">  1625  </span>
+<span id="L1626" class="ln">  1626  </span>var PodNetworkChaosWebhookLog = logf.Log.WithName(&#34;PodNetworkChaos-resource&#34;)
+<span id="L1627" class="ln">  1627  </span>
+<span id="L1628" class="ln">  1628  </span>func (in *PodNetworkChaos) ValidateCreate() error {
+<span id="L1629" class="ln">  1629  </span>	PodNetworkChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
+<span id="L1630" class="ln">  1630  </span>	return in.Validate()
+<span id="L1631" class="ln">  1631  </span>}
+<span id="L1632" class="ln">  1632  </span>
+<span id="L1633" class="ln">  1633  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
+<span id="L1634" class="ln">  1634  </span>func (in *PodNetworkChaos) ValidateUpdate(old runtime.Object) error {
+<span id="L1635" class="ln">  1635  </span>	PodNetworkChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
 <span id="L1636" class="ln">  1636  </span>	return in.Validate()
 <span id="L1637" class="ln">  1637  </span>}
 <span id="L1638" class="ln">  1638  </span>
 <span id="L1639" class="ln">  1639  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1640" class="ln">  1640  </span>func (in *StressChaos) ValidateDelete() error {
-<span id="L1641" class="ln">  1641  </span>	StressChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
+<span id="L1640" class="ln">  1640  </span>func (in *PodNetworkChaos) ValidateDelete() error {
+<span id="L1641" class="ln">  1641  </span>	PodNetworkChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
 <span id="L1642" class="ln">  1642  </span>
 <span id="L1643" class="ln">  1643  </span>	<span class="comment">// Nothing to do?</span>
 <span id="L1644" class="ln">  1644  </span>	return nil
 <span id="L1645" class="ln">  1645  </span>}
 <span id="L1646" class="ln">  1646  </span>
-<span id="L1647" class="ln">  1647  </span>var _ webhook.Validator = &amp;StressChaos{}
+<span id="L1647" class="ln">  1647  </span>var _ webhook.Validator = &amp;PodNetworkChaos{}
 <span id="L1648" class="ln">  1648  </span>
-<span id="L1649" class="ln">  1649  </span>func (in *StressChaos) Validate() error {
+<span id="L1649" class="ln">  1649  </span>func (in *PodNetworkChaos) Validate() error {
 <span id="L1650" class="ln">  1650  </span>	errs := gw.Validate(in)
 <span id="L1651" class="ln">  1651  </span>	return gw.Aggregate(errs)
 <span id="L1652" class="ln">  1652  </span>}
 <span id="L1653" class="ln">  1653  </span>
-<span id="L1654" class="ln">  1654  </span>var _ webhook.Defaulter = &amp;StressChaos{}
+<span id="L1654" class="ln">  1654  </span>var _ webhook.Defaulter = &amp;PodNetworkChaos{}
 <span id="L1655" class="ln">  1655  </span>
-<span id="L1656" class="ln">  1656  </span>func (in *StressChaos) Default() {
+<span id="L1656" class="ln">  1656  </span>func (in *PodNetworkChaos) Default() {
 <span id="L1657" class="ln">  1657  </span>	gw.Default(in)
 <span id="L1658" class="ln">  1658  </span>}
 <span id="L1659" class="ln">  1659  </span>
-<span id="L1660" class="ln">  1660  </span>const KindTimeChaos = &#34;TimeChaos&#34;
+<span id="L1660" class="ln">  1660  </span>const KindStressChaos = &#34;StressChaos&#34;
 <span id="L1661" class="ln">  1661  </span>
 <span id="L1662" class="ln">  1662  </span><span class="comment">// IsDeleted returns whether this resource has been deleted</span>
-<span id="L1663" class="ln">  1663  </span>func (in *TimeChaos) IsDeleted() bool {
+<span id="L1663" class="ln">  1663  </span>func (in *StressChaos) IsDeleted() bool {
 <span id="L1664" class="ln">  1664  </span>	return !in.DeletionTimestamp.IsZero()
 <span id="L1665" class="ln">  1665  </span>}
 <span id="L1666" class="ln">  1666  </span>
 <span id="L1667" class="ln">  1667  </span><span class="comment">// IsPaused returns whether this resource has been paused</span>
-<span id="L1668" class="ln">  1668  </span>func (in *TimeChaos) IsPaused() bool {
+<span id="L1668" class="ln">  1668  </span>func (in *StressChaos) IsPaused() bool {
 <span id="L1669" class="ln">  1669  </span>	if in.Annotations == nil || in.Annotations[PauseAnnotationKey] != &#34;true&#34; {
 <span id="L1670" class="ln">  1670  </span>		return false
 <span id="L1671" class="ln">  1671  </span>	}
@@ -1729,12 +1729,12 @@
 <span id="L1673" class="ln">  1673  </span>}
 <span id="L1674" class="ln">  1674  </span>
 <span id="L1675" class="ln">  1675  </span><span class="comment">// GetObjectMeta would return the ObjectMeta for chaos</span>
-<span id="L1676" class="ln">  1676  </span>func (in *TimeChaos) GetObjectMeta() *metav1.ObjectMeta {
+<span id="L1676" class="ln">  1676  </span>func (in *StressChaos) GetObjectMeta() *metav1.ObjectMeta {
 <span id="L1677" class="ln">  1677  </span>	return &amp;in.ObjectMeta
 <span id="L1678" class="ln">  1678  </span>}
 <span id="L1679" class="ln">  1679  </span>
 <span id="L1680" class="ln">  1680  </span><span class="comment">// GetDuration would return the duration for chaos</span>
-<span id="L1681" class="ln">  1681  </span>func (in *TimeChaosSpec) GetDuration() (*time.Duration, error) {
+<span id="L1681" class="ln">  1681  </span>func (in *StressChaosSpec) GetDuration() (*time.Duration, error) {
 <span id="L1682" class="ln">  1682  </span>	if in.Duration == nil {
 <span id="L1683" class="ln">  1683  </span>		return nil, nil
 <span id="L1684" class="ln">  1684  </span>	}
@@ -1746,12 +1746,12 @@
 <span id="L1690" class="ln">  1690  </span>}
 <span id="L1691" class="ln">  1691  </span>
 <span id="L1692" class="ln">  1692  </span><span class="comment">// GetStatus returns the status</span>
-<span id="L1693" class="ln">  1693  </span>func (in *TimeChaos) GetStatus() *ChaosStatus {
+<span id="L1693" class="ln">  1693  </span>func (in *StressChaos) GetStatus() *ChaosStatus {
 <span id="L1694" class="ln">  1694  </span>	return &amp;in.Status.ChaosStatus
 <span id="L1695" class="ln">  1695  </span>}
 <span id="L1696" class="ln">  1696  </span>
 <span id="L1697" class="ln">  1697  </span><span class="comment">// GetSpecAndMetaString returns a string including the meta and spec field of this chaos object.</span>
-<span id="L1698" class="ln">  1698  </span>func (in *TimeChaos) GetSpecAndMetaString() (string, error) {
+<span id="L1698" class="ln">  1698  </span>func (in *StressChaos) GetSpecAndMetaString() (string, error) {
 <span id="L1699" class="ln">  1699  </span>	spec, err := json.Marshal(in.Spec)
 <span id="L1700" class="ln">  1700  </span>	if err != nil {
 <span id="L1701" class="ln">  1701  </span>		return &#34;&#34;, err
@@ -1766,19 +1766,19 @@
 <span id="L1710" class="ln">  1710  </span>
 <span id="L1711" class="ln">  1711  </span><span class="comment">// +kubebuilder:object:root=true</span>
 <span id="L1712" class="ln">  1712  </span>
-<span id="L1713" class="ln">  1713  </span><span class="comment">// TimeChaosList contains a list of TimeChaos</span>
-<span id="L1714" class="ln">  1714  </span>type TimeChaosList struct {
+<span id="L1713" class="ln">  1713  </span><span class="comment">// StressChaosList contains a list of StressChaos</span>
+<span id="L1714" class="ln">  1714  </span>type StressChaosList struct {
 <span id="L1715" class="ln">  1715  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
 <span id="L1716" class="ln">  1716  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
-<span id="L1717" class="ln">  1717  </span>	Items           []TimeChaos `json:&#34;items&#34;`
+<span id="L1717" class="ln">  1717  </span>	Items           []StressChaos `json:&#34;items&#34;`
 <span id="L1718" class="ln">  1718  </span>}
 <span id="L1719" class="ln">  1719  </span>
-<span id="L1720" class="ln">  1720  </span>func (in *TimeChaosList) DeepCopyList() GenericChaosList {
+<span id="L1720" class="ln">  1720  </span>func (in *StressChaosList) DeepCopyList() GenericChaosList {
 <span id="L1721" class="ln">  1721  </span>	return in.DeepCopy()
 <span id="L1722" class="ln">  1722  </span>}
 <span id="L1723" class="ln">  1723  </span>
 <span id="L1724" class="ln">  1724  </span><span class="comment">// ListChaos returns a list of chaos</span>
-<span id="L1725" class="ln">  1725  </span>func (in *TimeChaosList) ListChaos() []GenericChaos {
+<span id="L1725" class="ln">  1725  </span>func (in *StressChaosList) ListChaos() []GenericChaos {
 <span id="L1726" class="ln">  1726  </span>	var result []GenericChaos
 <span id="L1727" class="ln">  1727  </span>	for _, item := range in.Items {
 <span id="L1728" class="ln">  1728  </span>		item := item
@@ -1787,7 +1787,7 @@
 <span id="L1731" class="ln">  1731  </span>	return result
 <span id="L1732" class="ln">  1732  </span>}
 <span id="L1733" class="ln">  1733  </span>
-<span id="L1734" class="ln">  1734  </span>func (in *TimeChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
+<span id="L1734" class="ln">  1734  </span>func (in *StressChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
 <span id="L1735" class="ln">  1735  </span>	duration, err := in.Spec.GetDuration()
 <span id="L1736" class="ln">  1736  </span>	if err != nil {
 <span id="L1737" class="ln">  1737  </span>		return false, 0, err
@@ -1805,197 +1805,341 @@
 <span id="L1749" class="ln">  1749  </span>	return false, 0, nil
 <span id="L1750" class="ln">  1750  </span>}
 <span id="L1751" class="ln">  1751  </span>
-<span id="L1752" class="ln">  1752  </span>func (in *TimeChaos) IsOneShot() bool {
+<span id="L1752" class="ln">  1752  </span>func (in *StressChaos) IsOneShot() bool {
 <span id="L1753" class="ln">  1753  </span>	return false
 <span id="L1754" class="ln">  1754  </span>}
 <span id="L1755" class="ln">  1755  </span>
-<span id="L1756" class="ln">  1756  </span>var TimeChaosWebhookLog = logf.Log.WithName(&#34;TimeChaos-resource&#34;)
+<span id="L1756" class="ln">  1756  </span>var StressChaosWebhookLog = logf.Log.WithName(&#34;StressChaos-resource&#34;)
 <span id="L1757" class="ln">  1757  </span>
-<span id="L1758" class="ln">  1758  </span>func (in *TimeChaos) ValidateCreate() error {
-<span id="L1759" class="ln">  1759  </span>	TimeChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
+<span id="L1758" class="ln">  1758  </span>func (in *StressChaos) ValidateCreate() error {
+<span id="L1759" class="ln">  1759  </span>	StressChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
 <span id="L1760" class="ln">  1760  </span>	return in.Validate()
 <span id="L1761" class="ln">  1761  </span>}
 <span id="L1762" class="ln">  1762  </span>
 <span id="L1763" class="ln">  1763  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1764" class="ln">  1764  </span>func (in *TimeChaos) ValidateUpdate(old runtime.Object) error {
-<span id="L1765" class="ln">  1765  </span>	TimeChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
-<span id="L1766" class="ln">  1766  </span>	if !reflect.DeepEqual(in.Spec, old.(*TimeChaos).Spec) {
+<span id="L1764" class="ln">  1764  </span>func (in *StressChaos) ValidateUpdate(old runtime.Object) error {
+<span id="L1765" class="ln">  1765  </span>	StressChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
+<span id="L1766" class="ln">  1766  </span>	if !reflect.DeepEqual(in.Spec, old.(*StressChaos).Spec) {
 <span id="L1767" class="ln">  1767  </span>		return ErrCanNotUpdateChaos
 <span id="L1768" class="ln">  1768  </span>	}
 <span id="L1769" class="ln">  1769  </span>	return in.Validate()
 <span id="L1770" class="ln">  1770  </span>}
 <span id="L1771" class="ln">  1771  </span>
 <span id="L1772" class="ln">  1772  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
-<span id="L1773" class="ln">  1773  </span>func (in *TimeChaos) ValidateDelete() error {
-<span id="L1774" class="ln">  1774  </span>	TimeChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
+<span id="L1773" class="ln">  1773  </span>func (in *StressChaos) ValidateDelete() error {
+<span id="L1774" class="ln">  1774  </span>	StressChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
 <span id="L1775" class="ln">  1775  </span>
 <span id="L1776" class="ln">  1776  </span>	<span class="comment">// Nothing to do?</span>
 <span id="L1777" class="ln">  1777  </span>	return nil
 <span id="L1778" class="ln">  1778  </span>}
 <span id="L1779" class="ln">  1779  </span>
-<span id="L1780" class="ln">  1780  </span>var _ webhook.Validator = &amp;TimeChaos{}
+<span id="L1780" class="ln">  1780  </span>var _ webhook.Validator = &amp;StressChaos{}
 <span id="L1781" class="ln">  1781  </span>
-<span id="L1782" class="ln">  1782  </span>func (in *TimeChaos) Validate() error {
+<span id="L1782" class="ln">  1782  </span>func (in *StressChaos) Validate() error {
 <span id="L1783" class="ln">  1783  </span>	errs := gw.Validate(in)
 <span id="L1784" class="ln">  1784  </span>	return gw.Aggregate(errs)
 <span id="L1785" class="ln">  1785  </span>}
 <span id="L1786" class="ln">  1786  </span>
-<span id="L1787" class="ln">  1787  </span>var _ webhook.Defaulter = &amp;TimeChaos{}
+<span id="L1787" class="ln">  1787  </span>var _ webhook.Defaulter = &amp;StressChaos{}
 <span id="L1788" class="ln">  1788  </span>
-<span id="L1789" class="ln">  1789  </span>func (in *TimeChaos) Default() {
+<span id="L1789" class="ln">  1789  </span>func (in *StressChaos) Default() {
 <span id="L1790" class="ln">  1790  </span>	gw.Default(in)
 <span id="L1791" class="ln">  1791  </span>}
 <span id="L1792" class="ln">  1792  </span>
-<span id="L1793" class="ln">  1793  </span>func init() {
+<span id="L1793" class="ln">  1793  </span>const KindTimeChaos = &#34;TimeChaos&#34;
 <span id="L1794" class="ln">  1794  </span>
-<span id="L1795" class="ln">  1795  </span>	SchemeBuilder.Register(&amp;AWSChaos{}, &amp;AWSChaosList{})
-<span id="L1796" class="ln">  1796  </span>	all.register(KindAWSChaos, &amp;ChaosKind{
-<span id="L1797" class="ln">  1797  </span>		chaos: &amp;AWSChaos{},
-<span id="L1798" class="ln">  1798  </span>		list:  &amp;AWSChaosList{},
-<span id="L1799" class="ln">  1799  </span>	})
-<span id="L1800" class="ln">  1800  </span>
-<span id="L1801" class="ln">  1801  </span>	SchemeBuilder.Register(&amp;DNSChaos{}, &amp;DNSChaosList{})
-<span id="L1802" class="ln">  1802  </span>	all.register(KindDNSChaos, &amp;ChaosKind{
-<span id="L1803" class="ln">  1803  </span>		chaos: &amp;DNSChaos{},
-<span id="L1804" class="ln">  1804  </span>		list:  &amp;DNSChaosList{},
-<span id="L1805" class="ln">  1805  </span>	})
-<span id="L1806" class="ln">  1806  </span>
-<span id="L1807" class="ln">  1807  </span>	SchemeBuilder.Register(&amp;GCPChaos{}, &amp;GCPChaosList{})
-<span id="L1808" class="ln">  1808  </span>	all.register(KindGCPChaos, &amp;ChaosKind{
-<span id="L1809" class="ln">  1809  </span>		chaos: &amp;GCPChaos{},
-<span id="L1810" class="ln">  1810  </span>		list:  &amp;GCPChaosList{},
-<span id="L1811" class="ln">  1811  </span>	})
+<span id="L1795" class="ln">  1795  </span><span class="comment">// IsDeleted returns whether this resource has been deleted</span>
+<span id="L1796" class="ln">  1796  </span>func (in *TimeChaos) IsDeleted() bool {
+<span id="L1797" class="ln">  1797  </span>	return !in.DeletionTimestamp.IsZero()
+<span id="L1798" class="ln">  1798  </span>}
+<span id="L1799" class="ln">  1799  </span>
+<span id="L1800" class="ln">  1800  </span><span class="comment">// IsPaused returns whether this resource has been paused</span>
+<span id="L1801" class="ln">  1801  </span>func (in *TimeChaos) IsPaused() bool {
+<span id="L1802" class="ln">  1802  </span>	if in.Annotations == nil || in.Annotations[PauseAnnotationKey] != &#34;true&#34; {
+<span id="L1803" class="ln">  1803  </span>		return false
+<span id="L1804" class="ln">  1804  </span>	}
+<span id="L1805" class="ln">  1805  </span>	return true
+<span id="L1806" class="ln">  1806  </span>}
+<span id="L1807" class="ln">  1807  </span>
+<span id="L1808" class="ln">  1808  </span><span class="comment">// GetObjectMeta would return the ObjectMeta for chaos</span>
+<span id="L1809" class="ln">  1809  </span>func (in *TimeChaos) GetObjectMeta() *metav1.ObjectMeta {
+<span id="L1810" class="ln">  1810  </span>	return &amp;in.ObjectMeta
+<span id="L1811" class="ln">  1811  </span>}
 <span id="L1812" class="ln">  1812  </span>
-<span id="L1813" class="ln">  1813  </span>	SchemeBuilder.Register(&amp;HTTPChaos{}, &amp;HTTPChaosList{})
-<span id="L1814" class="ln">  1814  </span>	all.register(KindHTTPChaos, &amp;ChaosKind{
-<span id="L1815" class="ln">  1815  </span>		chaos: &amp;HTTPChaos{},
-<span id="L1816" class="ln">  1816  </span>		list:  &amp;HTTPChaosList{},
-<span id="L1817" class="ln">  1817  </span>	})
-<span id="L1818" class="ln">  1818  </span>
-<span id="L1819" class="ln">  1819  </span>	SchemeBuilder.Register(&amp;IOChaos{}, &amp;IOChaosList{})
-<span id="L1820" class="ln">  1820  </span>	all.register(KindIOChaos, &amp;ChaosKind{
-<span id="L1821" class="ln">  1821  </span>		chaos: &amp;IOChaos{},
-<span id="L1822" class="ln">  1822  </span>		list:  &amp;IOChaosList{},
-<span id="L1823" class="ln">  1823  </span>	})
+<span id="L1813" class="ln">  1813  </span><span class="comment">// GetDuration would return the duration for chaos</span>
+<span id="L1814" class="ln">  1814  </span>func (in *TimeChaosSpec) GetDuration() (*time.Duration, error) {
+<span id="L1815" class="ln">  1815  </span>	if in.Duration == nil {
+<span id="L1816" class="ln">  1816  </span>		return nil, nil
+<span id="L1817" class="ln">  1817  </span>	}
+<span id="L1818" class="ln">  1818  </span>	duration, err := time.ParseDuration(string(*in.Duration))
+<span id="L1819" class="ln">  1819  </span>	if err != nil {
+<span id="L1820" class="ln">  1820  </span>		return nil, err
+<span id="L1821" class="ln">  1821  </span>	}
+<span id="L1822" class="ln">  1822  </span>	return &amp;duration, nil
+<span id="L1823" class="ln">  1823  </span>}
 <span id="L1824" class="ln">  1824  </span>
-<span id="L1825" class="ln">  1825  </span>	SchemeBuilder.Register(&amp;JVMChaos{}, &amp;JVMChaosList{})
-<span id="L1826" class="ln">  1826  </span>	all.register(KindJVMChaos, &amp;ChaosKind{
-<span id="L1827" class="ln">  1827  </span>		chaos: &amp;JVMChaos{},
-<span id="L1828" class="ln">  1828  </span>		list:  &amp;JVMChaosList{},
-<span id="L1829" class="ln">  1829  </span>	})
-<span id="L1830" class="ln">  1830  </span>
-<span id="L1831" class="ln">  1831  </span>	SchemeBuilder.Register(&amp;KernelChaos{}, &amp;KernelChaosList{})
-<span id="L1832" class="ln">  1832  </span>	all.register(KindKernelChaos, &amp;ChaosKind{
-<span id="L1833" class="ln">  1833  </span>		chaos: &amp;KernelChaos{},
-<span id="L1834" class="ln">  1834  </span>		list:  &amp;KernelChaosList{},
-<span id="L1835" class="ln">  1835  </span>	})
+<span id="L1825" class="ln">  1825  </span><span class="comment">// GetStatus returns the status</span>
+<span id="L1826" class="ln">  1826  </span>func (in *TimeChaos) GetStatus() *ChaosStatus {
+<span id="L1827" class="ln">  1827  </span>	return &amp;in.Status.ChaosStatus
+<span id="L1828" class="ln">  1828  </span>}
+<span id="L1829" class="ln">  1829  </span>
+<span id="L1830" class="ln">  1830  </span><span class="comment">// GetSpecAndMetaString returns a string including the meta and spec field of this chaos object.</span>
+<span id="L1831" class="ln">  1831  </span>func (in *TimeChaos) GetSpecAndMetaString() (string, error) {
+<span id="L1832" class="ln">  1832  </span>	spec, err := json.Marshal(in.Spec)
+<span id="L1833" class="ln">  1833  </span>	if err != nil {
+<span id="L1834" class="ln">  1834  </span>		return &#34;&#34;, err
+<span id="L1835" class="ln">  1835  </span>	}
 <span id="L1836" class="ln">  1836  </span>
-<span id="L1837" class="ln">  1837  </span>	SchemeBuilder.Register(&amp;NetworkChaos{}, &amp;NetworkChaosList{})
-<span id="L1838" class="ln">  1838  </span>	all.register(KindNetworkChaos, &amp;ChaosKind{
-<span id="L1839" class="ln">  1839  </span>		chaos: &amp;NetworkChaos{},
-<span id="L1840" class="ln">  1840  </span>		list:  &amp;NetworkChaosList{},
-<span id="L1841" class="ln">  1841  </span>	})
-<span id="L1842" class="ln">  1842  </span>
-<span id="L1843" class="ln">  1843  </span>	SchemeBuilder.Register(&amp;PhysicalMachineChaos{}, &amp;PhysicalMachineChaosList{})
-<span id="L1844" class="ln">  1844  </span>	all.register(KindPhysicalMachineChaos, &amp;ChaosKind{
-<span id="L1845" class="ln">  1845  </span>		chaos: &amp;PhysicalMachineChaos{},
-<span id="L1846" class="ln">  1846  </span>		list:  &amp;PhysicalMachineChaosList{},
-<span id="L1847" class="ln">  1847  </span>	})
-<span id="L1848" class="ln">  1848  </span>
-<span id="L1849" class="ln">  1849  </span>	SchemeBuilder.Register(&amp;PhysicalMachine{}, &amp;PhysicalMachineList{})
-<span id="L1850" class="ln">  1850  </span>
-<span id="L1851" class="ln">  1851  </span>	SchemeBuilder.Register(&amp;PodChaos{}, &amp;PodChaosList{})
-<span id="L1852" class="ln">  1852  </span>	all.register(KindPodChaos, &amp;ChaosKind{
-<span id="L1853" class="ln">  1853  </span>		chaos: &amp;PodChaos{},
-<span id="L1854" class="ln">  1854  </span>		list:  &amp;PodChaosList{},
-<span id="L1855" class="ln">  1855  </span>	})
+<span id="L1837" class="ln">  1837  </span>	meta := in.ObjectMeta.DeepCopy()
+<span id="L1838" class="ln">  1838  </span>	meta.SetResourceVersion(&#34;&#34;)
+<span id="L1839" class="ln">  1839  </span>	meta.SetGeneration(0)
+<span id="L1840" class="ln">  1840  </span>
+<span id="L1841" class="ln">  1841  </span>	return string(spec) + meta.String(), nil
+<span id="L1842" class="ln">  1842  </span>}
+<span id="L1843" class="ln">  1843  </span>
+<span id="L1844" class="ln">  1844  </span><span class="comment">// +kubebuilder:object:root=true</span>
+<span id="L1845" class="ln">  1845  </span>
+<span id="L1846" class="ln">  1846  </span><span class="comment">// TimeChaosList contains a list of TimeChaos</span>
+<span id="L1847" class="ln">  1847  </span>type TimeChaosList struct {
+<span id="L1848" class="ln">  1848  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
+<span id="L1849" class="ln">  1849  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
+<span id="L1850" class="ln">  1850  </span>	Items           []TimeChaos `json:&#34;items&#34;`
+<span id="L1851" class="ln">  1851  </span>}
+<span id="L1852" class="ln">  1852  </span>
+<span id="L1853" class="ln">  1853  </span>func (in *TimeChaosList) DeepCopyList() GenericChaosList {
+<span id="L1854" class="ln">  1854  </span>	return in.DeepCopy()
+<span id="L1855" class="ln">  1855  </span>}
 <span id="L1856" class="ln">  1856  </span>
-<span id="L1857" class="ln">  1857  </span>	SchemeBuilder.Register(&amp;PodHttpChaos{}, &amp;PodHttpChaosList{})
-<span id="L1858" class="ln">  1858  </span>
-<span id="L1859" class="ln">  1859  </span>	SchemeBuilder.Register(&amp;PodIOChaos{}, &amp;PodIOChaosList{})
-<span id="L1860" class="ln">  1860  </span>
-<span id="L1861" class="ln">  1861  </span>	SchemeBuilder.Register(&amp;PodNetworkChaos{}, &amp;PodNetworkChaosList{})
-<span id="L1862" class="ln">  1862  </span>
-<span id="L1863" class="ln">  1863  </span>	SchemeBuilder.Register(&amp;StressChaos{}, &amp;StressChaosList{})
-<span id="L1864" class="ln">  1864  </span>	all.register(KindStressChaos, &amp;ChaosKind{
-<span id="L1865" class="ln">  1865  </span>		chaos: &amp;StressChaos{},
-<span id="L1866" class="ln">  1866  </span>		list:  &amp;StressChaosList{},
-<span id="L1867" class="ln">  1867  </span>	})
-<span id="L1868" class="ln">  1868  </span>
-<span id="L1869" class="ln">  1869  </span>	SchemeBuilder.Register(&amp;TimeChaos{}, &amp;TimeChaosList{})
-<span id="L1870" class="ln">  1870  </span>	all.register(KindTimeChaos, &amp;ChaosKind{
-<span id="L1871" class="ln">  1871  </span>		chaos: &amp;TimeChaos{},
-<span id="L1872" class="ln">  1872  </span>		list:  &amp;TimeChaosList{},
-<span id="L1873" class="ln">  1873  </span>	})
-<span id="L1874" class="ln">  1874  </span>
-<span id="L1875" class="ln">  1875  </span>
-<span id="L1876" class="ln">  1876  </span>	allScheduleItem.register(KindAWSChaos, &amp;ChaosKind{
-<span id="L1877" class="ln">  1877  </span>		chaos: &amp;AWSChaos{},
-<span id="L1878" class="ln">  1878  </span>		list:  &amp;AWSChaosList{},
-<span id="L1879" class="ln">  1879  </span>	})
-<span id="L1880" class="ln">  1880  </span>
-<span id="L1881" class="ln">  1881  </span>	allScheduleItem.register(KindDNSChaos, &amp;ChaosKind{
-<span id="L1882" class="ln">  1882  </span>		chaos: &amp;DNSChaos{},
-<span id="L1883" class="ln">  1883  </span>		list:  &amp;DNSChaosList{},
-<span id="L1884" class="ln">  1884  </span>	})
-<span id="L1885" class="ln">  1885  </span>
-<span id="L1886" class="ln">  1886  </span>	allScheduleItem.register(KindGCPChaos, &amp;ChaosKind{
-<span id="L1887" class="ln">  1887  </span>		chaos: &amp;GCPChaos{},
-<span id="L1888" class="ln">  1888  </span>		list:  &amp;GCPChaosList{},
-<span id="L1889" class="ln">  1889  </span>	})
+<span id="L1857" class="ln">  1857  </span><span class="comment">// ListChaos returns a list of chaos</span>
+<span id="L1858" class="ln">  1858  </span>func (in *TimeChaosList) ListChaos() []GenericChaos {
+<span id="L1859" class="ln">  1859  </span>	var result []GenericChaos
+<span id="L1860" class="ln">  1860  </span>	for _, item := range in.Items {
+<span id="L1861" class="ln">  1861  </span>		item := item
+<span id="L1862" class="ln">  1862  </span>		result = append(result, &amp;item)
+<span id="L1863" class="ln">  1863  </span>	}
+<span id="L1864" class="ln">  1864  </span>	return result
+<span id="L1865" class="ln">  1865  </span>}
+<span id="L1866" class="ln">  1866  </span>
+<span id="L1867" class="ln">  1867  </span>func (in *TimeChaos) DurationExceeded(now time.Time) (bool, time.Duration, error) {
+<span id="L1868" class="ln">  1868  </span>	duration, err := in.Spec.GetDuration()
+<span id="L1869" class="ln">  1869  </span>	if err != nil {
+<span id="L1870" class="ln">  1870  </span>		return false, 0, err
+<span id="L1871" class="ln">  1871  </span>	}
+<span id="L1872" class="ln">  1872  </span>
+<span id="L1873" class="ln">  1873  </span>	if duration != nil {
+<span id="L1874" class="ln">  1874  </span>		stopTime := in.GetCreationTimestamp().Add(*duration)
+<span id="L1875" class="ln">  1875  </span>		if stopTime.Before(now) {
+<span id="L1876" class="ln">  1876  </span>			return true, 0, nil
+<span id="L1877" class="ln">  1877  </span>		}
+<span id="L1878" class="ln">  1878  </span>
+<span id="L1879" class="ln">  1879  </span>		return false, stopTime.Sub(now), nil
+<span id="L1880" class="ln">  1880  </span>	}
+<span id="L1881" class="ln">  1881  </span>
+<span id="L1882" class="ln">  1882  </span>	return false, 0, nil
+<span id="L1883" class="ln">  1883  </span>}
+<span id="L1884" class="ln">  1884  </span>
+<span id="L1885" class="ln">  1885  </span>func (in *TimeChaos) IsOneShot() bool {
+<span id="L1886" class="ln">  1886  </span>	return false
+<span id="L1887" class="ln">  1887  </span>}
+<span id="L1888" class="ln">  1888  </span>
+<span id="L1889" class="ln">  1889  </span>var TimeChaosWebhookLog = logf.Log.WithName(&#34;TimeChaos-resource&#34;)
 <span id="L1890" class="ln">  1890  </span>
-<span id="L1891" class="ln">  1891  </span>	allScheduleItem.register(KindHTTPChaos, &amp;ChaosKind{
-<span id="L1892" class="ln">  1892  </span>		chaos: &amp;HTTPChaos{},
-<span id="L1893" class="ln">  1893  </span>		list:  &amp;HTTPChaosList{},
-<span id="L1894" class="ln">  1894  </span>	})
+<span id="L1891" class="ln">  1891  </span>func (in *TimeChaos) ValidateCreate() error {
+<span id="L1892" class="ln">  1892  </span>	TimeChaosWebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
+<span id="L1893" class="ln">  1893  </span>	return in.Validate()
+<span id="L1894" class="ln">  1894  </span>}
 <span id="L1895" class="ln">  1895  </span>
-<span id="L1896" class="ln">  1896  </span>	allScheduleItem.register(KindIOChaos, &amp;ChaosKind{
-<span id="L1897" class="ln">  1897  </span>		chaos: &amp;IOChaos{},
-<span id="L1898" class="ln">  1898  </span>		list:  &amp;IOChaosList{},
-<span id="L1899" class="ln">  1899  </span>	})
-<span id="L1900" class="ln">  1900  </span>
-<span id="L1901" class="ln">  1901  </span>	allScheduleItem.register(KindJVMChaos, &amp;ChaosKind{
-<span id="L1902" class="ln">  1902  </span>		chaos: &amp;JVMChaos{},
-<span id="L1903" class="ln">  1903  </span>		list:  &amp;JVMChaosList{},
-<span id="L1904" class="ln">  1904  </span>	})
-<span id="L1905" class="ln">  1905  </span>
-<span id="L1906" class="ln">  1906  </span>	allScheduleItem.register(KindKernelChaos, &amp;ChaosKind{
-<span id="L1907" class="ln">  1907  </span>		chaos: &amp;KernelChaos{},
-<span id="L1908" class="ln">  1908  </span>		list:  &amp;KernelChaosList{},
-<span id="L1909" class="ln">  1909  </span>	})
-<span id="L1910" class="ln">  1910  </span>
-<span id="L1911" class="ln">  1911  </span>	allScheduleItem.register(KindNetworkChaos, &amp;ChaosKind{
-<span id="L1912" class="ln">  1912  </span>		chaos: &amp;NetworkChaos{},
-<span id="L1913" class="ln">  1913  </span>		list:  &amp;NetworkChaosList{},
-<span id="L1914" class="ln">  1914  </span>	})
-<span id="L1915" class="ln">  1915  </span>
-<span id="L1916" class="ln">  1916  </span>	allScheduleItem.register(KindPhysicalMachineChaos, &amp;ChaosKind{
-<span id="L1917" class="ln">  1917  </span>		chaos: &amp;PhysicalMachineChaos{},
-<span id="L1918" class="ln">  1918  </span>		list:  &amp;PhysicalMachineChaosList{},
-<span id="L1919" class="ln">  1919  </span>	})
-<span id="L1920" class="ln">  1920  </span>
-<span id="L1921" class="ln">  1921  </span>	allScheduleItem.register(KindPodChaos, &amp;ChaosKind{
-<span id="L1922" class="ln">  1922  </span>		chaos: &amp;PodChaos{},
-<span id="L1923" class="ln">  1923  </span>		list:  &amp;PodChaosList{},
-<span id="L1924" class="ln">  1924  </span>	})
+<span id="L1896" class="ln">  1896  </span><span class="comment">// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type</span>
+<span id="L1897" class="ln">  1897  </span>func (in *TimeChaos) ValidateUpdate(old runtime.Object) error {
+<span id="L1898" class="ln">  1898  </span>	TimeChaosWebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
+<span id="L1899" class="ln">  1899  </span>	if !reflect.DeepEqual(in.Spec, old.(*TimeChaos).Spec) {
+<span id="L1900" class="ln">  1900  </span>		return ErrCanNotUpdateChaos
+<span id="L1901" class="ln">  1901  </span>	}
+<span id="L1902" class="ln">  1902  </span>	return in.Validate()
+<span id="L1903" class="ln">  1903  </span>}
+<span id="L1904" class="ln">  1904  </span>
+<span id="L1905" class="ln">  1905  </span><span class="comment">// ValidateDelete implements webhook.Validator so a webhook will be registered for the type</span>
+<span id="L1906" class="ln">  1906  </span>func (in *TimeChaos) ValidateDelete() error {
+<span id="L1907" class="ln">  1907  </span>	TimeChaosWebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
+<span id="L1908" class="ln">  1908  </span>
+<span id="L1909" class="ln">  1909  </span>	<span class="comment">// Nothing to do?</span>
+<span id="L1910" class="ln">  1910  </span>	return nil
+<span id="L1911" class="ln">  1911  </span>}
+<span id="L1912" class="ln">  1912  </span>
+<span id="L1913" class="ln">  1913  </span>var _ webhook.Validator = &amp;TimeChaos{}
+<span id="L1914" class="ln">  1914  </span>
+<span id="L1915" class="ln">  1915  </span>func (in *TimeChaos) Validate() error {
+<span id="L1916" class="ln">  1916  </span>	errs := gw.Validate(in)
+<span id="L1917" class="ln">  1917  </span>	return gw.Aggregate(errs)
+<span id="L1918" class="ln">  1918  </span>}
+<span id="L1919" class="ln">  1919  </span>
+<span id="L1920" class="ln">  1920  </span>var _ webhook.Defaulter = &amp;TimeChaos{}
+<span id="L1921" class="ln">  1921  </span>
+<span id="L1922" class="ln">  1922  </span>func (in *TimeChaos) Default() {
+<span id="L1923" class="ln">  1923  </span>	gw.Default(in)
+<span id="L1924" class="ln">  1924  </span>}
 <span id="L1925" class="ln">  1925  </span>
-<span id="L1926" class="ln">  1926  </span>	allScheduleItem.register(KindStressChaos, &amp;ChaosKind{
-<span id="L1927" class="ln">  1927  </span>		chaos: &amp;StressChaos{},
-<span id="L1928" class="ln">  1928  </span>		list:  &amp;StressChaosList{},
-<span id="L1929" class="ln">  1929  </span>	})
-<span id="L1930" class="ln">  1930  </span>
-<span id="L1931" class="ln">  1931  </span>	allScheduleItem.register(KindTimeChaos, &amp;ChaosKind{
-<span id="L1932" class="ln">  1932  </span>		chaos: &amp;TimeChaos{},
-<span id="L1933" class="ln">  1933  </span>		list:  &amp;TimeChaosList{},
-<span id="L1934" class="ln">  1934  </span>	})
-<span id="L1935" class="ln">  1935  </span>
-<span id="L1936" class="ln">  1936  </span>	allScheduleItem.register(KindWorkflow, &amp;ChaosKind{
-<span id="L1937" class="ln">  1937  </span>		chaos: &amp;Workflow{},
-<span id="L1938" class="ln">  1938  </span>		list:  &amp;WorkflowList{},
-<span id="L1939" class="ln">  1939  </span>	})
-<span id="L1940" class="ln">  1940  </span>
-<span id="L1941" class="ln">  1941  </span>}
-<span id="L1942" class="ln">  1942  </span>
+<span id="L1926" class="ln">  1926  </span>func init() {
+<span id="L1927" class="ln">  1927  </span>
+<span id="L1928" class="ln">  1928  </span>	SchemeBuilder.Register(&amp;AWSChaos{}, &amp;AWSChaosList{})
+<span id="L1929" class="ln">  1929  </span>	all.register(KindAWSChaos, &amp;ChaosKind{
+<span id="L1930" class="ln">  1930  </span>		chaos: &amp;AWSChaos{},
+<span id="L1931" class="ln">  1931  </span>		list:  &amp;AWSChaosList{},
+<span id="L1932" class="ln">  1932  </span>	})
+<span id="L1933" class="ln">  1933  </span>
+<span id="L1934" class="ln">  1934  </span>	SchemeBuilder.Register(&amp;BlockChaos{}, &amp;BlockChaosList{})
+<span id="L1935" class="ln">  1935  </span>	all.register(KindBlockChaos, &amp;ChaosKind{
+<span id="L1936" class="ln">  1936  </span>		chaos: &amp;BlockChaos{},
+<span id="L1937" class="ln">  1937  </span>		list:  &amp;BlockChaosList{},
+<span id="L1938" class="ln">  1938  </span>	})
+<span id="L1939" class="ln">  1939  </span>
+<span id="L1940" class="ln">  1940  </span>	SchemeBuilder.Register(&amp;DNSChaos{}, &amp;DNSChaosList{})
+<span id="L1941" class="ln">  1941  </span>	all.register(KindDNSChaos, &amp;ChaosKind{
+<span id="L1942" class="ln">  1942  </span>		chaos: &amp;DNSChaos{},
+<span id="L1943" class="ln">  1943  </span>		list:  &amp;DNSChaosList{},
+<span id="L1944" class="ln">  1944  </span>	})
+<span id="L1945" class="ln">  1945  </span>
+<span id="L1946" class="ln">  1946  </span>	SchemeBuilder.Register(&amp;GCPChaos{}, &amp;GCPChaosList{})
+<span id="L1947" class="ln">  1947  </span>	all.register(KindGCPChaos, &amp;ChaosKind{
+<span id="L1948" class="ln">  1948  </span>		chaos: &amp;GCPChaos{},
+<span id="L1949" class="ln">  1949  </span>		list:  &amp;GCPChaosList{},
+<span id="L1950" class="ln">  1950  </span>	})
+<span id="L1951" class="ln">  1951  </span>
+<span id="L1952" class="ln">  1952  </span>	SchemeBuilder.Register(&amp;HTTPChaos{}, &amp;HTTPChaosList{})
+<span id="L1953" class="ln">  1953  </span>	all.register(KindHTTPChaos, &amp;ChaosKind{
+<span id="L1954" class="ln">  1954  </span>		chaos: &amp;HTTPChaos{},
+<span id="L1955" class="ln">  1955  </span>		list:  &amp;HTTPChaosList{},
+<span id="L1956" class="ln">  1956  </span>	})
+<span id="L1957" class="ln">  1957  </span>
+<span id="L1958" class="ln">  1958  </span>	SchemeBuilder.Register(&amp;IOChaos{}, &amp;IOChaosList{})
+<span id="L1959" class="ln">  1959  </span>	all.register(KindIOChaos, &amp;ChaosKind{
+<span id="L1960" class="ln">  1960  </span>		chaos: &amp;IOChaos{},
+<span id="L1961" class="ln">  1961  </span>		list:  &amp;IOChaosList{},
+<span id="L1962" class="ln">  1962  </span>	})
+<span id="L1963" class="ln">  1963  </span>
+<span id="L1964" class="ln">  1964  </span>	SchemeBuilder.Register(&amp;JVMChaos{}, &amp;JVMChaosList{})
+<span id="L1965" class="ln">  1965  </span>	all.register(KindJVMChaos, &amp;ChaosKind{
+<span id="L1966" class="ln">  1966  </span>		chaos: &amp;JVMChaos{},
+<span id="L1967" class="ln">  1967  </span>		list:  &amp;JVMChaosList{},
+<span id="L1968" class="ln">  1968  </span>	})
+<span id="L1969" class="ln">  1969  </span>
+<span id="L1970" class="ln">  1970  </span>	SchemeBuilder.Register(&amp;KernelChaos{}, &amp;KernelChaosList{})
+<span id="L1971" class="ln">  1971  </span>	all.register(KindKernelChaos, &amp;ChaosKind{
+<span id="L1972" class="ln">  1972  </span>		chaos: &amp;KernelChaos{},
+<span id="L1973" class="ln">  1973  </span>		list:  &amp;KernelChaosList{},
+<span id="L1974" class="ln">  1974  </span>	})
+<span id="L1975" class="ln">  1975  </span>
+<span id="L1976" class="ln">  1976  </span>	SchemeBuilder.Register(&amp;NetworkChaos{}, &amp;NetworkChaosList{})
+<span id="L1977" class="ln">  1977  </span>	all.register(KindNetworkChaos, &amp;ChaosKind{
+<span id="L1978" class="ln">  1978  </span>		chaos: &amp;NetworkChaos{},
+<span id="L1979" class="ln">  1979  </span>		list:  &amp;NetworkChaosList{},
+<span id="L1980" class="ln">  1980  </span>	})
+<span id="L1981" class="ln">  1981  </span>
+<span id="L1982" class="ln">  1982  </span>	SchemeBuilder.Register(&amp;PhysicalMachineChaos{}, &amp;PhysicalMachineChaosList{})
+<span id="L1983" class="ln">  1983  </span>	all.register(KindPhysicalMachineChaos, &amp;ChaosKind{
+<span id="L1984" class="ln">  1984  </span>		chaos: &amp;PhysicalMachineChaos{},
+<span id="L1985" class="ln">  1985  </span>		list:  &amp;PhysicalMachineChaosList{},
+<span id="L1986" class="ln">  1986  </span>	})
+<span id="L1987" class="ln">  1987  </span>
+<span id="L1988" class="ln">  1988  </span>	SchemeBuilder.Register(&amp;PhysicalMachine{}, &amp;PhysicalMachineList{})
+<span id="L1989" class="ln">  1989  </span>
+<span id="L1990" class="ln">  1990  </span>	SchemeBuilder.Register(&amp;PodChaos{}, &amp;PodChaosList{})
+<span id="L1991" class="ln">  1991  </span>	all.register(KindPodChaos, &amp;ChaosKind{
+<span id="L1992" class="ln">  1992  </span>		chaos: &amp;PodChaos{},
+<span id="L1993" class="ln">  1993  </span>		list:  &amp;PodChaosList{},
+<span id="L1994" class="ln">  1994  </span>	})
+<span id="L1995" class="ln">  1995  </span>
+<span id="L1996" class="ln">  1996  </span>	SchemeBuilder.Register(&amp;PodHttpChaos{}, &amp;PodHttpChaosList{})
+<span id="L1997" class="ln">  1997  </span>
+<span id="L1998" class="ln">  1998  </span>	SchemeBuilder.Register(&amp;PodIOChaos{}, &amp;PodIOChaosList{})
+<span id="L1999" class="ln">  1999  </span>
+<span id="L2000" class="ln">  2000  </span>	SchemeBuilder.Register(&amp;PodNetworkChaos{}, &amp;PodNetworkChaosList{})
+<span id="L2001" class="ln">  2001  </span>
+<span id="L2002" class="ln">  2002  </span>	SchemeBuilder.Register(&amp;StressChaos{}, &amp;StressChaosList{})
+<span id="L2003" class="ln">  2003  </span>	all.register(KindStressChaos, &amp;ChaosKind{
+<span id="L2004" class="ln">  2004  </span>		chaos: &amp;StressChaos{},
+<span id="L2005" class="ln">  2005  </span>		list:  &amp;StressChaosList{},
+<span id="L2006" class="ln">  2006  </span>	})
+<span id="L2007" class="ln">  2007  </span>
+<span id="L2008" class="ln">  2008  </span>	SchemeBuilder.Register(&amp;TimeChaos{}, &amp;TimeChaosList{})
+<span id="L2009" class="ln">  2009  </span>	all.register(KindTimeChaos, &amp;ChaosKind{
+<span id="L2010" class="ln">  2010  </span>		chaos: &amp;TimeChaos{},
+<span id="L2011" class="ln">  2011  </span>		list:  &amp;TimeChaosList{},
+<span id="L2012" class="ln">  2012  </span>	})
+<span id="L2013" class="ln">  2013  </span>
+<span id="L2014" class="ln">  2014  </span>
+<span id="L2015" class="ln">  2015  </span>	allScheduleItem.register(KindAWSChaos, &amp;ChaosKind{
+<span id="L2016" class="ln">  2016  </span>		chaos: &amp;AWSChaos{},
+<span id="L2017" class="ln">  2017  </span>		list:  &amp;AWSChaosList{},
+<span id="L2018" class="ln">  2018  </span>	})
+<span id="L2019" class="ln">  2019  </span>
+<span id="L2020" class="ln">  2020  </span>	allScheduleItem.register(KindBlockChaos, &amp;ChaosKind{
+<span id="L2021" class="ln">  2021  </span>		chaos: &amp;BlockChaos{},
+<span id="L2022" class="ln">  2022  </span>		list:  &amp;BlockChaosList{},
+<span id="L2023" class="ln">  2023  </span>	})
+<span id="L2024" class="ln">  2024  </span>
+<span id="L2025" class="ln">  2025  </span>	allScheduleItem.register(KindDNSChaos, &amp;ChaosKind{
+<span id="L2026" class="ln">  2026  </span>		chaos: &amp;DNSChaos{},
+<span id="L2027" class="ln">  2027  </span>		list:  &amp;DNSChaosList{},
+<span id="L2028" class="ln">  2028  </span>	})
+<span id="L2029" class="ln">  2029  </span>
+<span id="L2030" class="ln">  2030  </span>	allScheduleItem.register(KindGCPChaos, &amp;ChaosKind{
+<span id="L2031" class="ln">  2031  </span>		chaos: &amp;GCPChaos{},
+<span id="L2032" class="ln">  2032  </span>		list:  &amp;GCPChaosList{},
+<span id="L2033" class="ln">  2033  </span>	})
+<span id="L2034" class="ln">  2034  </span>
+<span id="L2035" class="ln">  2035  </span>	allScheduleItem.register(KindHTTPChaos, &amp;ChaosKind{
+<span id="L2036" class="ln">  2036  </span>		chaos: &amp;HTTPChaos{},
+<span id="L2037" class="ln">  2037  </span>		list:  &amp;HTTPChaosList{},
+<span id="L2038" class="ln">  2038  </span>	})
+<span id="L2039" class="ln">  2039  </span>
+<span id="L2040" class="ln">  2040  </span>	allScheduleItem.register(KindIOChaos, &amp;ChaosKind{
+<span id="L2041" class="ln">  2041  </span>		chaos: &amp;IOChaos{},
+<span id="L2042" class="ln">  2042  </span>		list:  &amp;IOChaosList{},
+<span id="L2043" class="ln">  2043  </span>	})
+<span id="L2044" class="ln">  2044  </span>
+<span id="L2045" class="ln">  2045  </span>	allScheduleItem.register(KindJVMChaos, &amp;ChaosKind{
+<span id="L2046" class="ln">  2046  </span>		chaos: &amp;JVMChaos{},
+<span id="L2047" class="ln">  2047  </span>		list:  &amp;JVMChaosList{},
+<span id="L2048" class="ln">  2048  </span>	})
+<span id="L2049" class="ln">  2049  </span>
+<span id="L2050" class="ln">  2050  </span>	allScheduleItem.register(KindKernelChaos, &amp;ChaosKind{
+<span id="L2051" class="ln">  2051  </span>		chaos: &amp;KernelChaos{},
+<span id="L2052" class="ln">  2052  </span>		list:  &amp;KernelChaosList{},
+<span id="L2053" class="ln">  2053  </span>	})
+<span id="L2054" class="ln">  2054  </span>
+<span id="L2055" class="ln">  2055  </span>	allScheduleItem.register(KindNetworkChaos, &amp;ChaosKind{
+<span id="L2056" class="ln">  2056  </span>		chaos: &amp;NetworkChaos{},
+<span id="L2057" class="ln">  2057  </span>		list:  &amp;NetworkChaosList{},
+<span id="L2058" class="ln">  2058  </span>	})
+<span id="L2059" class="ln">  2059  </span>
+<span id="L2060" class="ln">  2060  </span>	allScheduleItem.register(KindPhysicalMachineChaos, &amp;ChaosKind{
+<span id="L2061" class="ln">  2061  </span>		chaos: &amp;PhysicalMachineChaos{},
+<span id="L2062" class="ln">  2062  </span>		list:  &amp;PhysicalMachineChaosList{},
+<span id="L2063" class="ln">  2063  </span>	})
+<span id="L2064" class="ln">  2064  </span>
+<span id="L2065" class="ln">  2065  </span>	allScheduleItem.register(KindPodChaos, &amp;ChaosKind{
+<span id="L2066" class="ln">  2066  </span>		chaos: &amp;PodChaos{},
+<span id="L2067" class="ln">  2067  </span>		list:  &amp;PodChaosList{},
+<span id="L2068" class="ln">  2068  </span>	})
+<span id="L2069" class="ln">  2069  </span>
+<span id="L2070" class="ln">  2070  </span>	allScheduleItem.register(KindStressChaos, &amp;ChaosKind{
+<span id="L2071" class="ln">  2071  </span>		chaos: &amp;StressChaos{},
+<span id="L2072" class="ln">  2072  </span>		list:  &amp;StressChaosList{},
+<span id="L2073" class="ln">  2073  </span>	})
+<span id="L2074" class="ln">  2074  </span>
+<span id="L2075" class="ln">  2075  </span>	allScheduleItem.register(KindTimeChaos, &amp;ChaosKind{
+<span id="L2076" class="ln">  2076  </span>		chaos: &amp;TimeChaos{},
+<span id="L2077" class="ln">  2077  </span>		list:  &amp;TimeChaosList{},
+<span id="L2078" class="ln">  2078  </span>	})
+<span id="L2079" class="ln">  2079  </span>
+<span id="L2080" class="ln">  2080  </span>	allScheduleItem.register(KindWorkflow, &amp;ChaosKind{
+<span id="L2081" class="ln">  2081  </span>		chaos: &amp;Workflow{},
+<span id="L2082" class="ln">  2082  </span>		list:  &amp;WorkflowList{},
+<span id="L2083" class="ln">  2083  </span>	})
+<span id="L2084" class="ln">  2084  </span>
+<span id="L2085" class="ln">  2085  </span>}
+<span id="L2086" class="ln">  2086  </span>
 </pre><p></p>
 
 <div id="footer">

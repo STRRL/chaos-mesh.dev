@@ -23,7 +23,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f771929. Generated at Tue Jan 18 22:10:46 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 618a4cb. Generated at Wed Jan 19 10:01:42 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -243,25 +243,27 @@
 <span id="L187" class="ln">   187  </span>		archive.Action = string(chaos.Spec.Action)
 <span id="L188" class="ln">   188  </span>	case *v1alpha1.JVMChaos:
 <span id="L189" class="ln">   189  </span>		archive.Action = string(chaos.Spec.Action)
-<span id="L190" class="ln">   190  </span>	default:
-<span id="L191" class="ln">   191  </span>		return nil, errors.New(&#34;unsupported chaos type &#34; + archive.Kind)
-<span id="L192" class="ln">   192  </span>	}
-<span id="L193" class="ln">   193  </span>
-<span id="L194" class="ln">   194  </span>	archive.StartTime = chaosMeta.GetCreationTimestamp().Time
-<span id="L195" class="ln">   195  </span>	if chaosMeta.GetDeletionTimestamp() != nil {
-<span id="L196" class="ln">   196  </span>		archive.FinishTime = chaosMeta.GetDeletionTimestamp().Time
-<span id="L197" class="ln">   197  </span>	}
-<span id="L198" class="ln">   198  </span>
-<span id="L199" class="ln">   199  </span>	data, err := json.Marshal(chaosMeta)
-<span id="L200" class="ln">   200  </span>	if err != nil {
-<span id="L201" class="ln">   201  </span>		return nil, err
-<span id="L202" class="ln">   202  </span>	}
-<span id="L203" class="ln">   203  </span>
-<span id="L204" class="ln">   204  </span>	archive.Experiment = string(data)
+<span id="L190" class="ln">   190  </span>	case *v1alpha1.BlockChaos:
+<span id="L191" class="ln">   191  </span>		archive.Action = string(chaos.Spec.Action)
+<span id="L192" class="ln">   192  </span>	default:
+<span id="L193" class="ln">   193  </span>		return nil, errors.New(&#34;unsupported chaos type &#34; + archive.Kind)
+<span id="L194" class="ln">   194  </span>	}
+<span id="L195" class="ln">   195  </span>
+<span id="L196" class="ln">   196  </span>	archive.StartTime = chaosMeta.GetCreationTimestamp().Time
+<span id="L197" class="ln">   197  </span>	if chaosMeta.GetDeletionTimestamp() != nil {
+<span id="L198" class="ln">   198  </span>		archive.FinishTime = chaosMeta.GetDeletionTimestamp().Time
+<span id="L199" class="ln">   199  </span>	}
+<span id="L200" class="ln">   200  </span>
+<span id="L201" class="ln">   201  </span>	data, err := json.Marshal(chaosMeta)
+<span id="L202" class="ln">   202  </span>	if err != nil {
+<span id="L203" class="ln">   203  </span>		return nil, err
+<span id="L204" class="ln">   204  </span>	}
 <span id="L205" class="ln">   205  </span>
-<span id="L206" class="ln">   206  </span>	return archive, nil
-<span id="L207" class="ln">   207  </span>}
-<span id="L208" class="ln">   208  </span>
+<span id="L206" class="ln">   206  </span>	archive.Experiment = string(data)
+<span id="L207" class="ln">   207  </span>
+<span id="L208" class="ln">   208  </span>	return archive, nil
+<span id="L209" class="ln">   209  </span>}
+<span id="L210" class="ln">   210  </span>
 </pre><p></p>
 
 <div id="footer">

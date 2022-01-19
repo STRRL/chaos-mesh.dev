@@ -23,7 +23,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f771929. Generated at Tue Jan 18 22:10:46 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 618a4cb. Generated at Wed Jan 19 10:01:42 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -180,23 +180,31 @@
 <span id="L124" class="ln">   124  </span>			Object: &amp;v1alpha1.PhysicalMachineChaos{},
 <span id="L125" class="ln">   125  </span>		},
 <span id="L126" class="ln">   126  </span>	},
-<span id="L127" class="ln">   127  </span>)
-<span id="L128" class="ln">   128  </span>
-<span id="L129" class="ln">   129  </span>type WebhookObject struct {
-<span id="L130" class="ln">   130  </span>	Object v1alpha1.WebhookObject
-<span id="L131" class="ln">   131  </span>	Name   string
-<span id="L132" class="ln">   132  </span>}
-<span id="L133" class="ln">   133  </span>
-<span id="L134" class="ln">   134  </span>var WebhookObjects = fx.Supply(
-<span id="L135" class="ln">   135  </span>	fx.Annotated{
-<span id="L136" class="ln">   136  </span>		Group: &#34;webhookObjs&#34;,
-<span id="L137" class="ln">   137  </span>		Target: WebhookObject{
-<span id="L138" class="ln">   138  </span>			Name:   &#34;physicalmachine&#34;,
-<span id="L139" class="ln">   139  </span>			Object: &amp;v1alpha1.PhysicalMachine{},
-<span id="L140" class="ln">   140  </span>		},
-<span id="L141" class="ln">   141  </span>	},
-<span id="L142" class="ln">   142  </span>)
-<span id="L143" class="ln">   143  </span>
+<span id="L127" class="ln">   127  </span>
+<span id="L128" class="ln">   128  </span>	fx.Annotated{
+<span id="L129" class="ln">   129  </span>		Group: &#34;objs&#34;,
+<span id="L130" class="ln">   130  </span>		Target: Object{
+<span id="L131" class="ln">   131  </span>			Name:   &#34;blockchaos&#34;,
+<span id="L132" class="ln">   132  </span>			Object: &amp;v1alpha1.BlockChaos{},
+<span id="L133" class="ln">   133  </span>		},
+<span id="L134" class="ln">   134  </span>	},
+<span id="L135" class="ln">   135  </span>)
+<span id="L136" class="ln">   136  </span>
+<span id="L137" class="ln">   137  </span>type WebhookObject struct {
+<span id="L138" class="ln">   138  </span>	Object v1alpha1.WebhookObject
+<span id="L139" class="ln">   139  </span>	Name   string
+<span id="L140" class="ln">   140  </span>}
+<span id="L141" class="ln">   141  </span>
+<span id="L142" class="ln">   142  </span>var WebhookObjects = fx.Supply(
+<span id="L143" class="ln">   143  </span>	fx.Annotated{
+<span id="L144" class="ln">   144  </span>		Group: &#34;webhookObjs&#34;,
+<span id="L145" class="ln">   145  </span>		Target: WebhookObject{
+<span id="L146" class="ln">   146  </span>			Name:   &#34;physicalmachine&#34;,
+<span id="L147" class="ln">   147  </span>			Object: &amp;v1alpha1.PhysicalMachine{},
+<span id="L148" class="ln">   148  </span>		},
+<span id="L149" class="ln">   149  </span>	},
+<span id="L150" class="ln">   150  </span>)
+<span id="L151" class="ln">   151  </span>
 </pre><p></p>
 
 <div id="footer">
