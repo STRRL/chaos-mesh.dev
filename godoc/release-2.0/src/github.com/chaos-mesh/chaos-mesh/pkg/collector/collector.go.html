@@ -15,6 +15,15 @@
 
 <script>var goVersion = "go1.17.6";</script>
 <script src="https://chaos-mesh.dev/godoc/release-2.0/lib/godoc/godocs.js" defer=""></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
 </head>
 <body>
 
@@ -23,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit a0f529e. Generated at Thu Jan 20 10:08:44 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 75e531c. Generated at Thu Jan 20 22:05:51 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -97,171 +106,165 @@
 <span id="L41" class="ln">    41  </span>
 <span id="L42" class="ln">    42  </span><span class="comment">// Reconcile reconciles a chaos collector.</span>
 <span id="L43" class="ln">    43  </span>func (r *ChaosCollector) Reconcile(req ctrl.Request) (ctrl.Result, error) {
-<span id="L44" class="ln">    44  </span>	var (
-<span id="L45" class="ln">    45  </span>		chaosMeta  metav1.Object
-<span id="L46" class="ln">    46  </span>		ok         bool
-<span id="L47" class="ln">    47  </span>		manageFlag bool
-<span id="L48" class="ln">    48  </span>	)
+<span id="L44" class="ln">    44  </span>	if r.apiType == nil {
+<span id="L45" class="ln">    45  </span>		r.Log.Error(nil, &#34;apiType has not been initialized&#34;)
+<span id="L46" class="ln">    46  </span>		return ctrl.Result{}, nil
+<span id="L47" class="ln">    47  </span>	}
+<span id="L48" class="ln">    48  </span>	ctx := context.Background()
 <span id="L49" class="ln">    49  </span>
-<span id="L50" class="ln">    50  </span>	if r.apiType == nil {
-<span id="L51" class="ln">    51  </span>		r.Log.Error(nil, &#34;apiType has not been initialized&#34;)
-<span id="L52" class="ln">    52  </span>		return ctrl.Result{}, nil
-<span id="L53" class="ln">    53  </span>	}
-<span id="L54" class="ln">    54  </span>	ctx := context.Background()
-<span id="L55" class="ln">    55  </span>	manageFlag = false
-<span id="L56" class="ln">    56  </span>
-<span id="L57" class="ln">    57  </span>	obj, ok := r.apiType.DeepCopyObject().(v1alpha1.InnerObject)
-<span id="L58" class="ln">    58  </span>	if !ok {
-<span id="L59" class="ln">    59  </span>		r.Log.Error(nil, &#34;it&#39;s not a stateful object&#34;)
-<span id="L60" class="ln">    60  </span>		return ctrl.Result{}, nil
-<span id="L61" class="ln">    61  </span>	}
-<span id="L62" class="ln">    62  </span>
-<span id="L63" class="ln">    63  </span>	err := r.Get(ctx, req.NamespacedName, obj)
-<span id="L64" class="ln">    64  </span>	if apierrors.IsNotFound(err) {
-<span id="L65" class="ln">    65  </span>		if chaosMeta, ok = obj.(metav1.Object); !ok {
-<span id="L66" class="ln">    66  </span>			r.Log.Error(nil, &#34;failed to get chaos meta information&#34;)
-<span id="L67" class="ln">    67  </span>		}
-<span id="L68" class="ln">    68  </span>		if chaosMeta.GetLabels()[&#34;managed-by&#34;] != &#34;&#34; {
-<span id="L69" class="ln">    69  </span>			manageFlag = true
-<span id="L70" class="ln">    70  </span>		}
-<span id="L71" class="ln">    71  </span>		if !manageFlag {
-<span id="L72" class="ln">    72  </span>			if err = r.archiveExperiment(req.Namespace, req.Name); err != nil {
-<span id="L73" class="ln">    73  </span>				r.Log.Error(err, &#34;failed to archive experiment&#34;)
-<span id="L74" class="ln">    74  </span>			}
-<span id="L75" class="ln">    75  </span>		} else {
-<span id="L76" class="ln">    76  </span>			if err = r.event.DeleteByUID(ctx, string(chaosMeta.GetUID())); err != nil {
-<span id="L77" class="ln">    77  </span>				r.Log.Error(err, &#34;failed to delete experiment related events&#34;)
-<span id="L78" class="ln">    78  </span>			}
-<span id="L79" class="ln">    79  </span>		}
-<span id="L80" class="ln">    80  </span>		return ctrl.Result{}, nil
-<span id="L81" class="ln">    81  </span>	}
-<span id="L82" class="ln">    82  </span>
-<span id="L83" class="ln">    83  </span>	if err != nil {
-<span id="L84" class="ln">    84  </span>		r.Log.Error(err, &#34;failed to get chaos object&#34;, &#34;request&#34;, req.NamespacedName)
-<span id="L85" class="ln">    85  </span>		return ctrl.Result{}, nil
-<span id="L86" class="ln">    86  </span>	}
+<span id="L50" class="ln">    50  </span>	obj, ok := r.apiType.DeepCopyObject().(v1alpha1.InnerObject)
+<span id="L51" class="ln">    51  </span>	if !ok {
+<span id="L52" class="ln">    52  </span>		r.Log.Error(nil, &#34;it&#39;s not a stateful object&#34;)
+<span id="L53" class="ln">    53  </span>		return ctrl.Result{}, nil
+<span id="L54" class="ln">    54  </span>	}
+<span id="L55" class="ln">    55  </span>
+<span id="L56" class="ln">    56  </span>	err := r.Get(ctx, req.NamespacedName, obj)
+<span id="L57" class="ln">    57  </span>	if apierrors.IsNotFound(err) {
+<span id="L58" class="ln">    58  </span>		if err = r.archiveExperiment(req.Namespace, req.Name); err != nil {
+<span id="L59" class="ln">    59  </span>			r.Log.Error(err, &#34;failed to archive experiment&#34;)
+<span id="L60" class="ln">    60  </span>		}
+<span id="L61" class="ln">    61  </span>
+<span id="L62" class="ln">    62  </span>		<span class="comment">// If the experiment was created by schedule or workflow,</span>
+<span id="L63" class="ln">    63  </span>		<span class="comment">// it and its events will be deleted from database.</span>
+<span id="L64" class="ln">    64  </span>		if err = r.deleteManagedExperiments(req.Namespace, req.Name); err != nil {
+<span id="L65" class="ln">    65  </span>			r.Log.Error(err, &#34;delete managed experiments&#34;, &#34;namespace&#34;, req.Namespace, &#34;name&#34;, req.Name)
+<span id="L66" class="ln">    66  </span>		}
+<span id="L67" class="ln">    67  </span>
+<span id="L68" class="ln">    68  </span>		return ctrl.Result{}, nil
+<span id="L69" class="ln">    69  </span>	}
+<span id="L70" class="ln">    70  </span>
+<span id="L71" class="ln">    71  </span>	if err != nil {
+<span id="L72" class="ln">    72  </span>		r.Log.Error(err, &#34;failed to get chaos object&#34;, &#34;request&#34;, req.NamespacedName)
+<span id="L73" class="ln">    73  </span>		return ctrl.Result{}, nil
+<span id="L74" class="ln">    74  </span>	}
+<span id="L75" class="ln">    75  </span>
+<span id="L76" class="ln">    76  </span>	if err := r.setUnarchivedExperiment(req, obj); err != nil {
+<span id="L77" class="ln">    77  </span>		r.Log.Error(err, &#34;failed to archive experiment&#34;)
+<span id="L78" class="ln">    78  </span>		<span class="comment">// ignore error here</span>
+<span id="L79" class="ln">    79  </span>	}
+<span id="L80" class="ln">    80  </span>
+<span id="L81" class="ln">    81  </span>	return ctrl.Result{}, nil
+<span id="L82" class="ln">    82  </span>}
+<span id="L83" class="ln">    83  </span>
+<span id="L84" class="ln">    84  </span><span class="comment">// Setup setups collectors by Manager.</span>
+<span id="L85" class="ln">    85  </span>func (r *ChaosCollector) Setup(mgr ctrl.Manager, apiType runtime.Object) error {
+<span id="L86" class="ln">    86  </span>	r.apiType = apiType
 <span id="L87" class="ln">    87  </span>
-<span id="L88" class="ln">    88  </span>	if chaosMeta, ok = obj.(metav1.Object); !ok {
-<span id="L89" class="ln">    89  </span>		r.Log.Error(nil, &#34;failed to get chaos meta information&#34;)
-<span id="L90" class="ln">    90  </span>	}
-<span id="L91" class="ln">    91  </span>
-<span id="L92" class="ln">    92  </span>	if chaosMeta.GetLabels()[&#34;managed-by&#34;] != &#34;&#34; {
-<span id="L93" class="ln">    93  </span>		manageFlag = true
-<span id="L94" class="ln">    94  </span>	}
-<span id="L95" class="ln">    95  </span>
-<span id="L96" class="ln">    96  </span>	if obj.IsDeleted() {
-<span id="L97" class="ln">    97  </span>		if !manageFlag {
-<span id="L98" class="ln">    98  </span>			if err = r.archiveExperiment(req.Namespace, req.Name); err != nil {
-<span id="L99" class="ln">    99  </span>				r.Log.Error(err, &#34;failed to archive experiment&#34;)
-<span id="L100" class="ln">   100  </span>			}
-<span id="L101" class="ln">   101  </span>		} else {
-<span id="L102" class="ln">   102  </span>			if err = r.event.DeleteByUID(ctx, string(chaosMeta.GetUID())); err != nil {
-<span id="L103" class="ln">   103  </span>				r.Log.Error(err, &#34;failed to delete experiment related events&#34;)
-<span id="L104" class="ln">   104  </span>			}
-<span id="L105" class="ln">   105  </span>		}
-<span id="L106" class="ln">   106  </span>		return ctrl.Result{}, nil
-<span id="L107" class="ln">   107  </span>	}
-<span id="L108" class="ln">   108  </span>
-<span id="L109" class="ln">   109  </span>	if err := r.setUnarchivedExperiment(req, obj); err != nil {
-<span id="L110" class="ln">   110  </span>		r.Log.Error(err, &#34;failed to archive experiment&#34;)
-<span id="L111" class="ln">   111  </span>		<span class="comment">// ignore error here</span>
-<span id="L112" class="ln">   112  </span>	}
-<span id="L113" class="ln">   113  </span>
-<span id="L114" class="ln">   114  </span>	return ctrl.Result{}, nil
-<span id="L115" class="ln">   115  </span>}
+<span id="L88" class="ln">    88  </span>	return ctrl.NewControllerManagedBy(mgr).
+<span id="L89" class="ln">    89  </span>		For(apiType).
+<span id="L90" class="ln">    90  </span>		Complete(r)
+<span id="L91" class="ln">    91  </span>}
+<span id="L92" class="ln">    92  </span>
+<span id="L93" class="ln">    93  </span>func (r *ChaosCollector) setUnarchivedExperiment(req ctrl.Request, obj v1alpha1.InnerObject) error {
+<span id="L94" class="ln">    94  </span>	archive, err := convertInnerObjectToExperiment(obj)
+<span id="L95" class="ln">    95  </span>	if err != nil {
+<span id="L96" class="ln">    96  </span>		r.Log.Error(err, &#34;failed to covert InnerObject&#34;)
+<span id="L97" class="ln">    97  </span>		return err
+<span id="L98" class="ln">    98  </span>	}
+<span id="L99" class="ln">    99  </span>
+<span id="L100" class="ln">   100  </span>	find, err := r.archive.FindByUID(context.Background(), archive.UID)
+<span id="L101" class="ln">   101  </span>	if err != nil &amp;&amp; !gorm.IsRecordNotFoundError(err) {
+<span id="L102" class="ln">   102  </span>		r.Log.Error(err, &#34;failed to find experiment&#34;, &#34;UID&#34;, archive.UID)
+<span id="L103" class="ln">   103  </span>		return err
+<span id="L104" class="ln">   104  </span>	}
+<span id="L105" class="ln">   105  </span>
+<span id="L106" class="ln">   106  </span>	if find != nil {
+<span id="L107" class="ln">   107  </span>		archive.ID = find.ID
+<span id="L108" class="ln">   108  </span>		archive.CreatedAt = find.CreatedAt
+<span id="L109" class="ln">   109  </span>		archive.UpdatedAt = find.UpdatedAt
+<span id="L110" class="ln">   110  </span>	}
+<span id="L111" class="ln">   111  </span>
+<span id="L112" class="ln">   112  </span>	if err := r.archive.Set(context.Background(), archive); err != nil {
+<span id="L113" class="ln">   113  </span>		r.Log.Error(err, &#34;failed to update experiment&#34;, &#34;archive&#34;, archive)
+<span id="L114" class="ln">   114  </span>		return err
+<span id="L115" class="ln">   115  </span>	}
 <span id="L116" class="ln">   116  </span>
-<span id="L117" class="ln">   117  </span><span class="comment">// Setup setups collectors by Manager.</span>
-<span id="L118" class="ln">   118  </span>func (r *ChaosCollector) Setup(mgr ctrl.Manager, apiType runtime.Object) error {
-<span id="L119" class="ln">   119  </span>	r.apiType = apiType
-<span id="L120" class="ln">   120  </span>
-<span id="L121" class="ln">   121  </span>	return ctrl.NewControllerManagedBy(mgr).
-<span id="L122" class="ln">   122  </span>		For(apiType).
-<span id="L123" class="ln">   123  </span>		Complete(r)
-<span id="L124" class="ln">   124  </span>}
+<span id="L117" class="ln">   117  </span>	return nil
+<span id="L118" class="ln">   118  </span>}
+<span id="L119" class="ln">   119  </span>
+<span id="L120" class="ln">   120  </span>func (r *ChaosCollector) archiveExperiment(ns, name string) error {
+<span id="L121" class="ln">   121  </span>	if err := r.archive.Archive(context.Background(), ns, name); err != nil {
+<span id="L122" class="ln">   122  </span>		r.Log.Error(err, &#34;failed to archive experiment&#34;, &#34;namespace&#34;, ns, &#34;name&#34;, name)
+<span id="L123" class="ln">   123  </span>		return err
+<span id="L124" class="ln">   124  </span>	}
 <span id="L125" class="ln">   125  </span>
-<span id="L126" class="ln">   126  </span>func (r *ChaosCollector) setUnarchivedExperiment(req ctrl.Request, obj v1alpha1.InnerObject) error {
-<span id="L127" class="ln">   127  </span>	var (
-<span id="L128" class="ln">   128  </span>		chaosMeta metav1.Object
-<span id="L129" class="ln">   129  </span>		ok        bool
-<span id="L130" class="ln">   130  </span>	)
-<span id="L131" class="ln">   131  </span>
-<span id="L132" class="ln">   132  </span>	if chaosMeta, ok = obj.(metav1.Object); !ok {
-<span id="L133" class="ln">   133  </span>		r.Log.Error(nil, &#34;failed to get chaos meta information&#34;)
-<span id="L134" class="ln">   134  </span>	}
-<span id="L135" class="ln">   135  </span>	UID := string(chaosMeta.GetUID())
-<span id="L136" class="ln">   136  </span>
-<span id="L137" class="ln">   137  </span>	archive := &amp;core.Experiment{
-<span id="L138" class="ln">   138  </span>		ExperimentMeta: core.ExperimentMeta{
-<span id="L139" class="ln">   139  </span>			Namespace: req.Namespace,
-<span id="L140" class="ln">   140  </span>			Name:      req.Name,
-<span id="L141" class="ln">   141  </span>			Kind:      obj.GetObjectKind().GroupVersionKind().Kind,
-<span id="L142" class="ln">   142  </span>			UID:       UID,
-<span id="L143" class="ln">   143  </span>			Archived:  false,
-<span id="L144" class="ln">   144  </span>		},
-<span id="L145" class="ln">   145  </span>	}
-<span id="L146" class="ln">   146  </span>
-<span id="L147" class="ln">   147  </span>	switch chaos := obj.(type) {
-<span id="L148" class="ln">   148  </span>	case *v1alpha1.PodChaos:
-<span id="L149" class="ln">   149  </span>		archive.Action = string(chaos.Spec.Action)
-<span id="L150" class="ln">   150  </span>	case *v1alpha1.NetworkChaos:
-<span id="L151" class="ln">   151  </span>		archive.Action = string(chaos.Spec.Action)
-<span id="L152" class="ln">   152  </span>	case *v1alpha1.IOChaos:
-<span id="L153" class="ln">   153  </span>		archive.Action = string(chaos.Spec.Action)
-<span id="L154" class="ln">   154  </span>	case *v1alpha1.TimeChaos, *v1alpha1.KernelChaos, *v1alpha1.StressChaos:
-<span id="L155" class="ln">   155  </span>		archive.Action = &#34;&#34;
-<span id="L156" class="ln">   156  </span>	case *v1alpha1.DNSChaos:
-<span id="L157" class="ln">   157  </span>		archive.Action = string(chaos.Spec.Action)
-<span id="L158" class="ln">   158  </span>	case *v1alpha1.AWSChaos:
-<span id="L159" class="ln">   159  </span>		archive.Action = string(chaos.Spec.Action)
-<span id="L160" class="ln">   160  </span>	case *v1alpha1.GCPChaos:
-<span id="L161" class="ln">   161  </span>		archive.Action = string(chaos.Spec.Action)
-<span id="L162" class="ln">   162  </span>	default:
-<span id="L163" class="ln">   163  </span>		return errors.New(&#34;unsupported chaos type &#34; + archive.Kind)
-<span id="L164" class="ln">   164  </span>	}
-<span id="L165" class="ln">   165  </span>
-<span id="L166" class="ln">   166  </span>	archive.StartTime = chaosMeta.GetCreationTimestamp().Time
-<span id="L167" class="ln">   167  </span>	if chaosMeta.GetDeletionTimestamp() != nil {
-<span id="L168" class="ln">   168  </span>		archive.FinishTime = chaosMeta.GetDeletionTimestamp().Time
-<span id="L169" class="ln">   169  </span>	}
-<span id="L170" class="ln">   170  </span>
-<span id="L171" class="ln">   171  </span>	data, err := json.Marshal(chaosMeta)
-<span id="L172" class="ln">   172  </span>	if err != nil {
-<span id="L173" class="ln">   173  </span>		r.Log.Error(err, &#34;failed to marshal chaos&#34;, &#34;kind&#34;, archive.Kind,
-<span id="L174" class="ln">   174  </span>			&#34;namespace&#34;, archive.Namespace, &#34;name&#34;, archive.Name)
-<span id="L175" class="ln">   175  </span>		return err
-<span id="L176" class="ln">   176  </span>	}
-<span id="L177" class="ln">   177  </span>
-<span id="L178" class="ln">   178  </span>	archive.Experiment = string(data)
-<span id="L179" class="ln">   179  </span>
-<span id="L180" class="ln">   180  </span>	find, err := r.archive.FindByUID(context.Background(), UID)
-<span id="L181" class="ln">   181  </span>	if err != nil &amp;&amp; !gorm.IsRecordNotFoundError(err) {
-<span id="L182" class="ln">   182  </span>		r.Log.Error(err, &#34;failed to find experiment&#34;, &#34;UID&#34;, UID)
-<span id="L183" class="ln">   183  </span>		return err
-<span id="L184" class="ln">   184  </span>	}
-<span id="L185" class="ln">   185  </span>
-<span id="L186" class="ln">   186  </span>	if find != nil {
-<span id="L187" class="ln">   187  </span>		archive.ID = find.ID
-<span id="L188" class="ln">   188  </span>		archive.CreatedAt = find.CreatedAt
-<span id="L189" class="ln">   189  </span>		archive.UpdatedAt = find.UpdatedAt
-<span id="L190" class="ln">   190  </span>	}
-<span id="L191" class="ln">   191  </span>
-<span id="L192" class="ln">   192  </span>	if err := r.archive.Set(context.Background(), archive); err != nil {
-<span id="L193" class="ln">   193  </span>		r.Log.Error(err, &#34;failed to update experiment&#34;, &#34;archive&#34;, archive)
-<span id="L194" class="ln">   194  </span>		return err
-<span id="L195" class="ln">   195  </span>	}
-<span id="L196" class="ln">   196  </span>
-<span id="L197" class="ln">   197  </span>	return nil
-<span id="L198" class="ln">   198  </span>}
+<span id="L126" class="ln">   126  </span>	return nil
+<span id="L127" class="ln">   127  </span>}
+<span id="L128" class="ln">   128  </span>
+<span id="L129" class="ln">   129  </span>func (r *ChaosCollector) deleteManagedExperiments(ns, name string) error {
+<span id="L130" class="ln">   130  </span>	archives, err := r.archive.FindManagedByNamespaceName(context.Background(), ns, name)
+<span id="L131" class="ln">   131  </span>	if gorm.IsRecordNotFoundError(err) {
+<span id="L132" class="ln">   132  </span>		return nil
+<span id="L133" class="ln">   133  </span>	}
+<span id="L134" class="ln">   134  </span>
+<span id="L135" class="ln">   135  </span>	if err != nil {
+<span id="L136" class="ln">   136  </span>		return err
+<span id="L137" class="ln">   137  </span>	}
+<span id="L138" class="ln">   138  </span>
+<span id="L139" class="ln">   139  </span>	for _, expr := range archives {
+<span id="L140" class="ln">   140  </span>		if err = r.event.DeleteByUID(context.Background(), expr.UID); err != nil {
+<span id="L141" class="ln">   141  </span>			r.Log.Error(err, &#34;failed to delete experiment related events&#34;)
+<span id="L142" class="ln">   142  </span>		}
+<span id="L143" class="ln">   143  </span>
+<span id="L144" class="ln">   144  </span>		if err = r.archive.Delete(context.Background(), expr); err != nil {
+<span id="L145" class="ln">   145  </span>			r.Log.Error(err, &#34;failed to delete managed experiment&#34;)
+<span id="L146" class="ln">   146  </span>		}
+<span id="L147" class="ln">   147  </span>	}
+<span id="L148" class="ln">   148  </span>
+<span id="L149" class="ln">   149  </span>	return nil
+<span id="L150" class="ln">   150  </span>}
+<span id="L151" class="ln">   151  </span>
+<span id="L152" class="ln">   152  </span>func convertInnerObjectToExperiment(obj v1alpha1.InnerObject) (*core.Experiment, error) {
+<span id="L153" class="ln">   153  </span>	chaosMeta, ok := obj.(metav1.Object)
+<span id="L154" class="ln">   154  </span>	if !ok {
+<span id="L155" class="ln">   155  </span>		return nil, errors.New(&#34;chaos meta information not found&#34;)
+<span id="L156" class="ln">   156  </span>	}
+<span id="L157" class="ln">   157  </span>	UID := string(chaosMeta.GetUID())
+<span id="L158" class="ln">   158  </span>
+<span id="L159" class="ln">   159  </span>	archive := &amp;core.Experiment{
+<span id="L160" class="ln">   160  </span>		ExperimentMeta: core.ExperimentMeta{
+<span id="L161" class="ln">   161  </span>			Namespace: chaosMeta.GetNamespace(),
+<span id="L162" class="ln">   162  </span>			Name:      chaosMeta.GetName(),
+<span id="L163" class="ln">   163  </span>			Kind:      obj.GetObjectKind().GroupVersionKind().Kind,
+<span id="L164" class="ln">   164  </span>			UID:       UID,
+<span id="L165" class="ln">   165  </span>			Archived:  false,
+<span id="L166" class="ln">   166  </span>		},
+<span id="L167" class="ln">   167  </span>	}
+<span id="L168" class="ln">   168  </span>
+<span id="L169" class="ln">   169  </span>	switch chaos := obj.(type) {
+<span id="L170" class="ln">   170  </span>	case *v1alpha1.PodChaos:
+<span id="L171" class="ln">   171  </span>		archive.Action = string(chaos.Spec.Action)
+<span id="L172" class="ln">   172  </span>	case *v1alpha1.NetworkChaos:
+<span id="L173" class="ln">   173  </span>		archive.Action = string(chaos.Spec.Action)
+<span id="L174" class="ln">   174  </span>	case *v1alpha1.IOChaos:
+<span id="L175" class="ln">   175  </span>		archive.Action = string(chaos.Spec.Action)
+<span id="L176" class="ln">   176  </span>	case *v1alpha1.TimeChaos, *v1alpha1.KernelChaos, *v1alpha1.StressChaos:
+<span id="L177" class="ln">   177  </span>		archive.Action = &#34;&#34;
+<span id="L178" class="ln">   178  </span>	case *v1alpha1.DNSChaos:
+<span id="L179" class="ln">   179  </span>		archive.Action = string(chaos.Spec.Action)
+<span id="L180" class="ln">   180  </span>	case *v1alpha1.AWSChaos:
+<span id="L181" class="ln">   181  </span>		archive.Action = string(chaos.Spec.Action)
+<span id="L182" class="ln">   182  </span>	case *v1alpha1.GCPChaos:
+<span id="L183" class="ln">   183  </span>		archive.Action = string(chaos.Spec.Action)
+<span id="L184" class="ln">   184  </span>	default:
+<span id="L185" class="ln">   185  </span>		return nil, errors.New(&#34;unsupported chaos type &#34; + archive.Kind)
+<span id="L186" class="ln">   186  </span>	}
+<span id="L187" class="ln">   187  </span>
+<span id="L188" class="ln">   188  </span>	archive.StartTime = chaosMeta.GetCreationTimestamp().Time
+<span id="L189" class="ln">   189  </span>	if chaosMeta.GetDeletionTimestamp() != nil {
+<span id="L190" class="ln">   190  </span>		archive.FinishTime = chaosMeta.GetDeletionTimestamp().Time
+<span id="L191" class="ln">   191  </span>	}
+<span id="L192" class="ln">   192  </span>
+<span id="L193" class="ln">   193  </span>	data, err := json.Marshal(chaosMeta)
+<span id="L194" class="ln">   194  </span>	if err != nil {
+<span id="L195" class="ln">   195  </span>		return nil, err
+<span id="L196" class="ln">   196  </span>	}
+<span id="L197" class="ln">   197  </span>
+<span id="L198" class="ln">   198  </span>	archive.Experiment = string(data)
 <span id="L199" class="ln">   199  </span>
-<span id="L200" class="ln">   200  </span>func (r *ChaosCollector) archiveExperiment(ns, name string) error {
-<span id="L201" class="ln">   201  </span>	if err := r.archive.Archive(context.Background(), ns, name); err != nil {
-<span id="L202" class="ln">   202  </span>		r.Log.Error(err, &#34;failed to archive experiment&#34;, &#34;namespace&#34;, ns, &#34;name&#34;, name)
-<span id="L203" class="ln">   203  </span>		return err
-<span id="L204" class="ln">   204  </span>	}
-<span id="L205" class="ln">   205  </span>
-<span id="L206" class="ln">   206  </span>	return nil
-<span id="L207" class="ln">   207  </span>}
-<span id="L208" class="ln">   208  </span>
+<span id="L200" class="ln">   200  </span>	return archive, nil
+<span id="L201" class="ln">   201  </span>}
+<span id="L202" class="ln">   202  </span>
 </pre><p></p>
 
 <div id="footer">
@@ -272,14 +275,4 @@ Build version go1.17.6.<br/>
 </div><!-- #page -->
 
 
-
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', 'G-7DESCBGPBX');
-</script>
-
-</body><!-- Global site tag (gtag.js) - Google Analytics --></html>
+</body></html>

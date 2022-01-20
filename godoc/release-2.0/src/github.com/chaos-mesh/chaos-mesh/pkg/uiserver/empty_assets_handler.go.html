@@ -15,6 +15,15 @@
 
 <script>var goVersion = "go1.17.6";</script>
 <script src="https://chaos-mesh.dev/godoc/release-2.0/lib/godoc/godocs.js" defer=""></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
 </head>
 <body>
 
@@ -23,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit a0f529e. Generated at Thu Jan 20 10:08:44 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 75e531c. Generated at Thu Jan 20 22:05:51 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -67,14 +76,15 @@
 <span id="L11" class="ln">    11  </span><span class="comment">// See the License for the specific language governing permissions and</span>
 <span id="L12" class="ln">    12  </span><span class="comment">// limitations under the License.</span>
 <span id="L13" class="ln">    13  </span>
-<span id="L14" class="ln">    14  </span><span class="comment">// +build !ui_server</span>
-<span id="L15" class="ln">    15  </span>
-<span id="L16" class="ln">    16  </span>package uiserver
-<span id="L17" class="ln">    17  </span>
-<span id="L18" class="ln">    18  </span>import &#34;net/http&#34;
-<span id="L19" class="ln">    19  </span>
-<span id="L20" class="ln">    20  </span>var assets http.FileSystem
-<span id="L21" class="ln">    21  </span>
+<span id="L14" class="ln">    14  </span><span class="comment">//go:build !ui_server</span>
+<span id="L15" class="ln">    15  </span><span class="comment">// +build !ui_server</span>
+<span id="L16" class="ln">    16  </span>
+<span id="L17" class="ln">    17  </span>package uiserver
+<span id="L18" class="ln">    18  </span>
+<span id="L19" class="ln">    19  </span>import &#34;net/http&#34;
+<span id="L20" class="ln">    20  </span>
+<span id="L21" class="ln">    21  </span>var assets http.FileSystem
+<span id="L22" class="ln">    22  </span>
 </pre><p></p>
 
 <div id="footer">
@@ -85,14 +95,4 @@ Build version go1.17.6.<br/>
 </div><!-- #page -->
 
 
-
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', 'G-7DESCBGPBX');
-</script>
-
-</body><!-- Global site tag (gtag.js) - Google Analytics --></html>
+</body></html>

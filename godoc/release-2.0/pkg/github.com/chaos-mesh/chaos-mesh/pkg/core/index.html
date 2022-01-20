@@ -17,6 +17,15 @@
 
 <script>var goVersion = "go1.17.6";</script>
 <script src="https://chaos-mesh.dev/godoc/release-2.0/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
 </head>
 <body>
 
@@ -25,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit a0f529e. Generated at Thu Jan 20 10:08:44 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 75e531c. Generated at Thu Jan 20 22:05:51 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -420,7 +429,7 @@
 		
 			
 			
-			<h2 id="AWSChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L226">AWSChaosInfo</a>
+			<h2 id="AWSChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L229">AWSChaosInfo</a>
 				<a class="permalink" href="#AWSChaosInfo">&#xb6;</a>
 				
 				
@@ -479,7 +488,7 @@ AWSChaosInfo defines the basic information of aws chaos for creating a new AWSCh
 		
 			
 			
-			<h2 id="DNSChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L219">DNSChaosInfo</a>
+			<h2 id="DNSChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L222">DNSChaosInfo</a>
 				<a class="permalink" href="#DNSChaosInfo">&#xb6;</a>
 				
 				
@@ -600,7 +609,7 @@ EventStore defines operations for working with event.
 		
 			
 			
-			<h2 id="Experiment">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L62">Experiment</a>
+			<h2 id="Experiment">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L65">Experiment</a>
 				<a class="permalink" href="#Experiment">&#xb6;</a>
 				
 				
@@ -627,7 +636,7 @@ Experiment represents an experiment instance. Use in db.
 
 			
 				
-				<h3 id="Experiment.ParseAWSChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L400">ParseAWSChaos</a>
+				<h3 id="Experiment.ParseAWSChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L403">ParseAWSChaos</a>
 					<a class="permalink" href="#Experiment.ParseAWSChaos">&#xb6;</a>
 					
 					
@@ -642,7 +651,7 @@ ParseAWSChaos Parse AWSChaos JSON string into KubeObjectDesc.
 				
 			
 				
-				<h3 id="Experiment.ParseDNSChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L378">ParseDNSChaos</a>
+				<h3 id="Experiment.ParseDNSChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L381">ParseDNSChaos</a>
 					<a class="permalink" href="#Experiment.ParseDNSChaos">&#xb6;</a>
 					
 					
@@ -657,7 +666,7 @@ ParseDNSChaos Parse DNSChaos JSON string into KubeObjectDesc.
 				
 			
 				
-				<h3 id="Experiment.ParseGCPChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L422">ParseGCPChaos</a>
+				<h3 id="Experiment.ParseGCPChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L425">ParseGCPChaos</a>
 					<a class="permalink" href="#Experiment.ParseGCPChaos">&#xb6;</a>
 					
 					
@@ -672,7 +681,7 @@ ParseGCPChaos Parse GCPChaos JSON string into KubeObjectDesc.
 				
 			
 				
-				<h3 id="Experiment.ParseIOChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L290">ParseIOChaos</a>
+				<h3 id="Experiment.ParseIOChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L293">ParseIOChaos</a>
 					<a class="permalink" href="#Experiment.ParseIOChaos">&#xb6;</a>
 					
 					
@@ -687,7 +696,7 @@ ParseIOChaos Parse IOChaos JSON string into KubeObjectDesc.
 				
 			
 				
-				<h3 id="Experiment.ParseKernelChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L334">ParseKernelChaos</a>
+				<h3 id="Experiment.ParseKernelChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L337">ParseKernelChaos</a>
 					<a class="permalink" href="#Experiment.ParseKernelChaos">&#xb6;</a>
 					
 					
@@ -702,7 +711,7 @@ ParseKernelChaos Parse KernelChaos JSON string into KubeObjectDesc.
 				
 			
 				
-				<h3 id="Experiment.ParseNetworkChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L268">ParseNetworkChaos</a>
+				<h3 id="Experiment.ParseNetworkChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L271">ParseNetworkChaos</a>
 					<a class="permalink" href="#Experiment.ParseNetworkChaos">&#xb6;</a>
 					
 					
@@ -717,7 +726,7 @@ ParseNetworkChaos Parse NetworkChaos JSON string into KubeObjectDesc.
 				
 			
 				
-				<h3 id="Experiment.ParsePodChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L246">ParsePodChaos</a>
+				<h3 id="Experiment.ParsePodChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L249">ParsePodChaos</a>
 					<a class="permalink" href="#Experiment.ParsePodChaos">&#xb6;</a>
 					
 					
@@ -732,7 +741,7 @@ ParsePodChaos Parse PodChaos JSON string into KubeObjectDesc.
 				
 			
 				
-				<h3 id="Experiment.ParseStressChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L356">ParseStressChaos</a>
+				<h3 id="Experiment.ParseStressChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L359">ParseStressChaos</a>
 					<a class="permalink" href="#Experiment.ParseStressChaos">&#xb6;</a>
 					
 					
@@ -747,7 +756,7 @@ ParseStressChaos Parse StressChaos JSON string into KubeObjectDesc.
 				
 			
 				
-				<h3 id="Experiment.ParseTimeChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L312">ParseTimeChaos</a>
+				<h3 id="Experiment.ParseTimeChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L315">ParseTimeChaos</a>
 					<a class="permalink" href="#Experiment.ParseTimeChaos">&#xb6;</a>
 					
 					
@@ -764,7 +773,7 @@ ParseTimeChaos Parse TimeChaos JSON string into KubeObjectDesc.
 		
 			
 			
-			<h2 id="ExperimentInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L81">ExperimentInfo</a>
+			<h2 id="ExperimentInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L84">ExperimentInfo</a>
 				<a class="permalink" href="#ExperimentInfo">&#xb6;</a>
 				
 				
@@ -798,7 +807,7 @@ ExperimentInfo defines a form data of Experiment from API.
 		
 			
 			
-			<h2 id="ExperimentMeta">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L68">ExperimentMeta</a>
+			<h2 id="ExperimentMeta">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L71">ExperimentMeta</a>
 				<a class="permalink" href="#ExperimentMeta">&#xb6;</a>
 				
 				
@@ -849,6 +858,9 @@ ExperimentStore defines operations for working with experiments.
 
     <span class="comment">// FindByUID returns an experiment by UID.</span>
     FindByUID(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/#Context">Context</a>, UID <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#string">string</a>) (*<a href="#Experiment">Experiment</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// FindManagedByNamespaceName returns experiment list which are managed by schedule or workflow.</span>
+    FindManagedByNamespaceName(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#string">string</a>) ([]*<a href="#Experiment">Experiment</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)
 
     <span class="comment">// FindMetaByUID returns an experiment metadata by UID.</span>
     FindMetaByUID(<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#string">string</a>) (*<a href="#ExperimentMeta">ExperimentMeta</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/builtin/#error">error</a>)
@@ -922,7 +934,7 @@ Filter represents the filter to list events
 		
 			
 			
-			<h2 id="GCPChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L236">GCPChaosInfo</a>
+			<h2 id="GCPChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L239">GCPChaosInfo</a>
 				<a class="permalink" href="#GCPChaosInfo">&#xb6;</a>
 				
 				
@@ -955,7 +967,7 @@ GCPChaosInfo defines the basic information of aws chaos for creating a new GCPCh
 		
 			
 			
-			<h2 id="IOChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L186">IOChaosInfo</a>
+			<h2 id="IOChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L189">IOChaosInfo</a>
 				<a class="permalink" href="#IOChaosInfo">&#xb6;</a>
 				
 				
@@ -992,7 +1004,7 @@ IOChaosInfo defines the basic information of io chaos for creating a new IOChaos
 		
 			
 			
-			<h2 id="KernelChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L200">KernelChaosInfo</a>
+			<h2 id="KernelChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L203">KernelChaosInfo</a>
 				<a class="permalink" href="#KernelChaosInfo">&#xb6;</a>
 				
 				
@@ -1189,7 +1201,7 @@ KubeObjectMetadata extracts the required fields from metav1.ObjectMeta.
 		
 			
 			
-			<h2 id="NetworkChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L173">NetworkChaosInfo</a>
+			<h2 id="NetworkChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L176">NetworkChaosInfo</a>
 				<a class="permalink" href="#NetworkChaosInfo">&#xb6;</a>
 				
 				
@@ -1421,7 +1433,7 @@ Const definitions can be found below this type.
 		
 			
 			
-			<h2 id="PodChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L166">PodChaosInfo</a>
+			<h2 id="PodChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L169">PodChaosInfo</a>
 				<a class="permalink" href="#PodChaosInfo">&#xb6;</a>
 				
 				
@@ -1609,7 +1621,7 @@ ScheduleStore defines operations for working with schedules.
 		
 			
 			
-			<h2 id="SchedulerInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L161">SchedulerInfo</a>
+			<h2 id="SchedulerInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L164">SchedulerInfo</a>
 				<a class="permalink" href="#SchedulerInfo">&#xb6;</a>
 				
 				
@@ -1637,7 +1649,7 @@ SchedulerInfo defines the scheduler information.
 		
 			
 			
-			<h2 id="ScopeInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L92">ScopeInfo</a>
+			<h2 id="ScopeInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L95">ScopeInfo</a>
 				<a class="permalink" href="#ScopeInfo">&#xb6;</a>
 				
 				
@@ -1667,7 +1679,7 @@ ScopeInfo defines the scope of the Experiment.
 		
 			
 			
-			<h2 id="SelectorInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L99">SelectorInfo</a>
+			<h2 id="SelectorInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L102">SelectorInfo</a>
 				<a class="permalink" href="#SelectorInfo">&#xb6;</a>
 				
 				
@@ -1705,7 +1717,7 @@ SelectorInfo defines the selector options of the Experiment.
 
 			
 				
-				<h3 id="SelectorInfo.ParseSelector">func (*SelectorInfo) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L116">ParseSelector</a>
+				<h3 id="SelectorInfo.ParseSelector">func (*SelectorInfo) <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L119">ParseSelector</a>
 					<a class="permalink" href="#SelectorInfo.ParseSelector">&#xb6;</a>
 					
 					
@@ -1722,7 +1734,7 @@ ParseSelector parses SelectorInfo to v1alpha1.SelectorSpec
 		
 			
 			
-			<h2 id="StressChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L212">StressChaosInfo</a>
+			<h2 id="StressChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L215">StressChaosInfo</a>
 				<a class="permalink" href="#StressChaosInfo">&#xb6;</a>
 				
 				
@@ -1752,7 +1764,7 @@ StressChaosInfo defines the basic information of stress chaos for creating a new
 		
 			
 			
-			<h2 id="TargetInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L147">TargetInfo</a>
+			<h2 id="TargetInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L150">TargetInfo</a>
 				<a class="permalink" href="#TargetInfo">&#xb6;</a>
 				
 				
@@ -1789,7 +1801,7 @@ TargetInfo defines the information of target objects.
 		
 			
 			
-			<h2 id="TimeChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L205">TimeChaosInfo</a>
+			<h2 id="TimeChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/release-2.0/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L208">TimeChaosInfo</a>
 				<a class="permalink" href="#TimeChaosInfo">&#xb6;</a>
 				
 				
@@ -2071,14 +2083,4 @@ Build version go1.17.6.<br>
 </div><!-- .container -->
 </div><!-- #page -->
 </body>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', 'G-7DESCBGPBX');
-</script>
 </html>

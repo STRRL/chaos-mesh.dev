@@ -15,6 +15,15 @@
 
 <script>var goVersion = "go1.17.6";</script>
 <script src="https://chaos-mesh.dev/godoc/release-2.0/lib/godoc/godocs.js" defer=""></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
 </head>
 <body>
 
@@ -23,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit a0f529e. Generated at Thu Jan 20 10:08:44 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 75e531c. Generated at Thu Jan 20 22:05:51 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -74,158 +83,186 @@
 <span id="L18" class="ln">    18  </span>	&#34;time&#34;
 <span id="L19" class="ln">    19  </span>
 <span id="L20" class="ln">    20  </span>	&#34;github.com/jinzhu/gorm&#34;
-<span id="L21" class="ln">    21  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
-<span id="L22" class="ln">    22  </span>
-<span id="L23" class="ln">    23  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/core&#34;
-<span id="L24" class="ln">    24  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/store/dbstore&#34;
-<span id="L25" class="ln">    25  </span>)
-<span id="L26" class="ln">    26  </span>
-<span id="L27" class="ln">    27  </span>var log = ctrl.Log.WithName(&#34;store/experiment&#34;)
-<span id="L28" class="ln">    28  </span>
-<span id="L29" class="ln">    29  </span><span class="comment">// NewStore returns a new ExperimentStore.</span>
-<span id="L30" class="ln">    30  </span>func NewStore(db *dbstore.DB) core.ExperimentStore {
-<span id="L31" class="ln">    31  </span>	db.AutoMigrate(&amp;core.Experiment{})
-<span id="L32" class="ln">    32  </span>
-<span id="L33" class="ln">    33  </span>	return &amp;experimentStore{db}
-<span id="L34" class="ln">    34  </span>}
-<span id="L35" class="ln">    35  </span>
-<span id="L36" class="ln">    36  </span><span class="comment">// DeleteIncompleteExperiments call core.ExperimentStore.DeleteIncompleteExperiments to deletes all incomplete experiments.</span>
-<span id="L37" class="ln">    37  </span>func DeleteIncompleteExperiments(es core.ExperimentStore, _ core.EventStore) {
-<span id="L38" class="ln">    38  </span>	if err := es.DeleteIncompleteExperiments(context.Background()); err != nil &amp;&amp; !gorm.IsRecordNotFoundError(err) {
-<span id="L39" class="ln">    39  </span>		log.Error(err, &#34;failed to delete all incomplete experiments&#34;)
-<span id="L40" class="ln">    40  </span>	}
-<span id="L41" class="ln">    41  </span>}
-<span id="L42" class="ln">    42  </span>
-<span id="L43" class="ln">    43  </span>type experimentStore struct {
-<span id="L44" class="ln">    44  </span>	db *dbstore.DB
-<span id="L45" class="ln">    45  </span>}
-<span id="L46" class="ln">    46  </span>
-<span id="L47" class="ln">    47  </span><span class="comment">// ListMeta implements the core.ExperimentStore.ListMeta method.</span>
-<span id="L48" class="ln">    48  </span>func (e *experimentStore) ListMeta(_ context.Context, kind, namespace, name string, archived bool) ([]*core.ExperimentMeta, error) {
-<span id="L49" class="ln">    49  </span>	db := e.db.Table(&#34;experiments&#34;)
-<span id="L50" class="ln">    50  </span>	experiments := make([]*core.ExperimentMeta, 0)
-<span id="L51" class="ln">    51  </span>	query, args := constructQueryArgs(kind, namespace, name, &#34;&#34;)
-<span id="L52" class="ln">    52  </span>
-<span id="L53" class="ln">    53  </span>	if err := db.Where(query, args).Where(query, args).Where(&#34;archived = ?&#34;, archived).Find(&amp;experiments).Error; err != nil &amp;&amp; !gorm.IsRecordNotFoundError(err) {
-<span id="L54" class="ln">    54  </span>		return nil, err
-<span id="L55" class="ln">    55  </span>	}
-<span id="L56" class="ln">    56  </span>
-<span id="L57" class="ln">    57  </span>	return experiments, nil
-<span id="L58" class="ln">    58  </span>}
-<span id="L59" class="ln">    59  </span>
-<span id="L60" class="ln">    60  </span><span class="comment">// FindByUID implements the core.ExperimentStore.FindByUID method.</span>
-<span id="L61" class="ln">    61  </span>func (e *experimentStore) FindByUID(_ context.Context, uid string) (*core.Experiment, error) {
-<span id="L62" class="ln">    62  </span>	experiment := new(core.Experiment)
-<span id="L63" class="ln">    63  </span>
-<span id="L64" class="ln">    64  </span>	if err := e.db.Where(&#34;uid = ?&#34;, uid).First(experiment).Error; err != nil {
-<span id="L65" class="ln">    65  </span>		return nil, err
-<span id="L66" class="ln">    66  </span>	}
-<span id="L67" class="ln">    67  </span>
-<span id="L68" class="ln">    68  </span>	return experiment, nil
-<span id="L69" class="ln">    69  </span>}
-<span id="L70" class="ln">    70  </span>
-<span id="L71" class="ln">    71  </span><span class="comment">// FindMetaByUID implements the core.ExperimentStore.FindMetaByUID method.</span>
-<span id="L72" class="ln">    72  </span>func (e *experimentStore) FindMetaByUID(_ context.Context, uid string) (*core.ExperimentMeta, error) {
-<span id="L73" class="ln">    73  </span>	db := e.db.Table(&#34;experiments&#34;)
-<span id="L74" class="ln">    74  </span>	experiment := new(core.ExperimentMeta)
-<span id="L75" class="ln">    75  </span>
-<span id="L76" class="ln">    76  </span>	if err := db.Where(&#34;uid = ?&#34;, uid).First(experiment).Error; err != nil {
-<span id="L77" class="ln">    77  </span>		return nil, err
-<span id="L78" class="ln">    78  </span>	}
-<span id="L79" class="ln">    79  </span>
-<span id="L80" class="ln">    80  </span>	return experiment, nil
-<span id="L81" class="ln">    81  </span>}
-<span id="L82" class="ln">    82  </span>
-<span id="L83" class="ln">    83  </span><span class="comment">// Set implements the core.ExperimentStore.Set method.</span>
-<span id="L84" class="ln">    84  </span>func (e *experimentStore) Set(_ context.Context, experiment *core.Experiment) error {
-<span id="L85" class="ln">    85  </span>	return e.db.Model(core.Experiment{}).Save(experiment).Error
-<span id="L86" class="ln">    86  </span>}
-<span id="L87" class="ln">    87  </span>
-<span id="L88" class="ln">    88  </span><span class="comment">// Archive implements the core.ExperimentStore.Archive method.</span>
-<span id="L89" class="ln">    89  </span>func (e *experimentStore) Archive(_ context.Context, ns, name string) error {
-<span id="L90" class="ln">    90  </span>	if err := e.db.Model(core.Experiment{}).
-<span id="L91" class="ln">    91  </span>		Where(&#34;namespace = ? AND name = ? AND archived = ?&#34;, ns, name, false).
-<span id="L92" class="ln">    92  </span>		Updates(map[string]interface{}{&#34;archived&#34;: true, &#34;finish_time&#34;: time.Now()}).Error; err != nil &amp;&amp; !gorm.IsRecordNotFoundError(err) {
-<span id="L93" class="ln">    93  </span>		return err
-<span id="L94" class="ln">    94  </span>	}
-<span id="L95" class="ln">    95  </span>
-<span id="L96" class="ln">    96  </span>	return nil
-<span id="L97" class="ln">    97  </span>}
+<span id="L21" class="ln">    21  </span>	&#34;k8s.io/apimachinery/pkg/apis/meta/v1/unstructured&#34;
+<span id="L22" class="ln">    22  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
+<span id="L23" class="ln">    23  </span>
+<span id="L24" class="ln">    24  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/core&#34;
+<span id="L25" class="ln">    25  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/store/dbstore&#34;
+<span id="L26" class="ln">    26  </span>)
+<span id="L27" class="ln">    27  </span>
+<span id="L28" class="ln">    28  </span>var log = ctrl.Log.WithName(&#34;store/experiment&#34;)
+<span id="L29" class="ln">    29  </span>
+<span id="L30" class="ln">    30  </span><span class="comment">// NewStore returns a new ExperimentStore.</span>
+<span id="L31" class="ln">    31  </span>func NewStore(db *dbstore.DB) core.ExperimentStore {
+<span id="L32" class="ln">    32  </span>	db.AutoMigrate(&amp;core.Experiment{})
+<span id="L33" class="ln">    33  </span>
+<span id="L34" class="ln">    34  </span>	return &amp;experimentStore{db}
+<span id="L35" class="ln">    35  </span>}
+<span id="L36" class="ln">    36  </span>
+<span id="L37" class="ln">    37  </span><span class="comment">// DeleteIncompleteExperiments call core.ExperimentStore.DeleteIncompleteExperiments to deletes all incomplete experiments.</span>
+<span id="L38" class="ln">    38  </span>func DeleteIncompleteExperiments(es core.ExperimentStore, _ core.EventStore) {
+<span id="L39" class="ln">    39  </span>	if err := es.DeleteIncompleteExperiments(context.Background()); err != nil &amp;&amp; !gorm.IsRecordNotFoundError(err) {
+<span id="L40" class="ln">    40  </span>		log.Error(err, &#34;failed to delete all incomplete experiments&#34;)
+<span id="L41" class="ln">    41  </span>	}
+<span id="L42" class="ln">    42  </span>}
+<span id="L43" class="ln">    43  </span>
+<span id="L44" class="ln">    44  </span>type experimentStore struct {
+<span id="L45" class="ln">    45  </span>	db *dbstore.DB
+<span id="L46" class="ln">    46  </span>}
+<span id="L47" class="ln">    47  </span>
+<span id="L48" class="ln">    48  </span><span class="comment">// ListMeta implements the core.ExperimentStore.ListMeta method.</span>
+<span id="L49" class="ln">    49  </span>func (e *experimentStore) ListMeta(_ context.Context, kind, namespace, name string, archived bool) ([]*core.ExperimentMeta, error) {
+<span id="L50" class="ln">    50  </span>	db := e.db.Table(&#34;experiments&#34;)
+<span id="L51" class="ln">    51  </span>	experiments := make([]*core.ExperimentMeta, 0)
+<span id="L52" class="ln">    52  </span>	query, args := constructQueryArgs(kind, namespace, name, &#34;&#34;)
+<span id="L53" class="ln">    53  </span>
+<span id="L54" class="ln">    54  </span>	if err := db.Where(query, args).Where(query, args).Where(&#34;archived = ?&#34;, archived).Find(&amp;experiments).Error; err != nil &amp;&amp; !gorm.IsRecordNotFoundError(err) {
+<span id="L55" class="ln">    55  </span>		return nil, err
+<span id="L56" class="ln">    56  </span>	}
+<span id="L57" class="ln">    57  </span>
+<span id="L58" class="ln">    58  </span>	return experiments, nil
+<span id="L59" class="ln">    59  </span>}
+<span id="L60" class="ln">    60  </span>
+<span id="L61" class="ln">    61  </span><span class="comment">// FindByUID implements the core.ExperimentStore.FindByUID method.</span>
+<span id="L62" class="ln">    62  </span>func (e *experimentStore) FindByUID(_ context.Context, uid string) (*core.Experiment, error) {
+<span id="L63" class="ln">    63  </span>	experiment := new(core.Experiment)
+<span id="L64" class="ln">    64  </span>
+<span id="L65" class="ln">    65  </span>	if err := e.db.Where(&#34;uid = ?&#34;, uid).First(experiment).Error; err != nil {
+<span id="L66" class="ln">    66  </span>		return nil, err
+<span id="L67" class="ln">    67  </span>	}
+<span id="L68" class="ln">    68  </span>
+<span id="L69" class="ln">    69  </span>	return experiment, nil
+<span id="L70" class="ln">    70  </span>}
+<span id="L71" class="ln">    71  </span>
+<span id="L72" class="ln">    72  </span><span class="comment">// FindMetaByUID implements the core.ExperimentStore.FindMetaByUID method.</span>
+<span id="L73" class="ln">    73  </span>func (e *experimentStore) FindMetaByUID(_ context.Context, uid string) (*core.ExperimentMeta, error) {
+<span id="L74" class="ln">    74  </span>	db := e.db.Table(&#34;experiments&#34;)
+<span id="L75" class="ln">    75  </span>	experiment := new(core.ExperimentMeta)
+<span id="L76" class="ln">    76  </span>
+<span id="L77" class="ln">    77  </span>	if err := db.Where(&#34;uid = ?&#34;, uid).First(experiment).Error; err != nil {
+<span id="L78" class="ln">    78  </span>		return nil, err
+<span id="L79" class="ln">    79  </span>	}
+<span id="L80" class="ln">    80  </span>
+<span id="L81" class="ln">    81  </span>	return experiment, nil
+<span id="L82" class="ln">    82  </span>}
+<span id="L83" class="ln">    83  </span>
+<span id="L84" class="ln">    84  </span><span class="comment">// FindManagedByNamespaceName implements the core.ExperimentStore.FindManagedByNamespaceName method.</span>
+<span id="L85" class="ln">    85  </span>func (e *experimentStore) FindManagedByNamespaceName(_ context.Context, namespace, name string) ([]*core.Experiment, error) {
+<span id="L86" class="ln">    86  </span>	experiments := make([]*core.Experiment, 0)
+<span id="L87" class="ln">    87  </span>	if err := e.db.Model(core.Experiment{}).
+<span id="L88" class="ln">    88  </span>		Find(&amp;experiments, &#34;namespace = ? AND name = ? AND archived = ?&#34;, namespace, name, true).Error; err != nil {
+<span id="L89" class="ln">    89  </span>		return nil, err
+<span id="L90" class="ln">    90  </span>	}
+<span id="L91" class="ln">    91  </span>
+<span id="L92" class="ln">    92  </span>	managedExperiments := make([]*core.Experiment, 0)
+<span id="L93" class="ln">    93  </span>	for _, expr := range experiments {
+<span id="L94" class="ln">    94  </span>		meta := &amp;unstructured.Unstructured{}
+<span id="L95" class="ln">    95  </span>		if err := meta.UnmarshalJSON([]byte(expr.Experiment)); err != nil {
+<span id="L96" class="ln">    96  </span>			return nil, err
+<span id="L97" class="ln">    97  </span>		}
 <span id="L98" class="ln">    98  </span>
-<span id="L99" class="ln">    99  </span><span class="comment">// Delete deletes the experiment from the datastore.</span>
-<span id="L100" class="ln">   100  </span>func (e *experimentStore) Delete(_ context.Context, exp *core.Experiment) error {
-<span id="L101" class="ln">   101  </span>	err := e.db.Table(&#34;experiments&#34;).Unscoped().Delete(*exp).Error
-<span id="L102" class="ln">   102  </span>	return err
-<span id="L103" class="ln">   103  </span>}
-<span id="L104" class="ln">   104  </span>
-<span id="L105" class="ln">   105  </span><span class="comment">// DeleteByFinishTime deletes experiments whose time difference is greater than the given time from FinishTime.</span>
-<span id="L106" class="ln">   106  </span>func (e *experimentStore) DeleteByFinishTime(_ context.Context, ttl time.Duration) error {
-<span id="L107" class="ln">   107  </span>	experiments, err := e.ListMeta(context.Background(), &#34;&#34;, &#34;&#34;, &#34;&#34;, true)
-<span id="L108" class="ln">   108  </span>	if err != nil {
-<span id="L109" class="ln">   109  </span>		return err
-<span id="L110" class="ln">   110  </span>	}
-<span id="L111" class="ln">   111  </span>
-<span id="L112" class="ln">   112  </span>	nowTime := time.Now()
-<span id="L113" class="ln">   113  </span>	for _, exp := range experiments {
-<span id="L114" class="ln">   114  </span>		if exp.FinishTime.Add(ttl).Before(nowTime) {
-<span id="L115" class="ln">   115  </span>			if err := e.db.Table(&#34;experiments&#34;).Unscoped().Delete(*exp).Error; err != nil {
-<span id="L116" class="ln">   116  </span>				return err
-<span id="L117" class="ln">   117  </span>			}
-<span id="L118" class="ln">   118  </span>		}
-<span id="L119" class="ln">   119  </span>	}
-<span id="L120" class="ln">   120  </span>
-<span id="L121" class="ln">   121  </span>	return nil
-<span id="L122" class="ln">   122  </span>}
+<span id="L99" class="ln">    99  </span>		if meta.GetLabels()[&#34;managed-by&#34;] != &#34;&#34; {
+<span id="L100" class="ln">   100  </span>			managedExperiments = append(managedExperiments, expr)
+<span id="L101" class="ln">   101  </span>		}
+<span id="L102" class="ln">   102  </span>	}
+<span id="L103" class="ln">   103  </span>
+<span id="L104" class="ln">   104  </span>	if len(managedExperiments) == 0 {
+<span id="L105" class="ln">   105  </span>		return nil, gorm.ErrRecordNotFound
+<span id="L106" class="ln">   106  </span>	}
+<span id="L107" class="ln">   107  </span>
+<span id="L108" class="ln">   108  </span>	return managedExperiments, nil
+<span id="L109" class="ln">   109  </span>}
+<span id="L110" class="ln">   110  </span>
+<span id="L111" class="ln">   111  </span><span class="comment">// Set implements the core.ExperimentStore.Set method.</span>
+<span id="L112" class="ln">   112  </span>func (e *experimentStore) Set(_ context.Context, experiment *core.Experiment) error {
+<span id="L113" class="ln">   113  </span>	return e.db.Model(core.Experiment{}).Save(experiment).Error
+<span id="L114" class="ln">   114  </span>}
+<span id="L115" class="ln">   115  </span>
+<span id="L116" class="ln">   116  </span><span class="comment">// Archive implements the core.ExperimentStore.Archive method.</span>
+<span id="L117" class="ln">   117  </span>func (e *experimentStore) Archive(_ context.Context, namespace, name string) error {
+<span id="L118" class="ln">   118  </span>	if err := e.db.Model(core.Experiment{}).
+<span id="L119" class="ln">   119  </span>		Where(&#34;namespace = ? AND name = ? AND archived = ?&#34;, namespace, name, false).
+<span id="L120" class="ln">   120  </span>		Updates(map[string]interface{}{&#34;archived&#34;: true, &#34;finish_time&#34;: time.Now()}).Error; err != nil &amp;&amp; !gorm.IsRecordNotFoundError(err) {
+<span id="L121" class="ln">   121  </span>		return err
+<span id="L122" class="ln">   122  </span>	}
 <span id="L123" class="ln">   123  </span>
-<span id="L124" class="ln">   124  </span><span class="comment">// DeleteByUIDs deletes archives by the uid list.</span>
-<span id="L125" class="ln">   125  </span>func (e *experimentStore) DeleteByUIDs(_ context.Context, uids []string) error {
-<span id="L126" class="ln">   126  </span>	return e.db.Table(&#34;experiments&#34;).Where(&#34;uid IN (?)&#34;, uids).Unscoped().Delete(core.Experiment{}).Error
-<span id="L127" class="ln">   127  </span>}
-<span id="L128" class="ln">   128  </span>
-<span id="L129" class="ln">   129  </span><span class="comment">// DeleteIncompleteExperiments implements the core.ExperimentStore.DeleteIncompleteExperiments method.</span>
-<span id="L130" class="ln">   130  </span>func (e *experimentStore) DeleteIncompleteExperiments(_ context.Context) error {
-<span id="L131" class="ln">   131  </span>	return e.db.Where(&#34;finish_time IS NULL&#34;).Unscoped().Delete(core.Experiment{}).Error
-<span id="L132" class="ln">   132  </span>}
-<span id="L133" class="ln">   133  </span>
-<span id="L134" class="ln">   134  </span>func constructQueryArgs(kind, ns, name, uid string) (string, []string) {
-<span id="L135" class="ln">   135  </span>	query := &#34;&#34;
-<span id="L136" class="ln">   136  </span>	args := make([]string, 0)
-<span id="L137" class="ln">   137  </span>
-<span id="L138" class="ln">   138  </span>	if kind != &#34;&#34; {
-<span id="L139" class="ln">   139  </span>		query += &#34;kind = ?&#34;
-<span id="L140" class="ln">   140  </span>		args = append(args, kind)
-<span id="L141" class="ln">   141  </span>	}
-<span id="L142" class="ln">   142  </span>
-<span id="L143" class="ln">   143  </span>	if ns != &#34;&#34; {
-<span id="L144" class="ln">   144  </span>		if len(args) &gt; 0 {
-<span id="L145" class="ln">   145  </span>			query += &#34; AND namespace = ?&#34;
-<span id="L146" class="ln">   146  </span>		} else {
-<span id="L147" class="ln">   147  </span>			query += &#34;namespace = ?&#34;
-<span id="L148" class="ln">   148  </span>		}
-<span id="L149" class="ln">   149  </span>		args = append(args, ns)
-<span id="L150" class="ln">   150  </span>	}
+<span id="L124" class="ln">   124  </span>	return nil
+<span id="L125" class="ln">   125  </span>}
+<span id="L126" class="ln">   126  </span>
+<span id="L127" class="ln">   127  </span><span class="comment">// Delete deletes the experiment from the datastore.</span>
+<span id="L128" class="ln">   128  </span>func (e *experimentStore) Delete(_ context.Context, exp *core.Experiment) error {
+<span id="L129" class="ln">   129  </span>	err := e.db.Table(&#34;experiments&#34;).Unscoped().Delete(*exp).Error
+<span id="L130" class="ln">   130  </span>	return err
+<span id="L131" class="ln">   131  </span>}
+<span id="L132" class="ln">   132  </span>
+<span id="L133" class="ln">   133  </span><span class="comment">// DeleteByFinishTime deletes experiments whose time difference is greater than the given time from FinishTime.</span>
+<span id="L134" class="ln">   134  </span>func (e *experimentStore) DeleteByFinishTime(_ context.Context, ttl time.Duration) error {
+<span id="L135" class="ln">   135  </span>	experiments, err := e.ListMeta(context.Background(), &#34;&#34;, &#34;&#34;, &#34;&#34;, true)
+<span id="L136" class="ln">   136  </span>	if err != nil {
+<span id="L137" class="ln">   137  </span>		return err
+<span id="L138" class="ln">   138  </span>	}
+<span id="L139" class="ln">   139  </span>
+<span id="L140" class="ln">   140  </span>	nowTime := time.Now()
+<span id="L141" class="ln">   141  </span>	for _, exp := range experiments {
+<span id="L142" class="ln">   142  </span>		if exp.FinishTime.Add(ttl).Before(nowTime) {
+<span id="L143" class="ln">   143  </span>			if err := e.db.Table(&#34;experiments&#34;).Unscoped().Delete(*exp).Error; err != nil {
+<span id="L144" class="ln">   144  </span>				return err
+<span id="L145" class="ln">   145  </span>			}
+<span id="L146" class="ln">   146  </span>		}
+<span id="L147" class="ln">   147  </span>	}
+<span id="L148" class="ln">   148  </span>
+<span id="L149" class="ln">   149  </span>	return nil
+<span id="L150" class="ln">   150  </span>}
 <span id="L151" class="ln">   151  </span>
-<span id="L152" class="ln">   152  </span>	if name != &#34;&#34; {
-<span id="L153" class="ln">   153  </span>		if len(args) &gt; 0 {
-<span id="L154" class="ln">   154  </span>			query += &#34; AND name = ?&#34;
-<span id="L155" class="ln">   155  </span>		} else {
-<span id="L156" class="ln">   156  </span>			query += &#34;name = ?&#34;
-<span id="L157" class="ln">   157  </span>		}
-<span id="L158" class="ln">   158  </span>		args = append(args, name)
-<span id="L159" class="ln">   159  </span>	}
-<span id="L160" class="ln">   160  </span>
-<span id="L161" class="ln">   161  </span>	if uid != &#34;&#34; {
-<span id="L162" class="ln">   162  </span>		if len(args) &gt; 0 {
-<span id="L163" class="ln">   163  </span>			query += &#34; AND uid = ?&#34;
-<span id="L164" class="ln">   164  </span>		} else {
-<span id="L165" class="ln">   165  </span>			query += &#34;uid = ?&#34;
-<span id="L166" class="ln">   166  </span>		}
-<span id="L167" class="ln">   167  </span>		args = append(args, uid)
-<span id="L168" class="ln">   168  </span>	}
-<span id="L169" class="ln">   169  </span>
-<span id="L170" class="ln">   170  </span>	return query, args
-<span id="L171" class="ln">   171  </span>}
-<span id="L172" class="ln">   172  </span>
+<span id="L152" class="ln">   152  </span><span class="comment">// DeleteByUIDs deletes archives by the uid list.</span>
+<span id="L153" class="ln">   153  </span>func (e *experimentStore) DeleteByUIDs(_ context.Context, uids []string) error {
+<span id="L154" class="ln">   154  </span>	return e.db.Table(&#34;experiments&#34;).Where(&#34;uid IN (?)&#34;, uids).Unscoped().Delete(core.Experiment{}).Error
+<span id="L155" class="ln">   155  </span>}
+<span id="L156" class="ln">   156  </span>
+<span id="L157" class="ln">   157  </span><span class="comment">// DeleteIncompleteExperiments implements the core.ExperimentStore.DeleteIncompleteExperiments method.</span>
+<span id="L158" class="ln">   158  </span>func (e *experimentStore) DeleteIncompleteExperiments(_ context.Context) error {
+<span id="L159" class="ln">   159  </span>	return e.db.Where(&#34;finish_time IS NULL&#34;).Unscoped().Delete(core.Experiment{}).Error
+<span id="L160" class="ln">   160  </span>}
+<span id="L161" class="ln">   161  </span>
+<span id="L162" class="ln">   162  </span>func constructQueryArgs(kind, ns, name, uid string) (string, []string) {
+<span id="L163" class="ln">   163  </span>	query := &#34;&#34;
+<span id="L164" class="ln">   164  </span>	args := make([]string, 0)
+<span id="L165" class="ln">   165  </span>
+<span id="L166" class="ln">   166  </span>	if kind != &#34;&#34; {
+<span id="L167" class="ln">   167  </span>		query += &#34;kind = ?&#34;
+<span id="L168" class="ln">   168  </span>		args = append(args, kind)
+<span id="L169" class="ln">   169  </span>	}
+<span id="L170" class="ln">   170  </span>
+<span id="L171" class="ln">   171  </span>	if ns != &#34;&#34; {
+<span id="L172" class="ln">   172  </span>		if len(args) &gt; 0 {
+<span id="L173" class="ln">   173  </span>			query += &#34; AND namespace = ?&#34;
+<span id="L174" class="ln">   174  </span>		} else {
+<span id="L175" class="ln">   175  </span>			query += &#34;namespace = ?&#34;
+<span id="L176" class="ln">   176  </span>		}
+<span id="L177" class="ln">   177  </span>		args = append(args, ns)
+<span id="L178" class="ln">   178  </span>	}
+<span id="L179" class="ln">   179  </span>
+<span id="L180" class="ln">   180  </span>	if name != &#34;&#34; {
+<span id="L181" class="ln">   181  </span>		if len(args) &gt; 0 {
+<span id="L182" class="ln">   182  </span>			query += &#34; AND name = ?&#34;
+<span id="L183" class="ln">   183  </span>		} else {
+<span id="L184" class="ln">   184  </span>			query += &#34;name = ?&#34;
+<span id="L185" class="ln">   185  </span>		}
+<span id="L186" class="ln">   186  </span>		args = append(args, name)
+<span id="L187" class="ln">   187  </span>	}
+<span id="L188" class="ln">   188  </span>
+<span id="L189" class="ln">   189  </span>	if uid != &#34;&#34; {
+<span id="L190" class="ln">   190  </span>		if len(args) &gt; 0 {
+<span id="L191" class="ln">   191  </span>			query += &#34; AND uid = ?&#34;
+<span id="L192" class="ln">   192  </span>		} else {
+<span id="L193" class="ln">   193  </span>			query += &#34;uid = ?&#34;
+<span id="L194" class="ln">   194  </span>		}
+<span id="L195" class="ln">   195  </span>		args = append(args, uid)
+<span id="L196" class="ln">   196  </span>	}
+<span id="L197" class="ln">   197  </span>
+<span id="L198" class="ln">   198  </span>	return query, args
+<span id="L199" class="ln">   199  </span>}
+<span id="L200" class="ln">   200  </span>
 </pre><p></p>
 
 <div id="footer">
@@ -236,14 +273,4 @@ Build version go1.17.6.<br/>
 </div><!-- #page -->
 
 
-
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', 'G-7DESCBGPBX');
-</script>
-
-</body><!-- Global site tag (gtag.js) - Google Analytics --></html>
+</body></html>
