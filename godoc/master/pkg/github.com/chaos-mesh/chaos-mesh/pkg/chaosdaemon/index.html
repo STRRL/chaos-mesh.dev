@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 3a8c60c. Generated at Sun Jan 23 22:03:45 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f7f4e19. Generated at Mon Jan 24 10:01:29 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -164,6 +164,12 @@
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#DaemonServer.ContainerKill">func (s *DaemonServer) ContainerKill(ctx context.Context, req *pb.ContainerRequest) (*empty.Empty, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DaemonServer.ExecCPUStressors">func (s *DaemonServer) ExecCPUStressors(ctx context.Context, req *pb.ExecStressRequest) (string, int64, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DaemonServer.ExecMemoryStressors">func (s *DaemonServer) ExecMemoryStressors(ctx context.Context, req *pb.ExecStressRequest) (string, int64, error)</a></dd>
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#DaemonServer.ExecStressors">func (s *DaemonServer) ExecStressors(ctx context.Context, req *pb.ExecStressRequest) (*pb.ExecStressResponse, error)</a></dd>
@@ -489,7 +495,7 @@ NewDaemonServerWithCRClient returns DaemonServer with container runtime client
 				
 			
 				
-				<h3 id="DaemonServer.CancelStressors">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/stress_server_linux.go#L95">CancelStressors</a>
+				<h3 id="DaemonServer.CancelStressors">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/stress_server_linux.go#L57">CancelStressors</a>
 					<a class="permalink" href="#DaemonServer.CancelStressors">&#xb6;</a>
 					
 					
@@ -524,6 +530,32 @@ NewDaemonServerWithCRClient returns DaemonServer with container runtime client
 ContainerKill kills container according to container id in the req
 </p>
 
+				
+				
+				
+			
+				
+				<h3 id="DaemonServer.ExecCPUStressors">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/stress_server_linux.go#L85">ExecCPUStressors</a>
+					<a class="permalink" href="#DaemonServer.ExecCPUStressors">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#DaemonServer">DaemonServer</a>) ExecCPUStressors(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>,
+    req *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">pb</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ExecStressRequest">ExecStressRequest</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DaemonServer.ExecMemoryStressors">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/stress_server_linux.go#L143">ExecMemoryStressors</a>
+					<a class="permalink" href="#DaemonServer.ExecMemoryStressors">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#DaemonServer">DaemonServer</a>) ExecMemoryStressors(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>,
+    req *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">pb</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ExecStressRequest">ExecStressRequest</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
 				
 				
 				

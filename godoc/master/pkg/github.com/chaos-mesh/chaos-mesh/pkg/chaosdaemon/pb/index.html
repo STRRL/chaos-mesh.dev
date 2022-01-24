@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 3a8c60c. Generated at Sun Jan 23 22:03:45 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f7f4e19. Generated at Mon Jan 24 10:01:29 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -263,10 +263,16 @@
 					<dd>&nbsp; &nbsp; <a href="#CancelStressRequest.Descriptor">func (*CancelStressRequest) Descriptor() ([]byte, []int)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#CancelStressRequest.GetInstance">func (x *CancelStressRequest) GetInstance() string</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#CancelStressRequest.GetCpuInstance">func (x *CancelStressRequest) GetCpuInstance() string</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#CancelStressRequest.GetStartTime">func (x *CancelStressRequest) GetStartTime() int64</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#CancelStressRequest.GetCpuStartTime">func (x *CancelStressRequest) GetCpuStartTime() int64</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CancelStressRequest.GetMemoryInstance">func (x *CancelStressRequest) GetMemoryInstance() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CancelStressRequest.GetMemoryStartTime">func (x *CancelStressRequest) GetMemoryStartTime() int64</a></dd>
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#CancelStressRequest.ProtoMessage">func (*CancelStressRequest) ProtoMessage()</a></dd>
@@ -522,13 +528,16 @@
 					<dd>&nbsp; &nbsp; <a href="#ExecStressRequest.Descriptor">func (*ExecStressRequest) Descriptor() ([]byte, []int)</a></dd>
 				
 					
+					<dd>&nbsp; &nbsp; <a href="#ExecStressRequest.GetCpuStressors">func (x *ExecStressRequest) GetCpuStressors() string</a></dd>
+				
+					
 					<dd>&nbsp; &nbsp; <a href="#ExecStressRequest.GetEnterNS">func (x *ExecStressRequest) GetEnterNS() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#ExecStressRequest.GetScope">func (x *ExecStressRequest) GetScope() ExecStressRequest_Scope</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#ExecStressRequest.GetMemoryStressors">func (x *ExecStressRequest) GetMemoryStressors() string</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#ExecStressRequest.GetStressors">func (x *ExecStressRequest) GetStressors() string</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#ExecStressRequest.GetScope">func (x *ExecStressRequest) GetScope() ExecStressRequest_Scope</a></dd>
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#ExecStressRequest.GetTarget">func (x *ExecStressRequest) GetTarget() string</a></dd>
@@ -577,10 +586,16 @@
 					<dd>&nbsp; &nbsp; <a href="#ExecStressResponse.Descriptor">func (*ExecStressResponse) Descriptor() ([]byte, []int)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#ExecStressResponse.GetInstance">func (x *ExecStressResponse) GetInstance() string</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#ExecStressResponse.GetCpuInstance">func (x *ExecStressResponse) GetCpuInstance() string</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#ExecStressResponse.GetStartTime">func (x *ExecStressResponse) GetStartTime() int64</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#ExecStressResponse.GetCpuStartTime">func (x *ExecStressResponse) GetCpuStartTime() int64</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ExecStressResponse.GetMemoryInstance">func (x *ExecStressResponse) GetMemoryInstance() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ExecStressResponse.GetMemoryStartTime">func (x *ExecStressResponse) GetMemoryStartTime() int64</a></dd>
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#ExecStressResponse.ProtoMessage">func (*ExecStressResponse) ProtoMessage()</a></dd>
@@ -1333,7 +1348,7 @@ Enum value maps for Tc_Type.
 		
 			
 			
-			<h2 id="RegisterChaosDaemonServer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3422">RegisterChaosDaemonServer</a>
+			<h2 id="RegisterChaosDaemonServer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3476">RegisterChaosDaemonServer</a>
 				<a class="permalink" href="#RegisterChaosDaemonServer">&#xb6;</a>
 				
 				
@@ -1347,7 +1362,7 @@ Enum value maps for Tc_Type.
 		
 			
 			
-			<h2 id="ApplyHttpChaosRequest">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1818">ApplyHttpChaosRequest</a>
+			<h2 id="ApplyHttpChaosRequest">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1858">ApplyHttpChaosRequest</a>
 				<a class="permalink" href="#ApplyHttpChaosRequest">&#xb6;</a>
 				
 				
@@ -1376,7 +1391,7 @@ Enum value maps for Tc_Type.
 
 			
 				
-				<h3 id="ApplyHttpChaosRequest.Descriptor">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1859">Descriptor</a>
+				<h3 id="ApplyHttpChaosRequest.Descriptor">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1899">Descriptor</a>
 					<a class="permalink" href="#ApplyHttpChaosRequest.Descriptor">&#xb6;</a>
 					
 					
@@ -1391,7 +1406,7 @@ Deprecated: Use ApplyHttpChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosRequest.GetContainerId">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1877">GetContainerId</a>
+				<h3 id="ApplyHttpChaosRequest.GetContainerId">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1917">GetContainerId</a>
 					<a class="permalink" href="#ApplyHttpChaosRequest.GetContainerId">&#xb6;</a>
 					
 					
@@ -1403,7 +1418,7 @@ Deprecated: Use ApplyHttpChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosRequest.GetEnterNS">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1898">GetEnterNS</a>
+				<h3 id="ApplyHttpChaosRequest.GetEnterNS">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1938">GetEnterNS</a>
 					<a class="permalink" href="#ApplyHttpChaosRequest.GetEnterNS">&#xb6;</a>
 					
 					
@@ -1415,7 +1430,7 @@ Deprecated: Use ApplyHttpChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosRequest.GetInstance">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1884">GetInstance</a>
+				<h3 id="ApplyHttpChaosRequest.GetInstance">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1924">GetInstance</a>
 					<a class="permalink" href="#ApplyHttpChaosRequest.GetInstance">&#xb6;</a>
 					
 					
@@ -1427,7 +1442,7 @@ Deprecated: Use ApplyHttpChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosRequest.GetProxyPorts">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1870">GetProxyPorts</a>
+				<h3 id="ApplyHttpChaosRequest.GetProxyPorts">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1910">GetProxyPorts</a>
 					<a class="permalink" href="#ApplyHttpChaosRequest.GetProxyPorts">&#xb6;</a>
 					
 					
@@ -1439,7 +1454,7 @@ Deprecated: Use ApplyHttpChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosRequest.GetRules">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1863">GetRules</a>
+				<h3 id="ApplyHttpChaosRequest.GetRules">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1903">GetRules</a>
 					<a class="permalink" href="#ApplyHttpChaosRequest.GetRules">&#xb6;</a>
 					
 					
@@ -1451,7 +1466,7 @@ Deprecated: Use ApplyHttpChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosRequest.GetStartTime">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1891">GetStartTime</a>
+				<h3 id="ApplyHttpChaosRequest.GetStartTime">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1931">GetStartTime</a>
 					<a class="permalink" href="#ApplyHttpChaosRequest.GetStartTime">&#xb6;</a>
 					
 					
@@ -1463,7 +1478,7 @@ Deprecated: Use ApplyHttpChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosRequest.ProtoMessage">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1844">ProtoMessage</a>
+				<h3 id="ApplyHttpChaosRequest.ProtoMessage">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1884">ProtoMessage</a>
 					<a class="permalink" href="#ApplyHttpChaosRequest.ProtoMessage">&#xb6;</a>
 					
 					
@@ -1475,7 +1490,7 @@ Deprecated: Use ApplyHttpChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosRequest.ProtoReflect">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1846">ProtoReflect</a>
+				<h3 id="ApplyHttpChaosRequest.ProtoReflect">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1886">ProtoReflect</a>
 					<a class="permalink" href="#ApplyHttpChaosRequest.ProtoReflect">&#xb6;</a>
 					
 					
@@ -1487,7 +1502,7 @@ Deprecated: Use ApplyHttpChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosRequest.Reset">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1831">Reset</a>
+				<h3 id="ApplyHttpChaosRequest.Reset">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1871">Reset</a>
 					<a class="permalink" href="#ApplyHttpChaosRequest.Reset">&#xb6;</a>
 					
 					
@@ -1499,7 +1514,7 @@ Deprecated: Use ApplyHttpChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosRequest.String">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1840">String</a>
+				<h3 id="ApplyHttpChaosRequest.String">func (*ApplyHttpChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1880">String</a>
 					<a class="permalink" href="#ApplyHttpChaosRequest.String">&#xb6;</a>
 					
 					
@@ -1513,7 +1528,7 @@ Deprecated: Use ApplyHttpChaosRequest.ProtoReflect.Descriptor instead.
 		
 			
 			
-			<h2 id="ApplyHttpChaosResponse">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1905">ApplyHttpChaosResponse</a>
+			<h2 id="ApplyHttpChaosResponse">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1945">ApplyHttpChaosResponse</a>
 				<a class="permalink" href="#ApplyHttpChaosResponse">&#xb6;</a>
 				
 				
@@ -1540,7 +1555,7 @@ Deprecated: Use ApplyHttpChaosRequest.ProtoReflect.Descriptor instead.
 
 			
 				
-				<h3 id="ApplyHttpChaosResponse.Descriptor">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1944">Descriptor</a>
+				<h3 id="ApplyHttpChaosResponse.Descriptor">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1984">Descriptor</a>
 					<a class="permalink" href="#ApplyHttpChaosResponse.Descriptor">&#xb6;</a>
 					
 					
@@ -1555,7 +1570,7 @@ Deprecated: Use ApplyHttpChaosResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosResponse.GetError">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1969">GetError</a>
+				<h3 id="ApplyHttpChaosResponse.GetError">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2009">GetError</a>
 					<a class="permalink" href="#ApplyHttpChaosResponse.GetError">&#xb6;</a>
 					
 					
@@ -1567,7 +1582,7 @@ Deprecated: Use ApplyHttpChaosResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosResponse.GetInstance">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1948">GetInstance</a>
+				<h3 id="ApplyHttpChaosResponse.GetInstance">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1988">GetInstance</a>
 					<a class="permalink" href="#ApplyHttpChaosResponse.GetInstance">&#xb6;</a>
 					
 					
@@ -1579,7 +1594,7 @@ Deprecated: Use ApplyHttpChaosResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosResponse.GetStartTime">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1955">GetStartTime</a>
+				<h3 id="ApplyHttpChaosResponse.GetStartTime">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1995">GetStartTime</a>
 					<a class="permalink" href="#ApplyHttpChaosResponse.GetStartTime">&#xb6;</a>
 					
 					
@@ -1591,7 +1606,7 @@ Deprecated: Use ApplyHttpChaosResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosResponse.GetStatusCode">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1962">GetStatusCode</a>
+				<h3 id="ApplyHttpChaosResponse.GetStatusCode">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2002">GetStatusCode</a>
 					<a class="permalink" href="#ApplyHttpChaosResponse.GetStatusCode">&#xb6;</a>
 					
 					
@@ -1603,7 +1618,7 @@ Deprecated: Use ApplyHttpChaosResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosResponse.ProtoMessage">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1929">ProtoMessage</a>
+				<h3 id="ApplyHttpChaosResponse.ProtoMessage">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1969">ProtoMessage</a>
 					<a class="permalink" href="#ApplyHttpChaosResponse.ProtoMessage">&#xb6;</a>
 					
 					
@@ -1615,7 +1630,7 @@ Deprecated: Use ApplyHttpChaosResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosResponse.ProtoReflect">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1931">ProtoReflect</a>
+				<h3 id="ApplyHttpChaosResponse.ProtoReflect">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1971">ProtoReflect</a>
 					<a class="permalink" href="#ApplyHttpChaosResponse.ProtoReflect">&#xb6;</a>
 					
 					
@@ -1627,7 +1642,7 @@ Deprecated: Use ApplyHttpChaosResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosResponse.Reset">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1916">Reset</a>
+				<h3 id="ApplyHttpChaosResponse.Reset">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1956">Reset</a>
 					<a class="permalink" href="#ApplyHttpChaosResponse.Reset">&#xb6;</a>
 					
 					
@@ -1639,7 +1654,7 @@ Deprecated: Use ApplyHttpChaosResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyHttpChaosResponse.String">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1925">String</a>
+				<h3 id="ApplyHttpChaosResponse.String">func (*ApplyHttpChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1965">String</a>
 					<a class="permalink" href="#ApplyHttpChaosResponse.String">&#xb6;</a>
 					
 					
@@ -1653,7 +1668,7 @@ Deprecated: Use ApplyHttpChaosResponse.ProtoReflect.Descriptor instead.
 		
 			
 			
-			<h2 id="ApplyIOChaosRequest">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1676">ApplyIOChaosRequest</a>
+			<h2 id="ApplyIOChaosRequest">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1716">ApplyIOChaosRequest</a>
 				<a class="permalink" href="#ApplyIOChaosRequest">&#xb6;</a>
 				
 				
@@ -1682,7 +1697,7 @@ Deprecated: Use ApplyHttpChaosResponse.ProtoReflect.Descriptor instead.
 
 			
 				
-				<h3 id="ApplyIOChaosRequest.Descriptor">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1717">Descriptor</a>
+				<h3 id="ApplyIOChaosRequest.Descriptor">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1757">Descriptor</a>
 					<a class="permalink" href="#ApplyIOChaosRequest.Descriptor">&#xb6;</a>
 					
 					
@@ -1697,7 +1712,7 @@ Deprecated: Use ApplyIOChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyIOChaosRequest.GetActions">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1721">GetActions</a>
+				<h3 id="ApplyIOChaosRequest.GetActions">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1761">GetActions</a>
 					<a class="permalink" href="#ApplyIOChaosRequest.GetActions">&#xb6;</a>
 					
 					
@@ -1709,7 +1724,7 @@ Deprecated: Use ApplyIOChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyIOChaosRequest.GetContainerId">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1735">GetContainerId</a>
+				<h3 id="ApplyIOChaosRequest.GetContainerId">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1775">GetContainerId</a>
 					<a class="permalink" href="#ApplyIOChaosRequest.GetContainerId">&#xb6;</a>
 					
 					
@@ -1721,7 +1736,7 @@ Deprecated: Use ApplyIOChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyIOChaosRequest.GetEnterNS">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1756">GetEnterNS</a>
+				<h3 id="ApplyIOChaosRequest.GetEnterNS">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1796">GetEnterNS</a>
 					<a class="permalink" href="#ApplyIOChaosRequest.GetEnterNS">&#xb6;</a>
 					
 					
@@ -1733,7 +1748,7 @@ Deprecated: Use ApplyIOChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyIOChaosRequest.GetInstance">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1742">GetInstance</a>
+				<h3 id="ApplyIOChaosRequest.GetInstance">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1782">GetInstance</a>
 					<a class="permalink" href="#ApplyIOChaosRequest.GetInstance">&#xb6;</a>
 					
 					
@@ -1745,7 +1760,7 @@ Deprecated: Use ApplyIOChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyIOChaosRequest.GetStartTime">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1749">GetStartTime</a>
+				<h3 id="ApplyIOChaosRequest.GetStartTime">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1789">GetStartTime</a>
 					<a class="permalink" href="#ApplyIOChaosRequest.GetStartTime">&#xb6;</a>
 					
 					
@@ -1757,7 +1772,7 @@ Deprecated: Use ApplyIOChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyIOChaosRequest.GetVolume">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1728">GetVolume</a>
+				<h3 id="ApplyIOChaosRequest.GetVolume">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1768">GetVolume</a>
 					<a class="permalink" href="#ApplyIOChaosRequest.GetVolume">&#xb6;</a>
 					
 					
@@ -1769,7 +1784,7 @@ Deprecated: Use ApplyIOChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyIOChaosRequest.ProtoMessage">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1702">ProtoMessage</a>
+				<h3 id="ApplyIOChaosRequest.ProtoMessage">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1742">ProtoMessage</a>
 					<a class="permalink" href="#ApplyIOChaosRequest.ProtoMessage">&#xb6;</a>
 					
 					
@@ -1781,7 +1796,7 @@ Deprecated: Use ApplyIOChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyIOChaosRequest.ProtoReflect">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1704">ProtoReflect</a>
+				<h3 id="ApplyIOChaosRequest.ProtoReflect">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1744">ProtoReflect</a>
 					<a class="permalink" href="#ApplyIOChaosRequest.ProtoReflect">&#xb6;</a>
 					
 					
@@ -1793,7 +1808,7 @@ Deprecated: Use ApplyIOChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyIOChaosRequest.Reset">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1689">Reset</a>
+				<h3 id="ApplyIOChaosRequest.Reset">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1729">Reset</a>
 					<a class="permalink" href="#ApplyIOChaosRequest.Reset">&#xb6;</a>
 					
 					
@@ -1805,7 +1820,7 @@ Deprecated: Use ApplyIOChaosRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyIOChaosRequest.String">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1698">String</a>
+				<h3 id="ApplyIOChaosRequest.String">func (*ApplyIOChaosRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1738">String</a>
 					<a class="permalink" href="#ApplyIOChaosRequest.String">&#xb6;</a>
 					
 					
@@ -1819,7 +1834,7 @@ Deprecated: Use ApplyIOChaosRequest.ProtoReflect.Descriptor instead.
 		
 			
 			
-			<h2 id="ApplyIOChaosResponse">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1763">ApplyIOChaosResponse</a>
+			<h2 id="ApplyIOChaosResponse">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1803">ApplyIOChaosResponse</a>
 				<a class="permalink" href="#ApplyIOChaosResponse">&#xb6;</a>
 				
 				
@@ -1844,7 +1859,7 @@ Deprecated: Use ApplyIOChaosRequest.ProtoReflect.Descriptor instead.
 
 			
 				
-				<h3 id="ApplyIOChaosResponse.Descriptor">func (*ApplyIOChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1800">Descriptor</a>
+				<h3 id="ApplyIOChaosResponse.Descriptor">func (*ApplyIOChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1840">Descriptor</a>
 					<a class="permalink" href="#ApplyIOChaosResponse.Descriptor">&#xb6;</a>
 					
 					
@@ -1859,7 +1874,7 @@ Deprecated: Use ApplyIOChaosResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyIOChaosResponse.GetInstance">func (*ApplyIOChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1804">GetInstance</a>
+				<h3 id="ApplyIOChaosResponse.GetInstance">func (*ApplyIOChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1844">GetInstance</a>
 					<a class="permalink" href="#ApplyIOChaosResponse.GetInstance">&#xb6;</a>
 					
 					
@@ -1871,7 +1886,7 @@ Deprecated: Use ApplyIOChaosResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyIOChaosResponse.GetStartTime">func (*ApplyIOChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1811">GetStartTime</a>
+				<h3 id="ApplyIOChaosResponse.GetStartTime">func (*ApplyIOChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1851">GetStartTime</a>
 					<a class="permalink" href="#ApplyIOChaosResponse.GetStartTime">&#xb6;</a>
 					
 					
@@ -1883,7 +1898,7 @@ Deprecated: Use ApplyIOChaosResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyIOChaosResponse.ProtoMessage">func (*ApplyIOChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1785">ProtoMessage</a>
+				<h3 id="ApplyIOChaosResponse.ProtoMessage">func (*ApplyIOChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1825">ProtoMessage</a>
 					<a class="permalink" href="#ApplyIOChaosResponse.ProtoMessage">&#xb6;</a>
 					
 					
@@ -1895,7 +1910,7 @@ Deprecated: Use ApplyIOChaosResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyIOChaosResponse.ProtoReflect">func (*ApplyIOChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1787">ProtoReflect</a>
+				<h3 id="ApplyIOChaosResponse.ProtoReflect">func (*ApplyIOChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1827">ProtoReflect</a>
 					<a class="permalink" href="#ApplyIOChaosResponse.ProtoReflect">&#xb6;</a>
 					
 					
@@ -1907,7 +1922,7 @@ Deprecated: Use ApplyIOChaosResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyIOChaosResponse.Reset">func (*ApplyIOChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1772">Reset</a>
+				<h3 id="ApplyIOChaosResponse.Reset">func (*ApplyIOChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1812">Reset</a>
 					<a class="permalink" href="#ApplyIOChaosResponse.Reset">&#xb6;</a>
 					
 					
@@ -1919,7 +1934,7 @@ Deprecated: Use ApplyIOChaosResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ApplyIOChaosResponse.String">func (*ApplyIOChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1781">String</a>
+				<h3 id="ApplyIOChaosResponse.String">func (*ApplyIOChaosResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1821">String</a>
 					<a class="permalink" href="#ApplyIOChaosResponse.String">&#xb6;</a>
 					
 					
@@ -1933,15 +1948,17 @@ Deprecated: Use ApplyIOChaosResponse.ProtoReflect.Descriptor instead.
 		
 			
 			
-			<h2 id="CancelStressRequest">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1621">CancelStressRequest</a>
+			<h2 id="CancelStressRequest">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1645">CancelStressRequest</a>
 				<a class="permalink" href="#CancelStressRequest">&#xb6;</a>
 				
 				
 			</h2>
 			
 			<pre>type CancelStressRequest struct {
-<span id="CancelStressRequest.Instance"></span>    Instance  <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,1,opt,name=instance,proto3&#34; json:&#34;instance,omitempty&#34;`
-<span id="CancelStressRequest.StartTime"></span>    StartTime <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>  `protobuf:&#34;varint,2,opt,name=startTime,proto3&#34; json:&#34;startTime,omitempty&#34;`
+<span id="CancelStressRequest.CpuInstance"></span>    CpuInstance     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,1,opt,name=cpuInstance,proto3&#34; json:&#34;cpuInstance,omitempty&#34;`
+<span id="CancelStressRequest.CpuStartTime"></span>    CpuStartTime    <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>  `protobuf:&#34;varint,2,opt,name=cpuStartTime,proto3&#34; json:&#34;cpuStartTime,omitempty&#34;`
+<span id="CancelStressRequest.MemoryInstance"></span>    MemoryInstance  <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,3,opt,name=memoryInstance,proto3&#34; json:&#34;memoryInstance,omitempty&#34;`
+<span id="CancelStressRequest.MemoryStartTime"></span>    MemoryStartTime <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>  `protobuf:&#34;varint,4,opt,name=memoryStartTime,proto3&#34; json:&#34;memoryStartTime,omitempty&#34;`
     <span class="comment">// contains filtered or unexported fields</span>
 }
 </pre>
@@ -1958,7 +1975,7 @@ Deprecated: Use ApplyIOChaosResponse.ProtoReflect.Descriptor instead.
 
 			
 				
-				<h3 id="CancelStressRequest.Descriptor">func (*CancelStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1658">Descriptor</a>
+				<h3 id="CancelStressRequest.Descriptor">func (*CancelStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1684">Descriptor</a>
 					<a class="permalink" href="#CancelStressRequest.Descriptor">&#xb6;</a>
 					
 					
@@ -1973,31 +1990,55 @@ Deprecated: Use CancelStressRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="CancelStressRequest.GetInstance">func (*CancelStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1662">GetInstance</a>
-					<a class="permalink" href="#CancelStressRequest.GetInstance">&#xb6;</a>
+				<h3 id="CancelStressRequest.GetCpuInstance">func (*CancelStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1688">GetCpuInstance</a>
+					<a class="permalink" href="#CancelStressRequest.GetCpuInstance">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (x *<a href="#CancelStressRequest">CancelStressRequest</a>) GetInstance() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
+				<pre>func (x *<a href="#CancelStressRequest">CancelStressRequest</a>) GetCpuInstance() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
 				
 				
 				
 				
 			
 				
-				<h3 id="CancelStressRequest.GetStartTime">func (*CancelStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1669">GetStartTime</a>
-					<a class="permalink" href="#CancelStressRequest.GetStartTime">&#xb6;</a>
+				<h3 id="CancelStressRequest.GetCpuStartTime">func (*CancelStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1695">GetCpuStartTime</a>
+					<a class="permalink" href="#CancelStressRequest.GetCpuStartTime">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (x *<a href="#CancelStressRequest">CancelStressRequest</a>) GetStartTime() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a></pre>
+				<pre>func (x *<a href="#CancelStressRequest">CancelStressRequest</a>) GetCpuStartTime() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a></pre>
 				
 				
 				
 				
 			
 				
-				<h3 id="CancelStressRequest.ProtoMessage">func (*CancelStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1643">ProtoMessage</a>
+				<h3 id="CancelStressRequest.GetMemoryInstance">func (*CancelStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1702">GetMemoryInstance</a>
+					<a class="permalink" href="#CancelStressRequest.GetMemoryInstance">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#CancelStressRequest">CancelStressRequest</a>) GetMemoryInstance() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="CancelStressRequest.GetMemoryStartTime">func (*CancelStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1709">GetMemoryStartTime</a>
+					<a class="permalink" href="#CancelStressRequest.GetMemoryStartTime">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#CancelStressRequest">CancelStressRequest</a>) GetMemoryStartTime() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="CancelStressRequest.ProtoMessage">func (*CancelStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1669">ProtoMessage</a>
 					<a class="permalink" href="#CancelStressRequest.ProtoMessage">&#xb6;</a>
 					
 					
@@ -2009,7 +2050,7 @@ Deprecated: Use CancelStressRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="CancelStressRequest.ProtoReflect">func (*CancelStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1645">ProtoReflect</a>
+				<h3 id="CancelStressRequest.ProtoReflect">func (*CancelStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1671">ProtoReflect</a>
 					<a class="permalink" href="#CancelStressRequest.ProtoReflect">&#xb6;</a>
 					
 					
@@ -2021,7 +2062,7 @@ Deprecated: Use CancelStressRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="CancelStressRequest.Reset">func (*CancelStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1630">Reset</a>
+				<h3 id="CancelStressRequest.Reset">func (*CancelStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1656">Reset</a>
 					<a class="permalink" href="#CancelStressRequest.Reset">&#xb6;</a>
 					
 					
@@ -2033,7 +2074,7 @@ Deprecated: Use CancelStressRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="CancelStressRequest.String">func (*CancelStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1639">String</a>
+				<h3 id="CancelStressRequest.String">func (*CancelStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1665">String</a>
 					<a class="permalink" href="#CancelStressRequest.String">&#xb6;</a>
 					
 					
@@ -2355,7 +2396,7 @@ Deprecated: Use Chain_Direction.Descriptor instead.
 		
 			
 			
-			<h2 id="ChaosDaemonClient">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3206">ChaosDaemonClient</a>
+			<h2 id="ChaosDaemonClient">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3260">ChaosDaemonClient</a>
 				<a class="permalink" href="#ChaosDaemonClient">&#xb6;</a>
 				
 				
@@ -2394,7 +2435,7 @@ For semantics around ctx use and closing/ending streaming RPCs, please refer to 
 
 			
 				
-				<h3 id="NewChaosDaemonClient">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3227">NewChaosDaemonClient</a>
+				<h3 id="NewChaosDaemonClient">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3281">NewChaosDaemonClient</a>
 					<a class="permalink" href="#NewChaosDaemonClient">&#xb6;</a>
 					
 					
@@ -2409,7 +2450,7 @@ For semantics around ctx use and closing/ending streaming RPCs, please refer to 
 		
 			
 			
-			<h2 id="ChaosDaemonServer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3358">ChaosDaemonServer</a>
+			<h2 id="ChaosDaemonServer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3412">ChaosDaemonServer</a>
 				<a class="permalink" href="#ChaosDaemonServer">&#xb6;</a>
 				
 				
@@ -3116,10 +3157,11 @@ Deprecated: Use EmatchFilterRequest.ProtoReflect.Descriptor instead.
 			</h2>
 			
 			<pre>type ExecStressRequest struct {
-<span id="ExecStressRequest.Scope"></span>    Scope     <a href="#ExecStressRequest_Scope">ExecStressRequest_Scope</a> `protobuf:&#34;varint,1,opt,name=scope,proto3,enum=pb.ExecStressRequest_Scope&#34; json:&#34;scope,omitempty&#34;`
-<span id="ExecStressRequest.Target"></span>    Target    <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>                  `protobuf:&#34;bytes,2,opt,name=target,proto3&#34; json:&#34;target,omitempty&#34;`
-<span id="ExecStressRequest.Stressors"></span>    Stressors <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>                  `protobuf:&#34;bytes,3,opt,name=stressors,proto3&#34; json:&#34;stressors,omitempty&#34;`
-<span id="ExecStressRequest.EnterNS"></span>    EnterNS   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>                    `protobuf:&#34;varint,4,opt,name=enterNS,proto3&#34; json:&#34;enterNS,omitempty&#34;`
+<span id="ExecStressRequest.Scope"></span>    Scope           <a href="#ExecStressRequest_Scope">ExecStressRequest_Scope</a> `protobuf:&#34;varint,1,opt,name=scope,proto3,enum=pb.ExecStressRequest_Scope&#34; json:&#34;scope,omitempty&#34;`
+<span id="ExecStressRequest.Target"></span>    Target          <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>                  `protobuf:&#34;bytes,2,opt,name=target,proto3&#34; json:&#34;target,omitempty&#34;`
+<span id="ExecStressRequest.CpuStressors"></span>    CpuStressors    <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>                  `protobuf:&#34;bytes,3,opt,name=cpuStressors,proto3&#34; json:&#34;cpuStressors,omitempty&#34;`
+<span id="ExecStressRequest.MemoryStressors"></span>    MemoryStressors <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>                  `protobuf:&#34;bytes,5,opt,name=memoryStressors,proto3&#34; json:&#34;memoryStressors,omitempty&#34;`
+<span id="ExecStressRequest.EnterNS"></span>    EnterNS         <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>                    `protobuf:&#34;varint,4,opt,name=enterNS,proto3&#34; json:&#34;enterNS,omitempty&#34;`
     <span class="comment">// contains filtered or unexported fields</span>
 }
 </pre>
@@ -3136,7 +3178,7 @@ Deprecated: Use EmatchFilterRequest.ProtoReflect.Descriptor instead.
 
 			
 				
-				<h3 id="ExecStressRequest.Descriptor">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1534">Descriptor</a>
+				<h3 id="ExecStressRequest.Descriptor">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1535">Descriptor</a>
 					<a class="permalink" href="#ExecStressRequest.Descriptor">&#xb6;</a>
 					
 					
@@ -3151,7 +3193,19 @@ Deprecated: Use ExecStressRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ExecStressRequest.GetEnterNS">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1559">GetEnterNS</a>
+				<h3 id="ExecStressRequest.GetCpuStressors">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1553">GetCpuStressors</a>
+					<a class="permalink" href="#ExecStressRequest.GetCpuStressors">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#ExecStressRequest">ExecStressRequest</a>) GetCpuStressors() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ExecStressRequest.GetEnterNS">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1567">GetEnterNS</a>
 					<a class="permalink" href="#ExecStressRequest.GetEnterNS">&#xb6;</a>
 					
 					
@@ -3163,7 +3217,19 @@ Deprecated: Use ExecStressRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ExecStressRequest.GetScope">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1538">GetScope</a>
+				<h3 id="ExecStressRequest.GetMemoryStressors">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1560">GetMemoryStressors</a>
+					<a class="permalink" href="#ExecStressRequest.GetMemoryStressors">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#ExecStressRequest">ExecStressRequest</a>) GetMemoryStressors() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ExecStressRequest.GetScope">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1539">GetScope</a>
 					<a class="permalink" href="#ExecStressRequest.GetScope">&#xb6;</a>
 					
 					
@@ -3175,19 +3241,7 @@ Deprecated: Use ExecStressRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ExecStressRequest.GetStressors">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1552">GetStressors</a>
-					<a class="permalink" href="#ExecStressRequest.GetStressors">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func (x *<a href="#ExecStressRequest">ExecStressRequest</a>) GetStressors() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
-				
-				
-				
-				
-			
-				
-				<h3 id="ExecStressRequest.GetTarget">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1545">GetTarget</a>
+				<h3 id="ExecStressRequest.GetTarget">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1546">GetTarget</a>
 					<a class="permalink" href="#ExecStressRequest.GetTarget">&#xb6;</a>
 					
 					
@@ -3199,7 +3253,7 @@ Deprecated: Use ExecStressRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ExecStressRequest.ProtoMessage">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1519">ProtoMessage</a>
+				<h3 id="ExecStressRequest.ProtoMessage">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1520">ProtoMessage</a>
 					<a class="permalink" href="#ExecStressRequest.ProtoMessage">&#xb6;</a>
 					
 					
@@ -3211,7 +3265,7 @@ Deprecated: Use ExecStressRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ExecStressRequest.ProtoReflect">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1521">ProtoReflect</a>
+				<h3 id="ExecStressRequest.ProtoReflect">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1522">ProtoReflect</a>
 					<a class="permalink" href="#ExecStressRequest.ProtoReflect">&#xb6;</a>
 					
 					
@@ -3223,7 +3277,7 @@ Deprecated: Use ExecStressRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ExecStressRequest.Reset">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1506">Reset</a>
+				<h3 id="ExecStressRequest.Reset">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1507">Reset</a>
 					<a class="permalink" href="#ExecStressRequest.Reset">&#xb6;</a>
 					
 					
@@ -3235,7 +3289,7 @@ Deprecated: Use ExecStressRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ExecStressRequest.String">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1515">String</a>
+				<h3 id="ExecStressRequest.String">func (*ExecStressRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1516">String</a>
 					<a class="permalink" href="#ExecStressRequest.String">&#xb6;</a>
 					
 					
@@ -3352,15 +3406,17 @@ Deprecated: Use ExecStressRequest_Scope.Descriptor instead.
 		
 			
 			
-			<h2 id="ExecStressResponse">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1566">ExecStressResponse</a>
+			<h2 id="ExecStressResponse">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1574">ExecStressResponse</a>
 				<a class="permalink" href="#ExecStressResponse">&#xb6;</a>
 				
 				
 			</h2>
 			
 			<pre>type ExecStressResponse struct {
-<span id="ExecStressResponse.Instance"></span>    Instance  <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,1,opt,name=instance,proto3&#34; json:&#34;instance,omitempty&#34;`
-<span id="ExecStressResponse.StartTime"></span>    StartTime <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>  `protobuf:&#34;varint,2,opt,name=startTime,proto3&#34; json:&#34;startTime,omitempty&#34;`
+<span id="ExecStressResponse.CpuInstance"></span>    CpuInstance     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,1,opt,name=cpuInstance,proto3&#34; json:&#34;cpuInstance,omitempty&#34;`
+<span id="ExecStressResponse.CpuStartTime"></span>    CpuStartTime    <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>  `protobuf:&#34;varint,2,opt,name=cpuStartTime,proto3&#34; json:&#34;cpuStartTime,omitempty&#34;`
+<span id="ExecStressResponse.MemoryInstance"></span>    MemoryInstance  <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,3,opt,name=memoryInstance,proto3&#34; json:&#34;memoryInstance,omitempty&#34;`
+<span id="ExecStressResponse.MemoryStartTime"></span>    MemoryStartTime <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>  `protobuf:&#34;varint,4,opt,name=memoryStartTime,proto3&#34; json:&#34;memoryStartTime,omitempty&#34;`
     <span class="comment">// contains filtered or unexported fields</span>
 }
 </pre>
@@ -3377,7 +3433,7 @@ Deprecated: Use ExecStressRequest_Scope.Descriptor instead.
 
 			
 				
-				<h3 id="ExecStressResponse.Descriptor">func (*ExecStressResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1603">Descriptor</a>
+				<h3 id="ExecStressResponse.Descriptor">func (*ExecStressResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1613">Descriptor</a>
 					<a class="permalink" href="#ExecStressResponse.Descriptor">&#xb6;</a>
 					
 					
@@ -3392,31 +3448,55 @@ Deprecated: Use ExecStressResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ExecStressResponse.GetInstance">func (*ExecStressResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1607">GetInstance</a>
-					<a class="permalink" href="#ExecStressResponse.GetInstance">&#xb6;</a>
+				<h3 id="ExecStressResponse.GetCpuInstance">func (*ExecStressResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1617">GetCpuInstance</a>
+					<a class="permalink" href="#ExecStressResponse.GetCpuInstance">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (x *<a href="#ExecStressResponse">ExecStressResponse</a>) GetInstance() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
+				<pre>func (x *<a href="#ExecStressResponse">ExecStressResponse</a>) GetCpuInstance() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
 				
 				
 				
 				
 			
 				
-				<h3 id="ExecStressResponse.GetStartTime">func (*ExecStressResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1614">GetStartTime</a>
-					<a class="permalink" href="#ExecStressResponse.GetStartTime">&#xb6;</a>
+				<h3 id="ExecStressResponse.GetCpuStartTime">func (*ExecStressResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1624">GetCpuStartTime</a>
+					<a class="permalink" href="#ExecStressResponse.GetCpuStartTime">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (x *<a href="#ExecStressResponse">ExecStressResponse</a>) GetStartTime() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a></pre>
+				<pre>func (x *<a href="#ExecStressResponse">ExecStressResponse</a>) GetCpuStartTime() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a></pre>
 				
 				
 				
 				
 			
 				
-				<h3 id="ExecStressResponse.ProtoMessage">func (*ExecStressResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1588">ProtoMessage</a>
+				<h3 id="ExecStressResponse.GetMemoryInstance">func (*ExecStressResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1631">GetMemoryInstance</a>
+					<a class="permalink" href="#ExecStressResponse.GetMemoryInstance">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#ExecStressResponse">ExecStressResponse</a>) GetMemoryInstance() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ExecStressResponse.GetMemoryStartTime">func (*ExecStressResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1638">GetMemoryStartTime</a>
+					<a class="permalink" href="#ExecStressResponse.GetMemoryStartTime">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#ExecStressResponse">ExecStressResponse</a>) GetMemoryStartTime() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ExecStressResponse.ProtoMessage">func (*ExecStressResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1598">ProtoMessage</a>
 					<a class="permalink" href="#ExecStressResponse.ProtoMessage">&#xb6;</a>
 					
 					
@@ -3428,7 +3508,7 @@ Deprecated: Use ExecStressResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ExecStressResponse.ProtoReflect">func (*ExecStressResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1590">ProtoReflect</a>
+				<h3 id="ExecStressResponse.ProtoReflect">func (*ExecStressResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1600">ProtoReflect</a>
 					<a class="permalink" href="#ExecStressResponse.ProtoReflect">&#xb6;</a>
 					
 					
@@ -3440,7 +3520,7 @@ Deprecated: Use ExecStressResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ExecStressResponse.Reset">func (*ExecStressResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1575">Reset</a>
+				<h3 id="ExecStressResponse.Reset">func (*ExecStressResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1585">Reset</a>
 					<a class="permalink" href="#ExecStressResponse.Reset">&#xb6;</a>
 					
 					
@@ -3452,7 +3532,7 @@ Deprecated: Use ExecStressResponse.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="ExecStressResponse.String">func (*ExecStressResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1584">String</a>
+				<h3 id="ExecStressResponse.String">func (*ExecStressResponse) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1594">String</a>
 					<a class="permalink" href="#ExecStressResponse.String">&#xb6;</a>
 					
 					
@@ -3707,7 +3787,7 @@ Deprecated: Use IPSetsRequest.ProtoReflect.Descriptor instead.
 		
 			
 			
-			<h2 id="InstallJVMRulesRequest">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2213">InstallJVMRulesRequest</a>
+			<h2 id="InstallJVMRulesRequest">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2253">InstallJVMRulesRequest</a>
 				<a class="permalink" href="#InstallJVMRulesRequest">&#xb6;</a>
 				
 				
@@ -3734,7 +3814,7 @@ Deprecated: Use IPSetsRequest.ProtoReflect.Descriptor instead.
 
 			
 				
-				<h3 id="InstallJVMRulesRequest.Descriptor">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2252">Descriptor</a>
+				<h3 id="InstallJVMRulesRequest.Descriptor">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2292">Descriptor</a>
 					<a class="permalink" href="#InstallJVMRulesRequest.Descriptor">&#xb6;</a>
 					
 					
@@ -3749,7 +3829,7 @@ Deprecated: Use InstallJVMRulesRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="InstallJVMRulesRequest.GetContainerId">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2256">GetContainerId</a>
+				<h3 id="InstallJVMRulesRequest.GetContainerId">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2296">GetContainerId</a>
 					<a class="permalink" href="#InstallJVMRulesRequest.GetContainerId">&#xb6;</a>
 					
 					
@@ -3761,7 +3841,7 @@ Deprecated: Use InstallJVMRulesRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="InstallJVMRulesRequest.GetEnterNS">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2277">GetEnterNS</a>
+				<h3 id="InstallJVMRulesRequest.GetEnterNS">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2317">GetEnterNS</a>
 					<a class="permalink" href="#InstallJVMRulesRequest.GetEnterNS">&#xb6;</a>
 					
 					
@@ -3773,7 +3853,7 @@ Deprecated: Use InstallJVMRulesRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="InstallJVMRulesRequest.GetPort">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2270">GetPort</a>
+				<h3 id="InstallJVMRulesRequest.GetPort">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2310">GetPort</a>
 					<a class="permalink" href="#InstallJVMRulesRequest.GetPort">&#xb6;</a>
 					
 					
@@ -3785,7 +3865,7 @@ Deprecated: Use InstallJVMRulesRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="InstallJVMRulesRequest.GetRule">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2263">GetRule</a>
+				<h3 id="InstallJVMRulesRequest.GetRule">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2303">GetRule</a>
 					<a class="permalink" href="#InstallJVMRulesRequest.GetRule">&#xb6;</a>
 					
 					
@@ -3797,7 +3877,7 @@ Deprecated: Use InstallJVMRulesRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="InstallJVMRulesRequest.ProtoMessage">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2237">ProtoMessage</a>
+				<h3 id="InstallJVMRulesRequest.ProtoMessage">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2277">ProtoMessage</a>
 					<a class="permalink" href="#InstallJVMRulesRequest.ProtoMessage">&#xb6;</a>
 					
 					
@@ -3809,7 +3889,7 @@ Deprecated: Use InstallJVMRulesRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="InstallJVMRulesRequest.ProtoReflect">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2239">ProtoReflect</a>
+				<h3 id="InstallJVMRulesRequest.ProtoReflect">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2279">ProtoReflect</a>
 					<a class="permalink" href="#InstallJVMRulesRequest.ProtoReflect">&#xb6;</a>
 					
 					
@@ -3821,7 +3901,7 @@ Deprecated: Use InstallJVMRulesRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="InstallJVMRulesRequest.Reset">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2224">Reset</a>
+				<h3 id="InstallJVMRulesRequest.Reset">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2264">Reset</a>
 					<a class="permalink" href="#InstallJVMRulesRequest.Reset">&#xb6;</a>
 					
 					
@@ -3833,7 +3913,7 @@ Deprecated: Use InstallJVMRulesRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="InstallJVMRulesRequest.String">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2233">String</a>
+				<h3 id="InstallJVMRulesRequest.String">func (*InstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2273">String</a>
 					<a class="permalink" href="#InstallJVMRulesRequest.String">&#xb6;</a>
 					
 					
@@ -4651,7 +4731,7 @@ Deprecated: Use QdiscRequest.ProtoReflect.Descriptor instead.
 		
 			
 			
-			<h2 id="SetDNSServerRequest">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2142">SetDNSServerRequest</a>
+			<h2 id="SetDNSServerRequest">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2182">SetDNSServerRequest</a>
 				<a class="permalink" href="#SetDNSServerRequest">&#xb6;</a>
 				
 				
@@ -4678,7 +4758,7 @@ Deprecated: Use QdiscRequest.ProtoReflect.Descriptor instead.
 
 			
 				
-				<h3 id="SetDNSServerRequest.Descriptor">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2181">Descriptor</a>
+				<h3 id="SetDNSServerRequest.Descriptor">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2221">Descriptor</a>
 					<a class="permalink" href="#SetDNSServerRequest.Descriptor">&#xb6;</a>
 					
 					
@@ -4693,7 +4773,7 @@ Deprecated: Use SetDNSServerRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="SetDNSServerRequest.GetContainerId">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2185">GetContainerId</a>
+				<h3 id="SetDNSServerRequest.GetContainerId">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2225">GetContainerId</a>
 					<a class="permalink" href="#SetDNSServerRequest.GetContainerId">&#xb6;</a>
 					
 					
@@ -4705,7 +4785,7 @@ Deprecated: Use SetDNSServerRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="SetDNSServerRequest.GetDnsServer">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2192">GetDnsServer</a>
+				<h3 id="SetDNSServerRequest.GetDnsServer">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2232">GetDnsServer</a>
 					<a class="permalink" href="#SetDNSServerRequest.GetDnsServer">&#xb6;</a>
 					
 					
@@ -4717,7 +4797,7 @@ Deprecated: Use SetDNSServerRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="SetDNSServerRequest.GetEnable">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2199">GetEnable</a>
+				<h3 id="SetDNSServerRequest.GetEnable">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2239">GetEnable</a>
 					<a class="permalink" href="#SetDNSServerRequest.GetEnable">&#xb6;</a>
 					
 					
@@ -4729,7 +4809,7 @@ Deprecated: Use SetDNSServerRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="SetDNSServerRequest.GetEnterNS">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2206">GetEnterNS</a>
+				<h3 id="SetDNSServerRequest.GetEnterNS">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2246">GetEnterNS</a>
 					<a class="permalink" href="#SetDNSServerRequest.GetEnterNS">&#xb6;</a>
 					
 					
@@ -4741,7 +4821,7 @@ Deprecated: Use SetDNSServerRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="SetDNSServerRequest.ProtoMessage">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2166">ProtoMessage</a>
+				<h3 id="SetDNSServerRequest.ProtoMessage">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2206">ProtoMessage</a>
 					<a class="permalink" href="#SetDNSServerRequest.ProtoMessage">&#xb6;</a>
 					
 					
@@ -4753,7 +4833,7 @@ Deprecated: Use SetDNSServerRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="SetDNSServerRequest.ProtoReflect">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2168">ProtoReflect</a>
+				<h3 id="SetDNSServerRequest.ProtoReflect">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2208">ProtoReflect</a>
 					<a class="permalink" href="#SetDNSServerRequest.ProtoReflect">&#xb6;</a>
 					
 					
@@ -4765,7 +4845,7 @@ Deprecated: Use SetDNSServerRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="SetDNSServerRequest.Reset">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2153">Reset</a>
+				<h3 id="SetDNSServerRequest.Reset">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2193">Reset</a>
 					<a class="permalink" href="#SetDNSServerRequest.Reset">&#xb6;</a>
 					
 					
@@ -4777,7 +4857,7 @@ Deprecated: Use SetDNSServerRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="SetDNSServerRequest.String">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2162">String</a>
+				<h3 id="SetDNSServerRequest.String">func (*SetDNSServerRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2202">String</a>
 					<a class="permalink" href="#SetDNSServerRequest.String">&#xb6;</a>
 					
 					
@@ -5058,7 +5138,7 @@ Deprecated: Use TbfRequest.ProtoReflect.Descriptor instead.
 		
 			
 			
-			<h2 id="Tc">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2039">Tc</a>
+			<h2 id="Tc">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2079">Tc</a>
 				<a class="permalink" href="#Tc">&#xb6;</a>
 				
 				
@@ -5089,7 +5169,7 @@ Deprecated: Use TbfRequest.ProtoReflect.Descriptor instead.
 
 			
 				
-				<h3 id="Tc.Descriptor">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2082">Descriptor</a>
+				<h3 id="Tc.Descriptor">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2122">Descriptor</a>
 					<a class="permalink" href="#Tc.Descriptor">&#xb6;</a>
 					
 					
@@ -5104,7 +5184,7 @@ Deprecated: Use Tc.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="Tc.GetDevice">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2135">GetDevice</a>
+				<h3 id="Tc.GetDevice">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2175">GetDevice</a>
 					<a class="permalink" href="#Tc.GetDevice">&#xb6;</a>
 					
 					
@@ -5116,7 +5196,7 @@ Deprecated: Use Tc.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="Tc.GetEgressPort">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2128">GetEgressPort</a>
+				<h3 id="Tc.GetEgressPort">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2168">GetEgressPort</a>
 					<a class="permalink" href="#Tc.GetEgressPort">&#xb6;</a>
 					
 					
@@ -5128,7 +5208,7 @@ Deprecated: Use Tc.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="Tc.GetIpset">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2107">GetIpset</a>
+				<h3 id="Tc.GetIpset">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2147">GetIpset</a>
 					<a class="permalink" href="#Tc.GetIpset">&#xb6;</a>
 					
 					
@@ -5140,7 +5220,7 @@ Deprecated: Use Tc.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="Tc.GetNetem">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2093">GetNetem</a>
+				<h3 id="Tc.GetNetem">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2133">GetNetem</a>
 					<a class="permalink" href="#Tc.GetNetem">&#xb6;</a>
 					
 					
@@ -5152,7 +5232,7 @@ Deprecated: Use Tc.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="Tc.GetProtocol">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2114">GetProtocol</a>
+				<h3 id="Tc.GetProtocol">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2154">GetProtocol</a>
 					<a class="permalink" href="#Tc.GetProtocol">&#xb6;</a>
 					
 					
@@ -5164,7 +5244,7 @@ Deprecated: Use Tc.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="Tc.GetSourcePort">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2121">GetSourcePort</a>
+				<h3 id="Tc.GetSourcePort">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2161">GetSourcePort</a>
 					<a class="permalink" href="#Tc.GetSourcePort">&#xb6;</a>
 					
 					
@@ -5176,7 +5256,7 @@ Deprecated: Use Tc.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="Tc.GetTbf">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2100">GetTbf</a>
+				<h3 id="Tc.GetTbf">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2140">GetTbf</a>
 					<a class="permalink" href="#Tc.GetTbf">&#xb6;</a>
 					
 					
@@ -5188,7 +5268,7 @@ Deprecated: Use Tc.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="Tc.GetType">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2086">GetType</a>
+				<h3 id="Tc.GetType">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2126">GetType</a>
 					<a class="permalink" href="#Tc.GetType">&#xb6;</a>
 					
 					
@@ -5200,7 +5280,7 @@ Deprecated: Use Tc.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="Tc.ProtoMessage">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2067">ProtoMessage</a>
+				<h3 id="Tc.ProtoMessage">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2107">ProtoMessage</a>
 					<a class="permalink" href="#Tc.ProtoMessage">&#xb6;</a>
 					
 					
@@ -5212,7 +5292,7 @@ Deprecated: Use Tc.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="Tc.ProtoReflect">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2069">ProtoReflect</a>
+				<h3 id="Tc.ProtoReflect">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2109">ProtoReflect</a>
 					<a class="permalink" href="#Tc.ProtoReflect">&#xb6;</a>
 					
 					
@@ -5224,7 +5304,7 @@ Deprecated: Use Tc.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="Tc.Reset">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2054">Reset</a>
+				<h3 id="Tc.Reset">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2094">Reset</a>
 					<a class="permalink" href="#Tc.Reset">&#xb6;</a>
 					
 					
@@ -5236,7 +5316,7 @@ Deprecated: Use Tc.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="Tc.String">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2063">String</a>
+				<h3 id="Tc.String">func (*Tc) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2103">String</a>
 					<a class="permalink" href="#Tc.String">&#xb6;</a>
 					
 					
@@ -5682,7 +5762,7 @@ Deprecated: Use Tc_Type.Descriptor instead.
 		
 			
 			
-			<h2 id="TcsRequest">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1976">TcsRequest</a>
+			<h2 id="TcsRequest">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2016">TcsRequest</a>
 				<a class="permalink" href="#TcsRequest">&#xb6;</a>
 				
 				
@@ -5708,7 +5788,7 @@ Deprecated: Use Tc_Type.Descriptor instead.
 
 			
 				
-				<h3 id="TcsRequest.Descriptor">func (*TcsRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2014">Descriptor</a>
+				<h3 id="TcsRequest.Descriptor">func (*TcsRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2054">Descriptor</a>
 					<a class="permalink" href="#TcsRequest.Descriptor">&#xb6;</a>
 					
 					
@@ -5723,7 +5803,7 @@ Deprecated: Use TcsRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="TcsRequest.GetContainerId">func (*TcsRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2025">GetContainerId</a>
+				<h3 id="TcsRequest.GetContainerId">func (*TcsRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2065">GetContainerId</a>
 					<a class="permalink" href="#TcsRequest.GetContainerId">&#xb6;</a>
 					
 					
@@ -5735,7 +5815,7 @@ Deprecated: Use TcsRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="TcsRequest.GetEnterNS">func (*TcsRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2032">GetEnterNS</a>
+				<h3 id="TcsRequest.GetEnterNS">func (*TcsRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2072">GetEnterNS</a>
 					<a class="permalink" href="#TcsRequest.GetEnterNS">&#xb6;</a>
 					
 					
@@ -5747,7 +5827,7 @@ Deprecated: Use TcsRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="TcsRequest.GetTcs">func (*TcsRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2018">GetTcs</a>
+				<h3 id="TcsRequest.GetTcs">func (*TcsRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2058">GetTcs</a>
 					<a class="permalink" href="#TcsRequest.GetTcs">&#xb6;</a>
 					
 					
@@ -5759,7 +5839,7 @@ Deprecated: Use TcsRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="TcsRequest.ProtoMessage">func (*TcsRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1999">ProtoMessage</a>
+				<h3 id="TcsRequest.ProtoMessage">func (*TcsRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2039">ProtoMessage</a>
 					<a class="permalink" href="#TcsRequest.ProtoMessage">&#xb6;</a>
 					
 					
@@ -5771,7 +5851,7 @@ Deprecated: Use TcsRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="TcsRequest.ProtoReflect">func (*TcsRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2001">ProtoReflect</a>
+				<h3 id="TcsRequest.ProtoReflect">func (*TcsRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2041">ProtoReflect</a>
 					<a class="permalink" href="#TcsRequest.ProtoReflect">&#xb6;</a>
 					
 					
@@ -5783,7 +5863,7 @@ Deprecated: Use TcsRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="TcsRequest.Reset">func (*TcsRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1986">Reset</a>
+				<h3 id="TcsRequest.Reset">func (*TcsRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2026">Reset</a>
 					<a class="permalink" href="#TcsRequest.Reset">&#xb6;</a>
 					
 					
@@ -5795,7 +5875,7 @@ Deprecated: Use TcsRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="TcsRequest.String">func (*TcsRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L1995">String</a>
+				<h3 id="TcsRequest.String">func (*TcsRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2035">String</a>
 					<a class="permalink" href="#TcsRequest.String">&#xb6;</a>
 					
 					
@@ -5949,7 +6029,7 @@ Deprecated: Use TimeRequest.ProtoReflect.Descriptor instead.
 		
 			
 			
-			<h2 id="UnimplementedChaosDaemonServer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3376">UnimplementedChaosDaemonServer</a>
+			<h2 id="UnimplementedChaosDaemonServer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3430">UnimplementedChaosDaemonServer</a>
 				<a class="permalink" href="#UnimplementedChaosDaemonServer">&#xb6;</a>
 				
 				
@@ -5974,7 +6054,7 @@ UnimplementedChaosDaemonServer can be embedded to have forward compatible implem
 
 			
 				
-				<h3 id="UnimplementedChaosDaemonServer.ApplyHttpChaos">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3409">ApplyHttpChaos</a>
+				<h3 id="UnimplementedChaosDaemonServer.ApplyHttpChaos">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3463">ApplyHttpChaos</a>
 					<a class="permalink" href="#UnimplementedChaosDaemonServer.ApplyHttpChaos">&#xb6;</a>
 					
 					
@@ -5986,7 +6066,7 @@ UnimplementedChaosDaemonServer can be embedded to have forward compatible implem
 				
 			
 				
-				<h3 id="UnimplementedChaosDaemonServer.ApplyIOChaos">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3406">ApplyIOChaos</a>
+				<h3 id="UnimplementedChaosDaemonServer.ApplyIOChaos">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3460">ApplyIOChaos</a>
 					<a class="permalink" href="#UnimplementedChaosDaemonServer.ApplyIOChaos">&#xb6;</a>
 					
 					
@@ -5998,7 +6078,7 @@ UnimplementedChaosDaemonServer can be embedded to have forward compatible implem
 				
 			
 				
-				<h3 id="UnimplementedChaosDaemonServer.CancelStressors">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3403">CancelStressors</a>
+				<h3 id="UnimplementedChaosDaemonServer.CancelStressors">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3457">CancelStressors</a>
 					<a class="permalink" href="#UnimplementedChaosDaemonServer.CancelStressors">&#xb6;</a>
 					
 					
@@ -6010,7 +6090,7 @@ UnimplementedChaosDaemonServer can be embedded to have forward compatible implem
 				
 			
 				
-				<h3 id="UnimplementedChaosDaemonServer.ContainerGetPid">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3397">ContainerGetPid</a>
+				<h3 id="UnimplementedChaosDaemonServer.ContainerGetPid">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3451">ContainerGetPid</a>
 					<a class="permalink" href="#UnimplementedChaosDaemonServer.ContainerGetPid">&#xb6;</a>
 					
 					
@@ -6022,7 +6102,7 @@ UnimplementedChaosDaemonServer can be embedded to have forward compatible implem
 				
 			
 				
-				<h3 id="UnimplementedChaosDaemonServer.ContainerKill">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3394">ContainerKill</a>
+				<h3 id="UnimplementedChaosDaemonServer.ContainerKill">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3448">ContainerKill</a>
 					<a class="permalink" href="#UnimplementedChaosDaemonServer.ContainerKill">&#xb6;</a>
 					
 					
@@ -6034,7 +6114,7 @@ UnimplementedChaosDaemonServer can be embedded to have forward compatible implem
 				
 			
 				
-				<h3 id="UnimplementedChaosDaemonServer.ExecStressors">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3400">ExecStressors</a>
+				<h3 id="UnimplementedChaosDaemonServer.ExecStressors">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3454">ExecStressors</a>
 					<a class="permalink" href="#UnimplementedChaosDaemonServer.ExecStressors">&#xb6;</a>
 					
 					
@@ -6046,7 +6126,7 @@ UnimplementedChaosDaemonServer can be embedded to have forward compatible implem
 				
 			
 				
-				<h3 id="UnimplementedChaosDaemonServer.FlushIPSets">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3382">FlushIPSets</a>
+				<h3 id="UnimplementedChaosDaemonServer.FlushIPSets">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3436">FlushIPSets</a>
 					<a class="permalink" href="#UnimplementedChaosDaemonServer.FlushIPSets">&#xb6;</a>
 					
 					
@@ -6058,7 +6138,7 @@ UnimplementedChaosDaemonServer can be embedded to have forward compatible implem
 				
 			
 				
-				<h3 id="UnimplementedChaosDaemonServer.InstallJVMRules">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3415">InstallJVMRules</a>
+				<h3 id="UnimplementedChaosDaemonServer.InstallJVMRules">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3469">InstallJVMRules</a>
 					<a class="permalink" href="#UnimplementedChaosDaemonServer.InstallJVMRules">&#xb6;</a>
 					
 					
@@ -6070,7 +6150,7 @@ UnimplementedChaosDaemonServer can be embedded to have forward compatible implem
 				
 			
 				
-				<h3 id="UnimplementedChaosDaemonServer.RecoverTimeOffset">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3391">RecoverTimeOffset</a>
+				<h3 id="UnimplementedChaosDaemonServer.RecoverTimeOffset">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3445">RecoverTimeOffset</a>
 					<a class="permalink" href="#UnimplementedChaosDaemonServer.RecoverTimeOffset">&#xb6;</a>
 					
 					
@@ -6082,7 +6162,7 @@ UnimplementedChaosDaemonServer can be embedded to have forward compatible implem
 				
 			
 				
-				<h3 id="UnimplementedChaosDaemonServer.SetDNSServer">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3412">SetDNSServer</a>
+				<h3 id="UnimplementedChaosDaemonServer.SetDNSServer">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3466">SetDNSServer</a>
 					<a class="permalink" href="#UnimplementedChaosDaemonServer.SetDNSServer">&#xb6;</a>
 					
 					
@@ -6094,7 +6174,7 @@ UnimplementedChaosDaemonServer can be embedded to have forward compatible implem
 				
 			
 				
-				<h3 id="UnimplementedChaosDaemonServer.SetIptablesChains">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3385">SetIptablesChains</a>
+				<h3 id="UnimplementedChaosDaemonServer.SetIptablesChains">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3439">SetIptablesChains</a>
 					<a class="permalink" href="#UnimplementedChaosDaemonServer.SetIptablesChains">&#xb6;</a>
 					
 					
@@ -6106,7 +6186,7 @@ UnimplementedChaosDaemonServer can be embedded to have forward compatible implem
 				
 			
 				
-				<h3 id="UnimplementedChaosDaemonServer.SetTcs">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3379">SetTcs</a>
+				<h3 id="UnimplementedChaosDaemonServer.SetTcs">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3433">SetTcs</a>
 					<a class="permalink" href="#UnimplementedChaosDaemonServer.SetTcs">&#xb6;</a>
 					
 					
@@ -6118,7 +6198,7 @@ UnimplementedChaosDaemonServer can be embedded to have forward compatible implem
 				
 			
 				
-				<h3 id="UnimplementedChaosDaemonServer.SetTimeOffset">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3388">SetTimeOffset</a>
+				<h3 id="UnimplementedChaosDaemonServer.SetTimeOffset">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3442">SetTimeOffset</a>
 					<a class="permalink" href="#UnimplementedChaosDaemonServer.SetTimeOffset">&#xb6;</a>
 					
 					
@@ -6130,7 +6210,7 @@ UnimplementedChaosDaemonServer can be embedded to have forward compatible implem
 				
 			
 				
-				<h3 id="UnimplementedChaosDaemonServer.UninstallJVMRules">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3418">UninstallJVMRules</a>
+				<h3 id="UnimplementedChaosDaemonServer.UninstallJVMRules">func (*UnimplementedChaosDaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L3472">UninstallJVMRules</a>
 					<a class="permalink" href="#UnimplementedChaosDaemonServer.UninstallJVMRules">&#xb6;</a>
 					
 					
@@ -6144,7 +6224,7 @@ UnimplementedChaosDaemonServer can be embedded to have forward compatible implem
 		
 			
 			
-			<h2 id="UninstallJVMRulesRequest">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2284">UninstallJVMRulesRequest</a>
+			<h2 id="UninstallJVMRulesRequest">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2324">UninstallJVMRulesRequest</a>
 				<a class="permalink" href="#UninstallJVMRulesRequest">&#xb6;</a>
 				
 				
@@ -6171,7 +6251,7 @@ UnimplementedChaosDaemonServer can be embedded to have forward compatible implem
 
 			
 				
-				<h3 id="UninstallJVMRulesRequest.Descriptor">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2323">Descriptor</a>
+				<h3 id="UninstallJVMRulesRequest.Descriptor">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2363">Descriptor</a>
 					<a class="permalink" href="#UninstallJVMRulesRequest.Descriptor">&#xb6;</a>
 					
 					
@@ -6186,7 +6266,7 @@ Deprecated: Use UninstallJVMRulesRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="UninstallJVMRulesRequest.GetContainerId">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2327">GetContainerId</a>
+				<h3 id="UninstallJVMRulesRequest.GetContainerId">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2367">GetContainerId</a>
 					<a class="permalink" href="#UninstallJVMRulesRequest.GetContainerId">&#xb6;</a>
 					
 					
@@ -6198,7 +6278,7 @@ Deprecated: Use UninstallJVMRulesRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="UninstallJVMRulesRequest.GetEnterNS">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2348">GetEnterNS</a>
+				<h3 id="UninstallJVMRulesRequest.GetEnterNS">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2388">GetEnterNS</a>
 					<a class="permalink" href="#UninstallJVMRulesRequest.GetEnterNS">&#xb6;</a>
 					
 					
@@ -6210,7 +6290,7 @@ Deprecated: Use UninstallJVMRulesRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="UninstallJVMRulesRequest.GetPort">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2341">GetPort</a>
+				<h3 id="UninstallJVMRulesRequest.GetPort">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2381">GetPort</a>
 					<a class="permalink" href="#UninstallJVMRulesRequest.GetPort">&#xb6;</a>
 					
 					
@@ -6222,7 +6302,7 @@ Deprecated: Use UninstallJVMRulesRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="UninstallJVMRulesRequest.GetRule">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2334">GetRule</a>
+				<h3 id="UninstallJVMRulesRequest.GetRule">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2374">GetRule</a>
 					<a class="permalink" href="#UninstallJVMRulesRequest.GetRule">&#xb6;</a>
 					
 					
@@ -6234,7 +6314,7 @@ Deprecated: Use UninstallJVMRulesRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="UninstallJVMRulesRequest.ProtoMessage">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2308">ProtoMessage</a>
+				<h3 id="UninstallJVMRulesRequest.ProtoMessage">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2348">ProtoMessage</a>
 					<a class="permalink" href="#UninstallJVMRulesRequest.ProtoMessage">&#xb6;</a>
 					
 					
@@ -6246,7 +6326,7 @@ Deprecated: Use UninstallJVMRulesRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="UninstallJVMRulesRequest.ProtoReflect">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2310">ProtoReflect</a>
+				<h3 id="UninstallJVMRulesRequest.ProtoReflect">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2350">ProtoReflect</a>
 					<a class="permalink" href="#UninstallJVMRulesRequest.ProtoReflect">&#xb6;</a>
 					
 					
@@ -6258,7 +6338,7 @@ Deprecated: Use UninstallJVMRulesRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="UninstallJVMRulesRequest.Reset">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2295">Reset</a>
+				<h3 id="UninstallJVMRulesRequest.Reset">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2335">Reset</a>
 					<a class="permalink" href="#UninstallJVMRulesRequest.Reset">&#xb6;</a>
 					
 					
@@ -6270,7 +6350,7 @@ Deprecated: Use UninstallJVMRulesRequest.ProtoReflect.Descriptor instead.
 				
 			
 				
-				<h3 id="UninstallJVMRulesRequest.String">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2304">String</a>
+				<h3 id="UninstallJVMRulesRequest.String">func (*UninstallJVMRulesRequest) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/chaosdaemon.pb.go#L2344">String</a>
 					<a class="permalink" href="#UninstallJVMRulesRequest.String">&#xb6;</a>
 					
 					
