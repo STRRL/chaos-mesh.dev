@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f7f4e19. Generated at Mon Jan 24 22:03:35 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 646774e. Generated at Tue Jan 25 10:01:44 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -3711,7 +3711,7 @@
 <span id="L3646" class="ln">  3646  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3647" class="ln">  3647  </span>                },
 <span id="L3648" class="ln">  3648  </span>                &#34;direction&#34;: {
-<span id="L3649" class="ln">  3649  </span>                    &#34;description&#34;: &#34;Direction represents the direction, this applies on netem and network partition action\n+optional\n+kubebuilder:validation:Enum=to;from;both;\&#34;\&#34;&#34;,
+<span id="L3649" class="ln">  3649  </span>                    &#34;description&#34;: &#34;Direction represents the direction, this applies on netem and network partition action\n+optional\n+kubebuilder:validation:Enum=to;from;both\n+kubebuilder:default=to&#34;,
 <span id="L3650" class="ln">  3650  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3651" class="ln">  3651  </span>                },
 <span id="L3652" class="ln">  3652  </span>                &#34;duplicate&#34;: {
@@ -4404,7 +4404,7 @@
 <span id="L4339" class="ln">  4339  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.BlockChaosSpec&#34;
 <span id="L4340" class="ln">  4340  </span>                },
 <span id="L4341" class="ln">  4341  </span>                &#34;concurrencyPolicy&#34;: {
-<span id="L4342" class="ln">  4342  </span>                    &#34;description&#34;: &#34;+optional\n+kubebuilder:validation:Enum=Forbid;Allow&#34;,
+<span id="L4342" class="ln">  4342  </span>                    &#34;description&#34;: &#34;+optional\n+kubebuilder:default=Forbid\n+kubebuilder:validation:Enum=Forbid;Allow&#34;,
 <span id="L4343" class="ln">  4343  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4344" class="ln">  4344  </span>                },
 <span id="L4345" class="ln">  4345  </span>                &#34;dnsChaos&#34;: {
