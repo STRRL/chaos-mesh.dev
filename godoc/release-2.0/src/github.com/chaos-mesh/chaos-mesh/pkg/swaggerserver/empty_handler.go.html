@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 8cd977f. Generated at Wed Jan 26 22:11:14 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e6a02d6. Generated at Thu Jan 27 10:09:01 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -76,24 +76,23 @@
 <span id="L11" class="ln">    11  </span><span class="comment">// See the License for the specific language governing permissions and</span>
 <span id="L12" class="ln">    12  </span><span class="comment">// limitations under the License.</span>
 <span id="L13" class="ln">    13  </span>
-<span id="L14" class="ln">    14  </span><span class="comment">//go:build !swagger_server</span>
-<span id="L15" class="ln">    15  </span><span class="comment">// +build !swagger_server</span>
-<span id="L16" class="ln">    16  </span>
-<span id="L17" class="ln">    17  </span>package swaggerserver
-<span id="L18" class="ln">    18  </span>
-<span id="L19" class="ln">    19  </span>import (
-<span id="L20" class="ln">    20  </span>	&#34;net/http&#34;
-<span id="L21" class="ln">    21  </span>
-<span id="L22" class="ln">    22  </span>	&#34;github.com/gin-gonic/gin&#34;
-<span id="L23" class="ln">    23  </span>)
-<span id="L24" class="ln">    24  </span>
-<span id="L25" class="ln">    25  </span><span class="comment">// Handler returns an empty `http.Handler`.</span>
-<span id="L26" class="ln">    26  </span>func Handler() gin.HandlerFunc {
-<span id="L27" class="ln">    27  </span>	return func(c *gin.Context) {
-<span id="L28" class="ln">    28  </span>		c.String(http.StatusOK, &#34;Swagger UI is not built. Please run `SWAGGER=1 make`.&#34;)
-<span id="L29" class="ln">    29  </span>	}
-<span id="L30" class="ln">    30  </span>}
-<span id="L31" class="ln">    31  </span>
+<span id="L14" class="ln">    14  </span><span class="comment">// +build !swagger_server</span>
+<span id="L15" class="ln">    15  </span>
+<span id="L16" class="ln">    16  </span>package swaggerserver
+<span id="L17" class="ln">    17  </span>
+<span id="L18" class="ln">    18  </span>import (
+<span id="L19" class="ln">    19  </span>	&#34;net/http&#34;
+<span id="L20" class="ln">    20  </span>
+<span id="L21" class="ln">    21  </span>	&#34;github.com/gin-gonic/gin&#34;
+<span id="L22" class="ln">    22  </span>)
+<span id="L23" class="ln">    23  </span>
+<span id="L24" class="ln">    24  </span><span class="comment">// Handler returns an empty `http.Handler`.</span>
+<span id="L25" class="ln">    25  </span>func Handler() gin.HandlerFunc {
+<span id="L26" class="ln">    26  </span>	return func(c *gin.Context) {
+<span id="L27" class="ln">    27  </span>		c.String(http.StatusOK, &#34;Swagger UI is not built. Please run `SWAGGER=1 make`.&#34;)
+<span id="L28" class="ln">    28  </span>	}
+<span id="L29" class="ln">    29  </span>}
+<span id="L30" class="ln">    30  </span>
 </pre><p></p>
 
 <div id="footer">
