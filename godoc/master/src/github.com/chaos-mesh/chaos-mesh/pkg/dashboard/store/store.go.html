@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 265a952. Generated at Thu Jan 27 22:04:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 27e45d2. Generated at Fri Jan 28 10:02:00 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -83,68 +83,67 @@
 <span id="L18" class="ln">    18  </span>import (
 <span id="L19" class="ln">    19  </span>	&#34;context&#34;
 <span id="L20" class="ln">    20  </span>
-<span id="L21" class="ln">    21  </span>	&#34;go.uber.org/fx&#34;
-<span id="L22" class="ln">    22  </span>
-<span id="L23" class="ln">    23  </span>	&#34;github.com/jinzhu/gorm&#34;
-<span id="L24" class="ln">    24  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
-<span id="L25" class="ln">    25  </span>	controllermetrics &#34;sigs.k8s.io/controller-runtime/pkg/metrics&#34;
-<span id="L26" class="ln">    26  </span>
-<span id="L27" class="ln">    27  </span>	config &#34;github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard&#34;
-<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/event&#34;
-<span id="L29" class="ln">    29  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/experiment&#34;
-<span id="L30" class="ln">    30  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/metrics&#34;
-<span id="L31" class="ln">    31  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/schedule&#34;
-<span id="L32" class="ln">    32  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow&#34;
-<span id="L33" class="ln">    33  </span>)
-<span id="L34" class="ln">    34  </span>
-<span id="L35" class="ln">    35  </span>var (
-<span id="L36" class="ln">    36  </span>	<span class="comment">// Module includes the providers provided by store.</span>
-<span id="L37" class="ln">    37  </span>	Module = fx.Options(
-<span id="L38" class="ln">    38  </span>		fx.Provide(
-<span id="L39" class="ln">    39  </span>			experiment.NewStore,
-<span id="L40" class="ln">    40  </span>			event.NewStore,
-<span id="L41" class="ln">    41  </span>			schedule.NewStore,
-<span id="L42" class="ln">    42  </span>			workflow.NewStore,
-<span id="L43" class="ln">    43  </span>		),
-<span id="L44" class="ln">    44  </span>		fx.Supply(controllermetrics.Registry),
-<span id="L45" class="ln">    45  </span>		fx.Invoke(metrics.Register),
-<span id="L46" class="ln">    46  </span>		fx.Invoke(experiment.DeleteIncompleteExperiments),
-<span id="L47" class="ln">    47  </span>		fx.Invoke(schedule.DeleteIncompleteSchedules),
-<span id="L48" class="ln">    48  </span>	)
-<span id="L49" class="ln">    49  </span>	sqliteDriver = &#34;sqlite3&#34;
-<span id="L50" class="ln">    50  </span>	log          = ctrl.Log.WithName(&#34;store&#34;).WithName(&#34;dbstore&#34;)
-<span id="L51" class="ln">    51  </span>)
-<span id="L52" class="ln">    52  </span>
-<span id="L53" class="ln">    53  </span><span class="comment">// NewDBStore returns a new gorm.DB</span>
-<span id="L54" class="ln">    54  </span>func NewDBStore(lc fx.Lifecycle, conf *config.ChaosDashboardConfig) (*gorm.DB, error) {
-<span id="L55" class="ln">    55  </span>	ds := conf.Database.Datasource
-<span id="L56" class="ln">    56  </span>
-<span id="L57" class="ln">    57  </span>	<span class="comment">// fix error `database is locked`, refer to https://github.com/mattn/go-sqlite3/blob/master/README.md#faq</span>
-<span id="L58" class="ln">    58  </span>	if conf.Database.Driver == sqliteDriver {
-<span id="L59" class="ln">    59  </span>		ds += &#34;?cache=shared&#34;
-<span id="L60" class="ln">    60  </span>	}
-<span id="L61" class="ln">    61  </span>
-<span id="L62" class="ln">    62  </span>	gormDB, err := gorm.Open(conf.Database.Driver, ds)
-<span id="L63" class="ln">    63  </span>	if err != nil {
-<span id="L64" class="ln">    64  </span>		log.Error(err, &#34;Failed to open DB: &#34;, &#34;driver =&gt; &#34;, conf.Database.Driver)
-<span id="L65" class="ln">    65  </span>
-<span id="L66" class="ln">    66  </span>		return nil, err
-<span id="L67" class="ln">    67  </span>	}
-<span id="L68" class="ln">    68  </span>
-<span id="L69" class="ln">    69  </span>	<span class="comment">// fix error `database is locked`, refer to https://github.com/mattn/go-sqlite3/blob/master/README.md#faq</span>
-<span id="L70" class="ln">    70  </span>	if conf.Database.Driver == sqliteDriver {
-<span id="L71" class="ln">    71  </span>		gormDB.DB().SetMaxOpenConns(1)
-<span id="L72" class="ln">    72  </span>	}
-<span id="L73" class="ln">    73  </span>
-<span id="L74" class="ln">    74  </span>	lc.Append(fx.Hook{
-<span id="L75" class="ln">    75  </span>		OnStop: func(context.Context) error {
-<span id="L76" class="ln">    76  </span>			return gormDB.Close()
-<span id="L77" class="ln">    77  </span>		},
-<span id="L78" class="ln">    78  </span>	})
-<span id="L79" class="ln">    79  </span>
-<span id="L80" class="ln">    80  </span>	return gormDB, nil
-<span id="L81" class="ln">    81  </span>}
-<span id="L82" class="ln">    82  </span>
+<span id="L21" class="ln">    21  </span>	&#34;github.com/jinzhu/gorm&#34;
+<span id="L22" class="ln">    22  </span>	&#34;go.uber.org/fx&#34;
+<span id="L23" class="ln">    23  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
+<span id="L24" class="ln">    24  </span>	controllermetrics &#34;sigs.k8s.io/controller-runtime/pkg/metrics&#34;
+<span id="L25" class="ln">    25  </span>
+<span id="L26" class="ln">    26  </span>	config &#34;github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard&#34;
+<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/event&#34;
+<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/experiment&#34;
+<span id="L29" class="ln">    29  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/metrics&#34;
+<span id="L30" class="ln">    30  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/schedule&#34;
+<span id="L31" class="ln">    31  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow&#34;
+<span id="L32" class="ln">    32  </span>)
+<span id="L33" class="ln">    33  </span>
+<span id="L34" class="ln">    34  </span>var (
+<span id="L35" class="ln">    35  </span>	<span class="comment">// Module includes the providers provided by store.</span>
+<span id="L36" class="ln">    36  </span>	Module = fx.Options(
+<span id="L37" class="ln">    37  </span>		fx.Provide(
+<span id="L38" class="ln">    38  </span>			experiment.NewStore,
+<span id="L39" class="ln">    39  </span>			event.NewStore,
+<span id="L40" class="ln">    40  </span>			schedule.NewStore,
+<span id="L41" class="ln">    41  </span>			workflow.NewStore,
+<span id="L42" class="ln">    42  </span>		),
+<span id="L43" class="ln">    43  </span>		fx.Supply(controllermetrics.Registry),
+<span id="L44" class="ln">    44  </span>		fx.Invoke(metrics.Register),
+<span id="L45" class="ln">    45  </span>		fx.Invoke(experiment.DeleteIncompleteExperiments),
+<span id="L46" class="ln">    46  </span>		fx.Invoke(schedule.DeleteIncompleteSchedules),
+<span id="L47" class="ln">    47  </span>	)
+<span id="L48" class="ln">    48  </span>	sqliteDriver = &#34;sqlite3&#34;
+<span id="L49" class="ln">    49  </span>	log          = ctrl.Log.WithName(&#34;store&#34;).WithName(&#34;dbstore&#34;)
+<span id="L50" class="ln">    50  </span>)
+<span id="L51" class="ln">    51  </span>
+<span id="L52" class="ln">    52  </span><span class="comment">// NewDBStore returns a new gorm.DB</span>
+<span id="L53" class="ln">    53  </span>func NewDBStore(lc fx.Lifecycle, conf *config.ChaosDashboardConfig) (*gorm.DB, error) {
+<span id="L54" class="ln">    54  </span>	ds := conf.Database.Datasource
+<span id="L55" class="ln">    55  </span>
+<span id="L56" class="ln">    56  </span>	<span class="comment">// fix error `database is locked`, refer to https://github.com/mattn/go-sqlite3/blob/master/README.md#faq</span>
+<span id="L57" class="ln">    57  </span>	if conf.Database.Driver == sqliteDriver {
+<span id="L58" class="ln">    58  </span>		ds += &#34;?cache=shared&#34;
+<span id="L59" class="ln">    59  </span>	}
+<span id="L60" class="ln">    60  </span>
+<span id="L61" class="ln">    61  </span>	gormDB, err := gorm.Open(conf.Database.Driver, ds)
+<span id="L62" class="ln">    62  </span>	if err != nil {
+<span id="L63" class="ln">    63  </span>		log.Error(err, &#34;Failed to open DB: &#34;, &#34;driver =&gt; &#34;, conf.Database.Driver)
+<span id="L64" class="ln">    64  </span>
+<span id="L65" class="ln">    65  </span>		return nil, err
+<span id="L66" class="ln">    66  </span>	}
+<span id="L67" class="ln">    67  </span>
+<span id="L68" class="ln">    68  </span>	<span class="comment">// fix error `database is locked`, refer to https://github.com/mattn/go-sqlite3/blob/master/README.md#faq</span>
+<span id="L69" class="ln">    69  </span>	if conf.Database.Driver == sqliteDriver {
+<span id="L70" class="ln">    70  </span>		gormDB.DB().SetMaxOpenConns(1)
+<span id="L71" class="ln">    71  </span>	}
+<span id="L72" class="ln">    72  </span>
+<span id="L73" class="ln">    73  </span>	lc.Append(fx.Hook{
+<span id="L74" class="ln">    74  </span>		OnStop: func(context.Context) error {
+<span id="L75" class="ln">    75  </span>			return gormDB.Close()
+<span id="L76" class="ln">    76  </span>		},
+<span id="L77" class="ln">    77  </span>	})
+<span id="L78" class="ln">    78  </span>
+<span id="L79" class="ln">    79  </span>	return gormDB, nil
+<span id="L80" class="ln">    80  </span>}
+<span id="L81" class="ln">    81  </span>
 </pre><p></p>
 
 <div id="footer">

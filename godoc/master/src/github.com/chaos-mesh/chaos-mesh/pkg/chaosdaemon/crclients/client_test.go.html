@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 265a952. Generated at Thu Jan 27 22:04:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 27e45d2. Generated at Fri Jan 28 10:02:00 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -83,42 +83,41 @@
 <span id="L18" class="ln">    18  </span>import (
 <span id="L19" class="ln">    19  </span>	&#34;fmt&#34;
 <span id="L20" class="ln">    20  </span>
-<span id="L21" class="ln">    21  </span>	&#34;github.com/pkg/errors&#34;
-<span id="L22" class="ln">    22  </span>
-<span id="L23" class="ln">    23  </span>	. &#34;github.com/onsi/ginkgo&#34;
-<span id="L24" class="ln">    24  </span>	. &#34;github.com/onsi/gomega&#34;
-<span id="L25" class="ln">    25  </span>
-<span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/crclients/test&#34;
-<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/mock&#34;
-<span id="L28" class="ln">    28  </span>)
-<span id="L29" class="ln">    29  </span>
-<span id="L30" class="ln">    30  </span>var _ = Describe(&#34;chaosdaemon util&#34;, func() {
-<span id="L31" class="ln">    31  </span>	Context(&#34;CreateContainerRuntimeInfoClient&#34;, func() {
-<span id="L32" class="ln">    32  </span>		It(&#34;should work&#34;, func() {
-<span id="L33" class="ln">    33  </span>			_, err := CreateContainerRuntimeInfoClient(ContainerRuntimeDocker)
-<span id="L34" class="ln">    34  </span>			Expect(err).To(BeNil())
-<span id="L35" class="ln">    35  </span>			defer func() {
-<span id="L36" class="ln">    36  </span>				err := mock.With(&#34;MockContainerdClient&#34;, &amp;test.MockClient{})()
-<span id="L37" class="ln">    37  </span>				Expect(err).To(BeNil())
-<span id="L38" class="ln">    38  </span>			}()
-<span id="L39" class="ln">    39  </span>			_, err = CreateContainerRuntimeInfoClient(ContainerRuntimeContainerd)
-<span id="L40" class="ln">    40  </span>			Expect(err).To(BeNil())
-<span id="L41" class="ln">    41  </span>		})
-<span id="L42" class="ln">    42  </span>
-<span id="L43" class="ln">    43  </span>		It(&#34;should error on newContaineredClient&#34;, func() {
-<span id="L44" class="ln">    44  </span>			errorStr := &#34;this is a mocked error&#34;
-<span id="L45" class="ln">    45  </span>
-<span id="L46" class="ln">    46  </span>			defer func() {
-<span id="L47" class="ln">    47  </span>				err := mock.With(&#34;NewContainerdClientError&#34;, errors.New(errorStr))()
-<span id="L48" class="ln">    48  </span>				Expect(err).To(BeNil())
-<span id="L49" class="ln">    49  </span>			}()
-<span id="L50" class="ln">    50  </span>			_, err := CreateContainerRuntimeInfoClient(ContainerRuntimeContainerd)
-<span id="L51" class="ln">    51  </span>			Expect(err).ToNot(BeNil())
-<span id="L52" class="ln">    52  </span>			Expect(fmt.Sprintf(&#34;%s&#34;, err)).To(Equal(errorStr))
-<span id="L53" class="ln">    53  </span>		})
-<span id="L54" class="ln">    54  </span>	})
-<span id="L55" class="ln">    55  </span>})
-<span id="L56" class="ln">    56  </span>
+<span id="L21" class="ln">    21  </span>	. &#34;github.com/onsi/ginkgo&#34;
+<span id="L22" class="ln">    22  </span>	. &#34;github.com/onsi/gomega&#34;
+<span id="L23" class="ln">    23  </span>	&#34;github.com/pkg/errors&#34;
+<span id="L24" class="ln">    24  </span>
+<span id="L25" class="ln">    25  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/crclients/test&#34;
+<span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/mock&#34;
+<span id="L27" class="ln">    27  </span>)
+<span id="L28" class="ln">    28  </span>
+<span id="L29" class="ln">    29  </span>var _ = Describe(&#34;chaosdaemon util&#34;, func() {
+<span id="L30" class="ln">    30  </span>	Context(&#34;CreateContainerRuntimeInfoClient&#34;, func() {
+<span id="L31" class="ln">    31  </span>		It(&#34;should work&#34;, func() {
+<span id="L32" class="ln">    32  </span>			_, err := CreateContainerRuntimeInfoClient(ContainerRuntimeDocker)
+<span id="L33" class="ln">    33  </span>			Expect(err).To(BeNil())
+<span id="L34" class="ln">    34  </span>			defer func() {
+<span id="L35" class="ln">    35  </span>				err := mock.With(&#34;MockContainerdClient&#34;, &amp;test.MockClient{})()
+<span id="L36" class="ln">    36  </span>				Expect(err).To(BeNil())
+<span id="L37" class="ln">    37  </span>			}()
+<span id="L38" class="ln">    38  </span>			_, err = CreateContainerRuntimeInfoClient(ContainerRuntimeContainerd)
+<span id="L39" class="ln">    39  </span>			Expect(err).To(BeNil())
+<span id="L40" class="ln">    40  </span>		})
+<span id="L41" class="ln">    41  </span>
+<span id="L42" class="ln">    42  </span>		It(&#34;should error on newContaineredClient&#34;, func() {
+<span id="L43" class="ln">    43  </span>			errorStr := &#34;this is a mocked error&#34;
+<span id="L44" class="ln">    44  </span>
+<span id="L45" class="ln">    45  </span>			defer func() {
+<span id="L46" class="ln">    46  </span>				err := mock.With(&#34;NewContainerdClientError&#34;, errors.New(errorStr))()
+<span id="L47" class="ln">    47  </span>				Expect(err).To(BeNil())
+<span id="L48" class="ln">    48  </span>			}()
+<span id="L49" class="ln">    49  </span>			_, err := CreateContainerRuntimeInfoClient(ContainerRuntimeContainerd)
+<span id="L50" class="ln">    50  </span>			Expect(err).ToNot(BeNil())
+<span id="L51" class="ln">    51  </span>			Expect(fmt.Sprintf(&#34;%s&#34;, err)).To(Equal(errorStr))
+<span id="L52" class="ln">    52  </span>		})
+<span id="L53" class="ln">    53  </span>	})
+<span id="L54" class="ln">    54  </span>})
+<span id="L55" class="ln">    55  </span>
 </pre><p></p>
 
 <div id="footer">

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 265a952. Generated at Thu Jan 27 22:04:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 27e45d2. Generated at Fri Jan 28 10:02:00 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -87,68 +87,67 @@
 <span id="L22" class="ln">    22  </span>	v1 &#34;k8s.io/api/core/v1&#34;
 <span id="L23" class="ln">    23  </span>
 <span id="L24" class="ln">    24  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/selector/generic&#34;
-<span id="L25" class="ln">    25  </span>
-<span id="L26" class="ln">    26  </span>	. &#34;github.com/chaos-mesh/chaos-mesh/pkg/testutils&#34;
-<span id="L27" class="ln">    27  </span>)
-<span id="L28" class="ln">    28  </span>
-<span id="L29" class="ln">    29  </span>func TestFilterPodByNode(t *testing.T) {
-<span id="L30" class="ln">    30  </span>	g := NewGomegaWithT(t)
-<span id="L31" class="ln">    31  </span>
-<span id="L32" class="ln">    32  </span>	pods := []v1.Pod{
-<span id="L33" class="ln">    33  </span>		NewPod(PodArg{Name: &#34;p1&#34;, Namespace: &#34;n1&#34;, Nodename: &#34;node1&#34;}),
-<span id="L34" class="ln">    34  </span>		NewPod(PodArg{Name: &#34;p2&#34;, Namespace: &#34;n2&#34;, Nodename: &#34;node1&#34;}),
-<span id="L35" class="ln">    35  </span>		NewPod(PodArg{Name: &#34;p3&#34;, Namespace: &#34;n2&#34;, Nodename: &#34;node2&#34;}),
-<span id="L36" class="ln">    36  </span>		NewPod(PodArg{Name: &#34;p4&#34;, Namespace: &#34;n4&#34;, Nodename: &#34;node3&#34;}),
-<span id="L37" class="ln">    37  </span>	}
-<span id="L38" class="ln">    38  </span>
-<span id="L39" class="ln">    39  </span>	nodes := []v1.Node{
-<span id="L40" class="ln">    40  </span>		NewNode(&#34;node1&#34;, map[string]string{&#34;disktype&#34;: &#34;ssd&#34;, &#34;zone&#34;: &#34;az1&#34;}),
-<span id="L41" class="ln">    41  </span>		NewNode(&#34;node2&#34;, map[string]string{&#34;disktype&#34;: &#34;hdd&#34;, &#34;zone&#34;: &#34;az1&#34;}),
-<span id="L42" class="ln">    42  </span>	}
-<span id="L43" class="ln">    43  </span>
-<span id="L44" class="ln">    44  </span>	node1AndNode2Selector := &amp;nodeSelector{nodes: nodes}
-<span id="L45" class="ln">    45  </span>	emptyNodeSelector := &amp;nodeSelector{empty: true}
-<span id="L46" class="ln">    46  </span>	noNodeSelector := &amp;nodeSelector{}
-<span id="L47" class="ln">    47  </span>
-<span id="L48" class="ln">    48  </span>	tcs := []struct {
-<span id="L49" class="ln">    49  </span>		name     string
-<span id="L50" class="ln">    50  </span>		pod      v1.Pod
-<span id="L51" class="ln">    51  </span>		selector generic.Selector
-<span id="L52" class="ln">    52  </span>		match    bool
-<span id="L53" class="ln">    53  </span>	}{
-<span id="L54" class="ln">    54  </span>		{
-<span id="L55" class="ln">    55  </span>			name:     &#34;filter pods from node1 and node2&#34;,
-<span id="L56" class="ln">    56  </span>			pod:      pods[0],
-<span id="L57" class="ln">    57  </span>			selector: node1AndNode2Selector,
-<span id="L58" class="ln">    58  </span>			match:    true,
-<span id="L59" class="ln">    59  </span>		}, {
-<span id="L60" class="ln">    60  </span>			name:     &#34;filter pods from node1 and node2&#34;,
-<span id="L61" class="ln">    61  </span>			pod:      pods[2],
-<span id="L62" class="ln">    62  </span>			selector: node1AndNode2Selector,
-<span id="L63" class="ln">    63  </span>			match:    true,
-<span id="L64" class="ln">    64  </span>		}, {
-<span id="L65" class="ln">    65  </span>			name:     &#34;filter pods from node1 and node2&#34;,
-<span id="L66" class="ln">    66  </span>			pod:      pods[3],
-<span id="L67" class="ln">    67  </span>			selector: node1AndNode2Selector,
-<span id="L68" class="ln">    68  </span>			match:    false,
-<span id="L69" class="ln">    69  </span>		}, {
-<span id="L70" class="ln">    70  </span>			name:     &#34;empty filter&#34;,
-<span id="L71" class="ln">    71  </span>			pod:      pods[0],
-<span id="L72" class="ln">    72  </span>			selector: emptyNodeSelector,
-<span id="L73" class="ln">    73  </span>			match:    true,
-<span id="L74" class="ln">    74  </span>		}, {
-<span id="L75" class="ln">    75  </span>			name:     &#34;filter no nodes&#34;,
-<span id="L76" class="ln">    76  </span>			pod:      pods[0],
-<span id="L77" class="ln">    77  </span>			selector: noNodeSelector,
-<span id="L78" class="ln">    78  </span>			match:    false,
-<span id="L79" class="ln">    79  </span>		},
-<span id="L80" class="ln">    80  </span>	}
-<span id="L81" class="ln">    81  </span>
-<span id="L82" class="ln">    82  </span>	for _, tc := range tcs {
-<span id="L83" class="ln">    83  </span>		g.Expect(tc.selector.Match(&amp;tc.pod)).To(Equal(tc.match), tc.name)
-<span id="L84" class="ln">    84  </span>	}
-<span id="L85" class="ln">    85  </span>}
-<span id="L86" class="ln">    86  </span>
+<span id="L25" class="ln">    25  </span>	. &#34;github.com/chaos-mesh/chaos-mesh/pkg/testutils&#34;
+<span id="L26" class="ln">    26  </span>)
+<span id="L27" class="ln">    27  </span>
+<span id="L28" class="ln">    28  </span>func TestFilterPodByNode(t *testing.T) {
+<span id="L29" class="ln">    29  </span>	g := NewGomegaWithT(t)
+<span id="L30" class="ln">    30  </span>
+<span id="L31" class="ln">    31  </span>	pods := []v1.Pod{
+<span id="L32" class="ln">    32  </span>		NewPod(PodArg{Name: &#34;p1&#34;, Namespace: &#34;n1&#34;, Nodename: &#34;node1&#34;}),
+<span id="L33" class="ln">    33  </span>		NewPod(PodArg{Name: &#34;p2&#34;, Namespace: &#34;n2&#34;, Nodename: &#34;node1&#34;}),
+<span id="L34" class="ln">    34  </span>		NewPod(PodArg{Name: &#34;p3&#34;, Namespace: &#34;n2&#34;, Nodename: &#34;node2&#34;}),
+<span id="L35" class="ln">    35  </span>		NewPod(PodArg{Name: &#34;p4&#34;, Namespace: &#34;n4&#34;, Nodename: &#34;node3&#34;}),
+<span id="L36" class="ln">    36  </span>	}
+<span id="L37" class="ln">    37  </span>
+<span id="L38" class="ln">    38  </span>	nodes := []v1.Node{
+<span id="L39" class="ln">    39  </span>		NewNode(&#34;node1&#34;, map[string]string{&#34;disktype&#34;: &#34;ssd&#34;, &#34;zone&#34;: &#34;az1&#34;}),
+<span id="L40" class="ln">    40  </span>		NewNode(&#34;node2&#34;, map[string]string{&#34;disktype&#34;: &#34;hdd&#34;, &#34;zone&#34;: &#34;az1&#34;}),
+<span id="L41" class="ln">    41  </span>	}
+<span id="L42" class="ln">    42  </span>
+<span id="L43" class="ln">    43  </span>	node1AndNode2Selector := &amp;nodeSelector{nodes: nodes}
+<span id="L44" class="ln">    44  </span>	emptyNodeSelector := &amp;nodeSelector{empty: true}
+<span id="L45" class="ln">    45  </span>	noNodeSelector := &amp;nodeSelector{}
+<span id="L46" class="ln">    46  </span>
+<span id="L47" class="ln">    47  </span>	tcs := []struct {
+<span id="L48" class="ln">    48  </span>		name     string
+<span id="L49" class="ln">    49  </span>		pod      v1.Pod
+<span id="L50" class="ln">    50  </span>		selector generic.Selector
+<span id="L51" class="ln">    51  </span>		match    bool
+<span id="L52" class="ln">    52  </span>	}{
+<span id="L53" class="ln">    53  </span>		{
+<span id="L54" class="ln">    54  </span>			name:     &#34;filter pods from node1 and node2&#34;,
+<span id="L55" class="ln">    55  </span>			pod:      pods[0],
+<span id="L56" class="ln">    56  </span>			selector: node1AndNode2Selector,
+<span id="L57" class="ln">    57  </span>			match:    true,
+<span id="L58" class="ln">    58  </span>		}, {
+<span id="L59" class="ln">    59  </span>			name:     &#34;filter pods from node1 and node2&#34;,
+<span id="L60" class="ln">    60  </span>			pod:      pods[2],
+<span id="L61" class="ln">    61  </span>			selector: node1AndNode2Selector,
+<span id="L62" class="ln">    62  </span>			match:    true,
+<span id="L63" class="ln">    63  </span>		}, {
+<span id="L64" class="ln">    64  </span>			name:     &#34;filter pods from node1 and node2&#34;,
+<span id="L65" class="ln">    65  </span>			pod:      pods[3],
+<span id="L66" class="ln">    66  </span>			selector: node1AndNode2Selector,
+<span id="L67" class="ln">    67  </span>			match:    false,
+<span id="L68" class="ln">    68  </span>		}, {
+<span id="L69" class="ln">    69  </span>			name:     &#34;empty filter&#34;,
+<span id="L70" class="ln">    70  </span>			pod:      pods[0],
+<span id="L71" class="ln">    71  </span>			selector: emptyNodeSelector,
+<span id="L72" class="ln">    72  </span>			match:    true,
+<span id="L73" class="ln">    73  </span>		}, {
+<span id="L74" class="ln">    74  </span>			name:     &#34;filter no nodes&#34;,
+<span id="L75" class="ln">    75  </span>			pod:      pods[0],
+<span id="L76" class="ln">    76  </span>			selector: noNodeSelector,
+<span id="L77" class="ln">    77  </span>			match:    false,
+<span id="L78" class="ln">    78  </span>		},
+<span id="L79" class="ln">    79  </span>	}
+<span id="L80" class="ln">    80  </span>
+<span id="L81" class="ln">    81  </span>	for _, tc := range tcs {
+<span id="L82" class="ln">    82  </span>		g.Expect(tc.selector.Match(&amp;tc.pod)).To(Equal(tc.match), tc.name)
+<span id="L83" class="ln">    83  </span>	}
+<span id="L84" class="ln">    84  </span>}
+<span id="L85" class="ln">    85  </span>
 </pre><p></p>
 
 <div id="footer">

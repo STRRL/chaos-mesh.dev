@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 265a952. Generated at Thu Jan 27 22:04:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 27e45d2. Generated at Fri Jan 28 10:02:00 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -84,46 +84,45 @@
 <span id="L19" class="ln">    19  </span>	&#34;context&#34;
 <span id="L20" class="ln">    20  </span>	&#34;encoding/base64&#34;
 <span id="L21" class="ln">    21  </span>
-<span id="L22" class="ln">    22  </span>	v1 &#34;k8s.io/api/core/v1&#34;
-<span id="L23" class="ln">    23  </span>	&#34;k8s.io/apimachinery/pkg/types&#34;
-<span id="L24" class="ln">    24  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/client&#34;
-<span id="L25" class="ln">    25  </span>
-<span id="L26" class="ln">    26  </span>	compute &#34;google.golang.org/api/compute/v1&#34;
-<span id="L27" class="ln">    27  </span>	&#34;google.golang.org/api/option&#34;
-<span id="L28" class="ln">    28  </span>
-<span id="L29" class="ln">    29  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
-<span id="L30" class="ln">    30  </span>)
-<span id="L31" class="ln">    31  </span>
-<span id="L32" class="ln">    32  </span><span class="comment">// GetComputeService is used to get the GCP compute Service.</span>
-<span id="L33" class="ln">    33  </span>func GetComputeService(ctx context.Context, cli client.Client, gcpchaos *v1alpha1.GCPChaos) (*compute.Service, error) {
-<span id="L34" class="ln">    34  </span>	if gcpchaos.Spec.SecretName != nil {
-<span id="L35" class="ln">    35  </span>		secret := &amp;v1.Secret{}
-<span id="L36" class="ln">    36  </span>		err := cli.Get(ctx, types.NamespacedName{
-<span id="L37" class="ln">    37  </span>			Name:      *gcpchaos.Spec.SecretName,
-<span id="L38" class="ln">    38  </span>			Namespace: gcpchaos.Namespace,
-<span id="L39" class="ln">    39  </span>		}, secret)
-<span id="L40" class="ln">    40  </span>		if err != nil {
-<span id="L41" class="ln">    41  </span>			return nil, err
-<span id="L42" class="ln">    42  </span>		}
-<span id="L43" class="ln">    43  </span>
-<span id="L44" class="ln">    44  </span>		decodeBytes, err := base64.StdEncoding.DecodeString(string(secret.Data[&#34;service_account&#34;]))
-<span id="L45" class="ln">    45  </span>		if err != nil {
-<span id="L46" class="ln">    46  </span>			return nil, err
-<span id="L47" class="ln">    47  </span>		}
-<span id="L48" class="ln">    48  </span>		computeService, err := compute.NewService(ctx, option.WithCredentialsJSON(decodeBytes))
-<span id="L49" class="ln">    49  </span>		if err != nil {
-<span id="L50" class="ln">    50  </span>			return nil, err
-<span id="L51" class="ln">    51  </span>		}
-<span id="L52" class="ln">    52  </span>		return computeService, nil
-<span id="L53" class="ln">    53  </span>	}
-<span id="L54" class="ln">    54  </span>
-<span id="L55" class="ln">    55  </span>	computeService, err := compute.NewService(ctx)
-<span id="L56" class="ln">    56  </span>	if err != nil {
-<span id="L57" class="ln">    57  </span>		return nil, err
-<span id="L58" class="ln">    58  </span>	}
-<span id="L59" class="ln">    59  </span>	return computeService, nil
-<span id="L60" class="ln">    60  </span>}
-<span id="L61" class="ln">    61  </span>
+<span id="L22" class="ln">    22  </span>	compute &#34;google.golang.org/api/compute/v1&#34;
+<span id="L23" class="ln">    23  </span>	&#34;google.golang.org/api/option&#34;
+<span id="L24" class="ln">    24  </span>	v1 &#34;k8s.io/api/core/v1&#34;
+<span id="L25" class="ln">    25  </span>	&#34;k8s.io/apimachinery/pkg/types&#34;
+<span id="L26" class="ln">    26  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/client&#34;
+<span id="L27" class="ln">    27  </span>
+<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
+<span id="L29" class="ln">    29  </span>)
+<span id="L30" class="ln">    30  </span>
+<span id="L31" class="ln">    31  </span><span class="comment">// GetComputeService is used to get the GCP compute Service.</span>
+<span id="L32" class="ln">    32  </span>func GetComputeService(ctx context.Context, cli client.Client, gcpchaos *v1alpha1.GCPChaos) (*compute.Service, error) {
+<span id="L33" class="ln">    33  </span>	if gcpchaos.Spec.SecretName != nil {
+<span id="L34" class="ln">    34  </span>		secret := &amp;v1.Secret{}
+<span id="L35" class="ln">    35  </span>		err := cli.Get(ctx, types.NamespacedName{
+<span id="L36" class="ln">    36  </span>			Name:      *gcpchaos.Spec.SecretName,
+<span id="L37" class="ln">    37  </span>			Namespace: gcpchaos.Namespace,
+<span id="L38" class="ln">    38  </span>		}, secret)
+<span id="L39" class="ln">    39  </span>		if err != nil {
+<span id="L40" class="ln">    40  </span>			return nil, err
+<span id="L41" class="ln">    41  </span>		}
+<span id="L42" class="ln">    42  </span>
+<span id="L43" class="ln">    43  </span>		decodeBytes, err := base64.StdEncoding.DecodeString(string(secret.Data[&#34;service_account&#34;]))
+<span id="L44" class="ln">    44  </span>		if err != nil {
+<span id="L45" class="ln">    45  </span>			return nil, err
+<span id="L46" class="ln">    46  </span>		}
+<span id="L47" class="ln">    47  </span>		computeService, err := compute.NewService(ctx, option.WithCredentialsJSON(decodeBytes))
+<span id="L48" class="ln">    48  </span>		if err != nil {
+<span id="L49" class="ln">    49  </span>			return nil, err
+<span id="L50" class="ln">    50  </span>		}
+<span id="L51" class="ln">    51  </span>		return computeService, nil
+<span id="L52" class="ln">    52  </span>	}
+<span id="L53" class="ln">    53  </span>
+<span id="L54" class="ln">    54  </span>	computeService, err := compute.NewService(ctx)
+<span id="L55" class="ln">    55  </span>	if err != nil {
+<span id="L56" class="ln">    56  </span>		return nil, err
+<span id="L57" class="ln">    57  </span>	}
+<span id="L58" class="ln">    58  </span>	return computeService, nil
+<span id="L59" class="ln">    59  </span>}
+<span id="L60" class="ln">    60  </span>
 </pre><p></p>
 
 <div id="footer">

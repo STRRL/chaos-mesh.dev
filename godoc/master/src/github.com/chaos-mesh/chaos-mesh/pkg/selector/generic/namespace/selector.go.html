@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 265a952. Generated at Thu Jan 27 22:04:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 27e45d2. Generated at Fri Jan 28 10:02:00 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -83,101 +83,100 @@
 <span id="L18" class="ln">    18  </span>import (
 <span id="L19" class="ln">    19  </span>	&#34;context&#34;
 <span id="L20" class="ln">    20  </span>
-<span id="L21" class="ln">    21  </span>	v1 &#34;k8s.io/api/core/v1&#34;
-<span id="L22" class="ln">    22  </span>	&#34;k8s.io/apimachinery/pkg/types&#34;
-<span id="L23" class="ln">    23  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
-<span id="L24" class="ln">    24  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/client&#34;
-<span id="L25" class="ln">    25  </span>
-<span id="L26" class="ln">    26  </span>	&#34;github.com/pkg/errors&#34;
-<span id="L27" class="ln">    27  </span>
-<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
-<span id="L29" class="ln">    29  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/selector/generic&#34;
-<span id="L30" class="ln">    30  </span>)
-<span id="L31" class="ln">    31  </span>
-<span id="L32" class="ln">    32  </span>const Name = &#34;namespace&#34;
-<span id="L33" class="ln">    33  </span>
-<span id="L34" class="ln">    34  </span>var log = ctrl.Log.WithName(&#34;namespace-selector&#34;)
-<span id="L35" class="ln">    35  </span>
-<span id="L36" class="ln">    36  </span>type namespaceSelector struct {
-<span id="L37" class="ln">    37  </span>	generic.Option
-<span id="L38" class="ln">    38  </span>	namespaces []string
-<span id="L39" class="ln">    39  </span>}
-<span id="L40" class="ln">    40  </span>
-<span id="L41" class="ln">    41  </span>var _ generic.Selector = &amp;namespaceSelector{}
-<span id="L42" class="ln">    42  </span>
-<span id="L43" class="ln">    43  </span>func (s *namespaceSelector) ListOption() client.ListOption {
-<span id="L44" class="ln">    44  </span>	if !s.ClusterScoped {
-<span id="L45" class="ln">    45  </span>		return client.InNamespace(s.TargetNamespace)
-<span id="L46" class="ln">    46  </span>	}
-<span id="L47" class="ln">    47  </span>	return nil
-<span id="L48" class="ln">    48  </span>}
-<span id="L49" class="ln">    49  </span>
-<span id="L50" class="ln">    50  </span>func (s *namespaceSelector) ListFunc(_ client.Reader) generic.ListFunc {
-<span id="L51" class="ln">    51  </span>	return nil
-<span id="L52" class="ln">    52  </span>}
-<span id="L53" class="ln">    53  </span>
-<span id="L54" class="ln">    54  </span>func (s *namespaceSelector) Match(obj client.Object) bool {
-<span id="L55" class="ln">    55  </span>	if len(s.namespaces) == 0 {
-<span id="L56" class="ln">    56  </span>		return true
-<span id="L57" class="ln">    57  </span>	}
-<span id="L58" class="ln">    58  </span>
-<span id="L59" class="ln">    59  </span>	for _, namespace := range s.namespaces {
-<span id="L60" class="ln">    60  </span>		if namespace == obj.GetNamespace() {
-<span id="L61" class="ln">    61  </span>			return true
-<span id="L62" class="ln">    62  </span>		}
-<span id="L63" class="ln">    63  </span>	}
-<span id="L64" class="ln">    64  </span>	return false
-<span id="L65" class="ln">    65  </span>}
-<span id="L66" class="ln">    66  </span>
-<span id="L67" class="ln">    67  </span>func New(spec v1alpha1.GenericSelectorSpec, option generic.Option) (generic.Selector, error) {
-<span id="L68" class="ln">    68  </span>	if !option.ClusterScoped {
-<span id="L69" class="ln">    69  </span>		if len(spec.Namespaces) &gt; 1 {
-<span id="L70" class="ln">    70  </span>			return nil, errors.New(&#34;could NOT use more than 1 namespace selector within namespace scoped mode&#34;)
-<span id="L71" class="ln">    71  </span>		} else if len(spec.Namespaces) == 1 {
-<span id="L72" class="ln">    72  </span>			if spec.Namespaces[0] != option.TargetNamespace {
-<span id="L73" class="ln">    73  </span>				return nil, errors.Errorf(&#34;could NOT list pods from out of scoped namespace: %s&#34;, spec.Namespaces[0])
-<span id="L74" class="ln">    74  </span>			}
-<span id="L75" class="ln">    75  </span>		}
-<span id="L76" class="ln">    76  </span>	}
-<span id="L77" class="ln">    77  </span>
-<span id="L78" class="ln">    78  </span>	return &amp;namespaceSelector{
-<span id="L79" class="ln">    79  </span>		Option: generic.Option{
-<span id="L80" class="ln">    80  </span>			ClusterScoped:         option.ClusterScoped,
-<span id="L81" class="ln">    81  </span>			TargetNamespace:       option.TargetNamespace,
-<span id="L82" class="ln">    82  </span>			EnableFilterNamespace: option.EnableFilterNamespace,
-<span id="L83" class="ln">    83  </span>		},
-<span id="L84" class="ln">    84  </span>		namespaces: spec.Namespaces,
-<span id="L85" class="ln">    85  </span>	}, nil
-<span id="L86" class="ln">    86  </span>}
-<span id="L87" class="ln">    87  </span>
-<span id="L88" class="ln">    88  </span>func CheckNamespace(ctx context.Context, c client.Client, namespace string) bool {
-<span id="L89" class="ln">    89  </span>	ok, err := IsAllowedNamespaces(ctx, c, namespace)
-<span id="L90" class="ln">    90  </span>	if err != nil {
-<span id="L91" class="ln">    91  </span>		log.Error(err, &#34;fail to check whether this namespace is allowed&#34;, &#34;namespace&#34;, namespace)
-<span id="L92" class="ln">    92  </span>		return false
-<span id="L93" class="ln">    93  </span>	}
-<span id="L94" class="ln">    94  </span>
-<span id="L95" class="ln">    95  </span>	if !ok {
-<span id="L96" class="ln">    96  </span>		log.Info(&#34;namespace is not enabled for chaos-mesh&#34;, &#34;namespace&#34;, namespace)
-<span id="L97" class="ln">    97  </span>	}
-<span id="L98" class="ln">    98  </span>	return ok
-<span id="L99" class="ln">    99  </span>}
-<span id="L100" class="ln">   100  </span>
-<span id="L101" class="ln">   101  </span>func IsAllowedNamespaces(ctx context.Context, c client.Client, namespace string) (bool, error) {
-<span id="L102" class="ln">   102  </span>	ns := &amp;v1.Namespace{}
-<span id="L103" class="ln">   103  </span>
-<span id="L104" class="ln">   104  </span>	err := c.Get(ctx, types.NamespacedName{Name: namespace}, ns)
-<span id="L105" class="ln">   105  </span>	if err != nil {
-<span id="L106" class="ln">   106  </span>		return false, err
-<span id="L107" class="ln">   107  </span>	}
-<span id="L108" class="ln">   108  </span>
-<span id="L109" class="ln">   109  </span>	if ns.Annotations[generic.InjectAnnotationKey] == &#34;enabled&#34; {
-<span id="L110" class="ln">   110  </span>		return true, nil
-<span id="L111" class="ln">   111  </span>	}
-<span id="L112" class="ln">   112  </span>
-<span id="L113" class="ln">   113  </span>	return false, nil
-<span id="L114" class="ln">   114  </span>}
-<span id="L115" class="ln">   115  </span>
+<span id="L21" class="ln">    21  </span>	&#34;github.com/pkg/errors&#34;
+<span id="L22" class="ln">    22  </span>	v1 &#34;k8s.io/api/core/v1&#34;
+<span id="L23" class="ln">    23  </span>	&#34;k8s.io/apimachinery/pkg/types&#34;
+<span id="L24" class="ln">    24  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
+<span id="L25" class="ln">    25  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/client&#34;
+<span id="L26" class="ln">    26  </span>
+<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
+<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/selector/generic&#34;
+<span id="L29" class="ln">    29  </span>)
+<span id="L30" class="ln">    30  </span>
+<span id="L31" class="ln">    31  </span>const Name = &#34;namespace&#34;
+<span id="L32" class="ln">    32  </span>
+<span id="L33" class="ln">    33  </span>var log = ctrl.Log.WithName(&#34;namespace-selector&#34;)
+<span id="L34" class="ln">    34  </span>
+<span id="L35" class="ln">    35  </span>type namespaceSelector struct {
+<span id="L36" class="ln">    36  </span>	generic.Option
+<span id="L37" class="ln">    37  </span>	namespaces []string
+<span id="L38" class="ln">    38  </span>}
+<span id="L39" class="ln">    39  </span>
+<span id="L40" class="ln">    40  </span>var _ generic.Selector = &amp;namespaceSelector{}
+<span id="L41" class="ln">    41  </span>
+<span id="L42" class="ln">    42  </span>func (s *namespaceSelector) ListOption() client.ListOption {
+<span id="L43" class="ln">    43  </span>	if !s.ClusterScoped {
+<span id="L44" class="ln">    44  </span>		return client.InNamespace(s.TargetNamespace)
+<span id="L45" class="ln">    45  </span>	}
+<span id="L46" class="ln">    46  </span>	return nil
+<span id="L47" class="ln">    47  </span>}
+<span id="L48" class="ln">    48  </span>
+<span id="L49" class="ln">    49  </span>func (s *namespaceSelector) ListFunc(_ client.Reader) generic.ListFunc {
+<span id="L50" class="ln">    50  </span>	return nil
+<span id="L51" class="ln">    51  </span>}
+<span id="L52" class="ln">    52  </span>
+<span id="L53" class="ln">    53  </span>func (s *namespaceSelector) Match(obj client.Object) bool {
+<span id="L54" class="ln">    54  </span>	if len(s.namespaces) == 0 {
+<span id="L55" class="ln">    55  </span>		return true
+<span id="L56" class="ln">    56  </span>	}
+<span id="L57" class="ln">    57  </span>
+<span id="L58" class="ln">    58  </span>	for _, namespace := range s.namespaces {
+<span id="L59" class="ln">    59  </span>		if namespace == obj.GetNamespace() {
+<span id="L60" class="ln">    60  </span>			return true
+<span id="L61" class="ln">    61  </span>		}
+<span id="L62" class="ln">    62  </span>	}
+<span id="L63" class="ln">    63  </span>	return false
+<span id="L64" class="ln">    64  </span>}
+<span id="L65" class="ln">    65  </span>
+<span id="L66" class="ln">    66  </span>func New(spec v1alpha1.GenericSelectorSpec, option generic.Option) (generic.Selector, error) {
+<span id="L67" class="ln">    67  </span>	if !option.ClusterScoped {
+<span id="L68" class="ln">    68  </span>		if len(spec.Namespaces) &gt; 1 {
+<span id="L69" class="ln">    69  </span>			return nil, errors.New(&#34;could NOT use more than 1 namespace selector within namespace scoped mode&#34;)
+<span id="L70" class="ln">    70  </span>		} else if len(spec.Namespaces) == 1 {
+<span id="L71" class="ln">    71  </span>			if spec.Namespaces[0] != option.TargetNamespace {
+<span id="L72" class="ln">    72  </span>				return nil, errors.Errorf(&#34;could NOT list pods from out of scoped namespace: %s&#34;, spec.Namespaces[0])
+<span id="L73" class="ln">    73  </span>			}
+<span id="L74" class="ln">    74  </span>		}
+<span id="L75" class="ln">    75  </span>	}
+<span id="L76" class="ln">    76  </span>
+<span id="L77" class="ln">    77  </span>	return &amp;namespaceSelector{
+<span id="L78" class="ln">    78  </span>		Option: generic.Option{
+<span id="L79" class="ln">    79  </span>			ClusterScoped:         option.ClusterScoped,
+<span id="L80" class="ln">    80  </span>			TargetNamespace:       option.TargetNamespace,
+<span id="L81" class="ln">    81  </span>			EnableFilterNamespace: option.EnableFilterNamespace,
+<span id="L82" class="ln">    82  </span>		},
+<span id="L83" class="ln">    83  </span>		namespaces: spec.Namespaces,
+<span id="L84" class="ln">    84  </span>	}, nil
+<span id="L85" class="ln">    85  </span>}
+<span id="L86" class="ln">    86  </span>
+<span id="L87" class="ln">    87  </span>func CheckNamespace(ctx context.Context, c client.Client, namespace string) bool {
+<span id="L88" class="ln">    88  </span>	ok, err := IsAllowedNamespaces(ctx, c, namespace)
+<span id="L89" class="ln">    89  </span>	if err != nil {
+<span id="L90" class="ln">    90  </span>		log.Error(err, &#34;fail to check whether this namespace is allowed&#34;, &#34;namespace&#34;, namespace)
+<span id="L91" class="ln">    91  </span>		return false
+<span id="L92" class="ln">    92  </span>	}
+<span id="L93" class="ln">    93  </span>
+<span id="L94" class="ln">    94  </span>	if !ok {
+<span id="L95" class="ln">    95  </span>		log.Info(&#34;namespace is not enabled for chaos-mesh&#34;, &#34;namespace&#34;, namespace)
+<span id="L96" class="ln">    96  </span>	}
+<span id="L97" class="ln">    97  </span>	return ok
+<span id="L98" class="ln">    98  </span>}
+<span id="L99" class="ln">    99  </span>
+<span id="L100" class="ln">   100  </span>func IsAllowedNamespaces(ctx context.Context, c client.Client, namespace string) (bool, error) {
+<span id="L101" class="ln">   101  </span>	ns := &amp;v1.Namespace{}
+<span id="L102" class="ln">   102  </span>
+<span id="L103" class="ln">   103  </span>	err := c.Get(ctx, types.NamespacedName{Name: namespace}, ns)
+<span id="L104" class="ln">   104  </span>	if err != nil {
+<span id="L105" class="ln">   105  </span>		return false, err
+<span id="L106" class="ln">   106  </span>	}
+<span id="L107" class="ln">   107  </span>
+<span id="L108" class="ln">   108  </span>	if ns.Annotations[generic.InjectAnnotationKey] == &#34;enabled&#34; {
+<span id="L109" class="ln">   109  </span>		return true, nil
+<span id="L110" class="ln">   110  </span>	}
+<span id="L111" class="ln">   111  </span>
+<span id="L112" class="ln">   112  </span>	return false, nil
+<span id="L113" class="ln">   113  </span>}
+<span id="L114" class="ln">   114  </span>
 </pre><p></p>
 
 <div id="footer">
