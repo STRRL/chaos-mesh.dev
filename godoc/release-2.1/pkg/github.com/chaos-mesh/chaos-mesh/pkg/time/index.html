@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit cbe7895. Generated at Mon Feb  7 10:03:03 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f1a3ec6. Generated at Mon Feb  7 22:06:45 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -125,7 +125,21 @@
 			
 			
 				
+				<dd><a href="#CompositeInjector">type CompositeInjector</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CompositeInjector.Inject">func (it *CompositeInjector) Inject(pid int) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CompositeInjector.Recover">func (it *CompositeInjector) Recover(pid int) error</a></dd>
+				
+			
+				
 				<dd><a href="#FakeClockInjector">type FakeClockInjector</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewTimeSkew">func NewTimeSkew(deltaSec int64, deltaNsec int64, clockIdsMask uint64) (FakeClockInjector, error)</a></dd>
 				
 				
 			
@@ -133,25 +147,48 @@
 				<dd><a href="#FakeImage">type FakeImage</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#LoadFakeImageFromEmbedFs">func LoadFakeImageFromEmbedFs(filename string) (*FakeImage, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#LoadFakeImageFromEmbedFs">func LoadFakeImageFromEmbedFs(filename string, symbolName string) (*FakeImage, error)</a></dd>
 				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewFakeImage">func NewFakeImage(symbolName string, content []byte, offset map[string]int) *FakeImage</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FakeImage.AttachToProcess">func (it *FakeImage) AttachToProcess(pid int, variables map[string]uint64) error</a></dd>
 				
 			
 				
-				<dd><a href="#TimeSkew">type TimeSkew</a></dd>
+				<dd><a href="#SkewClockGetTime">type SkewClockGetTime</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewTimeSkew">func NewTimeSkew(deltaSeconds int64, deltaNanoSeconds int64, clockIDsMask uint64) (*TimeSkew, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NewSkewClockGetTime">func NewSkewClockGetTime(deltaSeconds int64, deltaNanoSeconds int64, clockIDsMask uint64) (*SkewClockGetTime, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewTimeSkewWithCustomFakeImage">func NewTimeSkewWithCustomFakeImage(deltaSeconds int64, deltaNanoSeconds int64, clockIDsMask uint64, fakeImage *FakeImage) *TimeSkew</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NewSkewClockGetTimeWithCustomFakeImage">func NewSkewClockGetTimeWithCustomFakeImage(deltaSeconds int64, deltaNanoSeconds int64, clockIDsMask uint64, fakeImage *FakeImage) *SkewClockGetTime</a></dd>
 				
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#TimeSkew.Inject">func (it *TimeSkew) Inject(pid int) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#SkewClockGetTime.Inject">func (it *SkewClockGetTime) Inject(pid int) error</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#TimeSkew.Recover">func (it *TimeSkew) Recover(pid int) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#SkewClockGetTime.Recover">func (it *SkewClockGetTime) Recover(pid int) error</a></dd>
+				
+			
+				
+				<dd><a href="#SkewGetTimeOfDay">type SkewGetTimeOfDay</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewSkewGetTimeOfDay">func NewSkewGetTimeOfDay(deltaSeconds int64, deltaNanoSeconds int64) (*SkewGetTimeOfDay, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewSkewGetTimeOfDayWithCustomFakeImage">func NewSkewGetTimeOfDayWithCustomFakeImage(deltaSeconds int64, deltaNanoSeconds int64, fakeImage *FakeImage) *SkewGetTimeOfDay</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SkewGetTimeOfDay.Inject">func (it *SkewGetTimeOfDay) Inject(pid int) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SkewGetTimeOfDay.Recover">func (it *SkewGetTimeOfDay) Recover(pid int) error</a></dd>
 				
 			
 			
@@ -166,6 +203,8 @@
 			<span style="font-size:90%">
 			
 				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/asset.go">asset.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image.go">fake_image.go</a>
 			
 				<a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fakeclock.go">fakeclock.go</a>
 			
@@ -222,6 +261,55 @@ RegisterLogger registers a logger on time pkg
 		
 			
 			
+			<h2 id="CompositeInjector">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L22">CompositeInjector</a>
+				<a class="permalink" href="#CompositeInjector">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type CompositeInjector struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="CompositeInjector.Inject">func (*CompositeInjector) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L113">Inject</a>
+					<a class="permalink" href="#CompositeInjector.Inject">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#CompositeInjector">CompositeInjector</a>) Inject(pid <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="CompositeInjector.Recover">func (*CompositeInjector) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L122">Recover</a>
+					<a class="permalink" href="#CompositeInjector.Recover">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#CompositeInjector">CompositeInjector</a>) Recover(pid <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
 			<h2 id="FakeClockInjector">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fakeclock.go#L20">FakeClockInjector</a>
 				<a class="permalink" href="#FakeClockInjector">&#xb6;</a>
 				
@@ -246,12 +334,23 @@ TODO: rename this interface, it brings confusing with .c files under pkg/time/fa
 			
 
 			
+				
+				<h3 id="NewTimeSkew">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L131">NewTimeSkew</a>
+					<a class="permalink" href="#NewTimeSkew">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewTimeSkew(deltaSec <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int64">int64</a>, deltaNsec <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int64">int64</a>, clockIdsMask <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>) (<a href="#FakeClockInjector">FakeClockInjector</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
 
 			
 		
 			
 			
-			<h2 id="FakeImage">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/asset.go#L31">FakeImage</a>
+			<h2 id="FakeImage">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image.go#L33">FakeImage</a>
 				<a class="permalink" href="#FakeImage">&#xb6;</a>
 				
 				
@@ -276,12 +375,12 @@ FakeImage could be constructed by LoadFakeImageFromEmbedFs(), and then used by F
 
 			
 				
-				<h3 id="LoadFakeImageFromEmbedFs">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/asset.go#L40">LoadFakeImageFromEmbedFs</a>
+				<h3 id="LoadFakeImageFromEmbedFs">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/asset.go#L34">LoadFakeImageFromEmbedFs</a>
 					<a class="permalink" href="#LoadFakeImageFromEmbedFs">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func LoadFakeImageFromEmbedFs(filename <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) (*<a href="#FakeImage">FakeImage</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				<pre>func LoadFakeImageFromEmbedFs(filename <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, symbolName <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>) (*<a href="#FakeImage">FakeImage</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
 				<p>
 LoadFakeImageFromEmbedFs builds FakeImage from the embed filesystem. It parses the ELF file and extract the variables from the relocation section, reserves the space for them at the end of content, then calculates and saves offsets as &#34;manually relocation&#34;
 </p>
@@ -289,18 +388,45 @@ LoadFakeImageFromEmbedFs builds FakeImage from the embed filesystem. It parses t
 				
 				
 			
+				
+				<h3 id="NewFakeImage">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image.go#L43">NewFakeImage</a>
+					<a class="permalink" href="#NewFakeImage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewFakeImage(symbolName <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>, content []<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#byte">byte</a>, offset map[<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int">int</a>) *<a href="#FakeImage">FakeImage</a></pre>
+				
+				
+				
+			
 
+			
+				
+				<h3 id="FakeImage.AttachToProcess">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image.go#L49">AttachToProcess</a>
+					<a class="permalink" href="#FakeImage.AttachToProcess">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#FakeImage">FakeImage</a>) AttachToProcess(pid <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int">int</a>, variables map[<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				<p>
+AttachToProcess would use ptrace to replace the VDSO ELF entry with FakeImage.
+Each item in parameter &#34;variables&#34; needs a corresponding entry in FakeImage.offset.
+</p>
+
+				
+				
+				
 			
 		
 			
 			
-			<h2 id="TimeSkew">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L44">TimeSkew</a>
-				<a class="permalink" href="#TimeSkew">&#xb6;</a>
+			<h2 id="SkewClockGetTime">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L39">SkewClockGetTime</a>
+				<a class="permalink" href="#SkewClockGetTime">&#xb6;</a>
 				
 				
 			</h2>
 			
-			<pre>type TimeSkew struct {
+			<pre>type SkewClockGetTime struct {
     <span class="comment">// contains filtered or unexported fields</span>
 }
 </pre>
@@ -315,23 +441,23 @@ LoadFakeImageFromEmbedFs builds FakeImage from the embed filesystem. It parses t
 
 			
 				
-				<h3 id="NewTimeSkew">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L51">NewTimeSkew</a>
-					<a class="permalink" href="#NewTimeSkew">&#xb6;</a>
+				<h3 id="NewSkewClockGetTime">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L46">NewSkewClockGetTime</a>
+					<a class="permalink" href="#NewSkewClockGetTime">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func NewTimeSkew(deltaSeconds <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int64">int64</a>, deltaNanoSeconds <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int64">int64</a>, clockIDsMask <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>) (*<a href="#TimeSkew">TimeSkew</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				<pre>func NewSkewClockGetTime(deltaSeconds <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int64">int64</a>, deltaNanoSeconds <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int64">int64</a>, clockIDsMask <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>) (*<a href="#SkewClockGetTime">SkewClockGetTime</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
 			
 				
-				<h3 id="NewTimeSkewWithCustomFakeImage">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L62">NewTimeSkewWithCustomFakeImage</a>
-					<a class="permalink" href="#NewTimeSkewWithCustomFakeImage">&#xb6;</a>
+				<h3 id="NewSkewClockGetTimeWithCustomFakeImage">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L57">NewSkewClockGetTimeWithCustomFakeImage</a>
+					<a class="permalink" href="#NewSkewClockGetTimeWithCustomFakeImage">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func NewTimeSkewWithCustomFakeImage(deltaSeconds <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int64">int64</a>, deltaNanoSeconds <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int64">int64</a>, clockIDsMask <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>, fakeImage *<a href="#FakeImage">FakeImage</a>) *<a href="#TimeSkew">TimeSkew</a></pre>
+				<pre>func NewSkewClockGetTimeWithCustomFakeImage(deltaSeconds <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int64">int64</a>, deltaNanoSeconds <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int64">int64</a>, clockIDsMask <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#uint64">uint64</a>, fakeImage *<a href="#FakeImage">FakeImage</a>) *<a href="#SkewClockGetTime">SkewClockGetTime</a></pre>
 				
 				
 				
@@ -339,24 +465,95 @@ LoadFakeImageFromEmbedFs builds FakeImage from the embed filesystem. It parses t
 
 			
 				
-				<h3 id="TimeSkew.Inject">func (*TimeSkew) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L66">Inject</a>
-					<a class="permalink" href="#TimeSkew.Inject">&#xb6;</a>
+				<h3 id="SkewClockGetTime.Inject">func (*SkewClockGetTime) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L61">Inject</a>
+					<a class="permalink" href="#SkewClockGetTime.Inject">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (it *<a href="#TimeSkew">TimeSkew</a>) Inject(pid <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				<pre>func (it *<a href="#SkewClockGetTime">SkewClockGetTime</a>) Inject(pid <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
 				
 				
 				
 				
 			
 				
-				<h3 id="TimeSkew.Recover">func (*TimeSkew) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L153">Recover</a>
-					<a class="permalink" href="#TimeSkew.Recover">&#xb6;</a>
+				<h3 id="SkewClockGetTime.Recover">func (*SkewClockGetTime) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L69">Recover</a>
+					<a class="permalink" href="#SkewClockGetTime.Recover">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (it *<a href="#TimeSkew">TimeSkew</a>) Recover(pid <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				<pre>func (it *<a href="#SkewClockGetTime">SkewClockGetTime</a>) Recover(pid <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="SkewGetTimeOfDay">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L80">SkewGetTimeOfDay</a>
+				<a class="permalink" href="#SkewGetTimeOfDay">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type SkewGetTimeOfDay struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewSkewGetTimeOfDay">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L86">NewSkewGetTimeOfDay</a>
+					<a class="permalink" href="#NewSkewGetTimeOfDay">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewSkewGetTimeOfDay(deltaSeconds <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int64">int64</a>, deltaNanoSeconds <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int64">int64</a>) (*<a href="#SkewGetTimeOfDay">SkewGetTimeOfDay</a>, <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+				
+				<h3 id="NewSkewGetTimeOfDayWithCustomFakeImage">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L97">NewSkewGetTimeOfDayWithCustomFakeImage</a>
+					<a class="permalink" href="#NewSkewGetTimeOfDayWithCustomFakeImage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewSkewGetTimeOfDayWithCustomFakeImage(deltaSeconds <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int64">int64</a>, deltaNanoSeconds <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int64">int64</a>, fakeImage *<a href="#FakeImage">FakeImage</a>) *<a href="#SkewGetTimeOfDay">SkewGetTimeOfDay</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="SkewGetTimeOfDay.Inject">func (*SkewGetTimeOfDay) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L101">Inject</a>
+					<a class="permalink" href="#SkewGetTimeOfDay.Inject">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#SkewGetTimeOfDay">SkewGetTimeOfDay</a>) Inject(pid <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SkewGetTimeOfDay.Recover">func (*SkewGetTimeOfDay) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_amd64.go#L108">Recover</a>
+					<a class="permalink" href="#SkewGetTimeOfDay.Recover">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#SkewGetTimeOfDay">SkewGetTimeOfDay</a>) Recover(pid <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
 				
 				
 				
