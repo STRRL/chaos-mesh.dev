@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 712f58c. Generated at Tue Feb  8 22:03:37 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 149e540. Generated at Wed Feb  9 10:01:47 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -136,9 +136,6 @@
 				<dd><a href="#NewGlobalCacheReader">func NewGlobalCacheReader(mgr ctrl.Manager) globalCacheReader</a></dd>
 			
 				
-				<dd><a href="#NewLogger">func NewLogger() logr.Logger</a></dd>
-			
-				
 				<dd><a href="#NewManager">func NewManager(options *ctrl.Options, cfg *rest.Config) (ctrl.Manager, error)</a></dd>
 			
 				
@@ -224,13 +221,15 @@
 		
 			<h2 id="pkg-variables">Variables</h2>
 			
-				
+				<p>
+Module would provide objects to fx for dependency injection.
+</p>
+
 				<pre>var <span id="Module">Module</span> = <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Provide">Provide</a>(
     <a href="#NewOption">NewOption</a>,
     <a href="#NewClient">NewClient</a>,
     <a href="#NewClientSet">NewClientSet</a>,
     <a href="#NewManager">NewManager</a>,
-    <a href="#NewLogger">NewLogger</a>,
     <a href="#NewAuthCli">NewAuthCli</a>,
     <a href="#NewScheme">NewScheme</a>,
     <a href="#NewConfig">NewConfig</a>,
@@ -269,7 +268,7 @@
 		
 			
 			
-			<h2 id="NewClientSet">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L211">NewClientSet</a>
+			<h2 id="NewClientSet">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L207">NewClientSet</a>
 				<a class="permalink" href="#NewClientSet">&#xb6;</a>
 				
 				
@@ -295,7 +294,7 @@
 		
 			
 			
-			<h2 id="NewControlPlaneCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L168">NewControlPlaneCacheReader</a>
+			<h2 id="NewControlPlaneCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L164">NewControlPlaneCacheReader</a>
 				<a class="permalink" href="#NewControlPlaneCacheReader">&#xb6;</a>
 				
 				
@@ -308,25 +307,12 @@
 		
 			
 			
-			<h2 id="NewGlobalCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L156">NewGlobalCacheReader</a>
+			<h2 id="NewGlobalCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L152">NewGlobalCacheReader</a>
 				<a class="permalink" href="#NewGlobalCacheReader">&#xb6;</a>
 				
 				
 			</h2>
 			<pre>func NewGlobalCacheReader(mgr <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>) globalCacheReader</pre>
-			
-			
-			
-
-		
-			
-			
-			<h2 id="NewLogger">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L134">NewLogger</a>
-				<a class="permalink" href="#NewLogger">&#xb6;</a>
-				
-				
-			</h2>
-			<pre>func NewLogger() <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a></pre>
 			
 			
 			
@@ -347,7 +333,7 @@
 		
 			
 			
-			<h2 id="NewNoCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L144">NewNoCacheReader</a>
+			<h2 id="NewNoCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L140">NewNoCacheReader</a>
 				<a class="permalink" href="#NewNoCacheReader">&#xb6;</a>
 				
 				
