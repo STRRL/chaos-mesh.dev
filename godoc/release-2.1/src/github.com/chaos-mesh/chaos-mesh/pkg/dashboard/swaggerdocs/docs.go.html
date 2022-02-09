@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 8de66e8. Generated at Tue Feb  8 22:04:54 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 055314f. Generated at Wed Feb  9 10:08:01 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -3518,7 +3518,7 @@
 <span id="L3453" class="ln">  3453  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3454" class="ln">  3454  </span>                },
 <span id="L3455" class="ln">  3455  </span>                &#34;direction&#34;: {
-<span id="L3456" class="ln">  3456  </span>                    &#34;description&#34;: &#34;Direction represents the direction, this applies on netem and network partition action\n+optional\n+kubebuilder:validation:Enum=to;from;both;\&#34;\&#34;&#34;,
+<span id="L3456" class="ln">  3456  </span>                    &#34;description&#34;: &#34;Direction represents the direction, this applies on netem and network partition action\n+optional\n+kubebuilder:validation:Enum=to;from;both\n+kubebuilder:default=to&#34;,
 <span id="L3457" class="ln">  3457  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3458" class="ln">  3458  </span>                },
 <span id="L3459" class="ln">  3459  </span>                &#34;duplicate&#34;: {
@@ -4144,7 +4144,7 @@
 <span id="L4079" class="ln">  4079  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.AWSChaosSpec&#34;
 <span id="L4080" class="ln">  4080  </span>                },
 <span id="L4081" class="ln">  4081  </span>                &#34;concurrencyPolicy&#34;: {
-<span id="L4082" class="ln">  4082  </span>                    &#34;description&#34;: &#34;+optional\n+kubebuilder:validation:Enum=Forbid;Allow&#34;,
+<span id="L4082" class="ln">  4082  </span>                    &#34;description&#34;: &#34;+optional\n+kubebuilder:default=Forbid\n+kubebuilder:validation:Enum=Forbid;Allow&#34;,
 <span id="L4083" class="ln">  4083  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4084" class="ln">  4084  </span>                },
 <span id="L4085" class="ln">  4085  </span>                &#34;dnsChaos&#34;: {
