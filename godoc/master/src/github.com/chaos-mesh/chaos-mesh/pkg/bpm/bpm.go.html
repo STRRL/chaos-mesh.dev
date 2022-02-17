@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f3e2951. Generated at Wed Feb 16 22:03:29 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4181f4. Generated at Thu Feb 17 10:01:43 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -273,245 +273,293 @@
 <span id="L208" class="ln">   208  </span>	return procState, nil
 <span id="L209" class="ln">   209  </span>}
 <span id="L210" class="ln">   210  </span>
-<span id="L211" class="ln">   211  </span><span class="comment">// KillBackgroundProcess sends SIGTERM to process</span>
-<span id="L212" class="ln">   212  </span>func (m *BackgroundProcessManager) KillBackgroundProcess(ctx context.Context, pid int, startTime int64) error {
-<span id="L213" class="ln">   213  </span>	log := log.WithValues(&#34;pid&#34;, pid)
-<span id="L214" class="ln">   214  </span>
-<span id="L215" class="ln">   215  </span>	p, err := os.FindProcess(int(pid))
-<span id="L216" class="ln">   216  </span>	if err != nil {
-<span id="L217" class="ln">   217  </span>		log.Error(err, &#34;unreachable path. `os.FindProcess` will never return an error on unix&#34;)
-<span id="L218" class="ln">   218  </span>		return err
-<span id="L219" class="ln">   219  </span>	}
-<span id="L220" class="ln">   220  </span>
-<span id="L221" class="ln">   221  </span>	procState, err := process.NewProcess(int32(pid))
-<span id="L222" class="ln">   222  </span>	if err != nil {
-<span id="L223" class="ln">   223  </span>		<span class="comment">// return successfully as the process has exited</span>
-<span id="L224" class="ln">   224  </span>		return nil
-<span id="L225" class="ln">   225  </span>	}
-<span id="L226" class="ln">   226  </span>	ct, err := procState.CreateTime()
-<span id="L227" class="ln">   227  </span>	if err != nil {
-<span id="L228" class="ln">   228  </span>		log.Error(err, &#34;fail to read create time&#34;)
-<span id="L229" class="ln">   229  </span>		<span class="comment">// return successfully as the process has exited</span>
-<span id="L230" class="ln">   230  </span>		return nil
-<span id="L231" class="ln">   231  </span>	}
-<span id="L232" class="ln">   232  </span>
-<span id="L233" class="ln">   233  </span>	<span class="comment">// There is a bug in calculating CreateTime in the new version of</span>
-<span id="L234" class="ln">   234  </span>	<span class="comment">// gopsutils. This is a temporary solution before the upstream fixes it.</span>
-<span id="L235" class="ln">   235  </span>	if startTime-ct &gt; 1000 || ct-startTime &gt; 1000 {
-<span id="L236" class="ln">   236  </span>		log.Info(&#34;process has already been killed&#34;, &#34;startTime&#34;, ct, &#34;expectedStartTime&#34;, startTime)
-<span id="L237" class="ln">   237  </span>		<span class="comment">// return successfully as the process has exited</span>
-<span id="L238" class="ln">   238  </span>		return nil
-<span id="L239" class="ln">   239  </span>	}
-<span id="L240" class="ln">   240  </span>
-<span id="L241" class="ln">   241  </span>	ppid, err := procState.Ppid()
-<span id="L242" class="ln">   242  </span>	if err != nil {
-<span id="L243" class="ln">   243  </span>		log.Error(err, &#34;fail to read parent id&#34;)
-<span id="L244" class="ln">   244  </span>		<span class="comment">// return successfully as the process has exited</span>
-<span id="L245" class="ln">   245  </span>		return nil
-<span id="L246" class="ln">   246  </span>	}
-<span id="L247" class="ln">   247  </span>	if ppid != int32(os.Getpid()) {
-<span id="L248" class="ln">   248  </span>		log.Info(&#34;process has already been killed&#34;, &#34;ppid&#34;, ppid)
-<span id="L249" class="ln">   249  </span>		<span class="comment">// return successfully as the process has exited</span>
-<span id="L250" class="ln">   250  </span>		return nil
-<span id="L251" class="ln">   251  </span>	}
-<span id="L252" class="ln">   252  </span>
-<span id="L253" class="ln">   253  </span>	err = p.Signal(syscall.SIGTERM)
-<span id="L254" class="ln">   254  </span>
-<span id="L255" class="ln">   255  </span>	if err != nil &amp;&amp; err.Error() != &#34;os: process already finished&#34; {
-<span id="L256" class="ln">   256  </span>		log.Error(err, &#34;error while killing process&#34;)
-<span id="L257" class="ln">   257  </span>		return err
-<span id="L258" class="ln">   258  </span>	}
-<span id="L259" class="ln">   259  </span>
-<span id="L260" class="ln">   260  </span>	pair := ProcessPair{
-<span id="L261" class="ln">   261  </span>		Pid:        pid,
-<span id="L262" class="ln">   262  </span>		CreateTime: startTime,
-<span id="L263" class="ln">   263  </span>	}
-<span id="L264" class="ln">   264  </span>	channel, ok := m.deathSig.Load(pair)
-<span id="L265" class="ln">   265  </span>	if ok {
-<span id="L266" class="ln">   266  </span>		deathChannel := channel.(chan bool)
-<span id="L267" class="ln">   267  </span>		select {
-<span id="L268" class="ln">   268  </span>		case &lt;-deathChannel:
-<span id="L269" class="ln">   269  </span>		case &lt;-ctx.Done():
-<span id="L270" class="ln">   270  </span>			return ctx.Err()
-<span id="L271" class="ln">   271  </span>		}
-<span id="L272" class="ln">   272  </span>	}
-<span id="L273" class="ln">   273  </span>
-<span id="L274" class="ln">   274  </span>	log.Info(&#34;Successfully killed process&#34;)
-<span id="L275" class="ln">   275  </span>	return nil
-<span id="L276" class="ln">   276  </span>}
-<span id="L277" class="ln">   277  </span>
-<span id="L278" class="ln">   278  </span>func (m *BackgroundProcessManager) Stdio(pid int, startTime int64) *Stdio {
-<span id="L279" class="ln">   279  </span>	log := log.WithValues(&#34;pid&#34;, pid)
+<span id="L211" class="ln">   211  </span>func (m *BackgroundProcessManager) Shutdown() {
+<span id="L212" class="ln">   212  </span>	wg := sync.WaitGroup{}
+<span id="L213" class="ln">   213  </span>	m.deathSig.Range(func(key, value interface{}) bool {
+<span id="L214" class="ln">   214  </span>		pair := key.(ProcessPair)
+<span id="L215" class="ln">   215  </span>		deathChannel := value.(chan bool)
+<span id="L216" class="ln">   216  </span>		log := log.WithValues(&#34;pid&#34;, pair.Pid)
+<span id="L217" class="ln">   217  </span>
+<span id="L218" class="ln">   218  </span>		p, err := os.FindProcess(pair.Pid)
+<span id="L219" class="ln">   219  </span>		if err != nil {
+<span id="L220" class="ln">   220  </span>			log.Error(err, &#34;unreachable path. `os.FindProcess` will never return an error on unix&#34;)
+<span id="L221" class="ln">   221  </span>			return true
+<span id="L222" class="ln">   222  </span>		}
+<span id="L223" class="ln">   223  </span>
+<span id="L224" class="ln">   224  </span>		procState, err := process.NewProcess(int32(pair.Pid))
+<span id="L225" class="ln">   225  </span>		if err != nil {
+<span id="L226" class="ln">   226  </span>			<span class="comment">// return successfully as the process has exited</span>
+<span id="L227" class="ln">   227  </span>			return true
+<span id="L228" class="ln">   228  </span>		}
+<span id="L229" class="ln">   229  </span>
+<span id="L230" class="ln">   230  </span>		ppid, err := procState.Ppid()
+<span id="L231" class="ln">   231  </span>		if err != nil {
+<span id="L232" class="ln">   232  </span>			log.Error(err, &#34;fail to read parent id&#34;)
+<span id="L233" class="ln">   233  </span>			<span class="comment">// return successfully as the process has exited</span>
+<span id="L234" class="ln">   234  </span>			return true
+<span id="L235" class="ln">   235  </span>		}
+<span id="L236" class="ln">   236  </span>
+<span id="L237" class="ln">   237  </span>		if ppid != int32(os.Getpid()) {
+<span id="L238" class="ln">   238  </span>			log.Info(&#34;process has already been killed&#34;, &#34;ppid&#34;, ppid)
+<span id="L239" class="ln">   239  </span>			<span class="comment">// return successfully as the process has exited</span>
+<span id="L240" class="ln">   240  </span>			return true
+<span id="L241" class="ln">   241  </span>		}
+<span id="L242" class="ln">   242  </span>
+<span id="L243" class="ln">   243  </span>		if err = p.Signal(syscall.SIGTERM); err != nil {
+<span id="L244" class="ln">   244  </span>			log.Error(err, &#34;fail to kill process&#34;)
+<span id="L245" class="ln">   245  </span>			return true
+<span id="L246" class="ln">   246  </span>		}
+<span id="L247" class="ln">   247  </span>
+<span id="L248" class="ln">   248  </span>		wg.Add(1)
+<span id="L249" class="ln">   249  </span>		go func() {
+<span id="L250" class="ln">   250  </span>			&lt;-deathChannel
+<span id="L251" class="ln">   251  </span>			wg.Done()
+<span id="L252" class="ln">   252  </span>		}()
+<span id="L253" class="ln">   253  </span>
+<span id="L254" class="ln">   254  </span>		return true
+<span id="L255" class="ln">   255  </span>	})
+<span id="L256" class="ln">   256  </span>	wg.Wait()
+<span id="L257" class="ln">   257  </span>}
+<span id="L258" class="ln">   258  </span>
+<span id="L259" class="ln">   259  </span><span class="comment">// KillBackgroundProcess sends SIGTERM to process</span>
+<span id="L260" class="ln">   260  </span>func (m *BackgroundProcessManager) KillBackgroundProcess(ctx context.Context, pid int, startTime int64) error {
+<span id="L261" class="ln">   261  </span>	log := log.WithValues(&#34;pid&#34;, pid)
+<span id="L262" class="ln">   262  </span>
+<span id="L263" class="ln">   263  </span>	p, err := os.FindProcess(int(pid))
+<span id="L264" class="ln">   264  </span>	if err != nil {
+<span id="L265" class="ln">   265  </span>		log.Error(err, &#34;unreachable path. `os.FindProcess` will never return an error on unix&#34;)
+<span id="L266" class="ln">   266  </span>		return err
+<span id="L267" class="ln">   267  </span>	}
+<span id="L268" class="ln">   268  </span>
+<span id="L269" class="ln">   269  </span>	procState, err := process.NewProcess(int32(pid))
+<span id="L270" class="ln">   270  </span>	if err != nil {
+<span id="L271" class="ln">   271  </span>		<span class="comment">// return successfully as the process has exited</span>
+<span id="L272" class="ln">   272  </span>		return nil
+<span id="L273" class="ln">   273  </span>	}
+<span id="L274" class="ln">   274  </span>	ct, err := procState.CreateTime()
+<span id="L275" class="ln">   275  </span>	if err != nil {
+<span id="L276" class="ln">   276  </span>		log.Error(err, &#34;fail to read create time&#34;)
+<span id="L277" class="ln">   277  </span>		<span class="comment">// return successfully as the process has exited</span>
+<span id="L278" class="ln">   278  </span>		return nil
+<span id="L279" class="ln">   279  </span>	}
 <span id="L280" class="ln">   280  </span>
-<span id="L281" class="ln">   281  </span>	procState, err := process.NewProcess(int32(pid))
-<span id="L282" class="ln">   282  </span>	if err != nil {
-<span id="L283" class="ln">   283  </span>		log.Info(&#34;fail to get process information&#34;, &#34;pid&#34;, pid)
-<span id="L284" class="ln">   284  </span>		<span class="comment">// return successfully as the process has exited</span>
-<span id="L285" class="ln">   285  </span>		return nil
-<span id="L286" class="ln">   286  </span>	}
-<span id="L287" class="ln">   287  </span>	ct, err := procState.CreateTime()
-<span id="L288" class="ln">   288  </span>	if err != nil {
-<span id="L289" class="ln">   289  </span>		log.Error(err, &#34;fail to read create time&#34;)
-<span id="L290" class="ln">   290  </span>		<span class="comment">// return successfully as the process has exited</span>
-<span id="L291" class="ln">   291  </span>		return nil
-<span id="L292" class="ln">   292  </span>	}
-<span id="L293" class="ln">   293  </span>
-<span id="L294" class="ln">   294  </span>	<span class="comment">// There is a bug in calculating CreateTime in the new version of</span>
-<span id="L295" class="ln">   295  </span>	<span class="comment">// gopsutils. This is a temporary solution before the upstream fixes it.</span>
-<span id="L296" class="ln">   296  </span>	if startTime-ct &gt; 1000 || ct-startTime &gt; 1000 {
-<span id="L297" class="ln">   297  </span>		log.Info(&#34;process has exited&#34;, &#34;startTime&#34;, ct, &#34;expectedStartTime&#34;, startTime)
-<span id="L298" class="ln">   298  </span>		<span class="comment">// return successfully as the process has exited</span>
-<span id="L299" class="ln">   299  </span>		return nil
-<span id="L300" class="ln">   300  </span>	}
-<span id="L301" class="ln">   301  </span>
-<span id="L302" class="ln">   302  </span>	pair := ProcessPair{
-<span id="L303" class="ln">   303  </span>		Pid:        pid,
-<span id="L304" class="ln">   304  </span>		CreateTime: startTime,
-<span id="L305" class="ln">   305  </span>	}
-<span id="L306" class="ln">   306  </span>
-<span id="L307" class="ln">   307  </span>	io, ok := m.stdio.Load(pair)
-<span id="L308" class="ln">   308  </span>	if !ok {
-<span id="L309" class="ln">   309  </span>		log.Info(&#34;fail to load with pair&#34;, &#34;pair&#34;, pair)
-<span id="L310" class="ln">   310  </span>		<span class="comment">// stdio is not stored</span>
-<span id="L311" class="ln">   311  </span>		return nil
-<span id="L312" class="ln">   312  </span>	}
-<span id="L313" class="ln">   313  </span>
-<span id="L314" class="ln">   314  </span>	return io.(*Stdio)
-<span id="L315" class="ln">   315  </span>}
-<span id="L316" class="ln">   316  </span>
-<span id="L317" class="ln">   317  </span><span class="comment">// GetIdentifiers finds all identifiers in BPM</span>
-<span id="L318" class="ln">   318  </span>func (m *BackgroundProcessManager) GetIdentifiers() []string {
-<span id="L319" class="ln">   319  </span>	var identifiers []string
-<span id="L320" class="ln">   320  </span>	m.identifiers.Range(func(key, value interface{}) bool {
-<span id="L321" class="ln">   321  </span>		identifiers = append(identifiers, key.(string))
-<span id="L322" class="ln">   322  </span>		return true
-<span id="L323" class="ln">   323  </span>	})
-<span id="L324" class="ln">   324  </span>
-<span id="L325" class="ln">   325  </span>	return identifiers
-<span id="L326" class="ln">   326  </span>}
-<span id="L327" class="ln">   327  </span>
-<span id="L328" class="ln">   328  </span><span class="comment">// DefaultProcessBuilder returns the default process builder</span>
-<span id="L329" class="ln">   329  </span>func DefaultProcessBuilder(cmd string, args ...string) *ProcessBuilder {
-<span id="L330" class="ln">   330  </span>	return &amp;ProcessBuilder{
-<span id="L331" class="ln">   331  </span>		cmd:        cmd,
-<span id="L332" class="ln">   332  </span>		args:       args,
-<span id="L333" class="ln">   333  </span>		nsOptions:  []nsOption{},
-<span id="L334" class="ln">   334  </span>		pause:      false,
-<span id="L335" class="ln">   335  </span>		identifier: nil,
-<span id="L336" class="ln">   336  </span>		ctx:        context.Background(),
-<span id="L337" class="ln">   337  </span>	}
-<span id="L338" class="ln">   338  </span>}
-<span id="L339" class="ln">   339  </span>
-<span id="L340" class="ln">   340  </span><span class="comment">// ProcessBuilder builds a exec.Cmd for daemon</span>
-<span id="L341" class="ln">   341  </span>type ProcessBuilder struct {
-<span id="L342" class="ln">   342  </span>	cmd  string
-<span id="L343" class="ln">   343  </span>	args []string
-<span id="L344" class="ln">   344  </span>	env  []string
-<span id="L345" class="ln">   345  </span>
-<span id="L346" class="ln">   346  </span>	nsOptions []nsOption
-<span id="L347" class="ln">   347  </span>
-<span id="L348" class="ln">   348  </span>	pause    bool
-<span id="L349" class="ln">   349  </span>	localMnt bool
-<span id="L350" class="ln">   350  </span>
-<span id="L351" class="ln">   351  </span>	identifier *string
-<span id="L352" class="ln">   352  </span>	stdin      io.ReadWriteCloser
-<span id="L353" class="ln">   353  </span>	stdout     io.ReadWriteCloser
-<span id="L354" class="ln">   354  </span>	stderr     io.ReadWriteCloser
-<span id="L355" class="ln">   355  </span>
-<span id="L356" class="ln">   356  </span>	ctx context.Context
-<span id="L357" class="ln">   357  </span>}
-<span id="L358" class="ln">   358  </span>
-<span id="L359" class="ln">   359  </span><span class="comment">// GetNsPath returns corresponding namespace path</span>
-<span id="L360" class="ln">   360  </span>func GetNsPath(pid uint32, typ NsType) string {
-<span id="L361" class="ln">   361  </span>	return fmt.Sprintf(&#34;%s/%d/ns/%s&#34;, DefaultProcPrefix, pid, string(typ))
-<span id="L362" class="ln">   362  </span>}
-<span id="L363" class="ln">   363  </span>
-<span id="L364" class="ln">   364  </span><span class="comment">// SetEnv sets the environment variables of the process</span>
-<span id="L365" class="ln">   365  </span>func (b *ProcessBuilder) SetEnv(key, value string) *ProcessBuilder {
-<span id="L366" class="ln">   366  </span>	b.env = append(b.env, fmt.Sprintf(&#34;%s=%s&#34;, key, value))
-<span id="L367" class="ln">   367  </span>	return b
-<span id="L368" class="ln">   368  </span>}
-<span id="L369" class="ln">   369  </span>
-<span id="L370" class="ln">   370  </span><span class="comment">// SetNS sets the namespace of the process</span>
-<span id="L371" class="ln">   371  </span>func (b *ProcessBuilder) SetNS(pid uint32, typ NsType) *ProcessBuilder {
-<span id="L372" class="ln">   372  </span>	return b.SetNSOpt([]nsOption{{
-<span id="L373" class="ln">   373  </span>		Typ:  typ,
-<span id="L374" class="ln">   374  </span>		Path: GetNsPath(pid, typ),
-<span id="L375" class="ln">   375  </span>	}})
-<span id="L376" class="ln">   376  </span>}
-<span id="L377" class="ln">   377  </span>
-<span id="L378" class="ln">   378  </span><span class="comment">// SetNSOpt sets the namespace of the process</span>
-<span id="L379" class="ln">   379  </span>func (b *ProcessBuilder) SetNSOpt(options []nsOption) *ProcessBuilder {
-<span id="L380" class="ln">   380  </span>	b.nsOptions = append(b.nsOptions, options...)
-<span id="L381" class="ln">   381  </span>
-<span id="L382" class="ln">   382  </span>	return b
-<span id="L383" class="ln">   383  </span>}
-<span id="L384" class="ln">   384  </span>
-<span id="L385" class="ln">   385  </span><span class="comment">// SetIdentifier sets the identifier of the process</span>
-<span id="L386" class="ln">   386  </span><span class="comment">//</span>
-<span id="L387" class="ln">   387  </span><span class="comment">// The identifier is used to identify the process in BPM, to confirm only one identified process is running.</span>
-<span id="L388" class="ln">   388  </span><span class="comment">// If one identified process is already running, new processes with the same identifier will be blocked by lock.</span>
-<span id="L389" class="ln">   389  </span>func (b *ProcessBuilder) SetIdentifier(id string) *ProcessBuilder {
-<span id="L390" class="ln">   390  </span>	b.identifier = &amp;id
-<span id="L391" class="ln">   391  </span>
-<span id="L392" class="ln">   392  </span>	return b
-<span id="L393" class="ln">   393  </span>}
-<span id="L394" class="ln">   394  </span>
-<span id="L395" class="ln">   395  </span><span class="comment">// EnablePause enables pause for process</span>
-<span id="L396" class="ln">   396  </span>func (b *ProcessBuilder) EnablePause() *ProcessBuilder {
-<span id="L397" class="ln">   397  </span>	b.pause = true
+<span id="L281" class="ln">   281  </span>	<span class="comment">// There is a bug in calculating CreateTime in the new version of</span>
+<span id="L282" class="ln">   282  </span>	<span class="comment">// gopsutils. This is a temporary solution before the upstream fixes it.</span>
+<span id="L283" class="ln">   283  </span>	if startTime-ct &gt; 1000 || ct-startTime &gt; 1000 {
+<span id="L284" class="ln">   284  </span>		log.Info(&#34;process has already been killed&#34;, &#34;startTime&#34;, ct, &#34;expectedStartTime&#34;, startTime)
+<span id="L285" class="ln">   285  </span>		<span class="comment">// return successfully as the process has exited</span>
+<span id="L286" class="ln">   286  </span>		return nil
+<span id="L287" class="ln">   287  </span>	}
+<span id="L288" class="ln">   288  </span>
+<span id="L289" class="ln">   289  </span>	ppid, err := procState.Ppid()
+<span id="L290" class="ln">   290  </span>	if err != nil {
+<span id="L291" class="ln">   291  </span>		log.Error(err, &#34;fail to read parent id&#34;)
+<span id="L292" class="ln">   292  </span>		<span class="comment">// return successfully as the process has exited</span>
+<span id="L293" class="ln">   293  </span>		return nil
+<span id="L294" class="ln">   294  </span>	}
+<span id="L295" class="ln">   295  </span>	if ppid != int32(os.Getpid()) {
+<span id="L296" class="ln">   296  </span>		log.Info(&#34;process has already been killed&#34;, &#34;ppid&#34;, ppid)
+<span id="L297" class="ln">   297  </span>		<span class="comment">// return successfully as the process has exited</span>
+<span id="L298" class="ln">   298  </span>		return nil
+<span id="L299" class="ln">   299  </span>	}
+<span id="L300" class="ln">   300  </span>
+<span id="L301" class="ln">   301  </span>	err = p.Signal(syscall.SIGTERM)
+<span id="L302" class="ln">   302  </span>
+<span id="L303" class="ln">   303  </span>	if err != nil &amp;&amp; err.Error() != &#34;os: process already finished&#34; {
+<span id="L304" class="ln">   304  </span>		log.Error(err, &#34;error while killing process&#34;)
+<span id="L305" class="ln">   305  </span>		return err
+<span id="L306" class="ln">   306  </span>	}
+<span id="L307" class="ln">   307  </span>
+<span id="L308" class="ln">   308  </span>	pair := ProcessPair{
+<span id="L309" class="ln">   309  </span>		Pid:        pid,
+<span id="L310" class="ln">   310  </span>		CreateTime: startTime,
+<span id="L311" class="ln">   311  </span>	}
+<span id="L312" class="ln">   312  </span>	channel, ok := m.deathSig.Load(pair)
+<span id="L313" class="ln">   313  </span>	if ok {
+<span id="L314" class="ln">   314  </span>		deathChannel := channel.(chan bool)
+<span id="L315" class="ln">   315  </span>		select {
+<span id="L316" class="ln">   316  </span>		case &lt;-deathChannel:
+<span id="L317" class="ln">   317  </span>		case &lt;-ctx.Done():
+<span id="L318" class="ln">   318  </span>			return ctx.Err()
+<span id="L319" class="ln">   319  </span>		}
+<span id="L320" class="ln">   320  </span>	}
+<span id="L321" class="ln">   321  </span>
+<span id="L322" class="ln">   322  </span>	log.Info(&#34;Successfully killed process&#34;)
+<span id="L323" class="ln">   323  </span>	return nil
+<span id="L324" class="ln">   324  </span>}
+<span id="L325" class="ln">   325  </span>
+<span id="L326" class="ln">   326  </span>func (m *BackgroundProcessManager) Stdio(pid int, startTime int64) *Stdio {
+<span id="L327" class="ln">   327  </span>	log := log.WithValues(&#34;pid&#34;, pid)
+<span id="L328" class="ln">   328  </span>
+<span id="L329" class="ln">   329  </span>	procState, err := process.NewProcess(int32(pid))
+<span id="L330" class="ln">   330  </span>	if err != nil {
+<span id="L331" class="ln">   331  </span>		log.Info(&#34;fail to get process information&#34;, &#34;pid&#34;, pid)
+<span id="L332" class="ln">   332  </span>		<span class="comment">// return successfully as the process has exited</span>
+<span id="L333" class="ln">   333  </span>		return nil
+<span id="L334" class="ln">   334  </span>	}
+<span id="L335" class="ln">   335  </span>	ct, err := procState.CreateTime()
+<span id="L336" class="ln">   336  </span>	if err != nil {
+<span id="L337" class="ln">   337  </span>		log.Error(err, &#34;fail to read create time&#34;)
+<span id="L338" class="ln">   338  </span>		<span class="comment">// return successfully as the process has exited</span>
+<span id="L339" class="ln">   339  </span>		return nil
+<span id="L340" class="ln">   340  </span>	}
+<span id="L341" class="ln">   341  </span>
+<span id="L342" class="ln">   342  </span>	<span class="comment">// There is a bug in calculating CreateTime in the new version of</span>
+<span id="L343" class="ln">   343  </span>	<span class="comment">// gopsutils. This is a temporary solution before the upstream fixes it.</span>
+<span id="L344" class="ln">   344  </span>	if startTime-ct &gt; 1000 || ct-startTime &gt; 1000 {
+<span id="L345" class="ln">   345  </span>		log.Info(&#34;process has exited&#34;, &#34;startTime&#34;, ct, &#34;expectedStartTime&#34;, startTime)
+<span id="L346" class="ln">   346  </span>		<span class="comment">// return successfully as the process has exited</span>
+<span id="L347" class="ln">   347  </span>		return nil
+<span id="L348" class="ln">   348  </span>	}
+<span id="L349" class="ln">   349  </span>
+<span id="L350" class="ln">   350  </span>	pair := ProcessPair{
+<span id="L351" class="ln">   351  </span>		Pid:        pid,
+<span id="L352" class="ln">   352  </span>		CreateTime: startTime,
+<span id="L353" class="ln">   353  </span>	}
+<span id="L354" class="ln">   354  </span>
+<span id="L355" class="ln">   355  </span>	io, ok := m.stdio.Load(pair)
+<span id="L356" class="ln">   356  </span>	if !ok {
+<span id="L357" class="ln">   357  </span>		log.Info(&#34;fail to load with pair&#34;, &#34;pair&#34;, pair)
+<span id="L358" class="ln">   358  </span>		<span class="comment">// stdio is not stored</span>
+<span id="L359" class="ln">   359  </span>		return nil
+<span id="L360" class="ln">   360  </span>	}
+<span id="L361" class="ln">   361  </span>
+<span id="L362" class="ln">   362  </span>	return io.(*Stdio)
+<span id="L363" class="ln">   363  </span>}
+<span id="L364" class="ln">   364  </span>
+<span id="L365" class="ln">   365  </span><span class="comment">// GetIdentifiers finds all identifiers in BPM</span>
+<span id="L366" class="ln">   366  </span>func (m *BackgroundProcessManager) GetIdentifiers() []string {
+<span id="L367" class="ln">   367  </span>	var identifiers []string
+<span id="L368" class="ln">   368  </span>	m.identifiers.Range(func(key, value interface{}) bool {
+<span id="L369" class="ln">   369  </span>		identifiers = append(identifiers, key.(string))
+<span id="L370" class="ln">   370  </span>		return true
+<span id="L371" class="ln">   371  </span>	})
+<span id="L372" class="ln">   372  </span>
+<span id="L373" class="ln">   373  </span>	return identifiers
+<span id="L374" class="ln">   374  </span>}
+<span id="L375" class="ln">   375  </span>
+<span id="L376" class="ln">   376  </span><span class="comment">// DefaultProcessBuilder returns the default process builder</span>
+<span id="L377" class="ln">   377  </span>func DefaultProcessBuilder(cmd string, args ...string) *ProcessBuilder {
+<span id="L378" class="ln">   378  </span>	return &amp;ProcessBuilder{
+<span id="L379" class="ln">   379  </span>		cmd:        cmd,
+<span id="L380" class="ln">   380  </span>		args:       args,
+<span id="L381" class="ln">   381  </span>		nsOptions:  []nsOption{},
+<span id="L382" class="ln">   382  </span>		pause:      false,
+<span id="L383" class="ln">   383  </span>		identifier: nil,
+<span id="L384" class="ln">   384  </span>		ctx:        context.Background(),
+<span id="L385" class="ln">   385  </span>	}
+<span id="L386" class="ln">   386  </span>}
+<span id="L387" class="ln">   387  </span>
+<span id="L388" class="ln">   388  </span><span class="comment">// ProcessBuilder builds a exec.Cmd for daemon</span>
+<span id="L389" class="ln">   389  </span>type ProcessBuilder struct {
+<span id="L390" class="ln">   390  </span>	cmd  string
+<span id="L391" class="ln">   391  </span>	args []string
+<span id="L392" class="ln">   392  </span>	env  []string
+<span id="L393" class="ln">   393  </span>
+<span id="L394" class="ln">   394  </span>	nsOptions []nsOption
+<span id="L395" class="ln">   395  </span>
+<span id="L396" class="ln">   396  </span>	pause    bool
+<span id="L397" class="ln">   397  </span>	localMnt bool
 <span id="L398" class="ln">   398  </span>
-<span id="L399" class="ln">   399  </span>	return b
-<span id="L400" class="ln">   400  </span>}
-<span id="L401" class="ln">   401  </span>
-<span id="L402" class="ln">   402  </span>func (b *ProcessBuilder) EnableLocalMnt() *ProcessBuilder {
-<span id="L403" class="ln">   403  </span>	b.localMnt = true
-<span id="L404" class="ln">   404  </span>
-<span id="L405" class="ln">   405  </span>	return b
-<span id="L406" class="ln">   406  </span>}
-<span id="L407" class="ln">   407  </span>
-<span id="L408" class="ln">   408  </span><span class="comment">// SetContext sets context for process</span>
-<span id="L409" class="ln">   409  </span>func (b *ProcessBuilder) SetContext(ctx context.Context) *ProcessBuilder {
-<span id="L410" class="ln">   410  </span>	b.ctx = ctx
+<span id="L399" class="ln">   399  </span>	identifier *string
+<span id="L400" class="ln">   400  </span>	stdin      io.ReadWriteCloser
+<span id="L401" class="ln">   401  </span>	stdout     io.ReadWriteCloser
+<span id="L402" class="ln">   402  </span>	stderr     io.ReadWriteCloser
+<span id="L403" class="ln">   403  </span>
+<span id="L404" class="ln">   404  </span>	ctx context.Context
+<span id="L405" class="ln">   405  </span>}
+<span id="L406" class="ln">   406  </span>
+<span id="L407" class="ln">   407  </span><span class="comment">// GetNsPath returns corresponding namespace path</span>
+<span id="L408" class="ln">   408  </span>func GetNsPath(pid uint32, typ NsType) string {
+<span id="L409" class="ln">   409  </span>	return fmt.Sprintf(&#34;%s/%d/ns/%s&#34;, DefaultProcPrefix, pid, string(typ))
+<span id="L410" class="ln">   410  </span>}
 <span id="L411" class="ln">   411  </span>
-<span id="L412" class="ln">   412  </span>	return b
-<span id="L413" class="ln">   413  </span>}
-<span id="L414" class="ln">   414  </span>
-<span id="L415" class="ln">   415  </span><span class="comment">// SetStdin sets stdin for process</span>
-<span id="L416" class="ln">   416  </span>func (b *ProcessBuilder) SetStdin(stdin io.ReadWriteCloser) *ProcessBuilder {
-<span id="L417" class="ln">   417  </span>	b.stdin = stdin
-<span id="L418" class="ln">   418  </span>
-<span id="L419" class="ln">   419  </span>	return b
-<span id="L420" class="ln">   420  </span>}
-<span id="L421" class="ln">   421  </span>
-<span id="L422" class="ln">   422  </span><span class="comment">// SetStdout sets stdout for process</span>
-<span id="L423" class="ln">   423  </span>func (b *ProcessBuilder) SetStdout(stdout io.ReadWriteCloser) *ProcessBuilder {
-<span id="L424" class="ln">   424  </span>	b.stdout = stdout
+<span id="L412" class="ln">   412  </span><span class="comment">// SetEnv sets the environment variables of the process</span>
+<span id="L413" class="ln">   413  </span>func (b *ProcessBuilder) SetEnv(key, value string) *ProcessBuilder {
+<span id="L414" class="ln">   414  </span>	b.env = append(b.env, fmt.Sprintf(&#34;%s=%s&#34;, key, value))
+<span id="L415" class="ln">   415  </span>	return b
+<span id="L416" class="ln">   416  </span>}
+<span id="L417" class="ln">   417  </span>
+<span id="L418" class="ln">   418  </span><span class="comment">// SetNS sets the namespace of the process</span>
+<span id="L419" class="ln">   419  </span>func (b *ProcessBuilder) SetNS(pid uint32, typ NsType) *ProcessBuilder {
+<span id="L420" class="ln">   420  </span>	return b.SetNSOpt([]nsOption{{
+<span id="L421" class="ln">   421  </span>		Typ:  typ,
+<span id="L422" class="ln">   422  </span>		Path: GetNsPath(pid, typ),
+<span id="L423" class="ln">   423  </span>	}})
+<span id="L424" class="ln">   424  </span>}
 <span id="L425" class="ln">   425  </span>
-<span id="L426" class="ln">   426  </span>	return b
-<span id="L427" class="ln">   427  </span>}
-<span id="L428" class="ln">   428  </span>
-<span id="L429" class="ln">   429  </span><span class="comment">// SetStderr sets stderr for process</span>
-<span id="L430" class="ln">   430  </span>func (b *ProcessBuilder) SetStderr(stderr io.ReadWriteCloser) *ProcessBuilder {
-<span id="L431" class="ln">   431  </span>	b.stderr = stderr
+<span id="L426" class="ln">   426  </span><span class="comment">// SetNSOpt sets the namespace of the process</span>
+<span id="L427" class="ln">   427  </span>func (b *ProcessBuilder) SetNSOpt(options []nsOption) *ProcessBuilder {
+<span id="L428" class="ln">   428  </span>	b.nsOptions = append(b.nsOptions, options...)
+<span id="L429" class="ln">   429  </span>
+<span id="L430" class="ln">   430  </span>	return b
+<span id="L431" class="ln">   431  </span>}
 <span id="L432" class="ln">   432  </span>
-<span id="L433" class="ln">   433  </span>	return b
-<span id="L434" class="ln">   434  </span>}
-<span id="L435" class="ln">   435  </span>
-<span id="L436" class="ln">   436  </span>type nsOption struct {
-<span id="L437" class="ln">   437  </span>	Typ  NsType
-<span id="L438" class="ln">   438  </span>	Path string
-<span id="L439" class="ln">   439  </span>}
-<span id="L440" class="ln">   440  </span>
-<span id="L441" class="ln">   441  </span><span class="comment">// ManagedProcess is a process which can be managed by backgroundProcessManager</span>
-<span id="L442" class="ln">   442  </span>type ManagedProcess struct {
-<span id="L443" class="ln">   443  </span>	*exec.Cmd
-<span id="L444" class="ln">   444  </span>
-<span id="L445" class="ln">   445  </span>	<span class="comment">// If the identifier is not nil, process manager should make sure no other</span>
-<span id="L446" class="ln">   446  </span>	<span class="comment">// process with this identifier is running when executing this command</span>
-<span id="L447" class="ln">   447  </span>	Identifier *string
+<span id="L433" class="ln">   433  </span><span class="comment">// SetIdentifier sets the identifier of the process</span>
+<span id="L434" class="ln">   434  </span><span class="comment">//</span>
+<span id="L435" class="ln">   435  </span><span class="comment">// The identifier is used to identify the process in BPM, to confirm only one identified process is running.</span>
+<span id="L436" class="ln">   436  </span><span class="comment">// If one identified process is already running, new processes with the same identifier will be blocked by lock.</span>
+<span id="L437" class="ln">   437  </span>func (b *ProcessBuilder) SetIdentifier(id string) *ProcessBuilder {
+<span id="L438" class="ln">   438  </span>	b.identifier = &amp;id
+<span id="L439" class="ln">   439  </span>
+<span id="L440" class="ln">   440  </span>	return b
+<span id="L441" class="ln">   441  </span>}
+<span id="L442" class="ln">   442  </span>
+<span id="L443" class="ln">   443  </span><span class="comment">// EnablePause enables pause for process</span>
+<span id="L444" class="ln">   444  </span>func (b *ProcessBuilder) EnablePause() *ProcessBuilder {
+<span id="L445" class="ln">   445  </span>	b.pause = true
+<span id="L446" class="ln">   446  </span>
+<span id="L447" class="ln">   447  </span>	return b
 <span id="L448" class="ln">   448  </span>}
 <span id="L449" class="ln">   449  </span>
+<span id="L450" class="ln">   450  </span>func (b *ProcessBuilder) EnableLocalMnt() *ProcessBuilder {
+<span id="L451" class="ln">   451  </span>	b.localMnt = true
+<span id="L452" class="ln">   452  </span>
+<span id="L453" class="ln">   453  </span>	return b
+<span id="L454" class="ln">   454  </span>}
+<span id="L455" class="ln">   455  </span>
+<span id="L456" class="ln">   456  </span><span class="comment">// SetContext sets context for process</span>
+<span id="L457" class="ln">   457  </span>func (b *ProcessBuilder) SetContext(ctx context.Context) *ProcessBuilder {
+<span id="L458" class="ln">   458  </span>	b.ctx = ctx
+<span id="L459" class="ln">   459  </span>
+<span id="L460" class="ln">   460  </span>	return b
+<span id="L461" class="ln">   461  </span>}
+<span id="L462" class="ln">   462  </span>
+<span id="L463" class="ln">   463  </span><span class="comment">// SetStdin sets stdin for process</span>
+<span id="L464" class="ln">   464  </span>func (b *ProcessBuilder) SetStdin(stdin io.ReadWriteCloser) *ProcessBuilder {
+<span id="L465" class="ln">   465  </span>	b.stdin = stdin
+<span id="L466" class="ln">   466  </span>
+<span id="L467" class="ln">   467  </span>	return b
+<span id="L468" class="ln">   468  </span>}
+<span id="L469" class="ln">   469  </span>
+<span id="L470" class="ln">   470  </span><span class="comment">// SetStdout sets stdout for process</span>
+<span id="L471" class="ln">   471  </span>func (b *ProcessBuilder) SetStdout(stdout io.ReadWriteCloser) *ProcessBuilder {
+<span id="L472" class="ln">   472  </span>	b.stdout = stdout
+<span id="L473" class="ln">   473  </span>
+<span id="L474" class="ln">   474  </span>	return b
+<span id="L475" class="ln">   475  </span>}
+<span id="L476" class="ln">   476  </span>
+<span id="L477" class="ln">   477  </span><span class="comment">// SetStderr sets stderr for process</span>
+<span id="L478" class="ln">   478  </span>func (b *ProcessBuilder) SetStderr(stderr io.ReadWriteCloser) *ProcessBuilder {
+<span id="L479" class="ln">   479  </span>	b.stderr = stderr
+<span id="L480" class="ln">   480  </span>
+<span id="L481" class="ln">   481  </span>	return b
+<span id="L482" class="ln">   482  </span>}
+<span id="L483" class="ln">   483  </span>
+<span id="L484" class="ln">   484  </span>type nsOption struct {
+<span id="L485" class="ln">   485  </span>	Typ  NsType
+<span id="L486" class="ln">   486  </span>	Path string
+<span id="L487" class="ln">   487  </span>}
+<span id="L488" class="ln">   488  </span>
+<span id="L489" class="ln">   489  </span><span class="comment">// ManagedProcess is a process which can be managed by backgroundProcessManager</span>
+<span id="L490" class="ln">   490  </span>type ManagedProcess struct {
+<span id="L491" class="ln">   491  </span>	*exec.Cmd
+<span id="L492" class="ln">   492  </span>
+<span id="L493" class="ln">   493  </span>	<span class="comment">// If the identifier is not nil, process manager should make sure no other</span>
+<span id="L494" class="ln">   494  </span>	<span class="comment">// process with this identifier is running when executing this command</span>
+<span id="L495" class="ln">   495  </span>	Identifier *string
+<span id="L496" class="ln">   496  </span>}
+<span id="L497" class="ln">   497  </span>
 </pre><p></p>
 
 <div id="footer">

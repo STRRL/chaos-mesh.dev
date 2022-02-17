@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f3e2951. Generated at Wed Feb 16 22:03:29 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4181f4. Generated at Thu Feb 17 10:01:43 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -124,9 +124,6 @@
 			
 				
 				<dd><a href="#ReadCommName">func ReadCommName(pid int) (string, error)</a></dd>
-			
-				
-				<dd><a href="#StartServer">func StartServer(conf *Config, reg RegisterGatherer) error</a></dd>
 			
 				
 				<dd><a href="#ToNetlinkNetemAttrs">func ToNetlinkNetemAttrs(netem *pb.Netem) netlink.NetemQdiscAttrs</a></dd>
@@ -229,6 +226,20 @@
 				
 				<dd><a href="#Response">type Response</a></dd>
 				
+				
+			
+				
+				<dd><a href="#Server">type Server</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BuildServer">func BuildServer(conf *Config, reg RegisterGatherer) (*Server, error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Server.Shutdown">func (s *Server) Shutdown() error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Server.Start">func (s *Server) Start() error</a></dd>
 				
 			
 			
@@ -337,22 +348,6 @@ ReadCommName returns the command name of process
 		
 			
 			
-			<h2 id="StartServer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L163">StartServer</a>
-				<a class="permalink" href="#StartServer">&#xb6;</a>
-				
-				
-			</h2>
-			<pre>func StartServer(conf *<a href="#Config">Config</a>, reg <a href="#RegisterGatherer">RegisterGatherer</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
-			<p>
-StartServer starts chaos-daemon.
-</p>
-
-			
-			
-
-		
-			
-			
 			<h2 id="ToNetlinkNetemAttrs">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/types.go#L24">ToNetlinkNetemAttrs</a>
 				<a class="permalink" href="#ToNetlinkNetemAttrs">&#xb6;</a>
 				
@@ -367,7 +362,7 @@ StartServer starts chaos-daemon.
 		
 			
 			
-			<h2 id="Config">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L48">Config</a>
+			<h2 id="Config">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L50">Config</a>
 				<a class="permalink" href="#Config">&#xb6;</a>
 				
 				
@@ -398,7 +393,7 @@ Config contains the basic chaos daemon configuration.
 
 			
 				
-				<h3 id="Config.GrpcAddr">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L71">GrpcAddr</a>
+				<h3 id="Config.GrpcAddr">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L73">GrpcAddr</a>
 					<a class="permalink" href="#Config.GrpcAddr">&#xb6;</a>
 					
 					
@@ -413,7 +408,7 @@ Get the grpc address
 				
 			
 				
-				<h3 id="Config.HttpAddr">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L66">HttpAddr</a>
+				<h3 id="Config.HttpAddr">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L68">HttpAddr</a>
 					<a class="permalink" href="#Config.HttpAddr">&#xb6;</a>
 					
 					
@@ -430,7 +425,7 @@ Get the http address
 		
 			
 			
-			<h2 id="DaemonServer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L76">DaemonServer</a>
+			<h2 id="DaemonServer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L78">DaemonServer</a>
 				<a class="permalink" href="#DaemonServer">&#xb6;</a>
 				
 				
@@ -455,7 +450,7 @@ DaemonServer represents a grpc server for tc daemon
 
 			
 				
-				<h3 id="NewDaemonServerWithCRClient">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L93">NewDaemonServerWithCRClient</a>
+				<h3 id="NewDaemonServerWithCRClient">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L95">NewDaemonServerWithCRClient</a>
 					<a class="permalink" href="#NewDaemonServerWithCRClient">&#xb6;</a>
 					
 					
@@ -792,7 +787,7 @@ IterFrom starts iterating from source node
 		
 			
 			
-			<h2 id="RegisterGatherer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L157">RegisterGatherer</a>
+			<h2 id="RegisterGatherer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L154">RegisterGatherer</a>
 				<a class="permalink" href="#RegisterGatherer">&#xb6;</a>
 				
 				
@@ -846,6 +841,75 @@ Response is the body part of HTTP Response
 
 			
 
+			
+		
+			
+			
+			<h2 id="Server">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L160">Server</a>
+				<a class="permalink" href="#Server">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Server is the server for chaos daemon
+</p>
+
+			<pre>type Server struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="BuildServer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L169">BuildServer</a>
+					<a class="permalink" href="#BuildServer">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func BuildServer(conf *<a href="#Config">Config</a>, reg <a href="#RegisterGatherer">RegisterGatherer</a>) (*<a href="#Server">Server</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<p>
+BuildServer builds a chaos daemon server
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="Server.Shutdown">func (*Server) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L215">Shutdown</a>
+					<a class="permalink" href="#Server.Shutdown">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#Server">Server</a>) Shutdown() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Server.Start">func (*Server) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L187">Start</a>
+					<a class="permalink" href="#Server.Start">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#Server">Server</a>) Start() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<p>
+Start starts chaos-daemon.
+</p>
+
+				
+				
+				
 			
 		
 	

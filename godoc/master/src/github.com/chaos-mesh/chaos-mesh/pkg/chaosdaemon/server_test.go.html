@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f3e2951. Generated at Wed Feb 16 22:03:29 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4181f4. Generated at Thu Feb 17 10:01:43 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -107,31 +107,35 @@
 <span id="L42" class="ln">    42  </span>	Context(&#34;newGRPCServer&#34;, func() {
 <span id="L43" class="ln">    43  </span>		It(&#34;should work&#34;, func() {
 <span id="L44" class="ln">    44  </span>			defer mock.With(&#34;MockContainerdClient&#34;, &amp;test.MockClient{})()
-<span id="L45" class="ln">    45  </span>			_, err := newGRPCServer(crclients.ContainerRuntimeContainerd, &amp;MockRegisterer{}, tlsConfig{})
+<span id="L45" class="ln">    45  </span>			daemonServer, err := newDaemonServer(crclients.ContainerRuntimeContainerd, nil)
 <span id="L46" class="ln">    46  </span>			Expect(err).To(BeNil())
-<span id="L47" class="ln">    47  </span>		})
-<span id="L48" class="ln">    48  </span>
-<span id="L49" class="ln">    49  </span>		It(&#34;should panic&#34;, func() {
-<span id="L50" class="ln">    50  </span>			Ω(func() {
-<span id="L51" class="ln">    51  </span>				defer mock.With(&#34;MockContainerdClient&#34;, &amp;test.MockClient{})()
-<span id="L52" class="ln">    52  </span>				defer mock.With(&#34;PanicOnMustRegister&#34;, &#34;mock panic&#34;)()
-<span id="L53" class="ln">    53  </span>				_, err := newGRPCServer(crclients.ContainerRuntimeContainerd, &amp;MockRegisterer{}, tlsConfig{})
-<span id="L54" class="ln">    54  </span>				Expect(err).To(BeNil())
-<span id="L55" class="ln">    55  </span>			}).Should(Panic())
-<span id="L56" class="ln">    56  </span>		})
-<span id="L57" class="ln">    57  </span>	})
-<span id="L58" class="ln">    58  </span>})
-<span id="L59" class="ln">    59  </span>
-<span id="L60" class="ln">    60  </span>type MockRegisterer struct {
-<span id="L61" class="ln">    61  </span>	RegisterGatherer
-<span id="L62" class="ln">    62  </span>}
+<span id="L47" class="ln">    47  </span>			_, err = newGRPCServer(daemonServer, &amp;MockRegisterer{}, tlsConfig{})
+<span id="L48" class="ln">    48  </span>			Expect(err).To(BeNil())
+<span id="L49" class="ln">    49  </span>		})
+<span id="L50" class="ln">    50  </span>
+<span id="L51" class="ln">    51  </span>		It(&#34;should panic&#34;, func() {
+<span id="L52" class="ln">    52  </span>			Ω(func() {
+<span id="L53" class="ln">    53  </span>				defer mock.With(&#34;MockContainerdClient&#34;, &amp;test.MockClient{})()
+<span id="L54" class="ln">    54  </span>				defer mock.With(&#34;PanicOnMustRegister&#34;, &#34;mock panic&#34;)()
+<span id="L55" class="ln">    55  </span>				daemonServer, err := newDaemonServer(crclients.ContainerRuntimeContainerd, nil)
+<span id="L56" class="ln">    56  </span>				Expect(err).To(BeNil())
+<span id="L57" class="ln">    57  </span>				_, err = newGRPCServer(daemonServer, &amp;MockRegisterer{}, tlsConfig{})
+<span id="L58" class="ln">    58  </span>				Expect(err).To(BeNil())
+<span id="L59" class="ln">    59  </span>			}).Should(Panic())
+<span id="L60" class="ln">    60  </span>		})
+<span id="L61" class="ln">    61  </span>	})
+<span id="L62" class="ln">    62  </span>})
 <span id="L63" class="ln">    63  </span>
-<span id="L64" class="ln">    64  </span>func (*MockRegisterer) MustRegister(...prometheus.Collector) {
-<span id="L65" class="ln">    65  </span>	if err := mock.On(&#34;PanicOnMustRegister&#34;); err != nil {
-<span id="L66" class="ln">    66  </span>		panic(err)
-<span id="L67" class="ln">    67  </span>	}
-<span id="L68" class="ln">    68  </span>}
-<span id="L69" class="ln">    69  </span>
+<span id="L64" class="ln">    64  </span>type MockRegisterer struct {
+<span id="L65" class="ln">    65  </span>	RegisterGatherer
+<span id="L66" class="ln">    66  </span>}
+<span id="L67" class="ln">    67  </span>
+<span id="L68" class="ln">    68  </span>func (*MockRegisterer) MustRegister(...prometheus.Collector) {
+<span id="L69" class="ln">    69  </span>	if err := mock.On(&#34;PanicOnMustRegister&#34;); err != nil {
+<span id="L70" class="ln">    70  </span>		panic(err)
+<span id="L71" class="ln">    71  </span>	}
+<span id="L72" class="ln">    72  </span>}
+<span id="L73" class="ln">    73  </span>
 </pre><p></p>
 
 <div id="footer">

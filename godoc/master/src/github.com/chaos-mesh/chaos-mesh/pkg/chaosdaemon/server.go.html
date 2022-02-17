@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f3e2951. Generated at Wed Feb 16 22:03:29 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4181f4. Generated at Thu Feb 17 10:01:43 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -87,186 +87,205 @@
 <span id="L22" class="ln">    22  </span>	&#34;fmt&#34;
 <span id="L23" class="ln">    23  </span>	&#34;io/ioutil&#34;
 <span id="L24" class="ln">    24  </span>	&#34;net&#34;
-<span id="L25" class="ln">    25  </span>
-<span id="L26" class="ln">    26  </span>	grpc_middleware &#34;github.com/grpc-ecosystem/go-grpc-middleware&#34;
-<span id="L27" class="ln">    27  </span>	grpc_prometheus &#34;github.com/grpc-ecosystem/go-grpc-prometheus&#34;
-<span id="L28" class="ln">    28  </span>	&#34;github.com/moby/locker&#34;
-<span id="L29" class="ln">    29  </span>	&#34;github.com/prometheus/client_golang/prometheus&#34;
-<span id="L30" class="ln">    30  </span>	&#34;golang.org/x/sync/errgroup&#34;
-<span id="L31" class="ln">    31  </span>	&#34;google.golang.org/grpc&#34;
-<span id="L32" class="ln">    32  </span>	&#34;google.golang.org/grpc/credentials&#34;
-<span id="L33" class="ln">    33  </span>	&#34;google.golang.org/grpc/reflection&#34;
-<span id="L34" class="ln">    34  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
-<span id="L35" class="ln">    35  </span>
-<span id="L36" class="ln">    36  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/bpm&#34;
-<span id="L37" class="ln">    37  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/crclients&#34;
-<span id="L38" class="ln">    38  </span>	pb &#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb&#34;
-<span id="L39" class="ln">    39  </span>	grpcUtils &#34;github.com/chaos-mesh/chaos-mesh/pkg/grpc&#34;
-<span id="L40" class="ln">    40  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/metrics&#34;
-<span id="L41" class="ln">    41  </span>)
-<span id="L42" class="ln">    42  </span>
-<span id="L43" class="ln">    43  </span>var log = ctrl.Log.WithName(&#34;chaos-daemon-server&#34;)
+<span id="L25" class="ln">    25  </span>	&#34;net/http&#34;
+<span id="L26" class="ln">    26  </span>
+<span id="L27" class="ln">    27  </span>	grpc_middleware &#34;github.com/grpc-ecosystem/go-grpc-middleware&#34;
+<span id="L28" class="ln">    28  </span>	grpc_prometheus &#34;github.com/grpc-ecosystem/go-grpc-prometheus&#34;
+<span id="L29" class="ln">    29  </span>	&#34;github.com/moby/locker&#34;
+<span id="L30" class="ln">    30  </span>	&#34;github.com/pkg/errors&#34;
+<span id="L31" class="ln">    31  </span>	&#34;github.com/prometheus/client_golang/prometheus&#34;
+<span id="L32" class="ln">    32  </span>	&#34;golang.org/x/sync/errgroup&#34;
+<span id="L33" class="ln">    33  </span>	&#34;google.golang.org/grpc&#34;
+<span id="L34" class="ln">    34  </span>	&#34;google.golang.org/grpc/credentials&#34;
+<span id="L35" class="ln">    35  </span>	&#34;google.golang.org/grpc/reflection&#34;
+<span id="L36" class="ln">    36  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
+<span id="L37" class="ln">    37  </span>
+<span id="L38" class="ln">    38  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/bpm&#34;
+<span id="L39" class="ln">    39  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/crclients&#34;
+<span id="L40" class="ln">    40  </span>	pb &#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb&#34;
+<span id="L41" class="ln">    41  </span>	grpcUtils &#34;github.com/chaos-mesh/chaos-mesh/pkg/grpc&#34;
+<span id="L42" class="ln">    42  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/metrics&#34;
+<span id="L43" class="ln">    43  </span>)
 <span id="L44" class="ln">    44  </span>
-<span id="L45" class="ln">    45  </span><span class="comment">//go:generate protoc -I pb pb/chaosdaemon.proto --go_out=plugins=grpc:pb</span>
+<span id="L45" class="ln">    45  </span>var log = ctrl.Log.WithName(&#34;chaos-daemon-server&#34;)
 <span id="L46" class="ln">    46  </span>
-<span id="L47" class="ln">    47  </span><span class="comment">// Config contains the basic chaos daemon configuration.</span>
-<span id="L48" class="ln">    48  </span>type Config struct {
-<span id="L49" class="ln">    49  </span>	HTTPPort  int
-<span id="L50" class="ln">    50  </span>	GRPCPort  int
-<span id="L51" class="ln">    51  </span>	Host      string
-<span id="L52" class="ln">    52  </span>	Runtime   string
-<span id="L53" class="ln">    53  </span>	Profiling bool
-<span id="L54" class="ln">    54  </span>
-<span id="L55" class="ln">    55  </span>	tlsConfig
-<span id="L56" class="ln">    56  </span>}
-<span id="L57" class="ln">    57  </span>
-<span id="L58" class="ln">    58  </span><span class="comment">// tlsConfig contains the config of TLS Server</span>
-<span id="L59" class="ln">    59  </span>type tlsConfig struct {
-<span id="L60" class="ln">    60  </span>	CaCert string
-<span id="L61" class="ln">    61  </span>	Cert   string
-<span id="L62" class="ln">    62  </span>	Key    string
-<span id="L63" class="ln">    63  </span>}
-<span id="L64" class="ln">    64  </span>
-<span id="L65" class="ln">    65  </span><span class="comment">// Get the http address</span>
-<span id="L66" class="ln">    66  </span>func (c *Config) HttpAddr() string {
-<span id="L67" class="ln">    67  </span>	return net.JoinHostPort(c.Host, fmt.Sprintf(&#34;%d&#34;, c.HTTPPort))
-<span id="L68" class="ln">    68  </span>}
-<span id="L69" class="ln">    69  </span>
-<span id="L70" class="ln">    70  </span><span class="comment">// Get the grpc address</span>
-<span id="L71" class="ln">    71  </span>func (c *Config) GrpcAddr() string {
-<span id="L72" class="ln">    72  </span>	return net.JoinHostPort(c.Host, fmt.Sprintf(&#34;%d&#34;, c.GRPCPort))
-<span id="L73" class="ln">    73  </span>}
-<span id="L74" class="ln">    74  </span>
-<span id="L75" class="ln">    75  </span><span class="comment">// DaemonServer represents a grpc server for tc daemon</span>
-<span id="L76" class="ln">    76  </span>type DaemonServer struct {
-<span id="L77" class="ln">    77  </span>	crClient                 crclients.ContainerRuntimeInfoClient
-<span id="L78" class="ln">    78  </span>	backgroundProcessManager bpm.BackgroundProcessManager
-<span id="L79" class="ln">    79  </span>
-<span id="L80" class="ln">    80  </span>	IPSetLocker *locker.Locker
-<span id="L81" class="ln">    81  </span>}
-<span id="L82" class="ln">    82  </span>
-<span id="L83" class="ln">    83  </span>func newDaemonServer(containerRuntime string, reg prometheus.Registerer) (*DaemonServer, error) {
-<span id="L84" class="ln">    84  </span>	crClient, err := crclients.CreateContainerRuntimeInfoClient(containerRuntime)
-<span id="L85" class="ln">    85  </span>	if err != nil {
-<span id="L86" class="ln">    86  </span>		return nil, err
-<span id="L87" class="ln">    87  </span>	}
-<span id="L88" class="ln">    88  </span>
-<span id="L89" class="ln">    89  </span>	return NewDaemonServerWithCRClient(crClient, reg), nil
-<span id="L90" class="ln">    90  </span>}
-<span id="L91" class="ln">    91  </span>
-<span id="L92" class="ln">    92  </span><span class="comment">// NewDaemonServerWithCRClient returns DaemonServer with container runtime client</span>
-<span id="L93" class="ln">    93  </span>func NewDaemonServerWithCRClient(crClient crclients.ContainerRuntimeInfoClient, reg prometheus.Registerer) *DaemonServer {
-<span id="L94" class="ln">    94  </span>	return &amp;DaemonServer{
-<span id="L95" class="ln">    95  </span>		IPSetLocker:              locker.New(),
-<span id="L96" class="ln">    96  </span>		crClient:                 crClient,
-<span id="L97" class="ln">    97  </span>		backgroundProcessManager: bpm.NewBackgroundProcessManager(reg),
-<span id="L98" class="ln">    98  </span>	}
-<span id="L99" class="ln">    99  </span>}
-<span id="L100" class="ln">   100  </span>
-<span id="L101" class="ln">   101  </span>func newGRPCServer(containerRuntime string, reg prometheus.Registerer, tlsConf tlsConfig) (*grpc.Server, error) {
-<span id="L102" class="ln">   102  </span>	ds, err := newDaemonServer(containerRuntime, reg)
-<span id="L103" class="ln">   103  </span>	if err != nil {
-<span id="L104" class="ln">   104  </span>		return nil, err
-<span id="L105" class="ln">   105  </span>	}
-<span id="L106" class="ln">   106  </span>
-<span id="L107" class="ln">   107  </span>	grpcMetrics := grpc_prometheus.NewServerMetrics()
-<span id="L108" class="ln">   108  </span>	grpcMetrics.EnableHandlingTimeHistogram(
-<span id="L109" class="ln">   109  </span>		grpc_prometheus.WithHistogramBuckets(metrics.ChaosDaemonGrpcServerBuckets),
-<span id="L110" class="ln">   110  </span>		metrics.WithHistogramName(&#34;chaos_daemon_grpc_server_handling_seconds&#34;),
-<span id="L111" class="ln">   111  </span>	)
-<span id="L112" class="ln">   112  </span>	reg.MustRegister(
-<span id="L113" class="ln">   113  </span>		grpcMetrics,
-<span id="L114" class="ln">   114  </span>		metrics.DefaultChaosDaemonMetricsCollector.InjectCrClient(ds.crClient),
-<span id="L115" class="ln">   115  </span>	)
-<span id="L116" class="ln">   116  </span>
-<span id="L117" class="ln">   117  </span>	grpcOpts := []grpc.ServerOption{
-<span id="L118" class="ln">   118  </span>		grpc_middleware.WithUnaryServerChain(
-<span id="L119" class="ln">   119  </span>			grpcUtils.TimeoutServerInterceptor,
-<span id="L120" class="ln">   120  </span>			grpcMetrics.UnaryServerInterceptor(),
-<span id="L121" class="ln">   121  </span>		),
-<span id="L122" class="ln">   122  </span>	}
-<span id="L123" class="ln">   123  </span>
-<span id="L124" class="ln">   124  </span>	if tlsConf != (tlsConfig{}) {
-<span id="L125" class="ln">   125  </span>		caCert, err := ioutil.ReadFile(tlsConf.CaCert)
-<span id="L126" class="ln">   126  </span>		if err != nil {
-<span id="L127" class="ln">   127  </span>			return nil, err
-<span id="L128" class="ln">   128  </span>		}
-<span id="L129" class="ln">   129  </span>		caCertPool := x509.NewCertPool()
-<span id="L130" class="ln">   130  </span>		caCertPool.AppendCertsFromPEM(caCert)
-<span id="L131" class="ln">   131  </span>
-<span id="L132" class="ln">   132  </span>		serverCert, err := tls.LoadX509KeyPair(tlsConf.Cert, tlsConf.Key)
-<span id="L133" class="ln">   133  </span>		if err != nil {
-<span id="L134" class="ln">   134  </span>			return nil, err
-<span id="L135" class="ln">   135  </span>		}
-<span id="L136" class="ln">   136  </span>
-<span id="L137" class="ln">   137  </span>		creds := credentials.NewTLS(&amp;tls.Config{
-<span id="L138" class="ln">   138  </span>			Certificates: []tls.Certificate{serverCert},
-<span id="L139" class="ln">   139  </span>			ClientCAs:    caCertPool,
-<span id="L140" class="ln">   140  </span>			ClientAuth:   tls.RequireAndVerifyClientCert,
-<span id="L141" class="ln">   141  </span>			MinVersion:   tls.VersionTLS13,
-<span id="L142" class="ln">   142  </span>		})
+<span id="L47" class="ln">    47  </span><span class="comment">//go:generate protoc -I pb pb/chaosdaemon.proto --go_out=plugins=grpc:pb</span>
+<span id="L48" class="ln">    48  </span>
+<span id="L49" class="ln">    49  </span><span class="comment">// Config contains the basic chaos daemon configuration.</span>
+<span id="L50" class="ln">    50  </span>type Config struct {
+<span id="L51" class="ln">    51  </span>	HTTPPort  int
+<span id="L52" class="ln">    52  </span>	GRPCPort  int
+<span id="L53" class="ln">    53  </span>	Host      string
+<span id="L54" class="ln">    54  </span>	Runtime   string
+<span id="L55" class="ln">    55  </span>	Profiling bool
+<span id="L56" class="ln">    56  </span>
+<span id="L57" class="ln">    57  </span>	tlsConfig
+<span id="L58" class="ln">    58  </span>}
+<span id="L59" class="ln">    59  </span>
+<span id="L60" class="ln">    60  </span><span class="comment">// tlsConfig contains the config of TLS Server</span>
+<span id="L61" class="ln">    61  </span>type tlsConfig struct {
+<span id="L62" class="ln">    62  </span>	CaCert string
+<span id="L63" class="ln">    63  </span>	Cert   string
+<span id="L64" class="ln">    64  </span>	Key    string
+<span id="L65" class="ln">    65  </span>}
+<span id="L66" class="ln">    66  </span>
+<span id="L67" class="ln">    67  </span><span class="comment">// Get the http address</span>
+<span id="L68" class="ln">    68  </span>func (c *Config) HttpAddr() string {
+<span id="L69" class="ln">    69  </span>	return net.JoinHostPort(c.Host, fmt.Sprintf(&#34;%d&#34;, c.HTTPPort))
+<span id="L70" class="ln">    70  </span>}
+<span id="L71" class="ln">    71  </span>
+<span id="L72" class="ln">    72  </span><span class="comment">// Get the grpc address</span>
+<span id="L73" class="ln">    73  </span>func (c *Config) GrpcAddr() string {
+<span id="L74" class="ln">    74  </span>	return net.JoinHostPort(c.Host, fmt.Sprintf(&#34;%d&#34;, c.GRPCPort))
+<span id="L75" class="ln">    75  </span>}
+<span id="L76" class="ln">    76  </span>
+<span id="L77" class="ln">    77  </span><span class="comment">// DaemonServer represents a grpc server for tc daemon</span>
+<span id="L78" class="ln">    78  </span>type DaemonServer struct {
+<span id="L79" class="ln">    79  </span>	crClient                 crclients.ContainerRuntimeInfoClient
+<span id="L80" class="ln">    80  </span>	backgroundProcessManager bpm.BackgroundProcessManager
+<span id="L81" class="ln">    81  </span>
+<span id="L82" class="ln">    82  </span>	IPSetLocker *locker.Locker
+<span id="L83" class="ln">    83  </span>}
+<span id="L84" class="ln">    84  </span>
+<span id="L85" class="ln">    85  </span>func newDaemonServer(containerRuntime string, reg prometheus.Registerer) (*DaemonServer, error) {
+<span id="L86" class="ln">    86  </span>	crClient, err := crclients.CreateContainerRuntimeInfoClient(containerRuntime)
+<span id="L87" class="ln">    87  </span>	if err != nil {
+<span id="L88" class="ln">    88  </span>		return nil, err
+<span id="L89" class="ln">    89  </span>	}
+<span id="L90" class="ln">    90  </span>
+<span id="L91" class="ln">    91  </span>	return NewDaemonServerWithCRClient(crClient, reg), nil
+<span id="L92" class="ln">    92  </span>}
+<span id="L93" class="ln">    93  </span>
+<span id="L94" class="ln">    94  </span><span class="comment">// NewDaemonServerWithCRClient returns DaemonServer with container runtime client</span>
+<span id="L95" class="ln">    95  </span>func NewDaemonServerWithCRClient(crClient crclients.ContainerRuntimeInfoClient, reg prometheus.Registerer) *DaemonServer {
+<span id="L96" class="ln">    96  </span>	return &amp;DaemonServer{
+<span id="L97" class="ln">    97  </span>		IPSetLocker:              locker.New(),
+<span id="L98" class="ln">    98  </span>		crClient:                 crClient,
+<span id="L99" class="ln">    99  </span>		backgroundProcessManager: bpm.NewBackgroundProcessManager(reg),
+<span id="L100" class="ln">   100  </span>	}
+<span id="L101" class="ln">   101  </span>}
+<span id="L102" class="ln">   102  </span>
+<span id="L103" class="ln">   103  </span>func newGRPCServer(daemonServer *DaemonServer, reg prometheus.Registerer, tlsConf tlsConfig) (*grpc.Server, error) {
+<span id="L104" class="ln">   104  </span>	grpcMetrics := grpc_prometheus.NewServerMetrics()
+<span id="L105" class="ln">   105  </span>	grpcMetrics.EnableHandlingTimeHistogram(
+<span id="L106" class="ln">   106  </span>		grpc_prometheus.WithHistogramBuckets(metrics.ChaosDaemonGrpcServerBuckets),
+<span id="L107" class="ln">   107  </span>		metrics.WithHistogramName(&#34;chaos_daemon_grpc_server_handling_seconds&#34;),
+<span id="L108" class="ln">   108  </span>	)
+<span id="L109" class="ln">   109  </span>	reg.MustRegister(
+<span id="L110" class="ln">   110  </span>		grpcMetrics,
+<span id="L111" class="ln">   111  </span>		metrics.DefaultChaosDaemonMetricsCollector.InjectCrClient(daemonServer.crClient),
+<span id="L112" class="ln">   112  </span>	)
+<span id="L113" class="ln">   113  </span>
+<span id="L114" class="ln">   114  </span>	grpcOpts := []grpc.ServerOption{
+<span id="L115" class="ln">   115  </span>		grpc_middleware.WithUnaryServerChain(
+<span id="L116" class="ln">   116  </span>			grpcUtils.TimeoutServerInterceptor,
+<span id="L117" class="ln">   117  </span>			grpcMetrics.UnaryServerInterceptor(),
+<span id="L118" class="ln">   118  </span>		),
+<span id="L119" class="ln">   119  </span>	}
+<span id="L120" class="ln">   120  </span>
+<span id="L121" class="ln">   121  </span>	if tlsConf != (tlsConfig{}) {
+<span id="L122" class="ln">   122  </span>		caCert, err := ioutil.ReadFile(tlsConf.CaCert)
+<span id="L123" class="ln">   123  </span>		if err != nil {
+<span id="L124" class="ln">   124  </span>			return nil, err
+<span id="L125" class="ln">   125  </span>		}
+<span id="L126" class="ln">   126  </span>		caCertPool := x509.NewCertPool()
+<span id="L127" class="ln">   127  </span>		caCertPool.AppendCertsFromPEM(caCert)
+<span id="L128" class="ln">   128  </span>
+<span id="L129" class="ln">   129  </span>		serverCert, err := tls.LoadX509KeyPair(tlsConf.Cert, tlsConf.Key)
+<span id="L130" class="ln">   130  </span>		if err != nil {
+<span id="L131" class="ln">   131  </span>			return nil, err
+<span id="L132" class="ln">   132  </span>		}
+<span id="L133" class="ln">   133  </span>
+<span id="L134" class="ln">   134  </span>		creds := credentials.NewTLS(&amp;tls.Config{
+<span id="L135" class="ln">   135  </span>			Certificates: []tls.Certificate{serverCert},
+<span id="L136" class="ln">   136  </span>			ClientCAs:    caCertPool,
+<span id="L137" class="ln">   137  </span>			ClientAuth:   tls.RequireAndVerifyClientCert,
+<span id="L138" class="ln">   138  </span>			MinVersion:   tls.VersionTLS13,
+<span id="L139" class="ln">   139  </span>		})
+<span id="L140" class="ln">   140  </span>
+<span id="L141" class="ln">   141  </span>		grpcOpts = append(grpcOpts, grpc.Creds(creds))
+<span id="L142" class="ln">   142  </span>	}
 <span id="L143" class="ln">   143  </span>
-<span id="L144" class="ln">   144  </span>		grpcOpts = append(grpcOpts, grpc.Creds(creds))
-<span id="L145" class="ln">   145  </span>	}
+<span id="L144" class="ln">   144  </span>	s := grpc.NewServer(grpcOpts...)
+<span id="L145" class="ln">   145  </span>	grpcMetrics.InitializeMetrics(s)
 <span id="L146" class="ln">   146  </span>
-<span id="L147" class="ln">   147  </span>	s := grpc.NewServer(grpcOpts...)
-<span id="L148" class="ln">   148  </span>	grpcMetrics.InitializeMetrics(s)
+<span id="L147" class="ln">   147  </span>	pb.RegisterChaosDaemonServer(s, daemonServer)
+<span id="L148" class="ln">   148  </span>	reflection.Register(s)
 <span id="L149" class="ln">   149  </span>
-<span id="L150" class="ln">   150  </span>	pb.RegisterChaosDaemonServer(s, ds)
-<span id="L151" class="ln">   151  </span>	reflection.Register(s)
+<span id="L150" class="ln">   150  </span>	return s, nil
+<span id="L151" class="ln">   151  </span>}
 <span id="L152" class="ln">   152  </span>
-<span id="L153" class="ln">   153  </span>	return s, nil
-<span id="L154" class="ln">   154  </span>}
-<span id="L155" class="ln">   155  </span>
-<span id="L156" class="ln">   156  </span><span class="comment">// RegisterGatherer combine prometheus.Registerer and prometheus.Gatherer</span>
-<span id="L157" class="ln">   157  </span>type RegisterGatherer interface {
-<span id="L158" class="ln">   158  </span>	prometheus.Registerer
-<span id="L159" class="ln">   159  </span>	prometheus.Gatherer
-<span id="L160" class="ln">   160  </span>}
-<span id="L161" class="ln">   161  </span>
-<span id="L162" class="ln">   162  </span><span class="comment">// StartServer starts chaos-daemon.</span>
-<span id="L163" class="ln">   163  </span>func StartServer(conf *Config, reg RegisterGatherer) error {
-<span id="L164" class="ln">   164  </span>	g := &amp;errgroup.Group{}
-<span id="L165" class="ln">   165  </span>
-<span id="L166" class="ln">   166  </span>	httpBindAddr := conf.HttpAddr()
-<span id="L167" class="ln">   167  </span>	httpServer := newHTTPServerBuilder().Addr(httpBindAddr).Metrics(reg).Profiling(conf.Profiling).Build()
-<span id="L168" class="ln">   168  </span>
-<span id="L169" class="ln">   169  </span>	grpcBindAddr := conf.GrpcAddr()
-<span id="L170" class="ln">   170  </span>	grpcListener, err := net.Listen(&#34;tcp&#34;, grpcBindAddr)
-<span id="L171" class="ln">   171  </span>	if err != nil {
-<span id="L172" class="ln">   172  </span>		log.Error(err, &#34;failed to listen grpc address&#34;, &#34;grpcBindAddr&#34;, grpcBindAddr)
-<span id="L173" class="ln">   173  </span>		return err
-<span id="L174" class="ln">   174  </span>	}
-<span id="L175" class="ln">   175  </span>
-<span id="L176" class="ln">   176  </span>	grpcServer, err := newGRPCServer(conf.Runtime, reg, conf.tlsConfig)
-<span id="L177" class="ln">   177  </span>	if err != nil {
-<span id="L178" class="ln">   178  </span>		log.Error(err, &#34;failed to create grpc server&#34;)
-<span id="L179" class="ln">   179  </span>		return err
-<span id="L180" class="ln">   180  </span>	}
-<span id="L181" class="ln">   181  </span>
-<span id="L182" class="ln">   182  </span>	g.Go(func() error {
-<span id="L183" class="ln">   183  </span>		log.Info(&#34;Starting http endpoint&#34;, &#34;address&#34;, httpBindAddr)
-<span id="L184" class="ln">   184  </span>		if err := httpServer.ListenAndServe(); err != nil {
-<span id="L185" class="ln">   185  </span>			log.Error(err, &#34;failed to start http endpoint&#34;)
-<span id="L186" class="ln">   186  </span>			httpServer.Shutdown(context.Background())
-<span id="L187" class="ln">   187  </span>			return err
-<span id="L188" class="ln">   188  </span>		}
-<span id="L189" class="ln">   189  </span>		return nil
-<span id="L190" class="ln">   190  </span>	})
-<span id="L191" class="ln">   191  </span>
-<span id="L192" class="ln">   192  </span>	g.Go(func() error {
-<span id="L193" class="ln">   193  </span>		log.Info(&#34;Starting grpc endpoint&#34;, &#34;address&#34;, grpcBindAddr, &#34;runtime&#34;, conf.Runtime)
-<span id="L194" class="ln">   194  </span>		if err := grpcServer.Serve(grpcListener); err != nil {
-<span id="L195" class="ln">   195  </span>			log.Error(err, &#34;failed to start grpc endpoint&#34;)
-<span id="L196" class="ln">   196  </span>			grpcServer.Stop()
-<span id="L197" class="ln">   197  </span>			return err
-<span id="L198" class="ln">   198  </span>		}
-<span id="L199" class="ln">   199  </span>		return nil
-<span id="L200" class="ln">   200  </span>	})
-<span id="L201" class="ln">   201  </span>
-<span id="L202" class="ln">   202  </span>	return g.Wait()
-<span id="L203" class="ln">   203  </span>}
-<span id="L204" class="ln">   204  </span>
+<span id="L153" class="ln">   153  </span><span class="comment">// RegisterGatherer combine prometheus.Registerer and prometheus.Gatherer</span>
+<span id="L154" class="ln">   154  </span>type RegisterGatherer interface {
+<span id="L155" class="ln">   155  </span>	prometheus.Registerer
+<span id="L156" class="ln">   156  </span>	prometheus.Gatherer
+<span id="L157" class="ln">   157  </span>}
+<span id="L158" class="ln">   158  </span>
+<span id="L159" class="ln">   159  </span><span class="comment">// Server is the server for chaos daemon</span>
+<span id="L160" class="ln">   160  </span>type Server struct {
+<span id="L161" class="ln">   161  </span>	daemonServer *DaemonServer
+<span id="L162" class="ln">   162  </span>	httpServer   *http.Server
+<span id="L163" class="ln">   163  </span>	grpcServer   *grpc.Server
+<span id="L164" class="ln">   164  </span>
+<span id="L165" class="ln">   165  </span>	conf *Config
+<span id="L166" class="ln">   166  </span>}
+<span id="L167" class="ln">   167  </span>
+<span id="L168" class="ln">   168  </span><span class="comment">// BuildServer builds a chaos daemon server</span>
+<span id="L169" class="ln">   169  </span>func BuildServer(conf *Config, reg RegisterGatherer) (*Server, error) {
+<span id="L170" class="ln">   170  </span>	server := &amp;Server{conf: conf}
+<span id="L171" class="ln">   171  </span>	var err error
+<span id="L172" class="ln">   172  </span>	server.daemonServer, err = newDaemonServer(conf.Runtime, reg)
+<span id="L173" class="ln">   173  </span>	if err != nil {
+<span id="L174" class="ln">   174  </span>		return nil, errors.Wrap(err, &#34;create daemon server&#34;)
+<span id="L175" class="ln">   175  </span>	}
+<span id="L176" class="ln">   176  </span>
+<span id="L177" class="ln">   177  </span>	server.httpServer = newHTTPServerBuilder().Addr(conf.HttpAddr()).Metrics(reg).Profiling(conf.Profiling).Build()
+<span id="L178" class="ln">   178  </span>	server.grpcServer, err = newGRPCServer(server.daemonServer, reg, conf.tlsConfig)
+<span id="L179" class="ln">   179  </span>	if err != nil {
+<span id="L180" class="ln">   180  </span>		return nil, errors.Wrap(err, &#34;create grpc server&#34;)
+<span id="L181" class="ln">   181  </span>	}
+<span id="L182" class="ln">   182  </span>
+<span id="L183" class="ln">   183  </span>	return server, nil
+<span id="L184" class="ln">   184  </span>}
+<span id="L185" class="ln">   185  </span>
+<span id="L186" class="ln">   186  </span><span class="comment">// Start starts chaos-daemon.</span>
+<span id="L187" class="ln">   187  </span>func (s *Server) Start() error {
+<span id="L188" class="ln">   188  </span>	grpcBindAddr := s.conf.GrpcAddr()
+<span id="L189" class="ln">   189  </span>	grpcListener, err := net.Listen(&#34;tcp&#34;, grpcBindAddr)
+<span id="L190" class="ln">   190  </span>	if err != nil {
+<span id="L191" class="ln">   191  </span>		return errors.Wrapf(err, &#34;listen grpc address %s&#34;, grpcBindAddr)
+<span id="L192" class="ln">   192  </span>	}
+<span id="L193" class="ln">   193  </span>
+<span id="L194" class="ln">   194  </span>	var eg errgroup.Group
+<span id="L195" class="ln">   195  </span>
+<span id="L196" class="ln">   196  </span>	eg.Go(func() error {
+<span id="L197" class="ln">   197  </span>		log.Info(&#34;Starting http endpoint&#34;, &#34;address&#34;, s.conf.HttpAddr())
+<span id="L198" class="ln">   198  </span>		if err := s.httpServer.ListenAndServe(); err != nil {
+<span id="L199" class="ln">   199  </span>			return errors.Wrap(err, &#34;start http endpoint&#34;)
+<span id="L200" class="ln">   200  </span>		}
+<span id="L201" class="ln">   201  </span>		return nil
+<span id="L202" class="ln">   202  </span>	})
+<span id="L203" class="ln">   203  </span>
+<span id="L204" class="ln">   204  </span>	eg.Go(func() error {
+<span id="L205" class="ln">   205  </span>		log.Info(&#34;Starting grpc endpoint&#34;, &#34;address&#34;, grpcBindAddr, &#34;runtime&#34;, s.conf.Runtime)
+<span id="L206" class="ln">   206  </span>		if err := s.grpcServer.Serve(grpcListener); err != nil {
+<span id="L207" class="ln">   207  </span>			return errors.Wrap(err, &#34;start grpc endpoint&#34;)
+<span id="L208" class="ln">   208  </span>		}
+<span id="L209" class="ln">   209  </span>		return nil
+<span id="L210" class="ln">   210  </span>	})
+<span id="L211" class="ln">   211  </span>
+<span id="L212" class="ln">   212  </span>	return eg.Wait()
+<span id="L213" class="ln">   213  </span>}
+<span id="L214" class="ln">   214  </span>
+<span id="L215" class="ln">   215  </span>func (s *Server) Shutdown() error {
+<span id="L216" class="ln">   216  </span>	if err := s.httpServer.Shutdown(context.TODO()); err != nil {
+<span id="L217" class="ln">   217  </span>		return errors.Wrap(err, &#34;shut grpc endpoint down&#34;)
+<span id="L218" class="ln">   218  </span>	}
+<span id="L219" class="ln">   219  </span>	s.grpcServer.GracefulStop()
+<span id="L220" class="ln">   220  </span>	s.daemonServer.backgroundProcessManager.Shutdown()
+<span id="L221" class="ln">   221  </span>	return nil
+<span id="L222" class="ln">   222  </span>}
+<span id="L223" class="ln">   223  </span>
 </pre><p></p>
 
 <div id="footer">
