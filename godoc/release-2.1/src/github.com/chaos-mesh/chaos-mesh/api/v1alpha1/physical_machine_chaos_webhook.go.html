@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ee16e6d. Generated at Wed Feb 16 22:04:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 0aa4bbe. Generated at Thu Feb 17 10:03:01 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -173,27 +173,27 @@
 <span id="L108" class="ln">   108  </span>		validateConfigErr = validateNetworkDelayAction(in.NetworkDelay)
 <span id="L109" class="ln">   109  </span>	case PMNetworkPartitionAction:
 <span id="L110" class="ln">   110  </span>		validateConfigErr = validateNetworkPartitionAction(in.NetworkPartition)
-<span id="L111" class="ln">   111  </span>	case PMNetworkDNSAction:
-<span id="L112" class="ln">   112  </span>		validateConfigErr = validateNetworkDNSAction(in.NetworkDNS)
-<span id="L113" class="ln">   113  </span>	case PMProcessAction:
-<span id="L114" class="ln">   114  </span>		validateConfigErr = validateProcessAction(in.Process)
-<span id="L115" class="ln">   115  </span>	case PMJVMExceptionAction:
-<span id="L116" class="ln">   116  </span>		validateConfigErr = validateJVMExceptionAction(in.JVMException)
-<span id="L117" class="ln">   117  </span>	case PMJVMGCAction:
-<span id="L118" class="ln">   118  </span>		validateConfigErr = validateJVMGCAction(in.JVMGC)
-<span id="L119" class="ln">   119  </span>	case PMJVMLatencyAction:
-<span id="L120" class="ln">   120  </span>		validateConfigErr = validateJVMLatencyAction(in.JVMLatency)
-<span id="L121" class="ln">   121  </span>	case PMJVMReturnAction:
-<span id="L122" class="ln">   122  </span>		validateConfigErr = validateJVMReturnAction(in.JVMReturn)
-<span id="L123" class="ln">   123  </span>	case PMJVMStressAction:
-<span id="L124" class="ln">   124  </span>		validateConfigErr = validateJVMStressAction(in.JVMStress)
-<span id="L125" class="ln">   125  </span>	case PMJVMRuleDataAction:
-<span id="L126" class="ln">   126  </span>		validateConfigErr = validateJVMRuleDataAction(in.JVMRuleData)
-<span id="L127" class="ln">   127  </span>	case PMClockAction:
-<span id="L128" class="ln">   128  </span>		validateConfigErr = validateClockAction(in.Clock)
-<span id="L129" class="ln">   129  </span>	default:
-<span id="L130" class="ln">   130  </span>		allErrs = append(allErrs,
-<span id="L131" class="ln">   131  </span>			field.Invalid(path.Child(&#34;spec&#34;), in, &#34;unsupported action&#34;))
+<span id="L111" class="ln">   111  </span>	case PMNetworkBandwidthAction:
+<span id="L112" class="ln">   112  </span>		validateConfigErr = validateNetworkBandwidthAction(in.NetworkBandwidth)
+<span id="L113" class="ln">   113  </span>	case PMNetworkDNSAction:
+<span id="L114" class="ln">   114  </span>		validateConfigErr = validateNetworkDNSAction(in.NetworkDNS)
+<span id="L115" class="ln">   115  </span>	case PMProcessAction:
+<span id="L116" class="ln">   116  </span>		validateConfigErr = validateProcessAction(in.Process)
+<span id="L117" class="ln">   117  </span>	case PMJVMExceptionAction:
+<span id="L118" class="ln">   118  </span>		validateConfigErr = validateJVMExceptionAction(in.JVMException)
+<span id="L119" class="ln">   119  </span>	case PMJVMGCAction:
+<span id="L120" class="ln">   120  </span>		validateConfigErr = validateJVMGCAction(in.JVMGC)
+<span id="L121" class="ln">   121  </span>	case PMJVMLatencyAction:
+<span id="L122" class="ln">   122  </span>		validateConfigErr = validateJVMLatencyAction(in.JVMLatency)
+<span id="L123" class="ln">   123  </span>	case PMJVMReturnAction:
+<span id="L124" class="ln">   124  </span>		validateConfigErr = validateJVMReturnAction(in.JVMReturn)
+<span id="L125" class="ln">   125  </span>	case PMJVMStressAction:
+<span id="L126" class="ln">   126  </span>		validateConfigErr = validateJVMStressAction(in.JVMStress)
+<span id="L127" class="ln">   127  </span>	case PMJVMRuleDataAction:
+<span id="L128" class="ln">   128  </span>		validateConfigErr = validateJVMRuleDataAction(in.JVMRuleData)
+<span id="L129" class="ln">   129  </span>	case PMClockAction:
+<span id="L130" class="ln">   130  </span>		validateConfigErr = validateClockAction(in.Clock)
+<span id="L131" class="ln">   131  </span>	default:
 <span id="L132" class="ln">   132  </span>	}
 <span id="L133" class="ln">   133  </span>
 <span id="L134" class="ln">   134  </span>	if validateConfigErr != nil {
@@ -341,202 +341,214 @@
 <span id="L276" class="ln">   276  </span>	return nil
 <span id="L277" class="ln">   277  </span>}
 <span id="L278" class="ln">   278  </span>
-<span id="L279" class="ln">   279  </span>func validateNetworkDNSAction(spec *NetworkDNSSpec) error {
-<span id="L280" class="ln">   280  </span>	if (len(spec.DNSDomainName) != 0 &amp;&amp; len(spec.DNSIp) == 0) || (len(spec.DNSDomainName) == 0 &amp;&amp; len(spec.DNSIp) != 0) {
-<span id="L281" class="ln">   281  </span>		return errors.Errorf(&#34;DNS host %s must match a DNS ip %s&#34;, spec.DNSDomainName, spec.DNSIp)
+<span id="L279" class="ln">   279  </span>func validateNetworkBandwidthAction(spec *NetworkBandwidthSpec) error {
+<span id="L280" class="ln">   280  </span>	if len(spec.Device) == 0 {
+<span id="L281" class="ln">   281  </span>		return errors.New(&#34;device is required&#34;)
 <span id="L282" class="ln">   282  </span>	}
 <span id="L283" class="ln">   283  </span>
-<span id="L284" class="ln">   284  </span>	return nil
-<span id="L285" class="ln">   285  </span>}
-<span id="L286" class="ln">   286  </span>
-<span id="L287" class="ln">   287  </span>func validateProcessAction(spec *ProcessSpec) error {
-<span id="L288" class="ln">   288  </span>	if len(spec.Process) == 0 {
-<span id="L289" class="ln">   289  </span>		return errors.New(&#34;process is required&#34;)
-<span id="L290" class="ln">   290  </span>	}
-<span id="L291" class="ln">   291  </span>
-<span id="L292" class="ln">   292  </span>	if spec.Signal == 0 {
-<span id="L293" class="ln">   293  </span>		return errors.New(&#34;signal is required&#34;)
+<span id="L284" class="ln">   284  </span>	if len(spec.Rate) == 0 || spec.Limit == 0 || spec.Buffer == 0 {
+<span id="L285" class="ln">   285  </span>		return errors.Errorf(&#34;rate, limit and buffer both are required when action is bandwidth&#34;)
+<span id="L286" class="ln">   286  </span>	}
+<span id="L287" class="ln">   287  </span>
+<span id="L288" class="ln">   288  </span>	return nil
+<span id="L289" class="ln">   289  </span>}
+<span id="L290" class="ln">   290  </span>
+<span id="L291" class="ln">   291  </span>func validateNetworkDNSAction(spec *NetworkDNSSpec) error {
+<span id="L292" class="ln">   292  </span>	if (len(spec.DNSDomainName) != 0 &amp;&amp; len(spec.DNSIp) == 0) || (len(spec.DNSDomainName) == 0 &amp;&amp; len(spec.DNSIp) != 0) {
+<span id="L293" class="ln">   293  </span>		return errors.Errorf(&#34;DNS host %s must match a DNS ip %s&#34;, spec.DNSDomainName, spec.DNSIp)
 <span id="L294" class="ln">   294  </span>	}
 <span id="L295" class="ln">   295  </span>
 <span id="L296" class="ln">   296  </span>	return nil
 <span id="L297" class="ln">   297  </span>}
 <span id="L298" class="ln">   298  </span>
-<span id="L299" class="ln">   299  </span>func validateJVMClassMethod(spec *JVMClassMethodSpec) error {
-<span id="L300" class="ln">   300  </span>	if len(spec.Class) == 0 {
-<span id="L301" class="ln">   301  </span>		return errors.New(&#34;class is required&#34;)
+<span id="L299" class="ln">   299  </span>func validateProcessAction(spec *ProcessSpec) error {
+<span id="L300" class="ln">   300  </span>	if len(spec.Process) == 0 {
+<span id="L301" class="ln">   301  </span>		return errors.New(&#34;process is required&#34;)
 <span id="L302" class="ln">   302  </span>	}
 <span id="L303" class="ln">   303  </span>
-<span id="L304" class="ln">   304  </span>	if len(spec.Method) == 0 {
-<span id="L305" class="ln">   305  </span>		return errors.New(&#34;method is required&#34;)
+<span id="L304" class="ln">   304  </span>	if spec.Signal == 0 {
+<span id="L305" class="ln">   305  </span>		return errors.New(&#34;signal is required&#34;)
 <span id="L306" class="ln">   306  </span>	}
 <span id="L307" class="ln">   307  </span>
 <span id="L308" class="ln">   308  </span>	return nil
 <span id="L309" class="ln">   309  </span>}
 <span id="L310" class="ln">   310  </span>
-<span id="L311" class="ln">   311  </span>func validateJVMExceptionAction(spec *JVMExceptionSpec) error {
-<span id="L312" class="ln">   312  </span>	if err := CheckPid(spec.Pid); err != nil {
-<span id="L313" class="ln">   313  </span>		return err
+<span id="L311" class="ln">   311  </span>func validateJVMClassMethod(spec *JVMClassMethodSpec) error {
+<span id="L312" class="ln">   312  </span>	if len(spec.Class) == 0 {
+<span id="L313" class="ln">   313  </span>		return errors.New(&#34;class is required&#34;)
 <span id="L314" class="ln">   314  </span>	}
 <span id="L315" class="ln">   315  </span>
-<span id="L316" class="ln">   316  </span>	if err := validateJVMClassMethod(&amp;spec.JVMClassMethodSpec); err != nil {
-<span id="L317" class="ln">   317  </span>		return err
+<span id="L316" class="ln">   316  </span>	if len(spec.Method) == 0 {
+<span id="L317" class="ln">   317  </span>		return errors.New(&#34;method is required&#34;)
 <span id="L318" class="ln">   318  </span>	}
 <span id="L319" class="ln">   319  </span>
-<span id="L320" class="ln">   320  </span>	if len(spec.ThrowException) == 0 {
-<span id="L321" class="ln">   321  </span>		return errors.New(&#34;exception is required&#34;)
-<span id="L322" class="ln">   322  </span>	}
-<span id="L323" class="ln">   323  </span>
-<span id="L324" class="ln">   324  </span>	return nil
-<span id="L325" class="ln">   325  </span>}
-<span id="L326" class="ln">   326  </span>
-<span id="L327" class="ln">   327  </span>func validateJVMGCAction(spec *JVMGCSpec) error {
-<span id="L328" class="ln">   328  </span>	return CheckPid(spec.Pid)
-<span id="L329" class="ln">   329  </span>}
-<span id="L330" class="ln">   330  </span>
-<span id="L331" class="ln">   331  </span>func validateJVMLatencyAction(spec *JVMLatencySpec) error {
-<span id="L332" class="ln">   332  </span>	if err := CheckPid(spec.Pid); err != nil {
-<span id="L333" class="ln">   333  </span>		return err
+<span id="L320" class="ln">   320  </span>	return nil
+<span id="L321" class="ln">   321  </span>}
+<span id="L322" class="ln">   322  </span>
+<span id="L323" class="ln">   323  </span>func validateJVMExceptionAction(spec *JVMExceptionSpec) error {
+<span id="L324" class="ln">   324  </span>	if err := CheckPid(spec.Pid); err != nil {
+<span id="L325" class="ln">   325  </span>		return err
+<span id="L326" class="ln">   326  </span>	}
+<span id="L327" class="ln">   327  </span>
+<span id="L328" class="ln">   328  </span>	if err := validateJVMClassMethod(&amp;spec.JVMClassMethodSpec); err != nil {
+<span id="L329" class="ln">   329  </span>		return err
+<span id="L330" class="ln">   330  </span>	}
+<span id="L331" class="ln">   331  </span>
+<span id="L332" class="ln">   332  </span>	if len(spec.ThrowException) == 0 {
+<span id="L333" class="ln">   333  </span>		return errors.New(&#34;exception is required&#34;)
 <span id="L334" class="ln">   334  </span>	}
 <span id="L335" class="ln">   335  </span>
-<span id="L336" class="ln">   336  </span>	if err := validateJVMClassMethod(&amp;spec.JVMClassMethodSpec); err != nil {
-<span id="L337" class="ln">   337  </span>		return err
-<span id="L338" class="ln">   338  </span>	}
-<span id="L339" class="ln">   339  </span>
-<span id="L340" class="ln">   340  </span>	if spec.LatencyDuration == 0 {
-<span id="L341" class="ln">   341  </span>		return errors.New(&#34;latency is required&#34;)
-<span id="L342" class="ln">   342  </span>	}
-<span id="L343" class="ln">   343  </span>
-<span id="L344" class="ln">   344  </span>	return nil
-<span id="L345" class="ln">   345  </span>}
-<span id="L346" class="ln">   346  </span>
-<span id="L347" class="ln">   347  </span>func validateJVMReturnAction(spec *JVMReturnSpec) error {
-<span id="L348" class="ln">   348  </span>	if err := CheckPid(spec.Pid); err != nil {
+<span id="L336" class="ln">   336  </span>	return nil
+<span id="L337" class="ln">   337  </span>}
+<span id="L338" class="ln">   338  </span>
+<span id="L339" class="ln">   339  </span>func validateJVMGCAction(spec *JVMGCSpec) error {
+<span id="L340" class="ln">   340  </span>	return CheckPid(spec.Pid)
+<span id="L341" class="ln">   341  </span>}
+<span id="L342" class="ln">   342  </span>
+<span id="L343" class="ln">   343  </span>func validateJVMLatencyAction(spec *JVMLatencySpec) error {
+<span id="L344" class="ln">   344  </span>	if err := CheckPid(spec.Pid); err != nil {
+<span id="L345" class="ln">   345  </span>		return err
+<span id="L346" class="ln">   346  </span>	}
+<span id="L347" class="ln">   347  </span>
+<span id="L348" class="ln">   348  </span>	if err := validateJVMClassMethod(&amp;spec.JVMClassMethodSpec); err != nil {
 <span id="L349" class="ln">   349  </span>		return err
 <span id="L350" class="ln">   350  </span>	}
 <span id="L351" class="ln">   351  </span>
-<span id="L352" class="ln">   352  </span>	if err := validateJVMClassMethod(&amp;spec.JVMClassMethodSpec); err != nil {
-<span id="L353" class="ln">   353  </span>		return err
+<span id="L352" class="ln">   352  </span>	if spec.LatencyDuration == 0 {
+<span id="L353" class="ln">   353  </span>		return errors.New(&#34;latency is required&#34;)
 <span id="L354" class="ln">   354  </span>	}
 <span id="L355" class="ln">   355  </span>
-<span id="L356" class="ln">   356  </span>	if len(spec.ReturnValue) == 0 {
-<span id="L357" class="ln">   357  </span>		return errors.New(&#34;value is required&#34;)
-<span id="L358" class="ln">   358  </span>	}
-<span id="L359" class="ln">   359  </span>
-<span id="L360" class="ln">   360  </span>	return nil
-<span id="L361" class="ln">   361  </span>}
-<span id="L362" class="ln">   362  </span>
-<span id="L363" class="ln">   363  </span>func validateJVMStressAction(spec *JVMStressSpec) error {
-<span id="L364" class="ln">   364  </span>	if err := CheckPid(spec.Pid); err != nil {
+<span id="L356" class="ln">   356  </span>	return nil
+<span id="L357" class="ln">   357  </span>}
+<span id="L358" class="ln">   358  </span>
+<span id="L359" class="ln">   359  </span>func validateJVMReturnAction(spec *JVMReturnSpec) error {
+<span id="L360" class="ln">   360  </span>	if err := CheckPid(spec.Pid); err != nil {
+<span id="L361" class="ln">   361  </span>		return err
+<span id="L362" class="ln">   362  </span>	}
+<span id="L363" class="ln">   363  </span>
+<span id="L364" class="ln">   364  </span>	if err := validateJVMClassMethod(&amp;spec.JVMClassMethodSpec); err != nil {
 <span id="L365" class="ln">   365  </span>		return err
 <span id="L366" class="ln">   366  </span>	}
 <span id="L367" class="ln">   367  </span>
-<span id="L368" class="ln">   368  </span>	if spec.CPUCount == 0 &amp;&amp; len(spec.MemoryType) == 0 {
-<span id="L369" class="ln">   369  </span>		return errors.New(&#34;one of cpu-count and mem-type is required&#34;)
+<span id="L368" class="ln">   368  </span>	if len(spec.ReturnValue) == 0 {
+<span id="L369" class="ln">   369  </span>		return errors.New(&#34;value is required&#34;)
 <span id="L370" class="ln">   370  </span>	}
 <span id="L371" class="ln">   371  </span>
-<span id="L372" class="ln">   372  </span>	if spec.CPUCount &gt; 0 &amp;&amp; len(spec.MemoryType) &gt; 0 {
-<span id="L373" class="ln">   373  </span>		return errors.New(&#34;inject stress on both CPU and memory is not support&#34;)
-<span id="L374" class="ln">   374  </span>	}
-<span id="L375" class="ln">   375  </span>
-<span id="L376" class="ln">   376  </span>	return nil
-<span id="L377" class="ln">   377  </span>}
-<span id="L378" class="ln">   378  </span>
-<span id="L379" class="ln">   379  </span>func validateJVMRuleDataAction(spec *JVMRuleDataSpec) error {
-<span id="L380" class="ln">   380  </span>	if err := CheckPid(spec.Pid); err != nil {
-<span id="L381" class="ln">   381  </span>		return err
+<span id="L372" class="ln">   372  </span>	return nil
+<span id="L373" class="ln">   373  </span>}
+<span id="L374" class="ln">   374  </span>
+<span id="L375" class="ln">   375  </span>func validateJVMStressAction(spec *JVMStressSpec) error {
+<span id="L376" class="ln">   376  </span>	if err := CheckPid(spec.Pid); err != nil {
+<span id="L377" class="ln">   377  </span>		return err
+<span id="L378" class="ln">   378  </span>	}
+<span id="L379" class="ln">   379  </span>
+<span id="L380" class="ln">   380  </span>	if spec.CPUCount == 0 &amp;&amp; len(spec.MemoryType) == 0 {
+<span id="L381" class="ln">   381  </span>		return errors.New(&#34;one of cpu-count and mem-type is required&#34;)
 <span id="L382" class="ln">   382  </span>	}
 <span id="L383" class="ln">   383  </span>
-<span id="L384" class="ln">   384  </span>	if len(spec.RuleData) == 0 {
-<span id="L385" class="ln">   385  </span>		return errors.New(&#34;rule-data is required&#34;)
+<span id="L384" class="ln">   384  </span>	if spec.CPUCount &gt; 0 &amp;&amp; len(spec.MemoryType) &gt; 0 {
+<span id="L385" class="ln">   385  </span>		return errors.New(&#34;inject stress on both CPU and memory is not support&#34;)
 <span id="L386" class="ln">   386  </span>	}
 <span id="L387" class="ln">   387  </span>
 <span id="L388" class="ln">   388  </span>	return nil
 <span id="L389" class="ln">   389  </span>}
 <span id="L390" class="ln">   390  </span>
-<span id="L391" class="ln">   391  </span>func validateClockAction(spec *ClockSpec) error {
+<span id="L391" class="ln">   391  </span>func validateJVMRuleDataAction(spec *JVMRuleDataSpec) error {
 <span id="L392" class="ln">   392  </span>	if err := CheckPid(spec.Pid); err != nil {
 <span id="L393" class="ln">   393  </span>		return err
 <span id="L394" class="ln">   394  </span>	}
 <span id="L395" class="ln">   395  </span>
-<span id="L396" class="ln">   396  </span>	if len(spec.TimeOffset) == 0 {
-<span id="L397" class="ln">   397  </span>		return errors.New(&#34;time-offset is required&#34;)
+<span id="L396" class="ln">   396  </span>	if len(spec.RuleData) == 0 {
+<span id="L397" class="ln">   397  </span>		return errors.New(&#34;rule-data is required&#34;)
 <span id="L398" class="ln">   398  </span>	}
 <span id="L399" class="ln">   399  </span>
 <span id="L400" class="ln">   400  </span>	return nil
 <span id="L401" class="ln">   401  </span>}
 <span id="L402" class="ln">   402  </span>
-<span id="L403" class="ln">   403  </span>func CheckPid(pid int) error {
-<span id="L404" class="ln">   404  </span>	if pid == 0 {
-<span id="L405" class="ln">   405  </span>		return errors.New(&#34;pid is required&#34;)
+<span id="L403" class="ln">   403  </span>func validateClockAction(spec *ClockSpec) error {
+<span id="L404" class="ln">   404  </span>	if err := CheckPid(spec.Pid); err != nil {
+<span id="L405" class="ln">   405  </span>		return err
 <span id="L406" class="ln">   406  </span>	}
 <span id="L407" class="ln">   407  </span>
-<span id="L408" class="ln">   408  </span>	if pid &lt; 0 {
-<span id="L409" class="ln">   409  </span>		return errors.New(&#34;pid is invalid&#34;)
+<span id="L408" class="ln">   408  </span>	if len(spec.TimeOffset) == 0 {
+<span id="L409" class="ln">   409  </span>		return errors.New(&#34;time-offset is required&#34;)
 <span id="L410" class="ln">   410  </span>	}
 <span id="L411" class="ln">   411  </span>
 <span id="L412" class="ln">   412  </span>	return nil
 <span id="L413" class="ln">   413  </span>}
 <span id="L414" class="ln">   414  </span>
-<span id="L415" class="ln">   415  </span>func CheckPercent(p string, allowZero bool) bool {
-<span id="L416" class="ln">   416  </span>	if len(p) == 0 {
-<span id="L417" class="ln">   417  </span>		return allowZero
+<span id="L415" class="ln">   415  </span>func CheckPid(pid int) error {
+<span id="L416" class="ln">   416  </span>	if pid == 0 {
+<span id="L417" class="ln">   417  </span>		return errors.New(&#34;pid is required&#34;)
 <span id="L418" class="ln">   418  </span>	}
 <span id="L419" class="ln">   419  </span>
-<span id="L420" class="ln">   420  </span>	v, err := strconv.ParseFloat(p, 32)
-<span id="L421" class="ln">   421  </span>	if err != nil {
-<span id="L422" class="ln">   422  </span>		return false
-<span id="L423" class="ln">   423  </span>	}
-<span id="L424" class="ln">   424  </span>
-<span id="L425" class="ln">   425  </span>	if v == 0 &amp;&amp; !allowZero {
-<span id="L426" class="ln">   426  </span>		return false
-<span id="L427" class="ln">   427  </span>	}
-<span id="L428" class="ln">   428  </span>
-<span id="L429" class="ln">   429  </span>	if v &lt; 0 || v &gt; 100 {
-<span id="L430" class="ln">   430  </span>		return false
-<span id="L431" class="ln">   431  </span>	}
-<span id="L432" class="ln">   432  </span>
-<span id="L433" class="ln">   433  </span>	return true
-<span id="L434" class="ln">   434  </span>}
-<span id="L435" class="ln">   435  </span>
-<span id="L436" class="ln">   436  </span>var (
-<span id="L437" class="ln">   437  </span>	<span class="comment">// See https://en.wikipedia.org/wiki/Binary_prefix</span>
-<span id="L438" class="ln">   438  </span>	shortBinaryUnitMap = units.MakeUnitMap(&#34;&#34;, &#34;c&#34;, 1024)
-<span id="L439" class="ln">   439  </span>	binaryUnitMap      = units.MakeUnitMap(&#34;iB&#34;, &#34;c&#34;, 1024)
-<span id="L440" class="ln">   440  </span>	decimalUnitMap     = units.MakeUnitMap(&#34;B&#34;, &#34;c&#34;, 1000)
-<span id="L441" class="ln">   441  </span>)
-<span id="L442" class="ln">   442  </span>
-<span id="L443" class="ln">   443  </span><span class="comment">// ParseUnit parse a digit with unit such as &#34;K&#34; , &#34;KiB&#34;, &#34;KB&#34;, &#34;c&#34;, &#34;MiB&#34;, &#34;MB&#34;, &#34;M&#34;.</span>
-<span id="L444" class="ln">   444  </span><span class="comment">// If input string is a digit without unit ,</span>
-<span id="L445" class="ln">   445  </span><span class="comment">// it will be regarded as a digit with unit M(1024*1024 bytes).</span>
-<span id="L446" class="ln">   446  </span>func ParseUnit(s string) (uint64, error) {
-<span id="L447" class="ln">   447  </span>	if _, err := strconv.Atoi(s); err == nil {
-<span id="L448" class="ln">   448  </span>		s += &#34;B&#34;
-<span id="L449" class="ln">   449  </span>	}
-<span id="L450" class="ln">   450  </span>	if n, err := units.ParseUnit(s, shortBinaryUnitMap); err == nil {
-<span id="L451" class="ln">   451  </span>		return uint64(n), nil
-<span id="L452" class="ln">   452  </span>	}
-<span id="L453" class="ln">   453  </span>
-<span id="L454" class="ln">   454  </span>	if n, err := units.ParseUnit(s, binaryUnitMap); err == nil {
-<span id="L455" class="ln">   455  </span>		return uint64(n), nil
-<span id="L456" class="ln">   456  </span>	}
-<span id="L457" class="ln">   457  </span>
-<span id="L458" class="ln">   458  </span>	if n, err := units.ParseUnit(s, decimalUnitMap); err == nil {
-<span id="L459" class="ln">   459  </span>		return uint64(n), nil
-<span id="L460" class="ln">   460  </span>	}
-<span id="L461" class="ln">   461  </span>	return 0, fmt.Errorf(&#34;units: unknown unit %s&#34;, s)
-<span id="L462" class="ln">   462  </span>}
-<span id="L463" class="ln">   463  </span>
-<span id="L464" class="ln">   464  </span>func (in *NetworkBandwidthSpec) Validate(root interface{}, path *field.Path) field.ErrorList {
-<span id="L465" class="ln">   465  </span>	allErrs := field.ErrorList{}
-<span id="L466" class="ln">   466  </span>
-<span id="L467" class="ln">   467  </span>	if len(in.Rate) == 0 {
-<span id="L468" class="ln">   468  </span>		allErrs = append(allErrs,
-<span id="L469" class="ln">   469  </span>			field.Invalid(path.Child(&#34;rate&#34;), in.Rate, &#34;rate is required&#34;))
-<span id="L470" class="ln">   470  </span>	}
-<span id="L471" class="ln">   471  </span>
-<span id="L472" class="ln">   472  </span>	return allErrs
-<span id="L473" class="ln">   473  </span>}
-<span id="L474" class="ln">   474  </span>
+<span id="L420" class="ln">   420  </span>	if pid &lt; 0 {
+<span id="L421" class="ln">   421  </span>		return errors.New(&#34;pid is invalid&#34;)
+<span id="L422" class="ln">   422  </span>	}
+<span id="L423" class="ln">   423  </span>
+<span id="L424" class="ln">   424  </span>	return nil
+<span id="L425" class="ln">   425  </span>}
+<span id="L426" class="ln">   426  </span>
+<span id="L427" class="ln">   427  </span>func CheckPercent(p string, allowZero bool) bool {
+<span id="L428" class="ln">   428  </span>	if len(p) == 0 {
+<span id="L429" class="ln">   429  </span>		return allowZero
+<span id="L430" class="ln">   430  </span>	}
+<span id="L431" class="ln">   431  </span>
+<span id="L432" class="ln">   432  </span>	v, err := strconv.ParseFloat(p, 32)
+<span id="L433" class="ln">   433  </span>	if err != nil {
+<span id="L434" class="ln">   434  </span>		return false
+<span id="L435" class="ln">   435  </span>	}
+<span id="L436" class="ln">   436  </span>
+<span id="L437" class="ln">   437  </span>	if v == 0 &amp;&amp; !allowZero {
+<span id="L438" class="ln">   438  </span>		return false
+<span id="L439" class="ln">   439  </span>	}
+<span id="L440" class="ln">   440  </span>
+<span id="L441" class="ln">   441  </span>	if v &lt; 0 || v &gt; 100 {
+<span id="L442" class="ln">   442  </span>		return false
+<span id="L443" class="ln">   443  </span>	}
+<span id="L444" class="ln">   444  </span>
+<span id="L445" class="ln">   445  </span>	return true
+<span id="L446" class="ln">   446  </span>}
+<span id="L447" class="ln">   447  </span>
+<span id="L448" class="ln">   448  </span>var (
+<span id="L449" class="ln">   449  </span>	<span class="comment">// See https://en.wikipedia.org/wiki/Binary_prefix</span>
+<span id="L450" class="ln">   450  </span>	shortBinaryUnitMap = units.MakeUnitMap(&#34;&#34;, &#34;c&#34;, 1024)
+<span id="L451" class="ln">   451  </span>	binaryUnitMap      = units.MakeUnitMap(&#34;iB&#34;, &#34;c&#34;, 1024)
+<span id="L452" class="ln">   452  </span>	decimalUnitMap     = units.MakeUnitMap(&#34;B&#34;, &#34;c&#34;, 1000)
+<span id="L453" class="ln">   453  </span>)
+<span id="L454" class="ln">   454  </span>
+<span id="L455" class="ln">   455  </span><span class="comment">// ParseUnit parse a digit with unit such as &#34;K&#34; , &#34;KiB&#34;, &#34;KB&#34;, &#34;c&#34;, &#34;MiB&#34;, &#34;MB&#34;, &#34;M&#34;.</span>
+<span id="L456" class="ln">   456  </span><span class="comment">// If input string is a digit without unit ,</span>
+<span id="L457" class="ln">   457  </span><span class="comment">// it will be regarded as a digit with unit M(1024*1024 bytes).</span>
+<span id="L458" class="ln">   458  </span>func ParseUnit(s string) (uint64, error) {
+<span id="L459" class="ln">   459  </span>	if _, err := strconv.Atoi(s); err == nil {
+<span id="L460" class="ln">   460  </span>		s += &#34;B&#34;
+<span id="L461" class="ln">   461  </span>	}
+<span id="L462" class="ln">   462  </span>	if n, err := units.ParseUnit(s, shortBinaryUnitMap); err == nil {
+<span id="L463" class="ln">   463  </span>		return uint64(n), nil
+<span id="L464" class="ln">   464  </span>	}
+<span id="L465" class="ln">   465  </span>
+<span id="L466" class="ln">   466  </span>	if n, err := units.ParseUnit(s, binaryUnitMap); err == nil {
+<span id="L467" class="ln">   467  </span>		return uint64(n), nil
+<span id="L468" class="ln">   468  </span>	}
+<span id="L469" class="ln">   469  </span>
+<span id="L470" class="ln">   470  </span>	if n, err := units.ParseUnit(s, decimalUnitMap); err == nil {
+<span id="L471" class="ln">   471  </span>		return uint64(n), nil
+<span id="L472" class="ln">   472  </span>	}
+<span id="L473" class="ln">   473  </span>	return 0, fmt.Errorf(&#34;units: unknown unit %s&#34;, s)
+<span id="L474" class="ln">   474  </span>}
+<span id="L475" class="ln">   475  </span>
+<span id="L476" class="ln">   476  </span>func (in *NetworkBandwidthSpec) Validate(root interface{}, path *field.Path) field.ErrorList {
+<span id="L477" class="ln">   477  </span>	allErrs := field.ErrorList{}
+<span id="L478" class="ln">   478  </span>
+<span id="L479" class="ln">   479  </span>	if len(in.Rate) == 0 {
+<span id="L480" class="ln">   480  </span>		allErrs = append(allErrs,
+<span id="L481" class="ln">   481  </span>			field.Invalid(path.Child(&#34;rate&#34;), in.Rate, &#34;rate is required&#34;))
+<span id="L482" class="ln">   482  </span>	}
+<span id="L483" class="ln">   483  </span>
+<span id="L484" class="ln">   484  </span>	return allErrs
+<span id="L485" class="ln">   485  </span>}
+<span id="L486" class="ln">   486  </span>
 </pre><p></p>
 
 <div id="footer">
