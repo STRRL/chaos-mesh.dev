@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>tasks - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit bef9049. Generated at Mon Feb 21 10:01:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package tasks
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+			
+				
+				<dd><a href="#Addable">type Addable</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Assign">type Assign</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ChaosOnProcessGroup">type ChaosOnProcessGroup</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Creator">type Creator</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Injectable">type Injectable</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Object">type Object</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PID">type PID</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ProcessGroupHandler">type ProcessGroupHandler</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewProcessGroupHandler">func NewProcessGroupHandler(logger logr.Logger, main ChaosOnProcessGroup) ProcessGroupHandler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ProcessGroupHandler.Inject">func (gp *ProcessGroupHandler) Inject(pid PID) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ProcessGroupHandler.Recover">func (gp *ProcessGroupHandler) Recover(pid PID) error</a></dd>
+				
+			
+				
+				<dd><a href="#Recoverable">type Recoverable</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TaskConfig">type TaskConfig</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewTaskConfig">func NewTaskConfig(main PID, data Object) TaskConfig</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TaskConfigManager">type TaskConfigManager</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewTaskConfigManager">func NewTaskConfigManager() TaskConfigManager</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskConfigManager.AddTaskConfig">func (m TaskConfigManager) AddTaskConfig(id UID, task TaskConfig) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskConfigManager.DeleteTaskConfig">func (m TaskConfigManager) DeleteTaskConfig(id UID) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskConfigManager.GetConfigWithUID">func (m TaskConfigManager) GetConfigWithUID(id UID) (interface{}, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskConfigManager.GetUIDsWithPID">func (m TaskConfigManager) GetUIDsWithPID(id PID) []UID</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskConfigManager.SumTaskConfig">func (m TaskConfigManager) SumTaskConfig(uid UID) (TaskConfig, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskConfigManager.UpdateTaskConfig">func (m TaskConfigManager) UpdateTaskConfig(id UID, task TaskConfig) (TaskConfig, error)</a></dd>
+				
+			
+				
+				<dd><a href="#TaskExecutor">type TaskExecutor</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TaskManager">type TaskManager</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewTaskManager">func NewTaskManager(logger logr.Logger) TaskManager</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskManager.Apply">func (cm TaskManager) Apply(uid UID, pid PID, config TaskExecutor) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskManager.ClearTask">func (cm TaskManager) ClearTask(pid PID, ignoreRecoverErr bool) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskManager.CopyTaskConfigManager">func (cm TaskManager) CopyTaskConfigManager() TaskConfigManager</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskManager.CopyTaskMap">func (cm TaskManager) CopyTaskMap() map[PID]Injectable</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskManager.Create">func (cm TaskManager) Create(uid UID, pid PID, config TaskExecutor, values interface{}) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskManager.GetConfigWithUID">func (cm TaskManager) GetConfigWithUID(id UID) (interface{}, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskManager.GetTaskWithPID">func (cm TaskManager) GetTaskWithPID(pid PID) (Injectable, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskManager.GetUIDsWithPID">func (cm TaskManager) GetUIDsWithPID(pid PID) []UID</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskManager.Recover">func (cm TaskManager) Recover(uid UID, pid PID) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TaskManager.Update">func (cm TaskManager) Update(uid UID, pid PID, config TaskExecutor) error</a></dd>
+				
+			
+				
+				<dd><a href="#UID">type UID</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/process_group_handle.go">process_group_handle.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_config_manager.go">task_config_manager.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go">task_manager.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var <span id="ErrCanNotAdd">ErrCanNotAdd</span> = <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/pkg/errors/">errors</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/pkg/errors/#New">New</a>(&#34;can not add&#34;)</pre>
+			
+				
+				<pre>var <span id="ErrCanNotAssign">ErrCanNotAssign</span> = <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/pkg/errors/">errors</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/pkg/errors/#New">New</a>(&#34;can not assign&#34;)</pre>
+			
+				
+				<pre>var <span id="ErrNotFoundChildProcess">ErrNotFoundChildProcess</span> = <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaoserr/">chaoserr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaoserr/#NotFound">NotFound</a>(&#34;child process&#34;)</pre>
+			
+				
+				<pre>var <span id="ErrPIDNotFound">ErrPIDNotFound</span> = <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaoserr/">chaoserr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaoserr/#NotFound">NotFound</a>(&#34;PID&#34;)</pre>
+			
+				
+				<pre>var <span id="ErrTaskConfigMapNotInit">ErrTaskConfigMapNotInit</span> = <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/pkg/errors/">errors</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/pkg/errors/#New">New</a>(&#34;TaskConfigMap not init&#34;)</pre>
+			
+				
+				<pre>var <span id="ErrTaskConfigNotFound">ErrTaskConfigNotFound</span> = <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaoserr/">chaoserr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaoserr/#NotFound">NotFound</a>(&#34;task config&#34;)</pre>
+			
+				
+				<pre>var <span id="ErrUIDNotFound">ErrUIDNotFound</span> = <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaoserr/">chaoserr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaoserr/#NotFound">NotFound</a>(&#34;UID&#34;)</pre>
+			
+				
+				<pre>var <span id="ErrUpdateTaskConfigWithPIDChanges">ErrUpdateTaskConfigWithPIDChanges</span> = <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/pkg/errors/">errors</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/pkg/errors/#New">New</a>(&#34;update task config with PID changes&#34;)</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="Addable">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_config_manager.go#L40">Addable</a>
+				<a class="permalink" href="#Addable">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Addable introduces the data gathering ability.
+</p>
+
+			<pre>type Addable interface {
+    Add(a <a href="#Addable">Addable</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Assign">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L48">Assign</a>
+				<a class="permalink" href="#Assign">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Assign change some of an Injectable task with its own values.
+We use it in a case that we use TaskConfig.data
+to update an Injectable task.
+</p>
+
+			<pre>type Assign interface {
+    Assign(<a href="#Injectable">Injectable</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ChaosOnProcessGroup">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/process_group_handle.go#L31">ChaosOnProcessGroup</a>
+				<a class="permalink" href="#ChaosOnProcessGroup">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ChaosOnProcessGroup is used for inject a chaos on a linux process group.
+Fork is used for create a new chaos on child process.
+Assign is used for update a chaos on child process.
+</p>
+
+			<pre>type ChaosOnProcessGroup interface {
+    Fork() (<a href="#ChaosOnProcessGroup">ChaosOnProcessGroup</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)
+    <a href="#Assign">Assign</a>
+
+    <a href="#Injectable">Injectable</a>
+    <a href="#Recoverable">Recoverable</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Creator">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L41">Creator</a>
+				<a class="permalink" href="#Creator">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Creator init an Injectable with values.
+We use it in a case that TaskConfig.data init an Injectable task here.
+</p>
+
+			<pre>type Creator interface {
+    New(values interface{}) (<a href="#Injectable">Injectable</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Injectable">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L29">Injectable</a>
+				<a class="permalink" href="#Injectable">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Injectable stand for the base behavior of task : inject a process with PID.
+</p>
+
+			<pre>type Injectable interface {
+    Inject(pid <a href="#PID">PID</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Object">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_config_manager.go#L35">Object</a>
+				<a class="permalink" href="#Object">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Object ensure the outer config change will not change
+the data inside the TaskManager.
+</p>
+
+			<pre>type Object interface {
+    DeepCopy() <a href="#Object">Object</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PID">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_config_manager.go#L25">PID</a>
+				<a class="permalink" href="#PID">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PID = <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ProcessGroupHandler">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/process_group_handle.go#L40">ProcessGroupHandler</a>
+				<a class="permalink" href="#ProcessGroupHandler">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ProcessGroupHandler implements injecting &amp; recovering on a linux process group.
+</p>
+
+			<pre>type ProcessGroupHandler struct {
+<span id="ProcessGroupHandler.Main"></span>    Main <a href="#ChaosOnProcessGroup">ChaosOnProcessGroup</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewProcessGroupHandler">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/process_group_handle.go#L46">NewProcessGroupHandler</a>
+					<a class="permalink" href="#NewProcessGroupHandler">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewProcessGroupHandler(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>, main <a href="#ChaosOnProcessGroup">ChaosOnProcessGroup</a>) <a href="#ProcessGroupHandler">ProcessGroupHandler</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="ProcessGroupHandler.Inject">func (*ProcessGroupHandler) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/process_group_handle.go#L56">Inject</a>
+					<a class="permalink" href="#ProcessGroupHandler.Inject">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (gp *<a href="#ProcessGroupHandler">ProcessGroupHandler</a>) Inject(pid <a href="#PID">PID</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<p>
+Inject try to inject the main process and then try to inject child process.
+If something wrong in injecting a child process, Inject will just log error &amp; continue.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ProcessGroupHandler.Recover">func (*ProcessGroupHandler) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/process_group_handle.go#L97">Recover</a>
+					<a class="permalink" href="#ProcessGroupHandler.Recover">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (gp *<a href="#ProcessGroupHandler">ProcessGroupHandler</a>) Recover(pid <a href="#PID">PID</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<p>
+Recover try to recover the main process and then try to recover child process.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Recoverable">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L35">Recoverable</a>
+				<a class="permalink" href="#Recoverable">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Recoverable introduce the task recovering ability.
+Used in Recover.
+</p>
+
+			<pre>type Recoverable interface {
+    Recover(pid <a href="#PID">PID</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TaskConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_config_manager.go#L47">TaskConfig</a>
+				<a class="permalink" href="#TaskConfig">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+TaskConfig defines a composite of flexible config with an immutable target.
+TaskConfig.main is the ID of task.
+TaskConfig.data is the config provided by developer.
+</p>
+
+			<pre>type TaskConfig struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewTaskConfig">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_config_manager.go#L52">NewTaskConfig</a>
+					<a class="permalink" href="#NewTaskConfig">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewTaskConfig(main <a href="#PID">PID</a>, data <a href="#Object">Object</a>) <a href="#TaskConfig">TaskConfig</a></pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="TaskConfigManager">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_config_manager.go#L61">TaskConfigManager</a>
+				<a class="permalink" href="#TaskConfigManager">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+TaskConfigManager provides some basic methods on TaskConfig.
+If developers wants to use SumTaskConfig, they must implement Addable for the TaskConfig.
+</p>
+
+			<pre>type TaskConfigManager struct {
+<span id="TaskConfigManager.TaskConfigMap"></span>    TaskConfigMap map[<a href="#UID">UID</a>]<a href="#TaskConfig">TaskConfig</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewTaskConfigManager">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_config_manager.go#L65">NewTaskConfigManager</a>
+					<a class="permalink" href="#NewTaskConfigManager">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewTaskConfigManager() <a href="#TaskConfigManager">TaskConfigManager</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="TaskConfigManager.AddTaskConfig">func (TaskConfigManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_config_manager.go#L69">AddTaskConfig</a>
+					<a class="permalink" href="#TaskConfigManager.AddTaskConfig">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#TaskConfigManager">TaskConfigManager</a>) AddTaskConfig(id <a href="#UID">UID</a>, task <a href="#TaskConfig">TaskConfig</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TaskConfigManager.DeleteTaskConfig">func (TaskConfigManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_config_manager.go#L96">DeleteTaskConfig</a>
+					<a class="permalink" href="#TaskConfigManager.DeleteTaskConfig">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#TaskConfigManager">TaskConfigManager</a>) DeleteTaskConfig(id <a href="#UID">UID</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<p>
+DeleteTaskConfig Delete task inside the TaskConfigManager
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TaskConfigManager.GetConfigWithUID">func (TaskConfigManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_config_manager.go#L108">GetConfigWithUID</a>
+					<a class="permalink" href="#TaskConfigManager.GetConfigWithUID">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#TaskConfigManager">TaskConfigManager</a>) GetConfigWithUID(id <a href="#UID">UID</a>) (interface{}, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TaskConfigManager.GetUIDsWithPID">func (TaskConfigManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_config_manager.go#L116">GetUIDsWithPID</a>
+					<a class="permalink" href="#TaskConfigManager.GetUIDsWithPID">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#TaskConfigManager">TaskConfigManager</a>) GetUIDsWithPID(id <a href="#PID">PID</a>) []<a href="#UID">UID</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TaskConfigManager.SumTaskConfig">func (TaskConfigManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_config_manager.go#L130">SumTaskConfig</a>
+					<a class="permalink" href="#TaskConfigManager.SumTaskConfig">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#TaskConfigManager">TaskConfigManager</a>) SumTaskConfig(uid <a href="#UID">UID</a>) (<a href="#TaskConfig">TaskConfig</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<p>
+SumTaskConfig will sum the TaskConfig with a same TaskConfig.main.
+If developers want to use it with type T, they must implement Addable for *T.
+IMPORTANT: Just here , we do not assume A.Add(B) == B.Add(A).
+What SumTaskConfig do : A := new(TaskConfig), A.Add(B).Add(C).Add(D)... , A marked as uid.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TaskConfigManager.UpdateTaskConfig">func (TaskConfigManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_config_manager.go#L80">UpdateTaskConfig</a>
+					<a class="permalink" href="#TaskConfigManager.UpdateTaskConfig">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#TaskConfigManager">TaskConfigManager</a>) UpdateTaskConfig(id <a href="#UID">UID</a>, task <a href="#TaskConfig">TaskConfig</a>) (<a href="#TaskConfig">TaskConfig</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="TaskExecutor">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L58">TaskExecutor</a>
+				<a class="permalink" href="#TaskExecutor">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+TaskExecutor indicate that the type can be used
+for execute task here as a task config.
+Addable means we can sum many task config in to one for apply.
+Creator means we can use the task config to create a running task
+which can Inject on PID.
+Assign means we can use the task config to update an existing running task.
+</p>
+
+			<pre>type TaskExecutor interface {
+    <a href="#Object">Object</a>
+    <a href="#Addable">Addable</a>
+    <a href="#Creator">Creator</a>
+    <a href="#Assign">Assign</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TaskManager">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L80">TaskManager</a>
+				<a class="permalink" href="#TaskManager">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+TaskManager is a Manager for chaos tasks.
+A task base on a target marked with its PID.
+We assume task should implement Injectable.
+We use TaskConfig.data which implement TaskExecutor to:
+</p>
+<pre>Sum task configs on same PID into one.
+Create task.
+Assign or update task.
+</pre>
+<p>
+SO if developers wants to use functions in TaskManager ,
+their imported TaskConfig need to implement interface TaskExecutor.
+If developers wants to recover task successfully,
+the task must implement Recoverable.
+If not implement ,
+the Recover function will return a ErrNotImplement(&#34;Recoverable&#34;) error.
+IMPORTANT: We assume task config obey that TaskConfig.data A,B. A.Add(B)
+is approximately equal to B.Add(A)
+</p>
+
+			<pre>type TaskManager struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewTaskManager">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L87">NewTaskManager</a>
+					<a class="permalink" href="#NewTaskManager">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewTaskManager(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) <a href="#TaskManager">TaskManager</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="TaskManager.Apply">func (TaskManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L178">Apply</a>
+					<a class="permalink" href="#TaskManager.Apply">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cm <a href="#TaskManager">TaskManager</a>) Apply(uid <a href="#UID">UID</a>, pid <a href="#PID">PID</a>, config <a href="#TaskExecutor">TaskExecutor</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<p>
+Apply the task when the target pid of task is already be Created.
+If it comes a UID injected , Apply will return ChaosErr.ErrDuplicateEntity.
+If the Process has not been Created , Apply will return ChaosErr.NotFound(&#34;PID&#34;).
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TaskManager.ClearTask">func (TaskManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L260">ClearTask</a>
+					<a class="permalink" href="#TaskManager.ClearTask">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cm <a href="#TaskManager">TaskManager</a>) ClearTask(pid <a href="#PID">PID</a>, ignoreRecoverErr <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<p>
+ClearTask clear the task totally.
+IMPORTANT: Developer should only use this function
+when want to force clear task with ignoreRecoverErr==true.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TaskManager.CopyTaskConfigManager">func (TaskManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L95">CopyTaskConfigManager</a>
+					<a class="permalink" href="#TaskManager.CopyTaskConfigManager">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cm <a href="#TaskManager">TaskManager</a>) CopyTaskConfigManager() <a href="#TaskConfigManager">TaskConfigManager</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TaskManager.CopyTaskMap">func (TaskManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L103">CopyTaskMap</a>
+					<a class="permalink" href="#TaskManager.CopyTaskMap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cm <a href="#TaskManager">TaskManager</a>) CopyTaskMap() map[<a href="#PID">PID</a>]<a href="#Injectable">Injectable</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TaskManager.Create">func (TaskManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L149">Create</a>
+					<a class="permalink" href="#TaskManager.Create">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cm <a href="#TaskManager">TaskManager</a>) Create(uid <a href="#UID">UID</a>, pid <a href="#PID">PID</a>, config <a href="#TaskExecutor">TaskExecutor</a>, values interface{}) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<p>
+Create the first task,
+the New function of TaskExecutor:Creator will only be used here.
+values is only the import parameter of New function in TaskExecutor:Creator.
+If it comes a task are already be injected on the PID,
+Create will return ChaosErr.ErrDuplicateEntity.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TaskManager.GetConfigWithUID">func (TaskManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L111">GetConfigWithUID</a>
+					<a class="permalink" href="#TaskManager.GetConfigWithUID">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cm <a href="#TaskManager">TaskManager</a>) GetConfigWithUID(id <a href="#UID">UID</a>) (interface{}, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TaskManager.GetTaskWithPID">func (TaskManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L115">GetTaskWithPID</a>
+					<a class="permalink" href="#TaskManager.GetTaskWithPID">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cm <a href="#TaskManager">TaskManager</a>) GetTaskWithPID(pid <a href="#PID">PID</a>) (<a href="#Injectable">Injectable</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TaskManager.GetUIDsWithPID">func (TaskManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L123">GetUIDsWithPID</a>
+					<a class="permalink" href="#TaskManager.GetUIDsWithPID">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cm <a href="#TaskManager">TaskManager</a>) GetUIDsWithPID(pid <a href="#PID">PID</a>) []<a href="#UID">UID</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TaskManager.Recover">func (TaskManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L200">Recover</a>
+					<a class="permalink" href="#TaskManager.Recover">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cm <a href="#TaskManager">TaskManager</a>) Recover(uid <a href="#UID">UID</a>, pid <a href="#PID">PID</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<p>
+Recover the task when there is no task config on PID or
+recovering the task with last task config on PID.
+Recover in Recoverable will be used here,
+if it runs failed it will just return the error.
+If Recover is failed but developer wants to clear it,
+just run : TaskManager.ClearTask(pid, true).
+If PID is already recovered successfully, Recover will return ChaosErr.NotFound(&#34;PID&#34;).
+If UID is not Applied or Created or the target PID of UID is not the import pid,
+Recover will return ChaosErr.NotFound(&#34;UID&#34;).
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="TaskManager.Update">func (TaskManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_manager.go#L131">Update</a>
+					<a class="permalink" href="#TaskManager.Update">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cm <a href="#TaskManager">TaskManager</a>) Update(uid <a href="#UID">UID</a>, pid <a href="#PID">PID</a>, config <a href="#TaskExecutor">TaskExecutor</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<p>
+Update the task with a same UID, PID and new task config.
+If it comes a UID not injected , Update will return ChaosErr.NotFound(&#34;UID&#34;).
+If it comes the import PID of task do not equal to the last one,
+Update will return ErrUpdateTaskConfigWithPIDChanges.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="UID">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/task_config_manager.go#L24">UID</a>
+				<a class="permalink" href="#UID">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type UID = <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
