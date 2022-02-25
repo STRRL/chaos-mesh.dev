@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ed0c13e. Generated at Thu Feb 24 22:04:10 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 77df839. Generated at Fri Feb 25 10:01:36 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -361,10 +361,10 @@
 <span id="L296" class="ln">   296  </span><span class="comment">// @Description Get the detail of an archived schedule experiment.</span>
 <span id="L297" class="ln">   297  </span><span class="comment">// @Tags archives</span>
 <span id="L298" class="ln">   298  </span><span class="comment">// @Produce json</span>
-<span id="L299" class="ln">   299  </span><span class="comment">// @Param uid query string true &#34;uid&#34;</span>
+<span id="L299" class="ln">   299  </span><span class="comment">// @Param uid path string true &#34;uid&#34;</span>
 <span id="L300" class="ln">   300  </span><span class="comment">// @Success 200 {object} Detail</span>
-<span id="L301" class="ln">   301  </span><span class="comment">// @Router /archives/schedules/{uid} [get]</span>
-<span id="L302" class="ln">   302  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L301" class="ln">   301  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L302" class="ln">   302  </span><span class="comment">// @Router /archives/schedules/{uid} [get]</span>
 <span id="L303" class="ln">   303  </span>func (s *Service) detailSchedule(c *gin.Context) {
 <span id="L304" class="ln">   304  </span>	var (
 <span id="L305" class="ln">   305  </span>		err    error
@@ -538,10 +538,10 @@
 <span id="L473" class="ln">   473  </span><span class="comment">// @Description Get the detail of an archived workflow.</span>
 <span id="L474" class="ln">   474  </span><span class="comment">// @Tags archives</span>
 <span id="L475" class="ln">   475  </span><span class="comment">// @Produce json</span>
-<span id="L476" class="ln">   476  </span><span class="comment">// @Param uid query string true &#34;uid&#34;</span>
+<span id="L476" class="ln">   476  </span><span class="comment">// @Param uid path string true &#34;uid&#34;</span>
 <span id="L477" class="ln">   477  </span><span class="comment">// @Success 200 {object} Detail</span>
-<span id="L478" class="ln">   478  </span><span class="comment">// @Router /archives/workflows/{uid} [get]</span>
-<span id="L479" class="ln">   479  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L478" class="ln">   478  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L479" class="ln">   479  </span><span class="comment">// @Router /archives/workflows/{uid} [get]</span>
 <span id="L480" class="ln">   480  </span>func (s *Service) detailWorkflow(c *gin.Context) {
 <span id="L481" class="ln">   481  </span>	var (
 <span id="L482" class="ln">   482  </span>		err    error

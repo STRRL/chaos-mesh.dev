@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ed0c13e. Generated at Thu Feb 24 22:04:10 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 77df839. Generated at Fri Feb 25 10:01:36 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -226,8 +226,8 @@
 <span id="L161" class="ln">   161  </span>				if workflowNeedUpdate.Status.EndTime == nil {
 <span id="L162" class="ln">   162  </span>					now := metav1.NewTime(time.Now())
 <span id="L163" class="ln">   163  </span>					workflowNeedUpdate.Status.EndTime = &amp;now
-<span id="L164" class="ln">   164  </span>				}
-<span id="L165" class="ln">   165  </span>				it.eventRecorder.Event(&amp;workflow, recorder.WorkflowAccomplished{})
+<span id="L164" class="ln">   164  </span>					it.eventRecorder.Event(&amp;workflow, recorder.WorkflowAccomplished{})
+<span id="L165" class="ln">   165  </span>				}
 <span id="L166" class="ln">   166  </span>			} else {
 <span id="L167" class="ln">   167  </span>				SetWorkflowCondition(&amp;workflowNeedUpdate.Status, v1alpha1.WorkflowCondition{
 <span id="L168" class="ln">   168  </span>					Type:   v1alpha1.WorkflowConditionAccomplished,
