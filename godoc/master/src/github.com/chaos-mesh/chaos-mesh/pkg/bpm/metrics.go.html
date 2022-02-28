@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 07508be. Generated at Mon Feb 28 10:01:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 01df458. Generated at Mon Feb 28 22:08:48 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -85,13 +85,13 @@
 <span id="L20" class="ln">    20  </span>)
 <span id="L21" class="ln">    21  </span>
 <span id="L22" class="ln">    22  </span>type metricsCollector struct {
-<span id="L23" class="ln">    23  </span>	backgroundProcessManager  BackgroundProcessManager
+<span id="L23" class="ln">    23  </span>	backgroundProcessManager  *BackgroundProcessManager
 <span id="L24" class="ln">    24  </span>	bpmControlledProcesses    prometheus.Gauge
 <span id="L25" class="ln">    25  </span>	bpmControlledProcessTotal prometheus.Counter
 <span id="L26" class="ln">    26  </span>}
 <span id="L27" class="ln">    27  </span>
 <span id="L28" class="ln">    28  </span><span class="comment">// newMetricsCollector initializes metrics for each chaos daemon</span>
-<span id="L29" class="ln">    29  </span>func newMetricsCollector(backgroundProcessManager BackgroundProcessManager, register prometheus.Registerer) *metricsCollector {
+<span id="L29" class="ln">    29  </span>func newMetricsCollector(backgroundProcessManager *BackgroundProcessManager, register prometheus.Registerer) *metricsCollector {
 <span id="L30" class="ln">    30  </span>	collector := &amp;metricsCollector{
 <span id="L31" class="ln">    31  </span>		backgroundProcessManager: backgroundProcessManager,
 <span id="L32" class="ln">    32  </span>		bpmControlledProcesses: prometheus.NewGauge(prometheus.GaugeOpts{

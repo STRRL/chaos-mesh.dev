@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 07508be. Generated at Mon Feb 28 10:01:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 01df458. Generated at Mon Feb 28 22:08:48 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -89,8 +89,8 @@
 <span id="L24" class="ln">    24  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/mock&#34;
 <span id="L25" class="ln">    25  </span>)
 <span id="L26" class="ln">    26  </span>
-<span id="L27" class="ln">    27  </span><span class="comment">// Build builds the process</span>
-<span id="L28" class="ln">    28  </span>func (b *ProcessBuilder) Build() *ManagedProcess {
+<span id="L27" class="ln">    27  </span><span class="comment">// Build builds the command</span>
+<span id="L28" class="ln">    28  </span>func (b *CommandBuilder) Build() *ManagedCommand {
 <span id="L29" class="ln">    29  </span>	args := b.args
 <span id="L30" class="ln">    30  </span>	cmd := b.cmd
 <span id="L31" class="ln">    31  </span>
@@ -113,7 +113,7 @@
 <span id="L48" class="ln">    48  </span>
 <span id="L49" class="ln">    49  </span>	if c := mock.On(&#34;MockProcessBuild&#34;); c != nil {
 <span id="L50" class="ln">    50  </span>		f := c.(func(context.Context, string, ...string) *exec.Cmd)
-<span id="L51" class="ln">    51  </span>		return &amp;ManagedProcess{
+<span id="L51" class="ln">    51  </span>		return &amp;ManagedCommand{
 <span id="L52" class="ln">    52  </span>			Cmd:        f(b.ctx, cmd, args...),
 <span id="L53" class="ln">    53  </span>			Identifier: b.identifier,
 <span id="L54" class="ln">    54  </span>		}
@@ -138,7 +138,7 @@
 <span id="L73" class="ln">    73  </span>		command.Stderr = b.stderr
 <span id="L74" class="ln">    74  </span>	}
 <span id="L75" class="ln">    75  </span>
-<span id="L76" class="ln">    76  </span>	return &amp;ManagedProcess{
+<span id="L76" class="ln">    76  </span>	return &amp;ManagedCommand{
 <span id="L77" class="ln">    77  </span>		Cmd:        command,
 <span id="L78" class="ln">    78  </span>		Identifier: b.identifier,
 <span id="L79" class="ln">    79  </span>	}

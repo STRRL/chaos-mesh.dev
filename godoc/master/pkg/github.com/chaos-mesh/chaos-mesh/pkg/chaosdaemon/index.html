@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 07508be. Generated at Mon Feb 28 10:01:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 01df458. Generated at Mon Feb 28 22:08:48 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -157,10 +157,10 @@
 					<dd>&nbsp; &nbsp; <a href="#DaemonServer.ContainerKill">func (s *DaemonServer) ContainerKill(ctx context.Context, req *pb.ContainerRequest) (*empty.Empty, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#DaemonServer.ExecCPUStressors">func (s *DaemonServer) ExecCPUStressors(ctx context.Context, req *pb.ExecStressRequest) (string, int64, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#DaemonServer.ExecCPUStressors">func (s *DaemonServer) ExecCPUStressors(ctx context.Context, req *pb.ExecStressRequest) (*bpm.Process, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#DaemonServer.ExecMemoryStressors">func (s *DaemonServer) ExecMemoryStressors(ctx context.Context, req *pb.ExecStressRequest) (string, int64, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#DaemonServer.ExecMemoryStressors">func (s *DaemonServer) ExecMemoryStressors(ctx context.Context, req *pb.ExecStressRequest) (*bpm.Process, error)</a></dd>
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#DaemonServer.ExecStressors">func (s *DaemonServer) ExecStressors(ctx context.Context, req *pb.ExecStressRequest) (*pb.ExecStressResponse, error)</a></dd>
@@ -297,7 +297,7 @@
 		
 			
 			
-			<h2 id="Config">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L51">Config</a>
+			<h2 id="Config">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L52">Config</a>
 				<a class="permalink" href="#Config">&#xb6;</a>
 				
 				
@@ -328,7 +328,7 @@ Config contains the basic chaos daemon configuration.
 
 			
 				
-				<h3 id="Config.GrpcAddr">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L74">GrpcAddr</a>
+				<h3 id="Config.GrpcAddr">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L75">GrpcAddr</a>
 					<a class="permalink" href="#Config.GrpcAddr">&#xb6;</a>
 					
 					
@@ -343,7 +343,7 @@ Get the grpc address
 				
 			
 				
-				<h3 id="Config.HttpAddr">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L69">HttpAddr</a>
+				<h3 id="Config.HttpAddr">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L70">HttpAddr</a>
 					<a class="permalink" href="#Config.HttpAddr">&#xb6;</a>
 					
 					
@@ -360,7 +360,7 @@ Get the http address
 		
 			
 			
-			<h2 id="DaemonServer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L79">DaemonServer</a>
+			<h2 id="DaemonServer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L80">DaemonServer</a>
 				<a class="permalink" href="#DaemonServer">&#xb6;</a>
 				
 				
@@ -386,7 +386,7 @@ DaemonServer represents a grpc server for tc daemon
 
 			
 				
-				<h3 id="NewDaemonServerWithCRClient">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L97">NewDaemonServerWithCRClient</a>
+				<h3 id="NewDaemonServerWithCRClient">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L101">NewDaemonServerWithCRClient</a>
 					<a class="permalink" href="#NewDaemonServerWithCRClient">&#xb6;</a>
 					
 					
@@ -402,7 +402,7 @@ NewDaemonServerWithCRClient returns DaemonServer with container runtime client
 
 			
 				
-				<h3 id="DaemonServer.ApplyHttpChaos">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/httpchaos_server.go#L65">ApplyHttpChaos</a>
+				<h3 id="DaemonServer.ApplyHttpChaos">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/httpchaos_server.go#L74">ApplyHttpChaos</a>
 					<a class="permalink" href="#DaemonServer.ApplyHttpChaos">&#xb6;</a>
 					
 					
@@ -414,7 +414,7 @@ NewDaemonServerWithCRClient returns DaemonServer with container runtime client
 				
 			
 				
-				<h3 id="DaemonServer.ApplyIOChaos">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/iochaos_server.go#L39">ApplyIOChaos</a>
+				<h3 id="DaemonServer.ApplyIOChaos">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/iochaos_server.go#L38">ApplyIOChaos</a>
 					<a class="permalink" href="#DaemonServer.ApplyIOChaos">&#xb6;</a>
 					
 					
@@ -426,7 +426,7 @@ NewDaemonServerWithCRClient returns DaemonServer with container runtime client
 				
 			
 				
-				<h3 id="DaemonServer.CancelStressors">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/stress_server_linux.go#L58">CancelStressors</a>
+				<h3 id="DaemonServer.CancelStressors">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/stress_server_linux.go#L65">CancelStressors</a>
 					<a class="permalink" href="#DaemonServer.CancelStressors">&#xb6;</a>
 					
 					
@@ -466,26 +466,26 @@ ContainerKill kills container according to container id in the req
 				
 			
 				
-				<h3 id="DaemonServer.ExecCPUStressors">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/stress_server_linux.go#L86">ExecCPUStressors</a>
+				<h3 id="DaemonServer.ExecCPUStressors">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/stress_server_linux.go#L109">ExecCPUStressors</a>
 					<a class="permalink" href="#DaemonServer.ExecCPUStressors">&#xb6;</a>
 					
 					
 				</h3>
 				<pre>func (s *<a href="#DaemonServer">DaemonServer</a>) ExecCPUStressors(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>,
-    req *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">pb</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ExecStressRequest">ExecStressRequest</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+    req *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">pb</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ExecStressRequest">ExecStressRequest</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/bpm/">bpm</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/bpm/#Process">Process</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
 				
 			
 				
-				<h3 id="DaemonServer.ExecMemoryStressors">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/stress_server_linux.go#L144">ExecMemoryStressors</a>
+				<h3 id="DaemonServer.ExecMemoryStressors">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/stress_server_linux.go#L166">ExecMemoryStressors</a>
 					<a class="permalink" href="#DaemonServer.ExecMemoryStressors">&#xb6;</a>
 					
 					
 				</h3>
 				<pre>func (s *<a href="#DaemonServer">DaemonServer</a>) ExecMemoryStressors(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>,
-    req *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">pb</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ExecStressRequest">ExecStressRequest</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+    req *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">pb</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ExecStressRequest">ExecStressRequest</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/bpm/">bpm</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/bpm/#Process">Process</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -606,7 +606,7 @@ ContainerKill kills container according to container id in the req
 		
 			
 			
-			<h2 id="RegisterGatherer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L158">RegisterGatherer</a>
+			<h2 id="RegisterGatherer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L163">RegisterGatherer</a>
 				<a class="permalink" href="#RegisterGatherer">&#xb6;</a>
 				
 				
@@ -664,7 +664,7 @@ Response is the body part of HTTP Response
 		
 			
 			
-			<h2 id="Server">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L164">Server</a>
+			<h2 id="Server">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L169">Server</a>
 				<a class="permalink" href="#Server">&#xb6;</a>
 				
 				
@@ -688,7 +688,7 @@ Server is the server for chaos daemon
 
 			
 				
-				<h3 id="BuildServer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L173">BuildServer</a>
+				<h3 id="BuildServer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L178">BuildServer</a>
 					<a class="permalink" href="#BuildServer">&#xb6;</a>
 					
 					
@@ -704,7 +704,7 @@ BuildServer builds a chaos daemon server
 
 			
 				
-				<h3 id="Server.Shutdown">func (*Server) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L219">Shutdown</a>
+				<h3 id="Server.Shutdown">func (*Server) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L224">Shutdown</a>
 					<a class="permalink" href="#Server.Shutdown">&#xb6;</a>
 					
 					
@@ -716,7 +716,7 @@ BuildServer builds a chaos daemon server
 				
 			
 				
-				<h3 id="Server.Start">func (*Server) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L191">Start</a>
+				<h3 id="Server.Start">func (*Server) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L196">Start</a>
 					<a class="permalink" href="#Server.Start">&#xb6;</a>
 					
 					

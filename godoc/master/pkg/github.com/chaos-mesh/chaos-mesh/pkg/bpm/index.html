@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 07508be. Generated at Mon Feb 28 10:01:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 01df458. Generated at Mon Feb 28 22:08:48 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -120,35 +120,76 @@
 				
 				<dd><a href="#GetNsPath">func GetNsPath(pid uint32, typ NsType) string</a></dd>
 			
-				
-				<dd><a href="#NewBlockingBuffer">func NewBlockingBuffer() io.ReadWriteCloser</a></dd>
-			
 			
 				
 				<dd><a href="#BackgroundProcessManager">type BackgroundProcessManager</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewBackgroundProcessManager">func NewBackgroundProcessManager(registry prometheus.Registerer) BackgroundProcessManager</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#StartBackgroundProcessManager">func StartBackgroundProcessManager(registry prometheus.Registerer) *BackgroundProcessManager</a></dd>
 				
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#BackgroundProcessManager.GetIdentifiers">func (m *BackgroundProcessManager) GetIdentifiers() []string</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#BackgroundProcessManager.KillBackgroundProcess">func (m *BackgroundProcessManager) KillBackgroundProcess(ctx context.Context, pid int, startTime int64) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#BackgroundProcessManager.GetPipes">func (m *BackgroundProcessManager) GetPipes(uid string) (Pipes, bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BackgroundProcessManager.GetUID">func (m *BackgroundProcessManager) GetUID(pair ProcessPair) (string, bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BackgroundProcessManager.KillBackgroundProcess">func (m *BackgroundProcessManager) KillBackgroundProcess(ctx context.Context, uid string) error</a></dd>
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#BackgroundProcessManager.Shutdown">func (m *BackgroundProcessManager) Shutdown()</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#BackgroundProcessManager.StartProcess">func (m *BackgroundProcessManager) StartProcess(cmd *ManagedProcess) (*process.Process, error)</a></dd>
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#BackgroundProcessManager.Stdio">func (m *BackgroundProcessManager) Stdio(pid int, startTime int64) *Stdio</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#BackgroundProcessManager.StartProcess">func (m *BackgroundProcessManager) StartProcess(cmd *ManagedCommand) (*Process, error)</a></dd>
 				
 			
 				
-				<dd><a href="#ManagedProcess">type ManagedProcess</a></dd>
+				<dd><a href="#CommandBuilder">type CommandBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DefaultProcessBuilder">func DefaultProcessBuilder(cmd string, args ...string) *CommandBuilder</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.Build">func (b *CommandBuilder) Build() *ManagedCommand</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.EnableLocalMnt">func (b *CommandBuilder) EnableLocalMnt() *CommandBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.EnablePause">func (b *CommandBuilder) EnablePause() *CommandBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.SetContext">func (b *CommandBuilder) SetContext(ctx context.Context) *CommandBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.SetEnv">func (b *CommandBuilder) SetEnv(key, value string) *CommandBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.SetIdentifier">func (b *CommandBuilder) SetIdentifier(id string) *CommandBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.SetNS">func (b *CommandBuilder) SetNS(pid uint32, typ NsType) *CommandBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.SetNSOpt">func (b *CommandBuilder) SetNSOpt(options []nsOption) *CommandBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.SetStderr">func (b *CommandBuilder) SetStderr(stderr io.ReadWriteCloser) *CommandBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.SetStdin">func (b *CommandBuilder) SetStdin(stdin io.ReadWriteCloser) *CommandBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.SetStdout">func (b *CommandBuilder) SetStdout(stdout io.ReadWriteCloser) *CommandBuilder</a></dd>
+				
+			
+				
+				<dd><a href="#ManagedCommand">type ManagedCommand</a></dd>
 				
 				
 			
@@ -158,53 +199,20 @@
 				
 			
 				
-				<dd><a href="#ProcessBuilder">type ProcessBuilder</a></dd>
+				<dd><a href="#Pipes">type Pipes</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Process">type Process</a></dd>
+				
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#DefaultProcessBuilder">func DefaultProcessBuilder(cmd string, args ...string) *ProcessBuilder</a></dd>
-				
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#ProcessBuilder.Build">func (b *ProcessBuilder) Build() *ManagedProcess</a></dd>
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#ProcessBuilder.EnableLocalMnt">func (b *ProcessBuilder) EnableLocalMnt() *ProcessBuilder</a></dd>
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#ProcessBuilder.EnablePause">func (b *ProcessBuilder) EnablePause() *ProcessBuilder</a></dd>
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#ProcessBuilder.SetContext">func (b *ProcessBuilder) SetContext(ctx context.Context) *ProcessBuilder</a></dd>
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#ProcessBuilder.SetEnv">func (b *ProcessBuilder) SetEnv(key, value string) *ProcessBuilder</a></dd>
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#ProcessBuilder.SetIdentifier">func (b *ProcessBuilder) SetIdentifier(id string) *ProcessBuilder</a></dd>
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#ProcessBuilder.SetNS">func (b *ProcessBuilder) SetNS(pid uint32, typ NsType) *ProcessBuilder</a></dd>
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#ProcessBuilder.SetNSOpt">func (b *ProcessBuilder) SetNSOpt(options []nsOption) *ProcessBuilder</a></dd>
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#ProcessBuilder.SetStderr">func (b *ProcessBuilder) SetStderr(stderr io.ReadWriteCloser) *ProcessBuilder</a></dd>
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#ProcessBuilder.SetStdin">func (b *ProcessBuilder) SetStdin(stdin io.ReadWriteCloser) *ProcessBuilder</a></dd>
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#ProcessBuilder.SetStdout">func (b *ProcessBuilder) SetStdout(stdout io.ReadWriteCloser) *ProcessBuilder</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#Process.Stopped">func (p *Process) Stopped() &lt;-chan struct{}</a></dd>
 				
 			
 				
 				<dd><a href="#ProcessPair">type ProcessPair</a></dd>
-				
-				
-			
-				
-				<dd><a href="#Stdio">type Stdio</a></dd>
 				
 				
 			
@@ -220,8 +228,6 @@
 			<span style="font-size:90%">
 			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go">bpm.go</a>
-			
-				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/buffer.go">buffer.go</a>
 			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/build_linux.go">build_linux.go</a>
 			
@@ -248,7 +254,7 @@
 		
 			
 			
-			<h2 id="GetNsPath">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L408">GetNsPath</a>
+			<h2 id="GetNsPath">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L353">GetNsPath</a>
 				<a class="permalink" href="#GetNsPath">&#xb6;</a>
 				
 				
@@ -262,23 +268,10 @@ GetNsPath returns corresponding namespace path
 			
 
 		
-			
-			
-			<h2 id="NewBlockingBuffer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/buffer.go#L33">NewBlockingBuffer</a>
-				<a class="permalink" href="#NewBlockingBuffer">&#xb6;</a>
-				
-				
-			</h2>
-			<pre>func NewBlockingBuffer() <a href="https:/chaos-mesh.dev/godoc/master/pkg/io/">io</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/io/#ReadWriteCloser">ReadWriteCloser</a></pre>
-			
-			
-			
-
-		
 		
 			
 			
-			<h2 id="BackgroundProcessManager">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L78">BackgroundProcessManager</a>
+			<h2 id="BackgroundProcessManager">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L100">BackgroundProcessManager</a>
 				<a class="permalink" href="#BackgroundProcessManager">&#xb6;</a>
 				
 				
@@ -302,14 +295,14 @@ BackgroundProcessManager manages all background processes
 
 			
 				
-				<h3 id="NewBackgroundProcessManager">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L87">NewBackgroundProcessManager</a>
-					<a class="permalink" href="#NewBackgroundProcessManager">&#xb6;</a>
+				<h3 id="StartBackgroundProcessManager">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L169">StartBackgroundProcessManager</a>
+					<a class="permalink" href="#StartBackgroundProcessManager">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func NewBackgroundProcessManager(registry <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/">prometheus</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/#Registerer">Registerer</a>) <a href="#BackgroundProcessManager">BackgroundProcessManager</a></pre>
+				<pre>func StartBackgroundProcessManager(registry <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/">prometheus</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/#Registerer">Registerer</a>) *<a href="#BackgroundProcessManager">BackgroundProcessManager</a></pre>
 				<p>
-NewBackgroundProcessManager creates a background process manager
+StartBackgroundProcessManager creates a background process manager
 </p>
 
 				
@@ -318,7 +311,7 @@ NewBackgroundProcessManager creates a background process manager
 
 			
 				
-				<h3 id="BackgroundProcessManager.GetIdentifiers">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L366">GetIdentifiers</a>
+				<h3 id="BackgroundProcessManager.GetIdentifiers">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L311">GetIdentifiers</a>
 					<a class="permalink" href="#BackgroundProcessManager.GetIdentifiers">&#xb6;</a>
 					
 					
@@ -333,12 +326,36 @@ GetIdentifiers finds all identifiers in BPM
 				
 			
 				
-				<h3 id="BackgroundProcessManager.KillBackgroundProcess">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L260">KillBackgroundProcess</a>
+				<h3 id="BackgroundProcessManager.GetPipes">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L278">GetPipes</a>
+					<a class="permalink" href="#BackgroundProcessManager.GetPipes">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#BackgroundProcessManager">BackgroundProcessManager</a>) GetPipes(uid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (<a href="#Pipes">Pipes</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="BackgroundProcessManager.GetUID">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L264">GetUID</a>
+					<a class="permalink" href="#BackgroundProcessManager.GetUID">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#BackgroundProcessManager">BackgroundProcessManager</a>) GetUID(pair <a href="#ProcessPair">ProcessPair</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="BackgroundProcessManager.KillBackgroundProcess">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L287">KillBackgroundProcess</a>
 					<a class="permalink" href="#BackgroundProcessManager.KillBackgroundProcess">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (m *<a href="#BackgroundProcessManager">BackgroundProcessManager</a>) KillBackgroundProcess(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, startTime <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (m *<a href="#BackgroundProcessManager">BackgroundProcessManager</a>) KillBackgroundProcess(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, uid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
 				<p>
 KillBackgroundProcess sends SIGTERM to process
 </p>
@@ -348,7 +365,7 @@ KillBackgroundProcess sends SIGTERM to process
 				
 			
 				
-				<h3 id="BackgroundProcessManager.Shutdown">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L211">Shutdown</a>
+				<h3 id="BackgroundProcessManager.Shutdown">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L250">Shutdown</a>
 					<a class="permalink" href="#BackgroundProcessManager.Shutdown">&#xb6;</a>
 					
 					
@@ -360,12 +377,12 @@ KillBackgroundProcess sends SIGTERM to process
 				
 			
 				
-				<h3 id="BackgroundProcessManager.StartProcess">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L103">StartProcess</a>
+				<h3 id="BackgroundProcessManager.StartProcess">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L207">StartProcess</a>
 					<a class="permalink" href="#BackgroundProcessManager.StartProcess">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (m *<a href="#BackgroundProcessManager">BackgroundProcessManager</a>) StartProcess(cmd *<a href="#ManagedProcess">ManagedProcess</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/shirou/gopsutil/process/">process</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/shirou/gopsutil/process/#Process">Process</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<pre>func (m *<a href="#BackgroundProcessManager">BackgroundProcessManager</a>) StartProcess(cmd *<a href="#ManagedCommand">ManagedCommand</a>) (*<a href="#Process">Process</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 StartProcess manages a process in manager
 </p>
@@ -374,14 +391,210 @@ StartProcess manages a process in manager
 				
 				
 			
+		
+			
+			
+			<h2 id="CommandBuilder">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L334">CommandBuilder</a>
+				<a class="permalink" href="#CommandBuilder">&#xb6;</a>
 				
-				<h3 id="BackgroundProcessManager.Stdio">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L326">Stdio</a>
-					<a class="permalink" href="#BackgroundProcessManager.Stdio">&#xb6;</a>
+				
+			</h2>
+			<p>
+CommandBuilder builds a exec.Cmd for daemon
+</p>
+
+			<pre>type CommandBuilder struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="DefaultProcessBuilder">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L322">DefaultProcessBuilder</a>
+					<a class="permalink" href="#DefaultProcessBuilder">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (m *<a href="#BackgroundProcessManager">BackgroundProcessManager</a>) Stdio(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, startTime <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>) *<a href="#Stdio">Stdio</a></pre>
+				<pre>func DefaultProcessBuilder(cmd <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, args ...<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) *<a href="#CommandBuilder">CommandBuilder</a></pre>
+				<p>
+DefaultProcessBuilder returns the default process builder
+</p>
+
 				
+				
+			
+
+			
+				
+				<h3 id="CommandBuilder.Build">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/build_linux.go#L28">Build</a>
+					<a class="permalink" href="#CommandBuilder.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#CommandBuilder">CommandBuilder</a>) Build() *<a href="#ManagedCommand">ManagedCommand</a></pre>
+				<p>
+Build builds the command
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="CommandBuilder.EnableLocalMnt">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L395">EnableLocalMnt</a>
+					<a class="permalink" href="#CommandBuilder.EnableLocalMnt">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#CommandBuilder">CommandBuilder</a>) EnableLocalMnt() *<a href="#CommandBuilder">CommandBuilder</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="CommandBuilder.EnablePause">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L389">EnablePause</a>
+					<a class="permalink" href="#CommandBuilder.EnablePause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#CommandBuilder">CommandBuilder</a>) EnablePause() *<a href="#CommandBuilder">CommandBuilder</a></pre>
+				<p>
+EnablePause enables pause for process
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="CommandBuilder.SetContext">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L402">SetContext</a>
+					<a class="permalink" href="#CommandBuilder.SetContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#CommandBuilder">CommandBuilder</a>) SetContext(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>) *<a href="#CommandBuilder">CommandBuilder</a></pre>
+				<p>
+SetContext sets context for process
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="CommandBuilder.SetEnv">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L358">SetEnv</a>
+					<a class="permalink" href="#CommandBuilder.SetEnv">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#CommandBuilder">CommandBuilder</a>) SetEnv(key, value <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) *<a href="#CommandBuilder">CommandBuilder</a></pre>
+				<p>
+SetEnv sets the environment variables of the process
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="CommandBuilder.SetIdentifier">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L382">SetIdentifier</a>
+					<a class="permalink" href="#CommandBuilder.SetIdentifier">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#CommandBuilder">CommandBuilder</a>) SetIdentifier(id <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) *<a href="#CommandBuilder">CommandBuilder</a></pre>
+				<p>
+SetIdentifier sets the identifier of the process
+</p>
+<p>
+The identifier is used to identify the process in BPM, to confirm only one identified process is running.
+If one identified process is already running, new processes with the same identifier will be blocked by lock.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="CommandBuilder.SetNS">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L364">SetNS</a>
+					<a class="permalink" href="#CommandBuilder.SetNS">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#CommandBuilder">CommandBuilder</a>) SetNS(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint32">uint32</a>, typ <a href="#NsType">NsType</a>) *<a href="#CommandBuilder">CommandBuilder</a></pre>
+				<p>
+SetNS sets the namespace of the process
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="CommandBuilder.SetNSOpt">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L372">SetNSOpt</a>
+					<a class="permalink" href="#CommandBuilder.SetNSOpt">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#CommandBuilder">CommandBuilder</a>) SetNSOpt(options []nsOption) *<a href="#CommandBuilder">CommandBuilder</a></pre>
+				<p>
+SetNSOpt sets the namespace of the process
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="CommandBuilder.SetStderr">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L423">SetStderr</a>
+					<a class="permalink" href="#CommandBuilder.SetStderr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#CommandBuilder">CommandBuilder</a>) SetStderr(stderr <a href="https:/chaos-mesh.dev/godoc/master/pkg/io/">io</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/io/#ReadWriteCloser">ReadWriteCloser</a>) *<a href="#CommandBuilder">CommandBuilder</a></pre>
+				<p>
+SetStderr sets stderr for process
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="CommandBuilder.SetStdin">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L409">SetStdin</a>
+					<a class="permalink" href="#CommandBuilder.SetStdin">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#CommandBuilder">CommandBuilder</a>) SetStdin(stdin <a href="https:/chaos-mesh.dev/godoc/master/pkg/io/">io</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/io/#ReadWriteCloser">ReadWriteCloser</a>) *<a href="#CommandBuilder">CommandBuilder</a></pre>
+				<p>
+SetStdin sets stdin for process
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="CommandBuilder.SetStdout">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L416">SetStdout</a>
+					<a class="permalink" href="#CommandBuilder.SetStdout">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#CommandBuilder">CommandBuilder</a>) SetStdout(stdout <a href="https:/chaos-mesh.dev/godoc/master/pkg/io/">io</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/io/#ReadWriteCloser">ReadWriteCloser</a>) *<a href="#CommandBuilder">CommandBuilder</a></pre>
+				<p>
+SetStdout sets stdout for process
+</p>
+
 				
 				
 				
@@ -389,21 +602,21 @@ StartProcess manages a process in manager
 		
 			
 			
-			<h2 id="ManagedProcess">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L490">ManagedProcess</a>
-				<a class="permalink" href="#ManagedProcess">&#xb6;</a>
+			<h2 id="ManagedCommand">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L435">ManagedCommand</a>
+				<a class="permalink" href="#ManagedCommand">&#xb6;</a>
 				
 				
 			</h2>
 			<p>
-ManagedProcess is a process which can be managed by backgroundProcessManager
+ManagedCommand is a process which can be managed by backgroundProcessManager
 </p>
 
-			<pre>type ManagedProcess struct {
+			<pre>type ManagedCommand struct {
     *<a href="https:/chaos-mesh.dev/godoc/master/pkg/os/exec/">exec</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/os/exec/#Cmd">Cmd</a>
 
     <span class="comment">// If the identifier is not nil, process manager should make sure no other</span>
     <span class="comment">// process with this identifier is running when executing this command</span>
-<span id="ManagedProcess.Identifier"></span>    Identifier *<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="ManagedCommand.Identifier"></span>    Identifier *<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
 }
 </pre>
 
@@ -421,7 +634,7 @@ ManagedProcess is a process which can be managed by backgroundProcessManager
 		
 			
 			
-			<h2 id="NsType">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L34">NsType</a>
+			<h2 id="NsType">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L35">NsType</a>
 				<a class="permalink" href="#NsType">&#xb6;</a>
 				
 				
@@ -453,16 +666,50 @@ ManagedProcess is a process which can be managed by backgroundProcessManager
 		
 			
 			
-			<h2 id="ProcessBuilder">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L389">ProcessBuilder</a>
-				<a class="permalink" href="#ProcessBuilder">&#xb6;</a>
+			<h2 id="Pipes">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L94">Pipes</a>
+				<a class="permalink" href="#Pipes">&#xb6;</a>
 				
 				
 			</h2>
 			<p>
-ProcessBuilder builds a exec.Cmd for daemon
+pipes that will be connected to the command&#39;s stdin/stdout
 </p>
 
-			<pre>type ProcessBuilder struct {
+			<pre>type Pipes struct {
+<span id="Pipes.Stdin"></span>    Stdin  <a href="https:/chaos-mesh.dev/godoc/master/pkg/io/">io</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/io/#WriteCloser">WriteCloser</a>
+<span id="Pipes.Stdout"></span>    Stdout <a href="https:/chaos-mesh.dev/godoc/master/pkg/io/">io</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/io/#ReadCloser">ReadCloser</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Process">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L79">Process</a>
+				<a class="permalink" href="#Process">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Process struct {
+<span id="Process.Uid"></span>    Uid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+
+    <span class="comment">// TODO: remove in v3.x</span>
+    <span class="comment">// store create time, to keep compatible with v2.x</span>
+<span id="Process.Pair"></span>    Pair <a href="#ProcessPair">ProcessPair</a>
+
+<span id="Process.Cmd"></span>    Cmd   *<a href="#ManagedCommand">ManagedCommand</a>
+<span id="Process.Pipes"></span>    Pipes <a href="#Pipes">Pipes</a>
     <span class="comment">// contains filtered or unexported fields</span>
 }
 </pre>
@@ -476,184 +723,16 @@ ProcessBuilder builds a exec.Cmd for daemon
 			
 
 			
-				
-				<h3 id="DefaultProcessBuilder">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L377">DefaultProcessBuilder</a>
-					<a class="permalink" href="#DefaultProcessBuilder">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func DefaultProcessBuilder(cmd <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, args ...<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) *<a href="#ProcessBuilder">ProcessBuilder</a></pre>
-				<p>
-DefaultProcessBuilder returns the default process builder
-</p>
-
-				
-				
-			
 
 			
 				
-				<h3 id="ProcessBuilder.Build">func (*ProcessBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/build_linux.go#L28">Build</a>
-					<a class="permalink" href="#ProcessBuilder.Build">&#xb6;</a>
+				<h3 id="Process.Stopped">func (*Process) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L164">Stopped</a>
+					<a class="permalink" href="#Process.Stopped">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (b *<a href="#ProcessBuilder">ProcessBuilder</a>) Build() *<a href="#ManagedProcess">ManagedProcess</a></pre>
-				<p>
-Build builds the process
-</p>
-
+				<pre>func (p *<a href="#Process">Process</a>) Stopped() &lt;-chan struct{}</pre>
 				
-				
-				
-			
-				
-				<h3 id="ProcessBuilder.EnableLocalMnt">func (*ProcessBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L450">EnableLocalMnt</a>
-					<a class="permalink" href="#ProcessBuilder.EnableLocalMnt">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func (b *<a href="#ProcessBuilder">ProcessBuilder</a>) EnableLocalMnt() *<a href="#ProcessBuilder">ProcessBuilder</a></pre>
-				
-				
-				
-				
-			
-				
-				<h3 id="ProcessBuilder.EnablePause">func (*ProcessBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L444">EnablePause</a>
-					<a class="permalink" href="#ProcessBuilder.EnablePause">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func (b *<a href="#ProcessBuilder">ProcessBuilder</a>) EnablePause() *<a href="#ProcessBuilder">ProcessBuilder</a></pre>
-				<p>
-EnablePause enables pause for process
-</p>
-
-				
-				
-				
-			
-				
-				<h3 id="ProcessBuilder.SetContext">func (*ProcessBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L457">SetContext</a>
-					<a class="permalink" href="#ProcessBuilder.SetContext">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func (b *<a href="#ProcessBuilder">ProcessBuilder</a>) SetContext(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>) *<a href="#ProcessBuilder">ProcessBuilder</a></pre>
-				<p>
-SetContext sets context for process
-</p>
-
-				
-				
-				
-			
-				
-				<h3 id="ProcessBuilder.SetEnv">func (*ProcessBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L413">SetEnv</a>
-					<a class="permalink" href="#ProcessBuilder.SetEnv">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func (b *<a href="#ProcessBuilder">ProcessBuilder</a>) SetEnv(key, value <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) *<a href="#ProcessBuilder">ProcessBuilder</a></pre>
-				<p>
-SetEnv sets the environment variables of the process
-</p>
-
-				
-				
-				
-			
-				
-				<h3 id="ProcessBuilder.SetIdentifier">func (*ProcessBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L437">SetIdentifier</a>
-					<a class="permalink" href="#ProcessBuilder.SetIdentifier">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func (b *<a href="#ProcessBuilder">ProcessBuilder</a>) SetIdentifier(id <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) *<a href="#ProcessBuilder">ProcessBuilder</a></pre>
-				<p>
-SetIdentifier sets the identifier of the process
-</p>
-<p>
-The identifier is used to identify the process in BPM, to confirm only one identified process is running.
-If one identified process is already running, new processes with the same identifier will be blocked by lock.
-</p>
-
-				
-				
-				
-			
-				
-				<h3 id="ProcessBuilder.SetNS">func (*ProcessBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L419">SetNS</a>
-					<a class="permalink" href="#ProcessBuilder.SetNS">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func (b *<a href="#ProcessBuilder">ProcessBuilder</a>) SetNS(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint32">uint32</a>, typ <a href="#NsType">NsType</a>) *<a href="#ProcessBuilder">ProcessBuilder</a></pre>
-				<p>
-SetNS sets the namespace of the process
-</p>
-
-				
-				
-				
-			
-				
-				<h3 id="ProcessBuilder.SetNSOpt">func (*ProcessBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L427">SetNSOpt</a>
-					<a class="permalink" href="#ProcessBuilder.SetNSOpt">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func (b *<a href="#ProcessBuilder">ProcessBuilder</a>) SetNSOpt(options []nsOption) *<a href="#ProcessBuilder">ProcessBuilder</a></pre>
-				<p>
-SetNSOpt sets the namespace of the process
-</p>
-
-				
-				
-				
-			
-				
-				<h3 id="ProcessBuilder.SetStderr">func (*ProcessBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L478">SetStderr</a>
-					<a class="permalink" href="#ProcessBuilder.SetStderr">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func (b *<a href="#ProcessBuilder">ProcessBuilder</a>) SetStderr(stderr <a href="https:/chaos-mesh.dev/godoc/master/pkg/io/">io</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/io/#ReadWriteCloser">ReadWriteCloser</a>) *<a href="#ProcessBuilder">ProcessBuilder</a></pre>
-				<p>
-SetStderr sets stderr for process
-</p>
-
-				
-				
-				
-			
-				
-				<h3 id="ProcessBuilder.SetStdin">func (*ProcessBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L464">SetStdin</a>
-					<a class="permalink" href="#ProcessBuilder.SetStdin">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func (b *<a href="#ProcessBuilder">ProcessBuilder</a>) SetStdin(stdin <a href="https:/chaos-mesh.dev/godoc/master/pkg/io/">io</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/io/#ReadWriteCloser">ReadWriteCloser</a>) *<a href="#ProcessBuilder">ProcessBuilder</a></pre>
-				<p>
-SetStdin sets stdin for process
-</p>
-
-				
-				
-				
-			
-				
-				<h3 id="ProcessBuilder.SetStdout">func (*ProcessBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L471">SetStdout</a>
-					<a class="permalink" href="#ProcessBuilder.SetStdout">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func (b *<a href="#ProcessBuilder">ProcessBuilder</a>) SetStdout(stdout <a href="https:/chaos-mesh.dev/godoc/master/pkg/io/">io</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/io/#ReadWriteCloser">ReadWriteCloser</a>) *<a href="#ProcessBuilder">ProcessBuilder</a></pre>
-				<p>
-SetStdout sets stdout for process
-</p>
-
 				
 				
 				
@@ -661,47 +740,27 @@ SetStdout sets stdout for process
 		
 			
 			
-			<h2 id="ProcessPair">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L66">ProcessPair</a>
+			<h2 id="ProcessPair">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L74">ProcessPair</a>
 				<a class="permalink" href="#ProcessPair">&#xb6;</a>
 				
 				
 			</h2>
 			<p>
 ProcessPair is an identifier for process
+Keep compatible with v2.x
+TODO: remove in v3.x
+</p>
+<p>
+Currently, the bpm locate managed processes by both PID and create time, because the OS may reuse PID, we must check the create time to avoid locating the wrong process.
+</p>
+<p>
+However, the two-step locating is messy and the create time may be imprecise (we have fixed a [relevant bug](<a href="https://github.com/shirou/gopsutil/pull/1204">https://github.com/shirou/gopsutil/pull/1204</a>)).
+In future version, we should completely remove the two-step locating and identify managed processes by UID only.
 </p>
 
 			<pre>type ProcessPair struct {
 <span id="ProcessPair.Pid"></span>    Pid        <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
 <span id="ProcessPair.CreateTime"></span>    CreateTime <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>
-}
-</pre>
-
-			
-
-			
-
-			
-			
-			
-
-			
-
-			
-		
-			
-			
-			<h2 id="Stdio">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L72">Stdio</a>
-				<a class="permalink" href="#Stdio">&#xb6;</a>
-				
-				
-			</h2>
-			<p>
-Stdio contains stdin, stdout and stderr
-</p>
-
-			<pre>type Stdio struct {
-    <a href="https:/chaos-mesh.dev/godoc/master/pkg/sync/">sync</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sync/#Locker">Locker</a>
-<span id="Stdio.Stdin"></span>    Stdin, Stdout, Stderr <a href="https:/chaos-mesh.dev/godoc/master/pkg/io/">io</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/io/#ReadWriteCloser">ReadWriteCloser</a>
 }
 </pre>
 
