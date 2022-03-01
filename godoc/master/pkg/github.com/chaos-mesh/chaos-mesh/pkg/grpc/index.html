@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 01df458. Generated at Tue Mar  1 10:06:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 72b96d5. Generated at Tue Mar  1 22:08:50 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -159,6 +159,9 @@
 					<dd>&nbsp; &nbsp; <a href="#GrpcBuilder.WithDefaultTimeout">func (it *GrpcBuilder) WithDefaultTimeout() *GrpcBuilder</a></dd>
 				
 					
+					<dd>&nbsp; &nbsp; <a href="#GrpcBuilder.WithNamespacedName">func (it *GrpcBuilder) WithNamespacedName(id types.NamespacedName) *GrpcBuilder</a></dd>
+				
+					
 					<dd>&nbsp; &nbsp; <a href="#GrpcBuilder.WithTimeout">func (it *GrpcBuilder) WithTimeout(timeout time.Duration) *GrpcBuilder</a></dd>
 				
 			
@@ -229,7 +232,7 @@ RPCTimeout specifies timeout of RPC between controller and chaos-operator
 		
 			
 			
-			<h2 id="TimeoutClientInterceptor">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L171">TimeoutClientInterceptor</a>
+			<h2 id="TimeoutClientInterceptor">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L188">TimeoutClientInterceptor</a>
 				<a class="permalink" href="#TimeoutClientInterceptor">&#xb6;</a>
 				
 				
@@ -246,7 +249,7 @@ TimeoutClientInterceptor wraps the RPC with a timeout.
 		
 			
 			
-			<h2 id="TimeoutServerInterceptor">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L183">TimeoutServerInterceptor</a>
+			<h2 id="TimeoutServerInterceptor">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L200">TimeoutServerInterceptor</a>
 				<a class="permalink" href="#TimeoutServerInterceptor">&#xb6;</a>
 				
 				
@@ -265,7 +268,7 @@ request to application.
 		
 			
 			
-			<h2 id="CredentialProvider">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L63">CredentialProvider</a>
+			<h2 id="CredentialProvider">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L67">CredentialProvider</a>
 				<a class="permalink" href="#CredentialProvider">&#xb6;</a>
 				
 				
@@ -289,7 +292,7 @@ request to application.
 		
 			
 			
-			<h2 id="FileProvider">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L52">FileProvider</a>
+			<h2 id="FileProvider">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L56">FileProvider</a>
 				<a class="permalink" href="#FileProvider">&#xb6;</a>
 				
 				
@@ -314,7 +317,7 @@ request to application.
 		
 			
 			
-			<h2 id="GrpcBuilder">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L109">GrpcBuilder</a>
+			<h2 id="GrpcBuilder">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L113">GrpcBuilder</a>
 				<a class="permalink" href="#GrpcBuilder">&#xb6;</a>
 				
 				
@@ -335,7 +338,7 @@ request to application.
 
 			
 				
-				<h3 id="Builder">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L116">Builder</a>
+				<h3 id="Builder">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L120">Builder</a>
 					<a class="permalink" href="#Builder">&#xb6;</a>
 					
 					
@@ -348,7 +351,7 @@ request to application.
 
 			
 				
-				<h3 id="GrpcBuilder.Build">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L158">Build</a>
+				<h3 id="GrpcBuilder.Build">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L175">Build</a>
 					<a class="permalink" href="#GrpcBuilder.Build">&#xb6;</a>
 					
 					
@@ -360,7 +363,7 @@ request to application.
 				
 			
 				
-				<h3 id="GrpcBuilder.Insecure">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L130">Insecure</a>
+				<h3 id="GrpcBuilder.Insecure">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L147">Insecure</a>
 					<a class="permalink" href="#GrpcBuilder.Insecure">&#xb6;</a>
 					
 					
@@ -372,7 +375,7 @@ request to application.
 				
 			
 				
-				<h3 id="GrpcBuilder.TLSFromFile">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L147">TLSFromFile</a>
+				<h3 id="GrpcBuilder.TLSFromFile">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L164">TLSFromFile</a>
 					<a class="permalink" href="#GrpcBuilder.TLSFromFile">&#xb6;</a>
 					
 					
@@ -384,7 +387,7 @@ request to application.
 				
 			
 				
-				<h3 id="GrpcBuilder.TLSFromRaw">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L135">TLSFromRaw</a>
+				<h3 id="GrpcBuilder.TLSFromRaw">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L152">TLSFromRaw</a>
 					<a class="permalink" href="#GrpcBuilder.TLSFromRaw">&#xb6;</a>
 					
 					
@@ -396,7 +399,7 @@ request to application.
 				
 			
 				
-				<h3 id="GrpcBuilder.WithDefaultTimeout">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L120">WithDefaultTimeout</a>
+				<h3 id="GrpcBuilder.WithDefaultTimeout">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L124">WithDefaultTimeout</a>
 					<a class="permalink" href="#GrpcBuilder.WithDefaultTimeout">&#xb6;</a>
 					
 					
@@ -408,7 +411,19 @@ request to application.
 				
 			
 				
-				<h3 id="GrpcBuilder.WithTimeout">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L125">WithTimeout</a>
+				<h3 id="GrpcBuilder.WithNamespacedName">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L142">WithNamespacedName</a>
+					<a class="permalink" href="#GrpcBuilder.WithNamespacedName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#GrpcBuilder">GrpcBuilder</a>) WithNamespacedName(id <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/types/">types</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/types/#NamespacedName">NamespacedName</a>) *<a href="#GrpcBuilder">GrpcBuilder</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="GrpcBuilder.WithTimeout">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L129">WithTimeout</a>
 					<a class="permalink" href="#GrpcBuilder.WithTimeout">&#xb6;</a>
 					
 					
@@ -422,7 +437,7 @@ request to application.
 		
 			
 			
-			<h2 id="InsecureProvider">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L60">InsecureProvider</a>
+			<h2 id="InsecureProvider">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L64">InsecureProvider</a>
 				<a class="permalink" href="#InsecureProvider">&#xb6;</a>
 				
 				
@@ -446,7 +461,7 @@ request to application.
 		
 			
 			
-			<h2 id="RawProvider">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L56">RawProvider</a>
+			<h2 id="RawProvider">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L60">RawProvider</a>
 				<a class="permalink" href="#RawProvider">&#xb6;</a>
 				
 				
@@ -471,7 +486,7 @@ request to application.
 		
 			
 			
-			<h2 id="TLSFile">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L46">TLSFile</a>
+			<h2 id="TLSFile">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L50">TLSFile</a>
 				<a class="permalink" href="#TLSFile">&#xb6;</a>
 				
 				
@@ -498,7 +513,7 @@ request to application.
 		
 			
 			
-			<h2 id="TLSRaw">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L40">TLSRaw</a>
+			<h2 id="TLSRaw">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L44">TLSRaw</a>
 				<a class="permalink" href="#TLSRaw">&#xb6;</a>
 				
 				

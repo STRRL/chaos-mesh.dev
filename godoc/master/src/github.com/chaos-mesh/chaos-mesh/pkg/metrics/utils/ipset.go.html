@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 01df458. Generated at Tue Mar  1 10:06:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 72b96d5. Generated at Tue Mar  1 22:08:50 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -81,40 +81,41 @@
 <span id="L16" class="ln">    16  </span>package utils
 <span id="L17" class="ln">    17  </span>
 <span id="L18" class="ln">    18  </span>import (
-<span id="L19" class="ln">    19  </span>	&#34;encoding/xml&#34;
-<span id="L20" class="ln">    20  </span>
-<span id="L21" class="ln">    21  </span>	&#34;github.com/romana/ipset&#34;
-<span id="L22" class="ln">    22  </span>
-<span id="L23" class="ln">    23  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/bpm&#34;
-<span id="L24" class="ln">    24  </span>)
-<span id="L25" class="ln">    25  </span>
-<span id="L26" class="ln">    26  </span>func GetIPSetRulesNumberByNetNS(pid uint32) (int, error) {
-<span id="L27" class="ln">    27  </span>	return getIPSetRulesNumber(true, pid)
-<span id="L28" class="ln">    28  </span>}
-<span id="L29" class="ln">    29  </span>
-<span id="L30" class="ln">    30  </span>func getIPSetRulesNumber(enterNS bool, pid uint32) (int, error) {
-<span id="L31" class="ln">    31  </span>	builder := bpm.DefaultProcessBuilder(&#34;ipset&#34;, &#34;save&#34;, &#34;-o&#34;, &#34;xml&#34;)
-<span id="L32" class="ln">    32  </span>	if enterNS {
-<span id="L33" class="ln">    33  </span>		builder = builder.SetNS(pid, bpm.NetNS)
-<span id="L34" class="ln">    34  </span>	}
-<span id="L35" class="ln">    35  </span>
-<span id="L36" class="ln">    36  </span>	out, err := builder.Build().CombinedOutput()
-<span id="L37" class="ln">    37  </span>	if err != nil {
-<span id="L38" class="ln">    38  </span>		return 0, err
-<span id="L39" class="ln">    39  </span>	}
-<span id="L40" class="ln">    40  </span>
-<span id="L41" class="ln">    41  </span>	var sets ipset.Ipset
-<span id="L42" class="ln">    42  </span>	if err = xml.Unmarshal(out, &amp;sets); err != nil {
-<span id="L43" class="ln">    43  </span>		return 0, err
-<span id="L44" class="ln">    44  </span>	}
-<span id="L45" class="ln">    45  </span>
-<span id="L46" class="ln">    46  </span>	var members int
-<span id="L47" class="ln">    47  </span>	for _, set := range sets.Sets {
-<span id="L48" class="ln">    48  </span>		members += len(set.Members)
-<span id="L49" class="ln">    49  </span>	}
-<span id="L50" class="ln">    50  </span>	return members, nil
-<span id="L51" class="ln">    51  </span>}
-<span id="L52" class="ln">    52  </span>
+<span id="L19" class="ln">    19  </span>	&#34;context&#34;
+<span id="L20" class="ln">    20  </span>	&#34;encoding/xml&#34;
+<span id="L21" class="ln">    21  </span>
+<span id="L22" class="ln">    22  </span>	&#34;github.com/romana/ipset&#34;
+<span id="L23" class="ln">    23  </span>
+<span id="L24" class="ln">    24  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/bpm&#34;
+<span id="L25" class="ln">    25  </span>)
+<span id="L26" class="ln">    26  </span>
+<span id="L27" class="ln">    27  </span>func GetIPSetRulesNumberByNetNS(pid uint32) (int, error) {
+<span id="L28" class="ln">    28  </span>	return getIPSetRulesNumber(true, pid)
+<span id="L29" class="ln">    29  </span>}
+<span id="L30" class="ln">    30  </span>
+<span id="L31" class="ln">    31  </span>func getIPSetRulesNumber(enterNS bool, pid uint32) (int, error) {
+<span id="L32" class="ln">    32  </span>	builder := bpm.DefaultProcessBuilder(&#34;ipset&#34;, &#34;save&#34;, &#34;-o&#34;, &#34;xml&#34;)
+<span id="L33" class="ln">    33  </span>	if enterNS {
+<span id="L34" class="ln">    34  </span>		builder = builder.SetNS(pid, bpm.NetNS)
+<span id="L35" class="ln">    35  </span>	}
+<span id="L36" class="ln">    36  </span>
+<span id="L37" class="ln">    37  </span>	out, err := builder.Build(context.TODO()).CombinedOutput()
+<span id="L38" class="ln">    38  </span>	if err != nil {
+<span id="L39" class="ln">    39  </span>		return 0, err
+<span id="L40" class="ln">    40  </span>	}
+<span id="L41" class="ln">    41  </span>
+<span id="L42" class="ln">    42  </span>	var sets ipset.Ipset
+<span id="L43" class="ln">    43  </span>	if err = xml.Unmarshal(out, &amp;sets); err != nil {
+<span id="L44" class="ln">    44  </span>		return 0, err
+<span id="L45" class="ln">    45  </span>	}
+<span id="L46" class="ln">    46  </span>
+<span id="L47" class="ln">    47  </span>	var members int
+<span id="L48" class="ln">    48  </span>	for _, set := range sets.Sets {
+<span id="L49" class="ln">    49  </span>		members += len(set.Members)
+<span id="L50" class="ln">    50  </span>	}
+<span id="L51" class="ln">    51  </span>	return members, nil
+<span id="L52" class="ln">    52  </span>}
+<span id="L53" class="ln">    53  </span>
 </pre><p></p>
 
 <div id="footer">

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 01df458. Generated at Tue Mar  1 10:06:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 72b96d5. Generated at Tue Mar  1 22:08:50 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -156,7 +156,7 @@
 <span id="L91" class="ln">    91  </span>	}
 <span id="L92" class="ln">    92  </span>	<span class="comment">// enter all possible namespaces needed, since there&#39;s no bad effect to do so</span>
 <span id="L93" class="ln">    93  </span>	cmdBuilder := bpm.DefaultProcessBuilder(cmd).SetNS(pid, bpm.MountNS).SetNS(pid, bpm.PidNS).SetContext(ctx)
-<span id="L94" class="ln">    94  </span>	return Exec(ctx, daemon, cmdBuilder.Build().Cmd.String(), c)
+<span id="L94" class="ln">    94  </span>	return Exec(ctx, daemon, cmdBuilder.Build(ctx).Cmd.String(), c)
 <span id="L95" class="ln">    95  </span>}
 <span id="L96" class="ln">    96  </span>
 </pre><p></p>

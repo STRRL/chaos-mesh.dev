@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 01df458. Generated at Tue Mar  1 10:06:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 72b96d5. Generated at Tue Mar  1 22:08:50 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -88,14 +88,14 @@
 <span id="L23" class="ln">    23  </span>	&#34;sync&#34;
 <span id="L24" class="ln">    24  </span>	&#34;syscall&#34;
 <span id="L25" class="ln">    25  </span>
-<span id="L26" class="ln">    26  </span>	&#34;github.com/google/uuid&#34;
-<span id="L27" class="ln">    27  </span>	&#34;github.com/pkg/errors&#34;
-<span id="L28" class="ln">    28  </span>	&#34;github.com/prometheus/client_golang/prometheus&#34;
-<span id="L29" class="ln">    29  </span>	&#34;github.com/shirou/gopsutil/process&#34;
-<span id="L30" class="ln">    30  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
-<span id="L31" class="ln">    31  </span>)
-<span id="L32" class="ln">    32  </span>
-<span id="L33" class="ln">    33  </span>var log = ctrl.Log.WithName(&#34;background-process-manager&#34;)
+<span id="L26" class="ln">    26  </span>	&#34;github.com/go-logr/logr&#34;
+<span id="L27" class="ln">    27  </span>	&#34;github.com/google/uuid&#34;
+<span id="L28" class="ln">    28  </span>	&#34;github.com/pkg/errors&#34;
+<span id="L29" class="ln">    29  </span>	&#34;github.com/prometheus/client_golang/prometheus&#34;
+<span id="L30" class="ln">    30  </span>	&#34;github.com/shirou/gopsutil/process&#34;
+<span id="L31" class="ln">    31  </span>
+<span id="L32" class="ln">    32  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/log&#34;
+<span id="L33" class="ln">    33  </span>)
 <span id="L34" class="ln">    34  </span>
 <span id="L35" class="ln">    35  </span>type NsType string
 <span id="L36" class="ln">    36  </span>
@@ -179,332 +179,353 @@
 <span id="L114" class="ln">   114  </span>	<span class="comment">// PidPair -&gt; Uid, to keep compatible with v2.x</span>
 <span id="L115" class="ln">   115  </span>	pidPairToUid *sync.Map
 <span id="L116" class="ln">   116  </span>
-<span id="L117" class="ln">   117  </span>	metricsCollector *metricsCollector
-<span id="L118" class="ln">   118  </span>}
-<span id="L119" class="ln">   119  </span>
-<span id="L120" class="ln">   120  </span>func startProcess(cmd *ManagedCommand) (*Process, error) {
-<span id="L121" class="ln">   121  </span>	stdin, err := cmd.StdinPipe()
-<span id="L122" class="ln">   122  </span>	if err != nil {
-<span id="L123" class="ln">   123  </span>		return nil, errors.Wrap(err, &#34;create stdin pipe&#34;)
-<span id="L124" class="ln">   124  </span>	}
-<span id="L125" class="ln">   125  </span>
-<span id="L126" class="ln">   126  </span>	stdout, err := cmd.StdoutPipe()
-<span id="L127" class="ln">   127  </span>	if err != nil {
-<span id="L128" class="ln">   128  </span>		return nil, errors.Wrap(err, &#34;create stdout pipe&#34;)
-<span id="L129" class="ln">   129  </span>	}
-<span id="L130" class="ln">   130  </span>
-<span id="L131" class="ln">   131  </span>	err = cmd.Start()
-<span id="L132" class="ln">   132  </span>	if err != nil {
-<span id="L133" class="ln">   133  </span>		return nil, errors.Wrapf(err, &#34;start command `%s`&#34;, cmd.String())
-<span id="L134" class="ln">   134  </span>	}
-<span id="L135" class="ln">   135  </span>
-<span id="L136" class="ln">   136  </span>	newProcess := &amp;Process{
-<span id="L137" class="ln">   137  </span>		Uid:   uuid.NewString(),
-<span id="L138" class="ln">   138  </span>		Cmd:   cmd,
-<span id="L139" class="ln">   139  </span>		Pipes: Pipes{Stdin: stdin, Stdout: stdout},
-<span id="L140" class="ln">   140  </span>	}
-<span id="L141" class="ln">   141  </span>
-<span id="L142" class="ln">   142  </span>	newProcess.ctx, newProcess.stopped = context.WithCancel(context.Background())
+<span id="L117" class="ln">   117  </span>	rootLogger logr.Logger
+<span id="L118" class="ln">   118  </span>
+<span id="L119" class="ln">   119  </span>	metricsCollector *metricsCollector
+<span id="L120" class="ln">   120  </span>}
+<span id="L121" class="ln">   121  </span>
+<span id="L122" class="ln">   122  </span>func startProcess(cmd *ManagedCommand) (*Process, error) {
+<span id="L123" class="ln">   123  </span>	stdin, err := cmd.StdinPipe()
+<span id="L124" class="ln">   124  </span>	if err != nil {
+<span id="L125" class="ln">   125  </span>		return nil, errors.Wrap(err, &#34;create stdin pipe&#34;)
+<span id="L126" class="ln">   126  </span>	}
+<span id="L127" class="ln">   127  </span>
+<span id="L128" class="ln">   128  </span>	stdout, err := cmd.StdoutPipe()
+<span id="L129" class="ln">   129  </span>	if err != nil {
+<span id="L130" class="ln">   130  </span>		return nil, errors.Wrap(err, &#34;create stdout pipe&#34;)
+<span id="L131" class="ln">   131  </span>	}
+<span id="L132" class="ln">   132  </span>
+<span id="L133" class="ln">   133  </span>	err = cmd.Start()
+<span id="L134" class="ln">   134  </span>	if err != nil {
+<span id="L135" class="ln">   135  </span>		return nil, errors.Wrapf(err, &#34;start command `%s`&#34;, cmd.String())
+<span id="L136" class="ln">   136  </span>	}
+<span id="L137" class="ln">   137  </span>
+<span id="L138" class="ln">   138  </span>	newProcess := &amp;Process{
+<span id="L139" class="ln">   139  </span>		Uid:   uuid.NewString(),
+<span id="L140" class="ln">   140  </span>		Cmd:   cmd,
+<span id="L141" class="ln">   141  </span>		Pipes: Pipes{Stdin: stdin, Stdout: stdout},
+<span id="L142" class="ln">   142  </span>	}
 <span id="L143" class="ln">   143  </span>
-<span id="L144" class="ln">   144  </span>	<span class="comment">// keep compatible with v2.x</span>
-<span id="L145" class="ln">   145  </span>	<span class="comment">// TODO: remove in v3.x</span>
-<span id="L146" class="ln">   146  </span>	pid := cmd.Process.Pid
-<span id="L147" class="ln">   147  </span>	proc, err := process.NewProcess(int32(cmd.Process.Pid))
-<span id="L148" class="ln">   148  </span>	if err != nil {
-<span id="L149" class="ln">   149  </span>		return nil, errors.Wrapf(err, &#34;get process state for pid %d&#34;, pid)
-<span id="L150" class="ln">   150  </span>	}
-<span id="L151" class="ln">   151  </span>
-<span id="L152" class="ln">   152  </span>	ct, err := proc.CreateTime()
-<span id="L153" class="ln">   153  </span>	if err != nil {
-<span id="L154" class="ln">   154  </span>		return nil, errors.Wrapf(err, &#34;get process create time for pid %d&#34;, pid)
-<span id="L155" class="ln">   155  </span>	}
-<span id="L156" class="ln">   156  </span>
-<span id="L157" class="ln">   157  </span>	newProcess.Pair = ProcessPair{
-<span id="L158" class="ln">   158  </span>		Pid:        int(proc.Pid),
-<span id="L159" class="ln">   159  </span>		CreateTime: ct,
-<span id="L160" class="ln">   160  </span>	}
-<span id="L161" class="ln">   161  </span>	return newProcess, nil
-<span id="L162" class="ln">   162  </span>}
-<span id="L163" class="ln">   163  </span>
-<span id="L164" class="ln">   164  </span>func (p *Process) Stopped() &lt;-chan struct{} {
-<span id="L165" class="ln">   165  </span>	return p.ctx.Done()
-<span id="L166" class="ln">   166  </span>}
-<span id="L167" class="ln">   167  </span>
-<span id="L168" class="ln">   168  </span><span class="comment">// StartBackgroundProcessManager creates a background process manager</span>
-<span id="L169" class="ln">   169  </span>func StartBackgroundProcessManager(registry prometheus.Registerer) *BackgroundProcessManager {
-<span id="L170" class="ln">   170  </span>	backgroundProcessManager := &amp;BackgroundProcessManager{
-<span id="L171" class="ln">   171  </span>		deathChannel:     make(chan string, 1),
-<span id="L172" class="ln">   172  </span>		wg:               &amp;sync.WaitGroup{},
-<span id="L173" class="ln">   173  </span>		identifiers:      &amp;sync.Map{},
-<span id="L174" class="ln">   174  </span>		processes:        &amp;sync.Map{},
-<span id="L175" class="ln">   175  </span>		pidPairToUid:     &amp;sync.Map{},
-<span id="L176" class="ln">   176  </span>		metricsCollector: nil,
-<span id="L177" class="ln">   177  </span>	}
-<span id="L178" class="ln">   178  </span>
-<span id="L179" class="ln">   179  </span>	go func() {
-<span id="L180" class="ln">   180  </span>		<span class="comment">// return if deathChannel is closed</span>
-<span id="L181" class="ln">   181  </span>		for uid := range backgroundProcessManager.deathChannel {
-<span id="L182" class="ln">   182  </span>			process, loaded := backgroundProcessManager.processes.LoadAndDelete(uid)
-<span id="L183" class="ln">   183  </span>			if loaded {
-<span id="L184" class="ln">   184  </span>				proc := process.(*Process)
-<span id="L185" class="ln">   185  </span>				backgroundProcessManager.pidPairToUid.Delete(proc.Pair)
-<span id="L186" class="ln">   186  </span>				if proc.Cmd.Identifier != nil {
-<span id="L187" class="ln">   187  </span>					backgroundProcessManager.identifiers.Delete(*proc.Cmd.Identifier)
-<span id="L188" class="ln">   188  </span>				}
-<span id="L189" class="ln">   189  </span>				proc.stopped()
-<span id="L190" class="ln">   190  </span>			}
-<span id="L191" class="ln">   191  </span>			backgroundProcessManager.wg.Done()
-<span id="L192" class="ln">   192  </span>		}
-<span id="L193" class="ln">   193  </span>	}()
-<span id="L194" class="ln">   194  </span>
-<span id="L195" class="ln">   195  </span>	if registry != nil {
-<span id="L196" class="ln">   196  </span>		backgroundProcessManager.metricsCollector = newMetricsCollector(backgroundProcessManager, registry)
-<span id="L197" class="ln">   197  </span>	}
-<span id="L198" class="ln">   198  </span>
-<span id="L199" class="ln">   199  </span>	return backgroundProcessManager
-<span id="L200" class="ln">   200  </span>}
+<span id="L144" class="ln">   144  </span>	newProcess.ctx, newProcess.stopped = context.WithCancel(context.Background())
+<span id="L145" class="ln">   145  </span>
+<span id="L146" class="ln">   146  </span>	<span class="comment">// keep compatible with v2.x</span>
+<span id="L147" class="ln">   147  </span>	<span class="comment">// TODO: remove in v3.x</span>
+<span id="L148" class="ln">   148  </span>	pid := cmd.Process.Pid
+<span id="L149" class="ln">   149  </span>	proc, err := process.NewProcess(int32(cmd.Process.Pid))
+<span id="L150" class="ln">   150  </span>	if err != nil {
+<span id="L151" class="ln">   151  </span>		return nil, errors.Wrapf(err, &#34;get process state for pid %d&#34;, pid)
+<span id="L152" class="ln">   152  </span>	}
+<span id="L153" class="ln">   153  </span>
+<span id="L154" class="ln">   154  </span>	ct, err := proc.CreateTime()
+<span id="L155" class="ln">   155  </span>	if err != nil {
+<span id="L156" class="ln">   156  </span>		return nil, errors.Wrapf(err, &#34;get process create time for pid %d&#34;, pid)
+<span id="L157" class="ln">   157  </span>	}
+<span id="L158" class="ln">   158  </span>
+<span id="L159" class="ln">   159  </span>	newProcess.Pair = ProcessPair{
+<span id="L160" class="ln">   160  </span>		Pid:        int(proc.Pid),
+<span id="L161" class="ln">   161  </span>		CreateTime: ct,
+<span id="L162" class="ln">   162  </span>	}
+<span id="L163" class="ln">   163  </span>	return newProcess, nil
+<span id="L164" class="ln">   164  </span>}
+<span id="L165" class="ln">   165  </span>
+<span id="L166" class="ln">   166  </span>func (p *Process) Stopped() &lt;-chan struct{} {
+<span id="L167" class="ln">   167  </span>	return p.ctx.Done()
+<span id="L168" class="ln">   168  </span>}
+<span id="L169" class="ln">   169  </span>
+<span id="L170" class="ln">   170  </span><span class="comment">// StartBackgroundProcessManager creates a background process manager</span>
+<span id="L171" class="ln">   171  </span>func StartBackgroundProcessManager(registry prometheus.Registerer, rootLogger logr.Logger) *BackgroundProcessManager {
+<span id="L172" class="ln">   172  </span>	backgroundProcessManager := &amp;BackgroundProcessManager{
+<span id="L173" class="ln">   173  </span>		deathChannel:     make(chan string, 1),
+<span id="L174" class="ln">   174  </span>		wg:               &amp;sync.WaitGroup{},
+<span id="L175" class="ln">   175  </span>		identifiers:      &amp;sync.Map{},
+<span id="L176" class="ln">   176  </span>		processes:        &amp;sync.Map{},
+<span id="L177" class="ln">   177  </span>		pidPairToUid:     &amp;sync.Map{},
+<span id="L178" class="ln">   178  </span>		rootLogger:       rootLogger.WithName(&#34;background-process-manager&#34;),
+<span id="L179" class="ln">   179  </span>		metricsCollector: nil,
+<span id="L180" class="ln">   180  </span>	}
+<span id="L181" class="ln">   181  </span>
+<span id="L182" class="ln">   182  </span>	go func() {
+<span id="L183" class="ln">   183  </span>		<span class="comment">// return if deathChannel is closed</span>
+<span id="L184" class="ln">   184  </span>		for uid := range backgroundProcessManager.deathChannel {
+<span id="L185" class="ln">   185  </span>			process, loaded := backgroundProcessManager.processes.LoadAndDelete(uid)
+<span id="L186" class="ln">   186  </span>			if loaded {
+<span id="L187" class="ln">   187  </span>				proc := process.(*Process)
+<span id="L188" class="ln">   188  </span>				backgroundProcessManager.pidPairToUid.Delete(proc.Pair)
+<span id="L189" class="ln">   189  </span>				if proc.Cmd.Identifier != nil {
+<span id="L190" class="ln">   190  </span>					backgroundProcessManager.identifiers.Delete(*proc.Cmd.Identifier)
+<span id="L191" class="ln">   191  </span>				}
+<span id="L192" class="ln">   192  </span>				proc.stopped()
+<span id="L193" class="ln">   193  </span>			}
+<span id="L194" class="ln">   194  </span>			backgroundProcessManager.wg.Done()
+<span id="L195" class="ln">   195  </span>		}
+<span id="L196" class="ln">   196  </span>	}()
+<span id="L197" class="ln">   197  </span>
+<span id="L198" class="ln">   198  </span>	if registry != nil {
+<span id="L199" class="ln">   199  </span>		backgroundProcessManager.metricsCollector = newMetricsCollector(backgroundProcessManager, registry)
+<span id="L200" class="ln">   200  </span>	}
 <span id="L201" class="ln">   201  </span>
-<span id="L202" class="ln">   202  </span>func (m *BackgroundProcessManager) recycle(uid string) {
-<span id="L203" class="ln">   203  </span>	m.deathChannel &lt;- uid
-<span id="L204" class="ln">   204  </span>}
-<span id="L205" class="ln">   205  </span>
-<span id="L206" class="ln">   206  </span><span class="comment">// StartProcess manages a process in manager</span>
-<span id="L207" class="ln">   207  </span>func (m *BackgroundProcessManager) StartProcess(cmd *ManagedCommand) (*Process, error) {
-<span id="L208" class="ln">   208  </span>	if cmd.Identifier != nil {
-<span id="L209" class="ln">   209  </span>		_, loaded := m.identifiers.LoadOrStore(*cmd.Identifier, true)
-<span id="L210" class="ln">   210  </span>		if loaded {
-<span id="L211" class="ln">   211  </span>			return nil, errors.Errorf(&#34;process with identifier %s is running&#34;, *cmd.Identifier)
-<span id="L212" class="ln">   212  </span>		}
-<span id="L213" class="ln">   213  </span>	}
-<span id="L214" class="ln">   214  </span>
-<span id="L215" class="ln">   215  </span>	process, err := startProcess(cmd)
-<span id="L216" class="ln">   216  </span>	if err != nil {
-<span id="L217" class="ln">   217  </span>		return nil, err
-<span id="L218" class="ln">   218  </span>	}
-<span id="L219" class="ln">   219  </span>
-<span id="L220" class="ln">   220  </span>	m.processes.Store(process.Uid, process)
-<span id="L221" class="ln">   221  </span>	m.pidPairToUid.Store(process.Pair, process.Uid)
-<span id="L222" class="ln">   222  </span>	<span class="comment">// end</span>
+<span id="L202" class="ln">   202  </span>	return backgroundProcessManager
+<span id="L203" class="ln">   203  </span>}
+<span id="L204" class="ln">   204  </span>
+<span id="L205" class="ln">   205  </span>func (m *BackgroundProcessManager) recycle(uid string) {
+<span id="L206" class="ln">   206  </span>	m.deathChannel &lt;- uid
+<span id="L207" class="ln">   207  </span>}
+<span id="L208" class="ln">   208  </span>
+<span id="L209" class="ln">   209  </span><span class="comment">// StartProcess manages a process in manager</span>
+<span id="L210" class="ln">   210  </span>func (m *BackgroundProcessManager) StartProcess(ctx context.Context, cmd *ManagedCommand) (*Process, error) {
+<span id="L211" class="ln">   211  </span>	log := m.getLoggerFromContext(ctx)
+<span id="L212" class="ln">   212  </span>	if cmd.Identifier != nil {
+<span id="L213" class="ln">   213  </span>		_, loaded := m.identifiers.LoadOrStore(*cmd.Identifier, true)
+<span id="L214" class="ln">   214  </span>		if loaded {
+<span id="L215" class="ln">   215  </span>			return nil, errors.Errorf(&#34;process with identifier %s is running&#34;, *cmd.Identifier)
+<span id="L216" class="ln">   216  </span>		}
+<span id="L217" class="ln">   217  </span>	}
+<span id="L218" class="ln">   218  </span>
+<span id="L219" class="ln">   219  </span>	process, err := startProcess(cmd)
+<span id="L220" class="ln">   220  </span>	if err != nil {
+<span id="L221" class="ln">   221  </span>		return nil, err
+<span id="L222" class="ln">   222  </span>	}
 <span id="L223" class="ln">   223  </span>
-<span id="L224" class="ln">   224  </span>	if m.metricsCollector != nil {
-<span id="L225" class="ln">   225  </span>		m.metricsCollector.bpmControlledProcessTotal.Inc()
-<span id="L226" class="ln">   226  </span>	}
+<span id="L224" class="ln">   224  </span>	m.processes.Store(process.Uid, process)
+<span id="L225" class="ln">   225  </span>	m.pidPairToUid.Store(process.Pair, process.Uid)
+<span id="L226" class="ln">   226  </span>	<span class="comment">// end</span>
 <span id="L227" class="ln">   227  </span>
-<span id="L228" class="ln">   228  </span>	m.wg.Add(1)
-<span id="L229" class="ln">   229  </span>	log := log.WithValues(&#34;uid&#34;, process.Uid, &#34;pid&#34;, process.Pair.Pid)
-<span id="L230" class="ln">   230  </span>
-<span id="L231" class="ln">   231  </span>	go func() {
-<span id="L232" class="ln">   232  </span>		err := cmd.Wait()
-<span id="L233" class="ln">   233  </span>		if err != nil {
-<span id="L234" class="ln">   234  </span>			if exitErr, ok := err.(*exec.ExitError); ok {
-<span id="L235" class="ln">   235  </span>				status := exitErr.Sys().(syscall.WaitStatus)
-<span id="L236" class="ln">   236  </span>				if status.Signaled() &amp;&amp; status.Signal() == syscall.SIGTERM {
-<span id="L237" class="ln">   237  </span>					log.Info(&#34;process stopped with SIGTERM signal&#34;)
-<span id="L238" class="ln">   238  </span>				}
-<span id="L239" class="ln">   239  </span>			} else {
-<span id="L240" class="ln">   240  </span>				log.Error(err, &#34;process exited accidentally&#34;)
-<span id="L241" class="ln">   241  </span>			}
-<span id="L242" class="ln">   242  </span>		}
-<span id="L243" class="ln">   243  </span>		log.Info(&#34;process stopped&#34;)
-<span id="L244" class="ln">   244  </span>		m.recycle(process.Uid)
-<span id="L245" class="ln">   245  </span>	}()
-<span id="L246" class="ln">   246  </span>
-<span id="L247" class="ln">   247  </span>	return process, nil
-<span id="L248" class="ln">   248  </span>}
-<span id="L249" class="ln">   249  </span>
-<span id="L250" class="ln">   250  </span>func (m *BackgroundProcessManager) Shutdown() {
-<span id="L251" class="ln">   251  </span>	m.processes.Range(func(_, value interface{}) bool {
-<span id="L252" class="ln">   252  </span>		process := value.(*Process)
-<span id="L253" class="ln">   253  </span>		log := log.WithValues(&#34;uid&#34;, process.Uid, &#34;pid&#34;, process.Pair.Pid)
-<span id="L254" class="ln">   254  </span>		if err := process.Cmd.Process.Signal(syscall.SIGTERM); err != nil {
-<span id="L255" class="ln">   255  </span>			log.Error(err, &#34;send SIGTERM to process&#34;)
-<span id="L256" class="ln">   256  </span>			return true
-<span id="L257" class="ln">   257  </span>		}
-<span id="L258" class="ln">   258  </span>		return true
-<span id="L259" class="ln">   259  </span>	})
-<span id="L260" class="ln">   260  </span>	m.wg.Wait()
-<span id="L261" class="ln">   261  </span>	close(m.deathChannel)
-<span id="L262" class="ln">   262  </span>}
-<span id="L263" class="ln">   263  </span>
-<span id="L264" class="ln">   264  </span>func (m *BackgroundProcessManager) GetUID(pair ProcessPair) (string, bool) {
-<span id="L265" class="ln">   265  </span>	if uid, loaded := m.pidPairToUid.Load(pair); loaded {
-<span id="L266" class="ln">   266  </span>		return uid.(string), true
-<span id="L267" class="ln">   267  </span>	}
-<span id="L268" class="ln">   268  </span>	return &#34;&#34;, false
-<span id="L269" class="ln">   269  </span>}
-<span id="L270" class="ln">   270  </span>
-<span id="L271" class="ln">   271  </span>func (m *BackgroundProcessManager) getProc(uid string) (*Process, bool) {
-<span id="L272" class="ln">   272  </span>	if proc, loaded := m.processes.Load(uid); loaded {
-<span id="L273" class="ln">   273  </span>		return proc.(*Process), true
-<span id="L274" class="ln">   274  </span>	}
-<span id="L275" class="ln">   275  </span>	return nil, false
-<span id="L276" class="ln">   276  </span>}
-<span id="L277" class="ln">   277  </span>
-<span id="L278" class="ln">   278  </span>func (m *BackgroundProcessManager) GetPipes(uid string) (Pipes, bool) {
-<span id="L279" class="ln">   279  </span>	proc, ok := m.getProc(uid)
-<span id="L280" class="ln">   280  </span>	if !ok {
-<span id="L281" class="ln">   281  </span>		return Pipes{}, false
-<span id="L282" class="ln">   282  </span>	}
-<span id="L283" class="ln">   283  </span>	return proc.Pipes, true
-<span id="L284" class="ln">   284  </span>}
-<span id="L285" class="ln">   285  </span>
-<span id="L286" class="ln">   286  </span><span class="comment">// KillBackgroundProcess sends SIGTERM to process</span>
-<span id="L287" class="ln">   287  </span>func (m *BackgroundProcessManager) KillBackgroundProcess(ctx context.Context, uid string) error {
-<span id="L288" class="ln">   288  </span>	log := log.WithValues(&#34;uid&#34;, uid)
-<span id="L289" class="ln">   289  </span>
-<span id="L290" class="ln">   290  </span>	proc, loaded := m.getProc(uid)
-<span id="L291" class="ln">   291  </span>	if !loaded {
-<span id="L292" class="ln">   292  </span>		return errors.Errorf(&#34;failed to find process with uid %s&#34;, uid)
-<span id="L293" class="ln">   293  </span>	}
-<span id="L294" class="ln">   294  </span>
-<span id="L295" class="ln">   295  </span>	if err := proc.Cmd.Process.Signal(syscall.SIGTERM); err != nil {
-<span id="L296" class="ln">   296  </span>		return errors.Wrap(err, &#34;send SIGTERM to process&#34;)
-<span id="L297" class="ln">   297  </span>	}
-<span id="L298" class="ln">   298  </span>
-<span id="L299" class="ln">   299  </span>	select {
-<span id="L300" class="ln">   300  </span>	case &lt;-proc.Stopped():
-<span id="L301" class="ln">   301  </span>		log.Info(&#34;Successfully killed process&#34;)
-<span id="L302" class="ln">   302  </span>	case &lt;-ctx.Done():
-<span id="L303" class="ln">   303  </span>		if err := ctx.Err(); err != nil {
-<span id="L304" class="ln">   304  </span>			return errors.Wrap(err, &#34;context closed&#34;)
-<span id="L305" class="ln">   305  </span>		}
-<span id="L306" class="ln">   306  </span>	}
-<span id="L307" class="ln">   307  </span>	return nil
-<span id="L308" class="ln">   308  </span>}
-<span id="L309" class="ln">   309  </span>
-<span id="L310" class="ln">   310  </span><span class="comment">// GetIdentifiers finds all identifiers in BPM</span>
-<span id="L311" class="ln">   311  </span>func (m *BackgroundProcessManager) GetIdentifiers() []string {
-<span id="L312" class="ln">   312  </span>	var identifiers []string
-<span id="L313" class="ln">   313  </span>	m.identifiers.Range(func(key, value interface{}) bool {
-<span id="L314" class="ln">   314  </span>		identifiers = append(identifiers, key.(string))
-<span id="L315" class="ln">   315  </span>		return true
-<span id="L316" class="ln">   316  </span>	})
+<span id="L228" class="ln">   228  </span>	if m.metricsCollector != nil {
+<span id="L229" class="ln">   229  </span>		m.metricsCollector.bpmControlledProcessTotal.Inc()
+<span id="L230" class="ln">   230  </span>	}
+<span id="L231" class="ln">   231  </span>
+<span id="L232" class="ln">   232  </span>	m.wg.Add(1)
+<span id="L233" class="ln">   233  </span>	log = log.WithValues(&#34;uid&#34;, process.Uid, &#34;pid&#34;, process.Pair.Pid)
+<span id="L234" class="ln">   234  </span>
+<span id="L235" class="ln">   235  </span>	go func() {
+<span id="L236" class="ln">   236  </span>		err := cmd.Wait()
+<span id="L237" class="ln">   237  </span>		if err != nil {
+<span id="L238" class="ln">   238  </span>			if exitErr, ok := err.(*exec.ExitError); ok {
+<span id="L239" class="ln">   239  </span>				status := exitErr.Sys().(syscall.WaitStatus)
+<span id="L240" class="ln">   240  </span>				if status.Signaled() &amp;&amp; status.Signal() == syscall.SIGTERM {
+<span id="L241" class="ln">   241  </span>					log.Info(&#34;process stopped with SIGTERM signal&#34;)
+<span id="L242" class="ln">   242  </span>				}
+<span id="L243" class="ln">   243  </span>			} else {
+<span id="L244" class="ln">   244  </span>				log.Error(err, &#34;process exited accidentally&#34;)
+<span id="L245" class="ln">   245  </span>			}
+<span id="L246" class="ln">   246  </span>		}
+<span id="L247" class="ln">   247  </span>		log.Info(&#34;process stopped&#34;)
+<span id="L248" class="ln">   248  </span>		m.recycle(process.Uid)
+<span id="L249" class="ln">   249  </span>	}()
+<span id="L250" class="ln">   250  </span>
+<span id="L251" class="ln">   251  </span>	return process, nil
+<span id="L252" class="ln">   252  </span>}
+<span id="L253" class="ln">   253  </span>
+<span id="L254" class="ln">   254  </span>func (m *BackgroundProcessManager) Shutdown(ctx context.Context) {
+<span id="L255" class="ln">   255  </span>	log := m.getLoggerFromContext(ctx)
+<span id="L256" class="ln">   256  </span>
+<span id="L257" class="ln">   257  </span>	m.processes.Range(func(_, value interface{}) bool {
+<span id="L258" class="ln">   258  </span>		process := value.(*Process)
+<span id="L259" class="ln">   259  </span>		log := log.WithValues(&#34;uid&#34;, process.Uid, &#34;pid&#34;, process.Pair.Pid)
+<span id="L260" class="ln">   260  </span>		if err := process.Cmd.Process.Signal(syscall.SIGTERM); err != nil {
+<span id="L261" class="ln">   261  </span>			log.Error(err, &#34;send SIGTERM to process&#34;)
+<span id="L262" class="ln">   262  </span>			return true
+<span id="L263" class="ln">   263  </span>		}
+<span id="L264" class="ln">   264  </span>		return true
+<span id="L265" class="ln">   265  </span>	})
+<span id="L266" class="ln">   266  </span>	m.wg.Wait()
+<span id="L267" class="ln">   267  </span>	close(m.deathChannel)
+<span id="L268" class="ln">   268  </span>}
+<span id="L269" class="ln">   269  </span>
+<span id="L270" class="ln">   270  </span>func (m *BackgroundProcessManager) GetUID(pair ProcessPair) (string, bool) {
+<span id="L271" class="ln">   271  </span>	if uid, loaded := m.pidPairToUid.Load(pair); loaded {
+<span id="L272" class="ln">   272  </span>		return uid.(string), true
+<span id="L273" class="ln">   273  </span>	}
+<span id="L274" class="ln">   274  </span>	return &#34;&#34;, false
+<span id="L275" class="ln">   275  </span>}
+<span id="L276" class="ln">   276  </span>
+<span id="L277" class="ln">   277  </span>func (m *BackgroundProcessManager) getProc(uid string) (*Process, bool) {
+<span id="L278" class="ln">   278  </span>	if proc, loaded := m.processes.Load(uid); loaded {
+<span id="L279" class="ln">   279  </span>		return proc.(*Process), true
+<span id="L280" class="ln">   280  </span>	}
+<span id="L281" class="ln">   281  </span>	return nil, false
+<span id="L282" class="ln">   282  </span>}
+<span id="L283" class="ln">   283  </span>
+<span id="L284" class="ln">   284  </span>func (m *BackgroundProcessManager) GetPipes(uid string) (Pipes, bool) {
+<span id="L285" class="ln">   285  </span>	proc, ok := m.getProc(uid)
+<span id="L286" class="ln">   286  </span>	if !ok {
+<span id="L287" class="ln">   287  </span>		return Pipes{}, false
+<span id="L288" class="ln">   288  </span>	}
+<span id="L289" class="ln">   289  </span>	return proc.Pipes, true
+<span id="L290" class="ln">   290  </span>}
+<span id="L291" class="ln">   291  </span>
+<span id="L292" class="ln">   292  </span><span class="comment">// KillBackgroundProcess sends SIGTERM to process</span>
+<span id="L293" class="ln">   293  </span>func (m *BackgroundProcessManager) KillBackgroundProcess(ctx context.Context, uid string) error {
+<span id="L294" class="ln">   294  </span>	log := m.getLoggerFromContext(ctx)
+<span id="L295" class="ln">   295  </span>
+<span id="L296" class="ln">   296  </span>	log = log.WithValues(&#34;uid&#34;, uid)
+<span id="L297" class="ln">   297  </span>
+<span id="L298" class="ln">   298  </span>	proc, loaded := m.getProc(uid)
+<span id="L299" class="ln">   299  </span>	if !loaded {
+<span id="L300" class="ln">   300  </span>		return errors.Errorf(&#34;failed to find process with uid %s&#34;, uid)
+<span id="L301" class="ln">   301  </span>	}
+<span id="L302" class="ln">   302  </span>
+<span id="L303" class="ln">   303  </span>	if err := proc.Cmd.Process.Signal(syscall.SIGTERM); err != nil {
+<span id="L304" class="ln">   304  </span>		return errors.Wrap(err, &#34;send SIGTERM to process&#34;)
+<span id="L305" class="ln">   305  </span>	}
+<span id="L306" class="ln">   306  </span>
+<span id="L307" class="ln">   307  </span>	select {
+<span id="L308" class="ln">   308  </span>	case &lt;-proc.Stopped():
+<span id="L309" class="ln">   309  </span>		log.Info(&#34;Successfully killed process&#34;)
+<span id="L310" class="ln">   310  </span>	case &lt;-ctx.Done():
+<span id="L311" class="ln">   311  </span>		if err := ctx.Err(); err != nil {
+<span id="L312" class="ln">   312  </span>			return errors.Wrap(err, &#34;context closed&#34;)
+<span id="L313" class="ln">   313  </span>		}
+<span id="L314" class="ln">   314  </span>	}
+<span id="L315" class="ln">   315  </span>	return nil
+<span id="L316" class="ln">   316  </span>}
 <span id="L317" class="ln">   317  </span>
-<span id="L318" class="ln">   318  </span>	return identifiers
-<span id="L319" class="ln">   319  </span>}
-<span id="L320" class="ln">   320  </span>
-<span id="L321" class="ln">   321  </span><span class="comment">// DefaultProcessBuilder returns the default process builder</span>
-<span id="L322" class="ln">   322  </span>func DefaultProcessBuilder(cmd string, args ...string) *CommandBuilder {
-<span id="L323" class="ln">   323  </span>	return &amp;CommandBuilder{
-<span id="L324" class="ln">   324  </span>		cmd:        cmd,
-<span id="L325" class="ln">   325  </span>		args:       args,
-<span id="L326" class="ln">   326  </span>		nsOptions:  []nsOption{},
-<span id="L327" class="ln">   327  </span>		pause:      false,
-<span id="L328" class="ln">   328  </span>		identifier: nil,
-<span id="L329" class="ln">   329  </span>		ctx:        context.Background(),
-<span id="L330" class="ln">   330  </span>	}
+<span id="L318" class="ln">   318  </span><span class="comment">// GetIdentifiers finds all identifiers in BPM</span>
+<span id="L319" class="ln">   319  </span>func (m *BackgroundProcessManager) GetIdentifiers() []string {
+<span id="L320" class="ln">   320  </span>	var identifiers []string
+<span id="L321" class="ln">   321  </span>	m.identifiers.Range(func(key, value interface{}) bool {
+<span id="L322" class="ln">   322  </span>		identifiers = append(identifiers, key.(string))
+<span id="L323" class="ln">   323  </span>		return true
+<span id="L324" class="ln">   324  </span>	})
+<span id="L325" class="ln">   325  </span>
+<span id="L326" class="ln">   326  </span>	return identifiers
+<span id="L327" class="ln">   327  </span>}
+<span id="L328" class="ln">   328  </span>
+<span id="L329" class="ln">   329  </span>func (m *BackgroundProcessManager) getLoggerFromContext(ctx context.Context) logr.Logger {
+<span id="L330" class="ln">   330  </span>	return log.EnrichLoggerWithContext(ctx, m.rootLogger)
 <span id="L331" class="ln">   331  </span>}
 <span id="L332" class="ln">   332  </span>
-<span id="L333" class="ln">   333  </span><span class="comment">// CommandBuilder builds a exec.Cmd for daemon</span>
-<span id="L334" class="ln">   334  </span>type CommandBuilder struct {
-<span id="L335" class="ln">   335  </span>	cmd  string
-<span id="L336" class="ln">   336  </span>	args []string
-<span id="L337" class="ln">   337  </span>	env  []string
-<span id="L338" class="ln">   338  </span>
-<span id="L339" class="ln">   339  </span>	nsOptions []nsOption
-<span id="L340" class="ln">   340  </span>
-<span id="L341" class="ln">   341  </span>	pause    bool
-<span id="L342" class="ln">   342  </span>	localMnt bool
-<span id="L343" class="ln">   343  </span>
-<span id="L344" class="ln">   344  </span>	identifier *string
-<span id="L345" class="ln">   345  </span>	stdin      io.ReadWriteCloser
-<span id="L346" class="ln">   346  </span>	stdout     io.ReadWriteCloser
-<span id="L347" class="ln">   347  </span>	stderr     io.ReadWriteCloser
-<span id="L348" class="ln">   348  </span>
-<span id="L349" class="ln">   349  </span>	ctx context.Context
-<span id="L350" class="ln">   350  </span>}
-<span id="L351" class="ln">   351  </span>
-<span id="L352" class="ln">   352  </span><span class="comment">// GetNsPath returns corresponding namespace path</span>
-<span id="L353" class="ln">   353  </span>func GetNsPath(pid uint32, typ NsType) string {
-<span id="L354" class="ln">   354  </span>	return fmt.Sprintf(&#34;%s/%d/ns/%s&#34;, DefaultProcPrefix, pid, string(typ))
-<span id="L355" class="ln">   355  </span>}
-<span id="L356" class="ln">   356  </span>
-<span id="L357" class="ln">   357  </span><span class="comment">// SetEnv sets the environment variables of the process</span>
-<span id="L358" class="ln">   358  </span>func (b *CommandBuilder) SetEnv(key, value string) *CommandBuilder {
-<span id="L359" class="ln">   359  </span>	b.env = append(b.env, fmt.Sprintf(&#34;%s=%s&#34;, key, value))
-<span id="L360" class="ln">   360  </span>	return b
-<span id="L361" class="ln">   361  </span>}
-<span id="L362" class="ln">   362  </span>
-<span id="L363" class="ln">   363  </span><span class="comment">// SetNS sets the namespace of the process</span>
-<span id="L364" class="ln">   364  </span>func (b *CommandBuilder) SetNS(pid uint32, typ NsType) *CommandBuilder {
-<span id="L365" class="ln">   365  </span>	return b.SetNSOpt([]nsOption{{
-<span id="L366" class="ln">   366  </span>		Typ:  typ,
-<span id="L367" class="ln">   367  </span>		Path: GetNsPath(pid, typ),
-<span id="L368" class="ln">   368  </span>	}})
+<span id="L333" class="ln">   333  </span><span class="comment">// DefaultProcessBuilder returns the default process builder</span>
+<span id="L334" class="ln">   334  </span>func DefaultProcessBuilder(cmd string, args ...string) *CommandBuilder {
+<span id="L335" class="ln">   335  </span>	return &amp;CommandBuilder{
+<span id="L336" class="ln">   336  </span>		cmd:        cmd,
+<span id="L337" class="ln">   337  </span>		args:       args,
+<span id="L338" class="ln">   338  </span>		nsOptions:  []nsOption{},
+<span id="L339" class="ln">   339  </span>		pause:      false,
+<span id="L340" class="ln">   340  </span>		identifier: nil,
+<span id="L341" class="ln">   341  </span>		ctx:        context.Background(),
+<span id="L342" class="ln">   342  </span>	}
+<span id="L343" class="ln">   343  </span>}
+<span id="L344" class="ln">   344  </span>
+<span id="L345" class="ln">   345  </span><span class="comment">// CommandBuilder builds a exec.Cmd for daemon</span>
+<span id="L346" class="ln">   346  </span>type CommandBuilder struct {
+<span id="L347" class="ln">   347  </span>	cmd  string
+<span id="L348" class="ln">   348  </span>	args []string
+<span id="L349" class="ln">   349  </span>	env  []string
+<span id="L350" class="ln">   350  </span>
+<span id="L351" class="ln">   351  </span>	nsOptions []nsOption
+<span id="L352" class="ln">   352  </span>
+<span id="L353" class="ln">   353  </span>	pause    bool
+<span id="L354" class="ln">   354  </span>	localMnt bool
+<span id="L355" class="ln">   355  </span>
+<span id="L356" class="ln">   356  </span>	identifier *string
+<span id="L357" class="ln">   357  </span>	stdin      io.ReadWriteCloser
+<span id="L358" class="ln">   358  </span>	stdout     io.ReadWriteCloser
+<span id="L359" class="ln">   359  </span>	stderr     io.ReadWriteCloser
+<span id="L360" class="ln">   360  </span>
+<span id="L361" class="ln">   361  </span>	<span class="comment">// the context is used to kill the process and will be passed into</span>
+<span id="L362" class="ln">   362  </span>	<span class="comment">// `exec.CommandContext`</span>
+<span id="L363" class="ln">   363  </span>	ctx context.Context
+<span id="L364" class="ln">   364  </span>}
+<span id="L365" class="ln">   365  </span>
+<span id="L366" class="ln">   366  </span><span class="comment">// GetNsPath returns corresponding namespace path</span>
+<span id="L367" class="ln">   367  </span>func GetNsPath(pid uint32, typ NsType) string {
+<span id="L368" class="ln">   368  </span>	return fmt.Sprintf(&#34;%s/%d/ns/%s&#34;, DefaultProcPrefix, pid, string(typ))
 <span id="L369" class="ln">   369  </span>}
 <span id="L370" class="ln">   370  </span>
-<span id="L371" class="ln">   371  </span><span class="comment">// SetNSOpt sets the namespace of the process</span>
-<span id="L372" class="ln">   372  </span>func (b *CommandBuilder) SetNSOpt(options []nsOption) *CommandBuilder {
-<span id="L373" class="ln">   373  </span>	b.nsOptions = append(b.nsOptions, options...)
-<span id="L374" class="ln">   374  </span>
-<span id="L375" class="ln">   375  </span>	return b
-<span id="L376" class="ln">   376  </span>}
-<span id="L377" class="ln">   377  </span>
-<span id="L378" class="ln">   378  </span><span class="comment">// SetIdentifier sets the identifier of the process</span>
-<span id="L379" class="ln">   379  </span><span class="comment">//</span>
-<span id="L380" class="ln">   380  </span><span class="comment">// The identifier is used to identify the process in BPM, to confirm only one identified process is running.</span>
-<span id="L381" class="ln">   381  </span><span class="comment">// If one identified process is already running, new processes with the same identifier will be blocked by lock.</span>
-<span id="L382" class="ln">   382  </span>func (b *CommandBuilder) SetIdentifier(id string) *CommandBuilder {
-<span id="L383" class="ln">   383  </span>	b.identifier = &amp;id
+<span id="L371" class="ln">   371  </span><span class="comment">// SetEnv sets the environment variables of the process</span>
+<span id="L372" class="ln">   372  </span>func (b *CommandBuilder) SetEnv(key, value string) *CommandBuilder {
+<span id="L373" class="ln">   373  </span>	b.env = append(b.env, fmt.Sprintf(&#34;%s=%s&#34;, key, value))
+<span id="L374" class="ln">   374  </span>	return b
+<span id="L375" class="ln">   375  </span>}
+<span id="L376" class="ln">   376  </span>
+<span id="L377" class="ln">   377  </span><span class="comment">// SetNS sets the namespace of the process</span>
+<span id="L378" class="ln">   378  </span>func (b *CommandBuilder) SetNS(pid uint32, typ NsType) *CommandBuilder {
+<span id="L379" class="ln">   379  </span>	return b.SetNSOpt([]nsOption{{
+<span id="L380" class="ln">   380  </span>		Typ:  typ,
+<span id="L381" class="ln">   381  </span>		Path: GetNsPath(pid, typ),
+<span id="L382" class="ln">   382  </span>	}})
+<span id="L383" class="ln">   383  </span>}
 <span id="L384" class="ln">   384  </span>
-<span id="L385" class="ln">   385  </span>	return b
-<span id="L386" class="ln">   386  </span>}
-<span id="L387" class="ln">   387  </span>
-<span id="L388" class="ln">   388  </span><span class="comment">// EnablePause enables pause for process</span>
-<span id="L389" class="ln">   389  </span>func (b *CommandBuilder) EnablePause() *CommandBuilder {
-<span id="L390" class="ln">   390  </span>	b.pause = true
+<span id="L385" class="ln">   385  </span><span class="comment">// SetNSOpt sets the namespace of the process</span>
+<span id="L386" class="ln">   386  </span>func (b *CommandBuilder) SetNSOpt(options []nsOption) *CommandBuilder {
+<span id="L387" class="ln">   387  </span>	b.nsOptions = append(b.nsOptions, options...)
+<span id="L388" class="ln">   388  </span>
+<span id="L389" class="ln">   389  </span>	return b
+<span id="L390" class="ln">   390  </span>}
 <span id="L391" class="ln">   391  </span>
-<span id="L392" class="ln">   392  </span>	return b
-<span id="L393" class="ln">   393  </span>}
-<span id="L394" class="ln">   394  </span>
-<span id="L395" class="ln">   395  </span>func (b *CommandBuilder) EnableLocalMnt() *CommandBuilder {
-<span id="L396" class="ln">   396  </span>	b.localMnt = true
-<span id="L397" class="ln">   397  </span>
-<span id="L398" class="ln">   398  </span>	return b
-<span id="L399" class="ln">   399  </span>}
-<span id="L400" class="ln">   400  </span>
-<span id="L401" class="ln">   401  </span><span class="comment">// SetContext sets context for process</span>
-<span id="L402" class="ln">   402  </span>func (b *CommandBuilder) SetContext(ctx context.Context) *CommandBuilder {
-<span id="L403" class="ln">   403  </span>	b.ctx = ctx
-<span id="L404" class="ln">   404  </span>
-<span id="L405" class="ln">   405  </span>	return b
-<span id="L406" class="ln">   406  </span>}
-<span id="L407" class="ln">   407  </span>
-<span id="L408" class="ln">   408  </span><span class="comment">// SetStdin sets stdin for process</span>
-<span id="L409" class="ln">   409  </span>func (b *CommandBuilder) SetStdin(stdin io.ReadWriteCloser) *CommandBuilder {
-<span id="L410" class="ln">   410  </span>	b.stdin = stdin
+<span id="L392" class="ln">   392  </span><span class="comment">// SetIdentifier sets the identifier of the process</span>
+<span id="L393" class="ln">   393  </span><span class="comment">//</span>
+<span id="L394" class="ln">   394  </span><span class="comment">// The identifier is used to identify the process in BPM, to confirm only one identified process is running.</span>
+<span id="L395" class="ln">   395  </span><span class="comment">// If one identified process is already running, new processes with the same identifier will be blocked by lock.</span>
+<span id="L396" class="ln">   396  </span>func (b *CommandBuilder) SetIdentifier(id string) *CommandBuilder {
+<span id="L397" class="ln">   397  </span>	b.identifier = &amp;id
+<span id="L398" class="ln">   398  </span>
+<span id="L399" class="ln">   399  </span>	return b
+<span id="L400" class="ln">   400  </span>}
+<span id="L401" class="ln">   401  </span>
+<span id="L402" class="ln">   402  </span><span class="comment">// EnablePause enables pause for process</span>
+<span id="L403" class="ln">   403  </span>func (b *CommandBuilder) EnablePause() *CommandBuilder {
+<span id="L404" class="ln">   404  </span>	b.pause = true
+<span id="L405" class="ln">   405  </span>
+<span id="L406" class="ln">   406  </span>	return b
+<span id="L407" class="ln">   407  </span>}
+<span id="L408" class="ln">   408  </span>
+<span id="L409" class="ln">   409  </span>func (b *CommandBuilder) EnableLocalMnt() *CommandBuilder {
+<span id="L410" class="ln">   410  </span>	b.localMnt = true
 <span id="L411" class="ln">   411  </span>
 <span id="L412" class="ln">   412  </span>	return b
 <span id="L413" class="ln">   413  </span>}
 <span id="L414" class="ln">   414  </span>
-<span id="L415" class="ln">   415  </span><span class="comment">// SetStdout sets stdout for process</span>
-<span id="L416" class="ln">   416  </span>func (b *CommandBuilder) SetStdout(stdout io.ReadWriteCloser) *CommandBuilder {
-<span id="L417" class="ln">   417  </span>	b.stdout = stdout
+<span id="L415" class="ln">   415  </span><span class="comment">// SetContext sets context for process</span>
+<span id="L416" class="ln">   416  </span>func (b *CommandBuilder) SetContext(ctx context.Context) *CommandBuilder {
+<span id="L417" class="ln">   417  </span>	b.ctx = ctx
 <span id="L418" class="ln">   418  </span>
 <span id="L419" class="ln">   419  </span>	return b
 <span id="L420" class="ln">   420  </span>}
 <span id="L421" class="ln">   421  </span>
-<span id="L422" class="ln">   422  </span><span class="comment">// SetStderr sets stderr for process</span>
-<span id="L423" class="ln">   423  </span>func (b *CommandBuilder) SetStderr(stderr io.ReadWriteCloser) *CommandBuilder {
-<span id="L424" class="ln">   424  </span>	b.stderr = stderr
+<span id="L422" class="ln">   422  </span><span class="comment">// SetStdin sets stdin for process</span>
+<span id="L423" class="ln">   423  </span>func (b *CommandBuilder) SetStdin(stdin io.ReadWriteCloser) *CommandBuilder {
+<span id="L424" class="ln">   424  </span>	b.stdin = stdin
 <span id="L425" class="ln">   425  </span>
 <span id="L426" class="ln">   426  </span>	return b
 <span id="L427" class="ln">   427  </span>}
 <span id="L428" class="ln">   428  </span>
-<span id="L429" class="ln">   429  </span>type nsOption struct {
-<span id="L430" class="ln">   430  </span>	Typ  NsType
-<span id="L431" class="ln">   431  </span>	Path string
-<span id="L432" class="ln">   432  </span>}
-<span id="L433" class="ln">   433  </span>
-<span id="L434" class="ln">   434  </span><span class="comment">// ManagedCommand is a process which can be managed by backgroundProcessManager</span>
-<span id="L435" class="ln">   435  </span>type ManagedCommand struct {
-<span id="L436" class="ln">   436  </span>	*exec.Cmd
-<span id="L437" class="ln">   437  </span>
-<span id="L438" class="ln">   438  </span>	<span class="comment">// If the identifier is not nil, process manager should make sure no other</span>
-<span id="L439" class="ln">   439  </span>	<span class="comment">// process with this identifier is running when executing this command</span>
-<span id="L440" class="ln">   440  </span>	Identifier *string
+<span id="L429" class="ln">   429  </span><span class="comment">// SetStdout sets stdout for process</span>
+<span id="L430" class="ln">   430  </span>func (b *CommandBuilder) SetStdout(stdout io.ReadWriteCloser) *CommandBuilder {
+<span id="L431" class="ln">   431  </span>	b.stdout = stdout
+<span id="L432" class="ln">   432  </span>
+<span id="L433" class="ln">   433  </span>	return b
+<span id="L434" class="ln">   434  </span>}
+<span id="L435" class="ln">   435  </span>
+<span id="L436" class="ln">   436  </span><span class="comment">// SetStderr sets stderr for process</span>
+<span id="L437" class="ln">   437  </span>func (b *CommandBuilder) SetStderr(stderr io.ReadWriteCloser) *CommandBuilder {
+<span id="L438" class="ln">   438  </span>	b.stderr = stderr
+<span id="L439" class="ln">   439  </span>
+<span id="L440" class="ln">   440  </span>	return b
 <span id="L441" class="ln">   441  </span>}
 <span id="L442" class="ln">   442  </span>
+<span id="L443" class="ln">   443  </span>func (b *CommandBuilder) getLoggerFromContext(ctx context.Context) logr.Logger {
+<span id="L444" class="ln">   444  </span>	<span class="comment">// this logger is inherited from the global one</span>
+<span id="L445" class="ln">   445  </span>	<span class="comment">// TODO: replace it with a specific logger by passing in one or creating a new one</span>
+<span id="L446" class="ln">   446  </span>	logger := log.L().WithName(&#34;background-process-manager.process-builder&#34;)
+<span id="L447" class="ln">   447  </span>	return log.EnrichLoggerWithContext(ctx, logger)
+<span id="L448" class="ln">   448  </span>}
+<span id="L449" class="ln">   449  </span>
+<span id="L450" class="ln">   450  </span>type nsOption struct {
+<span id="L451" class="ln">   451  </span>	Typ  NsType
+<span id="L452" class="ln">   452  </span>	Path string
+<span id="L453" class="ln">   453  </span>}
+<span id="L454" class="ln">   454  </span>
+<span id="L455" class="ln">   455  </span><span class="comment">// ManagedCommand is a process which can be managed by backgroundProcessManager</span>
+<span id="L456" class="ln">   456  </span>type ManagedCommand struct {
+<span id="L457" class="ln">   457  </span>	*exec.Cmd
+<span id="L458" class="ln">   458  </span>
+<span id="L459" class="ln">   459  </span>	<span class="comment">// If the identifier is not nil, process manager should make sure no other</span>
+<span id="L460" class="ln">   460  </span>	<span class="comment">// process with this identifier is running when executing this command</span>
+<span id="L461" class="ln">   461  </span>	Identifier *string
+<span id="L462" class="ln">   462  </span>}
+<span id="L463" class="ln">   463  </span>
 </pre><p></p>
 
 <div id="footer">

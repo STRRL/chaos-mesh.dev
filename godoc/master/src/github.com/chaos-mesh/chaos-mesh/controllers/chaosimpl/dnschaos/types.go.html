@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 01df458. Generated at Tue Mar  1 10:06:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 72b96d5. Generated at Tue Mar  1 22:08:50 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -112,7 +112,7 @@
 <span id="L47" class="ln">    47  </span>}
 <span id="L48" class="ln">    48  </span>
 <span id="L49" class="ln">    49  </span>func (impl *Impl) Apply(ctx context.Context, index int, records []*v1alpha1.Record, obj v1alpha1.InnerObject) (v1alpha1.Phase, error) {
-<span id="L50" class="ln">    50  </span>	decodedContainer, err := impl.decoder.DecodeContainerRecord(ctx, records[index])
+<span id="L50" class="ln">    50  </span>	decodedContainer, err := impl.decoder.DecodeContainerRecord(ctx, records[index], obj)
 <span id="L51" class="ln">    51  </span>	if decodedContainer.PbClient != nil {
 <span id="L52" class="ln">    52  </span>		defer decodedContainer.PbClient.Close()
 <span id="L53" class="ln">    53  </span>	}
@@ -185,7 +185,7 @@
 <span id="L120" class="ln">   120  </span>}
 <span id="L121" class="ln">   121  </span>
 <span id="L122" class="ln">   122  </span>func (impl *Impl) Recover(ctx context.Context, index int, records []*v1alpha1.Record, obj v1alpha1.InnerObject) (v1alpha1.Phase, error) {
-<span id="L123" class="ln">   123  </span>	decodedContainer, err := impl.decoder.DecodeContainerRecord(ctx, records[index])
+<span id="L123" class="ln">   123  </span>	decodedContainer, err := impl.decoder.DecodeContainerRecord(ctx, records[index], obj)
 <span id="L124" class="ln">   124  </span>	if decodedContainer.PbClient != nil {
 <span id="L125" class="ln">   125  </span>		defer decodedContainer.PbClient.Close()
 <span id="L126" class="ln">   126  </span>	}

@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 01df458. Generated at Tue Mar  1 10:06:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 72b96d5. Generated at Tue Mar  1 22:08:50 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -125,7 +125,7 @@
 				<dd><a href="#BackgroundProcessManager">type BackgroundProcessManager</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#StartBackgroundProcessManager">func StartBackgroundProcessManager(registry prometheus.Registerer) *BackgroundProcessManager</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#StartBackgroundProcessManager">func StartBackgroundProcessManager(registry prometheus.Registerer, rootLogger logr.Logger) *BackgroundProcessManager</a></dd>
 				
 				
 					
@@ -141,10 +141,10 @@
 					<dd>&nbsp; &nbsp; <a href="#BackgroundProcessManager.KillBackgroundProcess">func (m *BackgroundProcessManager) KillBackgroundProcess(ctx context.Context, uid string) error</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#BackgroundProcessManager.Shutdown">func (m *BackgroundProcessManager) Shutdown()</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#BackgroundProcessManager.Shutdown">func (m *BackgroundProcessManager) Shutdown(ctx context.Context)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#BackgroundProcessManager.StartProcess">func (m *BackgroundProcessManager) StartProcess(cmd *ManagedCommand) (*Process, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#BackgroundProcessManager.StartProcess">func (m *BackgroundProcessManager) StartProcess(ctx context.Context, cmd *ManagedCommand) (*Process, error)</a></dd>
 				
 			
 				
@@ -155,7 +155,7 @@
 				
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.Build">func (b *CommandBuilder) Build() *ManagedCommand</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.Build">func (b *CommandBuilder) Build(ctx context.Context) *ManagedCommand</a></dd>
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.EnableLocalMnt">func (b *CommandBuilder) EnableLocalMnt() *CommandBuilder</a></dd>
@@ -254,7 +254,7 @@
 		
 			
 			
-			<h2 id="GetNsPath">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L353">GetNsPath</a>
+			<h2 id="GetNsPath">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L367">GetNsPath</a>
 				<a class="permalink" href="#GetNsPath">&#xb6;</a>
 				
 				
@@ -295,12 +295,12 @@ BackgroundProcessManager manages all background processes
 
 			
 				
-				<h3 id="StartBackgroundProcessManager">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L169">StartBackgroundProcessManager</a>
+				<h3 id="StartBackgroundProcessManager">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L171">StartBackgroundProcessManager</a>
 					<a class="permalink" href="#StartBackgroundProcessManager">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func StartBackgroundProcessManager(registry <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/">prometheus</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/#Registerer">Registerer</a>) *<a href="#BackgroundProcessManager">BackgroundProcessManager</a></pre>
+				<pre>func StartBackgroundProcessManager(registry <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/">prometheus</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/#Registerer">Registerer</a>, rootLogger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#BackgroundProcessManager">BackgroundProcessManager</a></pre>
 				<p>
 StartBackgroundProcessManager creates a background process manager
 </p>
@@ -311,7 +311,7 @@ StartBackgroundProcessManager creates a background process manager
 
 			
 				
-				<h3 id="BackgroundProcessManager.GetIdentifiers">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L311">GetIdentifiers</a>
+				<h3 id="BackgroundProcessManager.GetIdentifiers">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L319">GetIdentifiers</a>
 					<a class="permalink" href="#BackgroundProcessManager.GetIdentifiers">&#xb6;</a>
 					
 					
@@ -326,7 +326,7 @@ GetIdentifiers finds all identifiers in BPM
 				
 			
 				
-				<h3 id="BackgroundProcessManager.GetPipes">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L278">GetPipes</a>
+				<h3 id="BackgroundProcessManager.GetPipes">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L284">GetPipes</a>
 					<a class="permalink" href="#BackgroundProcessManager.GetPipes">&#xb6;</a>
 					
 					
@@ -338,7 +338,7 @@ GetIdentifiers finds all identifiers in BPM
 				
 			
 				
-				<h3 id="BackgroundProcessManager.GetUID">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L264">GetUID</a>
+				<h3 id="BackgroundProcessManager.GetUID">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L270">GetUID</a>
 					<a class="permalink" href="#BackgroundProcessManager.GetUID">&#xb6;</a>
 					
 					
@@ -350,7 +350,7 @@ GetIdentifiers finds all identifiers in BPM
 				
 			
 				
-				<h3 id="BackgroundProcessManager.KillBackgroundProcess">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L287">KillBackgroundProcess</a>
+				<h3 id="BackgroundProcessManager.KillBackgroundProcess">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L293">KillBackgroundProcess</a>
 					<a class="permalink" href="#BackgroundProcessManager.KillBackgroundProcess">&#xb6;</a>
 					
 					
@@ -365,24 +365,24 @@ KillBackgroundProcess sends SIGTERM to process
 				
 			
 				
-				<h3 id="BackgroundProcessManager.Shutdown">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L250">Shutdown</a>
+				<h3 id="BackgroundProcessManager.Shutdown">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L254">Shutdown</a>
 					<a class="permalink" href="#BackgroundProcessManager.Shutdown">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (m *<a href="#BackgroundProcessManager">BackgroundProcessManager</a>) Shutdown()</pre>
+				<pre>func (m *<a href="#BackgroundProcessManager">BackgroundProcessManager</a>) Shutdown(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>)</pre>
 				
 				
 				
 				
 			
 				
-				<h3 id="BackgroundProcessManager.StartProcess">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L207">StartProcess</a>
+				<h3 id="BackgroundProcessManager.StartProcess">func (*BackgroundProcessManager) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L210">StartProcess</a>
 					<a class="permalink" href="#BackgroundProcessManager.StartProcess">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (m *<a href="#BackgroundProcessManager">BackgroundProcessManager</a>) StartProcess(cmd *<a href="#ManagedCommand">ManagedCommand</a>) (*<a href="#Process">Process</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<pre>func (m *<a href="#BackgroundProcessManager">BackgroundProcessManager</a>) StartProcess(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, cmd *<a href="#ManagedCommand">ManagedCommand</a>) (*<a href="#Process">Process</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 StartProcess manages a process in manager
 </p>
@@ -394,7 +394,7 @@ StartProcess manages a process in manager
 		
 			
 			
-			<h2 id="CommandBuilder">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L334">CommandBuilder</a>
+			<h2 id="CommandBuilder">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L346">CommandBuilder</a>
 				<a class="permalink" href="#CommandBuilder">&#xb6;</a>
 				
 				
@@ -418,7 +418,7 @@ CommandBuilder builds a exec.Cmd for daemon
 
 			
 				
-				<h3 id="DefaultProcessBuilder">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L322">DefaultProcessBuilder</a>
+				<h3 id="DefaultProcessBuilder">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L334">DefaultProcessBuilder</a>
 					<a class="permalink" href="#DefaultProcessBuilder">&#xb6;</a>
 					
 					
@@ -434,14 +434,16 @@ DefaultProcessBuilder returns the default process builder
 
 			
 				
-				<h3 id="CommandBuilder.Build">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/build_linux.go#L28">Build</a>
+				<h3 id="CommandBuilder.Build">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/build_linux.go#L30">Build</a>
 					<a class="permalink" href="#CommandBuilder.Build">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (b *<a href="#CommandBuilder">CommandBuilder</a>) Build() *<a href="#ManagedCommand">ManagedCommand</a></pre>
+				<pre>func (b *<a href="#CommandBuilder">CommandBuilder</a>) Build(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>) *<a href="#ManagedCommand">ManagedCommand</a></pre>
 				<p>
 Build builds the command
+the ctx argument passes the context information to this function
+e.g. the corresponding resource name.
 </p>
 
 				
@@ -449,7 +451,7 @@ Build builds the command
 				
 			
 				
-				<h3 id="CommandBuilder.EnableLocalMnt">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L395">EnableLocalMnt</a>
+				<h3 id="CommandBuilder.EnableLocalMnt">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L409">EnableLocalMnt</a>
 					<a class="permalink" href="#CommandBuilder.EnableLocalMnt">&#xb6;</a>
 					
 					
@@ -461,7 +463,7 @@ Build builds the command
 				
 			
 				
-				<h3 id="CommandBuilder.EnablePause">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L389">EnablePause</a>
+				<h3 id="CommandBuilder.EnablePause">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L403">EnablePause</a>
 					<a class="permalink" href="#CommandBuilder.EnablePause">&#xb6;</a>
 					
 					
@@ -476,7 +478,7 @@ EnablePause enables pause for process
 				
 			
 				
-				<h3 id="CommandBuilder.SetContext">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L402">SetContext</a>
+				<h3 id="CommandBuilder.SetContext">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L416">SetContext</a>
 					<a class="permalink" href="#CommandBuilder.SetContext">&#xb6;</a>
 					
 					
@@ -491,7 +493,7 @@ SetContext sets context for process
 				
 			
 				
-				<h3 id="CommandBuilder.SetEnv">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L358">SetEnv</a>
+				<h3 id="CommandBuilder.SetEnv">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L372">SetEnv</a>
 					<a class="permalink" href="#CommandBuilder.SetEnv">&#xb6;</a>
 					
 					
@@ -506,7 +508,7 @@ SetEnv sets the environment variables of the process
 				
 			
 				
-				<h3 id="CommandBuilder.SetIdentifier">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L382">SetIdentifier</a>
+				<h3 id="CommandBuilder.SetIdentifier">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L396">SetIdentifier</a>
 					<a class="permalink" href="#CommandBuilder.SetIdentifier">&#xb6;</a>
 					
 					
@@ -525,7 +527,7 @@ If one identified process is already running, new processes with the same identi
 				
 			
 				
-				<h3 id="CommandBuilder.SetNS">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L364">SetNS</a>
+				<h3 id="CommandBuilder.SetNS">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L378">SetNS</a>
 					<a class="permalink" href="#CommandBuilder.SetNS">&#xb6;</a>
 					
 					
@@ -540,7 +542,7 @@ SetNS sets the namespace of the process
 				
 			
 				
-				<h3 id="CommandBuilder.SetNSOpt">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L372">SetNSOpt</a>
+				<h3 id="CommandBuilder.SetNSOpt">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L386">SetNSOpt</a>
 					<a class="permalink" href="#CommandBuilder.SetNSOpt">&#xb6;</a>
 					
 					
@@ -555,7 +557,7 @@ SetNSOpt sets the namespace of the process
 				
 			
 				
-				<h3 id="CommandBuilder.SetStderr">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L423">SetStderr</a>
+				<h3 id="CommandBuilder.SetStderr">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L437">SetStderr</a>
 					<a class="permalink" href="#CommandBuilder.SetStderr">&#xb6;</a>
 					
 					
@@ -570,7 +572,7 @@ SetStderr sets stderr for process
 				
 			
 				
-				<h3 id="CommandBuilder.SetStdin">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L409">SetStdin</a>
+				<h3 id="CommandBuilder.SetStdin">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L423">SetStdin</a>
 					<a class="permalink" href="#CommandBuilder.SetStdin">&#xb6;</a>
 					
 					
@@ -585,7 +587,7 @@ SetStdin sets stdin for process
 				
 			
 				
-				<h3 id="CommandBuilder.SetStdout">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L416">SetStdout</a>
+				<h3 id="CommandBuilder.SetStdout">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L430">SetStdout</a>
 					<a class="permalink" href="#CommandBuilder.SetStdout">&#xb6;</a>
 					
 					
@@ -602,7 +604,7 @@ SetStdout sets stdout for process
 		
 			
 			
-			<h2 id="ManagedCommand">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L435">ManagedCommand</a>
+			<h2 id="ManagedCommand">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L456">ManagedCommand</a>
 				<a class="permalink" href="#ManagedCommand">&#xb6;</a>
 				
 				
@@ -726,7 +728,7 @@ pipes that will be connected to the command&#39;s stdin/stdout
 
 			
 				
-				<h3 id="Process.Stopped">func (*Process) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L164">Stopped</a>
+				<h3 id="Process.Stopped">func (*Process) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L166">Stopped</a>
 					<a class="permalink" href="#Process.Stopped">&#xb6;</a>
 					
 					
