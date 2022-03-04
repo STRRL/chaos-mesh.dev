@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d212a81. Generated at Fri Mar  4 10:01:52 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 3b8c25d. Generated at Fri Mar  4 22:03:21 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -119,21 +119,29 @@
 				<dd><a href="#Execute">func Execute()</a></dd>
 			
 				
-				<dd><a href="#NewDebugCommand">func NewDebugCommand(logger logr.Logger) (*cobra.Command, error)</a></dd>
+				<dd><a href="#NewDebugCommand">func NewDebugCommand(logger logr.Logger, debugs map[string]debug.Debug) (*cobra.Command, error)</a></dd>
 			
 				
-				<dd><a href="#NewLogsCmd">func NewLogsCmd(logger logr.Logger) (*cobra.Command, error)</a></dd>
+				<dd><a href="#NewLogsCmd">func NewLogsCmd() (*cobra.Command, error)</a></dd>
 			
 				
-				<dd><a href="#NewPhysicalMachineCommand">func NewPhysicalMachineCommand(logger logr.Logger) (*cobra.Command, error)</a></dd>
+				<dd><a href="#NewPhysicalMachineCommand">func NewPhysicalMachineCommand() (*cobra.Command, error)</a></dd>
 			
+			
+				
+				<dd><a href="#Component">type Component</a></dd>
+				
+				
 			
 				
 				<dd><a href="#DebugOptions">type DebugOptions</a></dd>
 				
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#DebugOptions.Run">func (o *DebugOptions) Run(chaosType string, args []string, c *common.ClientSet) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#DebugOptions.List">func (o *DebugOptions) List(debugger debug.Debugger) ([]string, cobra.ShellCompDirective)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DebugOptions.Run">func (o *DebugOptions) Run(debugger debug.Debugger, args []string) error</a></dd>
 				
 			
 			
@@ -172,7 +180,7 @@
 		
 			
 			
-			<h2 id="Execute">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/root.go#L44">Execute</a>
+			<h2 id="Execute">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/root.go#L45">Execute</a>
 				<a class="permalink" href="#Execute">&#xb6;</a>
 				
 				
@@ -189,12 +197,12 @@ This is called by main.main(). It only needs to happen once to the rootCmd.
 		
 			
 			
-			<h2 id="NewDebugCommand">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go#L51">NewDebugCommand</a>
+			<h2 id="NewDebugCommand">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go#L41">NewDebugCommand</a>
 				<a class="permalink" href="#NewDebugCommand">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func NewDebugCommand(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			<pre>func NewDebugCommand(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>, debugs map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/">debug</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/#Debug">Debug</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 			
 			
 			
@@ -202,12 +210,12 @@ This is called by main.main(). It only needs to happen once to the rootCmd.
 		
 			
 			
-			<h2 id="NewLogsCmd">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/logs.go#L41">NewLogsCmd</a>
+			<h2 id="NewLogsCmd">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/logs.go#L47">NewLogsCmd</a>
 				<a class="permalink" href="#NewLogsCmd">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func NewLogsCmd(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			<pre>func NewLogsCmd() (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 			
 			
 			
@@ -215,12 +223,12 @@ This is called by main.main(). It only needs to happen once to the rootCmd.
 		
 			
 			
-			<h2 id="NewPhysicalMachineCommand">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/physicalmachine.go#L28">NewPhysicalMachineCommand</a>
+			<h2 id="NewPhysicalMachineCommand">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/physicalmachine.go#L24">NewPhysicalMachineCommand</a>
 				<a class="permalink" href="#NewPhysicalMachineCommand">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func NewPhysicalMachineCommand(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			<pre>func NewPhysicalMachineCommand() (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 			
 			
 			
@@ -229,17 +237,43 @@ This is called by main.main(). It only needs to happen once to the rootCmd.
 		
 			
 			
-			<h2 id="DebugOptions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go#L36">DebugOptions</a>
+			<h2 id="Component">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/logs.go#L38">Component</a>
+				<a class="permalink" href="#Component">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Component <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="Manager">Manager</span>   <a href="#Component">Component</a> = &#34;MANAGER&#34;
+    <span id="Daemon">Daemon</span>    <a href="#Component">Component</a> = &#34;DAEMON&#34;
+    <span id="Dashboard">Dashboard</span> <a href="#Component">Component</a> = &#34;DASHBOARD&#34;
+    <span id="DnsServer">DnsServer</span> <a href="#Component">Component</a> = &#34;DNSSERVER&#34;
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="DebugOptions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go#L30">DebugOptions</a>
 				<a class="permalink" href="#DebugOptions">&#xb6;</a>
 				
 				
 			</h2>
 			
 			<pre>type DebugOptions struct {
-<span id="DebugOptions.CaCertFile"></span>    CaCertFile <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
-<span id="DebugOptions.CertFile"></span>    CertFile   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
-<span id="DebugOptions.KeyFile"></span>    KeyFile    <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
-<span id="DebugOptions.Insecure"></span>    Insecure   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>
     <span class="comment">// contains filtered or unexported fields</span>
 }
 </pre>
@@ -256,12 +290,27 @@ This is called by main.main(). It only needs to happen once to the rootCmd.
 
 			
 				
-				<h3 id="DebugOptions.Run">func (*DebugOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go#L168">Run</a>
+				<h3 id="DebugOptions.List">func (*DebugOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go#L139">List</a>
+					<a class="permalink" href="#DebugOptions.List">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="#DebugOptions">DebugOptions</a>) List(debugger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/">debug</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/#Debugger">Debugger</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#ShellCompDirective">ShellCompDirective</a>)</pre>
+				<p>
+Run debug
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="DebugOptions.Run">func (*DebugOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go#L114">Run</a>
 					<a class="permalink" href="#DebugOptions.Run">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (o *<a href="#DebugOptions">DebugOptions</a>) Run(chaosType <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, args []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, c *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/">common</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/#ClientSet">ClientSet</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (o *<a href="#DebugOptions">DebugOptions</a>) Run(debugger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/">debug</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/#Debugger">Debugger</a>, args []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
 				<p>
 Run debug
 </p>

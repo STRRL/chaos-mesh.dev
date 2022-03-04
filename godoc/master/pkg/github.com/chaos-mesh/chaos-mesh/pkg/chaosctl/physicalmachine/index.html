@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d212a81. Generated at Fri Mar  4 10:01:52 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 3b8c25d. Generated at Fri Mar  4 22:03:21 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -133,13 +133,13 @@
 				<dd><a href="#NewCertAndKey">func NewCertAndKey(caCert *x509.Certificate, caKey crypto.Signer) (*x509.Certificate, crypto.Signer, error)</a></dd>
 			
 				
-				<dd><a href="#NewPhysicalMachineCreateCmd">func NewPhysicalMachineCreateCmd(logger logr.Logger) (*cobra.Command, error)</a></dd>
+				<dd><a href="#NewPhysicalMachineCreateCmd">func NewPhysicalMachineCreateCmd() (*cobra.Command, error)</a></dd>
 			
 				
-				<dd><a href="#NewPhysicalMachineGenerateCmd">func NewPhysicalMachineGenerateCmd(logger logr.Logger) (*cobra.Command, error)</a></dd>
+				<dd><a href="#NewPhysicalMachineGenerateCmd">func NewPhysicalMachineGenerateCmd() (*cobra.Command, error)</a></dd>
 			
 				
-				<dd><a href="#NewPhysicalMachineInitCmd">func NewPhysicalMachineInitCmd(logger logr.Logger) (*cobra.Command, error)</a></dd>
+				<dd><a href="#NewPhysicalMachineInitCmd">func NewPhysicalMachineInitCmd() (*cobra.Command, error)</a></dd>
 			
 				
 				<dd><a href="#NewPrivateKey">func NewPrivateKey(keyType x509.PublicKeyAlgorithm) (crypto.Signer, error)</a></dd>
@@ -262,7 +262,7 @@
 		
 			
 			
-			<h2 id="CreatePhysicalMachine">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/create.go#L97">CreatePhysicalMachine</a>
+			<h2 id="CreatePhysicalMachine">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/create.go#L93">CreatePhysicalMachine</a>
 				<a class="permalink" href="#CreatePhysicalMachine">&#xb6;</a>
 				
 				
@@ -292,7 +292,7 @@ EncodeCertPEM returns PEM-endcoded certificate data
 		
 			
 			
-			<h2 id="GetChaosdCAFileFromCluster">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/init.go#L144">GetChaosdCAFileFromCluster</a>
+			<h2 id="GetChaosdCAFileFromCluster">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/init.go#L140">GetChaosdCAFileFromCluster</a>
 				<a class="permalink" href="#GetChaosdCAFileFromCluster">&#xb6;</a>
 				
 				
@@ -305,7 +305,7 @@ EncodeCertPEM returns PEM-endcoded certificate data
 		
 			
 			
-			<h2 id="GetChaosdCAFileFromFile">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/generate.go#L83">GetChaosdCAFileFromFile</a>
+			<h2 id="GetChaosdCAFileFromFile">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/generate.go#L79">GetChaosdCAFileFromFile</a>
 				<a class="permalink" href="#GetChaosdCAFileFromFile">&#xb6;</a>
 				
 				
@@ -334,12 +334,12 @@ NewCertAndKey creates new certificate and key by passing the certificate authori
 		
 			
 			
-			<h2 id="NewPhysicalMachineCreateCmd">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/create.go#L42">NewPhysicalMachineCreateCmd</a>
+			<h2 id="NewPhysicalMachineCreateCmd">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/create.go#L40">NewPhysicalMachineCreateCmd</a>
 				<a class="permalink" href="#NewPhysicalMachineCreateCmd">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func NewPhysicalMachineCreateCmd(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			<pre>func NewPhysicalMachineCreateCmd() (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 			
 			
 			
@@ -347,12 +347,12 @@ NewCertAndKey creates new certificate and key by passing the certificate authori
 		
 			
 			
-			<h2 id="NewPhysicalMachineGenerateCmd">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/generate.go#L35">NewPhysicalMachineGenerateCmd</a>
+			<h2 id="NewPhysicalMachineGenerateCmd">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/generate.go#L33">NewPhysicalMachineGenerateCmd</a>
 				<a class="permalink" href="#NewPhysicalMachineGenerateCmd">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func NewPhysicalMachineGenerateCmd(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			<pre>func NewPhysicalMachineGenerateCmd() (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 			
 			
 			
@@ -360,12 +360,12 @@ NewCertAndKey creates new certificate and key by passing the certificate authori
 		
 			
 			
-			<h2 id="NewPhysicalMachineInitCmd">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/init.go#L51">NewPhysicalMachineInitCmd</a>
+			<h2 id="NewPhysicalMachineInitCmd">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/init.go#L49">NewPhysicalMachineInitCmd</a>
 				<a class="permalink" href="#NewPhysicalMachineInitCmd">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func NewPhysicalMachineInitCmd(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			<pre>func NewPhysicalMachineInitCmd() (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 			
 			
 			
@@ -490,7 +490,7 @@ WriteKey stores the given key at the given location
 		
 			
 			
-			<h2 id="PhysicalMachineCreateOptions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/create.go#L33">PhysicalMachineCreateOptions</a>
+			<h2 id="PhysicalMachineCreateOptions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/create.go#L32">PhysicalMachineCreateOptions</a>
 				<a class="permalink" href="#PhysicalMachineCreateOptions">&#xb6;</a>
 				
 				
@@ -513,7 +513,7 @@ WriteKey stores the given key at the given location
 
 			
 				
-				<h3 id="PhysicalMachineCreateOptions.Run">func (*PhysicalMachineCreateOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/create.go#L76">Run</a>
+				<h3 id="PhysicalMachineCreateOptions.Run">func (*PhysicalMachineCreateOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/create.go#L72">Run</a>
 					<a class="permalink" href="#PhysicalMachineCreateOptions.Run">&#xb6;</a>
 					
 					
@@ -525,7 +525,7 @@ WriteKey stores the given key at the given location
 				
 			
 				
-				<h3 id="PhysicalMachineCreateOptions.Validate">func (*PhysicalMachineCreateOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/create.go#L69">Validate</a>
+				<h3 id="PhysicalMachineCreateOptions.Validate">func (*PhysicalMachineCreateOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/create.go#L65">Validate</a>
 					<a class="permalink" href="#PhysicalMachineCreateOptions.Validate">&#xb6;</a>
 					
 					
@@ -539,7 +539,7 @@ WriteKey stores the given key at the given location
 		
 			
 			
-			<h2 id="PhysicalMachineGenerateOptions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/generate.go#L28">PhysicalMachineGenerateOptions</a>
+			<h2 id="PhysicalMachineGenerateOptions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/generate.go#L27">PhysicalMachineGenerateOptions</a>
 				<a class="permalink" href="#PhysicalMachineGenerateOptions">&#xb6;</a>
 				
 				
@@ -562,7 +562,7 @@ WriteKey stores the given key at the given location
 
 			
 				
-				<h3 id="PhysicalMachineGenerateOptions.Run">func (*PhysicalMachineGenerateOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/generate.go#L69">Run</a>
+				<h3 id="PhysicalMachineGenerateOptions.Run">func (*PhysicalMachineGenerateOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/generate.go#L65">Run</a>
 					<a class="permalink" href="#PhysicalMachineGenerateOptions.Run">&#xb6;</a>
 					
 					
@@ -574,7 +574,7 @@ WriteKey stores the given key at the given location
 				
 			
 				
-				<h3 id="PhysicalMachineGenerateOptions.Validate">func (*PhysicalMachineGenerateOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/generate.go#L59">Validate</a>
+				<h3 id="PhysicalMachineGenerateOptions.Validate">func (*PhysicalMachineGenerateOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/generate.go#L55">Validate</a>
 					<a class="permalink" href="#PhysicalMachineGenerateOptions.Validate">&#xb6;</a>
 					
 					
@@ -588,7 +588,7 @@ WriteKey stores the given key at the given location
 		
 			
 			
-			<h2 id="PhysicalMachineInitOptions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/init.go#L38">PhysicalMachineInitOptions</a>
+			<h2 id="PhysicalMachineInitOptions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/init.go#L37">PhysicalMachineInitOptions</a>
 				<a class="permalink" href="#PhysicalMachineInitOptions">&#xb6;</a>
 				
 				
@@ -611,7 +611,7 @@ WriteKey stores the given key at the given location
 
 			
 				
-				<h3 id="PhysicalMachineInitOptions.Run">func (*PhysicalMachineInitOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/init.go#L96">Run</a>
+				<h3 id="PhysicalMachineInitOptions.Run">func (*PhysicalMachineInitOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/init.go#L92">Run</a>
 					<a class="permalink" href="#PhysicalMachineInitOptions.Run">&#xb6;</a>
 					
 					
@@ -623,7 +623,7 @@ WriteKey stores the given key at the given location
 				
 			
 				
-				<h3 id="PhysicalMachineInitOptions.Validate">func (*PhysicalMachineInitOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/init.go#L89">Validate</a>
+				<h3 id="PhysicalMachineInitOptions.Validate">func (*PhysicalMachineInitOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/physicalmachine/init.go#L85">Validate</a>
 					<a class="permalink" href="#PhysicalMachineInitOptions.Validate">&#xb6;</a>
 					
 					

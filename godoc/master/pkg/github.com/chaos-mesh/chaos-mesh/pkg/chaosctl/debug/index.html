@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#375EAB">
 
-  <title>/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug - Chaos Mesh</title>
+  <title>debug - Chaos Mesh</title>
 
 <link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
 
@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d212a81. Generated at Fri Mar  4 10:01:52 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 3b8c25d. Generated at Fri Mar  4 22:03:21 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -47,7 +47,7 @@
 
 
   <h1>
-    Directory /src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug
+    Package debug
     <span class="text-muted"></span>
   </h1>
 
@@ -72,61 +72,206 @@
 	correspond to Go identifiers).
 -->
 
-
-
-
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
 
 	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#Debug">type Debug</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Debugger">type Debugger</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#HTTPDebug">func HTTPDebug(client *ctrlclient.CtrlClient) Debugger</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#IODebug">func IODebug(client *ctrlclient.CtrlClient) Debugger</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NetworkDebug">func NetworkDebug(client *ctrlclient.CtrlClient) Debugger</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StressDebug">func StressDebug(client *ctrlclient.CtrlClient) Debugger</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/debug.go">debug.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/httpchaos.go">httpchaos.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/iochaos.go">iochaos.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/networkchaos.go">networkchaos.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/stresschaos.go">stresschaos.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="Debug">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/debug.go#L33">Debug</a>
+				<a class="permalink" href="#Debug">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Debug func(client *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>) <a href="#Debugger">Debugger</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Debugger">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/debug.go#L25">Debugger</a>
+				<a class="permalink" href="#Debugger">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Debugger interface {
+    <span class="comment">// Collect collect debug information of chaos</span>
+    Collect(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, namespace, chaosName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/">common</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/#ChaosResult">ChaosResult</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// List chaos names to collect</span>
+    List(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, namespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="HTTPDebug">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/httpchaos.go#L34">HTTPDebug</a>
+					<a class="permalink" href="#HTTPDebug">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func HTTPDebug(client *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>) <a href="#Debugger">Debugger</a></pre>
+				
+				
+				
+			
+				
+				<h3 id="IODebug">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/iochaos.go#L34">IODebug</a>
+					<a class="permalink" href="#IODebug">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func IODebug(client *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>) <a href="#Debugger">Debugger</a></pre>
+				
+				
+				
+			
+				
+				<h3 id="NetworkDebug">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/networkchaos.go#L32">NetworkDebug</a>
+					<a class="permalink" href="#NetworkDebug">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NetworkDebug(client *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>) <a href="#Debugger">Debugger</a></pre>
+				
+				
+				
+			
+				
+				<h3 id="StressDebug">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/stresschaos.go#L34">StressDebug</a>
+					<a class="permalink" href="#StressDebug">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func StressDebug(client *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>) <a href="#Debugger">Debugger</a></pre>
+				
+				
+				
+			
+
+			
+		
 	
-	<div class="pkg-dir">
-		<table>
-			<tr>
-				<th class="pkg-name">Name</th>
-				<th class="pkg-synopsis">Synopsis</th>
-			</tr>
 
-			
-			<tr>
-				<td colspan="2"><a href="..">..</a></td>
-			</tr>
-			
+	
 
-			
-				<tr>
-				
-					<td class="pkg-name" style="padding-left: 0px;">
-						<a href="iochaos/">iochaos</a>
-					</td>
-				
-					<td class="pkg-synopsis">
-						
-					</td>
-				</tr>
-			
-				<tr>
-				
-					<td class="pkg-name" style="padding-left: 0px;">
-						<a href="networkchaos/">networkchaos</a>
-					</td>
-				
-					<td class="pkg-synopsis">
-						
-					</td>
-				</tr>
-			
-				<tr>
-				
-					<td class="pkg-name" style="padding-left: 0px;">
-						<a href="stresschaos/">stresschaos</a>
-					</td>
-				
-					<td class="pkg-synopsis">
-						
-					</td>
-				</tr>
-			
-		</table>
-	</div>
+
+
+
 
 
 

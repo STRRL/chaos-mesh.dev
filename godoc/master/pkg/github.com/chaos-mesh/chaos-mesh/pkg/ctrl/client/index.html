@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>client - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 3b8c25d. Generated at Fri Mar  4 22:03:21 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package client
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+			
+				
+				<dd><a href="#DisableRuntimeErrorHandler">func DisableRuntimeErrorHandler()</a></dd>
+			
+				
+				<dd><a href="#ForwardCtrlServer">func ForwardCtrlServer(ctx context.Context, ns, managerSvc string) (context.CancelFunc, uint16, error)</a></dd>
+			
+				
+				<dd><a href="#ForwardSvcPorts">func ForwardSvcPorts(ctx context.Context, ns, svc string, port uint16) (context.CancelFunc, uint16, error)</a></dd>
+			
+			
+				
+				<dd><a href="#CommonRestClientGetter">type CommonRestClientGetter</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewCommonRestClientGetter">func NewCommonRestClientGetter() *CommonRestClientGetter</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CommonRestClientGetter.ToRESTConfig">func (it *CommonRestClientGetter) ToRESTConfig() (*rest.Config, error)</a></dd>
+				
+			
+				
+				<dd><a href="#CtrlClient">type CtrlClient</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewCtrlClient">func NewCtrlClient(url string) *CtrlClient</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CtrlClient.ListNamespace">func (c *CtrlClient) ListNamespace(ctx context.Context) ([]string, error)</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/ctrlclient.go">ctrlclient.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/forward.go">forward.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/hack.go">hack.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				
+				<pre>const (
+    <span id="CtrlServerPort">CtrlServerPort</span> = 10082
+)</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="DisableRuntimeErrorHandler">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/hack.go#L22">DisableRuntimeErrorHandler</a>
+				<a class="permalink" href="#DisableRuntimeErrorHandler">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func DisableRuntimeErrorHandler()</pre>
+			<p>
+disable error handler in k8s runtime
+TODO: ignore specific errors only
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="ForwardCtrlServer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/forward.go#L61">ForwardCtrlServer</a>
+				<a class="permalink" href="#ForwardCtrlServer">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ForwardCtrlServer(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, ns, managerSvc <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#CancelFunc">CancelFunc</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint16">uint16</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="ForwardSvcPorts">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/forward.go#L48">ForwardSvcPorts</a>
+				<a class="permalink" href="#ForwardSvcPorts">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ForwardSvcPorts(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, ns, svc <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, port <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint16">uint16</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#CancelFunc">CancelFunc</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint16">uint16</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="CommonRestClientGetter">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/forward.go#L35">CommonRestClientGetter</a>
+				<a class="permalink" href="#CommonRestClientGetter">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+CommonRestClientGetter is used for non-e2e test environment.
+It&#39;s basically do the same thing as genericclioptions.ConfigFlags, but it load rest config from incluster or .kubeconfig file
+</p>
+
+			<pre>type CommonRestClientGetter struct {
+    *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/cli-runtime/pkg/genericclioptions/">genericclioptions</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/cli-runtime/pkg/genericclioptions/#ConfigFlags">ConfigFlags</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewCommonRestClientGetter">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/forward.go#L39">NewCommonRestClientGetter</a>
+					<a class="permalink" href="#NewCommonRestClientGetter">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewCommonRestClientGetter() *<a href="#CommonRestClientGetter">CommonRestClientGetter</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="CommonRestClientGetter.ToRESTConfig">func (*CommonRestClientGetter) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/forward.go#L44">ToRESTConfig</a>
+					<a class="permalink" href="#CommonRestClientGetter.ToRESTConfig">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#CommonRestClientGetter">CommonRestClientGetter</a>) ToRESTConfig() (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/rest/">rest</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/rest/#Config">Config</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="CtrlClient">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/ctrlclient.go#L24">CtrlClient</a>
+				<a class="permalink" href="#CtrlClient">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type CtrlClient struct {
+<span id="CtrlClient.QueryClient"></span>    QueryClient        *graphql.<a href="#Client">Client</a>
+<span id="CtrlClient.SubscriptionClient"></span>    SubscriptionClient *graphql.<a href="#SubscriptionClient">SubscriptionClient</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewCtrlClient">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/ctrlclient.go#L29">NewCtrlClient</a>
+					<a class="permalink" href="#NewCtrlClient">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewCtrlClient(url <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) *<a href="#CtrlClient">CtrlClient</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="CtrlClient.ListNamespace">func (*CtrlClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/ctrlclient.go#L36">ListNamespace</a>
+					<a class="permalink" href="#CtrlClient.ListNamespace">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#CtrlClient">CtrlClient</a>) ListNamespace(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
