@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 9b7d94f. Generated at Sun Mar  6 22:04:49 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit dd96134. Generated at Mon Mar  7 10:03:02 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -197,101 +197,97 @@
 <span id="L132" class="ln">   132  </span>	}, nil
 <span id="L133" class="ln">   133  </span>}
 <span id="L134" class="ln">   134  </span>
-<span id="L135" class="ln">   135  </span>func NewLogger() logr.Logger {
-<span id="L136" class="ln">   136  </span>	return ctrl.Log
-<span id="L137" class="ln">   137  </span>}
-<span id="L138" class="ln">   138  </span>
-<span id="L139" class="ln">   139  </span>type noCacheReader struct {
-<span id="L140" class="ln">   140  </span>	fx.Out
-<span id="L141" class="ln">   141  </span>
-<span id="L142" class="ln">   142  </span>	client.Reader `name:&#34;no-cache&#34;`
-<span id="L143" class="ln">   143  </span>}
-<span id="L144" class="ln">   144  </span>
-<span id="L145" class="ln">   145  </span>func NewNoCacheReader(mgr ctrl.Manager) noCacheReader {
-<span id="L146" class="ln">   146  </span>	return noCacheReader{
-<span id="L147" class="ln">   147  </span>		Reader: mgr.GetAPIReader(),
-<span id="L148" class="ln">   148  </span>	}
-<span id="L149" class="ln">   149  </span>}
-<span id="L150" class="ln">   150  </span>
-<span id="L151" class="ln">   151  </span>type globalCacheReader struct {
-<span id="L152" class="ln">   152  </span>	fx.Out
-<span id="L153" class="ln">   153  </span>
-<span id="L154" class="ln">   154  </span>	client.Reader `name:&#34;global-cache&#34;`
-<span id="L155" class="ln">   155  </span>}
-<span id="L156" class="ln">   156  </span>
-<span id="L157" class="ln">   157  </span>func NewGlobalCacheReader(mgr ctrl.Manager) globalCacheReader {
-<span id="L158" class="ln">   158  </span>	return globalCacheReader{
-<span id="L159" class="ln">   159  </span>		Reader: mgr.GetClient(),
-<span id="L160" class="ln">   160  </span>	}
-<span id="L161" class="ln">   161  </span>}
-<span id="L162" class="ln">   162  </span>
-<span id="L163" class="ln">   163  </span>type controlPlaneCacheReader struct {
-<span id="L164" class="ln">   164  </span>	fx.Out
-<span id="L165" class="ln">   165  </span>
-<span id="L166" class="ln">   166  </span>	client.Reader `name:&#34;control-plane-cache&#34;`
-<span id="L167" class="ln">   167  </span>}
-<span id="L168" class="ln">   168  </span>
-<span id="L169" class="ln">   169  </span>func NewControlPlaneCacheReader(logger logr.Logger, cfg *rest.Config) (controlPlaneCacheReader, error) {
-<span id="L170" class="ln">   170  </span>	mapper, err := apiutil.NewDynamicRESTMapper(cfg)
-<span id="L171" class="ln">   171  </span>	if err != nil {
-<span id="L172" class="ln">   172  </span>		return controlPlaneCacheReader{}, err
-<span id="L173" class="ln">   173  </span>	}
-<span id="L174" class="ln">   174  </span>
-<span id="L175" class="ln">   175  </span>	scheme := runtime.NewScheme()
-<span id="L176" class="ln">   176  </span>	_ = clientgoscheme.AddToScheme(scheme)
-<span id="L177" class="ln">   177  </span>
-<span id="L178" class="ln">   178  </span>	<span class="comment">// Create the cache for the cached read client and registering informers</span>
-<span id="L179" class="ln">   179  </span>	cacheReader, err := cache.New(cfg, cache.Options{Scheme: scheme, Mapper: mapper, Resync: nil, Namespace: config.ControllerCfg.Namespace})
-<span id="L180" class="ln">   180  </span>	if err != nil {
-<span id="L181" class="ln">   181  </span>		return controlPlaneCacheReader{}, err
-<span id="L182" class="ln">   182  </span>	}
-<span id="L183" class="ln">   183  </span>	<span class="comment">// TODO: store the channel and use it to stop</span>
-<span id="L184" class="ln">   184  </span>	go func() {
-<span id="L185" class="ln">   185  </span>		<span class="comment">// FIXME: get context from parameter</span>
-<span id="L186" class="ln">   186  </span>		err := cacheReader.Start(context.TODO())
-<span id="L187" class="ln">   187  </span>		if err != nil {
-<span id="L188" class="ln">   188  </span>			logger.Error(err, &#34;fail to start cached client&#34;)
-<span id="L189" class="ln">   189  </span>		}
-<span id="L190" class="ln">   190  </span>	}()
-<span id="L191" class="ln">   191  </span>
-<span id="L192" class="ln">   192  </span>	c, err := client.New(cfg, client.Options{Scheme: scheme, Mapper: mapper})
-<span id="L193" class="ln">   193  </span>	if err != nil {
-<span id="L194" class="ln">   194  </span>		return controlPlaneCacheReader{}, err
-<span id="L195" class="ln">   195  </span>	}
-<span id="L196" class="ln">   196  </span>
-<span id="L197" class="ln">   197  </span>	cachedClient, err := client.NewDelegatingClient(client.NewDelegatingClientInput{
-<span id="L198" class="ln">   198  </span>		CacheReader:       cacheReader,
-<span id="L199" class="ln">   199  </span>		Client:            c,
-<span id="L200" class="ln">   200  </span>		UncachedObjects:   nil,
-<span id="L201" class="ln">   201  </span>		CacheUnstructured: false,
-<span id="L202" class="ln">   202  </span>	})
-<span id="L203" class="ln">   203  </span>	if err != nil {
-<span id="L204" class="ln">   204  </span>		return controlPlaneCacheReader{}, err
-<span id="L205" class="ln">   205  </span>	}
-<span id="L206" class="ln">   206  </span>
-<span id="L207" class="ln">   207  </span>	return controlPlaneCacheReader{
-<span id="L208" class="ln">   208  </span>		Reader: cachedClient,
-<span id="L209" class="ln">   209  </span>	}, nil
+<span id="L135" class="ln">   135  </span>type noCacheReader struct {
+<span id="L136" class="ln">   136  </span>	fx.Out
+<span id="L137" class="ln">   137  </span>
+<span id="L138" class="ln">   138  </span>	client.Reader `name:&#34;no-cache&#34;`
+<span id="L139" class="ln">   139  </span>}
+<span id="L140" class="ln">   140  </span>
+<span id="L141" class="ln">   141  </span>func NewNoCacheReader(mgr ctrl.Manager) noCacheReader {
+<span id="L142" class="ln">   142  </span>	return noCacheReader{
+<span id="L143" class="ln">   143  </span>		Reader: mgr.GetAPIReader(),
+<span id="L144" class="ln">   144  </span>	}
+<span id="L145" class="ln">   145  </span>}
+<span id="L146" class="ln">   146  </span>
+<span id="L147" class="ln">   147  </span>type globalCacheReader struct {
+<span id="L148" class="ln">   148  </span>	fx.Out
+<span id="L149" class="ln">   149  </span>
+<span id="L150" class="ln">   150  </span>	client.Reader `name:&#34;global-cache&#34;`
+<span id="L151" class="ln">   151  </span>}
+<span id="L152" class="ln">   152  </span>
+<span id="L153" class="ln">   153  </span>func NewGlobalCacheReader(mgr ctrl.Manager) globalCacheReader {
+<span id="L154" class="ln">   154  </span>	return globalCacheReader{
+<span id="L155" class="ln">   155  </span>		Reader: mgr.GetClient(),
+<span id="L156" class="ln">   156  </span>	}
+<span id="L157" class="ln">   157  </span>}
+<span id="L158" class="ln">   158  </span>
+<span id="L159" class="ln">   159  </span>type controlPlaneCacheReader struct {
+<span id="L160" class="ln">   160  </span>	fx.Out
+<span id="L161" class="ln">   161  </span>
+<span id="L162" class="ln">   162  </span>	client.Reader `name:&#34;control-plane-cache&#34;`
+<span id="L163" class="ln">   163  </span>}
+<span id="L164" class="ln">   164  </span>
+<span id="L165" class="ln">   165  </span>func NewControlPlaneCacheReader(logger logr.Logger, cfg *rest.Config) (controlPlaneCacheReader, error) {
+<span id="L166" class="ln">   166  </span>	mapper, err := apiutil.NewDynamicRESTMapper(cfg)
+<span id="L167" class="ln">   167  </span>	if err != nil {
+<span id="L168" class="ln">   168  </span>		return controlPlaneCacheReader{}, err
+<span id="L169" class="ln">   169  </span>	}
+<span id="L170" class="ln">   170  </span>
+<span id="L171" class="ln">   171  </span>	scheme := runtime.NewScheme()
+<span id="L172" class="ln">   172  </span>	_ = clientgoscheme.AddToScheme(scheme)
+<span id="L173" class="ln">   173  </span>
+<span id="L174" class="ln">   174  </span>	<span class="comment">// Create the cache for the cached read client and registering informers</span>
+<span id="L175" class="ln">   175  </span>	cacheReader, err := cache.New(cfg, cache.Options{Scheme: scheme, Mapper: mapper, Resync: nil, Namespace: config.ControllerCfg.Namespace})
+<span id="L176" class="ln">   176  </span>	if err != nil {
+<span id="L177" class="ln">   177  </span>		return controlPlaneCacheReader{}, err
+<span id="L178" class="ln">   178  </span>	}
+<span id="L179" class="ln">   179  </span>	<span class="comment">// TODO: store the channel and use it to stop</span>
+<span id="L180" class="ln">   180  </span>	go func() {
+<span id="L181" class="ln">   181  </span>		<span class="comment">// FIXME: get context from parameter</span>
+<span id="L182" class="ln">   182  </span>		err := cacheReader.Start(context.TODO())
+<span id="L183" class="ln">   183  </span>		if err != nil {
+<span id="L184" class="ln">   184  </span>			logger.Error(err, &#34;fail to start cached client&#34;)
+<span id="L185" class="ln">   185  </span>		}
+<span id="L186" class="ln">   186  </span>	}()
+<span id="L187" class="ln">   187  </span>
+<span id="L188" class="ln">   188  </span>	c, err := client.New(cfg, client.Options{Scheme: scheme, Mapper: mapper})
+<span id="L189" class="ln">   189  </span>	if err != nil {
+<span id="L190" class="ln">   190  </span>		return controlPlaneCacheReader{}, err
+<span id="L191" class="ln">   191  </span>	}
+<span id="L192" class="ln">   192  </span>
+<span id="L193" class="ln">   193  </span>	cachedClient, err := client.NewDelegatingClient(client.NewDelegatingClientInput{
+<span id="L194" class="ln">   194  </span>		CacheReader:       cacheReader,
+<span id="L195" class="ln">   195  </span>		Client:            c,
+<span id="L196" class="ln">   196  </span>		UncachedObjects:   nil,
+<span id="L197" class="ln">   197  </span>		CacheUnstructured: false,
+<span id="L198" class="ln">   198  </span>	})
+<span id="L199" class="ln">   199  </span>	if err != nil {
+<span id="L200" class="ln">   200  </span>		return controlPlaneCacheReader{}, err
+<span id="L201" class="ln">   201  </span>	}
+<span id="L202" class="ln">   202  </span>
+<span id="L203" class="ln">   203  </span>	return controlPlaneCacheReader{
+<span id="L204" class="ln">   204  </span>		Reader: cachedClient,
+<span id="L205" class="ln">   205  </span>	}, nil
+<span id="L206" class="ln">   206  </span>}
+<span id="L207" class="ln">   207  </span>
+<span id="L208" class="ln">   208  </span>func NewClientSet(config *rest.Config) (*kubernetes.Clientset, error) {
+<span id="L209" class="ln">   209  </span>	return kubernetes.NewForConfig(config)
 <span id="L210" class="ln">   210  </span>}
 <span id="L211" class="ln">   211  </span>
-<span id="L212" class="ln">   212  </span>func NewClientSet(config *rest.Config) (*kubernetes.Clientset, error) {
-<span id="L213" class="ln">   213  </span>	return kubernetes.NewForConfig(config)
-<span id="L214" class="ln">   214  </span>}
-<span id="L215" class="ln">   215  </span>
-<span id="L216" class="ln">   216  </span>var Module = fx.Provide(
-<span id="L217" class="ln">   217  </span>	NewOption,
-<span id="L218" class="ln">   218  </span>	NewClient,
-<span id="L219" class="ln">   219  </span>	NewClientSet,
-<span id="L220" class="ln">   220  </span>	NewManager,
-<span id="L221" class="ln">   221  </span>	NewLogger,
-<span id="L222" class="ln">   222  </span>	NewAuthCli,
-<span id="L223" class="ln">   223  </span>	NewScheme,
-<span id="L224" class="ln">   224  </span>	NewConfig,
-<span id="L225" class="ln">   225  </span>	NewNoCacheReader,
-<span id="L226" class="ln">   226  </span>	NewGlobalCacheReader,
-<span id="L227" class="ln">   227  </span>	NewControlPlaneCacheReader,
-<span id="L228" class="ln">   228  </span>)
-<span id="L229" class="ln">   229  </span>
+<span id="L212" class="ln">   212  </span><span class="comment">// Module would provide objects to fx for dependency injection.</span>
+<span id="L213" class="ln">   213  </span>var Module = fx.Provide(
+<span id="L214" class="ln">   214  </span>	NewOption,
+<span id="L215" class="ln">   215  </span>	NewClient,
+<span id="L216" class="ln">   216  </span>	NewClientSet,
+<span id="L217" class="ln">   217  </span>	NewManager,
+<span id="L218" class="ln">   218  </span>	NewAuthCli,
+<span id="L219" class="ln">   219  </span>	NewScheme,
+<span id="L220" class="ln">   220  </span>	NewConfig,
+<span id="L221" class="ln">   221  </span>	NewNoCacheReader,
+<span id="L222" class="ln">   222  </span>	NewGlobalCacheReader,
+<span id="L223" class="ln">   223  </span>	NewControlPlaneCacheReader,
+<span id="L224" class="ln">   224  </span>)
+<span id="L225" class="ln">   225  </span>
 </pre><p></p>
 
 <div id="footer">
