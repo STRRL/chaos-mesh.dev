@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 57832f7. Generated at Mon Mar  7 22:03:37 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f52ad7d. Generated at Tue Mar  8 10:01:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -365,223 +365,233 @@
 <span id="L300" class="ln">   300  </span>			})
 <span id="L301" class="ln">   301  </span>		})
 <span id="L302" class="ln">   302  </span>
-<span id="L303" class="ln">   303  </span>		<span class="comment">// http chaos case in [HTTPPatch] context</span>
-<span id="L304" class="ln">   304  </span>		ginkgo.Context(&#34;[HTTPPatch]&#34;, func() {
+<span id="L303" class="ln">   303  </span>		<span class="comment">// http chaos case in [HTTPReplaceBody] context</span>
+<span id="L304" class="ln">   304  </span>		ginkgo.Context(&#34;[HTTPReplaceBody]&#34;, func() {
 <span id="L305" class="ln">   305  </span>			ginkgo.It(&#34;[Schedule]&#34;, func() {
-<span id="L306" class="ln">   306  </span>				httpchaostestcases.TestcaseHttpPatchThenRecover(ns, cli, client, port)
+<span id="L306" class="ln">   306  </span>				httpchaostestcases.TestcaseHttpReplaceBodyThenRecover(ns, cli, client, port)
 <span id="L307" class="ln">   307  </span>			})
 <span id="L308" class="ln">   308  </span>			ginkgo.It(&#34;[Pause]&#34;, func() {
-<span id="L309" class="ln">   309  </span>				httpchaostestcases.TestcaseHttpPatchPauseAndUnPause(ns, cli, client, port)
+<span id="L309" class="ln">   309  </span>				httpchaostestcases.TestcaseHttpReplaceBodyPauseAndUnPause(ns, cli, client, port)
 <span id="L310" class="ln">   310  </span>			})
 <span id="L311" class="ln">   311  </span>		})
-<span id="L312" class="ln">   312  </span>	})
-<span id="L313" class="ln">   313  </span>
-<span id="L314" class="ln">   314  </span>	ginkgo.Context(&#34;[Sidecar Config]&#34;, func() {
-<span id="L315" class="ln">   315  </span>		var (
-<span id="L316" class="ln">   316  </span>			cmName      string
-<span id="L317" class="ln">   317  </span>			cmNamespace string
-<span id="L318" class="ln">   318  </span>		)
-<span id="L319" class="ln">   319  </span>
-<span id="L320" class="ln">   320  </span>		<span class="comment">// delete the created config map in each test case</span>
-<span id="L321" class="ln">   321  </span>		ginkgo.JustAfterEach(func() {
-<span id="L322" class="ln">   322  </span>			kubeCli.CoreV1().ConfigMaps(cmNamespace).Delete(context.TODO(), cmName, metav1.DeleteOptions{})
-<span id="L323" class="ln">   323  </span>		})
-<span id="L324" class="ln">   324  </span>
-<span id="L325" class="ln">   325  </span>		ginkgo.Context(&#34;[Template Config]&#34;, func() {
-<span id="L326" class="ln">   326  </span>
-<span id="L327" class="ln">   327  </span>			ginkgo.It(&#34;[InValid ConfigMap key]&#34;, func() {
-<span id="L328" class="ln">   328  </span>				cmName = &#34;incorrect-key-name&#34;
-<span id="L329" class="ln">   329  </span>				cmNamespace = e2econst.ChaosMeshNamespace
-<span id="L330" class="ln">   330  </span>				sidecartestcases.TestcaseInvalidConfigMapKey(ns, cmNamespace, cmName, kubeCli, cli)
-<span id="L331" class="ln">   331  </span>			})
-<span id="L332" class="ln">   332  </span>
-<span id="L333" class="ln">   333  </span>			ginkgo.It(&#34;[InValid Configuration]&#34;, func() {
-<span id="L334" class="ln">   334  </span>				cmName = &#34;incorrect-configuration&#34;
-<span id="L335" class="ln">   335  </span>				cmNamespace = e2econst.ChaosMeshNamespace
-<span id="L336" class="ln">   336  </span>				sidecartestcases.TestcaseInvalidConfiguration(ns, cmNamespace, cmName, kubeCli, cli)
-<span id="L337" class="ln">   337  </span>			})
-<span id="L338" class="ln">   338  </span>		})
-<span id="L339" class="ln">   339  </span>
-<span id="L340" class="ln">   340  </span>		ginkgo.Context(&#34;[Injection Config]&#34;, func() {
-<span id="L341" class="ln">   341  </span>			ginkgo.It(&#34;[No Template]&#34;, func() {
-<span id="L342" class="ln">   342  </span>				cmName = &#34;no-template-name&#34;
-<span id="L343" class="ln">   343  </span>				cmNamespace = e2econst.ChaosMeshNamespace
-<span id="L344" class="ln">   344  </span>				sidecartestcases.TestcaseNoTemplate(ns, cmNamespace, cmName, kubeCli, cli)
-<span id="L345" class="ln">   345  </span>			})
-<span id="L346" class="ln">   346  </span>
-<span id="L347" class="ln">   347  </span>			ginkgo.It(&#34;[No Template Args]&#34;, func() {
-<span id="L348" class="ln">   348  </span>				cmName = &#34;no-template-args&#34;
-<span id="L349" class="ln">   349  </span>				cmNamespace = e2econst.ChaosMeshNamespace
-<span id="L350" class="ln">   350  </span>				sidecartestcases.TestcaseNoTemplateArgs(ns, cmNamespace, cmName, kubeCli, cli)
-<span id="L351" class="ln">   351  </span>			})
-<span id="L352" class="ln">   352  </span>		})
-<span id="L353" class="ln">   353  </span>	})
-<span id="L354" class="ln">   354  </span>
-<span id="L355" class="ln">   355  </span>	ginkgo.Context(&#34;[NetworkChaos]&#34;, func() {
-<span id="L356" class="ln">   356  </span>		var err error
-<span id="L357" class="ln">   357  </span>
-<span id="L358" class="ln">   358  </span>		var networkPeers []*v1.Pod
-<span id="L359" class="ln">   359  </span>		var ports []uint16
-<span id="L360" class="ln">   360  </span>		var pfCancels []context.CancelFunc
-<span id="L361" class="ln">   361  </span>
-<span id="L362" class="ln">   362  </span>		ginkgo.JustBeforeEach(func() {
-<span id="L363" class="ln">   363  </span>			ports = []uint16{}
-<span id="L364" class="ln">   364  </span>			networkPeers = []*v1.Pod{}
-<span id="L365" class="ln">   365  </span>			for index := 0; index &lt; 4; index++ {
-<span id="L366" class="ln">   366  </span>				name := fmt.Sprintf(&#34;network-peer-%d&#34;, index)
+<span id="L312" class="ln">   312  </span>
+<span id="L313" class="ln">   313  </span>		<span class="comment">// http chaos case in [HTTPPatch] context</span>
+<span id="L314" class="ln">   314  </span>		ginkgo.Context(&#34;[HTTPPatch]&#34;, func() {
+<span id="L315" class="ln">   315  </span>			ginkgo.It(&#34;[Schedule]&#34;, func() {
+<span id="L316" class="ln">   316  </span>				httpchaostestcases.TestcaseHttpPatchThenRecover(ns, cli, client, port)
+<span id="L317" class="ln">   317  </span>			})
+<span id="L318" class="ln">   318  </span>			ginkgo.It(&#34;[Pause]&#34;, func() {
+<span id="L319" class="ln">   319  </span>				httpchaostestcases.TestcaseHttpPatchPauseAndUnPause(ns, cli, client, port)
+<span id="L320" class="ln">   320  </span>			})
+<span id="L321" class="ln">   321  </span>		})
+<span id="L322" class="ln">   322  </span>	})
+<span id="L323" class="ln">   323  </span>
+<span id="L324" class="ln">   324  </span>	ginkgo.Context(&#34;[Sidecar Config]&#34;, func() {
+<span id="L325" class="ln">   325  </span>		var (
+<span id="L326" class="ln">   326  </span>			cmName      string
+<span id="L327" class="ln">   327  </span>			cmNamespace string
+<span id="L328" class="ln">   328  </span>		)
+<span id="L329" class="ln">   329  </span>
+<span id="L330" class="ln">   330  </span>		<span class="comment">// delete the created config map in each test case</span>
+<span id="L331" class="ln">   331  </span>		ginkgo.JustAfterEach(func() {
+<span id="L332" class="ln">   332  </span>			kubeCli.CoreV1().ConfigMaps(cmNamespace).Delete(context.TODO(), cmName, metav1.DeleteOptions{})
+<span id="L333" class="ln">   333  </span>		})
+<span id="L334" class="ln">   334  </span>
+<span id="L335" class="ln">   335  </span>		ginkgo.Context(&#34;[Template Config]&#34;, func() {
+<span id="L336" class="ln">   336  </span>
+<span id="L337" class="ln">   337  </span>			ginkgo.It(&#34;[InValid ConfigMap key]&#34;, func() {
+<span id="L338" class="ln">   338  </span>				cmName = &#34;incorrect-key-name&#34;
+<span id="L339" class="ln">   339  </span>				cmNamespace = e2econst.ChaosMeshNamespace
+<span id="L340" class="ln">   340  </span>				sidecartestcases.TestcaseInvalidConfigMapKey(ns, cmNamespace, cmName, kubeCli, cli)
+<span id="L341" class="ln">   341  </span>			})
+<span id="L342" class="ln">   342  </span>
+<span id="L343" class="ln">   343  </span>			ginkgo.It(&#34;[InValid Configuration]&#34;, func() {
+<span id="L344" class="ln">   344  </span>				cmName = &#34;incorrect-configuration&#34;
+<span id="L345" class="ln">   345  </span>				cmNamespace = e2econst.ChaosMeshNamespace
+<span id="L346" class="ln">   346  </span>				sidecartestcases.TestcaseInvalidConfiguration(ns, cmNamespace, cmName, kubeCli, cli)
+<span id="L347" class="ln">   347  </span>			})
+<span id="L348" class="ln">   348  </span>		})
+<span id="L349" class="ln">   349  </span>
+<span id="L350" class="ln">   350  </span>		ginkgo.Context(&#34;[Injection Config]&#34;, func() {
+<span id="L351" class="ln">   351  </span>			ginkgo.It(&#34;[No Template]&#34;, func() {
+<span id="L352" class="ln">   352  </span>				cmName = &#34;no-template-name&#34;
+<span id="L353" class="ln">   353  </span>				cmNamespace = e2econst.ChaosMeshNamespace
+<span id="L354" class="ln">   354  </span>				sidecartestcases.TestcaseNoTemplate(ns, cmNamespace, cmName, kubeCli, cli)
+<span id="L355" class="ln">   355  </span>			})
+<span id="L356" class="ln">   356  </span>
+<span id="L357" class="ln">   357  </span>			ginkgo.It(&#34;[No Template Args]&#34;, func() {
+<span id="L358" class="ln">   358  </span>				cmName = &#34;no-template-args&#34;
+<span id="L359" class="ln">   359  </span>				cmNamespace = e2econst.ChaosMeshNamespace
+<span id="L360" class="ln">   360  </span>				sidecartestcases.TestcaseNoTemplateArgs(ns, cmNamespace, cmName, kubeCli, cli)
+<span id="L361" class="ln">   361  </span>			})
+<span id="L362" class="ln">   362  </span>		})
+<span id="L363" class="ln">   363  </span>	})
+<span id="L364" class="ln">   364  </span>
+<span id="L365" class="ln">   365  </span>	ginkgo.Context(&#34;[NetworkChaos]&#34;, func() {
+<span id="L366" class="ln">   366  </span>		var err error
 <span id="L367" class="ln">   367  </span>
-<span id="L368" class="ln">   368  </span>				svc := fixture.NewE2EService(name, ns)
-<span id="L369" class="ln">   369  </span>				_, err = kubeCli.CoreV1().Services(ns).Create(context.TODO(), svc, metav1.CreateOptions{})
-<span id="L370" class="ln">   370  </span>				framework.ExpectNoError(err, &#34;create service error&#34;)
-<span id="L371" class="ln">   371  </span>				nd := fixture.NewNetworkTestDeployment(name, ns, map[string]string{&#34;partition&#34;: strconv.Itoa(index % 2)})
-<span id="L372" class="ln">   372  </span>				_, err = kubeCli.AppsV1().Deployments(ns).Create(context.TODO(), nd, metav1.CreateOptions{})
-<span id="L373" class="ln">   373  </span>				framework.ExpectNoError(err, &#34;create network-peer deployment error&#34;)
-<span id="L374" class="ln">   374  </span>				err = util.WaitDeploymentReady(name, ns, kubeCli)
-<span id="L375" class="ln">   375  </span>				framework.ExpectNoError(err, &#34;wait network-peer deployment ready error&#34;)
-<span id="L376" class="ln">   376  </span>
-<span id="L377" class="ln">   377  </span>				pod, err := getPod(kubeCli, ns, name)
-<span id="L378" class="ln">   378  </span>				framework.ExpectNoError(err, &#34;select network-peer pod error&#34;)
-<span id="L379" class="ln">   379  </span>				networkPeers = append(networkPeers, pod)
-<span id="L380" class="ln">   380  </span>
-<span id="L381" class="ln">   381  </span>				_, port, pfCancel, err := portforward.ForwardOnePort(fw, ns, &#34;svc/&#34;+svc.Name, 8080)
-<span id="L382" class="ln">   382  </span>				ports = append(ports, port)
-<span id="L383" class="ln">   383  </span>				pfCancels = append(pfCancels, pfCancel)
-<span id="L384" class="ln">   384  </span>				framework.ExpectNoError(err, &#34;create helper io port port-forward failed&#34;)
-<span id="L385" class="ln">   385  </span>			}
-<span id="L386" class="ln">   386  </span>		})
-<span id="L387" class="ln">   387  </span>
-<span id="L388" class="ln">   388  </span>		ginkgo.Context(&#34;[ForbidHostNetwork]&#34;, func() {
-<span id="L389" class="ln">   389  </span>			ginkgo.It(&#34;[Schedule]&#34;, func() {
-<span id="L390" class="ln">   390  </span>				networkchaostestcases.TestcaseForbidHostNetwork(ns, kubeCli, cli)
-<span id="L391" class="ln">   391  </span>			})
-<span id="L392" class="ln">   392  </span>		})
-<span id="L393" class="ln">   393  </span>
-<span id="L394" class="ln">   394  </span>		ginkgo.Context(&#34;[NetworkPartition]&#34;, func() {
-<span id="L395" class="ln">   395  </span>			ginkgo.It(&#34;[Schedule]&#34;, func() {
-<span id="L396" class="ln">   396  </span>				networkchaostestcases.TestcaseNetworkPartition(ns, cli, networkPeers, ports, c)
-<span id="L397" class="ln">   397  </span>			})
-<span id="L398" class="ln">   398  </span>		})
-<span id="L399" class="ln">   399  </span>
-<span id="L400" class="ln">   400  </span>		ginkgo.Context(&#34;[Netem]&#34;, func() {
-<span id="L401" class="ln">   401  </span>			ginkgo.It(&#34;[Schedule]&#34;, func() {
-<span id="L402" class="ln">   402  </span>				networkchaostestcases.TestcaseNetworkDelay(ns, cli, networkPeers, ports, c)
-<span id="L403" class="ln">   403  </span>			})
-<span id="L404" class="ln">   404  </span>			ginkgo.It(&#34;[PeersCrossoverWithDirectionBoth]&#34;, func() {
-<span id="L405" class="ln">   405  </span>				networkchaostestcases.TestcasePeersCrossover(ns, cli, networkPeers, ports, c)
-<span id="L406" class="ln">   406  </span>			})
-<span id="L407" class="ln">   407  </span>		})
-<span id="L408" class="ln">   408  </span>
-<span id="L409" class="ln">   409  </span>		ginkgo.JustAfterEach(func() {
-<span id="L410" class="ln">   410  </span>			for _, cancel := range pfCancels {
-<span id="L411" class="ln">   411  </span>				cancel()
-<span id="L412" class="ln">   412  </span>			}
-<span id="L413" class="ln">   413  </span>		})
-<span id="L414" class="ln">   414  </span>	})
-<span id="L415" class="ln">   415  </span>	<span class="comment">// DNS chaos case in [DNSChaos] context</span>
-<span id="L416" class="ln">   416  </span>	ginkgo.Context(&#34;[DNSChaos]&#34;, func() {
-<span id="L417" class="ln">   417  </span>		var err error
-<span id="L418" class="ln">   418  </span>		var port uint16
-<span id="L419" class="ln">   419  </span>
-<span id="L420" class="ln">   420  </span>		ginkgo.JustBeforeEach(func() {
-<span id="L421" class="ln">   421  </span>			name := &#34;network-peer&#34;
-<span id="L422" class="ln">   422  </span>
-<span id="L423" class="ln">   423  </span>			svc := fixture.NewE2EService(name, ns)
-<span id="L424" class="ln">   424  </span>			_, err = kubeCli.CoreV1().Services(ns).Create(context.TODO(), svc, metav1.CreateOptions{})
-<span id="L425" class="ln">   425  </span>			framework.ExpectNoError(err, &#34;create service error&#34;)
-<span id="L426" class="ln">   426  </span>			nd := fixture.NewNetworkTestDeployment(name, ns, map[string]string{&#34;partition&#34;: &#34;0&#34;})
-<span id="L427" class="ln">   427  </span>			_, err = kubeCli.AppsV1().Deployments(ns).Create(context.TODO(), nd, metav1.CreateOptions{})
-<span id="L428" class="ln">   428  </span>			framework.ExpectNoError(err, &#34;create network-peer deployment error&#34;)
-<span id="L429" class="ln">   429  </span>			err = util.WaitDeploymentReady(name, ns, kubeCli)
-<span id="L430" class="ln">   430  </span>			framework.ExpectNoError(err, &#34;wait network-peer deployment ready error&#34;)
-<span id="L431" class="ln">   431  </span>
-<span id="L432" class="ln">   432  </span>			_, err = getPod(kubeCli, ns, name)
-<span id="L433" class="ln">   433  </span>			framework.ExpectNoError(err, &#34;select network-peer pod error&#34;)
-<span id="L434" class="ln">   434  </span>
-<span id="L435" class="ln">   435  </span>			_, port, _, err = portforward.ForwardOnePort(fw, ns, &#34;svc/&#34;+svc.Name, 8080)
-<span id="L436" class="ln">   436  </span>			framework.ExpectNoError(err, &#34;create helper io port port-forward failed&#34;)
-<span id="L437" class="ln">   437  </span>		})
-<span id="L438" class="ln">   438  </span>		ginkgo.It(&#34;[RANDOM]&#34;, func() {
-<span id="L439" class="ln">   439  </span>			dnschaostestcases.TestcaseDNSRandom(ns, cli, port, c)
-<span id="L440" class="ln">   440  </span>		})
+<span id="L368" class="ln">   368  </span>		var networkPeers []*v1.Pod
+<span id="L369" class="ln">   369  </span>		var ports []uint16
+<span id="L370" class="ln">   370  </span>		var pfCancels []context.CancelFunc
+<span id="L371" class="ln">   371  </span>
+<span id="L372" class="ln">   372  </span>		ginkgo.JustBeforeEach(func() {
+<span id="L373" class="ln">   373  </span>			ports = []uint16{}
+<span id="L374" class="ln">   374  </span>			networkPeers = []*v1.Pod{}
+<span id="L375" class="ln">   375  </span>			for index := 0; index &lt; 4; index++ {
+<span id="L376" class="ln">   376  </span>				name := fmt.Sprintf(&#34;network-peer-%d&#34;, index)
+<span id="L377" class="ln">   377  </span>
+<span id="L378" class="ln">   378  </span>				svc := fixture.NewE2EService(name, ns)
+<span id="L379" class="ln">   379  </span>				_, err = kubeCli.CoreV1().Services(ns).Create(context.TODO(), svc, metav1.CreateOptions{})
+<span id="L380" class="ln">   380  </span>				framework.ExpectNoError(err, &#34;create service error&#34;)
+<span id="L381" class="ln">   381  </span>				nd := fixture.NewNetworkTestDeployment(name, ns, map[string]string{&#34;partition&#34;: strconv.Itoa(index % 2)})
+<span id="L382" class="ln">   382  </span>				_, err = kubeCli.AppsV1().Deployments(ns).Create(context.TODO(), nd, metav1.CreateOptions{})
+<span id="L383" class="ln">   383  </span>				framework.ExpectNoError(err, &#34;create network-peer deployment error&#34;)
+<span id="L384" class="ln">   384  </span>				err = util.WaitDeploymentReady(name, ns, kubeCli)
+<span id="L385" class="ln">   385  </span>				framework.ExpectNoError(err, &#34;wait network-peer deployment ready error&#34;)
+<span id="L386" class="ln">   386  </span>
+<span id="L387" class="ln">   387  </span>				pod, err := getPod(kubeCli, ns, name)
+<span id="L388" class="ln">   388  </span>				framework.ExpectNoError(err, &#34;select network-peer pod error&#34;)
+<span id="L389" class="ln">   389  </span>				networkPeers = append(networkPeers, pod)
+<span id="L390" class="ln">   390  </span>
+<span id="L391" class="ln">   391  </span>				_, port, pfCancel, err := portforward.ForwardOnePort(fw, ns, &#34;svc/&#34;+svc.Name, 8080)
+<span id="L392" class="ln">   392  </span>				ports = append(ports, port)
+<span id="L393" class="ln">   393  </span>				pfCancels = append(pfCancels, pfCancel)
+<span id="L394" class="ln">   394  </span>				framework.ExpectNoError(err, &#34;create helper io port port-forward failed&#34;)
+<span id="L395" class="ln">   395  </span>			}
+<span id="L396" class="ln">   396  </span>		})
+<span id="L397" class="ln">   397  </span>
+<span id="L398" class="ln">   398  </span>		ginkgo.Context(&#34;[ForbidHostNetwork]&#34;, func() {
+<span id="L399" class="ln">   399  </span>			ginkgo.It(&#34;[Schedule]&#34;, func() {
+<span id="L400" class="ln">   400  </span>				networkchaostestcases.TestcaseForbidHostNetwork(ns, kubeCli, cli)
+<span id="L401" class="ln">   401  </span>			})
+<span id="L402" class="ln">   402  </span>		})
+<span id="L403" class="ln">   403  </span>
+<span id="L404" class="ln">   404  </span>		ginkgo.Context(&#34;[NetworkPartition]&#34;, func() {
+<span id="L405" class="ln">   405  </span>			ginkgo.It(&#34;[Schedule]&#34;, func() {
+<span id="L406" class="ln">   406  </span>				networkchaostestcases.TestcaseNetworkPartition(ns, cli, networkPeers, ports, c)
+<span id="L407" class="ln">   407  </span>			})
+<span id="L408" class="ln">   408  </span>		})
+<span id="L409" class="ln">   409  </span>
+<span id="L410" class="ln">   410  </span>		ginkgo.Context(&#34;[Netem]&#34;, func() {
+<span id="L411" class="ln">   411  </span>			ginkgo.It(&#34;[Schedule]&#34;, func() {
+<span id="L412" class="ln">   412  </span>				networkchaostestcases.TestcaseNetworkDelay(ns, cli, networkPeers, ports, c)
+<span id="L413" class="ln">   413  </span>			})
+<span id="L414" class="ln">   414  </span>			ginkgo.It(&#34;[PeersCrossoverWithDirectionBoth]&#34;, func() {
+<span id="L415" class="ln">   415  </span>				networkchaostestcases.TestcasePeersCrossover(ns, cli, networkPeers, ports, c)
+<span id="L416" class="ln">   416  </span>			})
+<span id="L417" class="ln">   417  </span>		})
+<span id="L418" class="ln">   418  </span>
+<span id="L419" class="ln">   419  </span>		ginkgo.JustAfterEach(func() {
+<span id="L420" class="ln">   420  </span>			for _, cancel := range pfCancels {
+<span id="L421" class="ln">   421  </span>				cancel()
+<span id="L422" class="ln">   422  </span>			}
+<span id="L423" class="ln">   423  </span>		})
+<span id="L424" class="ln">   424  </span>	})
+<span id="L425" class="ln">   425  </span>	<span class="comment">// DNS chaos case in [DNSChaos] context</span>
+<span id="L426" class="ln">   426  </span>	ginkgo.Context(&#34;[DNSChaos]&#34;, func() {
+<span id="L427" class="ln">   427  </span>		var err error
+<span id="L428" class="ln">   428  </span>		var port uint16
+<span id="L429" class="ln">   429  </span>
+<span id="L430" class="ln">   430  </span>		ginkgo.JustBeforeEach(func() {
+<span id="L431" class="ln">   431  </span>			name := &#34;network-peer&#34;
+<span id="L432" class="ln">   432  </span>
+<span id="L433" class="ln">   433  </span>			svc := fixture.NewE2EService(name, ns)
+<span id="L434" class="ln">   434  </span>			_, err = kubeCli.CoreV1().Services(ns).Create(context.TODO(), svc, metav1.CreateOptions{})
+<span id="L435" class="ln">   435  </span>			framework.ExpectNoError(err, &#34;create service error&#34;)
+<span id="L436" class="ln">   436  </span>			nd := fixture.NewNetworkTestDeployment(name, ns, map[string]string{&#34;partition&#34;: &#34;0&#34;})
+<span id="L437" class="ln">   437  </span>			_, err = kubeCli.AppsV1().Deployments(ns).Create(context.TODO(), nd, metav1.CreateOptions{})
+<span id="L438" class="ln">   438  </span>			framework.ExpectNoError(err, &#34;create network-peer deployment error&#34;)
+<span id="L439" class="ln">   439  </span>			err = util.WaitDeploymentReady(name, ns, kubeCli)
+<span id="L440" class="ln">   440  </span>			framework.ExpectNoError(err, &#34;wait network-peer deployment ready error&#34;)
 <span id="L441" class="ln">   441  </span>
-<span id="L442" class="ln">   442  </span>		ginkgo.It(&#34;[ERROR]&#34;, func() {
-<span id="L443" class="ln">   443  </span>			dnschaostestcases.TestcaseDNSError(ns, cli, port, c)
-<span id="L444" class="ln">   444  </span>		})
-<span id="L445" class="ln">   445  </span>	})
-<span id="L446" class="ln">   446  </span>	<span class="comment">// DNS chaos case in [StressChaos] context</span>
-<span id="L447" class="ln">   447  </span>	ginkgo.Context(&#34;[StressChaos]&#34;, func() {
-<span id="L448" class="ln">   448  </span>		var err error
-<span id="L449" class="ln">   449  </span>
-<span id="L450" class="ln">   450  </span>		var ports []uint16
-<span id="L451" class="ln">   451  </span>		var stressPeers []*v1.Pod
-<span id="L452" class="ln">   452  </span>		var pfCancels []context.CancelFunc
-<span id="L453" class="ln">   453  </span>
-<span id="L454" class="ln">   454  </span>		ginkgo.JustBeforeEach(func() {
-<span id="L455" class="ln">   455  </span>			ports = []uint16{}
-<span id="L456" class="ln">   456  </span>			stressPeers = []*v1.Pod{}
-<span id="L457" class="ln">   457  </span>			for index := 0; index &lt; 2; index++ {
-<span id="L458" class="ln">   458  </span>				name := fmt.Sprintf(&#34;stress-peer-%d&#34;, index)
+<span id="L442" class="ln">   442  </span>			_, err = getPod(kubeCli, ns, name)
+<span id="L443" class="ln">   443  </span>			framework.ExpectNoError(err, &#34;select network-peer pod error&#34;)
+<span id="L444" class="ln">   444  </span>
+<span id="L445" class="ln">   445  </span>			_, port, _, err = portforward.ForwardOnePort(fw, ns, &#34;svc/&#34;+svc.Name, 8080)
+<span id="L446" class="ln">   446  </span>			framework.ExpectNoError(err, &#34;create helper io port port-forward failed&#34;)
+<span id="L447" class="ln">   447  </span>		})
+<span id="L448" class="ln">   448  </span>		ginkgo.It(&#34;[RANDOM]&#34;, func() {
+<span id="L449" class="ln">   449  </span>			dnschaostestcases.TestcaseDNSRandom(ns, cli, port, c)
+<span id="L450" class="ln">   450  </span>		})
+<span id="L451" class="ln">   451  </span>
+<span id="L452" class="ln">   452  </span>		ginkgo.It(&#34;[ERROR]&#34;, func() {
+<span id="L453" class="ln">   453  </span>			dnschaostestcases.TestcaseDNSError(ns, cli, port, c)
+<span id="L454" class="ln">   454  </span>		})
+<span id="L455" class="ln">   455  </span>	})
+<span id="L456" class="ln">   456  </span>	<span class="comment">// DNS chaos case in [StressChaos] context</span>
+<span id="L457" class="ln">   457  </span>	ginkgo.Context(&#34;[StressChaos]&#34;, func() {
+<span id="L458" class="ln">   458  </span>		var err error
 <span id="L459" class="ln">   459  </span>
-<span id="L460" class="ln">   460  </span>				svc := fixture.NewE2EService(name, ns)
-<span id="L461" class="ln">   461  </span>				_, err = kubeCli.CoreV1().Services(ns).Create(context.TODO(), svc, metav1.CreateOptions{})
-<span id="L462" class="ln">   462  </span>				framework.ExpectNoError(err, &#34;create service error&#34;)
-<span id="L463" class="ln">   463  </span>				nd := fixture.NewStressTestDeployment(name, ns, map[string]string{&#34;partition&#34;: strconv.Itoa(index % 2)})
-<span id="L464" class="ln">   464  </span>				_, err = kubeCli.AppsV1().Deployments(ns).Create(context.TODO(), nd, metav1.CreateOptions{})
-<span id="L465" class="ln">   465  </span>				framework.ExpectNoError(err, &#34;create network-peer deployment error&#34;)
-<span id="L466" class="ln">   466  </span>				err = util.WaitDeploymentReady(name, ns, kubeCli)
-<span id="L467" class="ln">   467  </span>				framework.ExpectNoError(err, &#34;wait network-peer deployment ready error&#34;)
-<span id="L468" class="ln">   468  </span>
-<span id="L469" class="ln">   469  </span>				pod, err := getPod(kubeCli, ns, name)
-<span id="L470" class="ln">   470  </span>				framework.ExpectNoError(err, &#34;select network-peer pod error&#34;)
-<span id="L471" class="ln">   471  </span>				stressPeers = append(stressPeers, pod)
-<span id="L472" class="ln">   472  </span>
-<span id="L473" class="ln">   473  </span>				_, port, pfCancel, err := portforward.ForwardOnePort(fw, ns, &#34;svc/&#34;+svc.Name, 8080)
-<span id="L474" class="ln">   474  </span>				ports = append(ports, port)
-<span id="L475" class="ln">   475  </span>				pfCancels = append(pfCancels, pfCancel)
-<span id="L476" class="ln">   476  </span>				framework.ExpectNoError(err, &#34;create helper io port port-forward failed&#34;)
-<span id="L477" class="ln">   477  </span>			}
-<span id="L478" class="ln">   478  </span>		})
-<span id="L479" class="ln">   479  </span>
-<span id="L480" class="ln">   480  </span>		ginkgo.It(&#34;[CPU]&#34;, func() {
-<span id="L481" class="ln">   481  </span>			stresstestcases.TestcaseCPUStressInjectionOnceThenRecover(ns, cli, stressPeers, ports, c)
-<span id="L482" class="ln">   482  </span>		})
-<span id="L483" class="ln">   483  </span>
-<span id="L484" class="ln">   484  </span>		<span class="comment">// TODO: unstable test</span>
-<span id="L485" class="ln">   485  </span>		ginkgo.It(&#34;[Memory]&#34;, func() {
-<span id="L486" class="ln">   486  </span>			stresstestcases.TestcaseMemoryStressInjectionOnceThenRecover(ns, cli, stressPeers, ports, c)
-<span id="L487" class="ln">   487  </span>		})
-<span id="L488" class="ln">   488  </span>
-<span id="L489" class="ln">   489  </span>		ginkgo.JustAfterEach(func() {
-<span id="L490" class="ln">   490  </span>			for _, cancel := range pfCancels {
-<span id="L491" class="ln">   491  </span>				cancel()
-<span id="L492" class="ln">   492  </span>			}
-<span id="L493" class="ln">   493  </span>		})
-<span id="L494" class="ln">   494  </span>	})
-<span id="L495" class="ln">   495  </span>})
-<span id="L496" class="ln">   496  </span>
-<span id="L497" class="ln">   497  </span>func getPod(kubeCli kubernetes.Interface, ns string, appLabel string) (*v1.Pod, error) {
-<span id="L498" class="ln">   498  </span>	listOption := metav1.ListOptions{
-<span id="L499" class="ln">   499  </span>		LabelSelector: labels.SelectorFromSet(map[string]string{
-<span id="L500" class="ln">   500  </span>			&#34;app&#34;: appLabel,
-<span id="L501" class="ln">   501  </span>		}).String(),
-<span id="L502" class="ln">   502  </span>	}
-<span id="L503" class="ln">   503  </span>
-<span id="L504" class="ln">   504  </span>	pods, err := kubeCli.CoreV1().Pods(ns).List(context.TODO(), listOption)
-<span id="L505" class="ln">   505  </span>	if err != nil {
-<span id="L506" class="ln">   506  </span>		return nil, err
-<span id="L507" class="ln">   507  </span>	}
-<span id="L508" class="ln">   508  </span>
-<span id="L509" class="ln">   509  </span>	if len(pods.Items) &gt; 1 {
-<span id="L510" class="ln">   510  </span>		return nil, errors.New(&#34;select more than one pod&#34;)
-<span id="L511" class="ln">   511  </span>	}
-<span id="L512" class="ln">   512  </span>
-<span id="L513" class="ln">   513  </span>	if len(pods.Items) == 0 {
-<span id="L514" class="ln">   514  </span>		return nil, errors.New(&#34;cannot select any pod&#34;)
-<span id="L515" class="ln">   515  </span>	}
-<span id="L516" class="ln">   516  </span>
-<span id="L517" class="ln">   517  </span>	return &amp;pods.Items[0], nil
-<span id="L518" class="ln">   518  </span>}
-<span id="L519" class="ln">   519  </span>
+<span id="L460" class="ln">   460  </span>		var ports []uint16
+<span id="L461" class="ln">   461  </span>		var stressPeers []*v1.Pod
+<span id="L462" class="ln">   462  </span>		var pfCancels []context.CancelFunc
+<span id="L463" class="ln">   463  </span>
+<span id="L464" class="ln">   464  </span>		ginkgo.JustBeforeEach(func() {
+<span id="L465" class="ln">   465  </span>			ports = []uint16{}
+<span id="L466" class="ln">   466  </span>			stressPeers = []*v1.Pod{}
+<span id="L467" class="ln">   467  </span>			for index := 0; index &lt; 2; index++ {
+<span id="L468" class="ln">   468  </span>				name := fmt.Sprintf(&#34;stress-peer-%d&#34;, index)
+<span id="L469" class="ln">   469  </span>
+<span id="L470" class="ln">   470  </span>				svc := fixture.NewE2EService(name, ns)
+<span id="L471" class="ln">   471  </span>				_, err = kubeCli.CoreV1().Services(ns).Create(context.TODO(), svc, metav1.CreateOptions{})
+<span id="L472" class="ln">   472  </span>				framework.ExpectNoError(err, &#34;create service error&#34;)
+<span id="L473" class="ln">   473  </span>				nd := fixture.NewStressTestDeployment(name, ns, map[string]string{&#34;partition&#34;: strconv.Itoa(index % 2)})
+<span id="L474" class="ln">   474  </span>				_, err = kubeCli.AppsV1().Deployments(ns).Create(context.TODO(), nd, metav1.CreateOptions{})
+<span id="L475" class="ln">   475  </span>				framework.ExpectNoError(err, &#34;create network-peer deployment error&#34;)
+<span id="L476" class="ln">   476  </span>				err = util.WaitDeploymentReady(name, ns, kubeCli)
+<span id="L477" class="ln">   477  </span>				framework.ExpectNoError(err, &#34;wait network-peer deployment ready error&#34;)
+<span id="L478" class="ln">   478  </span>
+<span id="L479" class="ln">   479  </span>				pod, err := getPod(kubeCli, ns, name)
+<span id="L480" class="ln">   480  </span>				framework.ExpectNoError(err, &#34;select network-peer pod error&#34;)
+<span id="L481" class="ln">   481  </span>				stressPeers = append(stressPeers, pod)
+<span id="L482" class="ln">   482  </span>
+<span id="L483" class="ln">   483  </span>				_, port, pfCancel, err := portforward.ForwardOnePort(fw, ns, &#34;svc/&#34;+svc.Name, 8080)
+<span id="L484" class="ln">   484  </span>				ports = append(ports, port)
+<span id="L485" class="ln">   485  </span>				pfCancels = append(pfCancels, pfCancel)
+<span id="L486" class="ln">   486  </span>				framework.ExpectNoError(err, &#34;create helper io port port-forward failed&#34;)
+<span id="L487" class="ln">   487  </span>			}
+<span id="L488" class="ln">   488  </span>		})
+<span id="L489" class="ln">   489  </span>
+<span id="L490" class="ln">   490  </span>		ginkgo.It(&#34;[CPU]&#34;, func() {
+<span id="L491" class="ln">   491  </span>			stresstestcases.TestcaseCPUStressInjectionOnceThenRecover(ns, cli, stressPeers, ports, c)
+<span id="L492" class="ln">   492  </span>		})
+<span id="L493" class="ln">   493  </span>
+<span id="L494" class="ln">   494  </span>		<span class="comment">// TODO: unstable test</span>
+<span id="L495" class="ln">   495  </span>		ginkgo.It(&#34;[Memory]&#34;, func() {
+<span id="L496" class="ln">   496  </span>			stresstestcases.TestcaseMemoryStressInjectionOnceThenRecover(ns, cli, stressPeers, ports, c)
+<span id="L497" class="ln">   497  </span>		})
+<span id="L498" class="ln">   498  </span>
+<span id="L499" class="ln">   499  </span>		ginkgo.JustAfterEach(func() {
+<span id="L500" class="ln">   500  </span>			for _, cancel := range pfCancels {
+<span id="L501" class="ln">   501  </span>				cancel()
+<span id="L502" class="ln">   502  </span>			}
+<span id="L503" class="ln">   503  </span>		})
+<span id="L504" class="ln">   504  </span>	})
+<span id="L505" class="ln">   505  </span>})
+<span id="L506" class="ln">   506  </span>
+<span id="L507" class="ln">   507  </span>func getPod(kubeCli kubernetes.Interface, ns string, appLabel string) (*v1.Pod, error) {
+<span id="L508" class="ln">   508  </span>	listOption := metav1.ListOptions{
+<span id="L509" class="ln">   509  </span>		LabelSelector: labels.SelectorFromSet(map[string]string{
+<span id="L510" class="ln">   510  </span>			&#34;app&#34;: appLabel,
+<span id="L511" class="ln">   511  </span>		}).String(),
+<span id="L512" class="ln">   512  </span>	}
+<span id="L513" class="ln">   513  </span>
+<span id="L514" class="ln">   514  </span>	pods, err := kubeCli.CoreV1().Pods(ns).List(context.TODO(), listOption)
+<span id="L515" class="ln">   515  </span>	if err != nil {
+<span id="L516" class="ln">   516  </span>		return nil, err
+<span id="L517" class="ln">   517  </span>	}
+<span id="L518" class="ln">   518  </span>
+<span id="L519" class="ln">   519  </span>	if len(pods.Items) &gt; 1 {
+<span id="L520" class="ln">   520  </span>		return nil, errors.New(&#34;select more than one pod&#34;)
+<span id="L521" class="ln">   521  </span>	}
+<span id="L522" class="ln">   522  </span>
+<span id="L523" class="ln">   523  </span>	if len(pods.Items) == 0 {
+<span id="L524" class="ln">   524  </span>		return nil, errors.New(&#34;cannot select any pod&#34;)
+<span id="L525" class="ln">   525  </span>	}
+<span id="L526" class="ln">   526  </span>
+<span id="L527" class="ln">   527  </span>	return &amp;pods.Items[0], nil
+<span id="L528" class="ln">   528  </span>}
+<span id="L529" class="ln">   529  </span>
 </pre><p></p>
 
 <div id="footer">
