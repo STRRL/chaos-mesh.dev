@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f52ad7d. Generated at Tue Mar  8 22:03:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit cffeed7. Generated at Wed Mar  9 10:01:57 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -127,7 +127,7 @@
 				<dd><a href="#ChaosControllerManagerMetricsCollector">type ChaosControllerManagerMetricsCollector</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewChaosControllerManagerMetricsCollector">func NewChaosControllerManagerMetricsCollector(manager ctrl.Manager, registerer *prometheus.Registry) *ChaosControllerManagerMetricsCollector</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NewChaosControllerManagerMetricsCollector">func NewChaosControllerManagerMetricsCollector(manager ctrl.Manager, registerer *prometheus.Registry, logger logr.Logger) *ChaosControllerManagerMetricsCollector</a></dd>
 				
 				
 					
@@ -141,7 +141,7 @@
 				<dd><a href="#ChaosDaemonMetricsCollector">type ChaosDaemonMetricsCollector</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewChaosDaemonMetricsCollector">func NewChaosDaemonMetricsCollector() *ChaosDaemonMetricsCollector</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NewChaosDaemonMetricsCollector">func NewChaosDaemonMetricsCollector(logger logr.Logger) *ChaosDaemonMetricsCollector</a></dd>
 				
 				
 					
@@ -200,7 +200,7 @@
 				
 				<pre>var (
     <span class="comment">// DefaultChaosDaemonMetricsCollector is the default metrics collector for chaos daemon</span>
-    <span id="DefaultChaosDaemonMetricsCollector">DefaultChaosDaemonMetricsCollector</span> = <a href="#NewChaosDaemonMetricsCollector">NewChaosDaemonMetricsCollector</a>()
+    <span id="DefaultChaosDaemonMetricsCollector">DefaultChaosDaemonMetricsCollector</span> = <a href="#NewChaosDaemonMetricsCollector">NewChaosDaemonMetricsCollector</a>(<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>{})
 
     <span class="comment">// ChaosDaemonGrpcServerBuckets is the buckets for gRPC server handling histogram metrics</span>
     <span id="ChaosDaemonGrpcServerBuckets">ChaosDaemonGrpcServerBuckets</span> = []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#float64">float64</a>{0.001, 0.01, 0.1, 0.3, 0.6, 1, 3, 6, 10}
@@ -210,7 +210,7 @@
 		
 			
 			
-			<h2 id="WithHistogramName">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-daemon.go#L45">WithHistogramName</a>
+			<h2 id="WithHistogramName">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-daemon.go#L46">WithHistogramName</a>
 				<a class="permalink" href="#WithHistogramName">&#xb6;</a>
 				
 				
@@ -224,7 +224,7 @@
 		
 			
 			
-			<h2 id="ChaosControllerManagerMetricsCollector">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-controller-manager.go#L33">ChaosControllerManagerMetricsCollector</a>
+			<h2 id="ChaosControllerManagerMetricsCollector">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-controller-manager.go#L32">ChaosControllerManagerMetricsCollector</a>
 				<a class="permalink" href="#ChaosControllerManagerMetricsCollector">&#xb6;</a>
 				
 				
@@ -263,7 +263,7 @@ ChaosControllerManagerMetricsCollector implements prometheus.Collector interface
 					
 					
 				</h3>
-				<pre>func NewChaosControllerManagerMetricsCollector(manager <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>, registerer *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/">prometheus</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/#Registry">Registry</a>) *<a href="#ChaosControllerManagerMetricsCollector">ChaosControllerManagerMetricsCollector</a></pre>
+				<pre>func NewChaosControllerManagerMetricsCollector(manager <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>, registerer *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/">prometheus</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/#Registry">Registry</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#ChaosControllerManagerMetricsCollector">ChaosControllerManagerMetricsCollector</a></pre>
 				<p>
 NewChaosControllerManagerMetricsCollector initializes metrics and collector
 </p>
@@ -274,7 +274,7 @@ NewChaosControllerManagerMetricsCollector initializes metrics and collector
 
 			
 				
-				<h3 id="ChaosControllerManagerMetricsCollector.Collect">func (*ChaosControllerManagerMetricsCollector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-controller-manager.go#L131">Collect</a>
+				<h3 id="ChaosControllerManagerMetricsCollector.Collect">func (*ChaosControllerManagerMetricsCollector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-controller-manager.go#L132">Collect</a>
 					<a class="permalink" href="#ChaosControllerManagerMetricsCollector.Collect">&#xb6;</a>
 					
 					
@@ -289,7 +289,7 @@ Collect implements the prometheus.Collector interface.
 				
 			
 				
-				<h3 id="ChaosControllerManagerMetricsCollector.Describe">func (*ChaosControllerManagerMetricsCollector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-controller-manager.go#L115">Describe</a>
+				<h3 id="ChaosControllerManagerMetricsCollector.Describe">func (*ChaosControllerManagerMetricsCollector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-controller-manager.go#L116">Describe</a>
 					<a class="permalink" href="#ChaosControllerManagerMetricsCollector.Describe">&#xb6;</a>
 					
 					
@@ -306,7 +306,7 @@ Describe implements the prometheus.Collector interface.
 		
 			
 			
-			<h2 id="ChaosDaemonMetricsCollector">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-daemon.go#L51">ChaosDaemonMetricsCollector</a>
+			<h2 id="ChaosDaemonMetricsCollector">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-daemon.go#L52">ChaosDaemonMetricsCollector</a>
 				<a class="permalink" href="#ChaosDaemonMetricsCollector">&#xb6;</a>
 				
 				
@@ -327,12 +327,12 @@ Describe implements the prometheus.Collector interface.
 
 			
 				
-				<h3 id="NewChaosDaemonMetricsCollector">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-daemon.go#L61">NewChaosDaemonMetricsCollector</a>
+				<h3 id="NewChaosDaemonMetricsCollector">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-daemon.go#L62">NewChaosDaemonMetricsCollector</a>
 					<a class="permalink" href="#NewChaosDaemonMetricsCollector">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func NewChaosDaemonMetricsCollector() *<a href="#ChaosDaemonMetricsCollector">ChaosDaemonMetricsCollector</a></pre>
+				<pre>func NewChaosDaemonMetricsCollector(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#ChaosDaemonMetricsCollector">ChaosDaemonMetricsCollector</a></pre>
 				<p>
 NewChaosDaemonMetricsCollector initializes metrics for each chaos daemon
 </p>
@@ -343,7 +343,7 @@ NewChaosDaemonMetricsCollector initializes metrics for each chaos daemon
 
 			
 				
-				<h3 id="ChaosDaemonMetricsCollector.Collect">func (*ChaosDaemonMetricsCollector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-daemon.go#L89">Collect</a>
+				<h3 id="ChaosDaemonMetricsCollector.Collect">func (*ChaosDaemonMetricsCollector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-daemon.go#L91">Collect</a>
 					<a class="permalink" href="#ChaosDaemonMetricsCollector.Collect">&#xb6;</a>
 					
 					
@@ -355,7 +355,7 @@ NewChaosDaemonMetricsCollector initializes metrics for each chaos daemon
 				
 			
 				
-				<h3 id="ChaosDaemonMetricsCollector.Describe">func (*ChaosDaemonMetricsCollector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-daemon.go#L82">Describe</a>
+				<h3 id="ChaosDaemonMetricsCollector.Describe">func (*ChaosDaemonMetricsCollector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-daemon.go#L84">Describe</a>
 					<a class="permalink" href="#ChaosDaemonMetricsCollector.Describe">&#xb6;</a>
 					
 					
@@ -367,7 +367,7 @@ NewChaosDaemonMetricsCollector initializes metrics for each chaos daemon
 				
 			
 				
-				<h3 id="ChaosDaemonMetricsCollector.InjectCrClient">func (*ChaosDaemonMetricsCollector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-daemon.go#L97">InjectCrClient</a>
+				<h3 id="ChaosDaemonMetricsCollector.InjectCrClient">func (*ChaosDaemonMetricsCollector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/metrics/chaos-daemon.go#L99">InjectCrClient</a>
 					<a class="permalink" href="#ChaosDaemonMetricsCollector.InjectCrClient">&#xb6;</a>
 					
 					

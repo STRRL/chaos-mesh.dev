@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f52ad7d. Generated at Tue Mar  8 22:03:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit cffeed7. Generated at Wed Mar  9 10:01:57 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -84,18 +84,18 @@
 <span id="L19" class="ln">    19  </span>	&#34;context&#34;
 <span id="L20" class="ln">    20  </span>	&#34;reflect&#34;
 <span id="L21" class="ln">    21  </span>
-<span id="L22" class="ln">    22  </span>	&#34;github.com/prometheus/client_golang/prometheus&#34;
-<span id="L23" class="ln">    23  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
-<span id="L24" class="ln">    24  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/cache&#34;
-<span id="L25" class="ln">    25  </span>
-<span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
-<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/status&#34;
-<span id="L28" class="ln">    28  </span>)
-<span id="L29" class="ln">    29  </span>
-<span id="L30" class="ln">    30  </span>var log = ctrl.Log.WithName(&#34;chaos-controller-manager-metrics-collector&#34;)
-<span id="L31" class="ln">    31  </span>
-<span id="L32" class="ln">    32  </span><span class="comment">// ChaosControllerManagerMetricsCollector implements prometheus.Collector interface</span>
-<span id="L33" class="ln">    33  </span>type ChaosControllerManagerMetricsCollector struct {
+<span id="L22" class="ln">    22  </span>	&#34;github.com/go-logr/logr&#34;
+<span id="L23" class="ln">    23  </span>	&#34;github.com/prometheus/client_golang/prometheus&#34;
+<span id="L24" class="ln">    24  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
+<span id="L25" class="ln">    25  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/cache&#34;
+<span id="L26" class="ln">    26  </span>
+<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
+<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/status&#34;
+<span id="L29" class="ln">    29  </span>)
+<span id="L30" class="ln">    30  </span>
+<span id="L31" class="ln">    31  </span><span class="comment">// ChaosControllerManagerMetricsCollector implements prometheus.Collector interface</span>
+<span id="L32" class="ln">    32  </span>type ChaosControllerManagerMetricsCollector struct {
+<span id="L33" class="ln">    33  </span>	logger              logr.Logger
 <span id="L34" class="ln">    34  </span>	store               cache.Cache
 <span id="L35" class="ln">    35  </span>	chaosExperiments    *prometheus.GaugeVec
 <span id="L36" class="ln">    36  </span>	SidecarTemplates    prometheus.Gauge
@@ -112,176 +112,177 @@
 <span id="L47" class="ln">    47  </span>}
 <span id="L48" class="ln">    48  </span>
 <span id="L49" class="ln">    49  </span><span class="comment">// NewChaosControllerManagerMetricsCollector initializes metrics and collector</span>
-<span id="L50" class="ln">    50  </span>func NewChaosControllerManagerMetricsCollector(manager ctrl.Manager, registerer *prometheus.Registry) *ChaosControllerManagerMetricsCollector {
+<span id="L50" class="ln">    50  </span>func NewChaosControllerManagerMetricsCollector(manager ctrl.Manager, registerer *prometheus.Registry, logger logr.Logger) *ChaosControllerManagerMetricsCollector {
 <span id="L51" class="ln">    51  </span>	var store cache.Cache
 <span id="L52" class="ln">    52  </span>	if manager != nil {
 <span id="L53" class="ln">    53  </span>		store = manager.GetCache()
 <span id="L54" class="ln">    54  </span>	}
 <span id="L55" class="ln">    55  </span>
 <span id="L56" class="ln">    56  </span>	c := &amp;ChaosControllerManagerMetricsCollector{
-<span id="L57" class="ln">    57  </span>		store: store,
-<span id="L58" class="ln">    58  </span>		chaosExperiments: prometheus.NewGaugeVec(prometheus.GaugeOpts{
-<span id="L59" class="ln">    59  </span>			Name: &#34;chaos_controller_manager_chaos_experiments&#34;,
-<span id="L60" class="ln">    60  </span>			Help: &#34;Total number of chaos experiments and their phases&#34;,
-<span id="L61" class="ln">    61  </span>		}, []string{&#34;namespace&#34;, &#34;kind&#34;, &#34;phase&#34;}),
-<span id="L62" class="ln">    62  </span>		SidecarTemplates: prometheus.NewGauge(prometheus.GaugeOpts{
-<span id="L63" class="ln">    63  </span>			Name: &#34;chaos_mesh_templates&#34;,
-<span id="L64" class="ln">    64  </span>			Help: &#34;Total number of injection templates&#34;,
-<span id="L65" class="ln">    65  </span>		}),
-<span id="L66" class="ln">    66  </span>		ConfigTemplates: prometheus.NewGaugeVec(prometheus.GaugeOpts{
-<span id="L67" class="ln">    67  </span>			Name: &#34;chaos_mesh_config_templates&#34;,
-<span id="L68" class="ln">    68  </span>			Help: &#34;Total number of config templates&#34;,
-<span id="L69" class="ln">    69  </span>		}, []string{&#34;namespace&#34;, &#34;template&#34;}),
-<span id="L70" class="ln">    70  </span>		InjectionConfigs: prometheus.NewGaugeVec(prometheus.GaugeOpts{
-<span id="L71" class="ln">    71  </span>			Name: &#34;chaos_mesh_injection_configs&#34;,
-<span id="L72" class="ln">    72  </span>			Help: &#34;Total number of injection configs&#34;,
-<span id="L73" class="ln">    73  </span>		}, []string{&#34;namespace&#34;, &#34;template&#34;}),
-<span id="L74" class="ln">    74  </span>		TemplateNotExist: prometheus.NewCounterVec(prometheus.CounterOpts{
-<span id="L75" class="ln">    75  </span>			Name: &#34;chaos_mesh_template_not_exist_total&#34;,
-<span id="L76" class="ln">    76  </span>			Help: &#34;Total number of template not exist error&#34;,
-<span id="L77" class="ln">    77  </span>		}, []string{&#34;namespace&#34;, &#34;template&#34;}),
-<span id="L78" class="ln">    78  </span>		ConfigNameDuplicate: prometheus.NewCounterVec(prometheus.CounterOpts{
-<span id="L79" class="ln">    79  </span>			Name: &#34;chaos_mesh_config_name_duplicate_total&#34;,
-<span id="L80" class="ln">    80  </span>			Help: &#34;Total number of config name duplication error&#34;,
-<span id="L81" class="ln">    81  </span>		}, []string{&#34;namespace&#34;, &#34;config&#34;}),
-<span id="L82" class="ln">    82  </span>		TemplateLoadError: prometheus.NewCounter(prometheus.CounterOpts{
-<span id="L83" class="ln">    83  </span>			Name: &#34;chaos_mesh_template_load_failed_total&#34;,
-<span id="L84" class="ln">    84  </span>			Help: &#34;Total number of failures when rendering config args to template&#34;,
-<span id="L85" class="ln">    85  </span>		}),
-<span id="L86" class="ln">    86  </span>		InjectRequired: prometheus.NewCounterVec(prometheus.CounterOpts{
-<span id="L87" class="ln">    87  </span>			Name: &#34;chaos_mesh_inject_required_total&#34;,
-<span id="L88" class="ln">    88  </span>			Help: &#34;Total number of injections required&#34;,
-<span id="L89" class="ln">    89  </span>		}, []string{&#34;namespace&#34;, &#34;config&#34;}),
-<span id="L90" class="ln">    90  </span>		Injections: prometheus.NewCounterVec(prometheus.CounterOpts{
-<span id="L91" class="ln">    91  </span>			Name: &#34;chaos_mesh_injections_total&#34;,
-<span id="L92" class="ln">    92  </span>			Help: &#34;Total number of sidecar injections performed on the webhook&#34;,
-<span id="L93" class="ln">    93  </span>		}, []string{&#34;namespace&#34;, &#34;config&#34;}),
-<span id="L94" class="ln">    94  </span>		chaosSchedules: prometheus.NewGaugeVec(prometheus.GaugeOpts{
-<span id="L95" class="ln">    95  </span>			Name: &#34;chaos_controller_manager_chaos_schedules&#34;,
-<span id="L96" class="ln">    96  </span>			Help: &#34;Total number of chaos schedules&#34;,
-<span id="L97" class="ln">    97  </span>		}, []string{&#34;namespace&#34;}),
-<span id="L98" class="ln">    98  </span>		chaosWorkflows: prometheus.NewGaugeVec(prometheus.GaugeOpts{
-<span id="L99" class="ln">    99  </span>			Name: &#34;chaos_controller_manager_chaos_workflows&#34;,
-<span id="L100" class="ln">   100  </span>			Help: &#34;Total number of chaos workflows&#34;,
-<span id="L101" class="ln">   101  </span>		}, []string{&#34;namespace&#34;}),
-<span id="L102" class="ln">   102  </span>		EmittedEvents: prometheus.NewCounterVec(prometheus.CounterOpts{
-<span id="L103" class="ln">   103  </span>			Name: &#34;chaos_controller_manager_emitted_event_total&#34;,
-<span id="L104" class="ln">   104  </span>			Help: &#34;Total number of the emitted event by chaos-controller-manager&#34;,
-<span id="L105" class="ln">   105  </span>		}, []string{&#34;type&#34;, &#34;reason&#34;, &#34;namespace&#34;}),
-<span id="L106" class="ln">   106  </span>	}
-<span id="L107" class="ln">   107  </span>
-<span id="L108" class="ln">   108  </span>	if registerer != nil {
-<span id="L109" class="ln">   109  </span>		registerer.MustRegister(c)
-<span id="L110" class="ln">   110  </span>	}
-<span id="L111" class="ln">   111  </span>	return c
-<span id="L112" class="ln">   112  </span>}
-<span id="L113" class="ln">   113  </span>
-<span id="L114" class="ln">   114  </span><span class="comment">// Describe implements the prometheus.Collector interface.</span>
-<span id="L115" class="ln">   115  </span>func (collector *ChaosControllerManagerMetricsCollector) Describe(ch chan&lt;- *prometheus.Desc) {
-<span id="L116" class="ln">   116  </span>	collector.chaosExperiments.Describe(ch)
-<span id="L117" class="ln">   117  </span>	collector.SidecarTemplates.Describe(ch)
-<span id="L118" class="ln">   118  </span>	collector.ConfigTemplates.Describe(ch)
-<span id="L119" class="ln">   119  </span>	collector.InjectionConfigs.Describe(ch)
-<span id="L120" class="ln">   120  </span>	collector.TemplateNotExist.Describe(ch)
-<span id="L121" class="ln">   121  </span>	collector.ConfigNameDuplicate.Describe(ch)
-<span id="L122" class="ln">   122  </span>	collector.TemplateLoadError.Describe(ch)
-<span id="L123" class="ln">   123  </span>	collector.InjectRequired.Describe(ch)
-<span id="L124" class="ln">   124  </span>	collector.Injections.Describe(ch)
-<span id="L125" class="ln">   125  </span>	collector.EmittedEvents.Describe(ch)
-<span id="L126" class="ln">   126  </span>	collector.chaosSchedules.Describe(ch)
-<span id="L127" class="ln">   127  </span>	collector.chaosWorkflows.Describe(ch)
-<span id="L128" class="ln">   128  </span>}
-<span id="L129" class="ln">   129  </span>
-<span id="L130" class="ln">   130  </span><span class="comment">// Collect implements the prometheus.Collector interface.</span>
-<span id="L131" class="ln">   131  </span>func (collector *ChaosControllerManagerMetricsCollector) Collect(ch chan&lt;- prometheus.Metric) {
-<span id="L132" class="ln">   132  </span>	collector.collectChaosExperiments()
-<span id="L133" class="ln">   133  </span>	collector.collectChaosSchedules()
-<span id="L134" class="ln">   134  </span>	collector.collectChaosWorkflows()
-<span id="L135" class="ln">   135  </span>	collector.SidecarTemplates.Collect(ch)
-<span id="L136" class="ln">   136  </span>	collector.ConfigTemplates.Collect(ch)
-<span id="L137" class="ln">   137  </span>	collector.InjectionConfigs.Collect(ch)
-<span id="L138" class="ln">   138  </span>	collector.TemplateNotExist.Collect(ch)
-<span id="L139" class="ln">   139  </span>	collector.ConfigNameDuplicate.Collect(ch)
-<span id="L140" class="ln">   140  </span>	collector.TemplateLoadError.Collect(ch)
-<span id="L141" class="ln">   141  </span>	collector.InjectRequired.Collect(ch)
-<span id="L142" class="ln">   142  </span>	collector.Injections.Collect(ch)
-<span id="L143" class="ln">   143  </span>	collector.chaosExperiments.Collect(ch)
-<span id="L144" class="ln">   144  </span>	collector.chaosSchedules.Collect(ch)
-<span id="L145" class="ln">   145  </span>	collector.chaosWorkflows.Collect(ch)
-<span id="L146" class="ln">   146  </span>	collector.EmittedEvents.Collect(ch)
-<span id="L147" class="ln">   147  </span>}
-<span id="L148" class="ln">   148  </span>
-<span id="L149" class="ln">   149  </span>func (collector *ChaosControllerManagerMetricsCollector) collectChaosExperiments() {
-<span id="L150" class="ln">   150  </span>	<span class="comment">// TODO(yeya24) if there is an error in List</span>
-<span id="L151" class="ln">   151  </span>	<span class="comment">// the experiment status will be lost</span>
-<span id="L152" class="ln">   152  </span>	collector.chaosExperiments.Reset()
-<span id="L153" class="ln">   153  </span>
-<span id="L154" class="ln">   154  </span>	for kind, obj := range v1alpha1.AllKinds() {
-<span id="L155" class="ln">   155  </span>		expCache := map[string]map[string]int{}
-<span id="L156" class="ln">   156  </span>		chaosList := obj.SpawnList()
-<span id="L157" class="ln">   157  </span>		if err := collector.store.List(context.TODO(), chaosList); err != nil {
-<span id="L158" class="ln">   158  </span>			log.Error(err, &#34;failed to list chaos&#34;, &#34;kind&#34;, kind)
-<span id="L159" class="ln">   159  </span>			return
-<span id="L160" class="ln">   160  </span>		}
-<span id="L161" class="ln">   161  </span>
-<span id="L162" class="ln">   162  </span>		items := chaosList.GetItems()
-<span id="L163" class="ln">   163  </span>		for _, item := range items {
-<span id="L164" class="ln">   164  </span>			if _, ok := expCache[item.GetNamespace()]; !ok {
-<span id="L165" class="ln">   165  </span>				<span class="comment">// There is only 4 supported phases</span>
-<span id="L166" class="ln">   166  </span>				expCache[item.GetNamespace()] = make(map[string]int, 4)
-<span id="L167" class="ln">   167  </span>			}
-<span id="L168" class="ln">   168  </span>			innerObject := reflect.ValueOf(item).Interface().(v1alpha1.InnerObject)
-<span id="L169" class="ln">   169  </span>			expCache[item.GetNamespace()][string(status.GetChaosStatus(innerObject))]++
-<span id="L170" class="ln">   170  </span>		}
-<span id="L171" class="ln">   171  </span>
-<span id="L172" class="ln">   172  </span>		for ns, v := range expCache {
-<span id="L173" class="ln">   173  </span>			for phase, count := range v {
-<span id="L174" class="ln">   174  </span>				collector.chaosExperiments.WithLabelValues(ns, kind, phase).Set(float64(count))
-<span id="L175" class="ln">   175  </span>			}
-<span id="L176" class="ln">   176  </span>		}
-<span id="L177" class="ln">   177  </span>	}
-<span id="L178" class="ln">   178  </span>}
-<span id="L179" class="ln">   179  </span>
-<span id="L180" class="ln">   180  </span>func (collector *ChaosControllerManagerMetricsCollector) collectChaosSchedules() {
-<span id="L181" class="ln">   181  </span>	collector.chaosSchedules.Reset()
-<span id="L182" class="ln">   182  </span>
-<span id="L183" class="ln">   183  </span>	schedules := &amp;v1alpha1.ScheduleList{}
-<span id="L184" class="ln">   184  </span>	if err := collector.store.List(context.TODO(), schedules); err != nil {
-<span id="L185" class="ln">   185  </span>		log.Error(err, &#34;failed to list schedules&#34;)
-<span id="L186" class="ln">   186  </span>		return
-<span id="L187" class="ln">   187  </span>	}
-<span id="L188" class="ln">   188  </span>
-<span id="L189" class="ln">   189  </span>	countByNamespace := make(map[string]int)
-<span id="L190" class="ln">   190  </span>	items := schedules.GetItems()
-<span id="L191" class="ln">   191  </span>	for _, item := range items {
-<span id="L192" class="ln">   192  </span>		countByNamespace[item.GetNamespace()]++
-<span id="L193" class="ln">   193  </span>	}
-<span id="L194" class="ln">   194  </span>
-<span id="L195" class="ln">   195  </span>	for namespace, count := range countByNamespace {
-<span id="L196" class="ln">   196  </span>		collector.chaosSchedules.WithLabelValues(namespace).Set(float64(count))
-<span id="L197" class="ln">   197  </span>	}
-<span id="L198" class="ln">   198  </span>}
-<span id="L199" class="ln">   199  </span>
-<span id="L200" class="ln">   200  </span>func (collector *ChaosControllerManagerMetricsCollector) collectChaosWorkflows() {
-<span id="L201" class="ln">   201  </span>	collector.chaosWorkflows.Reset()
-<span id="L202" class="ln">   202  </span>
-<span id="L203" class="ln">   203  </span>	workflows := &amp;v1alpha1.WorkflowList{}
-<span id="L204" class="ln">   204  </span>	if err := collector.store.List(context.TODO(), workflows); err != nil {
-<span id="L205" class="ln">   205  </span>		log.Error(err, &#34;failed to list workflows&#34;)
-<span id="L206" class="ln">   206  </span>		return
-<span id="L207" class="ln">   207  </span>	}
-<span id="L208" class="ln">   208  </span>
-<span id="L209" class="ln">   209  </span>	countByNamespace := make(map[string]int)
-<span id="L210" class="ln">   210  </span>	items := workflows.GetItems()
-<span id="L211" class="ln">   211  </span>	for _, item := range items {
-<span id="L212" class="ln">   212  </span>		countByNamespace[item.GetNamespace()]++
-<span id="L213" class="ln">   213  </span>	}
-<span id="L214" class="ln">   214  </span>
-<span id="L215" class="ln">   215  </span>	for namespace, count := range countByNamespace {
-<span id="L216" class="ln">   216  </span>		collector.chaosWorkflows.WithLabelValues(namespace).Set(float64(count))
-<span id="L217" class="ln">   217  </span>	}
-<span id="L218" class="ln">   218  </span>}
-<span id="L219" class="ln">   219  </span>
+<span id="L57" class="ln">    57  </span>		logger: logger,
+<span id="L58" class="ln">    58  </span>		store:  store,
+<span id="L59" class="ln">    59  </span>		chaosExperiments: prometheus.NewGaugeVec(prometheus.GaugeOpts{
+<span id="L60" class="ln">    60  </span>			Name: &#34;chaos_controller_manager_chaos_experiments&#34;,
+<span id="L61" class="ln">    61  </span>			Help: &#34;Total number of chaos experiments and their phases&#34;,
+<span id="L62" class="ln">    62  </span>		}, []string{&#34;namespace&#34;, &#34;kind&#34;, &#34;phase&#34;}),
+<span id="L63" class="ln">    63  </span>		SidecarTemplates: prometheus.NewGauge(prometheus.GaugeOpts{
+<span id="L64" class="ln">    64  </span>			Name: &#34;chaos_mesh_templates&#34;,
+<span id="L65" class="ln">    65  </span>			Help: &#34;Total number of injection templates&#34;,
+<span id="L66" class="ln">    66  </span>		}),
+<span id="L67" class="ln">    67  </span>		ConfigTemplates: prometheus.NewGaugeVec(prometheus.GaugeOpts{
+<span id="L68" class="ln">    68  </span>			Name: &#34;chaos_mesh_config_templates&#34;,
+<span id="L69" class="ln">    69  </span>			Help: &#34;Total number of config templates&#34;,
+<span id="L70" class="ln">    70  </span>		}, []string{&#34;namespace&#34;, &#34;template&#34;}),
+<span id="L71" class="ln">    71  </span>		InjectionConfigs: prometheus.NewGaugeVec(prometheus.GaugeOpts{
+<span id="L72" class="ln">    72  </span>			Name: &#34;chaos_mesh_injection_configs&#34;,
+<span id="L73" class="ln">    73  </span>			Help: &#34;Total number of injection configs&#34;,
+<span id="L74" class="ln">    74  </span>		}, []string{&#34;namespace&#34;, &#34;template&#34;}),
+<span id="L75" class="ln">    75  </span>		TemplateNotExist: prometheus.NewCounterVec(prometheus.CounterOpts{
+<span id="L76" class="ln">    76  </span>			Name: &#34;chaos_mesh_template_not_exist_total&#34;,
+<span id="L77" class="ln">    77  </span>			Help: &#34;Total number of template not exist error&#34;,
+<span id="L78" class="ln">    78  </span>		}, []string{&#34;namespace&#34;, &#34;template&#34;}),
+<span id="L79" class="ln">    79  </span>		ConfigNameDuplicate: prometheus.NewCounterVec(prometheus.CounterOpts{
+<span id="L80" class="ln">    80  </span>			Name: &#34;chaos_mesh_config_name_duplicate_total&#34;,
+<span id="L81" class="ln">    81  </span>			Help: &#34;Total number of config name duplication error&#34;,
+<span id="L82" class="ln">    82  </span>		}, []string{&#34;namespace&#34;, &#34;config&#34;}),
+<span id="L83" class="ln">    83  </span>		TemplateLoadError: prometheus.NewCounter(prometheus.CounterOpts{
+<span id="L84" class="ln">    84  </span>			Name: &#34;chaos_mesh_template_load_failed_total&#34;,
+<span id="L85" class="ln">    85  </span>			Help: &#34;Total number of failures when rendering config args to template&#34;,
+<span id="L86" class="ln">    86  </span>		}),
+<span id="L87" class="ln">    87  </span>		InjectRequired: prometheus.NewCounterVec(prometheus.CounterOpts{
+<span id="L88" class="ln">    88  </span>			Name: &#34;chaos_mesh_inject_required_total&#34;,
+<span id="L89" class="ln">    89  </span>			Help: &#34;Total number of injections required&#34;,
+<span id="L90" class="ln">    90  </span>		}, []string{&#34;namespace&#34;, &#34;config&#34;}),
+<span id="L91" class="ln">    91  </span>		Injections: prometheus.NewCounterVec(prometheus.CounterOpts{
+<span id="L92" class="ln">    92  </span>			Name: &#34;chaos_mesh_injections_total&#34;,
+<span id="L93" class="ln">    93  </span>			Help: &#34;Total number of sidecar injections performed on the webhook&#34;,
+<span id="L94" class="ln">    94  </span>		}, []string{&#34;namespace&#34;, &#34;config&#34;}),
+<span id="L95" class="ln">    95  </span>		chaosSchedules: prometheus.NewGaugeVec(prometheus.GaugeOpts{
+<span id="L96" class="ln">    96  </span>			Name: &#34;chaos_controller_manager_chaos_schedules&#34;,
+<span id="L97" class="ln">    97  </span>			Help: &#34;Total number of chaos schedules&#34;,
+<span id="L98" class="ln">    98  </span>		}, []string{&#34;namespace&#34;}),
+<span id="L99" class="ln">    99  </span>		chaosWorkflows: prometheus.NewGaugeVec(prometheus.GaugeOpts{
+<span id="L100" class="ln">   100  </span>			Name: &#34;chaos_controller_manager_chaos_workflows&#34;,
+<span id="L101" class="ln">   101  </span>			Help: &#34;Total number of chaos workflows&#34;,
+<span id="L102" class="ln">   102  </span>		}, []string{&#34;namespace&#34;}),
+<span id="L103" class="ln">   103  </span>		EmittedEvents: prometheus.NewCounterVec(prometheus.CounterOpts{
+<span id="L104" class="ln">   104  </span>			Name: &#34;chaos_controller_manager_emitted_event_total&#34;,
+<span id="L105" class="ln">   105  </span>			Help: &#34;Total number of the emitted event by chaos-controller-manager&#34;,
+<span id="L106" class="ln">   106  </span>		}, []string{&#34;type&#34;, &#34;reason&#34;, &#34;namespace&#34;}),
+<span id="L107" class="ln">   107  </span>	}
+<span id="L108" class="ln">   108  </span>
+<span id="L109" class="ln">   109  </span>	if registerer != nil {
+<span id="L110" class="ln">   110  </span>		registerer.MustRegister(c)
+<span id="L111" class="ln">   111  </span>	}
+<span id="L112" class="ln">   112  </span>	return c
+<span id="L113" class="ln">   113  </span>}
+<span id="L114" class="ln">   114  </span>
+<span id="L115" class="ln">   115  </span><span class="comment">// Describe implements the prometheus.Collector interface.</span>
+<span id="L116" class="ln">   116  </span>func (collector *ChaosControllerManagerMetricsCollector) Describe(ch chan&lt;- *prometheus.Desc) {
+<span id="L117" class="ln">   117  </span>	collector.chaosExperiments.Describe(ch)
+<span id="L118" class="ln">   118  </span>	collector.SidecarTemplates.Describe(ch)
+<span id="L119" class="ln">   119  </span>	collector.ConfigTemplates.Describe(ch)
+<span id="L120" class="ln">   120  </span>	collector.InjectionConfigs.Describe(ch)
+<span id="L121" class="ln">   121  </span>	collector.TemplateNotExist.Describe(ch)
+<span id="L122" class="ln">   122  </span>	collector.ConfigNameDuplicate.Describe(ch)
+<span id="L123" class="ln">   123  </span>	collector.TemplateLoadError.Describe(ch)
+<span id="L124" class="ln">   124  </span>	collector.InjectRequired.Describe(ch)
+<span id="L125" class="ln">   125  </span>	collector.Injections.Describe(ch)
+<span id="L126" class="ln">   126  </span>	collector.EmittedEvents.Describe(ch)
+<span id="L127" class="ln">   127  </span>	collector.chaosSchedules.Describe(ch)
+<span id="L128" class="ln">   128  </span>	collector.chaosWorkflows.Describe(ch)
+<span id="L129" class="ln">   129  </span>}
+<span id="L130" class="ln">   130  </span>
+<span id="L131" class="ln">   131  </span><span class="comment">// Collect implements the prometheus.Collector interface.</span>
+<span id="L132" class="ln">   132  </span>func (collector *ChaosControllerManagerMetricsCollector) Collect(ch chan&lt;- prometheus.Metric) {
+<span id="L133" class="ln">   133  </span>	collector.collectChaosExperiments()
+<span id="L134" class="ln">   134  </span>	collector.collectChaosSchedules()
+<span id="L135" class="ln">   135  </span>	collector.collectChaosWorkflows()
+<span id="L136" class="ln">   136  </span>	collector.SidecarTemplates.Collect(ch)
+<span id="L137" class="ln">   137  </span>	collector.ConfigTemplates.Collect(ch)
+<span id="L138" class="ln">   138  </span>	collector.InjectionConfigs.Collect(ch)
+<span id="L139" class="ln">   139  </span>	collector.TemplateNotExist.Collect(ch)
+<span id="L140" class="ln">   140  </span>	collector.ConfigNameDuplicate.Collect(ch)
+<span id="L141" class="ln">   141  </span>	collector.TemplateLoadError.Collect(ch)
+<span id="L142" class="ln">   142  </span>	collector.InjectRequired.Collect(ch)
+<span id="L143" class="ln">   143  </span>	collector.Injections.Collect(ch)
+<span id="L144" class="ln">   144  </span>	collector.chaosExperiments.Collect(ch)
+<span id="L145" class="ln">   145  </span>	collector.chaosSchedules.Collect(ch)
+<span id="L146" class="ln">   146  </span>	collector.chaosWorkflows.Collect(ch)
+<span id="L147" class="ln">   147  </span>	collector.EmittedEvents.Collect(ch)
+<span id="L148" class="ln">   148  </span>}
+<span id="L149" class="ln">   149  </span>
+<span id="L150" class="ln">   150  </span>func (collector *ChaosControllerManagerMetricsCollector) collectChaosExperiments() {
+<span id="L151" class="ln">   151  </span>	<span class="comment">// TODO(yeya24) if there is an error in List</span>
+<span id="L152" class="ln">   152  </span>	<span class="comment">// the experiment status will be lost</span>
+<span id="L153" class="ln">   153  </span>	collector.chaosExperiments.Reset()
+<span id="L154" class="ln">   154  </span>
+<span id="L155" class="ln">   155  </span>	for kind, obj := range v1alpha1.AllKinds() {
+<span id="L156" class="ln">   156  </span>		expCache := map[string]map[string]int{}
+<span id="L157" class="ln">   157  </span>		chaosList := obj.SpawnList()
+<span id="L158" class="ln">   158  </span>		if err := collector.store.List(context.TODO(), chaosList); err != nil {
+<span id="L159" class="ln">   159  </span>			collector.logger.Error(err, &#34;failed to list chaos&#34;, &#34;kind&#34;, kind)
+<span id="L160" class="ln">   160  </span>			return
+<span id="L161" class="ln">   161  </span>		}
+<span id="L162" class="ln">   162  </span>
+<span id="L163" class="ln">   163  </span>		items := chaosList.GetItems()
+<span id="L164" class="ln">   164  </span>		for _, item := range items {
+<span id="L165" class="ln">   165  </span>			if _, ok := expCache[item.GetNamespace()]; !ok {
+<span id="L166" class="ln">   166  </span>				<span class="comment">// There is only 4 supported phases</span>
+<span id="L167" class="ln">   167  </span>				expCache[item.GetNamespace()] = make(map[string]int, 4)
+<span id="L168" class="ln">   168  </span>			}
+<span id="L169" class="ln">   169  </span>			innerObject := reflect.ValueOf(item).Interface().(v1alpha1.InnerObject)
+<span id="L170" class="ln">   170  </span>			expCache[item.GetNamespace()][string(status.GetChaosStatus(innerObject))]++
+<span id="L171" class="ln">   171  </span>		}
+<span id="L172" class="ln">   172  </span>
+<span id="L173" class="ln">   173  </span>		for ns, v := range expCache {
+<span id="L174" class="ln">   174  </span>			for phase, count := range v {
+<span id="L175" class="ln">   175  </span>				collector.chaosExperiments.WithLabelValues(ns, kind, phase).Set(float64(count))
+<span id="L176" class="ln">   176  </span>			}
+<span id="L177" class="ln">   177  </span>		}
+<span id="L178" class="ln">   178  </span>	}
+<span id="L179" class="ln">   179  </span>}
+<span id="L180" class="ln">   180  </span>
+<span id="L181" class="ln">   181  </span>func (collector *ChaosControllerManagerMetricsCollector) collectChaosSchedules() {
+<span id="L182" class="ln">   182  </span>	collector.chaosSchedules.Reset()
+<span id="L183" class="ln">   183  </span>
+<span id="L184" class="ln">   184  </span>	schedules := &amp;v1alpha1.ScheduleList{}
+<span id="L185" class="ln">   185  </span>	if err := collector.store.List(context.TODO(), schedules); err != nil {
+<span id="L186" class="ln">   186  </span>		collector.logger.Error(err, &#34;failed to list schedules&#34;)
+<span id="L187" class="ln">   187  </span>		return
+<span id="L188" class="ln">   188  </span>	}
+<span id="L189" class="ln">   189  </span>
+<span id="L190" class="ln">   190  </span>	countByNamespace := make(map[string]int)
+<span id="L191" class="ln">   191  </span>	items := schedules.GetItems()
+<span id="L192" class="ln">   192  </span>	for _, item := range items {
+<span id="L193" class="ln">   193  </span>		countByNamespace[item.GetNamespace()]++
+<span id="L194" class="ln">   194  </span>	}
+<span id="L195" class="ln">   195  </span>
+<span id="L196" class="ln">   196  </span>	for namespace, count := range countByNamespace {
+<span id="L197" class="ln">   197  </span>		collector.chaosSchedules.WithLabelValues(namespace).Set(float64(count))
+<span id="L198" class="ln">   198  </span>	}
+<span id="L199" class="ln">   199  </span>}
+<span id="L200" class="ln">   200  </span>
+<span id="L201" class="ln">   201  </span>func (collector *ChaosControllerManagerMetricsCollector) collectChaosWorkflows() {
+<span id="L202" class="ln">   202  </span>	collector.chaosWorkflows.Reset()
+<span id="L203" class="ln">   203  </span>
+<span id="L204" class="ln">   204  </span>	workflows := &amp;v1alpha1.WorkflowList{}
+<span id="L205" class="ln">   205  </span>	if err := collector.store.List(context.TODO(), workflows); err != nil {
+<span id="L206" class="ln">   206  </span>		collector.logger.Error(err, &#34;failed to list workflows&#34;)
+<span id="L207" class="ln">   207  </span>		return
+<span id="L208" class="ln">   208  </span>	}
+<span id="L209" class="ln">   209  </span>
+<span id="L210" class="ln">   210  </span>	countByNamespace := make(map[string]int)
+<span id="L211" class="ln">   211  </span>	items := workflows.GetItems()
+<span id="L212" class="ln">   212  </span>	for _, item := range items {
+<span id="L213" class="ln">   213  </span>		countByNamespace[item.GetNamespace()]++
+<span id="L214" class="ln">   214  </span>	}
+<span id="L215" class="ln">   215  </span>
+<span id="L216" class="ln">   216  </span>	for namespace, count := range countByNamespace {
+<span id="L217" class="ln">   217  </span>		collector.chaosWorkflows.WithLabelValues(namespace).Set(float64(count))
+<span id="L218" class="ln">   218  </span>	}
+<span id="L219" class="ln">   219  </span>}
+<span id="L220" class="ln">   220  </span>
 </pre><p></p>
 
 <div id="footer">
