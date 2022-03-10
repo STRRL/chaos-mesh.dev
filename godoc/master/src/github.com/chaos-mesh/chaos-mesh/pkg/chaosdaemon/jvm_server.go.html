@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d87b692. Generated at Thu Mar 10 10:03:49 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2f18784. Generated at Thu Mar 10 22:05:08 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -183,7 +183,7 @@
 <span id="L118" class="ln">   118  </span>		if !strings.Contains(string(output), errMsg1) &amp;&amp; !strings.Contains(string(output), errMsg2) &amp;&amp;
 <span id="L119" class="ln">   119  </span>			!strings.Contains(string(output), errMsg3) &amp;&amp; !strings.Contains(string(output), errMsg4) {
 <span id="L120" class="ln">   120  </span>			log.Error(err, string(output))
-<span id="L121" class="ln">   121  </span>			return nil, err
+<span id="L121" class="ln">   121  </span>			return nil, errors.Wrap(err, string(output))
 <span id="L122" class="ln">   122  </span>		}
 <span id="L123" class="ln">   123  </span>		log.Info(&#34;exec comamnd&#34;, &#34;cmd&#34;, cmd.String(), &#34;output&#34;, string(output), &#34;error&#34;, err.Error())
 <span id="L124" class="ln">   124  </span>	}
@@ -202,7 +202,7 @@
 <span id="L137" class="ln">   137  </span>	output, err = processBuilder.Build(ctx).CombinedOutput()
 <span id="L138" class="ln">   138  </span>	if err != nil {
 <span id="L139" class="ln">   139  </span>		log.Error(err, string(output))
-<span id="L140" class="ln">   140  </span>		return nil, err
+<span id="L140" class="ln">   140  </span>		return nil, errors.Wrap(err, string(output))
 <span id="L141" class="ln">   141  </span>	}
 <span id="L142" class="ln">   142  </span>	if len(output) &gt; 0 {
 <span id="L143" class="ln">   143  </span>		log.Info(&#34;submit rules&#34;, &#34;output&#34;, string(output))
@@ -238,7 +238,7 @@
 <span id="L173" class="ln">   173  </span>		if strings.Contains(string(output), &#34;No rule scripts to remove&#34;) {
 <span id="L174" class="ln">   174  </span>			return &amp;empty.Empty{}, nil
 <span id="L175" class="ln">   175  </span>		}
-<span id="L176" class="ln">   176  </span>		return nil, err
+<span id="L176" class="ln">   176  </span>		return nil, errors.Wrap(err, string(output))
 <span id="L177" class="ln">   177  </span>	}
 <span id="L178" class="ln">   178  </span>
 <span id="L179" class="ln">   179  </span>	if len(output) &gt; 0 {

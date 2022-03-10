@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d87b692. Generated at Thu Mar 10 10:03:49 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2f18784. Generated at Thu Mar 10 22:05:08 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -119,9 +119,6 @@
 				<dd><a href="#CheckPodMeetSelector">func CheckPodMeetSelector(ctx context.Context, c client.Client, pod v1.Pod, selector v1alpha1.PodSelectorSpec, clusterScoped bool, targetNamespace string, enableFilterNamespace bool) (bool, error)</a></dd>
 			
 				
-				<dd><a href="#GetService">func GetService(ctx context.Context, c client.Client, namespace, controllerNamespace string, serviceName string) (*v1.Service, error)</a></dd>
-			
-				
 				<dd><a href="#SelectAndFilterPods">func SelectAndFilterPods(ctx context.Context, c client.Client, r client.Reader, spec *v1alpha1.PodSelector, clusterScoped bool, targetNamespace string, enableFilterNamespace bool) ([]v1.Pod, error)</a></dd>
 			
 				
@@ -182,7 +179,7 @@
 		
 			
 			
-			<h2 id="CheckPodMeetSelector">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L221">CheckPodMeetSelector</a>
+			<h2 id="CheckPodMeetSelector">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L202">CheckPodMeetSelector</a>
 				<a class="permalink" href="#CheckPodMeetSelector">&#xb6;</a>
 				
 				
@@ -190,22 +187,6 @@
 			<pre>func CheckPodMeetSelector(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, c <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, pod <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, selector <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodSelectorSpec">PodSelectorSpec</a>, clusterScoped <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, targetNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, enableFilterNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 			<p>
 CheckPodMeetSelector checks if this pod meets the selection criteria.
-</p>
-
-			
-			
-
-		
-			
-			
-			<h2 id="GetService">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L202">GetService</a>
-				<a class="permalink" href="#GetService">&#xb6;</a>
-				
-				
-			</h2>
-			<pre>func GetService(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, c <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, namespace, controllerNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, serviceName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/#Service">Service</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
-			<p>
-GetService get k8s service by service name
 </p>
 
 			
