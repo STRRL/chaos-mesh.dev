@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 7c114d6. Generated at Mon Mar 14 10:02:09 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2ba4962. Generated at Mon Mar 14 22:03:49 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -806,16 +806,16 @@
 <span id="L741" class="ln">   741  </span>}
 <span id="L742" class="ln">   742  </span>
 <span id="L743" class="ln">   743  </span>func (r *podResolver) Daemon(ctx context.Context, obj *v1.Pod) (*v1.Pod, error) {
-<span id="L744" class="ln">   744  </span>	var list v1.PodList
-<span id="L745" class="ln">   745  </span>	if err := r.Client.List(ctx, &amp;list, client.MatchingLabels(componentLabels(model.ComponentDaemon))); err != nil {
+<span id="L744" class="ln">   744  </span>	daemons, err := getDaemonMap(ctx, r.Client)
+<span id="L745" class="ln">   745  </span>	if err != nil {
 <span id="L746" class="ln">   746  </span>		return nil, err
 <span id="L747" class="ln">   747  </span>	}
-<span id="L748" class="ln">   748  </span>	for _, daemon := range list.Items {
-<span id="L749" class="ln">   749  </span>		if obj.Spec.NodeName == daemon.Spec.NodeName {
-<span id="L750" class="ln">   750  </span>			return &amp;daemon, nil
-<span id="L751" class="ln">   751  </span>		}
+<span id="L748" class="ln">   748  </span>
+<span id="L749" class="ln">   749  </span>	daemon, exist := daemons[obj.Name]
+<span id="L750" class="ln">   750  </span>	if !exist {
+<span id="L751" class="ln">   751  </span>		return nil, fmt.Errorf(&#34;daemon of pod(%s/%s) not found&#34;, obj.Namespace, obj.Name)
 <span id="L752" class="ln">   752  </span>	}
-<span id="L753" class="ln">   753  </span>	return nil, fmt.Errorf(&#34;daemon of pod(%s/%s) not found&#34;, obj.Namespace, obj.Name)
+<span id="L753" class="ln">   753  </span>	return &amp;daemon, nil
 <span id="L754" class="ln">   754  </span>}
 <span id="L755" class="ln">   755  </span>
 <span id="L756" class="ln">   756  </span>func (r *podResolver) Processes(ctx context.Context, obj *v1.Pod) ([]*model.Process, error) {

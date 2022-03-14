@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 7c114d6. Generated at Mon Mar 14 10:02:09 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2ba4962. Generated at Mon Mar 14 22:03:49 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -82,82 +82,93 @@
 <span id="L17" class="ln">    17  </span>
 <span id="L18" class="ln">    18  </span>import (
 <span id="L19" class="ln">    19  </span>	&#34;context&#34;
-<span id="L20" class="ln">    20  </span>	&#34;fmt&#34;
-<span id="L21" class="ln">    21  </span>	&#34;strings&#34;
-<span id="L22" class="ln">    22  </span>
-<span id="L23" class="ln">    23  </span>	&#34;github.com/pkg/errors&#34;
-<span id="L24" class="ln">    24  </span>	v1 &#34;k8s.io/api/core/v1&#34;
-<span id="L25" class="ln">    25  </span>	&#34;k8s.io/apimachinery/pkg/types&#34;
-<span id="L26" class="ln">    26  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/client&#34;
-<span id="L27" class="ln">    27  </span>
-<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
-<span id="L29" class="ln">    29  </span>	ctrlconfig &#34;github.com/chaos-mesh/chaos-mesh/controllers/config&#34;
-<span id="L30" class="ln">    30  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model&#34;
-<span id="L31" class="ln">    31  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/selector/pod&#34;
-<span id="L32" class="ln">    32  </span>)
-<span id="L33" class="ln">    33  </span>
-<span id="L34" class="ln">    34  </span>const DefaultNamespace = &#34;default&#34;
-<span id="L35" class="ln">    35  </span>
-<span id="L36" class="ln">    36  </span>func componentLabels(component model.Component) map[string]string {
-<span id="L37" class="ln">    37  </span>	var componentLabel string
-<span id="L38" class="ln">    38  </span>	switch component {
-<span id="L39" class="ln">    39  </span>	case model.ComponentManager:
-<span id="L40" class="ln">    40  </span>		componentLabel = &#34;controller-manager&#34;
-<span id="L41" class="ln">    41  </span>	case model.ComponentDaemon:
-<span id="L42" class="ln">    42  </span>		componentLabel = &#34;chaos-daemon&#34;
-<span id="L43" class="ln">    43  </span>	case model.ComponentDashboard:
-<span id="L44" class="ln">    44  </span>		componentLabel = &#34;chaos-dashboard&#34;
-<span id="L45" class="ln">    45  </span>	case model.ComponentDNSServer:
-<span id="L46" class="ln">    46  </span>		componentLabel = &#34;chaos-dns-server&#34;
-<span id="L47" class="ln">    47  </span>	default:
-<span id="L48" class="ln">    48  </span>		return nil
-<span id="L49" class="ln">    49  </span>	}
-<span id="L50" class="ln">    50  </span>	return map[string]string{
-<span id="L51" class="ln">    51  </span>		&#34;app.kubernetes.io/component&#34;: componentLabel,
-<span id="L52" class="ln">    52  </span>	}
-<span id="L53" class="ln">    53  </span>}
-<span id="L54" class="ln">    54  </span>
-<span id="L55" class="ln">    55  </span>func parseNamespacedName(namespacedName string) types.NamespacedName {
-<span id="L56" class="ln">    56  </span>	parts := strings.Split(namespacedName, &#34;/&#34;)
-<span id="L57" class="ln">    57  </span>	return types.NamespacedName{
-<span id="L58" class="ln">    58  </span>		Namespace: parts[0],
-<span id="L59" class="ln">    59  </span>		Name:      parts[1],
-<span id="L60" class="ln">    60  </span>	}
-<span id="L61" class="ln">    61  </span>}
-<span id="L62" class="ln">    62  </span>
-<span id="L63" class="ln">    63  </span><span class="comment">// GetPods returns pod list and corresponding chaos daemon</span>
-<span id="L64" class="ln">    64  </span>func GetPods(ctx context.Context, status v1alpha1.ChaosStatus, selectorSpec v1alpha1.PodSelectorSpec, c client.Client) ([]v1.Pod, []v1.Pod, error) {
-<span id="L65" class="ln">    65  </span>	pods, err := pod.SelectPods(ctx, c, c, selectorSpec, ctrlconfig.ControllerCfg.ClusterScoped, ctrlconfig.ControllerCfg.TargetNamespace, false)
-<span id="L66" class="ln">    66  </span>	if err != nil {
-<span id="L67" class="ln">    67  </span>		return nil, nil, errors.Wrap(err, &#34;failed to SelectPods&#34;)
-<span id="L68" class="ln">    68  </span>	}
-<span id="L69" class="ln">    69  </span>	if len(pods) == 0 {
-<span id="L70" class="ln">    70  </span>		return nil, nil, nil
-<span id="L71" class="ln">    71  </span>	}
-<span id="L72" class="ln">    72  </span>
-<span id="L73" class="ln">    73  </span>	var chaosDaemons []v1.Pod
-<span id="L74" class="ln">    74  </span>	<span class="comment">// get chaos daemon</span>
-<span id="L75" class="ln">    75  </span>	for _, chaosPod := range pods {
-<span id="L76" class="ln">    76  </span>		nodeName := chaosPod.Spec.NodeName
-<span id="L77" class="ln">    77  </span>		daemonSelector := v1alpha1.PodSelectorSpec{
-<span id="L78" class="ln">    78  </span>			Nodes: []string{nodeName},
-<span id="L79" class="ln">    79  </span>			GenericSelectorSpec: v1alpha1.GenericSelectorSpec{
-<span id="L80" class="ln">    80  </span>				LabelSelectors: map[string]string{&#34;app.kubernetes.io/component&#34;: &#34;chaos-daemon&#34;},
-<span id="L81" class="ln">    81  </span>			},
-<span id="L82" class="ln">    82  </span>		}
-<span id="L83" class="ln">    83  </span>		daemons, err := pod.SelectPods(ctx, c, nil, daemonSelector, ctrlconfig.ControllerCfg.ClusterScoped, ctrlconfig.ControllerCfg.TargetNamespace, false)
-<span id="L84" class="ln">    84  </span>		if err != nil {
-<span id="L85" class="ln">    85  </span>			return nil, nil, errors.Wrap(err, fmt.Sprintf(&#34;failed to select daemon pod for pod %s&#34;, chaosPod.GetName()))
-<span id="L86" class="ln">    86  </span>		}
-<span id="L87" class="ln">    87  </span>		if len(daemons) == 0 {
-<span id="L88" class="ln">    88  </span>			return nil, nil, fmt.Errorf(&#34;no daemons found for pod %s with selector: %s&#34;, chaosPod.GetName(), daemonSelector)
-<span id="L89" class="ln">    89  </span>		}
-<span id="L90" class="ln">    90  </span>		chaosDaemons = append(chaosDaemons, daemons[0])
-<span id="L91" class="ln">    91  </span>	}
-<span id="L92" class="ln">    92  </span>
-<span id="L93" class="ln">    93  </span>	return pods, chaosDaemons, nil
-<span id="L94" class="ln">    94  </span>}
-<span id="L95" class="ln">    95  </span>
+<span id="L20" class="ln">    20  </span>	&#34;strings&#34;
+<span id="L21" class="ln">    21  </span>
+<span id="L22" class="ln">    22  </span>	&#34;github.com/pkg/errors&#34;
+<span id="L23" class="ln">    23  </span>	v1 &#34;k8s.io/api/core/v1&#34;
+<span id="L24" class="ln">    24  </span>	&#34;k8s.io/apimachinery/pkg/types&#34;
+<span id="L25" class="ln">    25  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/client&#34;
+<span id="L26" class="ln">    26  </span>
+<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
+<span id="L28" class="ln">    28  </span>	ctrlconfig &#34;github.com/chaos-mesh/chaos-mesh/controllers/config&#34;
+<span id="L29" class="ln">    29  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model&#34;
+<span id="L30" class="ln">    30  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/selector/pod&#34;
+<span id="L31" class="ln">    31  </span>)
+<span id="L32" class="ln">    32  </span>
+<span id="L33" class="ln">    33  </span>const DefaultNamespace = &#34;default&#34;
+<span id="L34" class="ln">    34  </span>
+<span id="L35" class="ln">    35  </span>func componentLabels(component model.Component) map[string]string {
+<span id="L36" class="ln">    36  </span>	var componentLabel string
+<span id="L37" class="ln">    37  </span>	switch component {
+<span id="L38" class="ln">    38  </span>	case model.ComponentManager:
+<span id="L39" class="ln">    39  </span>		componentLabel = &#34;controller-manager&#34;
+<span id="L40" class="ln">    40  </span>	case model.ComponentDaemon:
+<span id="L41" class="ln">    41  </span>		componentLabel = &#34;chaos-daemon&#34;
+<span id="L42" class="ln">    42  </span>	case model.ComponentDashboard:
+<span id="L43" class="ln">    43  </span>		componentLabel = &#34;chaos-dashboard&#34;
+<span id="L44" class="ln">    44  </span>	case model.ComponentDNSServer:
+<span id="L45" class="ln">    45  </span>		componentLabel = &#34;chaos-dns-server&#34;
+<span id="L46" class="ln">    46  </span>	default:
+<span id="L47" class="ln">    47  </span>		return nil
+<span id="L48" class="ln">    48  </span>	}
+<span id="L49" class="ln">    49  </span>	return map[string]string{
+<span id="L50" class="ln">    50  </span>		&#34;app.kubernetes.io/component&#34;: componentLabel,
+<span id="L51" class="ln">    51  </span>	}
+<span id="L52" class="ln">    52  </span>}
+<span id="L53" class="ln">    53  </span>
+<span id="L54" class="ln">    54  </span>func parseNamespacedName(namespacedName string) types.NamespacedName {
+<span id="L55" class="ln">    55  </span>	parts := strings.Split(namespacedName, &#34;/&#34;)
+<span id="L56" class="ln">    56  </span>	return types.NamespacedName{
+<span id="L57" class="ln">    57  </span>		Namespace: parts[0],
+<span id="L58" class="ln">    58  </span>		Name:      parts[1],
+<span id="L59" class="ln">    59  </span>	}
+<span id="L60" class="ln">    60  </span>}
+<span id="L61" class="ln">    61  </span>
+<span id="L62" class="ln">    62  </span><span class="comment">// GetPods returns pod list and corresponding chaos daemon</span>
+<span id="L63" class="ln">    63  </span>func GetPods(ctx context.Context, status v1alpha1.ChaosStatus, selectorSpec v1alpha1.PodSelectorSpec, c client.Client) ([]v1.Pod, []v1.Pod, error) {
+<span id="L64" class="ln">    64  </span>	pods, err := pod.SelectPods(ctx, c, c, selectorSpec, ctrlconfig.ControllerCfg.ClusterScoped, ctrlconfig.ControllerCfg.TargetNamespace, false)
+<span id="L65" class="ln">    65  </span>	if err != nil {
+<span id="L66" class="ln">    66  </span>		return nil, nil, errors.Wrap(err, &#34;failed to SelectPods&#34;)
+<span id="L67" class="ln">    67  </span>	}
+<span id="L68" class="ln">    68  </span>	if len(pods) == 0 {
+<span id="L69" class="ln">    69  </span>		return nil, nil, nil
+<span id="L70" class="ln">    70  </span>	}
+<span id="L71" class="ln">    71  </span>
+<span id="L72" class="ln">    72  </span>	daemonMap, err := getDaemonMap(ctx, c)
+<span id="L73" class="ln">    73  </span>	if err != nil {
+<span id="L74" class="ln">    74  </span>		return nil, nil, errors.Wrap(err, &#34;get daemon map&#34;)
+<span id="L75" class="ln">    75  </span>	}
+<span id="L76" class="ln">    76  </span>
+<span id="L77" class="ln">    77  </span>	var chaosDaemons []v1.Pod
+<span id="L78" class="ln">    78  </span>	<span class="comment">// get chaos daemon</span>
+<span id="L79" class="ln">    79  </span>	for _, chaosPod := range pods {
+<span id="L80" class="ln">    80  </span>		daemon, exist := daemonMap[chaosPod.Spec.NodeName]
+<span id="L81" class="ln">    81  </span>		if !exist {
+<span id="L82" class="ln">    82  </span>			return nil, nil, errors.Errorf(&#34;no daemons found for pod %s&#34;, chaosPod.GetName())
+<span id="L83" class="ln">    83  </span>		}
+<span id="L84" class="ln">    84  </span>		chaosDaemons = append(chaosDaemons, daemon)
+<span id="L85" class="ln">    85  </span>	}
+<span id="L86" class="ln">    86  </span>
+<span id="L87" class="ln">    87  </span>	return pods, chaosDaemons, nil
+<span id="L88" class="ln">    88  </span>}
+<span id="L89" class="ln">    89  </span>
+<span id="L90" class="ln">    90  </span><span class="comment">// GetDaemonMap returns a map of node name to daemon pod</span>
+<span id="L91" class="ln">    91  </span>func getDaemonMap(ctx context.Context, c client.Client) (map[string]v1.Pod, error) {
+<span id="L92" class="ln">    92  </span>	var list v1.PodList
+<span id="L93" class="ln">    93  </span>	labels := componentLabels(model.ComponentDaemon)
+<span id="L94" class="ln">    94  </span>	if err := c.List(ctx, &amp;list, client.MatchingLabels(labels)); err != nil {
+<span id="L95" class="ln">    95  </span>		return nil, errors.Wrapf(err, &#34;list daemons by label %v&#34;, labels)
+<span id="L96" class="ln">    96  </span>	}
+<span id="L97" class="ln">    97  </span>
+<span id="L98" class="ln">    98  </span>	daemonMap := map[string]v1.Pod{}
+<span id="L99" class="ln">    99  </span>	for _, d := range list.Items {
+<span id="L100" class="ln">   100  </span>		if d.Spec.NodeName != &#34;&#34; {
+<span id="L101" class="ln">   101  </span>			daemonMap[d.Spec.NodeName] = d
+<span id="L102" class="ln">   102  </span>		}
+<span id="L103" class="ln">   103  </span>	}
+<span id="L104" class="ln">   104  </span>	return daemonMap, nil
+<span id="L105" class="ln">   105  </span>}
+<span id="L106" class="ln">   106  </span>
 </pre><p></p>
 
 <div id="footer">
