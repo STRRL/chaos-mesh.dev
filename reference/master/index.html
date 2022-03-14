@@ -520,6 +520,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-schedule">Schedule</a></p>
 </li>
 <li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheck">StatusCheck</a></p>
+</li>
+<li>
 <p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-stresschaos">StressChaos</a></p>
 </li>
 <li>
@@ -2400,6 +2403,41 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-embedstatuscheck">EmbedStatusCheck</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckspec">StatusCheckSpec</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>http</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-httpstatuscheck">HTTPStatusCheck</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
 <h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-expinfo">ExpInfo</h4>
 <div class="sidebarblock">
 <div class="content">
@@ -3362,6 +3400,119 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Instances always specifies podhttpchaos generation or empty</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-httpcriteria">HTTPCriteria</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-httpstatuscheck">HTTPStatusCheck</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>statusCode</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>StatusCode defines the expected http status code for the request. A statusCode string could be a single code (e.g. 200), or an inclusive range (e.g. 200-400, both <code>200</code> and <code>400</code> are included).</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-httprequestmethod">HTTPRequestMethod (string)</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-httpstatuscheck">HTTPStatusCheck</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-httpstatuscheck">HTTPStatusCheck</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-embedstatuscheck">EmbedStatusCheck</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>url</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>method</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-httprequestmethod">HTTPRequestMethod</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>headers</code></strong> <em>object (keys:string, values:string array)</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>body</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>criteria</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-httpcriteria">HTTPCriteria</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Criteria defines how to determine the result of the status check.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -7777,6 +7928,415 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-podselector">PodSelector</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheck">StatusCheck</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>apiVersion</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>chaos-mesh.org/v1alpha1</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>kind</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>StatusCheck</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>TypeMeta</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#typemeta-v1-meta">TypeMeta</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>metadata</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#objectmeta-v1-meta">ObjectMeta</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Refer to Kubernetes API documentation for fields of <code>metadata</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>spec</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckspec">StatusCheckSpec</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Spec defines the behavior of a status check</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>status</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckstatus">StatusCheckStatus</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Most recently observed status of status check</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckcondition">StatusCheckCondition</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckstatus">StatusCheckStatus</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>type</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckconditiontype">StatusCheckConditionType</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>status</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#conditionstatus-v1-core">ConditionStatus</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>reason</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckreason">StatusCheckReason</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>lastProbeTime</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#time-v1-meta">Time</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>lastTransitionTime</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#time-v1-meta">Time</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckconditiontype">StatusCheckConditionType (string)</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckcondition">StatusCheckCondition</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckmode">StatusCheckMode (string)</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckspec">StatusCheckSpec</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckoutcome">StatusCheckOutcome (string)</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckrecord">StatusCheckRecord</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckreason">StatusCheckReason (string)</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckcondition">StatusCheckCondition</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckrecord">StatusCheckRecord</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckstatus">StatusCheckStatus</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>startTime</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#time-v1-meta">Time</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>outcome</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckoutcome">StatusCheckOutcome</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckspec">StatusCheckSpec</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheck">StatusCheck</a></p>
+</li>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuschecktemplate">StatusCheckTemplate</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>mode</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckmode">StatusCheckMode</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Mode defines the execution mode of the status check. Support type: Synchronous / Continuous</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>type</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuschecktype">StatusCheckType</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type defines the specific status check type. Support type: HTTP</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>duration</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Duration defines the duration of the whole status check if the number of failed execution does not exceed the failure threshold. Duration is available to both <code>Synchronous</code> and <code>Continuous</code> mode. A duration string is a possibly signed sequence of decimal numbers, each with optional fraction and a unit suffix, such as "300ms", "-1.5h" or "2h45m". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>timeoutSeconds</code></strong> <em>integer</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>TimeoutSeconds defines the number of seconds after which an execution of status check times out.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>intervalSeconds</code></strong> <em>integer</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>IntervalSeconds defines how often (in seconds) to perform an execution of status check.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>failureThreshold</code></strong> <em>integer</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>FailureThreshold defines the minimum consecutive failure for the status check to be considered failed.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>successThreshold</code></strong> <em>integer</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>SuccessThreshold defines the minimum consecutive successes for the status check to be considered successful. SuccessThreshold only works for <code>Synchronous</code> mode.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>recordsHistoryLimit</code></strong> <em>integer</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>RecordsHistoryLimit defines the number of record to retain.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>EmbedStatusCheck</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-embedstatuscheck">EmbedStatusCheck</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckstatus">StatusCheckStatus</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheck">StatusCheck</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>startTime</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#time-v1-meta">Time</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>StartTime represents time when the status check started to execute.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>completionTime</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#time-v1-meta">Time</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>CompletionTime represents time when the status check was completed.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>count</code></strong> <em>integer</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Count represents the total number of the status check executed.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>conditions</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckcondition">StatusCheckCondition</a> array</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Conditions represents the latest available observations of a StatusCheck&#8217;s current state.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>records</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckrecord">StatusCheckRecord</a> array</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Records contains the history of the execution of StatusCheck.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuschecktype">StatusCheckType (string)</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-statuscheckspec">StatusCheckSpec</a></p>
 </li>
 </ul>
 </div>
