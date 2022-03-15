@@ -475,6 +475,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-awschaos">AWSChaos</a></p>
 </li>
 <li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-azurechaos">AzureChaos</a></p>
+</li>
+<li>
 <p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-blockchaos">BlockChaos</a></p>
 </li>
 <li>
@@ -891,6 +894,258 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong><code>rdev</code></strong> <em>integer</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-azurechaos">AzureChaos</h4>
+<div class="paragraph">
+<p>AzureChaos is the Schema for the azurechaos API</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>apiVersion</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>chaos-mesh.org/v1alpha1</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>kind</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>AzureChaos</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>TypeMeta</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#typemeta-v1-meta">TypeMeta</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>metadata</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#objectmeta-v1-meta">ObjectMeta</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Refer to Kubernetes API documentation for fields of <code>metadata</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>spec</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-azurechaosspec">AzureChaosSpec</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>status</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-azurechaosstatus">AzureChaosStatus</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-azurechaosaction">AzureChaosAction (string)</h4>
+<div class="paragraph">
+<p>AzureChaosAction represents the chaos action about azure.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-azurechaosspec">AzureChaosSpec</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-azurechaosspec">AzureChaosSpec</h4>
+<div class="paragraph">
+<p>AzureChaosSpec is the content of the specification for an AzureChaos</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-azurechaos">AzureChaos</a></p>
+</li>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-embedchaos">EmbedChaos</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>action</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-azurechaosaction">AzureChaosAction</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Action defines the specific azure chaos action. Supported action: vm-stop / vm-restart / disk-detach Default action: vm-stop</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>duration</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Duration represents the duration of the chaos action.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>AzureSelector</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-azureselector">AzureSelector</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-azurechaosstatus">AzureChaosStatus</h4>
+<div class="paragraph">
+<p>AzureChaosStatus represents the status of an AzureChaos</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-azurechaos">AzureChaos</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>ChaosStatus</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-chaosstatus">ChaosStatus</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-azureselector">AzureSelector</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-azurechaosspec">AzureChaosSpec</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>subscriptionID</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>SubscriptionID defines the id of Azure subscription.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>resourceGroupName</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ResourceGroupName defines the name of ResourceGroup</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>vmName</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>VMName defines the name of Virtual Machine</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>diskName</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>DiskName indicates the name of the disk. Needed in disk-detach.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>lun</code></strong> <em>integer</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>LUN indicates the Logical Unit Number of the data disk. Needed in disk-detach.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>secretName</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>SecretName defines the name of kubernetes secret. It is used for Azure credentials.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -1428,6 +1683,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul>
 <li>
 <p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-awschaosstatus">AWSChaosStatus</a></p>
+</li>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-azurechaosstatus">AzureChaosStatus</a></p>
 </li>
 <li>
 <p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-blockchaosstatus">BlockChaosStatus</a></p>
@@ -2324,6 +2582,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong><code>awsChaos</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-awschaosspec">AWSChaosSpec</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>azureChaos</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-azurechaosspec">AzureChaosSpec</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
