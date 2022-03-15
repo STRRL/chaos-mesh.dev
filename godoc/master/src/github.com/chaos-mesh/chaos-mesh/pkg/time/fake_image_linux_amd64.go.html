@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2ba4962. Generated at Mon Mar 14 22:03:49 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit fd258b0. Generated at Tue Mar 15 10:03:14 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -102,7 +102,7 @@
 <span id="L37" class="ln">    37  </span>		runtime.UnlockOSThread()
 <span id="L38" class="ln">    38  </span>	}()
 <span id="L39" class="ln">    39  </span>
-<span id="L40" class="ln">    40  </span>	program, err := ptrace.Trace(pid)
+<span id="L40" class="ln">    40  </span>	program, err := ptrace.Trace(pid, it.logger.WithName(&#34;ptrace&#34;).WithValues(&#34;pid&#34;, pid))
 <span id="L41" class="ln">    41  </span>	if err != nil {
 <span id="L42" class="ln">    42  </span>		return errors.Wrapf(err, &#34;ptrace on target process, pid: %d&#34;, pid)
 <span id="L43" class="ln">    43  </span>	}

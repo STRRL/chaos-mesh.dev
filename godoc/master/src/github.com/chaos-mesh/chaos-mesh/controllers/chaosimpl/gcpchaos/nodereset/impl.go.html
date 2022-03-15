@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2ba4962. Generated at Mon Mar 14 22:03:49 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit fd258b0. Generated at Tue Mar 15 10:03:14 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -113,28 +113,34 @@
 <span id="L48" class="ln">    48  </span>		impl.Log.Error(err, &#34;fail to get the compute service&#34;)
 <span id="L49" class="ln">    49  </span>		return v1alpha1.NotInjected, err
 <span id="L50" class="ln">    50  </span>	}
-<span id="L51" class="ln">    51  </span>	var selected v1alpha1.GCPSelector
-<span id="L52" class="ln">    52  </span>	json.Unmarshal([]byte(records[index].Id), &amp;selected)
-<span id="L53" class="ln">    53  </span>	_, err = computeService.Instances.Reset(selected.Project, selected.Zone, selected.Instance).Do()
+<span id="L51" class="ln">    51  </span>
+<span id="L52" class="ln">    52  </span>	var selected v1alpha1.GCPSelector
+<span id="L53" class="ln">    53  </span>	err = json.Unmarshal([]byte(records[index].Id), &amp;selected)
 <span id="L54" class="ln">    54  </span>	if err != nil {
-<span id="L55" class="ln">    55  </span>		impl.Log.Error(err, &#34;fail to reset the instance&#34;)
+<span id="L55" class="ln">    55  </span>		impl.Log.Error(err, &#34;fail to unmarshal the selector&#34;)
 <span id="L56" class="ln">    56  </span>		return v1alpha1.NotInjected, err
 <span id="L57" class="ln">    57  </span>	}
 <span id="L58" class="ln">    58  </span>
-<span id="L59" class="ln">    59  </span>	return v1alpha1.Injected, nil
-<span id="L60" class="ln">    60  </span>}
-<span id="L61" class="ln">    61  </span>
-<span id="L62" class="ln">    62  </span>func (impl *Impl) Recover(ctx context.Context, index int, records []*v1alpha1.Record, chaos v1alpha1.InnerObject) (v1alpha1.Phase, error) {
-<span id="L63" class="ln">    63  </span>	return v1alpha1.NotInjected, nil
-<span id="L64" class="ln">    64  </span>}
-<span id="L65" class="ln">    65  </span>
-<span id="L66" class="ln">    66  </span>func NewImpl(c client.Client, log logr.Logger) *Impl {
-<span id="L67" class="ln">    67  </span>	return &amp;Impl{
-<span id="L68" class="ln">    68  </span>		Client: c,
-<span id="L69" class="ln">    69  </span>		Log:    log.WithName(&#34;nodereset&#34;),
-<span id="L70" class="ln">    70  </span>	}
-<span id="L71" class="ln">    71  </span>}
-<span id="L72" class="ln">    72  </span>
+<span id="L59" class="ln">    59  </span>	_, err = computeService.Instances.Reset(selected.Project, selected.Zone, selected.Instance).Do()
+<span id="L60" class="ln">    60  </span>	if err != nil {
+<span id="L61" class="ln">    61  </span>		impl.Log.Error(err, &#34;fail to reset the instance&#34;)
+<span id="L62" class="ln">    62  </span>		return v1alpha1.NotInjected, err
+<span id="L63" class="ln">    63  </span>	}
+<span id="L64" class="ln">    64  </span>
+<span id="L65" class="ln">    65  </span>	return v1alpha1.Injected, nil
+<span id="L66" class="ln">    66  </span>}
+<span id="L67" class="ln">    67  </span>
+<span id="L68" class="ln">    68  </span>func (impl *Impl) Recover(ctx context.Context, index int, records []*v1alpha1.Record, chaos v1alpha1.InnerObject) (v1alpha1.Phase, error) {
+<span id="L69" class="ln">    69  </span>	return v1alpha1.NotInjected, nil
+<span id="L70" class="ln">    70  </span>}
+<span id="L71" class="ln">    71  </span>
+<span id="L72" class="ln">    72  </span>func NewImpl(c client.Client, log logr.Logger) *Impl {
+<span id="L73" class="ln">    73  </span>	return &amp;Impl{
+<span id="L74" class="ln">    74  </span>		Client: c,
+<span id="L75" class="ln">    75  </span>		Log:    log.WithName(&#34;nodereset&#34;),
+<span id="L76" class="ln">    76  </span>	}
+<span id="L77" class="ln">    77  </span>}
+<span id="L78" class="ln">    78  </span>
 </pre><p></p>
 
 <div id="footer">

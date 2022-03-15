@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2ba4962. Generated at Mon Mar 14 22:03:49 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit fd258b0. Generated at Tue Mar 15 10:03:14 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -115,15 +115,12 @@
 			
 			
 			
-				
-				<dd><a href="#RegisterLogger">func RegisterLogger(logger logr.Logger)</a></dd>
-			
 			
 				
 				<dd><a href="#TracedProgram">type TracedProgram</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#Trace">func Trace(pid int) (*TracedProgram, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#Trace">func Trace(pid int, logger logr.Logger) (*TracedProgram, error)</a></dd>
 				
 				
 					
@@ -201,26 +198,10 @@
 		
 		
 		
-			
-			
-			<h2 id="RegisterLogger">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L49">RegisterLogger</a>
-				<a class="permalink" href="#RegisterLogger">&#xb6;</a>
-				
-				
-			</h2>
-			<pre>func RegisterLogger(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>)</pre>
-			<p>
-RegisterLogger registers a logger on ptrace pkg
-</p>
-
-			
-			
-
-		
 		
 			
 			
-			<h2 id="TracedProgram">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L63">TracedProgram</a>
+			<h2 id="TracedProgram">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L55">TracedProgram</a>
 				<a class="permalink" href="#TracedProgram">&#xb6;</a>
 				
 				
@@ -245,12 +226,12 @@ TracedProgram is a program traced by ptrace
 
 			
 				
-				<h3 id="Trace">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L87">Trace</a>
+				<h3 id="Trace">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L81">Trace</a>
 					<a class="permalink" href="#Trace">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func Trace(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) (*<a href="#TracedProgram">TracedProgram</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<pre>func Trace(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (*<a href="#TracedProgram">TracedProgram</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 Trace ptrace all threads of a process
 </p>
@@ -261,7 +242,7 @@ Trace ptrace all threads of a process
 
 			
 				
-				<h3 id="TracedProgram.Detach">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L187">Detach</a>
+				<h3 id="TracedProgram.Detach">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L182">Detach</a>
 					<a class="permalink" href="#TracedProgram.Detach">&#xb6;</a>
 					
 					
@@ -276,7 +257,7 @@ Detach detaches from all threads of the processes
 				
 			
 				
-				<h3 id="TracedProgram.FindSymbolInEntry">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L434">FindSymbolInEntry</a>
+				<h3 id="TracedProgram.FindSymbolInEntry">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L429">FindSymbolInEntry</a>
 					<a class="permalink" href="#TracedProgram.FindSymbolInEntry">&#xb6;</a>
 					
 					
@@ -291,7 +272,7 @@ FindSymbolInEntry finds symbol in entry through parsing elf
 				
 			
 				
-				<h3 id="TracedProgram.GetLibBuffer">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L400">GetLibBuffer</a>
+				<h3 id="TracedProgram.GetLibBuffer">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L395">GetLibBuffer</a>
 					<a class="permalink" href="#TracedProgram.GetLibBuffer">&#xb6;</a>
 					
 					
@@ -306,7 +287,7 @@ GetLibBuffer reads an entry
 				
 			
 				
-				<h3 id="TracedProgram.JumpToFakeFunc">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L480">JumpToFakeFunc</a>
+				<h3 id="TracedProgram.JumpToFakeFunc">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L475">JumpToFakeFunc</a>
 					<a class="permalink" href="#TracedProgram.JumpToFakeFunc">&#xb6;</a>
 					
 					
@@ -321,7 +302,7 @@ JumpToFakeFunc writes jmp instruction to jump to fake function
 				
 			
 				
-				<h3 id="TracedProgram.Mmap">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L310">Mmap</a>
+				<h3 id="TracedProgram.Mmap">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L305">Mmap</a>
 					<a class="permalink" href="#TracedProgram.Mmap">&#xb6;</a>
 					
 					
@@ -336,7 +317,7 @@ Mmap runs mmap syscall
 				
 			
 				
-				<h3 id="TracedProgram.MmapSlice">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L411">MmapSlice</a>
+				<h3 id="TracedProgram.MmapSlice">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L406">MmapSlice</a>
 					<a class="permalink" href="#TracedProgram.MmapSlice">&#xb6;</a>
 					
 					
@@ -351,7 +332,7 @@ MmapSlice mmaps a slice and return it&#39;s addr
 				
 			
 				
-				<h3 id="TracedProgram.Pid">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L73">Pid</a>
+				<h3 id="TracedProgram.Pid">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L67">Pid</a>
 					<a class="permalink" href="#TracedProgram.Pid">&#xb6;</a>
 					
 					
@@ -366,7 +347,7 @@ Pid return the pid of traced program
 				
 			
 				
-				<h3 id="TracedProgram.Protect">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L206">Protect</a>
+				<h3 id="TracedProgram.Protect">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L201">Protect</a>
 					<a class="permalink" href="#TracedProgram.Protect">&#xb6;</a>
 					
 					
@@ -381,7 +362,7 @@ Protect will backup regs and rip into fields
 				
 			
 				
-				<h3 id="TracedProgram.PtraceWriteSlice">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L378">PtraceWriteSlice</a>
+				<h3 id="TracedProgram.PtraceWriteSlice">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L373">PtraceWriteSlice</a>
 					<a class="permalink" href="#TracedProgram.PtraceWriteSlice">&#xb6;</a>
 					
 					
@@ -396,7 +377,7 @@ PtraceWriteSlice uses ptrace rather than process_vm_write to write a buffer into
 				
 			
 				
-				<h3 id="TracedProgram.ReadSlice">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L315">ReadSlice</a>
+				<h3 id="TracedProgram.ReadSlice">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L310">ReadSlice</a>
 					<a class="permalink" href="#TracedProgram.ReadSlice">&#xb6;</a>
 					
 					
@@ -411,7 +392,7 @@ ReadSlice reads from addr and return a slice
 				
 			
 				
-				<h3 id="TracedProgram.Restore">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L221">Restore</a>
+				<h3 id="TracedProgram.Restore">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L216">Restore</a>
 					<a class="permalink" href="#TracedProgram.Restore">&#xb6;</a>
 					
 					
@@ -426,7 +407,7 @@ Restore will restore regs and rip from fields
 				
 			
 				
-				<h3 id="TracedProgram.Step">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L241">Step</a>
+				<h3 id="TracedProgram.Step">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L236">Step</a>
 					<a class="permalink" href="#TracedProgram.Step">&#xb6;</a>
 					
 					
@@ -441,7 +422,7 @@ Step moves one step forward
 				
 			
 				
-				<h3 id="TracedProgram.Syscall">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L251">Syscall</a>
+				<h3 id="TracedProgram.Syscall">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L246">Syscall</a>
 					<a class="permalink" href="#TracedProgram.Syscall">&#xb6;</a>
 					
 					
@@ -456,7 +437,7 @@ Syscall runs a syscall at main thread of process
 				
 			
 				
-				<h3 id="TracedProgram.Wait">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L236">Wait</a>
+				<h3 id="TracedProgram.Wait">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L231">Wait</a>
 					<a class="permalink" href="#TracedProgram.Wait">&#xb6;</a>
 					
 					
@@ -471,7 +452,7 @@ Wait waits until the process stops
 				
 			
 				
-				<h3 id="TracedProgram.WriteSlice">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L339">WriteSlice</a>
+				<h3 id="TracedProgram.WriteSlice">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L334">WriteSlice</a>
 					<a class="permalink" href="#TracedProgram.WriteSlice">&#xb6;</a>
 					
 					
@@ -486,7 +467,7 @@ WriteSlice writes a buffer into addr
 				
 			
 				
-				<h3 id="TracedProgram.WriteUint64ToAddr">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L472">WriteUint64ToAddr</a>
+				<h3 id="TracedProgram.WriteUint64ToAddr">func (*TracedProgram) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/ptrace_linux_amd64.go#L467">WriteUint64ToAddr</a>
 					<a class="permalink" href="#TracedProgram.WriteUint64ToAddr">&#xb6;</a>
 					
 					

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2ba4962. Generated at Mon Mar 14 22:03:49 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit fd258b0. Generated at Tue Mar 15 10:03:14 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -84,38 +84,40 @@
 <span id="L19" class="ln">    19  </span>	&#34;go.uber.org/fx&#34;
 <span id="L20" class="ln">    20  </span>
 <span id="L21" class="ln">    21  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/awschaos&#34;
-<span id="L22" class="ln">    22  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/blockchaos&#34;
-<span id="L23" class="ln">    23  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/dnschaos&#34;
-<span id="L24" class="ln">    24  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos&#34;
-<span id="L25" class="ln">    25  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos&#34;
-<span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/iochaos&#34;
-<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos&#34;
-<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/kernelchaos&#34;
-<span id="L29" class="ln">    29  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/networkchaos&#34;
-<span id="L30" class="ln">    30  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/physicalmachinechaos&#34;
-<span id="L31" class="ln">    31  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/podchaos&#34;
-<span id="L32" class="ln">    32  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/stresschaos&#34;
-<span id="L33" class="ln">    33  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/timechaos&#34;
-<span id="L34" class="ln">    34  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/utils&#34;
-<span id="L35" class="ln">    35  </span>)
-<span id="L36" class="ln">    36  </span>
-<span id="L37" class="ln">    37  </span>var AllImpl = fx.Options(
-<span id="L38" class="ln">    38  </span>	awschaos.Module,
-<span id="L39" class="ln">    39  </span>	dnschaos.Module,
-<span id="L40" class="ln">    40  </span>	httpchaos.Module,
-<span id="L41" class="ln">    41  </span>	iochaos.Module,
-<span id="L42" class="ln">    42  </span>	kernelchaos.Module,
-<span id="L43" class="ln">    43  </span>	networkchaos.Module,
-<span id="L44" class="ln">    44  </span>	podchaos.Module,
-<span id="L45" class="ln">    45  </span>	gcpchaos.Module,
-<span id="L46" class="ln">    46  </span>	stresschaos.Module,
-<span id="L47" class="ln">    47  </span>	jvmchaos.Module,
-<span id="L48" class="ln">    48  </span>	timechaos.Module,
-<span id="L49" class="ln">    49  </span>	physicalmachinechaos.Module,
-<span id="L50" class="ln">    50  </span>	blockchaos.Module,
-<span id="L51" class="ln">    51  </span>
-<span id="L52" class="ln">    52  </span>	utils.Module)
+<span id="L22" class="ln">    22  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/azurechaos&#34;
+<span id="L23" class="ln">    23  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/blockchaos&#34;
+<span id="L24" class="ln">    24  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/dnschaos&#34;
+<span id="L25" class="ln">    25  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos&#34;
+<span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos&#34;
+<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/iochaos&#34;
+<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos&#34;
+<span id="L29" class="ln">    29  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/kernelchaos&#34;
+<span id="L30" class="ln">    30  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/networkchaos&#34;
+<span id="L31" class="ln">    31  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/physicalmachinechaos&#34;
+<span id="L32" class="ln">    32  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/podchaos&#34;
+<span id="L33" class="ln">    33  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/stresschaos&#34;
+<span id="L34" class="ln">    34  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/timechaos&#34;
+<span id="L35" class="ln">    35  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/utils&#34;
+<span id="L36" class="ln">    36  </span>)
+<span id="L37" class="ln">    37  </span>
+<span id="L38" class="ln">    38  </span>var AllImpl = fx.Options(
+<span id="L39" class="ln">    39  </span>	awschaos.Module,
+<span id="L40" class="ln">    40  </span>	azurechaos.Module,
+<span id="L41" class="ln">    41  </span>	dnschaos.Module,
+<span id="L42" class="ln">    42  </span>	httpchaos.Module,
+<span id="L43" class="ln">    43  </span>	iochaos.Module,
+<span id="L44" class="ln">    44  </span>	kernelchaos.Module,
+<span id="L45" class="ln">    45  </span>	networkchaos.Module,
+<span id="L46" class="ln">    46  </span>	podchaos.Module,
+<span id="L47" class="ln">    47  </span>	gcpchaos.Module,
+<span id="L48" class="ln">    48  </span>	stresschaos.Module,
+<span id="L49" class="ln">    49  </span>	jvmchaos.Module,
+<span id="L50" class="ln">    50  </span>	timechaos.Module,
+<span id="L51" class="ln">    51  </span>	physicalmachinechaos.Module,
+<span id="L52" class="ln">    52  </span>	blockchaos.Module,
 <span id="L53" class="ln">    53  </span>
+<span id="L54" class="ln">    54  </span>	utils.Module)
+<span id="L55" class="ln">    55  </span>
 </pre><p></p>
 
 <div id="footer">

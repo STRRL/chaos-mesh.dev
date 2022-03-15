@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2ba4962. Generated at Mon Mar 14 22:03:49 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit fd258b0. Generated at Tue Mar 15 10:03:14 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -87,60 +87,58 @@
 <span id="L22" class="ln">    22  </span>	&#34;strings&#34;
 <span id="L23" class="ln">    23  </span>
 <span id="L24" class="ln">    24  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/log&#34;
-<span id="L25" class="ln">    25  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/ptrace&#34;
-<span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/time&#34;
-<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/time/utils&#34;
-<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/version&#34;
-<span id="L29" class="ln">    29  </span>)
-<span id="L30" class="ln">    30  </span>
-<span id="L31" class="ln">    31  </span>var (
-<span id="L32" class="ln">    32  </span>	pid           int
-<span id="L33" class="ln">    33  </span>	secDelta      int64
-<span id="L34" class="ln">    34  </span>	nsecDelta     int64
-<span id="L35" class="ln">    35  </span>	printVersion  bool
-<span id="L36" class="ln">    36  </span>	clockIdsSlice string
-<span id="L37" class="ln">    37  </span>)
-<span id="L38" class="ln">    38  </span>
-<span id="L39" class="ln">    39  </span>func initFlag() {
-<span id="L40" class="ln">    40  </span>	flag.IntVar(&amp;pid, &#34;pid&#34;, 0, &#34;pid of target program&#34;)
-<span id="L41" class="ln">    41  </span>	flag.Int64Var(&amp;secDelta, &#34;sec_delta&#34;, 0, &#34;delta time of sec field&#34;)
-<span id="L42" class="ln">    42  </span>	flag.Int64Var(&amp;nsecDelta, &#34;nsec_delta&#34;, 0, &#34;delta time of nsec field&#34;)
-<span id="L43" class="ln">    43  </span>	flag.StringVar(&amp;clockIdsSlice, &#34;clk_ids&#34;, &#34;CLOCK_REALTIME&#34;, &#34;all affected clock ids split with \&#34;,\&#34;&#34;)
-<span id="L44" class="ln">    44  </span>	flag.BoolVar(&amp;printVersion, &#34;version&#34;, false, &#34;print version information and exit&#34;)
-<span id="L45" class="ln">    45  </span>
-<span id="L46" class="ln">    46  </span>	flag.Parse()
-<span id="L47" class="ln">    47  </span>}
-<span id="L48" class="ln">    48  </span>
-<span id="L49" class="ln">    49  </span>func main() {
-<span id="L50" class="ln">    50  </span>	initFlag()
-<span id="L51" class="ln">    51  </span>
-<span id="L52" class="ln">    52  </span>	version.PrintVersionInfo(&#34;watchmaker&#34;)
-<span id="L53" class="ln">    53  </span>
-<span id="L54" class="ln">    54  </span>	if printVersion {
-<span id="L55" class="ln">    55  </span>		os.Exit(0)
-<span id="L56" class="ln">    56  </span>	}
-<span id="L57" class="ln">    57  </span>
-<span id="L58" class="ln">    58  </span>	logger, err := log.NewDefaultZapLogger()
-<span id="L59" class="ln">    59  </span>	if err != nil {
-<span id="L60" class="ln">    60  </span>		panic(fmt.Sprintf(&#34;error while creating zap logger: %v&#34;, err))
-<span id="L61" class="ln">    61  </span>	}
-<span id="L62" class="ln">    62  </span>	ptrace.RegisterLogger(logger.WithName(&#34;ptrace&#34;))
-<span id="L63" class="ln">    63  </span>
-<span id="L64" class="ln">    64  </span>	clkIds := strings.Split(clockIdsSlice, &#34;,&#34;)
-<span id="L65" class="ln">    65  </span>	mask, err := utils.EncodeClkIds(clkIds)
-<span id="L66" class="ln">    66  </span>	if err != nil {
-<span id="L67" class="ln">    67  </span>		logger.Error(err, &#34;error while converting clock ids to mask&#34;)
-<span id="L68" class="ln">    68  </span>		os.Exit(1)
-<span id="L69" class="ln">    69  </span>	}
-<span id="L70" class="ln">    70  </span>	logger.Info(&#34;get clock ids mask&#34;, &#34;mask&#34;, mask)
+<span id="L25" class="ln">    25  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/time&#34;
+<span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/time/utils&#34;
+<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/version&#34;
+<span id="L28" class="ln">    28  </span>)
+<span id="L29" class="ln">    29  </span>
+<span id="L30" class="ln">    30  </span>var (
+<span id="L31" class="ln">    31  </span>	pid           int
+<span id="L32" class="ln">    32  </span>	secDelta      int64
+<span id="L33" class="ln">    33  </span>	nsecDelta     int64
+<span id="L34" class="ln">    34  </span>	printVersion  bool
+<span id="L35" class="ln">    35  </span>	clockIdsSlice string
+<span id="L36" class="ln">    36  </span>)
+<span id="L37" class="ln">    37  </span>
+<span id="L38" class="ln">    38  </span>func initFlag() {
+<span id="L39" class="ln">    39  </span>	flag.IntVar(&amp;pid, &#34;pid&#34;, 0, &#34;pid of target program&#34;)
+<span id="L40" class="ln">    40  </span>	flag.Int64Var(&amp;secDelta, &#34;sec_delta&#34;, 0, &#34;delta time of sec field&#34;)
+<span id="L41" class="ln">    41  </span>	flag.Int64Var(&amp;nsecDelta, &#34;nsec_delta&#34;, 0, &#34;delta time of nsec field&#34;)
+<span id="L42" class="ln">    42  </span>	flag.StringVar(&amp;clockIdsSlice, &#34;clk_ids&#34;, &#34;CLOCK_REALTIME&#34;, &#34;all affected clock ids split with \&#34;,\&#34;&#34;)
+<span id="L43" class="ln">    43  </span>	flag.BoolVar(&amp;printVersion, &#34;version&#34;, false, &#34;print version information and exit&#34;)
+<span id="L44" class="ln">    44  </span>
+<span id="L45" class="ln">    45  </span>	flag.Parse()
+<span id="L46" class="ln">    46  </span>}
+<span id="L47" class="ln">    47  </span>
+<span id="L48" class="ln">    48  </span>func main() {
+<span id="L49" class="ln">    49  </span>	initFlag()
+<span id="L50" class="ln">    50  </span>
+<span id="L51" class="ln">    51  </span>	version.PrintVersionInfo(&#34;watchmaker&#34;)
+<span id="L52" class="ln">    52  </span>
+<span id="L53" class="ln">    53  </span>	if printVersion {
+<span id="L54" class="ln">    54  </span>		os.Exit(0)
+<span id="L55" class="ln">    55  </span>	}
+<span id="L56" class="ln">    56  </span>
+<span id="L57" class="ln">    57  </span>	logger, err := log.NewDefaultZapLogger()
+<span id="L58" class="ln">    58  </span>	if err != nil {
+<span id="L59" class="ln">    59  </span>		panic(fmt.Sprintf(&#34;error while creating zap logger: %v&#34;, err))
+<span id="L60" class="ln">    60  </span>	}
+<span id="L61" class="ln">    61  </span>
+<span id="L62" class="ln">    62  </span>	clkIds := strings.Split(clockIdsSlice, &#34;,&#34;)
+<span id="L63" class="ln">    63  </span>	mask, err := utils.EncodeClkIds(clkIds)
+<span id="L64" class="ln">    64  </span>	if err != nil {
+<span id="L65" class="ln">    65  </span>		logger.Error(err, &#34;error while converting clock ids to mask&#34;)
+<span id="L66" class="ln">    66  </span>		os.Exit(1)
+<span id="L67" class="ln">    67  </span>	}
+<span id="L68" class="ln">    68  </span>	logger.Info(&#34;get clock ids mask&#34;, &#34;mask&#34;, mask)
+<span id="L69" class="ln">    69  </span>
+<span id="L70" class="ln">    70  </span>	err = time.ModifyTime(pid, secDelta, nsecDelta, mask, logger.WithName(&#34;time&#34;))
 <span id="L71" class="ln">    71  </span>
-<span id="L72" class="ln">    72  </span>	err = time.ModifyTime(pid, secDelta, nsecDelta, mask, logger.WithName(&#34;time&#34;))
-<span id="L73" class="ln">    73  </span>
-<span id="L74" class="ln">    74  </span>	if err != nil {
-<span id="L75" class="ln">    75  </span>		logger.Error(err, &#34;error while modifying time&#34;, &#34;pid&#34;, pid, &#34;secDelta&#34;, secDelta, &#34;nsecDelta&#34;, nsecDelta, &#34;mask&#34;, mask)
-<span id="L76" class="ln">    76  </span>	}
-<span id="L77" class="ln">    77  </span>}
-<span id="L78" class="ln">    78  </span>
+<span id="L72" class="ln">    72  </span>	if err != nil {
+<span id="L73" class="ln">    73  </span>		logger.Error(err, &#34;error while modifying time&#34;, &#34;pid&#34;, pid, &#34;secDelta&#34;, secDelta, &#34;nsecDelta&#34;, nsecDelta, &#34;mask&#34;, mask)
+<span id="L74" class="ln">    74  </span>	}
+<span id="L75" class="ln">    75  </span>}
+<span id="L76" class="ln">    76  </span>
 </pre><p></p>
 
 <div id="footer">
