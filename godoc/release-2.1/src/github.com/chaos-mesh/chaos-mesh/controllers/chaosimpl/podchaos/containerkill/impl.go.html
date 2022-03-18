@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 87dcb20. Generated at Thu Mar 17 22:07:06 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 77161f9. Generated at Fri Mar 18 10:07:45 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -103,7 +103,7 @@
 <span id="L38" class="ln">    38  </span>}
 <span id="L39" class="ln">    39  </span>
 <span id="L40" class="ln">    40  </span>func (impl *Impl) Apply(ctx context.Context, index int, records []*v1alpha1.Record, obj v1alpha1.InnerObject) (v1alpha1.Phase, error) {
-<span id="L41" class="ln">    41  </span>	decodedContainer, err := impl.decoder.DecodeContainerRecord(ctx, records[index])
+<span id="L41" class="ln">    41  </span>	decodedContainer, err := impl.decoder.DecodeContainerRecord(ctx, records[index], obj)
 <span id="L42" class="ln">    42  </span>	pbClient := decodedContainer.PbClient
 <span id="L43" class="ln">    43  </span>	containerId := decodedContainer.ContainerId
 <span id="L44" class="ln">    44  </span>	if pbClient != nil {

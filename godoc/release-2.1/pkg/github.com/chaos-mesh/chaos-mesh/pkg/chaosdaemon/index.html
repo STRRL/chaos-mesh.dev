@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 87dcb20. Generated at Thu Mar 17 22:07:06 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 77161f9. Generated at Fri Mar 18 10:07:45 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -123,10 +123,13 @@
 				<dd><a href="#GetChildProcesses">func GetChildProcesses(ppid uint32) ([]uint32, error)</a></dd>
 			
 				
+				<dd><a href="#MetadataExtractor">func MetadataExtractor(keys ...log.Metadatkey) grpc.UnaryServerInterceptor</a></dd>
+			
+				
 				<dd><a href="#ReadCommName">func ReadCommName(pid int) (string, error)</a></dd>
 			
 				
-				<dd><a href="#StartServer">func StartServer(conf *Config, reg RegisterGatherer) error</a></dd>
+				<dd><a href="#StartServer">func StartServer(conf *Config, reg RegisterGatherer, logger logr.Logger) error</a></dd>
 			
 				
 				<dd><a href="#ToNetlinkNetemAttrs">func ToNetlinkNetemAttrs(netem *pb.Netem) netlink.NetemQdiscAttrs</a></dd>
@@ -147,7 +150,7 @@
 				<dd><a href="#DaemonServer">type DaemonServer</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewDaemonServerWithCRClient">func NewDaemonServerWithCRClient(crClient crclients.ContainerRuntimeInfoClient) *DaemonServer</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NewDaemonServerWithCRClient">func NewDaemonServerWithCRClient(crClient crclients.ContainerRuntimeInfoClient, logger logr.Logger) *DaemonServer</a></dd>
 				
 				
 					
@@ -298,7 +301,7 @@
 		
 			
 			
-			<h2 id="GetChildProcesses">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/util.go#L46">GetChildProcesses</a>
+			<h2 id="GetChildProcesses">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/util.go#L48">GetChildProcesses</a>
 				<a class="permalink" href="#GetChildProcesses">&#xb6;</a>
 				
 				
@@ -315,7 +318,20 @@ only return error when /proc/pid/tasks cannot be read
 		
 			
 			
-			<h2 id="ReadCommName">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/util.go#L29">ReadCommName</a>
+			<h2 id="MetadataExtractor">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L162">MetadataExtractor</a>
+				<a class="permalink" href="#MetadataExtractor">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func MetadataExtractor(keys ...<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/log/">log</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/log/#Metadatkey">Metadatkey</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/google.golang.org/grpc/#UnaryServerInterceptor">UnaryServerInterceptor</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="ReadCommName">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/util.go#L31">ReadCommName</a>
 				<a class="permalink" href="#ReadCommName">&#xb6;</a>
 				
 				
@@ -331,12 +347,12 @@ ReadCommName returns the command name of process
 		
 			
 			
-			<h2 id="StartServer">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L158">StartServer</a>
+			<h2 id="StartServer">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L187">StartServer</a>
 				<a class="permalink" href="#StartServer">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func StartServer(conf *<a href="#Config">Config</a>, reg <a href="#RegisterGatherer">RegisterGatherer</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+			<pre>func StartServer(conf *<a href="#Config">Config</a>, reg <a href="#RegisterGatherer">RegisterGatherer</a>, logger <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/go-logr/logr/#Logger">Logger</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
 			<p>
 StartServer starts chaos-daemon.
 </p>
@@ -361,7 +377,7 @@ StartServer starts chaos-daemon.
 		
 			
 			
-			<h2 id="Config">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L47">Config</a>
+			<h2 id="Config">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L50">Config</a>
 				<a class="permalink" href="#Config">&#xb6;</a>
 				
 				
@@ -392,7 +408,7 @@ Config contains the basic chaos daemon configuration.
 
 			
 				
-				<h3 id="Config.GrpcAddr">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L70">GrpcAddr</a>
+				<h3 id="Config.GrpcAddr">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L73">GrpcAddr</a>
 					<a class="permalink" href="#Config.GrpcAddr">&#xb6;</a>
 					
 					
@@ -407,7 +423,7 @@ Get the grpc address
 				
 			
 				
-				<h3 id="Config.HttpAddr">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L65">HttpAddr</a>
+				<h3 id="Config.HttpAddr">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L68">HttpAddr</a>
 					<a class="permalink" href="#Config.HttpAddr">&#xb6;</a>
 					
 					
@@ -424,7 +440,7 @@ Get the http address
 		
 			
 			
-			<h2 id="DaemonServer">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L75">DaemonServer</a>
+			<h2 id="DaemonServer">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L78">DaemonServer</a>
 				<a class="permalink" href="#DaemonServer">&#xb6;</a>
 				
 				
@@ -449,12 +465,12 @@ DaemonServer represents a grpc server for tc daemon
 
 			
 				
-				<h3 id="NewDaemonServerWithCRClient">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L92">NewDaemonServerWithCRClient</a>
+				<h3 id="NewDaemonServerWithCRClient">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L101">NewDaemonServerWithCRClient</a>
 					<a class="permalink" href="#NewDaemonServerWithCRClient">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func NewDaemonServerWithCRClient(crClient <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/crclients/">crclients</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/crclients/#ContainerRuntimeInfoClient">ContainerRuntimeInfoClient</a>) *<a href="#DaemonServer">DaemonServer</a></pre>
+				<pre>func NewDaemonServerWithCRClient(crClient <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/crclients/">crclients</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/crclients/#ContainerRuntimeInfoClient">ContainerRuntimeInfoClient</a>, logger <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#DaemonServer">DaemonServer</a></pre>
 				<p>
 NewDaemonServerWithCRClient returns DaemonServer with container runtime client
 </p>
@@ -489,7 +505,7 @@ NewDaemonServerWithCRClient returns DaemonServer with container runtime client
 				
 			
 				
-				<h3 id="DaemonServer.CancelStressors">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/stress_server_linux.go#L95">CancelStressors</a>
+				<h3 id="DaemonServer.CancelStressors">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/stress_server_linux.go#L96">CancelStressors</a>
 					<a class="permalink" href="#DaemonServer.CancelStressors">&#xb6;</a>
 					
 					
@@ -502,7 +518,7 @@ NewDaemonServerWithCRClient returns DaemonServer with container runtime client
 				
 			
 				
-				<h3 id="DaemonServer.ContainerGetPid">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/container.go#L47">ContainerGetPid</a>
+				<h3 id="DaemonServer.ContainerGetPid">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/container.go#L49">ContainerGetPid</a>
 					<a class="permalink" href="#DaemonServer.ContainerGetPid">&#xb6;</a>
 					
 					
@@ -542,7 +558,7 @@ ContainerKill kills container according to container id in the req
 				
 			
 				
-				<h3 id="DaemonServer.FlushIPSets">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/ipset_server.go#L35">FlushIPSets</a>
+				<h3 id="DaemonServer.FlushIPSets">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/ipset_server.go#L36">FlushIPSets</a>
 					<a class="permalink" href="#DaemonServer.FlushIPSets">&#xb6;</a>
 					
 					
@@ -567,7 +583,7 @@ ContainerKill kills container according to container id in the req
 				
 			
 				
-				<h3 id="DaemonServer.RecoverTimeOffset">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/time_server.go#L55">RecoverTimeOffset</a>
+				<h3 id="DaemonServer.RecoverTimeOffset">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/time_server.go#L56">RecoverTimeOffset</a>
 					<a class="permalink" href="#DaemonServer.RecoverTimeOffset">&#xb6;</a>
 					
 					
@@ -604,7 +620,7 @@ ContainerKill kills container according to container id in the req
 				
 			
 				
-				<h3 id="DaemonServer.SetTcs">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tc_server.go#L100">SetTcs</a>
+				<h3 id="DaemonServer.SetTcs">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tc_server.go#L102">SetTcs</a>
 					<a class="permalink" href="#DaemonServer.SetTcs">&#xb6;</a>
 					
 					
@@ -628,7 +644,7 @@ ContainerKill kills container according to container id in the req
 				
 			
 				
-				<h3 id="DaemonServer.UninstallJVMRules">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/jvm_server.go#L128">UninstallJVMRules</a>
+				<h3 id="DaemonServer.UninstallJVMRules">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/jvm_server.go#L129">UninstallJVMRules</a>
 					<a class="permalink" href="#DaemonServer.UninstallJVMRules">&#xb6;</a>
 					
 					
@@ -643,7 +659,7 @@ ContainerKill kills container according to container id in the req
 		
 			
 			
-			<h2 id="Edge">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/graph.go#L19">Edge</a>
+			<h2 id="Edge">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/graph.go#L21">Edge</a>
 				<a class="permalink" href="#Edge">&#xb6;</a>
 				
 				
@@ -673,7 +689,7 @@ Edge represents an edge in graph
 		
 			
 			
-			<h2 id="Graph">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/graph.go#L26">Graph</a>
+			<h2 id="Graph">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/graph.go#L28">Graph</a>
 				<a class="permalink" href="#Graph">&#xb6;</a>
 				
 				
@@ -697,7 +713,7 @@ Graph represents a graph with link list
 
 			
 				
-				<h3 id="NewGraph">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/graph.go#L31">NewGraph</a>
+				<h3 id="NewGraph">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/graph.go#L33">NewGraph</a>
 					<a class="permalink" href="#NewGraph">&#xb6;</a>
 					
 					
@@ -713,7 +729,7 @@ NewGraph creates a Graph
 
 			
 				
-				<h3 id="Graph.Flatten">func (*Graph) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/graph.go#L53">Flatten</a>
+				<h3 id="Graph.Flatten">func (*Graph) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/graph.go#L55">Flatten</a>
 					<a class="permalink" href="#Graph.Flatten">&#xb6;</a>
 					
 					
@@ -728,7 +744,7 @@ Flatten flattens the subtree from source (without checking whether it&#39;s a tr
 				
 			
 				
-				<h3 id="Graph.Insert">func (*Graph) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/graph.go#L38">Insert</a>
+				<h3 id="Graph.Insert">func (*Graph) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/graph.go#L40">Insert</a>
 					<a class="permalink" href="#Graph.Insert">&#xb6;</a>
 					
 					
@@ -743,7 +759,7 @@ Insert inserts an Edge into a graph from source to target
 				
 			
 				
-				<h3 id="Graph.IterFrom">func (*Graph) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/graph.go#L48">IterFrom</a>
+				<h3 id="Graph.IterFrom">func (*Graph) <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/graph.go#L50">IterFrom</a>
 					<a class="permalink" href="#Graph.IterFrom">&#xb6;</a>
 					
 					
@@ -760,7 +776,7 @@ IterFrom starts iterating from source node
 		
 			
 			
-			<h2 id="RegisterGatherer">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L152">RegisterGatherer</a>
+			<h2 id="RegisterGatherer">type <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L181">RegisterGatherer</a>
 				<a class="permalink" href="#RegisterGatherer">&#xb6;</a>
 				
 				

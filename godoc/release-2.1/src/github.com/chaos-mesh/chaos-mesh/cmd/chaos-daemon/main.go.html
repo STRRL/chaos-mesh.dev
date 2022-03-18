@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 87dcb20. Generated at Thu Mar 17 22:07:06 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 77161f9. Generated at Fri Mar 18 10:07:45 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -82,66 +82,72 @@
 <span id="L17" class="ln">    17  </span>
 <span id="L18" class="ln">    18  </span>import (
 <span id="L19" class="ln">    19  </span>	&#34;flag&#34;
-<span id="L20" class="ln">    20  </span>	&#34;os&#34;
-<span id="L21" class="ln">    21  </span>
-<span id="L22" class="ln">    22  </span>	&#34;github.com/prometheus/client_golang/prometheus&#34;
-<span id="L23" class="ln">    23  </span>	&#34;github.com/prometheus/client_golang/prometheus/collectors&#34;
-<span id="L24" class="ln">    24  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
-<span id="L25" class="ln">    25  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/log/zap&#34;
-<span id="L26" class="ln">    26  </span>
-<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon&#34;
-<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/fusedev&#34;
-<span id="L29" class="ln">    29  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/version&#34;
-<span id="L30" class="ln">    30  </span>)
-<span id="L31" class="ln">    31  </span>
-<span id="L32" class="ln">    32  </span>var (
-<span id="L33" class="ln">    33  </span>	log  = ctrl.Log.WithName(&#34;chaos-daemon&#34;)
-<span id="L34" class="ln">    34  </span>	conf = &amp;chaosdaemon.Config{Host: &#34;0.0.0.0&#34;}
-<span id="L35" class="ln">    35  </span>
-<span id="L36" class="ln">    36  </span>	printVersion bool
-<span id="L37" class="ln">    37  </span>)
-<span id="L38" class="ln">    38  </span>
-<span id="L39" class="ln">    39  </span>func init() {
-<span id="L40" class="ln">    40  </span>	flag.BoolVar(&amp;printVersion, &#34;version&#34;, false, &#34;print version information and exit&#34;)
-<span id="L41" class="ln">    41  </span>	flag.IntVar(&amp;conf.GRPCPort, &#34;grpc-port&#34;, 31767, &#34;the port which grpc server listens on&#34;)
-<span id="L42" class="ln">    42  </span>	flag.IntVar(&amp;conf.HTTPPort, &#34;http-port&#34;, 31766, &#34;the port which http server listens on&#34;)
-<span id="L43" class="ln">    43  </span>	flag.StringVar(&amp;conf.Runtime, &#34;runtime&#34;, &#34;docker&#34;, &#34;current container runtime&#34;)
-<span id="L44" class="ln">    44  </span>	flag.StringVar(&amp;conf.CaCert, &#34;ca&#34;, &#34;&#34;, &#34;ca certificate of grpc server&#34;)
-<span id="L45" class="ln">    45  </span>	flag.StringVar(&amp;conf.Cert, &#34;cert&#34;, &#34;&#34;, &#34;certificate of grpc server&#34;)
-<span id="L46" class="ln">    46  </span>	flag.StringVar(&amp;conf.Key, &#34;key&#34;, &#34;&#34;, &#34;key of grpc server&#34;)
-<span id="L47" class="ln">    47  </span>	flag.BoolVar(&amp;conf.Profiling, &#34;pprof&#34;, false, &#34;enable pprof&#34;)
-<span id="L48" class="ln">    48  </span>
-<span id="L49" class="ln">    49  </span>	flag.Parse()
-<span id="L50" class="ln">    50  </span>}
-<span id="L51" class="ln">    51  </span>
-<span id="L52" class="ln">    52  </span>func main() {
-<span id="L53" class="ln">    53  </span>	version.PrintVersionInfo(&#34;Chaos-daemon&#34;)
-<span id="L54" class="ln">    54  </span>
-<span id="L55" class="ln">    55  </span>	if printVersion {
-<span id="L56" class="ln">    56  </span>		os.Exit(0)
-<span id="L57" class="ln">    57  </span>	}
-<span id="L58" class="ln">    58  </span>
-<span id="L59" class="ln">    59  </span>	ctrl.SetLogger(zap.New(zap.UseDevMode(true)))
-<span id="L60" class="ln">    60  </span>
-<span id="L61" class="ln">    61  </span>	reg := prometheus.NewRegistry()
-<span id="L62" class="ln">    62  </span>	reg.MustRegister(
-<span id="L63" class="ln">    63  </span>		<span class="comment">// Use collectors as prometheus functions deprecated</span>
-<span id="L64" class="ln">    64  </span>		collectors.NewGoCollector(),
-<span id="L65" class="ln">    65  </span>		collectors.NewProcessCollector(collectors.ProcessCollectorOpts{}),
-<span id="L66" class="ln">    66  </span>	)
-<span id="L67" class="ln">    67  </span>
-<span id="L68" class="ln">    68  </span>	log.Info(&#34;grant access to /dev/fuse&#34;)
-<span id="L69" class="ln">    69  </span>	err := fusedev.GrantAccess()
-<span id="L70" class="ln">    70  </span>	if err != nil {
-<span id="L71" class="ln">    71  </span>		log.Error(err, &#34;fail to grant access to /dev/fuse&#34;)
-<span id="L72" class="ln">    72  </span>	}
+<span id="L20" class="ln">    20  </span>	stdlog &#34;log&#34;
+<span id="L21" class="ln">    21  </span>	&#34;os&#34;
+<span id="L22" class="ln">    22  </span>
+<span id="L23" class="ln">    23  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/log&#34;
+<span id="L24" class="ln">    24  </span>
+<span id="L25" class="ln">    25  </span>	&#34;github.com/prometheus/client_golang/prometheus&#34;
+<span id="L26" class="ln">    26  </span>	&#34;github.com/prometheus/client_golang/prometheus/collectors&#34;
+<span id="L27" class="ln">    27  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
+<span id="L28" class="ln">    28  </span>
+<span id="L29" class="ln">    29  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon&#34;
+<span id="L30" class="ln">    30  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/fusedev&#34;
+<span id="L31" class="ln">    31  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/version&#34;
+<span id="L32" class="ln">    32  </span>)
+<span id="L33" class="ln">    33  </span>
+<span id="L34" class="ln">    34  </span>var (
+<span id="L35" class="ln">    35  </span>	conf = &amp;chaosdaemon.Config{Host: &#34;0.0.0.0&#34;}
+<span id="L36" class="ln">    36  </span>
+<span id="L37" class="ln">    37  </span>	printVersion bool
+<span id="L38" class="ln">    38  </span>)
+<span id="L39" class="ln">    39  </span>
+<span id="L40" class="ln">    40  </span>func init() {
+<span id="L41" class="ln">    41  </span>	flag.BoolVar(&amp;printVersion, &#34;version&#34;, false, &#34;print version information and exit&#34;)
+<span id="L42" class="ln">    42  </span>	flag.IntVar(&amp;conf.GRPCPort, &#34;grpc-port&#34;, 31767, &#34;the port which grpc server listens on&#34;)
+<span id="L43" class="ln">    43  </span>	flag.IntVar(&amp;conf.HTTPPort, &#34;http-port&#34;, 31766, &#34;the port which http server listens on&#34;)
+<span id="L44" class="ln">    44  </span>	flag.StringVar(&amp;conf.Runtime, &#34;runtime&#34;, &#34;docker&#34;, &#34;current container runtime&#34;)
+<span id="L45" class="ln">    45  </span>	flag.StringVar(&amp;conf.CaCert, &#34;ca&#34;, &#34;&#34;, &#34;ca certificate of grpc server&#34;)
+<span id="L46" class="ln">    46  </span>	flag.StringVar(&amp;conf.Cert, &#34;cert&#34;, &#34;&#34;, &#34;certificate of grpc server&#34;)
+<span id="L47" class="ln">    47  </span>	flag.StringVar(&amp;conf.Key, &#34;key&#34;, &#34;&#34;, &#34;key of grpc server&#34;)
+<span id="L48" class="ln">    48  </span>	flag.BoolVar(&amp;conf.Profiling, &#34;pprof&#34;, false, &#34;enable pprof&#34;)
+<span id="L49" class="ln">    49  </span>
+<span id="L50" class="ln">    50  </span>	flag.Parse()
+<span id="L51" class="ln">    51  </span>}
+<span id="L52" class="ln">    52  </span>
+<span id="L53" class="ln">    53  </span>func main() {
+<span id="L54" class="ln">    54  </span>	version.PrintVersionInfo(&#34;Chaos-daemon&#34;)
+<span id="L55" class="ln">    55  </span>
+<span id="L56" class="ln">    56  </span>	if printVersion {
+<span id="L57" class="ln">    57  </span>		os.Exit(0)
+<span id="L58" class="ln">    58  </span>	}
+<span id="L59" class="ln">    59  </span>	rootLogger, err := log.NewDefaultZapLogger()
+<span id="L60" class="ln">    60  </span>	if err != nil {
+<span id="L61" class="ln">    61  </span>		stdlog.Fatal(&#34;failed to create root logger&#34;, err)
+<span id="L62" class="ln">    62  </span>	}
+<span id="L63" class="ln">    63  </span>	rootLogger = rootLogger.WithName(&#34;chaos-daemon.daemon-server&#34;)
+<span id="L64" class="ln">    64  </span>	log.ReplaceGlobals(rootLogger)
+<span id="L65" class="ln">    65  </span>	ctrl.SetLogger(rootLogger)
+<span id="L66" class="ln">    66  </span>
+<span id="L67" class="ln">    67  </span>	reg := prometheus.NewRegistry()
+<span id="L68" class="ln">    68  </span>	reg.MustRegister(
+<span id="L69" class="ln">    69  </span>		<span class="comment">// Use collectors as prometheus functions deprecated</span>
+<span id="L70" class="ln">    70  </span>		collectors.NewGoCollector(),
+<span id="L71" class="ln">    71  </span>		collectors.NewProcessCollector(collectors.ProcessCollectorOpts{}),
+<span id="L72" class="ln">    72  </span>	)
 <span id="L73" class="ln">    73  </span>
-<span id="L74" class="ln">    74  </span>	if err = chaosdaemon.StartServer(conf, reg); err != nil {
-<span id="L75" class="ln">    75  </span>		log.Error(err, &#34;failed to start chaos-daemon server&#34;)
-<span id="L76" class="ln">    76  </span>		os.Exit(1)
-<span id="L77" class="ln">    77  </span>	}
-<span id="L78" class="ln">    78  </span>}
+<span id="L74" class="ln">    74  </span>	rootLogger.Info(&#34;grant access to /dev/fuse&#34;)
+<span id="L75" class="ln">    75  </span>	err = fusedev.GrantAccess()
+<span id="L76" class="ln">    76  </span>	if err != nil {
+<span id="L77" class="ln">    77  </span>		rootLogger.Error(err, &#34;fail to grant access to /dev/fuse&#34;)
+<span id="L78" class="ln">    78  </span>	}
 <span id="L79" class="ln">    79  </span>
+<span id="L80" class="ln">    80  </span>	if err = chaosdaemon.StartServer(conf, reg, rootLogger); err != nil {
+<span id="L81" class="ln">    81  </span>		rootLogger.Error(err, &#34;failed to start chaos-daemon server&#34;)
+<span id="L82" class="ln">    82  </span>		os.Exit(1)
+<span id="L83" class="ln">    83  </span>	}
+<span id="L84" class="ln">    84  </span>}
+<span id="L85" class="ln">    85  </span>
 </pre><p></p>
 
 <div id="footer">

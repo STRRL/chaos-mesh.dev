@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 87dcb20. Generated at Thu Mar 17 22:07:06 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 77161f9. Generated at Fri Mar 18 10:07:45 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -172,68 +172,71 @@
 <span id="L107" class="ln">   107  </span>		}
 <span id="L108" class="ln">   108  </span>	}()
 <span id="L109" class="ln">   109  </span>
-<span id="L110" class="ln">   110  </span>	pbClient, err := r.ChaosDaemonClientBuilder.Build(ctx, pod)
-<span id="L111" class="ln">   111  </span>	if err != nil {
-<span id="L112" class="ln">   112  </span>		r.Recorder.Event(obj, &#34;Warning&#34;, &#34;Failed&#34;, err.Error())
-<span id="L113" class="ln">   113  </span>		return ctrl.Result{Requeue: true}, nil
-<span id="L114" class="ln">   114  </span>	}
-<span id="L115" class="ln">   115  </span>	defer pbClient.Close()
-<span id="L116" class="ln">   116  </span>
-<span id="L117" class="ln">   117  </span>	if len(pod.Status.ContainerStatuses) == 0 {
-<span id="L118" class="ln">   118  </span>		err = fmt.Errorf(&#34;%s %s can&#39;t get the state of container&#34;, pod.Namespace, pod.Name)
-<span id="L119" class="ln">   119  </span>		r.Recorder.Event(obj, &#34;Warning&#34;, &#34;Failed&#34;, err.Error())
-<span id="L120" class="ln">   120  </span>		return ctrl.Result{}, nil
-<span id="L121" class="ln">   121  </span>	}
-<span id="L122" class="ln">   122  </span>
-<span id="L123" class="ln">   123  </span>	containerID := pod.Status.ContainerStatuses[0].ContainerID
-<span id="L124" class="ln">   124  </span>
-<span id="L125" class="ln">   125  </span>	rules := make([]v1alpha1.PodHttpChaosBaseRule, 0)
-<span id="L126" class="ln">   126  </span>	proxyPortsMap := make(map[uint32]bool)
-<span id="L127" class="ln">   127  </span>	proxyPorts := make([]uint32, 0)
-<span id="L128" class="ln">   128  </span>
-<span id="L129" class="ln">   129  </span>	for _, rule := range obj.Spec.Rules {
-<span id="L130" class="ln">   130  </span>		proxyPortsMap[uint32(rule.Port)] = true
-<span id="L131" class="ln">   131  </span>		rules = append(rules, rule.PodHttpChaosBaseRule)
-<span id="L132" class="ln">   132  </span>	}
-<span id="L133" class="ln">   133  </span>
-<span id="L134" class="ln">   134  </span>	for port := range proxyPortsMap {
-<span id="L135" class="ln">   135  </span>		proxyPorts = append(proxyPorts, port)
-<span id="L136" class="ln">   136  </span>	}
-<span id="L137" class="ln">   137  </span>
-<span id="L138" class="ln">   138  </span>	input, err := json.Marshal(rules)
-<span id="L139" class="ln">   139  </span>	if err != nil {
-<span id="L140" class="ln">   140  </span>		r.Recorder.Event(obj, &#34;Warning&#34;, &#34;Failed&#34;, err.Error())
-<span id="L141" class="ln">   141  </span>		return ctrl.Result{}, nil
-<span id="L142" class="ln">   142  </span>	}
-<span id="L143" class="ln">   143  </span>
-<span id="L144" class="ln">   144  </span>	r.Log.Info(&#34;input with&#34;, &#34;rules&#34;, string(input))
-<span id="L145" class="ln">   145  </span>
-<span id="L146" class="ln">   146  </span>	res, err := pbClient.ApplyHttpChaos(ctx, &amp;pb.ApplyHttpChaosRequest{
-<span id="L147" class="ln">   147  </span>		Rules:       string(input),
-<span id="L148" class="ln">   148  </span>		ProxyPorts:  proxyPorts,
-<span id="L149" class="ln">   149  </span>		ContainerId: containerID,
-<span id="L150" class="ln">   150  </span>
-<span id="L151" class="ln">   151  </span>		Instance:  obj.Status.Pid,
-<span id="L152" class="ln">   152  </span>		StartTime: obj.Status.StartTime,
-<span id="L153" class="ln">   153  </span>		EnterNS:   true,
-<span id="L154" class="ln">   154  </span>	})
-<span id="L155" class="ln">   155  </span>	if err != nil {
-<span id="L156" class="ln">   156  </span>		r.Recorder.Event(obj, &#34;Warning&#34;, &#34;Failed&#34;, err.Error())
-<span id="L157" class="ln">   157  </span>		return ctrl.Result{Requeue: true}, nil
-<span id="L158" class="ln">   158  </span>	}
-<span id="L159" class="ln">   159  </span>
-<span id="L160" class="ln">   160  </span>	if res.StatusCode != http.StatusOK {
-<span id="L161" class="ln">   161  </span>		err = fmt.Errorf(&#34;status(%d), apply fail: %s&#34;, res.StatusCode, res.Error)
-<span id="L162" class="ln">   162  </span>		r.Recorder.Event(obj, &#34;Warning&#34;, &#34;Failed&#34;, err.Error())
-<span id="L163" class="ln">   163  </span>		return ctrl.Result{Requeue: true}, nil
-<span id="L164" class="ln">   164  </span>	}
-<span id="L165" class="ln">   165  </span>
-<span id="L166" class="ln">   166  </span>	pid = res.Instance
-<span id="L167" class="ln">   167  </span>	startTime = res.StartTime
+<span id="L110" class="ln">   110  </span>	pbClient, err := r.ChaosDaemonClientBuilder.Build(ctx, pod, &amp;types.NamespacedName{
+<span id="L111" class="ln">   111  </span>		Namespace: obj.Namespace,
+<span id="L112" class="ln">   112  </span>		Name:      obj.Name,
+<span id="L113" class="ln">   113  </span>	})
+<span id="L114" class="ln">   114  </span>	if err != nil {
+<span id="L115" class="ln">   115  </span>		r.Recorder.Event(obj, &#34;Warning&#34;, &#34;Failed&#34;, err.Error())
+<span id="L116" class="ln">   116  </span>		return ctrl.Result{Requeue: true}, nil
+<span id="L117" class="ln">   117  </span>	}
+<span id="L118" class="ln">   118  </span>	defer pbClient.Close()
+<span id="L119" class="ln">   119  </span>
+<span id="L120" class="ln">   120  </span>	if len(pod.Status.ContainerStatuses) == 0 {
+<span id="L121" class="ln">   121  </span>		err = fmt.Errorf(&#34;%s %s can&#39;t get the state of container&#34;, pod.Namespace, pod.Name)
+<span id="L122" class="ln">   122  </span>		r.Recorder.Event(obj, &#34;Warning&#34;, &#34;Failed&#34;, err.Error())
+<span id="L123" class="ln">   123  </span>		return ctrl.Result{}, nil
+<span id="L124" class="ln">   124  </span>	}
+<span id="L125" class="ln">   125  </span>
+<span id="L126" class="ln">   126  </span>	containerID := pod.Status.ContainerStatuses[0].ContainerID
+<span id="L127" class="ln">   127  </span>
+<span id="L128" class="ln">   128  </span>	rules := make([]v1alpha1.PodHttpChaosBaseRule, 0)
+<span id="L129" class="ln">   129  </span>	proxyPortsMap := make(map[uint32]bool)
+<span id="L130" class="ln">   130  </span>	proxyPorts := make([]uint32, 0)
+<span id="L131" class="ln">   131  </span>
+<span id="L132" class="ln">   132  </span>	for _, rule := range obj.Spec.Rules {
+<span id="L133" class="ln">   133  </span>		proxyPortsMap[uint32(rule.Port)] = true
+<span id="L134" class="ln">   134  </span>		rules = append(rules, rule.PodHttpChaosBaseRule)
+<span id="L135" class="ln">   135  </span>	}
+<span id="L136" class="ln">   136  </span>
+<span id="L137" class="ln">   137  </span>	for port := range proxyPortsMap {
+<span id="L138" class="ln">   138  </span>		proxyPorts = append(proxyPorts, port)
+<span id="L139" class="ln">   139  </span>	}
+<span id="L140" class="ln">   140  </span>
+<span id="L141" class="ln">   141  </span>	input, err := json.Marshal(rules)
+<span id="L142" class="ln">   142  </span>	if err != nil {
+<span id="L143" class="ln">   143  </span>		r.Recorder.Event(obj, &#34;Warning&#34;, &#34;Failed&#34;, err.Error())
+<span id="L144" class="ln">   144  </span>		return ctrl.Result{}, nil
+<span id="L145" class="ln">   145  </span>	}
+<span id="L146" class="ln">   146  </span>
+<span id="L147" class="ln">   147  </span>	r.Log.Info(&#34;input with&#34;, &#34;rules&#34;, string(input))
+<span id="L148" class="ln">   148  </span>
+<span id="L149" class="ln">   149  </span>	res, err := pbClient.ApplyHttpChaos(ctx, &amp;pb.ApplyHttpChaosRequest{
+<span id="L150" class="ln">   150  </span>		Rules:       string(input),
+<span id="L151" class="ln">   151  </span>		ProxyPorts:  proxyPorts,
+<span id="L152" class="ln">   152  </span>		ContainerId: containerID,
+<span id="L153" class="ln">   153  </span>
+<span id="L154" class="ln">   154  </span>		Instance:  obj.Status.Pid,
+<span id="L155" class="ln">   155  </span>		StartTime: obj.Status.StartTime,
+<span id="L156" class="ln">   156  </span>		EnterNS:   true,
+<span id="L157" class="ln">   157  </span>	})
+<span id="L158" class="ln">   158  </span>	if err != nil {
+<span id="L159" class="ln">   159  </span>		r.Recorder.Event(obj, &#34;Warning&#34;, &#34;Failed&#34;, err.Error())
+<span id="L160" class="ln">   160  </span>		return ctrl.Result{Requeue: true}, nil
+<span id="L161" class="ln">   161  </span>	}
+<span id="L162" class="ln">   162  </span>
+<span id="L163" class="ln">   163  </span>	if res.StatusCode != http.StatusOK {
+<span id="L164" class="ln">   164  </span>		err = fmt.Errorf(&#34;status(%d), apply fail: %s&#34;, res.StatusCode, res.Error)
+<span id="L165" class="ln">   165  </span>		r.Recorder.Event(obj, &#34;Warning&#34;, &#34;Failed&#34;, err.Error())
+<span id="L166" class="ln">   166  </span>		return ctrl.Result{Requeue: true}, nil
+<span id="L167" class="ln">   167  </span>	}
 <span id="L168" class="ln">   168  </span>
-<span id="L169" class="ln">   169  </span>	return ctrl.Result{}, nil
-<span id="L170" class="ln">   170  </span>}
+<span id="L169" class="ln">   169  </span>	pid = res.Instance
+<span id="L170" class="ln">   170  </span>	startTime = res.StartTime
 <span id="L171" class="ln">   171  </span>
+<span id="L172" class="ln">   172  </span>	return ctrl.Result{}, nil
+<span id="L173" class="ln">   173  </span>}
+<span id="L174" class="ln">   174  </span>
 </pre><p></p>
 
 <div id="footer">

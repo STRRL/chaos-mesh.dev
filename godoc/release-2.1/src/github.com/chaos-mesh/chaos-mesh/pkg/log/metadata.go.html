@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="theme-color" content="#375EAB"/>
 
-  <title>src/github.com/chaos-mesh/chaos-mesh/pkg/version/version.go - Chaos Mesh</title>
+  <title>src/github.com/chaos-mesh/chaos-mesh/pkg/log/metadata.go - Chaos Mesh</title>
 
 <link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/release-2.1/lib/godoc/style.css"/>
 
@@ -46,7 +46,7 @@
 
   <h1>
     Source file
-    <a href="https:/chaos-mesh.dev/godoc/release-2.1/src">src</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.1/src/github.com">github.com</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg">pkg</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/version">version</a>/<span class="text-muted">version.go</span>
+    <a href="https:/chaos-mesh.dev/godoc/release-2.1/src">src</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.1/src/github.com">github.com</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg">pkg</a>/<a href="https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/pkg/log">log</a>/<span class="text-muted">metadata.go</span>
   </h1>
 
 
@@ -54,7 +54,7 @@
 
 
   <h2>
-    Documentation: <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/version">github.com/chaos-mesh/chaos-mesh/pkg/version</a>
+    Documentation: <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/log">github.com/chaos-mesh/chaos-mesh/pkg/log</a>
   </h2>
 
 
@@ -63,7 +63,7 @@
 
 
 <script type="text/javascript">document.ANALYSIS_DATA = null;</script>
-<pre><span id="L1" class="ln">     1  </span><span class="comment">// Copyright 2021 Chaos Mesh Authors.</span>
+<pre><span id="L1" class="ln">     1  </span><span class="comment">// Copyright 2022 Chaos Mesh Authors.</span>
 <span id="L2" class="ln">     2  </span><span class="comment">//</span>
 <span id="L3" class="ln">     3  </span><span class="comment">// Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span>
 <span id="L4" class="ln">     4  </span><span class="comment">// you may not use this file except in compliance with the License.</span>
@@ -78,39 +78,30 @@
 <span id="L13" class="ln">    13  </span><span class="comment">// limitations under the License.</span>
 <span id="L14" class="ln">    14  </span><span class="comment">//</span>
 <span id="L15" class="ln">    15  </span>
-<span id="L16" class="ln">    16  </span>package version
+<span id="L16" class="ln">    16  </span>package log
 <span id="L17" class="ln">    17  </span>
 <span id="L18" class="ln">    18  </span>import (
-<span id="L19" class="ln">    19  </span>	&#34;fmt&#34;
-<span id="L20" class="ln">    20  </span>	&#34;runtime&#34;
-<span id="L21" class="ln">    21  </span>)
-<span id="L22" class="ln">    22  </span>
-<span id="L23" class="ln">    23  </span>var (
-<span id="L24" class="ln">    24  </span>	gitVersion = &#34;v0.0.0-master+$Format:%h$&#34;
-<span id="L25" class="ln">    25  </span>	gitCommit  = &#34;$Format:%H$&#34; <span class="comment">// sha1 from git, output of $(git rev-parse HEAD)</span>
-<span id="L26" class="ln">    26  </span>
-<span id="L27" class="ln">    27  </span>	buildDate = &#34;1970-01-01T00:00:00Z&#34; <span class="comment">// build date in ISO8601 format, output of $(date -u +&#39;%Y-%m-%dT%H:%M:%SZ&#39;)</span>
+<span id="L19" class="ln">    19  </span>	&#34;context&#34;
+<span id="L20" class="ln">    20  </span>
+<span id="L21" class="ln">    21  </span>	&#34;github.com/go-logr/logr&#34;
+<span id="L22" class="ln">    22  </span>)
+<span id="L23" class="ln">    23  </span>
+<span id="L24" class="ln">    24  </span>type Metadatkey string
+<span id="L25" class="ln">    25  </span>
+<span id="L26" class="ln">    26  </span>const (
+<span id="L27" class="ln">    27  </span>	MetaNamespacedName Metadatkey = &#34;namespaced-name&#34;
 <span id="L28" class="ln">    28  </span>)
 <span id="L29" class="ln">    29  </span>
-<span id="L30" class="ln">    30  </span><span class="comment">// PrintVersionInfo show version info to Stdout</span>
-<span id="L31" class="ln">    31  </span>func PrintVersionInfo(name string) {
-<span id="L32" class="ln">    32  </span>	fmt.Printf(&#34;%s Version: %#v\n&#34;, name, Get())
-<span id="L33" class="ln">    33  </span>}
-<span id="L34" class="ln">    34  </span>
-<span id="L35" class="ln">    35  </span><span class="comment">// Get returns the overall codebase version. It&#39;s for detecting</span>
-<span id="L36" class="ln">    36  </span><span class="comment">// what code a binary was built from.</span>
-<span id="L37" class="ln">    37  </span>func Get() Info {
-<span id="L38" class="ln">    38  </span>	<span class="comment">// These variables typically come from -ldflags settings</span>
-<span id="L39" class="ln">    39  </span>	return Info{
-<span id="L40" class="ln">    40  </span>		GitVersion: gitVersion,
-<span id="L41" class="ln">    41  </span>		GitCommit:  gitCommit,
-<span id="L42" class="ln">    42  </span>		BuildDate:  buildDate,
-<span id="L43" class="ln">    43  </span>		GoVersion:  runtime.Version(),
-<span id="L44" class="ln">    44  </span>		Compiler:   runtime.Compiler,
-<span id="L45" class="ln">    45  </span>		Platform:   fmt.Sprintf(&#34;%s/%s&#34;, runtime.GOOS, runtime.GOARCH),
-<span id="L46" class="ln">    46  </span>	}
-<span id="L47" class="ln">    47  </span>}
-<span id="L48" class="ln">    48  </span>
+<span id="L30" class="ln">    30  </span>func EnrichLoggerWithContext(ctx context.Context, logger logr.Logger) logr.Logger {
+<span id="L31" class="ln">    31  </span>	newLogger := logger
+<span id="L32" class="ln">    32  </span>	if ctx != nil {
+<span id="L33" class="ln">    33  </span>		if namespacedName, ok := ctx.Value(MetaNamespacedName).(string); ok {
+<span id="L34" class="ln">    34  </span>			newLogger = newLogger.WithValues(&#34;namespacedName&#34;, namespacedName)
+<span id="L35" class="ln">    35  </span>		}
+<span id="L36" class="ln">    36  </span>	}
+<span id="L37" class="ln">    37  </span>	return newLogger
+<span id="L38" class="ln">    38  </span>}
+<span id="L39" class="ln">    39  </span>
 </pre><p></p>
 
 <div id="footer">

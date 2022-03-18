@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 87dcb20. Generated at Thu Mar 17 22:07:06 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 77161f9. Generated at Fri Mar 18 10:07:45 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -80,11 +80,15 @@
 <span id="L15" class="ln">    15  </span>
 <span id="L16" class="ln">    16  </span>package bpm
 <span id="L17" class="ln">    17  </span>
-<span id="L18" class="ln">    18  </span><span class="comment">// Build builds the process</span>
-<span id="L19" class="ln">    19  </span>func (b *ProcessBuilder) Build() *ManagedProcess {
-<span id="L20" class="ln">    20  </span>	panic(&#34;unimplemented&#34;)
-<span id="L21" class="ln">    21  </span>}
-<span id="L22" class="ln">    22  </span>
+<span id="L18" class="ln">    18  </span>import &#34;context&#34;
+<span id="L19" class="ln">    19  </span>
+<span id="L20" class="ln">    20  </span><span class="comment">// Build builds the process</span>
+<span id="L21" class="ln">    21  </span><span class="comment">// the ctx argument passes the context information to this function</span>
+<span id="L22" class="ln">    22  </span><span class="comment">// e.g. the corresponding resource name.</span>
+<span id="L23" class="ln">    23  </span>func (b *ProcessBuilder) Build(ctx context.Context) *ManagedProcess {
+<span id="L24" class="ln">    24  </span>	panic(&#34;unimplemented&#34;)
+<span id="L25" class="ln">    25  </span>}
+<span id="L26" class="ln">    26  </span>
 </pre><p></p>
 
 <div id="footer">

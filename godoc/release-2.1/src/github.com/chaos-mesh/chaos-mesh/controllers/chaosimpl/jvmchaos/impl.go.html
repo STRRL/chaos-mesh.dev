@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 87dcb20. Generated at Thu Mar 17 22:07:06 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 77161f9. Generated at Fri Mar 18 10:07:45 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -136,7 +136,7 @@
 <span id="L71" class="ln">    71  </span>	if impl.decoder == nil {
 <span id="L72" class="ln">    72  </span>		return v1alpha1.NotInjected, fmt.Errorf(&#34;impl decoder is nil&#34;)
 <span id="L73" class="ln">    73  </span>	}
-<span id="L74" class="ln">    74  </span>	decodedContainer, err := impl.decoder.DecodeContainerRecord(ctx, records[index])
+<span id="L74" class="ln">    74  </span>	decodedContainer, err := impl.decoder.DecodeContainerRecord(ctx, records[index], obj)
 <span id="L75" class="ln">    75  </span>	if decodedContainer.PbClient != nil {
 <span id="L76" class="ln">    76  </span>		defer func() {
 <span id="L77" class="ln">    77  </span>			err := decodedContainer.PbClient.Close()
@@ -174,7 +174,7 @@
 <span id="L109" class="ln">   109  </span>	if impl.decoder == nil {
 <span id="L110" class="ln">   110  </span>		return v1alpha1.Injected, fmt.Errorf(&#34;impl decoder is nil&#34;)
 <span id="L111" class="ln">   111  </span>	}
-<span id="L112" class="ln">   112  </span>	decodedContainer, err := impl.decoder.DecodeContainerRecord(ctx, records[index])
+<span id="L112" class="ln">   112  </span>	decodedContainer, err := impl.decoder.DecodeContainerRecord(ctx, records[index], obj)
 <span id="L113" class="ln">   113  </span>	if decodedContainer.PbClient != nil {
 <span id="L114" class="ln">   114  </span>		defer func() {
 <span id="L115" class="ln">   115  </span>			err := decodedContainer.PbClient.Close()

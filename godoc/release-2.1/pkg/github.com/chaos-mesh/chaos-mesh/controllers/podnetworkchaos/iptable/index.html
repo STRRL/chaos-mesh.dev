@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 87dcb20. Generated at Thu Mar 17 22:07:06 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 77161f9. Generated at Fri Mar 18 10:07:45 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -119,7 +119,7 @@
 				<dd><a href="#GenerateName">func GenerateName(direction pb.Chain_Direction, networkchaos *v1alpha1.NetworkChaos) (chainName string)</a></dd>
 			
 				
-				<dd><a href="#SetIptablesChains">func SetIptablesChains(ctx context.Context, builder *chaosdaemon.ChaosDaemonClientBuilder, pod *v1.Pod, chains []*pb.Chain) error</a></dd>
+				<dd><a href="#SetIptablesChains">func SetIptablesChains(ctx context.Context, pbClient chaosdaemonclient.ChaosDaemonClientInterface, pod *v1.Pod, chains []*pb.Chain) error</a></dd>
 			
 			
 			
@@ -148,7 +148,7 @@
 		
 			
 			
-			<h2 id="GenerateName">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/iptable/iptable.go#L69">GenerateName</a>
+			<h2 id="GenerateName">func <a href="./https:/chaos-mesh.dev/godoc/release-2.1/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/iptable/iptable.go#L65">GenerateName</a>
 				<a class="permalink" href="#GenerateName">&#xb6;</a>
 				
 				
@@ -169,7 +169,7 @@ GenerateName generates chain name for network chaos
 				
 				
 			</h2>
-			<pre>func SetIptablesChains(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, builder *<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon/#ChaosDaemonClientBuilder">ChaosDaemonClientBuilder</a>, pod *<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, chains []*<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">pb</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#Chain">Chain</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
+			<pre>func SetIptablesChains(ctx <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/context/#Context">Context</a>, pbClient <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/client/">chaosdaemonclient</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/client/#ChaosDaemonClientInterface">ChaosDaemonClientInterface</a>, pod *<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, chains []*<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">pb</a>.<a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#Chain">Chain</a>) <a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/builtin/#error">error</a></pre>
 			<p>
 SetIptablesChains makes grpc call to chaosdaemon to flush iptable
 </p>
