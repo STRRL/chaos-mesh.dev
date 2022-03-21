@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d0b0236. Generated at Sun Mar 20 22:03:47 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit cbcdec1. Generated at Mon Mar 21 10:06:59 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -123,7 +123,10 @@
 				<dd><a href="#Service">type Service</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewService">func NewService(conf *config.ChaosDashboardConfig, store core.WorkflowStore) *Service</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#Bootstrap">func Bootstrap(conf *config.ChaosDashboardConfig, store core.WorkflowStore, logger logr.Logger) *Service</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewService">func NewService(conf *config.ChaosDashboardConfig, store core.WorkflowStore, logger logr.Logger) *Service</a></dd>
 				
 				
 			
@@ -143,6 +146,8 @@
 			<p>
 			<span style="font-size:90%">
 			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/workflow/fx.go">fx.go</a>
+			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/workflow/workflow.go">workflow.go</a>
 			
 			</span>
@@ -158,7 +163,7 @@
 		
 			
 			
-			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/workflow/workflow.go#L43">Register</a>
+			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/workflow/workflow.go#L41">Register</a>
 				<a class="permalink" href="#Register">&#xb6;</a>
 				
 				
@@ -172,7 +177,7 @@
 		
 			
 			
-			<h2 id="Service">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/workflow/workflow.go#L56">Service</a>
+			<h2 id="Service">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/workflow/workflow.go#L54">Service</a>
 				<a class="permalink" href="#Service">&#xb6;</a>
 				
 				
@@ -196,12 +201,23 @@ Service defines a handler service for workflows.
 
 			
 				
-				<h3 id="NewService">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/workflow/workflow.go#L61">NewService</a>
+				<h3 id="Bootstrap">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/workflow/fx.go#L25">Bootstrap</a>
+					<a class="permalink" href="#Bootstrap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Bootstrap(conf *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/">config</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/#ChaosDashboardConfig">ChaosDashboardConfig</a>, store <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#WorkflowStore">WorkflowStore</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#Service">Service</a></pre>
+				
+				
+				
+			
+				
+				<h3 id="NewService">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/workflow/workflow.go#L60">NewService</a>
 					<a class="permalink" href="#NewService">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func NewService(conf *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/">config</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/#ChaosDashboardConfig">ChaosDashboardConfig</a>, store <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#WorkflowStore">WorkflowStore</a>) *<a href="#Service">Service</a></pre>
+				<pre>func NewService(conf *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/">config</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/#ChaosDashboardConfig">ChaosDashboardConfig</a>, store <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#WorkflowStore">WorkflowStore</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#Service">Service</a></pre>
 				
 				
 				
@@ -211,7 +227,7 @@ Service defines a handler service for workflows.
 		
 			
 			
-			<h2 id="StatusResponse">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/workflow/workflow.go#L39">StatusResponse</a>
+			<h2 id="StatusResponse">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/workflow/workflow.go#L37">StatusResponse</a>
 				<a class="permalink" href="#StatusResponse">&#xb6;</a>
 				
 				
