@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit da933f0. Generated at Thu Mar 24 10:01:47 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 00768bf. Generated at Thu Mar 24 22:03:37 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -268,96 +268,98 @@
 <span id="L203" class="ln">   203  </span>			Config:        conf,
 <span id="L204" class="ln">   204  </span>			ControllerCfg: ccfg.ControllerCfg,
 <span id="L205" class="ln">   205  </span>			Metrics:       metricsCollector,
-<span id="L206" class="ln">   206  </span>		}},
-<span id="L207" class="ln">   207  </span>	)
-<span id="L208" class="ln">   208  </span>	hookServer.Register(&#34;/validate-auth&#34;, &amp;webhook.Admission{
-<span id="L209" class="ln">   209  </span>		Handler: apiWebhook.NewAuthValidator(ccfg.ControllerCfg.SecurityMode, authCli,
-<span id="L210" class="ln">   210  </span>			ccfg.ControllerCfg.ClusterScoped, ccfg.ControllerCfg.TargetNamespace, ccfg.ControllerCfg.EnableFilterNamespace),
-<span id="L211" class="ln">   211  </span>	},
-<span id="L212" class="ln">   212  </span>	)
-<span id="L213" class="ln">   213  </span>
-<span id="L214" class="ln">   214  </span>	setupLog.Info(&#34;Starting manager&#34;)
-<span id="L215" class="ln">   215  </span>	if err := mgr.Start(controllerRuntimeSignalHandler); err != nil {
-<span id="L216" class="ln">   216  </span>		setupLog.Error(err, &#34;unable to start manager&#34;)
-<span id="L217" class="ln">   217  </span>		os.Exit(1)
-<span id="L218" class="ln">   218  </span>	}
-<span id="L219" class="ln">   219  </span>
-<span id="L220" class="ln">   220  </span>	return nil
-<span id="L221" class="ln">   221  </span>}
-<span id="L222" class="ln">   222  </span>
-<span id="L223" class="ln">   223  </span>func setupWatchQueue(stopCh &lt;-chan struct{}, configWatcher *watcher.K8sConfigMapWatcher) workqueue.Interface {
-<span id="L224" class="ln">   224  </span>	<span class="comment">// watch for reconciliation signals, and grab configmaps, then update the running configuration</span>
-<span id="L225" class="ln">   225  </span>	<span class="comment">// for the server</span>
-<span id="L226" class="ln">   226  </span>	sigChan := make(chan interface{}, 10)
-<span id="L227" class="ln">   227  </span>
-<span id="L228" class="ln">   228  </span>	queue := workqueue.NewRateLimitingQueue(&amp;workqueue.BucketRateLimiter{Limiter: rate.NewLimiter(rate.Limit(0.5), 1)})
+<span id="L206" class="ln">   206  </span>			Logger:        params.Logger.WithName(&#34;pod-injector&#34;),
+<span id="L207" class="ln">   207  </span>		}},
+<span id="L208" class="ln">   208  </span>	)
+<span id="L209" class="ln">   209  </span>	hookServer.Register(&#34;/validate-auth&#34;, &amp;webhook.Admission{
+<span id="L210" class="ln">   210  </span>		Handler: apiWebhook.NewAuthValidator(ccfg.ControllerCfg.SecurityMode, authCli,
+<span id="L211" class="ln">   211  </span>			ccfg.ControllerCfg.ClusterScoped, ccfg.ControllerCfg.TargetNamespace, ccfg.ControllerCfg.EnableFilterNamespace,
+<span id="L212" class="ln">   212  </span>			params.Logger.WithName(&#34;validate-auth&#34;)),
+<span id="L213" class="ln">   213  </span>	},
+<span id="L214" class="ln">   214  </span>	)
+<span id="L215" class="ln">   215  </span>
+<span id="L216" class="ln">   216  </span>	setupLog.Info(&#34;Starting manager&#34;)
+<span id="L217" class="ln">   217  </span>	if err := mgr.Start(controllerRuntimeSignalHandler); err != nil {
+<span id="L218" class="ln">   218  </span>		setupLog.Error(err, &#34;unable to start manager&#34;)
+<span id="L219" class="ln">   219  </span>		os.Exit(1)
+<span id="L220" class="ln">   220  </span>	}
+<span id="L221" class="ln">   221  </span>
+<span id="L222" class="ln">   222  </span>	return nil
+<span id="L223" class="ln">   223  </span>}
+<span id="L224" class="ln">   224  </span>
+<span id="L225" class="ln">   225  </span>func setupWatchQueue(stopCh &lt;-chan struct{}, configWatcher *watcher.K8sConfigMapWatcher) workqueue.Interface {
+<span id="L226" class="ln">   226  </span>	<span class="comment">// watch for reconciliation signals, and grab configmaps, then update the running configuration</span>
+<span id="L227" class="ln">   227  </span>	<span class="comment">// for the server</span>
+<span id="L228" class="ln">   228  </span>	sigChan := make(chan interface{}, 10)
 <span id="L229" class="ln">   229  </span>
-<span id="L230" class="ln">   230  </span>	go func() {
-<span id="L231" class="ln">   231  </span>		for {
-<span id="L232" class="ln">   232  </span>			select {
-<span id="L233" class="ln">   233  </span>			case &lt;-stopCh:
-<span id="L234" class="ln">   234  </span>				queue.ShutDown()
-<span id="L235" class="ln">   235  </span>				return
-<span id="L236" class="ln">   236  </span>			case &lt;-sigChan:
-<span id="L237" class="ln">   237  </span>				queue.AddRateLimited(struct{}{})
-<span id="L238" class="ln">   238  </span>			}
-<span id="L239" class="ln">   239  </span>		}
-<span id="L240" class="ln">   240  </span>	}()
-<span id="L241" class="ln">   241  </span>
-<span id="L242" class="ln">   242  </span>	go func() {
-<span id="L243" class="ln">   243  </span>		for {
-<span id="L244" class="ln">   244  </span>			setupLog.Info(&#34;Launching watcher for ConfigMaps&#34;)
-<span id="L245" class="ln">   245  </span>			if err := configWatcher.Watch(sigChan, stopCh); err != nil {
-<span id="L246" class="ln">   246  </span>				switch err {
-<span id="L247" class="ln">   247  </span>				case watcher.ErrWatchChannelClosed:
-<span id="L248" class="ln">   248  </span>					<span class="comment">// known issue: https://github.com/kubernetes/client-go/issues/334</span>
-<span id="L249" class="ln">   249  </span>					setupLog.Info(&#34;watcher channel has closed, restart watcher&#34;)
-<span id="L250" class="ln">   250  </span>				default:
-<span id="L251" class="ln">   251  </span>					setupLog.Error(err, &#34;unable to watch new ConfigMaps&#34;)
-<span id="L252" class="ln">   252  </span>					os.Exit(1)
-<span id="L253" class="ln">   253  </span>				}
-<span id="L254" class="ln">   254  </span>			}
-<span id="L255" class="ln">   255  </span>
-<span id="L256" class="ln">   256  </span>			select {
-<span id="L257" class="ln">   257  </span>			case &lt;-stopCh:
-<span id="L258" class="ln">   258  </span>				close(sigChan)
-<span id="L259" class="ln">   259  </span>				return
-<span id="L260" class="ln">   260  </span>			default:
-<span id="L261" class="ln">   261  </span>				<span class="comment">// sleep 2 seconds to prevent excessive log due to infinite restart</span>
-<span id="L262" class="ln">   262  </span>				time.Sleep(2 * time.Second)
-<span id="L263" class="ln">   263  </span>			}
-<span id="L264" class="ln">   264  </span>		}
-<span id="L265" class="ln">   265  </span>	}()
-<span id="L266" class="ln">   266  </span>
-<span id="L267" class="ln">   267  </span>	return queue
-<span id="L268" class="ln">   268  </span>}
-<span id="L269" class="ln">   269  </span>
-<span id="L270" class="ln">   270  </span>func watchConfig(configWatcher *watcher.K8sConfigMapWatcher, cfg *config.Config, stopCh &lt;-chan struct{}) {
-<span id="L271" class="ln">   271  </span>	queue := setupWatchQueue(stopCh, configWatcher)
-<span id="L272" class="ln">   272  </span>
-<span id="L273" class="ln">   273  </span>	for {
-<span id="L274" class="ln">   274  </span>		item, shutdown := queue.Get()
-<span id="L275" class="ln">   275  </span>		if shutdown {
-<span id="L276" class="ln">   276  </span>			break
-<span id="L277" class="ln">   277  </span>		}
-<span id="L278" class="ln">   278  </span>		func() {
-<span id="L279" class="ln">   279  </span>			defer queue.Done(item)
-<span id="L280" class="ln">   280  </span>
-<span id="L281" class="ln">   281  </span>			setupLog.Info(&#34;Triggering ConfigMap reconciliation&#34;)
-<span id="L282" class="ln">   282  </span>			updatedInjectionConfigs, err := configWatcher.GetInjectionConfigs()
-<span id="L283" class="ln">   283  </span>			if err != nil {
-<span id="L284" class="ln">   284  </span>				setupLog.Error(err, &#34;unable to get ConfigMaps&#34;)
-<span id="L285" class="ln">   285  </span>				return
-<span id="L286" class="ln">   286  </span>			}
-<span id="L287" class="ln">   287  </span>
-<span id="L288" class="ln">   288  </span>			setupLog.Info(&#34;Updating server with newly loaded configurations&#34;,
-<span id="L289" class="ln">   289  </span>				&#34;original configs count&#34;, len(cfg.Injections), &#34;updated configs count&#34;, len(updatedInjectionConfigs))
-<span id="L290" class="ln">   290  </span>			cfg.ReplaceInjectionConfigs(updatedInjectionConfigs)
-<span id="L291" class="ln">   291  </span>			setupLog.Info(&#34;Configuration replaced&#34;)
-<span id="L292" class="ln">   292  </span>		}()
-<span id="L293" class="ln">   293  </span>	}
-<span id="L294" class="ln">   294  </span>}
-<span id="L295" class="ln">   295  </span>
+<span id="L230" class="ln">   230  </span>	queue := workqueue.NewRateLimitingQueue(&amp;workqueue.BucketRateLimiter{Limiter: rate.NewLimiter(rate.Limit(0.5), 1)})
+<span id="L231" class="ln">   231  </span>
+<span id="L232" class="ln">   232  </span>	go func() {
+<span id="L233" class="ln">   233  </span>		for {
+<span id="L234" class="ln">   234  </span>			select {
+<span id="L235" class="ln">   235  </span>			case &lt;-stopCh:
+<span id="L236" class="ln">   236  </span>				queue.ShutDown()
+<span id="L237" class="ln">   237  </span>				return
+<span id="L238" class="ln">   238  </span>			case &lt;-sigChan:
+<span id="L239" class="ln">   239  </span>				queue.AddRateLimited(struct{}{})
+<span id="L240" class="ln">   240  </span>			}
+<span id="L241" class="ln">   241  </span>		}
+<span id="L242" class="ln">   242  </span>	}()
+<span id="L243" class="ln">   243  </span>
+<span id="L244" class="ln">   244  </span>	go func() {
+<span id="L245" class="ln">   245  </span>		for {
+<span id="L246" class="ln">   246  </span>			setupLog.Info(&#34;Launching watcher for ConfigMaps&#34;)
+<span id="L247" class="ln">   247  </span>			if err := configWatcher.Watch(sigChan, stopCh); err != nil {
+<span id="L248" class="ln">   248  </span>				switch err {
+<span id="L249" class="ln">   249  </span>				case watcher.ErrWatchChannelClosed:
+<span id="L250" class="ln">   250  </span>					<span class="comment">// known issue: https://github.com/kubernetes/client-go/issues/334</span>
+<span id="L251" class="ln">   251  </span>					setupLog.Info(&#34;watcher channel has closed, restart watcher&#34;)
+<span id="L252" class="ln">   252  </span>				default:
+<span id="L253" class="ln">   253  </span>					setupLog.Error(err, &#34;unable to watch new ConfigMaps&#34;)
+<span id="L254" class="ln">   254  </span>					os.Exit(1)
+<span id="L255" class="ln">   255  </span>				}
+<span id="L256" class="ln">   256  </span>			}
+<span id="L257" class="ln">   257  </span>
+<span id="L258" class="ln">   258  </span>			select {
+<span id="L259" class="ln">   259  </span>			case &lt;-stopCh:
+<span id="L260" class="ln">   260  </span>				close(sigChan)
+<span id="L261" class="ln">   261  </span>				return
+<span id="L262" class="ln">   262  </span>			default:
+<span id="L263" class="ln">   263  </span>				<span class="comment">// sleep 2 seconds to prevent excessive log due to infinite restart</span>
+<span id="L264" class="ln">   264  </span>				time.Sleep(2 * time.Second)
+<span id="L265" class="ln">   265  </span>			}
+<span id="L266" class="ln">   266  </span>		}
+<span id="L267" class="ln">   267  </span>	}()
+<span id="L268" class="ln">   268  </span>
+<span id="L269" class="ln">   269  </span>	return queue
+<span id="L270" class="ln">   270  </span>}
+<span id="L271" class="ln">   271  </span>
+<span id="L272" class="ln">   272  </span>func watchConfig(configWatcher *watcher.K8sConfigMapWatcher, cfg *config.Config, stopCh &lt;-chan struct{}) {
+<span id="L273" class="ln">   273  </span>	queue := setupWatchQueue(stopCh, configWatcher)
+<span id="L274" class="ln">   274  </span>
+<span id="L275" class="ln">   275  </span>	for {
+<span id="L276" class="ln">   276  </span>		item, shutdown := queue.Get()
+<span id="L277" class="ln">   277  </span>		if shutdown {
+<span id="L278" class="ln">   278  </span>			break
+<span id="L279" class="ln">   279  </span>		}
+<span id="L280" class="ln">   280  </span>		func() {
+<span id="L281" class="ln">   281  </span>			defer queue.Done(item)
+<span id="L282" class="ln">   282  </span>
+<span id="L283" class="ln">   283  </span>			setupLog.Info(&#34;Triggering ConfigMap reconciliation&#34;)
+<span id="L284" class="ln">   284  </span>			updatedInjectionConfigs, err := configWatcher.GetInjectionConfigs()
+<span id="L285" class="ln">   285  </span>			if err != nil {
+<span id="L286" class="ln">   286  </span>				setupLog.Error(err, &#34;unable to get ConfigMaps&#34;)
+<span id="L287" class="ln">   287  </span>				return
+<span id="L288" class="ln">   288  </span>			}
+<span id="L289" class="ln">   289  </span>
+<span id="L290" class="ln">   290  </span>			setupLog.Info(&#34;Updating server with newly loaded configurations&#34;,
+<span id="L291" class="ln">   291  </span>				&#34;original configs count&#34;, len(cfg.Injections), &#34;updated configs count&#34;, len(updatedInjectionConfigs))
+<span id="L292" class="ln">   292  </span>			cfg.ReplaceInjectionConfigs(updatedInjectionConfigs)
+<span id="L293" class="ln">   293  </span>			setupLog.Info(&#34;Configuration replaced&#34;)
+<span id="L294" class="ln">   294  </span>		}()
+<span id="L295" class="ln">   295  </span>	}
+<span id="L296" class="ln">   296  </span>}
+<span id="L297" class="ln">   297  </span>
 </pre><p></p>
 
 <div id="footer">

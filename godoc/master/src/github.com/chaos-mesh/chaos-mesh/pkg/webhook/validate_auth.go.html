@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit da933f0. Generated at Thu Mar 24 10:01:47 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 00768bf. Generated at Thu Mar 24 22:03:37 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -86,11 +86,11 @@
 <span id="L21" class="ln">    21  </span>	&#34;net/http&#34;
 <span id="L22" class="ln">    22  </span>	&#34;strings&#34;
 <span id="L23" class="ln">    23  </span>
-<span id="L24" class="ln">    24  </span>	&#34;github.com/pkg/errors&#34;
-<span id="L25" class="ln">    25  </span>	authv1 &#34;k8s.io/api/authorization/v1&#34;
-<span id="L26" class="ln">    26  </span>	metav1 &#34;k8s.io/apimachinery/pkg/apis/meta/v1&#34;
-<span id="L27" class="ln">    27  </span>	authorizationv1 &#34;k8s.io/client-go/kubernetes/typed/authorization/v1&#34;
-<span id="L28" class="ln">    28  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
+<span id="L24" class="ln">    24  </span>	&#34;github.com/go-logr/logr&#34;
+<span id="L25" class="ln">    25  </span>	&#34;github.com/pkg/errors&#34;
+<span id="L26" class="ln">    26  </span>	authv1 &#34;k8s.io/api/authorization/v1&#34;
+<span id="L27" class="ln">    27  </span>	metav1 &#34;k8s.io/apimachinery/pkg/apis/meta/v1&#34;
+<span id="L28" class="ln">    28  </span>	authorizationv1 &#34;k8s.io/client-go/kubernetes/typed/authorization/v1&#34;
 <span id="L29" class="ln">    29  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/webhook/admission&#34;
 <span id="L30" class="ln">    30  </span>
 <span id="L31" class="ln">    31  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
@@ -108,31 +108,31 @@
 <span id="L43" class="ln">    43  </span>	&#34;WorkflowNode&#34;,
 <span id="L44" class="ln">    44  </span>}
 <span id="L45" class="ln">    45  </span>
-<span id="L46" class="ln">    46  </span>var authLog = ctrl.Log.WithName(&#34;validate-auth&#34;)
+<span id="L46" class="ln">    46  </span><span class="comment">// +kubebuilder:webhook:path=/validate-auth,mutating=false,failurePolicy=fail,groups=chaos-mesh.org,resources=*,verbs=create;update,versions=v1alpha1,name=vauth.kb.io</span>
 <span id="L47" class="ln">    47  </span>
-<span id="L48" class="ln">    48  </span><span class="comment">// +kubebuilder:webhook:path=/validate-auth,mutating=false,failurePolicy=fail,groups=chaos-mesh.org,resources=*,verbs=create;update,versions=v1alpha1,name=vauth.kb.io</span>
-<span id="L49" class="ln">    49  </span>
-<span id="L50" class="ln">    50  </span><span class="comment">// AuthValidator validates the authority</span>
-<span id="L51" class="ln">    51  </span>type AuthValidator struct {
-<span id="L52" class="ln">    52  </span>	enabled bool
-<span id="L53" class="ln">    53  </span>	authCli *authorizationv1.AuthorizationV1Client
+<span id="L48" class="ln">    48  </span><span class="comment">// AuthValidator validates the authority</span>
+<span id="L49" class="ln">    49  </span>type AuthValidator struct {
+<span id="L50" class="ln">    50  </span>	enabled bool
+<span id="L51" class="ln">    51  </span>	authCli *authorizationv1.AuthorizationV1Client
+<span id="L52" class="ln">    52  </span>
+<span id="L53" class="ln">    53  </span>	decoder *admission.Decoder
 <span id="L54" class="ln">    54  </span>
-<span id="L55" class="ln">    55  </span>	decoder *admission.Decoder
-<span id="L56" class="ln">    56  </span>
-<span id="L57" class="ln">    57  </span>	clusterScoped         bool
-<span id="L58" class="ln">    58  </span>	targetNamespace       string
-<span id="L59" class="ln">    59  </span>	enableFilterNamespace bool
-<span id="L60" class="ln">    60  </span>}
-<span id="L61" class="ln">    61  </span>
-<span id="L62" class="ln">    62  </span><span class="comment">// NewAuthValidator returns a new AuthValidator</span>
-<span id="L63" class="ln">    63  </span>func NewAuthValidator(enabled bool, authCli *authorizationv1.AuthorizationV1Client,
-<span id="L64" class="ln">    64  </span>	clusterScoped bool, targetNamespace string, enableFilterNamespace bool) *AuthValidator {
-<span id="L65" class="ln">    65  </span>	return &amp;AuthValidator{
-<span id="L66" class="ln">    66  </span>		enabled:               enabled,
-<span id="L67" class="ln">    67  </span>		authCli:               authCli,
-<span id="L68" class="ln">    68  </span>		clusterScoped:         clusterScoped,
-<span id="L69" class="ln">    69  </span>		targetNamespace:       targetNamespace,
-<span id="L70" class="ln">    70  </span>		enableFilterNamespace: enableFilterNamespace,
+<span id="L55" class="ln">    55  </span>	clusterScoped         bool
+<span id="L56" class="ln">    56  </span>	targetNamespace       string
+<span id="L57" class="ln">    57  </span>	enableFilterNamespace bool
+<span id="L58" class="ln">    58  </span>	logger                logr.Logger
+<span id="L59" class="ln">    59  </span>}
+<span id="L60" class="ln">    60  </span>
+<span id="L61" class="ln">    61  </span><span class="comment">// NewAuthValidator returns a new AuthValidator</span>
+<span id="L62" class="ln">    62  </span>func NewAuthValidator(enabled bool, authCli *authorizationv1.AuthorizationV1Client,
+<span id="L63" class="ln">    63  </span>	clusterScoped bool, targetNamespace string, enableFilterNamespace bool, logger logr.Logger) *AuthValidator {
+<span id="L64" class="ln">    64  </span>	return &amp;AuthValidator{
+<span id="L65" class="ln">    65  </span>		enabled:               enabled,
+<span id="L66" class="ln">    66  </span>		authCli:               authCli,
+<span id="L67" class="ln">    67  </span>		clusterScoped:         clusterScoped,
+<span id="L68" class="ln">    68  </span>		targetNamespace:       targetNamespace,
+<span id="L69" class="ln">    69  </span>		enableFilterNamespace: enableFilterNamespace,
+<span id="L70" class="ln">    70  </span>		logger:                logger,
 <span id="L71" class="ln">    71  </span>	}
 <span id="L72" class="ln">    72  </span>}
 <span id="L73" class="ln">    73  </span>
@@ -173,9 +173,9 @@
 <span id="L108" class="ln">   108  </span>		if !allow {
 <span id="L109" class="ln">   109  </span>			return admission.Denied(fmt.Sprintf(&#34;%s is forbidden on cluster&#34;, username))
 <span id="L110" class="ln">   110  </span>		}
-<span id="L111" class="ln">   111  </span>		authLog.Info(&#34;user have the privileges on cluster, auth validate passed&#34;, &#34;user&#34;, username, &#34;groups&#34;, groups, &#34;namespace&#34;, affectedNamespaces)
+<span id="L111" class="ln">   111  </span>		v.logger.Info(&#34;user have the privileges on cluster, auth validate passed&#34;, &#34;user&#34;, username, &#34;groups&#34;, groups, &#34;namespace&#34;, affectedNamespaces)
 <span id="L112" class="ln">   112  </span>	} else {
-<span id="L113" class="ln">   113  </span>		authLog.Info(&#34;start validating user&#34;, &#34;user&#34;, username, &#34;groups&#34;, groups, &#34;namespace&#34;, affectedNamespaces)
+<span id="L113" class="ln">   113  </span>		v.logger.Info(&#34;start validating user&#34;, &#34;user&#34;, username, &#34;groups&#34;, groups, &#34;namespace&#34;, affectedNamespaces)
 <span id="L114" class="ln">   114  </span>
 <span id="L115" class="ln">   115  </span>		for namespace := range affectedNamespaces {
 <span id="L116" class="ln">   116  </span>			allow, err := v.auth(username, groups, namespace, requestKind)
@@ -188,7 +188,7 @@
 <span id="L123" class="ln">   123  </span>			}
 <span id="L124" class="ln">   124  </span>		}
 <span id="L125" class="ln">   125  </span>
-<span id="L126" class="ln">   126  </span>		authLog.Info(&#34;user have the privileges on namespace, auth validate passed&#34;, &#34;user&#34;, username, &#34;groups&#34;, groups, &#34;namespace&#34;, affectedNamespaces)
+<span id="L126" class="ln">   126  </span>		v.logger.Info(&#34;user have the privileges on namespace, auth validate passed&#34;, &#34;user&#34;, username, &#34;groups&#34;, groups, &#34;namespace&#34;, affectedNamespaces)
 <span id="L127" class="ln">   127  </span>	}
 <span id="L128" class="ln">   128  </span>
 <span id="L129" class="ln">   129  </span>	return admission.Allowed(&#34;&#34;)

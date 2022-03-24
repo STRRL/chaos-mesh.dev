@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit da933f0. Generated at Thu Mar 24 10:01:47 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 00768bf. Generated at Thu Mar 24 22:03:37 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -122,7 +122,7 @@
 				<dd><a href="#AuthValidator">type AuthValidator</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewAuthValidator">func NewAuthValidator(enabled bool, authCli *authorizationv1.AuthorizationV1Client, clusterScoped bool, targetNamespace string, enableFilterNamespace bool) *AuthValidator</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NewAuthValidator">func NewAuthValidator(enabled bool, authCli *authorizationv1.AuthorizationV1Client, clusterScoped bool, targetNamespace string, enableFilterNamespace bool, logger logr.Logger) *AuthValidator</a></dd>
 				
 				
 					
@@ -179,7 +179,7 @@
 		
 			
 			
-			<h2 id="AuthValidator">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/validate_auth.go#L51">AuthValidator</a>
+			<h2 id="AuthValidator">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/validate_auth.go#L49">AuthValidator</a>
 				<a class="permalink" href="#AuthValidator">&#xb6;</a>
 				
 				
@@ -203,13 +203,13 @@ AuthValidator validates the authority
 
 			
 				
-				<h3 id="NewAuthValidator">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/validate_auth.go#L63">NewAuthValidator</a>
+				<h3 id="NewAuthValidator">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/validate_auth.go#L62">NewAuthValidator</a>
 					<a class="permalink" href="#NewAuthValidator">&#xb6;</a>
 					
 					
 				</h3>
 				<pre>func NewAuthValidator(enabled <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, authCli *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/">authorizationv1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/#AuthorizationV1Client">AuthorizationV1Client</a>,
-    clusterScoped <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, targetNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, enableFilterNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>) *<a href="#AuthValidator">AuthValidator</a></pre>
+    clusterScoped <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, targetNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, enableFilterNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#AuthValidator">AuthValidator</a></pre>
 				<p>
 NewAuthValidator returns a new AuthValidator
 </p>
@@ -252,7 +252,7 @@ InjectDecoder injects the decoder.
 		
 			
 			
-			<h2 id="PodInjector">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/inject.go#L38">PodInjector</a>
+			<h2 id="PodInjector">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/inject.go#L36">PodInjector</a>
 				<a class="permalink" href="#PodInjector">&#xb6;</a>
 				
 				
@@ -265,6 +265,7 @@ PodInjector is pod template config injector
 <span id="PodInjector.Config"></span>    Config        *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/">config</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/#Config">Config</a>
 <span id="PodInjector.ControllerCfg"></span>    ControllerCfg *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/">controllerCfg</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/#ChaosControllerConfig">ChaosControllerConfig</a>
 <span id="PodInjector.Metrics"></span>    Metrics       *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/metrics/">metrics</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/metrics/#ChaosControllerManagerMetricsCollector">ChaosControllerManagerMetricsCollector</a>
+<span id="PodInjector.Logger"></span>    Logger        <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>
     <span class="comment">// contains filtered or unexported fields</span>
 }
 </pre>
@@ -281,7 +282,7 @@ PodInjector is pod template config injector
 
 			
 				
-				<h3 id="PodInjector.Handle">func (*PodInjector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/inject.go#L47">Handle</a>
+				<h3 id="PodInjector.Handle">func (*PodInjector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/inject.go#L46">Handle</a>
 					<a class="permalink" href="#PodInjector.Handle">&#xb6;</a>
 					
 					
@@ -296,7 +297,7 @@ Handle is pod injector handler
 				
 			
 				
-				<h3 id="PodInjector.InjectClient">func (*PodInjector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/inject.go#L63">InjectClient</a>
+				<h3 id="PodInjector.InjectClient">func (*PodInjector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/inject.go#L62">InjectClient</a>
 					<a class="permalink" href="#PodInjector.InjectClient">&#xb6;</a>
 					
 					
@@ -311,7 +312,7 @@ InjectClient is pod injector client
 				
 			
 				
-				<h3 id="PodInjector.InjectDecoder">func (*PodInjector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/inject.go#L69">InjectDecoder</a>
+				<h3 id="PodInjector.InjectDecoder">func (*PodInjector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/inject.go#L68">InjectDecoder</a>
 					<a class="permalink" href="#PodInjector.InjectDecoder">&#xb6;</a>
 					
 					

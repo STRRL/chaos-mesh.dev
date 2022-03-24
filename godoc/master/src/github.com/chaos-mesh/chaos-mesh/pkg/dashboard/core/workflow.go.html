@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit da933f0. Generated at Thu Mar 24 10:01:47 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 00768bf. Generated at Thu Mar 24 22:03:37 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -497,64 +497,65 @@
 <span id="L432" class="ln">   432  </span>	Save(ctx context.Context, entity *WorkflowEntity) error
 <span id="L433" class="ln">   433  </span>	DeleteByUID(ctx context.Context, UID string) error
 <span id="L434" class="ln">   434  </span>	DeleteByUIDs(ctx context.Context, UIDs []string) error
-<span id="L435" class="ln">   435  </span>	MarkAsArchived(ctx context.Context, namespace, name string) error
-<span id="L436" class="ln">   436  </span>	MarkAsArchivedWithUID(ctx context.Context, UID string) error
-<span id="L437" class="ln">   437  </span>}
-<span id="L438" class="ln">   438  </span>
-<span id="L439" class="ln">   439  </span><span class="comment">// WorkflowEntity is the gorm entity, refers to a row of data</span>
-<span id="L440" class="ln">   440  </span>type WorkflowEntity struct {
-<span id="L441" class="ln">   441  </span>	WorkflowMeta
-<span id="L442" class="ln">   442  </span>	Workflow string `gorm:&#34;type:text;size:32768&#34;`
-<span id="L443" class="ln">   443  </span>}
-<span id="L444" class="ln">   444  </span>
-<span id="L445" class="ln">   445  </span>func WorkflowCR2WorkflowEntity(workflow *v1alpha1.Workflow) (*WorkflowEntity, error) {
-<span id="L446" class="ln">   446  </span>	if workflow == nil {
-<span id="L447" class="ln">   447  </span>		return nil, nil
-<span id="L448" class="ln">   448  </span>
-<span id="L449" class="ln">   449  </span>	}
-<span id="L450" class="ln">   450  </span>	jsonContent, err := json.Marshal(workflow)
-<span id="L451" class="ln">   451  </span>	if err != nil {
-<span id="L452" class="ln">   452  </span>		return nil, err
-<span id="L453" class="ln">   453  </span>	}
-<span id="L454" class="ln">   454  </span>	return &amp;WorkflowEntity{
-<span id="L455" class="ln">   455  </span>		WorkflowMeta: convertWorkflow(*workflow),
-<span id="L456" class="ln">   456  </span>		Workflow:     string(jsonContent),
-<span id="L457" class="ln">   457  </span>	}, nil
-<span id="L458" class="ln">   458  </span>
-<span id="L459" class="ln">   459  </span>}
-<span id="L460" class="ln">   460  </span>
-<span id="L461" class="ln">   461  </span>func WorkflowEntity2WorkflowCR(entity *WorkflowEntity) (*v1alpha1.Workflow, error) {
-<span id="L462" class="ln">   462  </span>	if entity == nil {
-<span id="L463" class="ln">   463  </span>		return nil, nil
-<span id="L464" class="ln">   464  </span>	}
-<span id="L465" class="ln">   465  </span>	result := v1alpha1.Workflow{}
-<span id="L466" class="ln">   466  </span>	err := json.Unmarshal([]byte(entity.Workflow), &amp;result)
-<span id="L467" class="ln">   467  </span>	if err != nil {
-<span id="L468" class="ln">   468  </span>		return nil, err
-<span id="L469" class="ln">   469  </span>	}
-<span id="L470" class="ln">   470  </span>	return &amp;result, nil
-<span id="L471" class="ln">   471  </span>}
-<span id="L472" class="ln">   472  </span>
-<span id="L473" class="ln">   473  </span>func WorkflowEntity2WorkflowDetail(entity *WorkflowEntity) (*WorkflowDetail, error) {
-<span id="L474" class="ln">   474  </span>	workflowCustomResource, err := WorkflowEntity2WorkflowCR(entity)
-<span id="L475" class="ln">   475  </span>	if err != nil {
-<span id="L476" class="ln">   476  </span>		return nil, err
-<span id="L477" class="ln">   477  </span>	}
-<span id="L478" class="ln">   478  </span>	return &amp;WorkflowDetail{
-<span id="L479" class="ln">   479  </span>		WorkflowMeta: entity.WorkflowMeta,
-<span id="L480" class="ln">   480  </span>		KubeObject: KubeObjectDesc{
-<span id="L481" class="ln">   481  </span>			TypeMeta: workflowCustomResource.TypeMeta,
-<span id="L482" class="ln">   482  </span>			Meta: KubeObjectMeta{
-<span id="L483" class="ln">   483  </span>				Name:        workflowCustomResource.Name,
-<span id="L484" class="ln">   484  </span>				Namespace:   workflowCustomResource.Namespace,
-<span id="L485" class="ln">   485  </span>				Labels:      workflowCustomResource.Labels,
-<span id="L486" class="ln">   486  </span>				Annotations: workflowCustomResource.Annotations,
-<span id="L487" class="ln">   487  </span>			},
-<span id="L488" class="ln">   488  </span>			Spec: workflowCustomResource.Spec,
-<span id="L489" class="ln">   489  </span>		},
-<span id="L490" class="ln">   490  </span>	}, nil
-<span id="L491" class="ln">   491  </span>}
-<span id="L492" class="ln">   492  </span>
+<span id="L435" class="ln">   435  </span>	DeleteByEndTime(ctx context.Context, ttl time.Duration) error
+<span id="L436" class="ln">   436  </span>	MarkAsArchived(ctx context.Context, namespace, name string) error
+<span id="L437" class="ln">   437  </span>	MarkAsArchivedWithUID(ctx context.Context, UID string) error
+<span id="L438" class="ln">   438  </span>}
+<span id="L439" class="ln">   439  </span>
+<span id="L440" class="ln">   440  </span><span class="comment">// WorkflowEntity is the gorm entity, refers to a row of data</span>
+<span id="L441" class="ln">   441  </span>type WorkflowEntity struct {
+<span id="L442" class="ln">   442  </span>	WorkflowMeta
+<span id="L443" class="ln">   443  </span>	Workflow string `gorm:&#34;type:text;size:32768&#34;`
+<span id="L444" class="ln">   444  </span>}
+<span id="L445" class="ln">   445  </span>
+<span id="L446" class="ln">   446  </span>func WorkflowCR2WorkflowEntity(workflow *v1alpha1.Workflow) (*WorkflowEntity, error) {
+<span id="L447" class="ln">   447  </span>	if workflow == nil {
+<span id="L448" class="ln">   448  </span>		return nil, nil
+<span id="L449" class="ln">   449  </span>
+<span id="L450" class="ln">   450  </span>	}
+<span id="L451" class="ln">   451  </span>	jsonContent, err := json.Marshal(workflow)
+<span id="L452" class="ln">   452  </span>	if err != nil {
+<span id="L453" class="ln">   453  </span>		return nil, err
+<span id="L454" class="ln">   454  </span>	}
+<span id="L455" class="ln">   455  </span>	return &amp;WorkflowEntity{
+<span id="L456" class="ln">   456  </span>		WorkflowMeta: convertWorkflow(*workflow),
+<span id="L457" class="ln">   457  </span>		Workflow:     string(jsonContent),
+<span id="L458" class="ln">   458  </span>	}, nil
+<span id="L459" class="ln">   459  </span>
+<span id="L460" class="ln">   460  </span>}
+<span id="L461" class="ln">   461  </span>
+<span id="L462" class="ln">   462  </span>func WorkflowEntity2WorkflowCR(entity *WorkflowEntity) (*v1alpha1.Workflow, error) {
+<span id="L463" class="ln">   463  </span>	if entity == nil {
+<span id="L464" class="ln">   464  </span>		return nil, nil
+<span id="L465" class="ln">   465  </span>	}
+<span id="L466" class="ln">   466  </span>	result := v1alpha1.Workflow{}
+<span id="L467" class="ln">   467  </span>	err := json.Unmarshal([]byte(entity.Workflow), &amp;result)
+<span id="L468" class="ln">   468  </span>	if err != nil {
+<span id="L469" class="ln">   469  </span>		return nil, err
+<span id="L470" class="ln">   470  </span>	}
+<span id="L471" class="ln">   471  </span>	return &amp;result, nil
+<span id="L472" class="ln">   472  </span>}
+<span id="L473" class="ln">   473  </span>
+<span id="L474" class="ln">   474  </span>func WorkflowEntity2WorkflowDetail(entity *WorkflowEntity) (*WorkflowDetail, error) {
+<span id="L475" class="ln">   475  </span>	workflowCustomResource, err := WorkflowEntity2WorkflowCR(entity)
+<span id="L476" class="ln">   476  </span>	if err != nil {
+<span id="L477" class="ln">   477  </span>		return nil, err
+<span id="L478" class="ln">   478  </span>	}
+<span id="L479" class="ln">   479  </span>	return &amp;WorkflowDetail{
+<span id="L480" class="ln">   480  </span>		WorkflowMeta: entity.WorkflowMeta,
+<span id="L481" class="ln">   481  </span>		KubeObject: KubeObjectDesc{
+<span id="L482" class="ln">   482  </span>			TypeMeta: workflowCustomResource.TypeMeta,
+<span id="L483" class="ln">   483  </span>			Meta: KubeObjectMeta{
+<span id="L484" class="ln">   484  </span>				Name:        workflowCustomResource.Name,
+<span id="L485" class="ln">   485  </span>				Namespace:   workflowCustomResource.Namespace,
+<span id="L486" class="ln">   486  </span>				Labels:      workflowCustomResource.Labels,
+<span id="L487" class="ln">   487  </span>				Annotations: workflowCustomResource.Annotations,
+<span id="L488" class="ln">   488  </span>			},
+<span id="L489" class="ln">   489  </span>			Spec: workflowCustomResource.Spec,
+<span id="L490" class="ln">   490  </span>		},
+<span id="L491" class="ln">   491  </span>	}, nil
+<span id="L492" class="ln">   492  </span>}
+<span id="L493" class="ln">   493  </span>
 </pre><p></p>
 
 <div id="footer">

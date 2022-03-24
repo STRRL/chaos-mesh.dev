@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit da933f0. Generated at Thu Mar 24 10:01:47 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 00768bf. Generated at Thu Mar 24 22:03:37 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -124,6 +124,9 @@
 				
 				
 					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowStore.DeleteByEndTime">func (it *WorkflowStore) DeleteByEndTime(ctx context.Context, ttl time.Duration) error</a></dd>
+				
+					
 					<dd>&nbsp; &nbsp; <a href="#WorkflowStore.DeleteByUID">func (it *WorkflowStore) DeleteByUID(ctx context.Context, uid string) error</a></dd>
 				
 					
@@ -180,7 +183,7 @@
 		
 			
 			
-			<h2 id="NewStore">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L30">NewStore</a>
+			<h2 id="NewStore">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L31">NewStore</a>
 				<a class="permalink" href="#NewStore">&#xb6;</a>
 				
 				
@@ -194,7 +197,7 @@
 		
 			
 			
-			<h2 id="WorkflowStore">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L26">WorkflowStore</a>
+			<h2 id="WorkflowStore">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L27">WorkflowStore</a>
 				<a class="permalink" href="#WorkflowStore">&#xb6;</a>
 				
 				
@@ -217,7 +220,19 @@
 
 			
 				
-				<h3 id="WorkflowStore.DeleteByUID">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L100">DeleteByUID</a>
+				<h3 id="WorkflowStore.DeleteByEndTime">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L110">DeleteByEndTime</a>
+					<a class="permalink" href="#WorkflowStore.DeleteByEndTime">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#WorkflowStore">WorkflowStore</a>) DeleteByEndTime(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, ttl <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Duration">Duration</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="WorkflowStore.DeleteByUID">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L101">DeleteByUID</a>
 					<a class="permalink" href="#WorkflowStore.DeleteByUID">&#xb6;</a>
 					
 					
@@ -229,7 +244,7 @@
 				
 			
 				
-				<h3 id="WorkflowStore.DeleteByUIDs">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L105">DeleteByUIDs</a>
+				<h3 id="WorkflowStore.DeleteByUIDs">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L106">DeleteByUIDs</a>
 					<a class="permalink" href="#WorkflowStore.DeleteByUIDs">&#xb6;</a>
 					
 					
@@ -241,7 +256,7 @@
 				
 			
 				
-				<h3 id="WorkflowStore.FindByID">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L66">FindByID</a>
+				<h3 id="WorkflowStore.FindByID">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L67">FindByID</a>
 					<a class="permalink" href="#WorkflowStore.FindByID">&#xb6;</a>
 					
 					
@@ -253,7 +268,7 @@
 				
 			
 				
-				<h3 id="WorkflowStore.FindByUID">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L77">FindByUID</a>
+				<h3 id="WorkflowStore.FindByUID">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L78">FindByUID</a>
 					<a class="permalink" href="#WorkflowStore.FindByUID">&#xb6;</a>
 					
 					
@@ -265,7 +280,7 @@
 				
 			
 				
-				<h3 id="WorkflowStore.FindMetaByUID">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L88">FindMetaByUID</a>
+				<h3 id="WorkflowStore.FindMetaByUID">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L89">FindMetaByUID</a>
 					<a class="permalink" href="#WorkflowStore.FindMetaByUID">&#xb6;</a>
 					
 					
@@ -277,7 +292,7 @@
 				
 			
 				
-				<h3 id="WorkflowStore.List">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L36">List</a>
+				<h3 id="WorkflowStore.List">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L37">List</a>
 					<a class="permalink" href="#WorkflowStore.List">&#xb6;</a>
 					
 					
@@ -289,7 +304,7 @@
 				
 			
 				
-				<h3 id="WorkflowStore.ListMeta">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L53">ListMeta</a>
+				<h3 id="WorkflowStore.ListMeta">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L54">ListMeta</a>
 					<a class="permalink" href="#WorkflowStore.ListMeta">&#xb6;</a>
 					
 					
@@ -301,7 +316,7 @@
 				
 			
 				
-				<h3 id="WorkflowStore.MarkAsArchived">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L109">MarkAsArchived</a>
+				<h3 id="WorkflowStore.MarkAsArchived">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L137">MarkAsArchived</a>
 					<a class="permalink" href="#WorkflowStore.MarkAsArchived">&#xb6;</a>
 					
 					
@@ -313,7 +328,7 @@
 				
 			
 				
-				<h3 id="WorkflowStore.MarkAsArchivedWithUID">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L118">MarkAsArchivedWithUID</a>
+				<h3 id="WorkflowStore.MarkAsArchivedWithUID">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L146">MarkAsArchivedWithUID</a>
 					<a class="permalink" href="#WorkflowStore.MarkAsArchivedWithUID">&#xb6;</a>
 					
 					
@@ -325,7 +340,7 @@
 				
 			
 				
-				<h3 id="WorkflowStore.Save">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L96">Save</a>
+				<h3 id="WorkflowStore.Save">func (*WorkflowStore) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/workflow/workflow.go#L97">Save</a>
 					<a class="permalink" href="#WorkflowStore.Save">&#xb6;</a>
 					
 					
