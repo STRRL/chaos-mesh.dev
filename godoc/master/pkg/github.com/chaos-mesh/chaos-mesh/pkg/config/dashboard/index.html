@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit a2c627e. Generated at Tue Mar 29 22:03:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 631c83f. Generated at Wed Mar 30 10:02:24 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -116,7 +116,7 @@
 			
 			
 				
-				<dd><a href="#ParsePersistTTLConfig">func ParsePersistTTLConfig(config *PersistTTLConfig) (*ttlcontroller.TTLconfig, error)</a></dd>
+				<dd><a href="#ParsePersistTTLConfig">func ParsePersistTTLConfig(config *PersistTTLConfig) (*ttlcontroller.TTLConfig, error)</a></dd>
 			
 			
 				
@@ -163,12 +163,12 @@
 		
 			
 			
-			<h2 id="ParsePersistTTLConfig">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L78">ParsePersistTTLConfig</a>
+			<h2 id="ParsePersistTTLConfig">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L80">ParsePersistTTLConfig</a>
 				<a class="permalink" href="#ParsePersistTTLConfig">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func ParsePersistTTLConfig(config *<a href="#PersistTTLConfig">PersistTTLConfig</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/ttlcontroller/">ttlcontroller</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/ttlcontroller/#TTLconfig">TTLconfig</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			<pre>func ParsePersistTTLConfig(config *<a href="#PersistTTLConfig">PersistTTLConfig</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/ttlcontroller/">ttlcontroller</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/ttlcontroller/#TTLConfig">TTLConfig</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 			<p>
 ParsePersistTTLConfig parse PersistTTLConfig to persistTTLConfigParsed.
 </p>
@@ -180,7 +180,7 @@ ParsePersistTTLConfig parse PersistTTLConfig to persistTTLConfigParsed.
 		
 			
 			
-			<h2 id="ChaosDashboardConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L27">ChaosDashboardConfig</a>
+			<h2 id="ChaosDashboardConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L28">ChaosDashboardConfig</a>
 				<a class="permalink" href="#ChaosDashboardConfig">&#xb6;</a>
 				
 				
@@ -229,7 +229,7 @@ ChaosDashboardConfig defines the configuration for Chaos Dashboard
 
 			
 				
-				<h3 id="GetChaosDashboardEnv">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L71">GetChaosDashboardEnv</a>
+				<h3 id="GetChaosDashboardEnv">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L73">GetChaosDashboardEnv</a>
 					<a class="permalink" href="#GetChaosDashboardEnv">&#xb6;</a>
 					
 					
@@ -247,7 +247,7 @@ GetChaosDashboardEnv gets all env variables related to dashboard.
 		
 			
 			
-			<h2 id="DatabaseConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L64">DatabaseConfig</a>
+			<h2 id="DatabaseConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L67">DatabaseConfig</a>
 				<a class="permalink" href="#DatabaseConfig">&#xb6;</a>
 				
 				
@@ -259,7 +259,6 @@ DatabaseConfig defines the configuration for databases
 			<pre>type DatabaseConfig struct {
 <span id="DatabaseConfig.Driver"></span>    Driver     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;DATABASE_DRIVER&#34;     default:&#34;sqlite3&#34;`
 <span id="DatabaseConfig.Datasource"></span>    Datasource <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;DATABASE_DATASOURCE&#34; default:&#34;core.sqlite&#34;`
-<span id="DatabaseConfig.Secret"></span>    Secret     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;DATABASE_SECRET&#34;`
 }
 </pre>
 
@@ -277,7 +276,7 @@ DatabaseConfig defines the configuration for databases
 		
 			
 			
-			<h2 id="PersistTTLConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L57">PersistTTLConfig</a>
+			<h2 id="PersistTTLConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L58">PersistTTLConfig</a>
 				<a class="permalink" href="#PersistTTLConfig">&#xb6;</a>
 				
 				
@@ -288,8 +287,10 @@ PersistTTLConfig defines the configuration of ttl
 
 			<pre>type PersistTTLConfig struct {
 <span id="PersistTTLConfig.SyncPeriod"></span>    SyncPeriod <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;CLEAN_SYNC_PERIOD&#34; default:&#34;12h&#34;`
-<span id="PersistTTLConfig.Event"></span>    Event      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;TTL_EVENT&#34;       default:&#34;168h&#34;` <span class="comment">// one week</span>
-<span id="PersistTTLConfig.Experiment"></span>    Experiment <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;TTL_EXPERIMENT&#34;  default:&#34;336h&#34;` <span class="comment">// two weeks</span>
+<span id="PersistTTLConfig.Event"></span>    Event      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;TTL_EVENT&#34;         default:&#34;168h&#34;` <span class="comment">// one week</span>
+<span id="PersistTTLConfig.Experiment"></span>    Experiment <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;TTL_EXPERIMENT&#34;    default:&#34;336h&#34;` <span class="comment">// two weeks</span>
+<span id="PersistTTLConfig.Schedule"></span>    Schedule   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;TTL_SCHEDULE&#34;      default:&#34;336h&#34;` <span class="comment">// two weeks</span>
+<span id="PersistTTLConfig.Workflow"></span>    Workflow   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;TTL_WORKFLOW&#34;      default:&#34;336h&#34;` <span class="comment">// two weeks</span>
 }
 </pre>
 

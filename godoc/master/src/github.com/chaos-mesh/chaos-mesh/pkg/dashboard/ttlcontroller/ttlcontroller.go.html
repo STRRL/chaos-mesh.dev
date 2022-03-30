@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit a2c627e. Generated at Tue Mar 29 22:03:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 631c83f. Generated at Wed Mar 30 10:02:24 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -101,11 +101,11 @@
 <span id="L36" class="ln">    36  </span>	event      core.EventStore
 <span id="L37" class="ln">    37  </span>	schedule   core.ScheduleStore
 <span id="L38" class="ln">    38  </span>	workflow   core.WorkflowStore
-<span id="L39" class="ln">    39  </span>	ttlconfig  *TTLconfig
+<span id="L39" class="ln">    39  </span>	ttlconfig  *TTLConfig
 <span id="L40" class="ln">    40  </span>}
 <span id="L41" class="ln">    41  </span>
-<span id="L42" class="ln">    42  </span><span class="comment">// TTLconfig defines the ttl</span>
-<span id="L43" class="ln">    43  </span>type TTLconfig struct {
+<span id="L42" class="ln">    42  </span><span class="comment">// TTLConfig defines the ttl</span>
+<span id="L43" class="ln">    43  </span>type TTLConfig struct {
 <span id="L44" class="ln">    44  </span>	<span class="comment">// databaseTTLResyncPeriod defines the time interval to cleanup data in the database</span>
 <span id="L45" class="ln">    45  </span>	DatabaseTTLResyncPeriod time.Duration
 <span id="L46" class="ln">    46  </span>	<span class="comment">// EventTTL defines the ttl of events</span>
@@ -124,7 +124,7 @@
 <span id="L59" class="ln">    59  </span>	event core.EventStore,
 <span id="L60" class="ln">    60  </span>	schedule core.ScheduleStore,
 <span id="L61" class="ln">    61  </span>	workflow core.WorkflowStore,
-<span id="L62" class="ln">    62  </span>	ttlc *TTLconfig,
+<span id="L62" class="ln">    62  </span>	ttlc *TTLConfig,
 <span id="L63" class="ln">    63  </span>) *Controller {
 <span id="L64" class="ln">    64  </span>	return &amp;Controller{
 <span id="L65" class="ln">    65  </span>		experiment: experiment,
@@ -153,7 +153,7 @@
 <span id="L88" class="ln">    88  </span>	_ = c.event.DeleteByDuration(ctx, c.ttlconfig.EventTTL)
 <span id="L89" class="ln">    89  </span>	c.experiment.DeleteByFinishTime(ctx, c.ttlconfig.ArchiveTTL)
 <span id="L90" class="ln">    90  </span>	c.schedule.DeleteByFinishTime(ctx, c.ttlconfig.ScheduleTTL)
-<span id="L91" class="ln">    91  </span>	c.workflow.DeleteByEndTime(ctx, c.ttlconfig.WorkflowTTL)
+<span id="L91" class="ln">    91  </span>	c.workflow.DeleteByFinishTime(ctx, c.ttlconfig.WorkflowTTL)
 <span id="L92" class="ln">    92  </span>}
 <span id="L93" class="ln">    93  </span>
 </pre><p></p>

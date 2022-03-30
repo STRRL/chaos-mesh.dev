@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit a2c627e. Generated at Tue Mar 29 22:03:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 631c83f. Generated at Wed Mar 30 10:02:24 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -146,7 +146,19 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 				<dd><a href="#FetchChaosByTemplateType">func FetchChaosByTemplateType(templateType TemplateType) (runtime.Object, error)</a></dd>
 			
 				
+				<dd><a href="#GenerateTemplateName">func GenerateTemplateName(name string) string</a></dd>
+			
+				
+				<dd><a href="#GetTemplateDescription">func GetTemplateDescription(cm v1.ConfigMap) string</a></dd>
+			
+				
+				<dd><a href="#GetTemplateName">func GetTemplateName(cm v1.ConfigMap) string</a></dd>
+			
+				
 				<dd><a href="#IsChaosTemplateType">func IsChaosTemplateType(target TemplateType) bool</a></dd>
+			
+				
+				<dd><a href="#IsStatusCheckTemplate">func IsStatusCheckTemplate(cm v1.ConfigMap) bool</a></dd>
 			
 				
 				<dd><a href="#ParseUnit">func ParseUnit(s string) (uint64, error)</a></dd>
@@ -3048,6 +3060,12 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 				<dd><a href="#StatusCheckTemplate">type StatusCheckTemplate</a></dd>
 				
 				
+					
+					<dd>&nbsp; &nbsp; <a href="#StatusCheckTemplate.Default">func (in *StatusCheckTemplate) Default()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StatusCheckTemplate.Validate">func (in *StatusCheckTemplate) Validate() error</a></dd>
+				
 			
 				
 				<dd><a href="#StatusCheckType">type StatusCheckType</a></dd>
@@ -3707,6 +3725,9 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
     <span class="comment">// ManagedByLabelKey is a label that represents the tool being used</span>
     <span class="comment">// to manage the operation of the object.</span>
     <span id="ManagedByLabelKey">ManagedByLabelKey</span> = &#34;app.kubernetes.io/managed-by&#34;
+    <span class="comment">// ManagedByLabelValue is the value that represents the object is</span>
+    <span class="comment">// managed by Chaos Mesh.</span>
+    <span id="ManagedByLabelValue">ManagedByLabelValue</span> = &#34;chaos-mesh&#34;
 
     <span class="comment">// TemplateNameAnnotationKey is an annotation that represents</span>
     <span class="comment">// the real name of the template.</span>
@@ -3717,6 +3738,9 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 
     <span class="comment">// PrefixStatusCheckTemplate is the prefix of the name of a StatusCheckTemplate.</span>
     <span id="PrefixStatusCheckTemplate">PrefixStatusCheckTemplate</span> = &#34;template-status-check&#34;
+    <span class="comment">// StatusCheckTemplateKey is the key that status check spec</span>
+    <span class="comment">// saved in the template ConfigMap.</span>
+    <span id="StatusCheckTemplateKey">StatusCheckTemplateKey</span> = &#34;spec&#34;
 )</pre>
 			
 				
@@ -4011,12 +4035,64 @@ AllKinds returns all chaos kinds.
 		
 			
 			
+			<h2 id="GenerateTemplateName">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L63">GenerateTemplateName</a>
+				<a class="permalink" href="#GenerateTemplateName">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GenerateTemplateName(name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="GetTemplateDescription">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L59">GetTemplateDescription</a>
+				<a class="permalink" href="#GetTemplateDescription">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GetTemplateDescription(cm <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/#ConfigMap">ConfigMap</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="GetTemplateName">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L55">GetTemplateName</a>
+				<a class="permalink" href="#GetTemplateName">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GetTemplateName(cm <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/#ConfigMap">ConfigMap</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
+			
+			
+			
+
+		
+			
+			
 			<h2 id="IsChaosTemplateType">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L90">IsChaosTemplateType</a>
 				<a class="permalink" href="#IsChaosTemplateType">&#xb6;</a>
 				
 				
 			</h2>
 			<pre>func IsChaosTemplateType(target <a href="#TemplateType">TemplateType</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="IsStatusCheckTemplate">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L67">IsStatusCheckTemplate</a>
+				<a class="permalink" href="#IsStatusCheckTemplate">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func IsStatusCheckTemplate(cm <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/#ConfigMap">ConfigMap</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
 			
 			
 			
@@ -19956,7 +20032,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="StatusCheckTemplate">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L39">StatusCheckTemplate</a>
+			<h2 id="StatusCheckTemplate">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L51">StatusCheckTemplate</a>
 				<a class="permalink" href="#StatusCheckTemplate">&#xb6;</a>
 				
 				
@@ -19968,7 +20044,7 @@ A statusCheckTemplate would save in the ConfigMap named `template-status-check-&
 </p>
 
 			<pre>type StatusCheckTemplate struct {
-    <a href="#StatusCheckSpec">StatusCheckSpec</a>
+    <a href="#StatusCheckSpec">StatusCheckSpec</a> `json:&#34;,inline&#34;`
 }
 </pre>
 
@@ -19982,6 +20058,30 @@ A statusCheckTemplate would save in the ConfigMap named `template-status-check-&
 
 			
 
+			
+				
+				<h3 id="StatusCheckTemplate.Default">func (*StatusCheckTemplate) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L80">Default</a>
+					<a class="permalink" href="#StatusCheckTemplate.Default">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (in *<a href="#StatusCheckTemplate">StatusCheckTemplate</a>) Default()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="StatusCheckTemplate.Validate">func (*StatusCheckTemplate) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L73">Validate</a>
+					<a class="permalink" href="#StatusCheckTemplate.Validate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (in *<a href="#StatusCheckTemplate">StatusCheckTemplate</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
 			
 		
 			
