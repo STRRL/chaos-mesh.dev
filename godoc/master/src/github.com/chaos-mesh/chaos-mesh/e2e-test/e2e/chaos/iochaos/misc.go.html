@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c22a596. Generated at Thu Mar 31 10:02:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -82,7 +82,7 @@
 <span id="L17" class="ln">    17  </span>
 <span id="L18" class="ln">    18  </span>import (
 <span id="L19" class="ln">    19  </span>	&#34;fmt&#34;
-<span id="L20" class="ln">    20  </span>	&#34;io/ioutil&#34;
+<span id="L20" class="ln">    20  </span>	&#34;io&#34;
 <span id="L21" class="ln">    21  </span>	&#34;net/http&#34;
 <span id="L22" class="ln">    22  </span>	&#34;strings&#34;
 <span id="L23" class="ln">    23  </span>	&#34;time&#34;
@@ -97,7 +97,7 @@
 <span id="L32" class="ln">    32  </span>		return 0, err
 <span id="L33" class="ln">    33  </span>	}
 <span id="L34" class="ln">    34  </span>
-<span id="L35" class="ln">    35  </span>	out, err := ioutil.ReadAll(resp.Body)
+<span id="L35" class="ln">    35  </span>	out, err := io.ReadAll(resp.Body)
 <span id="L36" class="ln">    36  </span>	defer resp.Body.Close()
 <span id="L37" class="ln">    37  </span>	if err != nil {
 <span id="L38" class="ln">    38  </span>		return 0, err
@@ -121,7 +121,7 @@
 <span id="L56" class="ln">    56  </span>		return false, err
 <span id="L57" class="ln">    57  </span>	}
 <span id="L58" class="ln">    58  </span>
-<span id="L59" class="ln">    59  </span>	out, err := ioutil.ReadAll(resp.Body)
+<span id="L59" class="ln">    59  </span>	out, err := io.ReadAll(resp.Body)
 <span id="L60" class="ln">    60  </span>	defer resp.Body.Close()
 <span id="L61" class="ln">    61  </span>	if err != nil {
 <span id="L62" class="ln">    62  </span>		return false, err

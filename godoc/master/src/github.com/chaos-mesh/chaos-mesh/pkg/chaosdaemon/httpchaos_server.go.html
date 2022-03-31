@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c22a596. Generated at Thu Mar 31 10:02:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -86,7 +86,7 @@
 <span id="L21" class="ln">    21  </span>	&#34;context&#34;
 <span id="L22" class="ln">    22  </span>	&#34;encoding/json&#34;
 <span id="L23" class="ln">    23  </span>	&#34;fmt&#34;
-<span id="L24" class="ln">    24  </span>	&#34;io/ioutil&#34;
+<span id="L24" class="ln">    24  </span>	&#34;io&#34;
 <span id="L25" class="ln">    25  </span>	&#34;net/http&#34;
 <span id="L26" class="ln">    26  </span>	&#34;os&#34;
 <span id="L27" class="ln">    27  </span>	&#34;sync&#34;
@@ -114,7 +114,7 @@
 <span id="L49" class="ln">    49  </span>		return &amp;http.Response{
 <span id="L50" class="ln">    50  </span>			StatusCode: http.StatusLocked,
 <span id="L51" class="ln">    51  </span>			Status:     http.StatusText(http.StatusLocked),
-<span id="L52" class="ln">    52  </span>			Body:       ioutil.NopCloser(bytes.NewBufferString(&#34;&#34;)),
+<span id="L52" class="ln">    52  </span>			Body:       io.NopCloser(bytes.NewBufferString(&#34;&#34;)),
 <span id="L53" class="ln">    53  </span>			Request:    req,
 <span id="L54" class="ln">    54  </span>		}, nil
 <span id="L55" class="ln">    55  </span>	}
@@ -216,7 +216,7 @@
 <span id="L151" class="ln">   151  </span>
 <span id="L152" class="ln">   152  </span>	log.Info(&#34;http chaos applied&#34;)
 <span id="L153" class="ln">   153  </span>
-<span id="L154" class="ln">   154  </span>	body, err := ioutil.ReadAll(resp.Body)
+<span id="L154" class="ln">   154  </span>	body, err := io.ReadAll(resp.Body)
 <span id="L155" class="ln">   155  </span>	if err != nil {
 <span id="L156" class="ln">   156  </span>		return nil, errors.Wrap(err, &#34;read response body&#34;)
 <span id="L157" class="ln">   157  </span>	}

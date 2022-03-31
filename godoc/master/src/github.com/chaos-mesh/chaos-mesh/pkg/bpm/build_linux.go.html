@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c22a596. Generated at Thu Mar 31 10:02:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -83,70 +83,76 @@
 <span id="L18" class="ln">    18  </span>import (
 <span id="L19" class="ln">    19  </span>	&#34;context&#34;
 <span id="L20" class="ln">    20  </span>	&#34;os/exec&#34;
-<span id="L21" class="ln">    21  </span>	&#34;strings&#34;
-<span id="L22" class="ln">    22  </span>	&#34;syscall&#34;
-<span id="L23" class="ln">    23  </span>
-<span id="L24" class="ln">    24  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/mock&#34;
-<span id="L25" class="ln">    25  </span>)
-<span id="L26" class="ln">    26  </span>
-<span id="L27" class="ln">    27  </span><span class="comment">// Build builds the command</span>
-<span id="L28" class="ln">    28  </span><span class="comment">// the ctx argument passes the context information to this function</span>
-<span id="L29" class="ln">    29  </span><span class="comment">// e.g. the corresponding resource name.</span>
-<span id="L30" class="ln">    30  </span>func (b *CommandBuilder) Build(ctx context.Context) *ManagedCommand {
-<span id="L31" class="ln">    31  </span>	log := b.getLoggerFromContext(ctx)
-<span id="L32" class="ln">    32  </span>	args := b.args
-<span id="L33" class="ln">    33  </span>	cmd := b.cmd
-<span id="L34" class="ln">    34  </span>
-<span id="L35" class="ln">    35  </span>	if len(b.nsOptions) &gt; 0 {
-<span id="L36" class="ln">    36  </span>		args = append([]string{&#34;--&#34;, cmd}, args...)
-<span id="L37" class="ln">    37  </span>		for _, option := range b.nsOptions {
-<span id="L38" class="ln">    38  </span>			args = append([]string{&#34;-&#34; + nsArgMap[option.Typ], option.Path}, args...)
-<span id="L39" class="ln">    39  </span>		}
-<span id="L40" class="ln">    40  </span>
-<span id="L41" class="ln">    41  </span>		if b.localMnt {
-<span id="L42" class="ln">    42  </span>			args = append([]string{&#34;-l&#34;}, args...)
-<span id="L43" class="ln">    43  </span>		}
-<span id="L44" class="ln">    44  </span>		cmd = nsexecPath
-<span id="L45" class="ln">    45  </span>	}
-<span id="L46" class="ln">    46  </span>
-<span id="L47" class="ln">    47  </span>	if b.pause {
-<span id="L48" class="ln">    48  </span>		args = append([]string{cmd}, args...)
-<span id="L49" class="ln">    49  </span>		cmd = pausePath
-<span id="L50" class="ln">    50  </span>	}
-<span id="L51" class="ln">    51  </span>
-<span id="L52" class="ln">    52  </span>	if c := mock.On(&#34;MockProcessBuild&#34;); c != nil {
-<span id="L53" class="ln">    53  </span>		f := c.(func(context.Context, string, ...string) *exec.Cmd)
-<span id="L54" class="ln">    54  </span>		return &amp;ManagedCommand{
-<span id="L55" class="ln">    55  </span>			Cmd:        f(b.ctx, cmd, args...),
-<span id="L56" class="ln">    56  </span>			Identifier: b.identifier,
-<span id="L57" class="ln">    57  </span>		}
-<span id="L58" class="ln">    58  </span>	}
-<span id="L59" class="ln">    59  </span>
-<span id="L60" class="ln">    60  </span>	log.Info(&#34;build command&#34;, &#34;command&#34;, cmd+&#34; &#34;+strings.Join(args, &#34; &#34;))
-<span id="L61" class="ln">    61  </span>
-<span id="L62" class="ln">    62  </span>	command := exec.CommandContext(b.ctx, cmd, args...)
-<span id="L63" class="ln">    63  </span>	command.Env = b.env
-<span id="L64" class="ln">    64  </span>	command.SysProcAttr = &amp;syscall.SysProcAttr{}
-<span id="L65" class="ln">    65  </span>	command.SysProcAttr.Pdeathsig = syscall.SIGTERM
-<span id="L66" class="ln">    66  </span>
-<span id="L67" class="ln">    67  </span>	if b.stdin != nil {
-<span id="L68" class="ln">    68  </span>		command.Stdin = b.stdin
-<span id="L69" class="ln">    69  </span>	}
-<span id="L70" class="ln">    70  </span>
-<span id="L71" class="ln">    71  </span>	if b.stdout != nil {
-<span id="L72" class="ln">    72  </span>		command.Stdout = b.stdout
-<span id="L73" class="ln">    73  </span>	}
-<span id="L74" class="ln">    74  </span>
-<span id="L75" class="ln">    75  </span>	if b.stderr != nil {
-<span id="L76" class="ln">    76  </span>		command.Stderr = b.stderr
-<span id="L77" class="ln">    77  </span>	}
-<span id="L78" class="ln">    78  </span>
-<span id="L79" class="ln">    79  </span>	return &amp;ManagedCommand{
-<span id="L80" class="ln">    80  </span>		Cmd:        command,
-<span id="L81" class="ln">    81  </span>		Identifier: b.identifier,
-<span id="L82" class="ln">    82  </span>	}
-<span id="L83" class="ln">    83  </span>}
+<span id="L21" class="ln">    21  </span>	&#34;strconv&#34;
+<span id="L22" class="ln">    22  </span>	&#34;strings&#34;
+<span id="L23" class="ln">    23  </span>	&#34;syscall&#34;
+<span id="L24" class="ln">    24  </span>
+<span id="L25" class="ln">    25  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/mock&#34;
+<span id="L26" class="ln">    26  </span>)
+<span id="L27" class="ln">    27  </span>
+<span id="L28" class="ln">    28  </span><span class="comment">// Build builds the command</span>
+<span id="L29" class="ln">    29  </span><span class="comment">// the ctx argument passes the context information to this function</span>
+<span id="L30" class="ln">    30  </span><span class="comment">// e.g. the corresponding resource name.</span>
+<span id="L31" class="ln">    31  </span>func (b *CommandBuilder) Build(ctx context.Context) *ManagedCommand {
+<span id="L32" class="ln">    32  </span>	log := b.getLoggerFromContext(ctx)
+<span id="L33" class="ln">    33  </span>	args := b.args
+<span id="L34" class="ln">    34  </span>	cmd := b.cmd
+<span id="L35" class="ln">    35  </span>
+<span id="L36" class="ln">    36  </span>	if len(b.nsOptions) &gt; 0 {
+<span id="L37" class="ln">    37  </span>		args = append([]string{&#34;--&#34;, cmd}, args...)
+<span id="L38" class="ln">    38  </span>		for _, option := range b.nsOptions {
+<span id="L39" class="ln">    39  </span>			args = append([]string{&#34;-&#34; + nsArgMap[option.Typ], option.Path}, args...)
+<span id="L40" class="ln">    40  </span>		}
+<span id="L41" class="ln">    41  </span>
+<span id="L42" class="ln">    42  </span>		if b.localMnt {
+<span id="L43" class="ln">    43  </span>			args = append([]string{&#34;-l&#34;}, args...)
+<span id="L44" class="ln">    44  </span>		}
+<span id="L45" class="ln">    45  </span>		cmd = nsexecPath
+<span id="L46" class="ln">    46  </span>	}
+<span id="L47" class="ln">    47  </span>
+<span id="L48" class="ln">    48  </span>	if b.pause {
+<span id="L49" class="ln">    49  </span>		args = append([]string{cmd}, args...)
+<span id="L50" class="ln">    50  </span>		cmd = pausePath
+<span id="L51" class="ln">    51  </span>	}
+<span id="L52" class="ln">    52  </span>
+<span id="L53" class="ln">    53  </span>	if b.oomScoreAdj != 0 {
+<span id="L54" class="ln">    54  </span>		args = append([]string{&#34;-n&#34;, strconv.Itoa(b.oomScoreAdj), &#34;--&#34;, cmd}, args...)
+<span id="L55" class="ln">    55  </span>		cmd = &#34;choom&#34;
+<span id="L56" class="ln">    56  </span>	}
+<span id="L57" class="ln">    57  </span>
+<span id="L58" class="ln">    58  </span>	if c := mock.On(&#34;MockProcessBuild&#34;); c != nil {
+<span id="L59" class="ln">    59  </span>		f := c.(func(context.Context, string, ...string) *exec.Cmd)
+<span id="L60" class="ln">    60  </span>		return &amp;ManagedCommand{
+<span id="L61" class="ln">    61  </span>			Cmd:        f(b.ctx, cmd, args...),
+<span id="L62" class="ln">    62  </span>			Identifier: b.identifier,
+<span id="L63" class="ln">    63  </span>		}
+<span id="L64" class="ln">    64  </span>	}
+<span id="L65" class="ln">    65  </span>
+<span id="L66" class="ln">    66  </span>	log.Info(&#34;build command&#34;, &#34;command&#34;, cmd+&#34; &#34;+strings.Join(args, &#34; &#34;))
+<span id="L67" class="ln">    67  </span>
+<span id="L68" class="ln">    68  </span>	command := exec.CommandContext(b.ctx, cmd, args...)
+<span id="L69" class="ln">    69  </span>	command.Env = b.env
+<span id="L70" class="ln">    70  </span>	command.SysProcAttr = &amp;syscall.SysProcAttr{}
+<span id="L71" class="ln">    71  </span>	command.SysProcAttr.Pdeathsig = syscall.SIGTERM
+<span id="L72" class="ln">    72  </span>
+<span id="L73" class="ln">    73  </span>	if b.stdin != nil {
+<span id="L74" class="ln">    74  </span>		command.Stdin = b.stdin
+<span id="L75" class="ln">    75  </span>	}
+<span id="L76" class="ln">    76  </span>
+<span id="L77" class="ln">    77  </span>	if b.stdout != nil {
+<span id="L78" class="ln">    78  </span>		command.Stdout = b.stdout
+<span id="L79" class="ln">    79  </span>	}
+<span id="L80" class="ln">    80  </span>
+<span id="L81" class="ln">    81  </span>	if b.stderr != nil {
+<span id="L82" class="ln">    82  </span>		command.Stderr = b.stderr
+<span id="L83" class="ln">    83  </span>	}
 <span id="L84" class="ln">    84  </span>
+<span id="L85" class="ln">    85  </span>	return &amp;ManagedCommand{
+<span id="L86" class="ln">    86  </span>		Cmd:        command,
+<span id="L87" class="ln">    87  </span>		Identifier: b.identifier,
+<span id="L88" class="ln">    88  </span>	}
+<span id="L89" class="ln">    89  </span>}
+<span id="L90" class="ln">    90  </span>
 </pre><p></p>
 
 <div id="footer">

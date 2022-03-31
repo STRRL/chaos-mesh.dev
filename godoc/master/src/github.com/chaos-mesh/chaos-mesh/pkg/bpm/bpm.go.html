@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c22a596. Generated at Thu Mar 31 10:02:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -423,109 +423,118 @@
 <span id="L358" class="ln">   358  </span>	stdout     io.ReadWriteCloser
 <span id="L359" class="ln">   359  </span>	stderr     io.ReadWriteCloser
 <span id="L360" class="ln">   360  </span>
-<span id="L361" class="ln">   361  </span>	<span class="comment">// the context is used to kill the process and will be passed into</span>
-<span id="L362" class="ln">   362  </span>	<span class="comment">// `exec.CommandContext`</span>
-<span id="L363" class="ln">   363  </span>	ctx context.Context
-<span id="L364" class="ln">   364  </span>}
-<span id="L365" class="ln">   365  </span>
-<span id="L366" class="ln">   366  </span><span class="comment">// GetNsPath returns corresponding namespace path</span>
-<span id="L367" class="ln">   367  </span>func GetNsPath(pid uint32, typ NsType) string {
-<span id="L368" class="ln">   368  </span>	return fmt.Sprintf(&#34;%s/%d/ns/%s&#34;, DefaultProcPrefix, pid, string(typ))
-<span id="L369" class="ln">   369  </span>}
-<span id="L370" class="ln">   370  </span>
-<span id="L371" class="ln">   371  </span><span class="comment">// SetEnv sets the environment variables of the process</span>
-<span id="L372" class="ln">   372  </span>func (b *CommandBuilder) SetEnv(key, value string) *CommandBuilder {
-<span id="L373" class="ln">   373  </span>	b.env = append(b.env, fmt.Sprintf(&#34;%s=%s&#34;, key, value))
-<span id="L374" class="ln">   374  </span>	return b
-<span id="L375" class="ln">   375  </span>}
-<span id="L376" class="ln">   376  </span>
-<span id="L377" class="ln">   377  </span><span class="comment">// SetNS sets the namespace of the process</span>
-<span id="L378" class="ln">   378  </span>func (b *CommandBuilder) SetNS(pid uint32, typ NsType) *CommandBuilder {
-<span id="L379" class="ln">   379  </span>	return b.SetNSOpt([]nsOption{{
-<span id="L380" class="ln">   380  </span>		Typ:  typ,
-<span id="L381" class="ln">   381  </span>		Path: GetNsPath(pid, typ),
-<span id="L382" class="ln">   382  </span>	}})
-<span id="L383" class="ln">   383  </span>}
-<span id="L384" class="ln">   384  </span>
-<span id="L385" class="ln">   385  </span><span class="comment">// SetNSOpt sets the namespace of the process</span>
-<span id="L386" class="ln">   386  </span>func (b *CommandBuilder) SetNSOpt(options []nsOption) *CommandBuilder {
-<span id="L387" class="ln">   387  </span>	b.nsOptions = append(b.nsOptions, options...)
-<span id="L388" class="ln">   388  </span>
-<span id="L389" class="ln">   389  </span>	return b
-<span id="L390" class="ln">   390  </span>}
-<span id="L391" class="ln">   391  </span>
-<span id="L392" class="ln">   392  </span><span class="comment">// SetIdentifier sets the identifier of the process</span>
-<span id="L393" class="ln">   393  </span><span class="comment">//</span>
-<span id="L394" class="ln">   394  </span><span class="comment">// The identifier is used to identify the process in BPM, to confirm only one identified process is running.</span>
-<span id="L395" class="ln">   395  </span><span class="comment">// If one identified process is already running, new processes with the same identifier will be blocked by lock.</span>
-<span id="L396" class="ln">   396  </span>func (b *CommandBuilder) SetIdentifier(id string) *CommandBuilder {
-<span id="L397" class="ln">   397  </span>	b.identifier = &amp;id
-<span id="L398" class="ln">   398  </span>
-<span id="L399" class="ln">   399  </span>	return b
-<span id="L400" class="ln">   400  </span>}
-<span id="L401" class="ln">   401  </span>
-<span id="L402" class="ln">   402  </span><span class="comment">// EnablePause enables pause for process</span>
-<span id="L403" class="ln">   403  </span>func (b *CommandBuilder) EnablePause() *CommandBuilder {
-<span id="L404" class="ln">   404  </span>	b.pause = true
-<span id="L405" class="ln">   405  </span>
-<span id="L406" class="ln">   406  </span>	return b
-<span id="L407" class="ln">   407  </span>}
-<span id="L408" class="ln">   408  </span>
-<span id="L409" class="ln">   409  </span>func (b *CommandBuilder) EnableLocalMnt() *CommandBuilder {
-<span id="L410" class="ln">   410  </span>	b.localMnt = true
-<span id="L411" class="ln">   411  </span>
-<span id="L412" class="ln">   412  </span>	return b
-<span id="L413" class="ln">   413  </span>}
-<span id="L414" class="ln">   414  </span>
-<span id="L415" class="ln">   415  </span><span class="comment">// SetContext sets context for process</span>
-<span id="L416" class="ln">   416  </span>func (b *CommandBuilder) SetContext(ctx context.Context) *CommandBuilder {
-<span id="L417" class="ln">   417  </span>	b.ctx = ctx
-<span id="L418" class="ln">   418  </span>
-<span id="L419" class="ln">   419  </span>	return b
-<span id="L420" class="ln">   420  </span>}
-<span id="L421" class="ln">   421  </span>
-<span id="L422" class="ln">   422  </span><span class="comment">// SetStdin sets stdin for process</span>
-<span id="L423" class="ln">   423  </span>func (b *CommandBuilder) SetStdin(stdin io.ReadWriteCloser) *CommandBuilder {
-<span id="L424" class="ln">   424  </span>	b.stdin = stdin
-<span id="L425" class="ln">   425  </span>
-<span id="L426" class="ln">   426  </span>	return b
-<span id="L427" class="ln">   427  </span>}
-<span id="L428" class="ln">   428  </span>
-<span id="L429" class="ln">   429  </span><span class="comment">// SetStdout sets stdout for process</span>
-<span id="L430" class="ln">   430  </span>func (b *CommandBuilder) SetStdout(stdout io.ReadWriteCloser) *CommandBuilder {
-<span id="L431" class="ln">   431  </span>	b.stdout = stdout
-<span id="L432" class="ln">   432  </span>
-<span id="L433" class="ln">   433  </span>	return b
-<span id="L434" class="ln">   434  </span>}
-<span id="L435" class="ln">   435  </span>
-<span id="L436" class="ln">   436  </span><span class="comment">// SetStderr sets stderr for process</span>
-<span id="L437" class="ln">   437  </span>func (b *CommandBuilder) SetStderr(stderr io.ReadWriteCloser) *CommandBuilder {
-<span id="L438" class="ln">   438  </span>	b.stderr = stderr
-<span id="L439" class="ln">   439  </span>
-<span id="L440" class="ln">   440  </span>	return b
-<span id="L441" class="ln">   441  </span>}
-<span id="L442" class="ln">   442  </span>
-<span id="L443" class="ln">   443  </span>func (b *CommandBuilder) getLoggerFromContext(ctx context.Context) logr.Logger {
-<span id="L444" class="ln">   444  </span>	<span class="comment">// this logger is inherited from the global one</span>
-<span id="L445" class="ln">   445  </span>	<span class="comment">// TODO: replace it with a specific logger by passing in one or creating a new one</span>
-<span id="L446" class="ln">   446  </span>	logger := log.L().WithName(&#34;background-process-manager.process-builder&#34;)
-<span id="L447" class="ln">   447  </span>	return log.EnrichLoggerWithContext(ctx, logger)
-<span id="L448" class="ln">   448  </span>}
-<span id="L449" class="ln">   449  </span>
-<span id="L450" class="ln">   450  </span>type nsOption struct {
-<span id="L451" class="ln">   451  </span>	Typ  NsType
-<span id="L452" class="ln">   452  </span>	Path string
-<span id="L453" class="ln">   453  </span>}
-<span id="L454" class="ln">   454  </span>
-<span id="L455" class="ln">   455  </span><span class="comment">// ManagedCommand is a process which can be managed by backgroundProcessManager</span>
-<span id="L456" class="ln">   456  </span>type ManagedCommand struct {
-<span id="L457" class="ln">   457  </span>	*exec.Cmd
+<span id="L361" class="ln">   361  </span>	oomScoreAdj int
+<span id="L362" class="ln">   362  </span>
+<span id="L363" class="ln">   363  </span>	<span class="comment">// the context is used to kill the process and will be passed into</span>
+<span id="L364" class="ln">   364  </span>	<span class="comment">// `exec.CommandContext`</span>
+<span id="L365" class="ln">   365  </span>	ctx context.Context
+<span id="L366" class="ln">   366  </span>}
+<span id="L367" class="ln">   367  </span>
+<span id="L368" class="ln">   368  </span><span class="comment">// GetNsPath returns corresponding namespace path</span>
+<span id="L369" class="ln">   369  </span>func GetNsPath(pid uint32, typ NsType) string {
+<span id="L370" class="ln">   370  </span>	return fmt.Sprintf(&#34;%s/%d/ns/%s&#34;, DefaultProcPrefix, pid, string(typ))
+<span id="L371" class="ln">   371  </span>}
+<span id="L372" class="ln">   372  </span>
+<span id="L373" class="ln">   373  </span><span class="comment">// SetEnv sets the environment variables of the process</span>
+<span id="L374" class="ln">   374  </span>func (b *CommandBuilder) SetEnv(key, value string) *CommandBuilder {
+<span id="L375" class="ln">   375  </span>	b.env = append(b.env, fmt.Sprintf(&#34;%s=%s&#34;, key, value))
+<span id="L376" class="ln">   376  </span>	return b
+<span id="L377" class="ln">   377  </span>}
+<span id="L378" class="ln">   378  </span>
+<span id="L379" class="ln">   379  </span><span class="comment">// SetNS sets the namespace of the process</span>
+<span id="L380" class="ln">   380  </span>func (b *CommandBuilder) SetNS(pid uint32, typ NsType) *CommandBuilder {
+<span id="L381" class="ln">   381  </span>	return b.SetNSOpt([]nsOption{{
+<span id="L382" class="ln">   382  </span>		Typ:  typ,
+<span id="L383" class="ln">   383  </span>		Path: GetNsPath(pid, typ),
+<span id="L384" class="ln">   384  </span>	}})
+<span id="L385" class="ln">   385  </span>}
+<span id="L386" class="ln">   386  </span>
+<span id="L387" class="ln">   387  </span><span class="comment">// SetNSOpt sets the namespace of the process</span>
+<span id="L388" class="ln">   388  </span>func (b *CommandBuilder) SetNSOpt(options []nsOption) *CommandBuilder {
+<span id="L389" class="ln">   389  </span>	b.nsOptions = append(b.nsOptions, options...)
+<span id="L390" class="ln">   390  </span>
+<span id="L391" class="ln">   391  </span>	return b
+<span id="L392" class="ln">   392  </span>}
+<span id="L393" class="ln">   393  </span>
+<span id="L394" class="ln">   394  </span><span class="comment">// SetIdentifier sets the identifier of the process</span>
+<span id="L395" class="ln">   395  </span><span class="comment">//</span>
+<span id="L396" class="ln">   396  </span><span class="comment">// The identifier is used to identify the process in BPM, to confirm only one identified process is running.</span>
+<span id="L397" class="ln">   397  </span><span class="comment">// If one identified process is already running, new processes with the same identifier will be blocked by lock.</span>
+<span id="L398" class="ln">   398  </span>func (b *CommandBuilder) SetIdentifier(id string) *CommandBuilder {
+<span id="L399" class="ln">   399  </span>	b.identifier = &amp;id
+<span id="L400" class="ln">   400  </span>
+<span id="L401" class="ln">   401  </span>	return b
+<span id="L402" class="ln">   402  </span>}
+<span id="L403" class="ln">   403  </span>
+<span id="L404" class="ln">   404  </span><span class="comment">// EnablePause enables pause for process</span>
+<span id="L405" class="ln">   405  </span>func (b *CommandBuilder) EnablePause() *CommandBuilder {
+<span id="L406" class="ln">   406  </span>	b.pause = true
+<span id="L407" class="ln">   407  </span>
+<span id="L408" class="ln">   408  </span>	return b
+<span id="L409" class="ln">   409  </span>}
+<span id="L410" class="ln">   410  </span>
+<span id="L411" class="ln">   411  </span>func (b *CommandBuilder) EnableLocalMnt() *CommandBuilder {
+<span id="L412" class="ln">   412  </span>	b.localMnt = true
+<span id="L413" class="ln">   413  </span>
+<span id="L414" class="ln">   414  </span>	return b
+<span id="L415" class="ln">   415  </span>}
+<span id="L416" class="ln">   416  </span>
+<span id="L417" class="ln">   417  </span><span class="comment">// SetContext sets context for process</span>
+<span id="L418" class="ln">   418  </span>func (b *CommandBuilder) SetContext(ctx context.Context) *CommandBuilder {
+<span id="L419" class="ln">   419  </span>	b.ctx = ctx
+<span id="L420" class="ln">   420  </span>
+<span id="L421" class="ln">   421  </span>	return b
+<span id="L422" class="ln">   422  </span>}
+<span id="L423" class="ln">   423  </span>
+<span id="L424" class="ln">   424  </span><span class="comment">// SetStdin sets stdin for process</span>
+<span id="L425" class="ln">   425  </span>func (b *CommandBuilder) SetStdin(stdin io.ReadWriteCloser) *CommandBuilder {
+<span id="L426" class="ln">   426  </span>	b.stdin = stdin
+<span id="L427" class="ln">   427  </span>
+<span id="L428" class="ln">   428  </span>	return b
+<span id="L429" class="ln">   429  </span>}
+<span id="L430" class="ln">   430  </span>
+<span id="L431" class="ln">   431  </span><span class="comment">// SetStdout sets stdout for process</span>
+<span id="L432" class="ln">   432  </span>func (b *CommandBuilder) SetStdout(stdout io.ReadWriteCloser) *CommandBuilder {
+<span id="L433" class="ln">   433  </span>	b.stdout = stdout
+<span id="L434" class="ln">   434  </span>
+<span id="L435" class="ln">   435  </span>	return b
+<span id="L436" class="ln">   436  </span>}
+<span id="L437" class="ln">   437  </span>
+<span id="L438" class="ln">   438  </span><span class="comment">// SetStderr sets stderr for process</span>
+<span id="L439" class="ln">   439  </span>func (b *CommandBuilder) SetStderr(stderr io.ReadWriteCloser) *CommandBuilder {
+<span id="L440" class="ln">   440  </span>	b.stderr = stderr
+<span id="L441" class="ln">   441  </span>
+<span id="L442" class="ln">   442  </span>	return b
+<span id="L443" class="ln">   443  </span>}
+<span id="L444" class="ln">   444  </span>
+<span id="L445" class="ln">   445  </span><span class="comment">// SetOOMScoreAdj sets the oom_score_adj for a process</span>
+<span id="L446" class="ln">   446  </span><span class="comment">// oom_score_adj ranges from -1000 to 1000</span>
+<span id="L447" class="ln">   447  </span>func (b *CommandBuilder) SetOOMScoreAdj(scoreAdj int) *CommandBuilder {
+<span id="L448" class="ln">   448  </span>	b.oomScoreAdj = scoreAdj
+<span id="L449" class="ln">   449  </span>	return b
+<span id="L450" class="ln">   450  </span>}
+<span id="L451" class="ln">   451  </span>
+<span id="L452" class="ln">   452  </span>func (b *CommandBuilder) getLoggerFromContext(ctx context.Context) logr.Logger {
+<span id="L453" class="ln">   453  </span>	<span class="comment">// this logger is inherited from the global one</span>
+<span id="L454" class="ln">   454  </span>	<span class="comment">// TODO: replace it with a specific logger by passing in one or creating a new one</span>
+<span id="L455" class="ln">   455  </span>	logger := log.L().WithName(&#34;background-process-manager.process-builder&#34;)
+<span id="L456" class="ln">   456  </span>	return log.EnrichLoggerWithContext(ctx, logger)
+<span id="L457" class="ln">   457  </span>}
 <span id="L458" class="ln">   458  </span>
-<span id="L459" class="ln">   459  </span>	<span class="comment">// If the identifier is not nil, process manager should make sure no other</span>
-<span id="L460" class="ln">   460  </span>	<span class="comment">// process with this identifier is running when executing this command</span>
-<span id="L461" class="ln">   461  </span>	Identifier *string
+<span id="L459" class="ln">   459  </span>type nsOption struct {
+<span id="L460" class="ln">   460  </span>	Typ  NsType
+<span id="L461" class="ln">   461  </span>	Path string
 <span id="L462" class="ln">   462  </span>}
 <span id="L463" class="ln">   463  </span>
+<span id="L464" class="ln">   464  </span><span class="comment">// ManagedCommand is a process which can be managed by backgroundProcessManager</span>
+<span id="L465" class="ln">   465  </span>type ManagedCommand struct {
+<span id="L466" class="ln">   466  </span>	*exec.Cmd
+<span id="L467" class="ln">   467  </span>
+<span id="L468" class="ln">   468  </span>	<span class="comment">// If the identifier is not nil, process manager should make sure no other</span>
+<span id="L469" class="ln">   469  </span>	<span class="comment">// process with this identifier is running when executing this command</span>
+<span id="L470" class="ln">   470  </span>	Identifier *string
+<span id="L471" class="ln">   471  </span>}
+<span id="L472" class="ln">   472  </span>
 </pre><p></p>
 
 <div id="footer">

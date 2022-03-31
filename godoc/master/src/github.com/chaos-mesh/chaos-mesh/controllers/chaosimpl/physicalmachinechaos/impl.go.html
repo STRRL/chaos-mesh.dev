@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c22a596. Generated at Thu Mar 31 10:02:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -88,8 +88,8 @@
 <span id="L23" class="ln">    23  </span>	&#34;encoding/json&#34;
 <span id="L24" class="ln">    24  </span>	&#34;fmt&#34;
 <span id="L25" class="ln">    25  </span>	&#34;io&#34;
-<span id="L26" class="ln">    26  </span>	&#34;io/ioutil&#34;
-<span id="L27" class="ln">    27  </span>	&#34;net/http&#34;
+<span id="L26" class="ln">    26  </span>	&#34;net/http&#34;
+<span id="L27" class="ln">    27  </span>	&#34;os&#34;
 <span id="L28" class="ln">    28  </span>	&#34;strings&#34;
 <span id="L29" class="ln">    29  </span>	&#34;time&#34;
 <span id="L30" class="ln">    30  </span>
@@ -288,7 +288,7 @@
 <span id="L223" class="ln">   223  </span>	}
 <span id="L224" class="ln">   224  </span>
 <span id="L225" class="ln">   225  </span>	pool := x509.NewCertPool()
-<span id="L226" class="ln">   226  </span>	ca, err := ioutil.ReadFile(config.ControllerCfg.ChaosdCACert)
+<span id="L226" class="ln">   226  </span>	ca, err := os.ReadFile(config.ControllerCfg.ChaosdCACert)
 <span id="L227" class="ln">   227  </span>	if err != nil {
 <span id="L228" class="ln">   228  </span>		return nil, errors.Wrap(err, &#34;read ChaosdCACert file failed&#34;)
 <span id="L229" class="ln">   229  </span>	}

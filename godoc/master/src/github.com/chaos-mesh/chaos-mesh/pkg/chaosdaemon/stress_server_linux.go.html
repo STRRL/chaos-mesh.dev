@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c22a596. Generated at Thu Mar 31 10:02:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -285,47 +285,50 @@
 <span id="L220" class="ln">   220  </span>	processBuilder := bpm.DefaultProcessBuilder(&#34;memStress&#34;, strings.Fields(req.MemoryStressors)...).
 <span id="L221" class="ln">   221  </span>		EnablePause()
 <span id="L222" class="ln">   222  </span>
-<span id="L223" class="ln">   223  </span>	if req.EnterNS {
-<span id="L224" class="ln">   224  </span>		processBuilder = processBuilder.SetNS(pid, bpm.PidNS)
+<span id="L223" class="ln">   223  </span>	if req.OomScoreAdj != 0 {
+<span id="L224" class="ln">   224  </span>		processBuilder = processBuilder.SetOOMScoreAdj(int(req.OomScoreAdj))
 <span id="L225" class="ln">   225  </span>	}
-<span id="L226" class="ln">   226  </span>	cmd := processBuilder.Build(ctx)
-<span id="L227" class="ln">   227  </span>
-<span id="L228" class="ln">   228  </span>	proc, err := s.backgroundProcessManager.StartProcess(ctx, cmd)
-<span id="L229" class="ln">   229  </span>	if err != nil {
-<span id="L230" class="ln">   230  </span>		return nil, err
-<span id="L231" class="ln">   231  </span>	}
-<span id="L232" class="ln">   232  </span>	log.Info(&#34;Start memStress successfully&#34;, &#34;command&#34;, cmd, &#34;pid&#34;, proc.Pair.Pid, &#34;uid&#34;, proc.Uid)
-<span id="L233" class="ln">   233  </span>
-<span id="L234" class="ln">   234  </span>	if err = AttachProcessToCGroup(proc.Pair.Pid, cgroupManager); err != nil {
-<span id="L235" class="ln">   235  </span>		if kerr := cmd.Process.Kill(); kerr != nil {
-<span id="L236" class="ln">   236  </span>			log.Error(kerr, &#34;kill memStress failed&#34;, &#34;request&#34;, req)
-<span id="L237" class="ln">   237  </span>		}
-<span id="L238" class="ln">   238  </span>		return nil, err
-<span id="L239" class="ln">   239  </span>	}
-<span id="L240" class="ln">   240  </span>
-<span id="L241" class="ln">   241  </span>	for {
-<span id="L242" class="ln">   242  </span>		<span class="comment">// TODO: find a better way to resume pause process</span>
-<span id="L243" class="ln">   243  </span>		if err := cmd.Process.Signal(syscall.SIGCONT); err != nil {
-<span id="L244" class="ln">   244  </span>			return nil, err
-<span id="L245" class="ln">   245  </span>		}
-<span id="L246" class="ln">   246  </span>
-<span id="L247" class="ln">   247  </span>		log.Info(&#34;send signal to resume process&#34;)
-<span id="L248" class="ln">   248  </span>		time.Sleep(time.Millisecond)
-<span id="L249" class="ln">   249  </span>		comm, err := util.ReadCommName(proc.Pair.Pid)
-<span id="L250" class="ln">   250  </span>
-<span id="L251" class="ln">   251  </span>		if err != nil {
-<span id="L252" class="ln">   252  </span>			return nil, err
-<span id="L253" class="ln">   253  </span>		}
-<span id="L254" class="ln">   254  </span>		if comm != &#34;pause\n&#34; {
-<span id="L255" class="ln">   255  </span>			log.Info(&#34;pause has been resumed&#34;, &#34;comm&#34;, comm)
-<span id="L256" class="ln">   256  </span>			break
-<span id="L257" class="ln">   257  </span>		}
-<span id="L258" class="ln">   258  </span>		log.Info(&#34;the process hasn&#39;t resumed, step into the following loop&#34;, &#34;comm&#34;, comm)
-<span id="L259" class="ln">   259  </span>	}
-<span id="L260" class="ln">   260  </span>
-<span id="L261" class="ln">   261  </span>	return proc, nil
-<span id="L262" class="ln">   262  </span>}
+<span id="L226" class="ln">   226  </span>	if req.EnterNS {
+<span id="L227" class="ln">   227  </span>		processBuilder = processBuilder.SetNS(pid, bpm.PidNS)
+<span id="L228" class="ln">   228  </span>	}
+<span id="L229" class="ln">   229  </span>	cmd := processBuilder.Build(ctx)
+<span id="L230" class="ln">   230  </span>
+<span id="L231" class="ln">   231  </span>	proc, err := s.backgroundProcessManager.StartProcess(ctx, cmd)
+<span id="L232" class="ln">   232  </span>	if err != nil {
+<span id="L233" class="ln">   233  </span>		return nil, err
+<span id="L234" class="ln">   234  </span>	}
+<span id="L235" class="ln">   235  </span>	log.Info(&#34;Start memStress successfully&#34;, &#34;command&#34;, cmd, &#34;pid&#34;, proc.Pair.Pid, &#34;uid&#34;, proc.Uid)
+<span id="L236" class="ln">   236  </span>
+<span id="L237" class="ln">   237  </span>	if err = AttachProcessToCGroup(proc.Pair.Pid, cgroupManager); err != nil {
+<span id="L238" class="ln">   238  </span>		if kerr := cmd.Process.Kill(); kerr != nil {
+<span id="L239" class="ln">   239  </span>			log.Error(kerr, &#34;kill memStress failed&#34;, &#34;request&#34;, req)
+<span id="L240" class="ln">   240  </span>		}
+<span id="L241" class="ln">   241  </span>		return nil, err
+<span id="L242" class="ln">   242  </span>	}
+<span id="L243" class="ln">   243  </span>
+<span id="L244" class="ln">   244  </span>	for {
+<span id="L245" class="ln">   245  </span>		<span class="comment">// TODO: find a better way to resume pause process</span>
+<span id="L246" class="ln">   246  </span>		if err := cmd.Process.Signal(syscall.SIGCONT); err != nil {
+<span id="L247" class="ln">   247  </span>			return nil, err
+<span id="L248" class="ln">   248  </span>		}
+<span id="L249" class="ln">   249  </span>
+<span id="L250" class="ln">   250  </span>		log.Info(&#34;send signal to resume process&#34;)
+<span id="L251" class="ln">   251  </span>		time.Sleep(time.Millisecond)
+<span id="L252" class="ln">   252  </span>		comm, err := util.ReadCommName(proc.Pair.Pid)
+<span id="L253" class="ln">   253  </span>
+<span id="L254" class="ln">   254  </span>		if err != nil {
+<span id="L255" class="ln">   255  </span>			return nil, err
+<span id="L256" class="ln">   256  </span>		}
+<span id="L257" class="ln">   257  </span>		if comm != &#34;pause\n&#34; {
+<span id="L258" class="ln">   258  </span>			log.Info(&#34;pause has been resumed&#34;, &#34;comm&#34;, comm)
+<span id="L259" class="ln">   259  </span>			break
+<span id="L260" class="ln">   260  </span>		}
+<span id="L261" class="ln">   261  </span>		log.Info(&#34;the process hasn&#39;t resumed, step into the following loop&#34;, &#34;comm&#34;, comm)
+<span id="L262" class="ln">   262  </span>	}
 <span id="L263" class="ln">   263  </span>
+<span id="L264" class="ln">   264  </span>	return proc, nil
+<span id="L265" class="ln">   265  </span>}
+<span id="L266" class="ln">   266  </span>
 </pre><p></p>
 
 <div id="footer">

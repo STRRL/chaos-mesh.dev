@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c22a596. Generated at Thu Mar 31 10:02:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -95,7 +95,7 @@
 <span id="L30" class="ln">    30  </span>	&#34;debug/elf&#34;
 <span id="L31" class="ln">    31  </span>	&#34;encoding/binary&#34;
 <span id="L32" class="ln">    32  </span>	&#34;fmt&#34;
-<span id="L33" class="ln">    33  </span>	&#34;io/ioutil&#34;
+<span id="L33" class="ln">    33  </span>	&#34;os&#34;
 <span id="L34" class="ln">    34  </span>	&#34;strconv&#34;
 <span id="L35" class="ln">    35  </span>	&#34;strings&#34;
 <span id="L36" class="ln">    36  </span>	&#34;syscall&#34;
@@ -149,7 +149,7 @@
 <span id="L84" class="ln">    84  </span>	tidMap := make(map[int]bool)
 <span id="L85" class="ln">    85  </span>	retryCount := make(map[int]int)
 <span id="L86" class="ln">    86  </span>	for {
-<span id="L87" class="ln">    87  </span>		threads, err := ioutil.ReadDir(fmt.Sprintf(&#34;/proc/%d/task&#34;, pid))
+<span id="L87" class="ln">    87  </span>		threads, err := os.ReadDir(fmt.Sprintf(&#34;/proc/%d/task&#34;, pid))
 <span id="L88" class="ln">    88  </span>		if err != nil {
 <span id="L89" class="ln">    89  </span>			logger.Error(err, &#34;read failed&#34;, &#34;pid&#34;, pid)
 <span id="L90" class="ln">    90  </span>			return nil, errors.WithStack(err)

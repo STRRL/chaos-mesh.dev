@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c22a596. Generated at Thu Mar 31 10:02:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -84,8 +84,8 @@
 <span id="L19" class="ln">    19  </span>	&#34;context&#34;
 <span id="L20" class="ln">    20  </span>	&#34;crypto/tls&#34;
 <span id="L21" class="ln">    21  </span>	&#34;crypto/x509&#34;
-<span id="L22" class="ln">    22  </span>	&#34;io/ioutil&#34;
-<span id="L23" class="ln">    23  </span>	&#34;net&#34;
+<span id="L22" class="ln">    22  </span>	&#34;net&#34;
+<span id="L23" class="ln">    23  </span>	&#34;os&#34;
 <span id="L24" class="ln">    24  </span>	&#34;strconv&#34;
 <span id="L25" class="ln">    25  </span>	&#34;time&#34;
 <span id="L26" class="ln">    26  </span>
@@ -134,7 +134,7 @@
 <span id="L69" class="ln">    69  </span>}
 <span id="L70" class="ln">    70  </span>
 <span id="L71" class="ln">    71  </span>func (it *FileProvider) getCredentialOption() (grpc.DialOption, error) {
-<span id="L72" class="ln">    72  </span>	caCert, err := ioutil.ReadFile(it.file.CaCert)
+<span id="L72" class="ln">    72  </span>	caCert, err := os.ReadFile(it.file.CaCert)
 <span id="L73" class="ln">    73  </span>	if err != nil {
 <span id="L74" class="ln">    74  </span>		return nil, err
 <span id="L75" class="ln">    75  </span>	}

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c22a596. Generated at Thu Mar 31 10:02:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -85,9 +85,9 @@
 <span id="L20" class="ln">    20  </span>	&#34;crypto/tls&#34;
 <span id="L21" class="ln">    21  </span>	&#34;crypto/x509&#34;
 <span id="L22" class="ln">    22  </span>	&#34;fmt&#34;
-<span id="L23" class="ln">    23  </span>	&#34;io/ioutil&#34;
-<span id="L24" class="ln">    24  </span>	&#34;net&#34;
-<span id="L25" class="ln">    25  </span>	&#34;net/http&#34;
+<span id="L23" class="ln">    23  </span>	&#34;net&#34;
+<span id="L24" class="ln">    24  </span>	&#34;net/http&#34;
+<span id="L25" class="ln">    25  </span>	&#34;os&#34;
 <span id="L26" class="ln">    26  </span>	&#34;sync&#34;
 <span id="L27" class="ln">    27  </span>
 <span id="L28" class="ln">    28  </span>	&#34;github.com/go-logr/logr&#34;
@@ -199,7 +199,7 @@
 <span id="L134" class="ln">   134  </span>	}
 <span id="L135" class="ln">   135  </span>
 <span id="L136" class="ln">   136  </span>	if tlsConf != (tlsConfig{}) {
-<span id="L137" class="ln">   137  </span>		caCert, err := ioutil.ReadFile(tlsConf.CaCert)
+<span id="L137" class="ln">   137  </span>		caCert, err := os.ReadFile(tlsConf.CaCert)
 <span id="L138" class="ln">   138  </span>		if err != nil {
 <span id="L139" class="ln">   139  </span>			return nil, err
 <span id="L140" class="ln">   140  </span>		}

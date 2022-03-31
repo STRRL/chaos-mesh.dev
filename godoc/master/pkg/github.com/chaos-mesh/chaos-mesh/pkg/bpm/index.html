@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c22a596. Generated at Thu Mar 31 10:02:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -179,6 +179,9 @@
 					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.SetNSOpt">func (b *CommandBuilder) SetNSOpt(options []nsOption) *CommandBuilder</a></dd>
 				
 					
+					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.SetOOMScoreAdj">func (b *CommandBuilder) SetOOMScoreAdj(scoreAdj int) *CommandBuilder</a></dd>
+				
+					
 					<dd>&nbsp; &nbsp; <a href="#CommandBuilder.SetStderr">func (b *CommandBuilder) SetStderr(stderr io.ReadWriteCloser) *CommandBuilder</a></dd>
 				
 					
@@ -254,7 +257,7 @@
 		
 			
 			
-			<h2 id="GetNsPath">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L367">GetNsPath</a>
+			<h2 id="GetNsPath">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L369">GetNsPath</a>
 				<a class="permalink" href="#GetNsPath">&#xb6;</a>
 				
 				
@@ -434,7 +437,7 @@ DefaultProcessBuilder returns the default process builder
 
 			
 				
-				<h3 id="CommandBuilder.Build">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/build_linux.go#L30">Build</a>
+				<h3 id="CommandBuilder.Build">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/build_linux.go#L31">Build</a>
 					<a class="permalink" href="#CommandBuilder.Build">&#xb6;</a>
 					
 					
@@ -451,7 +454,7 @@ e.g. the corresponding resource name.
 				
 			
 				
-				<h3 id="CommandBuilder.EnableLocalMnt">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L409">EnableLocalMnt</a>
+				<h3 id="CommandBuilder.EnableLocalMnt">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L411">EnableLocalMnt</a>
 					<a class="permalink" href="#CommandBuilder.EnableLocalMnt">&#xb6;</a>
 					
 					
@@ -463,7 +466,7 @@ e.g. the corresponding resource name.
 				
 			
 				
-				<h3 id="CommandBuilder.EnablePause">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L403">EnablePause</a>
+				<h3 id="CommandBuilder.EnablePause">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L405">EnablePause</a>
 					<a class="permalink" href="#CommandBuilder.EnablePause">&#xb6;</a>
 					
 					
@@ -478,7 +481,7 @@ EnablePause enables pause for process
 				
 			
 				
-				<h3 id="CommandBuilder.SetContext">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L416">SetContext</a>
+				<h3 id="CommandBuilder.SetContext">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L418">SetContext</a>
 					<a class="permalink" href="#CommandBuilder.SetContext">&#xb6;</a>
 					
 					
@@ -493,7 +496,7 @@ SetContext sets context for process
 				
 			
 				
-				<h3 id="CommandBuilder.SetEnv">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L372">SetEnv</a>
+				<h3 id="CommandBuilder.SetEnv">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L374">SetEnv</a>
 					<a class="permalink" href="#CommandBuilder.SetEnv">&#xb6;</a>
 					
 					
@@ -508,7 +511,7 @@ SetEnv sets the environment variables of the process
 				
 			
 				
-				<h3 id="CommandBuilder.SetIdentifier">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L396">SetIdentifier</a>
+				<h3 id="CommandBuilder.SetIdentifier">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L398">SetIdentifier</a>
 					<a class="permalink" href="#CommandBuilder.SetIdentifier">&#xb6;</a>
 					
 					
@@ -527,7 +530,7 @@ If one identified process is already running, new processes with the same identi
 				
 			
 				
-				<h3 id="CommandBuilder.SetNS">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L378">SetNS</a>
+				<h3 id="CommandBuilder.SetNS">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L380">SetNS</a>
 					<a class="permalink" href="#CommandBuilder.SetNS">&#xb6;</a>
 					
 					
@@ -542,7 +545,7 @@ SetNS sets the namespace of the process
 				
 			
 				
-				<h3 id="CommandBuilder.SetNSOpt">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L386">SetNSOpt</a>
+				<h3 id="CommandBuilder.SetNSOpt">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L388">SetNSOpt</a>
 					<a class="permalink" href="#CommandBuilder.SetNSOpt">&#xb6;</a>
 					
 					
@@ -557,7 +560,23 @@ SetNSOpt sets the namespace of the process
 				
 			
 				
-				<h3 id="CommandBuilder.SetStderr">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L437">SetStderr</a>
+				<h3 id="CommandBuilder.SetOOMScoreAdj">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L447">SetOOMScoreAdj</a>
+					<a class="permalink" href="#CommandBuilder.SetOOMScoreAdj">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#CommandBuilder">CommandBuilder</a>) SetOOMScoreAdj(scoreAdj <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) *<a href="#CommandBuilder">CommandBuilder</a></pre>
+				<p>
+SetOOMScoreAdj sets the oom_score_adj for a process
+oom_score_adj ranges from -1000 to 1000
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="CommandBuilder.SetStderr">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L439">SetStderr</a>
 					<a class="permalink" href="#CommandBuilder.SetStderr">&#xb6;</a>
 					
 					
@@ -572,7 +591,7 @@ SetStderr sets stderr for process
 				
 			
 				
-				<h3 id="CommandBuilder.SetStdin">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L423">SetStdin</a>
+				<h3 id="CommandBuilder.SetStdin">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L425">SetStdin</a>
 					<a class="permalink" href="#CommandBuilder.SetStdin">&#xb6;</a>
 					
 					
@@ -587,7 +606,7 @@ SetStdin sets stdin for process
 				
 			
 				
-				<h3 id="CommandBuilder.SetStdout">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L430">SetStdout</a>
+				<h3 id="CommandBuilder.SetStdout">func (*CommandBuilder) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L432">SetStdout</a>
 					<a class="permalink" href="#CommandBuilder.SetStdout">&#xb6;</a>
 					
 					
@@ -604,7 +623,7 @@ SetStdout sets stdout for process
 		
 			
 			
-			<h2 id="ManagedCommand">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L456">ManagedCommand</a>
+			<h2 id="ManagedCommand">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/bpm/bpm.go#L465">ManagedCommand</a>
 				<a class="permalink" href="#ManagedCommand">&#xb6;</a>
 				
 				

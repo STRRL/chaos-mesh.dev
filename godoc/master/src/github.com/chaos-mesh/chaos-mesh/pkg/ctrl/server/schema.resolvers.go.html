@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c22a596. Generated at Thu Mar 31 10:02:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -73,7 +73,7 @@
 <span id="L8" class="ln">     8  </span>	&#34;context&#34;
 <span id="L9" class="ln">     9  </span>	&#34;encoding/json&#34;
 <span id="L10" class="ln">    10  </span>	&#34;fmt&#34;
-<span id="L11" class="ln">    11  </span>	&#34;io/ioutil&#34;
+<span id="L11" class="ln">    11  </span>	&#34;io&#34;
 <span id="L12" class="ln">    12  </span>	&#34;time&#34;
 <span id="L13" class="ln">    13  </span>
 <span id="L14" class="ln">    14  </span>	v1 &#34;k8s.io/api/core/v1&#34;
@@ -798,7 +798,7 @@
 <span id="L733" class="ln">   733  </span>		return &#34;&#34;, err
 <span id="L734" class="ln">   734  </span>	}
 <span id="L735" class="ln">   735  </span>	defer logs.Close()
-<span id="L736" class="ln">   736  </span>	data, err := ioutil.ReadAll(logs)
+<span id="L736" class="ln">   736  </span>	data, err := io.ReadAll(logs)
 <span id="L737" class="ln">   737  </span>	if err != nil {
 <span id="L738" class="ln">   738  </span>		return &#34;&#34;, err
 <span id="L739" class="ln">   739  </span>	}

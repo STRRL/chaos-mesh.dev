@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c22a596. Generated at Thu Mar 31 10:02:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -82,7 +82,7 @@
 <span id="L17" class="ln">    17  </span>
 <span id="L18" class="ln">    18  </span>import (
 <span id="L19" class="ln">    19  </span>	&#34;context&#34;
-<span id="L20" class="ln">    20  </span>	&#34;io/ioutil&#34;
+<span id="L20" class="ln">    20  </span>	&#34;io&#34;
 <span id="L21" class="ln">    21  </span>	&#34;time&#34;
 <span id="L22" class="ln">    22  </span>
 <span id="L23" class="ln">    23  </span>	. &#34;github.com/onsi/ginkgo&#34;
@@ -122,7 +122,7 @@
 <span id="L57" class="ln">    57  </span>		defer resp.Body.Close()
 <span id="L58" class="ln">    58  </span>
 <span id="L59" class="ln">    59  </span>		s := resp.Header.Get(SECRET)
-<span id="L60" class="ln">    60  </span>		b, err := ioutil.ReadAll(resp.Body)
+<span id="L60" class="ln">    60  </span>		b, err := io.ReadAll(resp.Body)
 <span id="L61" class="ln">    61  </span>		if err != nil {
 <span id="L62" class="ln">    62  </span>			return false, err
 <span id="L63" class="ln">    63  </span>		}
@@ -178,7 +178,7 @@
 <span id="L113" class="ln">   113  </span>		defer resp.Body.Close()
 <span id="L114" class="ln">   114  </span>
 <span id="L115" class="ln">   115  </span>		s := resp.Header.Get(SECRET)
-<span id="L116" class="ln">   116  </span>		b, err := ioutil.ReadAll(resp.Body)
+<span id="L116" class="ln">   116  </span>		b, err := io.ReadAll(resp.Body)
 <span id="L117" class="ln">   117  </span>		if err != nil {
 <span id="L118" class="ln">   118  </span>			return false, err
 <span id="L119" class="ln">   119  </span>		}
@@ -207,7 +207,7 @@
 <span id="L142" class="ln">   142  </span>		defer resp.Body.Close()
 <span id="L143" class="ln">   143  </span>
 <span id="L144" class="ln">   144  </span>		s := resp.Header.Get(SECRET)
-<span id="L145" class="ln">   145  </span>		b, err := ioutil.ReadAll(resp.Body)
+<span id="L145" class="ln">   145  </span>		b, err := io.ReadAll(resp.Body)
 <span id="L146" class="ln">   146  </span>		if err != nil {
 <span id="L147" class="ln">   147  </span>			return false, err
 <span id="L148" class="ln">   148  </span>		}
@@ -246,7 +246,7 @@
 <span id="L181" class="ln">   181  </span>		defer resp.Body.Close()
 <span id="L182" class="ln">   182  </span>
 <span id="L183" class="ln">   183  </span>		s := resp.Header.Get(SECRET)
-<span id="L184" class="ln">   184  </span>		b, err := ioutil.ReadAll(resp.Body)
+<span id="L184" class="ln">   184  </span>		b, err := io.ReadAll(resp.Body)
 <span id="L185" class="ln">   185  </span>		if err != nil {
 <span id="L186" class="ln">   186  </span>			return false, err
 <span id="L187" class="ln">   187  </span>		}
@@ -323,7 +323,7 @@
 <span id="L258" class="ln">   258  </span>		defer resp.Body.Close()
 <span id="L259" class="ln">   259  </span>
 <span id="L260" class="ln">   260  </span>		s := resp.Header.Get(SECRET)
-<span id="L261" class="ln">   261  </span>		b, err := ioutil.ReadAll(resp.Body)
+<span id="L261" class="ln">   261  </span>		b, err := io.ReadAll(resp.Body)
 <span id="L262" class="ln">   262  </span>		if err != nil {
 <span id="L263" class="ln">   263  </span>			return false, err
 <span id="L264" class="ln">   264  </span>		}
@@ -373,7 +373,7 @@
 <span id="L308" class="ln">   308  </span>		defer resp.Body.Close()
 <span id="L309" class="ln">   309  </span>
 <span id="L310" class="ln">   310  </span>		s := resp.Header.Get(SECRET)
-<span id="L311" class="ln">   311  </span>		b, err := ioutil.ReadAll(resp.Body)
+<span id="L311" class="ln">   311  </span>		b, err := io.ReadAll(resp.Body)
 <span id="L312" class="ln">   312  </span>		if err != nil {
 <span id="L313" class="ln">   313  </span>			return false, err
 <span id="L314" class="ln">   314  </span>		}
@@ -421,7 +421,7 @@
 <span id="L356" class="ln">   356  </span>		defer resp.Body.Close()
 <span id="L357" class="ln">   357  </span>
 <span id="L358" class="ln">   358  </span>		s := resp.Header.Get(SECRET)
-<span id="L359" class="ln">   359  </span>		b, err := ioutil.ReadAll(resp.Body)
+<span id="L359" class="ln">   359  </span>		b, err := io.ReadAll(resp.Body)
 <span id="L360" class="ln">   360  </span>		if err != nil {
 <span id="L361" class="ln">   361  </span>			return false, err
 <span id="L362" class="ln">   362  </span>		}
@@ -465,7 +465,7 @@
 <span id="L400" class="ln">   400  </span>		defer resp.Body.Close()
 <span id="L401" class="ln">   401  </span>
 <span id="L402" class="ln">   402  </span>		s := resp.Header.Get(SECRET)
-<span id="L403" class="ln">   403  </span>		b, err := ioutil.ReadAll(resp.Body)
+<span id="L403" class="ln">   403  </span>		b, err := io.ReadAll(resp.Body)
 <span id="L404" class="ln">   404  </span>		if err != nil {
 <span id="L405" class="ln">   405  </span>			return false, err
 <span id="L406" class="ln">   406  </span>		}
@@ -523,7 +523,7 @@
 <span id="L458" class="ln">   458  </span>		defer resp.Body.Close()
 <span id="L459" class="ln">   459  </span>
 <span id="L460" class="ln">   460  </span>		s := resp.Header.Get(SECRET)
-<span id="L461" class="ln">   461  </span>		b, err := ioutil.ReadAll(resp.Body)
+<span id="L461" class="ln">   461  </span>		b, err := io.ReadAll(resp.Body)
 <span id="L462" class="ln">   462  </span>		if err != nil {
 <span id="L463" class="ln">   463  </span>			return false, err
 <span id="L464" class="ln">   464  </span>		}
@@ -552,7 +552,7 @@
 <span id="L487" class="ln">   487  </span>		defer resp.Body.Close()
 <span id="L488" class="ln">   488  </span>
 <span id="L489" class="ln">   489  </span>		s := resp.Header.Get(SECRET)
-<span id="L490" class="ln">   490  </span>		b, err := ioutil.ReadAll(resp.Body)
+<span id="L490" class="ln">   490  </span>		b, err := io.ReadAll(resp.Body)
 <span id="L491" class="ln">   491  </span>		if err != nil {
 <span id="L492" class="ln">   492  </span>			return false, err
 <span id="L493" class="ln">   493  </span>		}
@@ -592,7 +592,7 @@
 <span id="L527" class="ln">   527  </span>		defer resp.Body.Close()
 <span id="L528" class="ln">   528  </span>
 <span id="L529" class="ln">   529  </span>		s := resp.Header.Get(SECRET)
-<span id="L530" class="ln">   530  </span>		b, err := ioutil.ReadAll(resp.Body)
+<span id="L530" class="ln">   530  </span>		b, err := io.ReadAll(resp.Body)
 <span id="L531" class="ln">   531  </span>		if err != nil {
 <span id="L532" class="ln">   532  </span>			return false, err
 <span id="L533" class="ln">   533  </span>		}
@@ -671,7 +671,7 @@
 <span id="L606" class="ln">   606  </span>		defer resp.Body.Close()
 <span id="L607" class="ln">   607  </span>
 <span id="L608" class="ln">   608  </span>		s := resp.Header.Get(SECRET)
-<span id="L609" class="ln">   609  </span>		b, err := ioutil.ReadAll(resp.Body)
+<span id="L609" class="ln">   609  </span>		b, err := io.ReadAll(resp.Body)
 <span id="L610" class="ln">   610  </span>		if err != nil {
 <span id="L611" class="ln">   611  </span>			return false, err
 <span id="L612" class="ln">   612  </span>		}
@@ -721,7 +721,7 @@
 <span id="L656" class="ln">   656  </span>		defer resp.Body.Close()
 <span id="L657" class="ln">   657  </span>
 <span id="L658" class="ln">   658  </span>		s := resp.Header.Get(SECRET)
-<span id="L659" class="ln">   659  </span>		b, err := ioutil.ReadAll(resp.Body)
+<span id="L659" class="ln">   659  </span>		b, err := io.ReadAll(resp.Body)
 <span id="L660" class="ln">   660  </span>		if err != nil {
 <span id="L661" class="ln">   661  </span>			return false, err
 <span id="L662" class="ln">   662  </span>		}
@@ -769,7 +769,7 @@
 <span id="L704" class="ln">   704  </span>		defer resp.Body.Close()
 <span id="L705" class="ln">   705  </span>
 <span id="L706" class="ln">   706  </span>		s := resp.Header.Get(SECRET)
-<span id="L707" class="ln">   707  </span>		b, err := ioutil.ReadAll(resp.Body)
+<span id="L707" class="ln">   707  </span>		b, err := io.ReadAll(resp.Body)
 <span id="L708" class="ln">   708  </span>		if err != nil {
 <span id="L709" class="ln">   709  </span>			return false, err
 <span id="L710" class="ln">   710  </span>		}

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c22a596. Generated at Thu Mar 31 10:02:17 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -83,7 +83,7 @@
 <span id="L18" class="ln">    18  </span>import (
 <span id="L19" class="ln">    19  </span>	&#34;context&#34;
 <span id="L20" class="ln">    20  </span>	&#34;fmt&#34;
-<span id="L21" class="ln">    21  </span>	&#34;io/ioutil&#34;
+<span id="L21" class="ln">    21  </span>	&#34;io&#34;
 <span id="L22" class="ln">    22  </span>	&#34;net/http&#34;
 <span id="L23" class="ln">    23  </span>	&#34;strings&#34;
 <span id="L24" class="ln">    24  </span>	&#34;time&#34;
@@ -235,7 +235,7 @@
 <span id="L170" class="ln">   170  </span>		return &#34;&#34;, err
 <span id="L171" class="ln">   171  </span>	}
 <span id="L172" class="ln">   172  </span>
-<span id="L173" class="ln">   173  </span>	out, err := ioutil.ReadAll(resp.Body)
+<span id="L173" class="ln">   173  </span>	out, err := io.ReadAll(resp.Body)
 <span id="L174" class="ln">   174  </span>	defer resp.Body.Close()
 <span id="L175" class="ln">   175  </span>	if err != nil {
 <span id="L176" class="ln">   176  </span>		return &#34;&#34;, err
