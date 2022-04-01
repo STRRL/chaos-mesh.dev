@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 187418f. Generated at Fri Apr  1 10:02:12 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -122,10 +122,13 @@
 				<dd><a href="#IPToCidr">func IPToCidr(ip string) string</a></dd>
 			
 				
-				<dd><a href="#ResolveCidr">func ResolveCidr(name string) ([]string, error)</a></dd>
+				<dd><a href="#LookupIP">func LookupIP(host string) ([]net.IP, error)</a></dd>
 			
 				
-				<dd><a href="#ResolveCidrs">func ResolveCidrs(names []string) ([]string, error)</a></dd>
+				<dd><a href="#ResolveCidr">func ResolveCidr(name string) ([]v1alpha1.CidrAndPort, error)</a></dd>
+			
+				
+				<dd><a href="#ResolveCidrs">func ResolveCidrs(names []string) ([]v1alpha1.CidrAndPort, error)</a></dd>
 			
 			
 			
@@ -173,7 +176,7 @@ targetLength &lt; 7 or targetLength-7-len(namePostFix) &lt; 0 are not allowed
 		
 			
 			
-			<h2 id="IPToCidr">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/netutils/cidr.go#L24">IPToCidr</a>
+			<h2 id="IPToCidr">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/netutils/cidr.go#L30">IPToCidr</a>
 				<a class="permalink" href="#IPToCidr">&#xb6;</a>
 				
 				
@@ -189,12 +192,25 @@ IPToCidr converts from an ip to a full mask cidr
 		
 			
 			
-			<h2 id="ResolveCidr">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/netutils/cidr.go#L46">ResolveCidr</a>
+			<h2 id="LookupIP">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/netutils/cidr.go#L93">LookupIP</a>
+				<a class="permalink" href="#LookupIP">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func LookupIP(host <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/net/">net</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/net/#IP">IP</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="ResolveCidr">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/netutils/cidr.go#L52">ResolveCidr</a>
 				<a class="permalink" href="#ResolveCidr">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func ResolveCidr(name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			<pre>func ResolveCidr(name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#CidrAndPort">CidrAndPort</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 			<p>
 ResolveCidr converts cidr/ip/domain into cidr
 </p>
@@ -205,12 +221,12 @@ ResolveCidr converts cidr/ip/domain into cidr
 		
 			
 			
-			<h2 id="ResolveCidrs">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/netutils/cidr.go#L30">ResolveCidrs</a>
+			<h2 id="ResolveCidrs">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/netutils/cidr.go#L36">ResolveCidrs</a>
 				<a class="permalink" href="#ResolveCidrs">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func ResolveCidrs(names []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			<pre>func ResolveCidrs(names []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#CidrAndPort">CidrAndPort</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 			<p>
 ResolveCidrs converts multiple cidrs/ips/domains into cidr
 </p>

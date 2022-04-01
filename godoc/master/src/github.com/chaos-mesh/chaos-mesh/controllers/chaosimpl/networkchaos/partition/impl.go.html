@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 187418f. Generated at Fri Apr  1 10:02:12 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -425,29 +425,36 @@
 <span id="L360" class="ln">   360  </span>		}
 <span id="L361" class="ln">   361  </span>		targetPods = append(targetPods, pod)
 <span id="L362" class="ln">   362  </span>	}
-<span id="L363" class="ln">   363  </span>	dstIpset := ipset.BuildIPSet(targetPods, externalCidrs, networkchaos, ipSetPostFix, m.Source)
-<span id="L364" class="ln">   364  </span>	m.T.Append(dstIpset)
-<span id="L365" class="ln">   365  </span>	m.T.Append(v1alpha1.RawIptables{
-<span id="L366" class="ln">   366  </span>		Name:      iptable.GenerateName(pbChainDirection, networkchaos),
-<span id="L367" class="ln">   367  </span>		Direction: chainDirection,
-<span id="L368" class="ln">   368  </span>		IPSets:    []string{dstIpset.Name},
-<span id="L369" class="ln">   369  </span>		RawRuleSource: v1alpha1.RawRuleSource{
-<span id="L370" class="ln">   370  </span>			Source: m.Source,
-<span id="L371" class="ln">   371  </span>		},
-<span id="L372" class="ln">   372  </span>		Device: device,
-<span id="L373" class="ln">   373  </span>	})
-<span id="L374" class="ln">   374  </span>
-<span id="L375" class="ln">   375  </span>	return nil
-<span id="L376" class="ln">   376  </span>}
-<span id="L377" class="ln">   377  </span>
-<span id="L378" class="ln">   378  </span>func NewImpl(c client.Client, b *podnetworkchaosmanager.Builder, log logr.Logger) *Impl {
-<span id="L379" class="ln">   379  </span>	return &amp;Impl{
-<span id="L380" class="ln">   380  </span>		Client:  c,
-<span id="L381" class="ln">   381  </span>		builder: b,
-<span id="L382" class="ln">   382  </span>		Log:     log.WithName(&#34;partition&#34;),
-<span id="L383" class="ln">   383  </span>	}
-<span id="L384" class="ln">   384  </span>}
-<span id="L385" class="ln">   385  </span>
+<span id="L363" class="ln">   363  </span>	dstIPSets := ipset.BuildIPSets(targetPods, externalCidrs, networkchaos, ipSetPostFix, m.Source)
+<span id="L364" class="ln">   364  </span>	dstSetIPSet := ipset.BuildSetIPSet(dstIPSets, networkchaos, ipSetPostFix, m.Source)
+<span id="L365" class="ln">   365  </span>
+<span id="L366" class="ln">   366  </span>	for _, ipSet := range dstIPSets {
+<span id="L367" class="ln">   367  </span>		m.T.Append(ipSet)
+<span id="L368" class="ln">   368  </span>	}
+<span id="L369" class="ln">   369  </span>
+<span id="L370" class="ln">   370  </span>	m.T.Append(dstSetIPSet)
+<span id="L371" class="ln">   371  </span>
+<span id="L372" class="ln">   372  </span>	m.T.Append(v1alpha1.RawIptables{
+<span id="L373" class="ln">   373  </span>		Name:      iptable.GenerateName(pbChainDirection, networkchaos),
+<span id="L374" class="ln">   374  </span>		Direction: chainDirection,
+<span id="L375" class="ln">   375  </span>		IPSets:    []string{dstSetIPSet.Name},
+<span id="L376" class="ln">   376  </span>		RawRuleSource: v1alpha1.RawRuleSource{
+<span id="L377" class="ln">   377  </span>			Source: m.Source,
+<span id="L378" class="ln">   378  </span>		},
+<span id="L379" class="ln">   379  </span>		Device: device,
+<span id="L380" class="ln">   380  </span>	})
+<span id="L381" class="ln">   381  </span>
+<span id="L382" class="ln">   382  </span>	return nil
+<span id="L383" class="ln">   383  </span>}
+<span id="L384" class="ln">   384  </span>
+<span id="L385" class="ln">   385  </span>func NewImpl(c client.Client, b *podnetworkchaosmanager.Builder, log logr.Logger) *Impl {
+<span id="L386" class="ln">   386  </span>	return &amp;Impl{
+<span id="L387" class="ln">   387  </span>		Client:  c,
+<span id="L388" class="ln">   388  </span>		builder: b,
+<span id="L389" class="ln">   389  </span>		Log:     log.WithName(&#34;partition&#34;),
+<span id="L390" class="ln">   390  </span>	}
+<span id="L391" class="ln">   391  </span>}
+<span id="L392" class="ln">   392  </span>
 </pre><p></p>
 
 <div id="footer">

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 187418f. Generated at Fri Apr  1 10:02:12 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -364,29 +364,36 @@
 <span id="L299" class="ln">   299  </span>		}
 <span id="L300" class="ln">   300  </span>		targetPods = append(targetPods, pod)
 <span id="L301" class="ln">   301  </span>	}
-<span id="L302" class="ln">   302  </span>	dstIpset := ipset.BuildIPSet(targetPods, externalCidrs, networkchaos, string(tcType[0:2])+ipSetPostFix, m.Source)
-<span id="L303" class="ln">   303  </span>	impl.Log.Info(&#34;apply traffic control with filter&#34;, &#34;sources&#34;, m.Source, &#34;ipset&#34;, dstIpset)
-<span id="L304" class="ln">   304  </span>
-<span id="L305" class="ln">   305  </span>	m.T.Append(dstIpset)
-<span id="L306" class="ln">   306  </span>	m.T.Append(v1alpha1.RawTrafficControl{
-<span id="L307" class="ln">   307  </span>		Type:        tcType,
-<span id="L308" class="ln">   308  </span>		TcParameter: spec.TcParameter,
-<span id="L309" class="ln">   309  </span>		Source:      m.Source,
-<span id="L310" class="ln">   310  </span>		IPSet:       dstIpset.Name,
-<span id="L311" class="ln">   311  </span>		Device:      device,
-<span id="L312" class="ln">   312  </span>	})
-<span id="L313" class="ln">   313  </span>
-<span id="L314" class="ln">   314  </span>	return nil
-<span id="L315" class="ln">   315  </span>}
-<span id="L316" class="ln">   316  </span>
-<span id="L317" class="ln">   317  </span>func NewImpl(c client.Client, b *podnetworkchaosmanager.Builder, log logr.Logger) *Impl {
-<span id="L318" class="ln">   318  </span>	return &amp;Impl{
-<span id="L319" class="ln">   319  </span>		Client:  c,
-<span id="L320" class="ln">   320  </span>		builder: b,
-<span id="L321" class="ln">   321  </span>		Log:     log.WithName(&#34;trafficcontrol&#34;),
-<span id="L322" class="ln">   322  </span>	}
-<span id="L323" class="ln">   323  </span>}
-<span id="L324" class="ln">   324  </span>
+<span id="L302" class="ln">   302  </span>	ipSetWithTcPostFix := string(tcType[0:2]) + ipSetPostFix
+<span id="L303" class="ln">   303  </span>	dstIPSets := ipset.BuildIPSets(targetPods, externalCidrs, networkchaos, ipSetWithTcPostFix, m.Source)
+<span id="L304" class="ln">   304  </span>	dstSetIPSet := ipset.BuildSetIPSet(dstIPSets, networkchaos, ipSetWithTcPostFix, m.Source)
+<span id="L305" class="ln">   305  </span>	impl.Log.Info(&#34;apply traffic control with filter&#34;, &#34;sources&#34;, m.Source, &#34;setIpset&#34;, dstSetIPSet, &#34;ipSets&#34;, dstIPSets)
+<span id="L306" class="ln">   306  </span>
+<span id="L307" class="ln">   307  </span>	for _, ipSet := range dstIPSets {
+<span id="L308" class="ln">   308  </span>		m.T.Append(ipSet)
+<span id="L309" class="ln">   309  </span>	}
+<span id="L310" class="ln">   310  </span>
+<span id="L311" class="ln">   311  </span>	m.T.Append(dstSetIPSet)
+<span id="L312" class="ln">   312  </span>
+<span id="L313" class="ln">   313  </span>	m.T.Append(v1alpha1.RawTrafficControl{
+<span id="L314" class="ln">   314  </span>		Type:        tcType,
+<span id="L315" class="ln">   315  </span>		TcParameter: spec.TcParameter,
+<span id="L316" class="ln">   316  </span>		Source:      m.Source,
+<span id="L317" class="ln">   317  </span>		IPSet:       dstSetIPSet.Name,
+<span id="L318" class="ln">   318  </span>		Device:      device,
+<span id="L319" class="ln">   319  </span>	})
+<span id="L320" class="ln">   320  </span>
+<span id="L321" class="ln">   321  </span>	return nil
+<span id="L322" class="ln">   322  </span>}
+<span id="L323" class="ln">   323  </span>
+<span id="L324" class="ln">   324  </span>func NewImpl(c client.Client, b *podnetworkchaosmanager.Builder, log logr.Logger) *Impl {
+<span id="L325" class="ln">   325  </span>	return &amp;Impl{
+<span id="L326" class="ln">   326  </span>		Client:  c,
+<span id="L327" class="ln">   327  </span>		builder: b,
+<span id="L328" class="ln">   328  </span>		Log:     log.WithName(&#34;trafficcontrol&#34;),
+<span id="L329" class="ln">   329  </span>	}
+<span id="L330" class="ln">   330  </span>}
+<span id="L331" class="ln">   331  </span>
 </pre><p></p>
 
 <div id="footer">

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 187418f. Generated at Fri Apr  1 10:02:12 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -159,10 +159,10 @@
 <span id="L94" class="ln">    94  </span>	var matchPart string
 <span id="L95" class="ln">    95  </span>	var interfaceMatcher string
 <span id="L96" class="ln">    96  </span>	if chain.Direction == pb.Chain_INPUT {
-<span id="L97" class="ln">    97  </span>		matchPart = &#34;src&#34;
+<span id="L97" class="ln">    97  </span>		matchPart = &#34;src,dst&#34;
 <span id="L98" class="ln">    98  </span>		interfaceMatcher = &#34;-i&#34;
 <span id="L99" class="ln">    99  </span>	} else if chain.Direction == pb.Chain_OUTPUT {
-<span id="L100" class="ln">   100  </span>		matchPart = &#34;dst&#34;
+<span id="L100" class="ln">   100  </span>		matchPart = &#34;dst,dst&#34;
 <span id="L101" class="ln">   101  </span>		interfaceMatcher = &#34;-o&#34;
 <span id="L102" class="ln">   102  </span>	} else {
 <span id="L103" class="ln">   103  </span>		return errors.Errorf(&#34;unknown chain direction %d&#34;, chain.Direction)

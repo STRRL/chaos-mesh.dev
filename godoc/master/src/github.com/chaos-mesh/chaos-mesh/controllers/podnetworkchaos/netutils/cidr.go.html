@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 187418f. Generated at Fri Apr  1 10:02:12 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -82,59 +82,86 @@
 <span id="L17" class="ln">    17  </span>
 <span id="L18" class="ln">    18  </span>import (
 <span id="L19" class="ln">    19  </span>	&#34;net&#34;
-<span id="L20" class="ln">    20  </span>	&#34;strings&#34;
-<span id="L21" class="ln">    21  </span>)
+<span id="L20" class="ln">    20  </span>	&#34;strconv&#34;
+<span id="L21" class="ln">    21  </span>	&#34;strings&#34;
 <span id="L22" class="ln">    22  </span>
-<span id="L23" class="ln">    23  </span><span class="comment">// IPToCidr converts from an ip to a full mask cidr</span>
-<span id="L24" class="ln">    24  </span>func IPToCidr(ip string) string {
-<span id="L25" class="ln">    25  </span>	<span class="comment">// TODO: support IPv6</span>
-<span id="L26" class="ln">    26  </span>	return ip + &#34;/32&#34;
-<span id="L27" class="ln">    27  </span>}
+<span id="L23" class="ln">    23  </span>	&#34;github.com/pkg/errors&#34;
+<span id="L24" class="ln">    24  </span>
+<span id="L25" class="ln">    25  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
+<span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/mock&#34;
+<span id="L27" class="ln">    27  </span>)
 <span id="L28" class="ln">    28  </span>
-<span id="L29" class="ln">    29  </span><span class="comment">// ResolveCidrs converts multiple cidrs/ips/domains into cidr</span>
-<span id="L30" class="ln">    30  </span>func ResolveCidrs(names []string) ([]string, error) {
-<span id="L31" class="ln">    31  </span>	cidrs := []string{}
-<span id="L32" class="ln">    32  </span>	for _, target := range names {
-<span id="L33" class="ln">    33  </span>		<span class="comment">// TODO: resolve ip on every pods but not in controller, in case the dns server of these pods differ</span>
-<span id="L34" class="ln">    34  </span>		cidr, err := ResolveCidr(target)
-<span id="L35" class="ln">    35  </span>		if err != nil {
-<span id="L36" class="ln">    36  </span>			return nil, err
-<span id="L37" class="ln">    37  </span>		}
-<span id="L38" class="ln">    38  </span>
-<span id="L39" class="ln">    39  </span>		cidrs = append(cidrs, cidr...)
-<span id="L40" class="ln">    40  </span>	}
-<span id="L41" class="ln">    41  </span>
-<span id="L42" class="ln">    42  </span>	return cidrs, nil
-<span id="L43" class="ln">    43  </span>}
+<span id="L29" class="ln">    29  </span><span class="comment">// IPToCidr converts from an ip to a full mask cidr</span>
+<span id="L30" class="ln">    30  </span>func IPToCidr(ip string) string {
+<span id="L31" class="ln">    31  </span>	<span class="comment">// TODO: support IPv6</span>
+<span id="L32" class="ln">    32  </span>	return ip + &#34;/32&#34;
+<span id="L33" class="ln">    33  </span>}
+<span id="L34" class="ln">    34  </span>
+<span id="L35" class="ln">    35  </span><span class="comment">// ResolveCidrs converts multiple cidrs/ips/domains into cidr</span>
+<span id="L36" class="ln">    36  </span>func ResolveCidrs(names []string) ([]v1alpha1.CidrAndPort, error) {
+<span id="L37" class="ln">    37  </span>	cidrs := []v1alpha1.CidrAndPort{}
+<span id="L38" class="ln">    38  </span>	for _, target := range names {
+<span id="L39" class="ln">    39  </span>		<span class="comment">// TODO: resolve ip on every pods but not in controller, in case the dns server of these pods differ</span>
+<span id="L40" class="ln">    40  </span>		cidr, err := ResolveCidr(target)
+<span id="L41" class="ln">    41  </span>		if err != nil {
+<span id="L42" class="ln">    42  </span>			return nil, err
+<span id="L43" class="ln">    43  </span>		}
 <span id="L44" class="ln">    44  </span>
-<span id="L45" class="ln">    45  </span><span class="comment">// ResolveCidr converts cidr/ip/domain into cidr</span>
-<span id="L46" class="ln">    46  </span>func ResolveCidr(name string) ([]string, error) {
-<span id="L47" class="ln">    47  </span>	_, ipnet, err := net.ParseCIDR(name)
-<span id="L48" class="ln">    48  </span>	if err == nil {
-<span id="L49" class="ln">    49  </span>		return []string{ipnet.String()}, nil
-<span id="L50" class="ln">    50  </span>	}
-<span id="L51" class="ln">    51  </span>
-<span id="L52" class="ln">    52  </span>	if net.ParseIP(name) != nil {
-<span id="L53" class="ln">    53  </span>		return []string{IPToCidr(name)}, nil
-<span id="L54" class="ln">    54  </span>	}
+<span id="L45" class="ln">    45  </span>		cidrs = append(cidrs, cidr...)
+<span id="L46" class="ln">    46  </span>	}
+<span id="L47" class="ln">    47  </span>
+<span id="L48" class="ln">    48  </span>	return cidrs, nil
+<span id="L49" class="ln">    49  </span>}
+<span id="L50" class="ln">    50  </span>
+<span id="L51" class="ln">    51  </span><span class="comment">// ResolveCidr converts cidr/ip/domain into cidr</span>
+<span id="L52" class="ln">    52  </span>func ResolveCidr(name string) ([]v1alpha1.CidrAndPort, error) {
+<span id="L53" class="ln">    53  </span>	var toResolve string
+<span id="L54" class="ln">    54  </span>	var port uint16
 <span id="L55" class="ln">    55  </span>
-<span id="L56" class="ln">    56  </span>	addrs, err := net.LookupIP(name)
-<span id="L57" class="ln">    57  </span>	if err != nil {
-<span id="L58" class="ln">    58  </span>		return nil, err
-<span id="L59" class="ln">    59  </span>	}
-<span id="L60" class="ln">    60  </span>
-<span id="L61" class="ln">    61  </span>	cidrs := []string{}
-<span id="L62" class="ln">    62  </span>	for _, addr := range addrs {
-<span id="L63" class="ln">    63  </span>		addr := addr.String()
-<span id="L64" class="ln">    64  </span>
-<span id="L65" class="ln">    65  </span>		<span class="comment">// TODO: support IPv6</span>
-<span id="L66" class="ln">    66  </span>		if strings.Contains(addr, &#34;.&#34;) {
-<span id="L67" class="ln">    67  </span>			cidrs = append(cidrs, IPToCidr(addr))
-<span id="L68" class="ln">    68  </span>		}
-<span id="L69" class="ln">    69  </span>	}
-<span id="L70" class="ln">    70  </span>	return cidrs, nil
-<span id="L71" class="ln">    71  </span>}
-<span id="L72" class="ln">    72  </span>
+<span id="L56" class="ln">    56  </span>	if host, portStr, err := net.SplitHostPort(name); err == nil {
+<span id="L57" class="ln">    57  </span>		toResolve = host
+<span id="L58" class="ln">    58  </span>		port64, err := strconv.ParseUint(portStr, 10, 16)
+<span id="L59" class="ln">    59  </span>		if err != nil {
+<span id="L60" class="ln">    60  </span>			return nil, errors.Errorf(&#34;parse port %s&#34;, err)
+<span id="L61" class="ln">    61  </span>		}
+<span id="L62" class="ln">    62  </span>		port = uint16(port64)
+<span id="L63" class="ln">    63  </span>	} else {
+<span id="L64" class="ln">    64  </span>		toResolve = name
+<span id="L65" class="ln">    65  </span>	}
+<span id="L66" class="ln">    66  </span>
+<span id="L67" class="ln">    67  </span>	_, ipnet, err := net.ParseCIDR(toResolve)
+<span id="L68" class="ln">    68  </span>	if err == nil {
+<span id="L69" class="ln">    69  </span>		return []v1alpha1.CidrAndPort{{Cidr: ipnet.String(), Port: port}}, nil
+<span id="L70" class="ln">    70  </span>	}
+<span id="L71" class="ln">    71  </span>
+<span id="L72" class="ln">    72  </span>	if net.ParseIP(toResolve) != nil {
+<span id="L73" class="ln">    73  </span>		return []v1alpha1.CidrAndPort{{Cidr: IPToCidr(toResolve), Port: port}}, nil
+<span id="L74" class="ln">    74  </span>	}
+<span id="L75" class="ln">    75  </span>
+<span id="L76" class="ln">    76  </span>	addrs, err := LookupIP(toResolve)
+<span id="L77" class="ln">    77  </span>	if err != nil {
+<span id="L78" class="ln">    78  </span>		return nil, err
+<span id="L79" class="ln">    79  </span>	}
+<span id="L80" class="ln">    80  </span>
+<span id="L81" class="ln">    81  </span>	cidrs := []v1alpha1.CidrAndPort{}
+<span id="L82" class="ln">    82  </span>	for _, addr := range addrs {
+<span id="L83" class="ln">    83  </span>		addr := addr.String()
+<span id="L84" class="ln">    84  </span>
+<span id="L85" class="ln">    85  </span>		<span class="comment">// TODO: support IPv6</span>
+<span id="L86" class="ln">    86  </span>		if strings.Contains(addr, &#34;.&#34;) {
+<span id="L87" class="ln">    87  </span>			cidrs = append(cidrs, v1alpha1.CidrAndPort{Cidr: IPToCidr(addr), Port: port})
+<span id="L88" class="ln">    88  </span>		}
+<span id="L89" class="ln">    89  </span>	}
+<span id="L90" class="ln">    90  </span>	return cidrs, nil
+<span id="L91" class="ln">    91  </span>}
+<span id="L92" class="ln">    92  </span>
+<span id="L93" class="ln">    93  </span>func LookupIP(host string) ([]net.IP, error) {
+<span id="L94" class="ln">    94  </span>	if result := mock.On(&#34;LookupIP&#34;); result != nil {
+<span id="L95" class="ln">    95  </span>		return result.([]net.IP), nil
+<span id="L96" class="ln">    96  </span>	}
+<span id="L97" class="ln">    97  </span>	return net.LookupIP(host)
+<span id="L98" class="ln">    98  </span>}
+<span id="L99" class="ln">    99  </span>
 </pre><p></p>
 
 <div id="footer">

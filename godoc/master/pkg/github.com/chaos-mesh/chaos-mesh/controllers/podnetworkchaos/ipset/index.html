@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ace51f9. Generated at Thu Mar 31 22:05:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 187418f. Generated at Fri Apr  1 10:02:12 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -116,7 +116,10 @@
 			
 			
 				
-				<dd><a href="#BuildIPSet">func BuildIPSet(pods []v1.Pod, externalCidrs []string, networkchaos *v1alpha1.NetworkChaos, namePostFix string, source string) v1alpha1.RawIPSet</a></dd>
+				<dd><a href="#BuildIPSets">func BuildIPSets(pods []v1.Pod, externalCidrs []v1alpha1.CidrAndPort, networkchaos *v1alpha1.NetworkChaos, namePostFix string, source string) []v1alpha1.RawIPSet</a></dd>
+			
+				
+				<dd><a href="#BuildSetIPSet">func BuildSetIPSet(sets []v1alpha1.RawIPSet, networkchaos *v1alpha1.NetworkChaos, namePostFix string, source string) v1alpha1.RawIPSet</a></dd>
 			
 				
 				<dd><a href="#FlushIPSets">func FlushIPSets(ctx context.Context, pbClient chaosdaemonclient.ChaosDaemonClientInterface, pod *v1.Pod, ipsets []*pb.IPSet) error</a></dd>
@@ -151,14 +154,14 @@
 		
 			
 			
-			<h2 id="BuildIPSet">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/ipset/ipset.go#L36">BuildIPSet</a>
-				<a class="permalink" href="#BuildIPSet">&#xb6;</a>
+			<h2 id="BuildIPSets">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/ipset/ipset.go#L36">BuildIPSets</a>
+				<a class="permalink" href="#BuildIPSets">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func BuildIPSet(pods []<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, externalCidrs []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, networkchaos *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#NetworkChaos">NetworkChaos</a>, namePostFix <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, source <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#RawIPSet">RawIPSet</a></pre>
+			<pre>func BuildIPSets(pods []<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, externalCidrs []<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#CidrAndPort">CidrAndPort</a>, networkchaos *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#NetworkChaos">NetworkChaos</a>, namePostFix <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, source <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) []<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#RawIPSet">RawIPSet</a></pre>
 			<p>
-BuildIPSet builds an ipset with provided pod ip list
+BuildIPSets builds IP sets with provided pod ip list.
 </p>
 
 			
@@ -167,7 +170,23 @@ BuildIPSet builds an ipset with provided pod ip list
 		
 			
 			
-			<h2 id="FlushIPSets">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/ipset/ipset.go#L61">FlushIPSets</a>
+			<h2 id="BuildSetIPSet">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/ipset/ipset.go#L78">BuildSetIPSet</a>
+				<a class="permalink" href="#BuildSetIPSet">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func BuildSetIPSet(sets []<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#RawIPSet">RawIPSet</a>, networkchaos *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#NetworkChaos">NetworkChaos</a>, namePostFix <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, source <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#RawIPSet">RawIPSet</a></pre>
+			<p>
+BuildSetIPSet builds list:set IP set that stores given sets
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="FlushIPSets">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/ipset/ipset.go#L102">FlushIPSets</a>
 				<a class="permalink" href="#FlushIPSets">&#xb6;</a>
 				
 				
@@ -183,7 +202,7 @@ FlushIPSets makes grpc calls to chaosdaemon to save ipset
 		
 			
 			
-			<h2 id="GenerateIPSetName">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/ipset/ipset.go#L56">GenerateIPSetName</a>
+			<h2 id="GenerateIPSetName">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos/ipset/ipset.go#L97">GenerateIPSetName</a>
 				<a class="permalink" href="#GenerateIPSetName">&#xb6;</a>
 				
 				
