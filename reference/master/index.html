@@ -1759,6 +1759,50 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-cidrandport">CidrAndPort</h4>
+<div class="paragraph">
+<p>CidrAndPort represents CIDR and port pair</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-rawipset">RawIPSet</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>cidr</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>port</code></strong> <em>integer</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
 <h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-clockspec">ClockSpec</h4>
 <div class="sidebarblock">
 <div class="content">
@@ -4110,6 +4154,24 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-iochaosspec">IOChaosSpec</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-ipsettype">IPSetType (string)</h4>
+<div class="paragraph">
+<p>IPSetType represents the type of IP set</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-rawipset">RawIPSet</a></p>
 </li>
 </ul>
 </div>
@@ -7610,6 +7672,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>the signal number to send</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>recoverCmd</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>the command to be run when recovering experiment</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -7652,10 +7722,32 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>ipsetType</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-ipsettype">IPSetType</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong><code>cidrs</code></strong> <em>string array</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The contents of ipset</p>
+<p>The contents of ipset. Only available when IPSetType is NetIPSet.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>cidrAndPorts</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-cidrandport">CidrAndPort</a> array</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The contents of ipset. Only available when IPSetType is NetPortIPSet.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>setNames</code></strong> <em>string array</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The contents of ipset. Only available when IPSetType is SetIPSet.</p>
 </div></div></td>
 </tr>
 <tr>
