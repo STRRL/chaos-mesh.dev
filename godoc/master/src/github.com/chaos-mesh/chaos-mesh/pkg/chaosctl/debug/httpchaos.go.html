@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 187418f. Generated at Fri Apr  1 22:03:50 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4b3374. Generated at Sat Apr  2 10:01:36 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -120,7 +120,7 @@
 <span id="L55" class="ln">    55  </span>					Name      string
 <span id="L56" class="ln">    56  </span>					Spec      *v1alpha1.PodHttpChaosSpec
 <span id="L57" class="ln">    57  </span>					Pod       struct {
-<span id="L58" class="ln">    58  </span>						Iptables  string
+<span id="L58" class="ln">    58  </span>						Iptables  []string
 <span id="L59" class="ln">    59  </span>						Processes []struct {
 <span id="L60" class="ln">    60  </span>							Pid     string
 <span id="L61" class="ln">    61  </span>							Command string
@@ -158,7 +158,7 @@
 <span id="L93" class="ln">    93  </span>				Name: string(podhttpchaos.Name),
 <span id="L94" class="ln">    94  </span>			}
 <span id="L95" class="ln">    95  </span>
-<span id="L96" class="ln">    96  </span>			podResult.Items = append(podResult.Items, common.ItemResult{Name: &#34;iptables list&#34;, Value: string(podhttpchaos.Pod.Iptables)})
+<span id="L96" class="ln">    96  </span>			podResult.Items = append(podResult.Items, common.ItemResult{Name: &#34;iptables list&#34;, Value: strings.Join(podhttpchaos.Pod.Iptables, &#34;\n&#34;)})
 <span id="L97" class="ln">    97  </span>			for _, process := range podhttpchaos.Pod.Processes {
 <span id="L98" class="ln">    98  </span>				var fds []string
 <span id="L99" class="ln">    99  </span>				for _, fd := range process.Fds {

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 187418f. Generated at Fri Apr  1 22:03:50 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4b3374. Generated at Sat Apr  2 10:01:36 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -94,11 +94,12 @@
 <span id="L29" class="ln">    29  </span>
 <span id="L30" class="ln">    30  </span>type Resolver struct {
 <span id="L31" class="ln">    31  </span>	*DaemonHelper
-<span id="L32" class="ln">    32  </span>	Log       logr.Logger
-<span id="L33" class="ln">    33  </span>	Client    client.Client
-<span id="L34" class="ln">    34  </span>	Clientset *kubernetes.Clientset
-<span id="L35" class="ln">    35  </span>}
-<span id="L36" class="ln">    36  </span>
+<span id="L32" class="ln">    32  </span>	Log           logr.Logger
+<span id="L33" class="ln">    33  </span>	Client        client.Client
+<span id="L34" class="ln">    34  </span>	Clientset     *kubernetes.Clientset
+<span id="L35" class="ln">    35  </span>	NoCacheReader client.Reader
+<span id="L36" class="ln">    36  </span>}
+<span id="L37" class="ln">    37  </span>
 </pre><p></p>
 
 <div id="footer">

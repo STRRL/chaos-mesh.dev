@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 187418f. Generated at Fri Apr  1 22:03:50 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4b3374. Generated at Sat Apr  2 10:01:36 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -118,8 +118,13 @@
 			
 			
 				
-				<dd><a href="#Handler">func Handler(logger logr.Logger, client client.Client, clientset *kubernetes.Clientset, daemonClientBuilder *chaosdaemon.ChaosDaemonClientBuilder) http.Handler</a></dd>
+				<dd><a href="#New">func New(param ServerParams) *handler.Server</a></dd>
 			
+			
+				
+				<dd><a href="#ServerParams">type ServerParams</a></dd>
+				
+				
 			
 			
 			</dl>
@@ -147,17 +152,48 @@
 		
 			
 			
-			<h2 id="Handler">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server.go#L31">Handler</a>
-				<a class="permalink" href="#Handler">&#xb6;</a>
+			<h2 id="New">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server.go#L40">New</a>
+				<a class="permalink" href="#New">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func Handler(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>, client <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, clientset *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/kubernetes/">kubernetes</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/kubernetes/#Clientset">Clientset</a>, daemonClientBuilder *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon/#ChaosDaemonClientBuilder">ChaosDaemonClientBuilder</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/net/http/">http</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/net/http/#Handler">Handler</a></pre>
+			<pre>func New(param <a href="#ServerParams">ServerParams</a>) *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/99designs/gqlgen/graphql/handler/">handler</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/99designs/gqlgen/graphql/handler/#Server">Server</a></pre>
 			
 			
 			
 
 		
+		
+			
+			
+			<h2 id="ServerParams">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server.go#L30">ServerParams</a>
+				<a class="permalink" href="#ServerParams">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ServerParams struct {
+    <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#In">In</a>
+
+<span id="ServerParams.NoCacheReader"></span>    NoCacheReader       <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a> `name:&#34;no-cache&#34;`
+<span id="ServerParams.Logger"></span>    Logger              <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+<span id="ServerParams.Client"></span>    Client              <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+<span id="ServerParams.Clientset"></span>    Clientset           *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/kubernetes/">kubernetes</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/kubernetes/#Clientset">Clientset</a>
+<span id="ServerParams.DaemonClientBuilder"></span>    DaemonClientBuilder *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon/#ChaosDaemonClientBuilder">ChaosDaemonClientBuilder</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
 		
 	
 

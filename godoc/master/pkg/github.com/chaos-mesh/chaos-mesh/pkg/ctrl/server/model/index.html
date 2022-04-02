@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 187418f. Generated at Fri Apr  1 22:03:50 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4b3374. Generated at Sat Apr  2 10:01:36 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -157,6 +157,11 @@
 			
 				
 				<dd><a href="#Namespace">type Namespace</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodSelectorInput">type PodSelectorInput</a></dd>
 				
 				
 			
@@ -291,7 +296,7 @@
 		
 			
 			
-			<h2 id="Component">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L67">Component</a>
+			<h2 id="Component">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L78">Component</a>
 				<a class="permalink" href="#Component">&#xb6;</a>
 				
 				
@@ -319,7 +324,7 @@
 
 			
 				
-				<h3 id="Component.IsValid">func (Component) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L83">IsValid</a>
+				<h3 id="Component.IsValid">func (Component) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L94">IsValid</a>
 					<a class="permalink" href="#Component.IsValid">&#xb6;</a>
 					
 					
@@ -331,7 +336,7 @@
 				
 			
 				
-				<h3 id="Component.MarshalGQL">func (Component) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L108">MarshalGQL</a>
+				<h3 id="Component.MarshalGQL">func (Component) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L119">MarshalGQL</a>
 					<a class="permalink" href="#Component.MarshalGQL">&#xb6;</a>
 					
 					
@@ -343,7 +348,7 @@
 				
 			
 				
-				<h3 id="Component.String">func (Component) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L91">String</a>
+				<h3 id="Component.String">func (Component) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L102">String</a>
 					<a class="permalink" href="#Component.String">&#xb6;</a>
 					
 					
@@ -355,7 +360,7 @@
 				
 			
 				
-				<h3 id="Component.UnmarshalGQL">func (*Component) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L95">UnmarshalGQL</a>
+				<h3 id="Component.UnmarshalGQL">func (*Component) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L106">UnmarshalGQL</a>
 					<a class="permalink" href="#Component.UnmarshalGQL">&#xb6;</a>
 					
 					
@@ -429,7 +434,39 @@
 		
 			
 			
-			<h2 id="PodStressChaos">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L48">PodStressChaos</a>
+			<h2 id="PodSelectorInput">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L48">PodSelectorInput</a>
+				<a class="permalink" href="#PodSelectorInput">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PodSelectorInput struct {
+<span id="PodSelectorInput.Namespaces"></span>    Namespaces          []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>               `json:&#34;namespaces&#34;`
+<span id="PodSelectorInput.Nodes"></span>    Nodes               []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>               `json:&#34;nodes&#34;`
+<span id="PodSelectorInput.Pods"></span>    Pods                map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]interface{} `json:&#34;pods&#34;`
+<span id="PodSelectorInput.NodeSelectors"></span>    NodeSelectors       map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]interface{} `json:&#34;nodeSelectors&#34;`
+<span id="PodSelectorInput.FieldSelectors"></span>    FieldSelectors      map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]interface{} `json:&#34;fieldSelectors&#34;`
+<span id="PodSelectorInput.LabelSelectors"></span>    LabelSelectors      map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]interface{} `json:&#34;labelSelectors&#34;`
+<span id="PodSelectorInput.AnnotationSelectors"></span>    AnnotationSelectors map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]interface{} `json:&#34;annotationSelectors&#34;`
+<span id="PodSelectorInput.PodPhaseSelectors"></span>    PodPhaseSelectors   []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>               `json:&#34;podPhaseSelectors&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodStressChaos">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L59">PodStressChaos</a>
 				<a class="permalink" href="#PodStressChaos">&#xb6;</a>
 				
 				
@@ -457,7 +494,7 @@
 		
 			
 			
-			<h2 id="Process">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L55">Process</a>
+			<h2 id="Process">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L66">Process</a>
 				<a class="permalink" href="#Process">&#xb6;</a>
 				
 				
@@ -485,7 +522,7 @@
 		
 			
 			
-			<h2 id="ProcessStress">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L62">ProcessStress</a>
+			<h2 id="ProcessStress">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/models_gen.go#L73">ProcessStress</a>
 				<a class="permalink" href="#ProcessStress">&#xb6;</a>
 				
 				

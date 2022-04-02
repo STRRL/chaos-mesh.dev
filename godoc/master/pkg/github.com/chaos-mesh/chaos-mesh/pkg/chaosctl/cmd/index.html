@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 187418f. Generated at Fri Apr  1 22:03:50 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4b3374. Generated at Sat Apr  2 10:01:36 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -127,6 +127,9 @@
 				
 				<dd><a href="#NewPhysicalMachineCommand">func NewPhysicalMachineCommand() (*cobra.Command, error)</a></dd>
 			
+				
+				<dd><a href="#NewRecoverCommand">func NewRecoverCommand(logger logr.Logger, builders map[string]recover.RecoverBuilder) (*cobra.Command, error)</a></dd>
+			
 			
 				
 				<dd><a href="#Component">type Component</a></dd>
@@ -142,6 +145,17 @@
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#DebugOptions.Run">func (o *DebugOptions) Run(debugger debug.Debugger, args []string) error</a></dd>
+				
+			
+				
+				<dd><a href="#RecoverOptions">type RecoverOptions</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RecoverOptions.List">func (o *RecoverOptions) List(client *ctrlclient.CtrlClient) ([]string, cobra.ShellCompDirective)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RecoverOptions.Run">func (o *RecoverOptions) Run(recover recover.Recover, client *ctrlclient.CtrlClient, args []string) error</a></dd>
 				
 			
 			
@@ -165,6 +179,8 @@
 			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/physicalmachine.go">physicalmachine.go</a>
 			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/recover.go">recover.go</a>
+			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/root.go">root.go</a>
 			
 			</span>
@@ -180,7 +196,7 @@
 		
 			
 			
-			<h2 id="Execute">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/root.go#L45">Execute</a>
+			<h2 id="Execute">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/root.go#L46">Execute</a>
 				<a class="permalink" href="#Execute">&#xb6;</a>
 				
 				
@@ -229,6 +245,19 @@ This is called by main.main(). It only needs to happen once to the rootCmd.
 				
 			</h2>
 			<pre>func NewPhysicalMachineCommand() (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewRecoverCommand">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/recover.go#L39">NewRecoverCommand</a>
+				<a class="permalink" href="#NewRecoverCommand">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewRecoverCommand(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>, builders map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/">recover</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/#RecoverBuilder">RecoverBuilder</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 			
 			
 			
@@ -313,6 +342,61 @@ Run debug
 				<pre>func (o *<a href="#DebugOptions">DebugOptions</a>) Run(debugger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/">debug</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/#Debugger">Debugger</a>, args []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
 				<p>
 Run debug
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="RecoverOptions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/recover.go#L34">RecoverOptions</a>
+				<a class="permalink" href="#RecoverOptions">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type RecoverOptions struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="RecoverOptions.List">func (*RecoverOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/recover.go#L143">List</a>
+					<a class="permalink" href="#RecoverOptions.List">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="#RecoverOptions">RecoverOptions</a>) List(client *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#ShellCompDirective">ShellCompDirective</a>)</pre>
+				<p>
+List pods to recover
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="RecoverOptions.Run">func (*RecoverOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/recover.go#L125">Run</a>
+					<a class="permalink" href="#RecoverOptions.Run">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="#RecoverOptions">RecoverOptions</a>) Run(recover <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/">recover</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/#Recover">Recover</a>, client *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>, args []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<p>
+Run recover
 </p>
 
 				

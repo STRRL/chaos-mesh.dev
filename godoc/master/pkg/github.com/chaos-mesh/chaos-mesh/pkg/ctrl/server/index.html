@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 187418f. Generated at Fri Apr  1 22:03:50 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4b3374. Generated at Sat Apr  2 10:01:36 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -175,7 +175,7 @@
 					<dd>&nbsp; &nbsp; <a href="#Resolver.GetIpset">func (r *Resolver) GetIpset(ctx context.Context, obj *v1.Pod) (string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#Resolver.GetIptables">func (r *Resolver) GetIptables(ctx context.Context, obj *v1.Pod) (string, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#Resolver.GetIptables">func (r *Resolver) GetIptables(ctx context.Context, obj *v1.Pod) ([]string, error)</a></dd>
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#Resolver.GetMemoryLimit">func (r *Resolver) GetMemoryLimit(ctx context.Context, obj *v1.Pod) (int64, error)</a></dd>
@@ -187,7 +187,7 @@
 					<dd>&nbsp; &nbsp; <a href="#Resolver.GetPidFromPS">func (r *Resolver) GetPidFromPS(ctx context.Context, pod *v1.Pod) ([]*model.Process, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#Resolver.GetTcQdisc">func (r *Resolver) GetTcQdisc(ctx context.Context, obj *v1.Pod) (string, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#Resolver.GetTcQdisc">func (r *Resolver) GetTcQdisc(ctx context.Context, obj *v1.Pod) ([]string, error)</a></dd>
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#Resolver.HTTPChaos">func (r *Resolver) HTTPChaos() generated.HTTPChaosResolver</a></dd>
@@ -401,9 +401,10 @@ GetPidFromPod returns pid given containerd ID in pod
 			
 			<pre>type Resolver struct {
     *<a href="#DaemonHelper">DaemonHelper</a>
-<span id="Resolver.Log"></span>    Log       <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>
-<span id="Resolver.Client"></span>    Client    <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
-<span id="Resolver.Clientset"></span>    Clientset *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/kubernetes/">kubernetes</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/kubernetes/#Clientset">Clientset</a>
+<span id="Resolver.Log"></span>    Log           <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+<span id="Resolver.Client"></span>    Client        <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+<span id="Resolver.Clientset"></span>    Clientset     *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/kubernetes/">kubernetes</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/kubernetes/#Clientset">Clientset</a>
+<span id="Resolver.NoCacheReader"></span>    NoCacheReader <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>
 }
 </pre>
 
@@ -419,7 +420,7 @@ GetPidFromPod returns pid given containerd ID in pod
 
 			
 				
-				<h3 id="Resolver.AttrOverrideSpec">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1131">AttrOverrideSpec</a>
+				<h3 id="Resolver.AttrOverrideSpec">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1200">AttrOverrideSpec</a>
 					<a class="permalink" href="#Resolver.AttrOverrideSpec">&#xb6;</a>
 					
 					
@@ -434,7 +435,7 @@ AttrOverrideSpec returns generated.AttrOverrideSpecResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.BandwidthSpec">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1136">BandwidthSpec</a>
+				<h3 id="Resolver.BandwidthSpec">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1205">BandwidthSpec</a>
 					<a class="permalink" href="#Resolver.BandwidthSpec">&#xb6;</a>
 					
 					
@@ -449,7 +450,7 @@ BandwidthSpec returns generated.BandwidthSpecResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.ChaosCondition">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1139">ChaosCondition</a>
+				<h3 id="Resolver.ChaosCondition">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1208">ChaosCondition</a>
 					<a class="permalink" href="#Resolver.ChaosCondition">&#xb6;</a>
 					
 					
@@ -464,7 +465,7 @@ ChaosCondition returns generated.ChaosConditionResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.ContainerStateRunning">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1144">ContainerStateRunning</a>
+				<h3 id="Resolver.ContainerStateRunning">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1213">ContainerStateRunning</a>
 					<a class="permalink" href="#Resolver.ContainerStateRunning">&#xb6;</a>
 					
 					
@@ -479,7 +480,7 @@ ContainerStateRunning returns generated.ContainerStateRunningResolver implementa
 				
 			
 				
-				<h3 id="Resolver.ContainerStateTerminated">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1149">ContainerStateTerminated</a>
+				<h3 id="Resolver.ContainerStateTerminated">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1218">ContainerStateTerminated</a>
 					<a class="permalink" href="#Resolver.ContainerStateTerminated">&#xb6;</a>
 					
 					
@@ -509,7 +510,7 @@ ExecBypass use chaos-daemon to enter namespace and execute command in target pod
 				
 			
 				
-				<h3 id="Resolver.ExperimentStatus">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1154">ExperimentStatus</a>
+				<h3 id="Resolver.ExperimentStatus">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1223">ExperimentStatus</a>
 					<a class="permalink" href="#Resolver.ExperimentStatus">&#xb6;</a>
 					
 					
@@ -621,7 +622,7 @@ lr-x------ 1 docker docker 64 Mar  3 16:11 3 -&gt; /proc/642108/fd
 				
 			
 				
-				<h3 id="Resolver.GetIpset">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/net.go#L27">GetIpset</a>
+				<h3 id="Resolver.GetIpset">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/net.go#L29">GetIpset</a>
 					<a class="permalink" href="#Resolver.GetIpset">&#xb6;</a>
 					
 					
@@ -636,12 +637,12 @@ GetIpset returns result of ipset list
 				
 			
 				
-				<h3 id="Resolver.GetIptables">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/net.go#L39">GetIptables</a>
+				<h3 id="Resolver.GetIptables">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/net.go#L45">GetIptables</a>
 					<a class="permalink" href="#Resolver.GetIptables">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (r *<a href="#Resolver">Resolver</a>) GetIptables(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<pre>func (r *<a href="#Resolver">Resolver</a>) GetIptables(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 GetIptables returns result of iptables --list
 </p>
@@ -706,12 +707,12 @@ GetPidFromPS returns pid-command pairs
 				
 			
 				
-				<h3 id="Resolver.GetTcQdisc">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/net.go#L33">GetTcQdisc</a>
+				<h3 id="Resolver.GetTcQdisc">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/net.go#L35">GetTcQdisc</a>
 					<a class="permalink" href="#Resolver.GetTcQdisc">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (r *<a href="#Resolver">Resolver</a>) GetTcQdisc(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<pre>func (r *<a href="#Resolver">Resolver</a>) GetTcQdisc(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 GetIpset returns result of tc qdisc list
 </p>
@@ -721,7 +722,7 @@ GetIpset returns result of tc qdisc list
 				
 			
 				
-				<h3 id="Resolver.HTTPChaos">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1159">HTTPChaos</a>
+				<h3 id="Resolver.HTTPChaos">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1228">HTTPChaos</a>
 					<a class="permalink" href="#Resolver.HTTPChaos">&#xb6;</a>
 					
 					
@@ -736,7 +737,7 @@ HTTPChaos returns generated.HTTPChaosResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.HTTPChaosSpec">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1162">HTTPChaosSpec</a>
+				<h3 id="Resolver.HTTPChaosSpec">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1231">HTTPChaosSpec</a>
 					<a class="permalink" href="#Resolver.HTTPChaosSpec">&#xb6;</a>
 					
 					
@@ -751,7 +752,7 @@ HTTPChaosSpec returns generated.HTTPChaosSpecResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.HTTPChaosStatus">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1165">HTTPChaosStatus</a>
+				<h3 id="Resolver.HTTPChaosStatus">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1234">HTTPChaosStatus</a>
 					<a class="permalink" href="#Resolver.HTTPChaosStatus">&#xb6;</a>
 					
 					
@@ -766,7 +767,7 @@ HTTPChaosStatus returns generated.HTTPChaosStatusResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.IOChaos">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1170">IOChaos</a>
+				<h3 id="Resolver.IOChaos">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1239">IOChaos</a>
 					<a class="permalink" href="#Resolver.IOChaos">&#xb6;</a>
 					
 					
@@ -781,7 +782,7 @@ IOChaos returns generated.IOChaosResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.IOChaosAction">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1173">IOChaosAction</a>
+				<h3 id="Resolver.IOChaosAction">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1242">IOChaosAction</a>
 					<a class="permalink" href="#Resolver.IOChaosAction">&#xb6;</a>
 					
 					
@@ -796,7 +797,7 @@ IOChaosAction returns generated.IOChaosActionResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.IOChaosSpec">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1176">IOChaosSpec</a>
+				<h3 id="Resolver.IOChaosSpec">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1245">IOChaosSpec</a>
 					<a class="permalink" href="#Resolver.IOChaosSpec">&#xb6;</a>
 					
 					
@@ -811,7 +812,7 @@ IOChaosSpec returns generated.IOChaosSpecResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.IOChaosStatus">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1179">IOChaosStatus</a>
+				<h3 id="Resolver.IOChaosStatus">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1248">IOChaosStatus</a>
 					<a class="permalink" href="#Resolver.IOChaosStatus">&#xb6;</a>
 					
 					
@@ -826,7 +827,7 @@ IOChaosStatus returns generated.IOChaosStatusResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.IoFault">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1182">IoFault</a>
+				<h3 id="Resolver.IoFault">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1251">IoFault</a>
 					<a class="permalink" href="#Resolver.IoFault">&#xb6;</a>
 					
 					
@@ -841,7 +842,7 @@ IoFault returns generated.IoFaultResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.Logger">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1185">Logger</a>
+				<h3 id="Resolver.Logger">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1254">Logger</a>
 					<a class="permalink" href="#Resolver.Logger">&#xb6;</a>
 					
 					
@@ -856,7 +857,7 @@ Logger returns generated.LoggerResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.MistakeSpec">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1188">MistakeSpec</a>
+				<h3 id="Resolver.MistakeSpec">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1257">MistakeSpec</a>
 					<a class="permalink" href="#Resolver.MistakeSpec">&#xb6;</a>
 					
 					
@@ -871,7 +872,7 @@ MistakeSpec returns generated.MistakeSpecResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.Namespace">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1191">Namespace</a>
+				<h3 id="Resolver.Namespace">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1260">Namespace</a>
 					<a class="permalink" href="#Resolver.Namespace">&#xb6;</a>
 					
 					
@@ -886,7 +887,7 @@ Namespace returns generated.NamespaceResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.NetworkChaos">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1194">NetworkChaos</a>
+				<h3 id="Resolver.NetworkChaos">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1263">NetworkChaos</a>
 					<a class="permalink" href="#Resolver.NetworkChaos">&#xb6;</a>
 					
 					
@@ -901,7 +902,7 @@ NetworkChaos returns generated.NetworkChaosResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.OwnerReference">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1197">OwnerReference</a>
+				<h3 id="Resolver.OwnerReference">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1266">OwnerReference</a>
 					<a class="permalink" href="#Resolver.OwnerReference">&#xb6;</a>
 					
 					
@@ -916,7 +917,7 @@ OwnerReference returns generated.OwnerReferenceResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.Pod">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1202">Pod</a>
+				<h3 id="Resolver.Pod">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1271">Pod</a>
 					<a class="permalink" href="#Resolver.Pod">&#xb6;</a>
 					
 					
@@ -931,7 +932,7 @@ Pod returns generated.PodResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.PodCondition">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1205">PodCondition</a>
+				<h3 id="Resolver.PodCondition">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1274">PodCondition</a>
 					<a class="permalink" href="#Resolver.PodCondition">&#xb6;</a>
 					
 					
@@ -946,7 +947,7 @@ PodCondition returns generated.PodConditionResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.PodHTTPChaos">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1208">PodHTTPChaos</a>
+				<h3 id="Resolver.PodHTTPChaos">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1277">PodHTTPChaos</a>
 					<a class="permalink" href="#Resolver.PodHTTPChaos">&#xb6;</a>
 					
 					
@@ -961,7 +962,7 @@ PodHTTPChaos returns generated.PodHTTPChaosResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.PodHttpChaosReplaceActions">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1211">PodHttpChaosReplaceActions</a>
+				<h3 id="Resolver.PodHttpChaosReplaceActions">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1280">PodHttpChaosReplaceActions</a>
 					<a class="permalink" href="#Resolver.PodHttpChaosReplaceActions">&#xb6;</a>
 					
 					
@@ -976,7 +977,7 @@ PodHttpChaosReplaceActions returns generated.PodHttpChaosReplaceActionsResolver 
 				
 			
 				
-				<h3 id="Resolver.PodHttpChaosRule">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1216">PodHttpChaosRule</a>
+				<h3 id="Resolver.PodHttpChaosRule">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1285">PodHttpChaosRule</a>
 					<a class="permalink" href="#Resolver.PodHttpChaosRule">&#xb6;</a>
 					
 					
@@ -991,7 +992,7 @@ PodHttpChaosRule returns generated.PodHttpChaosRuleResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.PodHttpChaosSelector">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1221">PodHttpChaosSelector</a>
+				<h3 id="Resolver.PodHttpChaosSelector">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1290">PodHttpChaosSelector</a>
 					<a class="permalink" href="#Resolver.PodHttpChaosSelector">&#xb6;</a>
 					
 					
@@ -1006,7 +1007,7 @@ PodHttpChaosSelector returns generated.PodHttpChaosSelectorResolver implementati
 				
 			
 				
-				<h3 id="Resolver.PodIOChaos">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1226">PodIOChaos</a>
+				<h3 id="Resolver.PodIOChaos">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1295">PodIOChaos</a>
 					<a class="permalink" href="#Resolver.PodIOChaos">&#xb6;</a>
 					
 					
@@ -1021,7 +1022,7 @@ PodIOChaos returns generated.PodIOChaosResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.PodNetworkChaos">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1229">PodNetworkChaos</a>
+				<h3 id="Resolver.PodNetworkChaos">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1298">PodNetworkChaos</a>
 					<a class="permalink" href="#Resolver.PodNetworkChaos">&#xb6;</a>
 					
 					
@@ -1036,7 +1037,7 @@ PodNetworkChaos returns generated.PodNetworkChaosResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.PodSelectorSpec">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1234">PodSelectorSpec</a>
+				<h3 id="Resolver.PodSelectorSpec">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1303">PodSelectorSpec</a>
 					<a class="permalink" href="#Resolver.PodSelectorSpec">&#xb6;</a>
 					
 					
@@ -1051,7 +1052,7 @@ PodSelectorSpec returns generated.PodSelectorSpecResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.PodStatus">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1239">PodStatus</a>
+				<h3 id="Resolver.PodStatus">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1308">PodStatus</a>
 					<a class="permalink" href="#Resolver.PodStatus">&#xb6;</a>
 					
 					
@@ -1066,7 +1067,7 @@ PodStatus returns generated.PodStatusResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.PodStressChaos">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1242">PodStressChaos</a>
+				<h3 id="Resolver.PodStressChaos">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1311">PodStressChaos</a>
 					<a class="permalink" href="#Resolver.PodStressChaos">&#xb6;</a>
 					
 					
@@ -1081,7 +1082,7 @@ PodStressChaos returns generated.PodStressChaosResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.Process">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1247">Process</a>
+				<h3 id="Resolver.Process">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1316">Process</a>
 					<a class="permalink" href="#Resolver.Process">&#xb6;</a>
 					
 					
@@ -1096,7 +1097,7 @@ Process returns generated.ProcessResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.Query">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1250">Query</a>
+				<h3 id="Resolver.Query">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1319">Query</a>
 					<a class="permalink" href="#Resolver.Query">&#xb6;</a>
 					
 					
@@ -1111,7 +1112,7 @@ Query returns generated.QueryResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.RawIptables">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1253">RawIptables</a>
+				<h3 id="Resolver.RawIptables">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1322">RawIptables</a>
 					<a class="permalink" href="#Resolver.RawIptables">&#xb6;</a>
 					
 					
@@ -1126,7 +1127,7 @@ RawIptables returns generated.RawIptablesResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.RawTrafficControl">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1256">RawTrafficControl</a>
+				<h3 id="Resolver.RawTrafficControl">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1325">RawTrafficControl</a>
 					<a class="permalink" href="#Resolver.RawTrafficControl">&#xb6;</a>
 					
 					
@@ -1141,7 +1142,7 @@ RawTrafficControl returns generated.RawTrafficControlResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.Record">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1261">Record</a>
+				<h3 id="Resolver.Record">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1330">Record</a>
 					<a class="permalink" href="#Resolver.Record">&#xb6;</a>
 					
 					
@@ -1156,7 +1157,7 @@ Record returns generated.RecordResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.StressChaos">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1264">StressChaos</a>
+				<h3 id="Resolver.StressChaos">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1333">StressChaos</a>
 					<a class="permalink" href="#Resolver.StressChaos">&#xb6;</a>
 					
 					
@@ -1171,7 +1172,7 @@ StressChaos returns generated.StressChaosResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.StressChaosSpec">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1267">StressChaosSpec</a>
+				<h3 id="Resolver.StressChaosSpec">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1336">StressChaosSpec</a>
 					<a class="permalink" href="#Resolver.StressChaosSpec">&#xb6;</a>
 					
 					
@@ -1186,7 +1187,7 @@ StressChaosSpec returns generated.StressChaosSpecResolver implementation.
 				
 			
 				
-				<h3 id="Resolver.StressChaosStatus">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1272">StressChaosStatus</a>
+				<h3 id="Resolver.StressChaosStatus">func (*Resolver) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/schema.resolvers.go#L1341">StressChaosStatus</a>
 					<a class="permalink" href="#Resolver.StressChaosStatus">&#xb6;</a>
 					
 					

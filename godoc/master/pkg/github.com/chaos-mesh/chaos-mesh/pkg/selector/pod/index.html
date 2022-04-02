@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 187418f. Generated at Fri Apr  1 22:03:50 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4b3374. Generated at Sat Apr  2 10:01:36 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -114,6 +114,8 @@
 			<dl>
 			
 			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
 			
 				
 				<dd><a href="#CheckPodMeetSelector">func CheckPodMeetSelector(ctx context.Context, c client.Client, pod v1.Pod, selector v1alpha1.PodSelectorSpec, clusterScoped bool, targetNamespace string, enableFilterNamespace bool) (bool, error)</a></dd>
@@ -176,10 +178,16 @@
 
 		
 		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var <span id="ErrNoPodSelected">ErrNoPodSelected</span> = <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/pkg/errors/">errors</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/pkg/errors/#New">New</a>(&#34;no pod is selected&#34;)</pre>
+			
+		
 		
 			
 			
-			<h2 id="CheckPodMeetSelector">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L201">CheckPodMeetSelector</a>
+			<h2 id="CheckPodMeetSelector">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L202">CheckPodMeetSelector</a>
 				<a class="permalink" href="#CheckPodMeetSelector">&#xb6;</a>
 				
 				
@@ -195,7 +203,7 @@ CheckPodMeetSelector checks if this pod meets the selection criteria.
 		
 			
 			
-			<h2 id="SelectAndFilterPods">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L99">SelectAndFilterPods</a>
+			<h2 id="SelectAndFilterPods">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L101">SelectAndFilterPods</a>
 				<a class="permalink" href="#SelectAndFilterPods">&#xb6;</a>
 				
 				
@@ -212,7 +220,7 @@ Deprecated: use pod.SelectImpl as instead
 		
 			
 			
-			<h2 id="SelectPods">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L134">SelectPods</a>
+			<h2 id="SelectPods">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L135">SelectPods</a>
 				<a class="permalink" href="#SelectPods">&#xb6;</a>
 				
 				
@@ -231,7 +239,7 @@ If pods are specifically specified by `selector.Pods`, it just returns the selec
 		
 			
 			
-			<h2 id="Params">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L78">Params</a>
+			<h2 id="Params">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L80">Params</a>
 				<a class="permalink" href="#Params">&#xb6;</a>
 				
 				
@@ -259,7 +267,7 @@ If pods are specifically specified by `selector.Pods`, it just returns the selec
 		
 			
 			
-			<h2 id="Pod">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L47">Pod</a>
+			<h2 id="Pod">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L49">Pod</a>
 				<a class="permalink" href="#Pod">&#xb6;</a>
 				
 				
@@ -282,7 +290,7 @@ If pods are specifically specified by `selector.Pods`, it just returns the selec
 
 			
 				
-				<h3 id="Pod.Id">func (*Pod) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L51">Id</a>
+				<h3 id="Pod.Id">func (*Pod) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L53">Id</a>
 					<a class="permalink" href="#Pod.Id">&#xb6;</a>
 					
 					
@@ -296,7 +304,7 @@ If pods are specifically specified by `selector.Pods`, it just returns the selec
 		
 			
 			
-			<h2 id="SelectImpl">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L40">SelectImpl</a>
+			<h2 id="SelectImpl">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L42">SelectImpl</a>
 				<a class="permalink" href="#SelectImpl">&#xb6;</a>
 				
 				
@@ -318,7 +326,7 @@ If pods are specifically specified by `selector.Pods`, it just returns the selec
 
 			
 				
-				<h3 id="New">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L85">New</a>
+				<h3 id="New">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L87">New</a>
 					<a class="permalink" href="#New">&#xb6;</a>
 					
 					
@@ -331,7 +339,7 @@ If pods are specifically specified by `selector.Pods`, it just returns the selec
 
 			
 				
-				<h3 id="SelectImpl.Select">func (*SelectImpl) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L58">Select</a>
+				<h3 id="SelectImpl.Select">func (*SelectImpl) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/pod/selector.go#L60">Select</a>
 					<a class="permalink" href="#SelectImpl.Select">&#xb6;</a>
 					
 					
