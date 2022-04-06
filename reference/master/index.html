@@ -4425,6 +4425,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="sect3">
 <h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmclassmethodspec">JVMClassMethodSpec</h4>
+<div class="paragraph">
+<p>JVMClassMethodSpec is the specification for class and method</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Appears In:</div>
@@ -4435,6 +4438,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmlatencyspec">JVMLatencySpec</a></p>
+</li>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmparameter">JVMParameter</a></p>
 </li>
 <li>
 <p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmreturnspec">JVMReturnSpec</a></p>
@@ -4476,6 +4482,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="sect3">
 <h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmcommonspec">JVMCommonSpec</h4>
+<div class="paragraph">
+<p>JVMCommonSpec is the common specification for JVMChaos</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Appears In:</div>
@@ -4489,6 +4498,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmlatencyspec">JVMLatencySpec</a></p>
+</li>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmparameter">JVMParameter</a></p>
 </li>
 <li>
 <p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmreturnspec">JVMReturnSpec</a></p>
@@ -4520,7 +4532,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong><code>port</code></strong> <em>integer</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>the port of agent server</p>
+<p>the port of agent server, default 9277</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4528,7 +4540,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong><code>pid</code></strong> <em>integer</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>the pid of Java process which need to attach</p>
+<p>the pid of Java process which needs to attach</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -4698,26 +4710,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>JVMCommonSpec</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmcommonspec">JVMCommonSpec</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>JVMClassMethodSpec</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmclassmethodspec">JVMClassMethodSpec</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>JVMStressCfgSpec</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmstresscfgspec">JVMStressCfgSpec</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong><code>name</code></strong> <em>string</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>byteman rule name, should be unique, and will use JVMChaos' name if not set</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>class</code></strong> <em>string</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Java class</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>method</code></strong> <em>string</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>the method in Java class</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4746,33 +4760,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>cpuCount</code></strong> <em>integer</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>the CPU core number need to use, only set it when action is stress</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>memType</code></strong> <em>string</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>the memory type need to locate, only set it when action is stress, the value can be 'stack' or 'heap'</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>port</code></strong> <em>integer</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>the port of agent server, default 9277</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong><code>ruleData</code></strong> <em>string</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>the byteman rule&#8217;s data for action 'ruleData'</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -4864,6 +4856,54 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>RuleData used to save the rule file&#8217;s data, will use it when recover</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmstresscfgspec">JVMStressCfgSpec</h4>
+<div class="paragraph">
+<p>JVMStressSpec is the specification for stress</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmparameter">JVMParameter</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>cpuCount</code></strong> <em>integer</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>the CPU core number needs to use, only set it when action is stress</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>memType</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>the memory type needs to locate, only set it when action is stress, the value can be 'stack' or 'heap'</p>
 </div></div></td>
 </tr>
 </tbody>
