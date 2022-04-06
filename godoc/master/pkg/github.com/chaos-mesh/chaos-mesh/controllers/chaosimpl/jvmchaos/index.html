@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4b3374. Generated at Tue Apr  5 22:03:31 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 456ef44. Generated at Wed Apr  6 10:06:58 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -124,6 +124,11 @@
 			
 			
 				
+				<dd><a href="#BytemanTemplateSpec">type BytemanTemplateSpec</a></dd>
+				
+				
+			
+				
 				<dd><a href="#Impl">type Impl</a></dd>
 				
 				
@@ -164,7 +169,9 @@
 			<h2 id="pkg-constants">Constants</h2>
 			
 				
-				<pre>const <span id="CommonRuleTemplate">CommonRuleTemplate</span> = `
+				<pre>const (
+    <span class="comment">// byteman rule template</span>
+    <span id="SimpleRuleTemplate">SimpleRuleTemplate</span> = `
 RULE {{.Name}}
 CLASS {{.Class}}
 METHOD {{.Method}}
@@ -173,22 +180,29 @@ IF true
 DO
     {{.Do}};
 ENDRULE
-`</pre>
-			
-				
-				<pre>const <span id="GcRuleTemplate">GcRuleTemplate</span> = `
+`
+
+    <span id="CompleteRuleTemplate">CompleteRuleTemplate</span> = `
 RULE {{.Name}}
-GC
+CLASS {{.Class}}
+METHOD {{.Method}}
+HELPER {{.Helper}}
+AT ENTRY
+BIND {{.Bind}};
+IF {{.Condition}}
+DO
+    {{.Do}};
 ENDRULE
-`</pre>
-			
-				
-				<pre>const <span id="StressRuleTemplate">StressRuleTemplate</span> = `
-RULE {{.Name}}
-STRESS {{.StressType}}
-{{.StressValueName}} {{.StressValue}}
-ENDRULE
-`</pre>
+`
+
+    <span class="comment">// for action &#39;gc&#39; and &#39;stress&#39;</span>
+    <span id="GCHelper">GCHelper</span>     = &#34;org.chaos_mesh.byteman.helper.GCHelper&#34;
+    <span id="StressHelper">StressHelper</span> = &#34;org.chaos_mesh.byteman.helper.StressHelper&#34;
+
+    <span class="comment">// the trigger point for &#39;gc&#39; and &#39;stress&#39;</span>
+    <span id="TriggerClass">TriggerClass</span>  = &#34;org.chaos_mesh.chaos_agent.TriggerThread&#34;
+    <span id="TriggerMethod">TriggerMethod</span> = &#34;triggerFunc&#34;
+)</pre>
 			
 		
 		
@@ -206,7 +220,7 @@ ENDRULE
 		
 			
 			
-			<h2 id="NewImpl">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L223">NewImpl</a>
+			<h2 id="NewImpl">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L263">NewImpl</a>
 				<a class="permalink" href="#NewImpl">&#xb6;</a>
 				
 				
@@ -223,7 +237,46 @@ Object would return the instance of chaos
 		
 			
 			
-			<h2 id="Impl">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L66">Impl</a>
+			<h2 id="BytemanTemplateSpec">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L80">BytemanTemplateSpec</a>
+				<a class="permalink" href="#BytemanTemplateSpec">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+BytemanTemplateSpec is the template spec for byteman rule
+</p>
+
+			<pre>type BytemanTemplateSpec struct {
+<span id="BytemanTemplateSpec.Name"></span>    Name      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="BytemanTemplateSpec.Class"></span>    Class     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="BytemanTemplateSpec.Method"></span>    Method    <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="BytemanTemplateSpec.Helper"></span>    Helper    <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="BytemanTemplateSpec.Bind"></span>    Bind      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="BytemanTemplateSpec.Condition"></span>    Condition <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="BytemanTemplateSpec.Do"></span>    Do        <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+
+    <span class="comment">// below is only used for stress template</span>
+<span id="BytemanTemplateSpec.StressType"></span>    StressType      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="BytemanTemplateSpec.StressValueName"></span>    StressValueName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="BytemanTemplateSpec.StressValue"></span>    StressValue     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Impl">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L95">Impl</a>
 				<a class="permalink" href="#Impl">&#xb6;</a>
 				
 				
@@ -248,7 +301,7 @@ Object would return the instance of chaos
 
 			
 				
-				<h3 id="Impl.Apply">func (*Impl) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L74">Apply</a>
+				<h3 id="Impl.Apply">func (*Impl) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L103">Apply</a>
 					<a class="permalink" href="#Impl.Apply">&#xb6;</a>
 					
 					
@@ -263,7 +316,7 @@ Apply applies jvm-chaos
 				
 			
 				
-				<h3 id="Impl.Recover">func (*Impl) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L113">Recover</a>
+				<h3 id="Impl.Recover">func (*Impl) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L142">Recover</a>
 					<a class="permalink" href="#Impl.Recover">&#xb6;</a>
 					
 					
@@ -280,7 +333,7 @@ Recover means the reconciler recovers the chaos action
 		
 			
 			
-			<h2 id="JVMRuleParameter">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L161">JVMRuleParameter</a>
+			<h2 id="JVMRuleParameter">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L190">JVMRuleParameter</a>
 				<a class="permalink" href="#JVMRuleParameter">&#xb6;</a>
 				
 				

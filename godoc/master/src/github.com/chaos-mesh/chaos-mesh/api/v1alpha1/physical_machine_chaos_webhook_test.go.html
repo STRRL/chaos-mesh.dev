@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4b3374. Generated at Tue Apr  5 22:03:31 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 456ef44. Generated at Wed Apr  6 10:06:58 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -1044,164 +1044,170 @@
 <span id="L979" class="ln">   979  </span>							JVMCommonSpec: JVMCommonSpec{
 <span id="L980" class="ln">   980  </span>								Pid: 10,
 <span id="L981" class="ln">   981  </span>							},
-<span id="L982" class="ln">   982  </span>							CPUCount:   0,
-<span id="L983" class="ln">   983  </span>							MemoryType: &#34;&#34;,
-<span id="L984" class="ln">   984  </span>						},
-<span id="L985" class="ln">   985  </span>					},
-<span id="L986" class="ln">   986  </span>					&#34;one of cpu-count and mem-type is required&#34;,
-<span id="L987" class="ln">   987  </span>				},
-<span id="L988" class="ln">   988  </span>				{
-<span id="L989" class="ln">   989  </span>					PMJVMStressAction,
-<span id="L990" class="ln">   990  </span>					ExpInfo{
-<span id="L991" class="ln">   991  </span>						JVMStress: &amp;JVMStressSpec{
-<span id="L992" class="ln">   992  </span>							JVMCommonSpec: JVMCommonSpec{
-<span id="L993" class="ln">   993  </span>								Pid: 10,
-<span id="L994" class="ln">   994  </span>							},
-<span id="L995" class="ln">   995  </span>							CPUCount:   1,
-<span id="L996" class="ln">   996  </span>							MemoryType: &#34;heap&#34;,
-<span id="L997" class="ln">   997  </span>						},
-<span id="L998" class="ln">   998  </span>					},
-<span id="L999" class="ln">   999  </span>					&#34;inject stress on both CPU and memory is not support&#34;,
-<span id="L1000" class="ln">  1000  </span>				},
-<span id="L1001" class="ln">  1001  </span>				{
-<span id="L1002" class="ln">  1002  </span>					PMJVMStressAction,
-<span id="L1003" class="ln">  1003  </span>					ExpInfo{
-<span id="L1004" class="ln">  1004  </span>						JVMStress: &amp;JVMStressSpec{
-<span id="L1005" class="ln">  1005  </span>							JVMCommonSpec: JVMCommonSpec{
-<span id="L1006" class="ln">  1006  </span>								Pid: 10,
-<span id="L1007" class="ln">  1007  </span>							},
-<span id="L1008" class="ln">  1008  </span>							CPUCount:   0,
-<span id="L1009" class="ln">  1009  </span>							MemoryType: &#34;heap&#34;,
-<span id="L1010" class="ln">  1010  </span>						},
-<span id="L1011" class="ln">  1011  </span>					},
-<span id="L1012" class="ln">  1012  </span>					&#34;&#34;,
-<span id="L1013" class="ln">  1013  </span>				},
-<span id="L1014" class="ln">  1014  </span>				{
-<span id="L1015" class="ln">  1015  </span>					PMJVMRuleDataAction,
-<span id="L1016" class="ln">  1016  </span>					ExpInfo{
-<span id="L1017" class="ln">  1017  </span>						JVMRuleData: &amp;JVMRuleDataSpec{
-<span id="L1018" class="ln">  1018  </span>							JVMCommonSpec: JVMCommonSpec{
-<span id="L1019" class="ln">  1019  </span>								Pid: 0,
-<span id="L1020" class="ln">  1020  </span>							},
-<span id="L1021" class="ln">  1021  </span>						},
-<span id="L1022" class="ln">  1022  </span>					},
-<span id="L1023" class="ln">  1023  </span>					&#34;pid is required&#34;,
-<span id="L1024" class="ln">  1024  </span>				},
-<span id="L1025" class="ln">  1025  </span>				{
-<span id="L1026" class="ln">  1026  </span>					PMJVMRuleDataAction,
-<span id="L1027" class="ln">  1027  </span>					ExpInfo{
-<span id="L1028" class="ln">  1028  </span>						JVMRuleData: &amp;JVMRuleDataSpec{
-<span id="L1029" class="ln">  1029  </span>							JVMCommonSpec: JVMCommonSpec{
-<span id="L1030" class="ln">  1030  </span>								Pid: 10,
-<span id="L1031" class="ln">  1031  </span>							},
-<span id="L1032" class="ln">  1032  </span>							RuleData: &#34;&#34;,
-<span id="L1033" class="ln">  1033  </span>						},
-<span id="L1034" class="ln">  1034  </span>					},
-<span id="L1035" class="ln">  1035  </span>					&#34;rule-data is required&#34;,
-<span id="L1036" class="ln">  1036  </span>				},
-<span id="L1037" class="ln">  1037  </span>				{
-<span id="L1038" class="ln">  1038  </span>					PMJVMRuleDataAction,
-<span id="L1039" class="ln">  1039  </span>					ExpInfo{
-<span id="L1040" class="ln">  1040  </span>						JVMRuleData: &amp;JVMRuleDataSpec{
-<span id="L1041" class="ln">  1041  </span>							JVMCommonSpec: JVMCommonSpec{
-<span id="L1042" class="ln">  1042  </span>								Pid: 10,
-<span id="L1043" class="ln">  1043  </span>							},
-<span id="L1044" class="ln">  1044  </span>							RuleData: &#34;RULE modify return value\nCLASS Main\nMETHOD getnum\nAT ENTRY\nIF true\nDO\n    return 9999\nENDRULE&#34;,
-<span id="L1045" class="ln">  1045  </span>						},
-<span id="L1046" class="ln">  1046  </span>					},
-<span id="L1047" class="ln">  1047  </span>					&#34;&#34;,
-<span id="L1048" class="ln">  1048  </span>				},
-<span id="L1049" class="ln">  1049  </span>				{
-<span id="L1050" class="ln">  1050  </span>					PMClockAction,
-<span id="L1051" class="ln">  1051  </span>					ExpInfo{
-<span id="L1052" class="ln">  1052  </span>						Clock: &amp;ClockSpec{
-<span id="L1053" class="ln">  1053  </span>							Pid: 0,
-<span id="L1054" class="ln">  1054  </span>						},
-<span id="L1055" class="ln">  1055  </span>					},
-<span id="L1056" class="ln">  1056  </span>					&#34;pid is required&#34;,
-<span id="L1057" class="ln">  1057  </span>				},
-<span id="L1058" class="ln">  1058  </span>				{
-<span id="L1059" class="ln">  1059  </span>					PMClockAction,
-<span id="L1060" class="ln">  1060  </span>					ExpInfo{
-<span id="L1061" class="ln">  1061  </span>						Clock: &amp;ClockSpec{
-<span id="L1062" class="ln">  1062  </span>							Pid:        123,
-<span id="L1063" class="ln">  1063  </span>							TimeOffset: &#34;&#34;,
-<span id="L1064" class="ln">  1064  </span>						},
-<span id="L1065" class="ln">  1065  </span>					},
-<span id="L1066" class="ln">  1066  </span>					&#34;time-offset is required&#34;,
-<span id="L1067" class="ln">  1067  </span>				},
-<span id="L1068" class="ln">  1068  </span>				{
-<span id="L1069" class="ln">  1069  </span>					PMClockAction,
-<span id="L1070" class="ln">  1070  </span>					ExpInfo{
-<span id="L1071" class="ln">  1071  </span>						Clock: &amp;ClockSpec{
-<span id="L1072" class="ln">  1072  </span>							Pid:        123,
-<span id="L1073" class="ln">  1073  </span>							TimeOffset: &#34;10m&#34;,
-<span id="L1074" class="ln">  1074  </span>						},
-<span id="L1075" class="ln">  1075  </span>					},
-<span id="L1076" class="ln">  1076  </span>					&#34;&#34;,
-<span id="L1077" class="ln">  1077  </span>				},
-<span id="L1078" class="ln">  1078  </span>			}
-<span id="L1079" class="ln">  1079  </span>
-<span id="L1080" class="ln">  1080  </span>			for _, testCase := range testCases {
-<span id="L1081" class="ln">  1081  </span>				chaos := PhysicalMachineChaos{
-<span id="L1082" class="ln">  1082  </span>					Spec: PhysicalMachineChaosSpec{
-<span id="L1083" class="ln">  1083  </span>						PhysicalMachineSelector: PhysicalMachineSelector{
-<span id="L1084" class="ln">  1084  </span>							Address: []string{
-<span id="L1085" class="ln">  1085  </span>								&#34;123.123.123.123:123&#34;,
-<span id="L1086" class="ln">  1086  </span>								&#34;234.234.234.234:234&#34;,
-<span id="L1087" class="ln">  1087  </span>							},
-<span id="L1088" class="ln">  1088  </span>						},
-<span id="L1089" class="ln">  1089  </span>						Action:  testCase.action,
-<span id="L1090" class="ln">  1090  </span>						ExpInfo: testCase.expInfo,
-<span id="L1091" class="ln">  1091  </span>					},
-<span id="L1092" class="ln">  1092  </span>				}
-<span id="L1093" class="ln">  1093  </span>				err := chaos.ValidateCreate()
-<span id="L1094" class="ln">  1094  </span>				if len(testCase.err) != 0 {
-<span id="L1095" class="ln">  1095  </span>					Expect(err).To(HaveOccurred())
-<span id="L1096" class="ln">  1096  </span>					Expect(strings.Contains(err.Error(), testCase.err)).To(BeTrue())
-<span id="L1097" class="ln">  1097  </span>				} else {
-<span id="L1098" class="ln">  1098  </span>					Expect(err).ToNot(HaveOccurred())
-<span id="L1099" class="ln">  1099  </span>				}
-<span id="L1100" class="ln">  1100  </span>			}
-<span id="L1101" class="ln">  1101  </span>		})
-<span id="L1102" class="ln">  1102  </span>	})
-<span id="L1103" class="ln">  1103  </span>	Context(&#34;webhook.Validator of bandwidth physicalmachinechaos&#34;, func() {
-<span id="L1104" class="ln">  1104  </span>		It(&#34;Validate&#34;, func() {
-<span id="L1105" class="ln">  1105  </span>			testCases := []struct {
-<span id="L1106" class="ln">  1106  </span>				chaos PhysicalMachineChaos
-<span id="L1107" class="ln">  1107  </span>				err   string
-<span id="L1108" class="ln">  1108  </span>			}{
-<span id="L1109" class="ln">  1109  </span>				{
-<span id="L1110" class="ln">  1110  </span>					PhysicalMachineChaos{
-<span id="L1111" class="ln">  1111  </span>						Spec: PhysicalMachineChaosSpec{
-<span id="L1112" class="ln">  1112  </span>							PhysicalMachineSelector: PhysicalMachineSelector{
-<span id="L1113" class="ln">  1113  </span>								Address: []string{
-<span id="L1114" class="ln">  1114  </span>									&#34;123.123.123.123:123&#34;,
-<span id="L1115" class="ln">  1115  </span>									&#34;234.234.234.234:234&#34;,
-<span id="L1116" class="ln">  1116  </span>								},
-<span id="L1117" class="ln">  1117  </span>							},
-<span id="L1118" class="ln">  1118  </span>							Action: &#34;network&#34;,
-<span id="L1119" class="ln">  1119  </span>							ExpInfo: ExpInfo{
-<span id="L1120" class="ln">  1120  </span>								NetworkBandwidth: &amp;NetworkBandwidthSpec{
-<span id="L1121" class="ln">  1121  </span>									Rate:   &#34;&#34;,
-<span id="L1122" class="ln">  1122  </span>									Limit:  0,
-<span id="L1123" class="ln">  1123  </span>									Buffer: 0,
-<span id="L1124" class="ln">  1124  </span>								},
-<span id="L1125" class="ln">  1125  </span>							},
-<span id="L1126" class="ln">  1126  </span>						},
-<span id="L1127" class="ln">  1127  </span>					},
-<span id="L1128" class="ln">  1128  </span>					&#34;rate is required&#34;,
-<span id="L1129" class="ln">  1129  </span>				},
-<span id="L1130" class="ln">  1130  </span>			}
-<span id="L1131" class="ln">  1131  </span>
-<span id="L1132" class="ln">  1132  </span>			for _, testCase := range testCases {
-<span id="L1133" class="ln">  1133  </span>				err := testCase.chaos.ValidateCreate()
-<span id="L1134" class="ln">  1134  </span>				Expect(strings.Contains(err.Error(), testCase.err)).To(BeTrue())
-<span id="L1135" class="ln">  1135  </span>			}
-<span id="L1136" class="ln">  1136  </span>		})
-<span id="L1137" class="ln">  1137  </span>	})
-<span id="L1138" class="ln">  1138  </span>})
-<span id="L1139" class="ln">  1139  </span>
+<span id="L982" class="ln">   982  </span>							JVMStressCfgSpec: JVMStressCfgSpec{
+<span id="L983" class="ln">   983  </span>								CPUCount:   0,
+<span id="L984" class="ln">   984  </span>								MemoryType: &#34;&#34;,
+<span id="L985" class="ln">   985  </span>							},
+<span id="L986" class="ln">   986  </span>						},
+<span id="L987" class="ln">   987  </span>					},
+<span id="L988" class="ln">   988  </span>					&#34;one of cpu-count and mem-type is required&#34;,
+<span id="L989" class="ln">   989  </span>				},
+<span id="L990" class="ln">   990  </span>				{
+<span id="L991" class="ln">   991  </span>					PMJVMStressAction,
+<span id="L992" class="ln">   992  </span>					ExpInfo{
+<span id="L993" class="ln">   993  </span>						JVMStress: &amp;JVMStressSpec{
+<span id="L994" class="ln">   994  </span>							JVMCommonSpec: JVMCommonSpec{
+<span id="L995" class="ln">   995  </span>								Pid: 10,
+<span id="L996" class="ln">   996  </span>							},
+<span id="L997" class="ln">   997  </span>							JVMStressCfgSpec: JVMStressCfgSpec{
+<span id="L998" class="ln">   998  </span>								CPUCount:   1,
+<span id="L999" class="ln">   999  </span>								MemoryType: &#34;heap&#34;,
+<span id="L1000" class="ln">  1000  </span>							},
+<span id="L1001" class="ln">  1001  </span>						},
+<span id="L1002" class="ln">  1002  </span>					},
+<span id="L1003" class="ln">  1003  </span>					&#34;inject stress on both CPU and memory is not support&#34;,
+<span id="L1004" class="ln">  1004  </span>				},
+<span id="L1005" class="ln">  1005  </span>				{
+<span id="L1006" class="ln">  1006  </span>					PMJVMStressAction,
+<span id="L1007" class="ln">  1007  </span>					ExpInfo{
+<span id="L1008" class="ln">  1008  </span>						JVMStress: &amp;JVMStressSpec{
+<span id="L1009" class="ln">  1009  </span>							JVMCommonSpec: JVMCommonSpec{
+<span id="L1010" class="ln">  1010  </span>								Pid: 10,
+<span id="L1011" class="ln">  1011  </span>							},
+<span id="L1012" class="ln">  1012  </span>							JVMStressCfgSpec: JVMStressCfgSpec{
+<span id="L1013" class="ln">  1013  </span>								CPUCount:   0,
+<span id="L1014" class="ln">  1014  </span>								MemoryType: &#34;heap&#34;,
+<span id="L1015" class="ln">  1015  </span>							},
+<span id="L1016" class="ln">  1016  </span>						},
+<span id="L1017" class="ln">  1017  </span>					},
+<span id="L1018" class="ln">  1018  </span>					&#34;&#34;,
+<span id="L1019" class="ln">  1019  </span>				},
+<span id="L1020" class="ln">  1020  </span>				{
+<span id="L1021" class="ln">  1021  </span>					PMJVMRuleDataAction,
+<span id="L1022" class="ln">  1022  </span>					ExpInfo{
+<span id="L1023" class="ln">  1023  </span>						JVMRuleData: &amp;JVMRuleDataSpec{
+<span id="L1024" class="ln">  1024  </span>							JVMCommonSpec: JVMCommonSpec{
+<span id="L1025" class="ln">  1025  </span>								Pid: 0,
+<span id="L1026" class="ln">  1026  </span>							},
+<span id="L1027" class="ln">  1027  </span>						},
+<span id="L1028" class="ln">  1028  </span>					},
+<span id="L1029" class="ln">  1029  </span>					&#34;pid is required&#34;,
+<span id="L1030" class="ln">  1030  </span>				},
+<span id="L1031" class="ln">  1031  </span>				{
+<span id="L1032" class="ln">  1032  </span>					PMJVMRuleDataAction,
+<span id="L1033" class="ln">  1033  </span>					ExpInfo{
+<span id="L1034" class="ln">  1034  </span>						JVMRuleData: &amp;JVMRuleDataSpec{
+<span id="L1035" class="ln">  1035  </span>							JVMCommonSpec: JVMCommonSpec{
+<span id="L1036" class="ln">  1036  </span>								Pid: 10,
+<span id="L1037" class="ln">  1037  </span>							},
+<span id="L1038" class="ln">  1038  </span>							RuleData: &#34;&#34;,
+<span id="L1039" class="ln">  1039  </span>						},
+<span id="L1040" class="ln">  1040  </span>					},
+<span id="L1041" class="ln">  1041  </span>					&#34;rule-data is required&#34;,
+<span id="L1042" class="ln">  1042  </span>				},
+<span id="L1043" class="ln">  1043  </span>				{
+<span id="L1044" class="ln">  1044  </span>					PMJVMRuleDataAction,
+<span id="L1045" class="ln">  1045  </span>					ExpInfo{
+<span id="L1046" class="ln">  1046  </span>						JVMRuleData: &amp;JVMRuleDataSpec{
+<span id="L1047" class="ln">  1047  </span>							JVMCommonSpec: JVMCommonSpec{
+<span id="L1048" class="ln">  1048  </span>								Pid: 10,
+<span id="L1049" class="ln">  1049  </span>							},
+<span id="L1050" class="ln">  1050  </span>							RuleData: &#34;RULE modify return value\nCLASS Main\nMETHOD getnum\nAT ENTRY\nIF true\nDO\n    return 9999\nENDRULE&#34;,
+<span id="L1051" class="ln">  1051  </span>						},
+<span id="L1052" class="ln">  1052  </span>					},
+<span id="L1053" class="ln">  1053  </span>					&#34;&#34;,
+<span id="L1054" class="ln">  1054  </span>				},
+<span id="L1055" class="ln">  1055  </span>				{
+<span id="L1056" class="ln">  1056  </span>					PMClockAction,
+<span id="L1057" class="ln">  1057  </span>					ExpInfo{
+<span id="L1058" class="ln">  1058  </span>						Clock: &amp;ClockSpec{
+<span id="L1059" class="ln">  1059  </span>							Pid: 0,
+<span id="L1060" class="ln">  1060  </span>						},
+<span id="L1061" class="ln">  1061  </span>					},
+<span id="L1062" class="ln">  1062  </span>					&#34;pid is required&#34;,
+<span id="L1063" class="ln">  1063  </span>				},
+<span id="L1064" class="ln">  1064  </span>				{
+<span id="L1065" class="ln">  1065  </span>					PMClockAction,
+<span id="L1066" class="ln">  1066  </span>					ExpInfo{
+<span id="L1067" class="ln">  1067  </span>						Clock: &amp;ClockSpec{
+<span id="L1068" class="ln">  1068  </span>							Pid:        123,
+<span id="L1069" class="ln">  1069  </span>							TimeOffset: &#34;&#34;,
+<span id="L1070" class="ln">  1070  </span>						},
+<span id="L1071" class="ln">  1071  </span>					},
+<span id="L1072" class="ln">  1072  </span>					&#34;time-offset is required&#34;,
+<span id="L1073" class="ln">  1073  </span>				},
+<span id="L1074" class="ln">  1074  </span>				{
+<span id="L1075" class="ln">  1075  </span>					PMClockAction,
+<span id="L1076" class="ln">  1076  </span>					ExpInfo{
+<span id="L1077" class="ln">  1077  </span>						Clock: &amp;ClockSpec{
+<span id="L1078" class="ln">  1078  </span>							Pid:        123,
+<span id="L1079" class="ln">  1079  </span>							TimeOffset: &#34;10m&#34;,
+<span id="L1080" class="ln">  1080  </span>						},
+<span id="L1081" class="ln">  1081  </span>					},
+<span id="L1082" class="ln">  1082  </span>					&#34;&#34;,
+<span id="L1083" class="ln">  1083  </span>				},
+<span id="L1084" class="ln">  1084  </span>			}
+<span id="L1085" class="ln">  1085  </span>
+<span id="L1086" class="ln">  1086  </span>			for _, testCase := range testCases {
+<span id="L1087" class="ln">  1087  </span>				chaos := PhysicalMachineChaos{
+<span id="L1088" class="ln">  1088  </span>					Spec: PhysicalMachineChaosSpec{
+<span id="L1089" class="ln">  1089  </span>						PhysicalMachineSelector: PhysicalMachineSelector{
+<span id="L1090" class="ln">  1090  </span>							Address: []string{
+<span id="L1091" class="ln">  1091  </span>								&#34;123.123.123.123:123&#34;,
+<span id="L1092" class="ln">  1092  </span>								&#34;234.234.234.234:234&#34;,
+<span id="L1093" class="ln">  1093  </span>							},
+<span id="L1094" class="ln">  1094  </span>						},
+<span id="L1095" class="ln">  1095  </span>						Action:  testCase.action,
+<span id="L1096" class="ln">  1096  </span>						ExpInfo: testCase.expInfo,
+<span id="L1097" class="ln">  1097  </span>					},
+<span id="L1098" class="ln">  1098  </span>				}
+<span id="L1099" class="ln">  1099  </span>				err := chaos.ValidateCreate()
+<span id="L1100" class="ln">  1100  </span>				if len(testCase.err) != 0 {
+<span id="L1101" class="ln">  1101  </span>					Expect(err).To(HaveOccurred())
+<span id="L1102" class="ln">  1102  </span>					Expect(strings.Contains(err.Error(), testCase.err)).To(BeTrue())
+<span id="L1103" class="ln">  1103  </span>				} else {
+<span id="L1104" class="ln">  1104  </span>					Expect(err).ToNot(HaveOccurred())
+<span id="L1105" class="ln">  1105  </span>				}
+<span id="L1106" class="ln">  1106  </span>			}
+<span id="L1107" class="ln">  1107  </span>		})
+<span id="L1108" class="ln">  1108  </span>	})
+<span id="L1109" class="ln">  1109  </span>	Context(&#34;webhook.Validator of bandwidth physicalmachinechaos&#34;, func() {
+<span id="L1110" class="ln">  1110  </span>		It(&#34;Validate&#34;, func() {
+<span id="L1111" class="ln">  1111  </span>			testCases := []struct {
+<span id="L1112" class="ln">  1112  </span>				chaos PhysicalMachineChaos
+<span id="L1113" class="ln">  1113  </span>				err   string
+<span id="L1114" class="ln">  1114  </span>			}{
+<span id="L1115" class="ln">  1115  </span>				{
+<span id="L1116" class="ln">  1116  </span>					PhysicalMachineChaos{
+<span id="L1117" class="ln">  1117  </span>						Spec: PhysicalMachineChaosSpec{
+<span id="L1118" class="ln">  1118  </span>							PhysicalMachineSelector: PhysicalMachineSelector{
+<span id="L1119" class="ln">  1119  </span>								Address: []string{
+<span id="L1120" class="ln">  1120  </span>									&#34;123.123.123.123:123&#34;,
+<span id="L1121" class="ln">  1121  </span>									&#34;234.234.234.234:234&#34;,
+<span id="L1122" class="ln">  1122  </span>								},
+<span id="L1123" class="ln">  1123  </span>							},
+<span id="L1124" class="ln">  1124  </span>							Action: &#34;network&#34;,
+<span id="L1125" class="ln">  1125  </span>							ExpInfo: ExpInfo{
+<span id="L1126" class="ln">  1126  </span>								NetworkBandwidth: &amp;NetworkBandwidthSpec{
+<span id="L1127" class="ln">  1127  </span>									Rate:   &#34;&#34;,
+<span id="L1128" class="ln">  1128  </span>									Limit:  0,
+<span id="L1129" class="ln">  1129  </span>									Buffer: 0,
+<span id="L1130" class="ln">  1130  </span>								},
+<span id="L1131" class="ln">  1131  </span>							},
+<span id="L1132" class="ln">  1132  </span>						},
+<span id="L1133" class="ln">  1133  </span>					},
+<span id="L1134" class="ln">  1134  </span>					&#34;rate is required&#34;,
+<span id="L1135" class="ln">  1135  </span>				},
+<span id="L1136" class="ln">  1136  </span>			}
+<span id="L1137" class="ln">  1137  </span>
+<span id="L1138" class="ln">  1138  </span>			for _, testCase := range testCases {
+<span id="L1139" class="ln">  1139  </span>				err := testCase.chaos.ValidateCreate()
+<span id="L1140" class="ln">  1140  </span>				Expect(strings.Contains(err.Error(), testCase.err)).To(BeTrue())
+<span id="L1141" class="ln">  1141  </span>			}
+<span id="L1142" class="ln">  1142  </span>		})
+<span id="L1143" class="ln">  1143  </span>	})
+<span id="L1144" class="ln">  1144  </span>})
+<span id="L1145" class="ln">  1145  </span>
 </pre><p></p>
 
 <div id="footer">
