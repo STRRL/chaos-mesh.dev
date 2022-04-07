@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 456ef44. Generated at Wed Apr  6 22:03:36 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 1d07f06. Generated at Thu Apr  7 10:01:58 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -93,7 +93,7 @@
 <span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
 <span id="L29" class="ln">    29  </span>	impltypes &#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/types&#34;
 <span id="L30" class="ln">    30  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/utils&#34;
-<span id="L31" class="ln">    31  </span>	pb &#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb&#34;
+<span id="L31" class="ln">    31  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb&#34;
 <span id="L32" class="ln">    32  </span>)
 <span id="L33" class="ln">    33  </span>
 <span id="L34" class="ln">    34  </span>var _ impltypes.ChaosImpl = (*Impl)(nil)
@@ -192,38 +192,43 @@
 <span id="L127" class="ln">   127  </span>		impl.Log.Info(&#34;Pod seems already recovered&#34;, &#34;pod&#34;, decodedContainer.Pod.UID)
 <span id="L128" class="ln">   128  </span>		return v1alpha1.NotInjected, nil
 <span id="L129" class="ln">   129  </span>	}
-<span id="L130" class="ln">   130  </span>	if _, err = pbClient.CancelStressors(ctx, &amp;pb.CancelStressRequest{
-<span id="L131" class="ln">   131  </span>		CpuInstance:     instance.UID,
-<span id="L132" class="ln">   132  </span>		CpuStartTime:    instance.StartTime.UnixNano() / int64(time.Millisecond),
-<span id="L133" class="ln">   133  </span>		MemoryInstance:  instance.MemoryUID,
-<span id="L134" class="ln">   134  </span>		MemoryStartTime: instance.MemoryStartTime.UnixNano() / int64(time.Millisecond),
-<span id="L135" class="ln">   135  </span>	}); err != nil {
-<span id="L136" class="ln">   136  </span>		impl.Log.Error(err, &#34;cancel stressors&#34;)
-<span id="L137" class="ln">   137  </span>		return v1alpha1.Injected, nil
-<span id="L138" class="ln">   138  </span>	}
-<span id="L139" class="ln">   139  </span>	delete(stresschaos.Status.Instances, records[index].Id)
-<span id="L140" class="ln">   140  </span>	return v1alpha1.NotInjected, nil
-<span id="L141" class="ln">   141  </span>}
-<span id="L142" class="ln">   142  </span>
-<span id="L143" class="ln">   143  </span>func NewImpl(c client.Client, log logr.Logger, decoder *utils.ContainerRecordDecoder) *impltypes.ChaosImplPair {
-<span id="L144" class="ln">   144  </span>	return &amp;impltypes.ChaosImplPair{
-<span id="L145" class="ln">   145  </span>		Name:   &#34;stresschaos&#34;,
-<span id="L146" class="ln">   146  </span>		Object: &amp;v1alpha1.StressChaos{},
-<span id="L147" class="ln">   147  </span>		Impl: &amp;Impl{
-<span id="L148" class="ln">   148  </span>			Client:  c,
-<span id="L149" class="ln">   149  </span>			Log:     log.WithName(&#34;stresschaos&#34;),
-<span id="L150" class="ln">   150  </span>			decoder: decoder,
-<span id="L151" class="ln">   151  </span>		},
-<span id="L152" class="ln">   152  </span>	}
-<span id="L153" class="ln">   153  </span>}
-<span id="L154" class="ln">   154  </span>
-<span id="L155" class="ln">   155  </span>var Module = fx.Provide(
-<span id="L156" class="ln">   156  </span>	fx.Annotated{
-<span id="L157" class="ln">   157  </span>		Group:  &#34;impl&#34;,
-<span id="L158" class="ln">   158  </span>		Target: NewImpl,
-<span id="L159" class="ln">   159  </span>	},
-<span id="L160" class="ln">   160  </span>)
-<span id="L161" class="ln">   161  </span>
+<span id="L130" class="ln">   130  </span>	req := &amp;pb.CancelStressRequest{
+<span id="L131" class="ln">   131  </span>		CpuInstance:    instance.UID,
+<span id="L132" class="ln">   132  </span>		MemoryInstance: instance.MemoryUID,
+<span id="L133" class="ln">   133  </span>	}
+<span id="L134" class="ln">   134  </span>	if instance.StartTime != nil {
+<span id="L135" class="ln">   135  </span>		req.CpuStartTime = instance.StartTime.UnixNano() / int64(time.Millisecond)
+<span id="L136" class="ln">   136  </span>	}
+<span id="L137" class="ln">   137  </span>	if instance.MemoryStartTime != nil {
+<span id="L138" class="ln">   138  </span>		req.MemoryStartTime = instance.MemoryStartTime.UnixNano() / int64(time.Millisecond)
+<span id="L139" class="ln">   139  </span>	}
+<span id="L140" class="ln">   140  </span>	if _, err = pbClient.CancelStressors(ctx, req); err != nil {
+<span id="L141" class="ln">   141  </span>		impl.Log.Error(err, &#34;cancel stressors&#34;)
+<span id="L142" class="ln">   142  </span>		return v1alpha1.Injected, nil
+<span id="L143" class="ln">   143  </span>	}
+<span id="L144" class="ln">   144  </span>	delete(stresschaos.Status.Instances, records[index].Id)
+<span id="L145" class="ln">   145  </span>	return v1alpha1.NotInjected, nil
+<span id="L146" class="ln">   146  </span>}
+<span id="L147" class="ln">   147  </span>
+<span id="L148" class="ln">   148  </span>func NewImpl(c client.Client, log logr.Logger, decoder *utils.ContainerRecordDecoder) *impltypes.ChaosImplPair {
+<span id="L149" class="ln">   149  </span>	return &amp;impltypes.ChaosImplPair{
+<span id="L150" class="ln">   150  </span>		Name:   &#34;stresschaos&#34;,
+<span id="L151" class="ln">   151  </span>		Object: &amp;v1alpha1.StressChaos{},
+<span id="L152" class="ln">   152  </span>		Impl: &amp;Impl{
+<span id="L153" class="ln">   153  </span>			Client:  c,
+<span id="L154" class="ln">   154  </span>			Log:     log.WithName(&#34;stresschaos&#34;),
+<span id="L155" class="ln">   155  </span>			decoder: decoder,
+<span id="L156" class="ln">   156  </span>		},
+<span id="L157" class="ln">   157  </span>	}
+<span id="L158" class="ln">   158  </span>}
+<span id="L159" class="ln">   159  </span>
+<span id="L160" class="ln">   160  </span>var Module = fx.Provide(
+<span id="L161" class="ln">   161  </span>	fx.Annotated{
+<span id="L162" class="ln">   162  </span>		Group:  &#34;impl&#34;,
+<span id="L163" class="ln">   163  </span>		Target: NewImpl,
+<span id="L164" class="ln">   164  </span>	},
+<span id="L165" class="ln">   165  </span>)
+<span id="L166" class="ln">   166  </span>
 </pre><p></p>
 
 <div id="footer">
