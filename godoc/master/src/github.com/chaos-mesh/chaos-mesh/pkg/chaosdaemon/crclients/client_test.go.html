@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 1d07f06. Generated at Thu Apr  7 10:01:58 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b7fde3d. Generated at Thu Apr  7 22:05:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -93,31 +93,62 @@
 <span id="L28" class="ln">    28  </span>
 <span id="L29" class="ln">    29  </span>var _ = Describe(&#34;chaosdaemon util&#34;, func() {
 <span id="L30" class="ln">    30  </span>	Context(&#34;CreateContainerRuntimeInfoClient&#34;, func() {
-<span id="L31" class="ln">    31  </span>		It(&#34;should work&#34;, func() {
-<span id="L32" class="ln">    32  </span>			_, err := CreateContainerRuntimeInfoClient(ContainerRuntimeDocker)
+<span id="L31" class="ln">    31  </span>		It(&#34;should work without socket path&#34;, func() {
+<span id="L32" class="ln">    32  </span>			_, err := CreateContainerRuntimeInfoClient(&amp;CrClientConfig{Runtime: ContainerRuntimeDocker})
 <span id="L33" class="ln">    33  </span>			Expect(err).To(BeNil())
-<span id="L34" class="ln">    34  </span>			defer func() {
-<span id="L35" class="ln">    35  </span>				err := mock.With(&#34;MockContainerdClient&#34;, &amp;test.MockClient{})()
-<span id="L36" class="ln">    36  </span>				Expect(err).To(BeNil())
-<span id="L37" class="ln">    37  </span>			}()
-<span id="L38" class="ln">    38  </span>			_, err = CreateContainerRuntimeInfoClient(ContainerRuntimeContainerd)
-<span id="L39" class="ln">    39  </span>			Expect(err).To(BeNil())
-<span id="L40" class="ln">    40  </span>		})
-<span id="L41" class="ln">    41  </span>
-<span id="L42" class="ln">    42  </span>		It(&#34;should error on newContaineredClient&#34;, func() {
-<span id="L43" class="ln">    43  </span>			errorStr := &#34;this is a mocked error&#34;
-<span id="L44" class="ln">    44  </span>
-<span id="L45" class="ln">    45  </span>			defer func() {
-<span id="L46" class="ln">    46  </span>				err := mock.With(&#34;NewContainerdClientError&#34;, errors.New(errorStr))()
-<span id="L47" class="ln">    47  </span>				Expect(err).To(BeNil())
-<span id="L48" class="ln">    48  </span>			}()
-<span id="L49" class="ln">    49  </span>			_, err := CreateContainerRuntimeInfoClient(ContainerRuntimeContainerd)
-<span id="L50" class="ln">    50  </span>			Expect(err).ToNot(BeNil())
-<span id="L51" class="ln">    51  </span>			Expect(fmt.Sprintf(&#34;%s&#34;, err)).To(Equal(errorStr))
-<span id="L52" class="ln">    52  </span>		})
-<span id="L53" class="ln">    53  </span>	})
-<span id="L54" class="ln">    54  </span>})
-<span id="L55" class="ln">    55  </span>
+<span id="L34" class="ln">    34  </span>			_, err = CreateContainerRuntimeInfoClient(&amp;CrClientConfig{Runtime: ContainerRuntimeDocker})
+<span id="L35" class="ln">    35  </span>			Expect(err).To(BeNil())
+<span id="L36" class="ln">    36  </span>			defer func() {
+<span id="L37" class="ln">    37  </span>				err := mock.With(&#34;MockContainerdClient&#34;, &amp;test.MockClient{})()
+<span id="L38" class="ln">    38  </span>				Expect(err).To(BeNil())
+<span id="L39" class="ln">    39  </span>			}()
+<span id="L40" class="ln">    40  </span>			_, err = CreateContainerRuntimeInfoClient(&amp;CrClientConfig{Runtime: ContainerRuntimeContainerd})
+<span id="L41" class="ln">    41  </span>			Expect(err).To(BeNil())
+<span id="L42" class="ln">    42  </span>		})
+<span id="L43" class="ln">    43  </span>
+<span id="L44" class="ln">    44  </span>		It(&#34;should work with socket path&#34;, func() {
+<span id="L45" class="ln">    45  </span>			_, err := CreateContainerRuntimeInfoClient(&amp;CrClientConfig{Runtime: ContainerRuntimeDocker})
+<span id="L46" class="ln">    46  </span>			Expect(err).To(BeNil())
+<span id="L47" class="ln">    47  </span>			_, err = CreateContainerRuntimeInfoClient(&amp;CrClientConfig{
+<span id="L48" class="ln">    48  </span>				Runtime:    ContainerRuntimeDocker,
+<span id="L49" class="ln">    49  </span>				SocketPath: &#34;/foo/bar/docker.socket&#34;})
+<span id="L50" class="ln">    50  </span>			Expect(err).To(BeNil())
+<span id="L51" class="ln">    51  </span>			defer func() {
+<span id="L52" class="ln">    52  </span>				err := mock.With(&#34;MockContainerdClient&#34;, &amp;test.MockClient{})()
+<span id="L53" class="ln">    53  </span>				Expect(err).To(BeNil())
+<span id="L54" class="ln">    54  </span>			}()
+<span id="L55" class="ln">    55  </span>			_, err = CreateContainerRuntimeInfoClient(&amp;CrClientConfig{
+<span id="L56" class="ln">    56  </span>				Runtime:    ContainerRuntimeContainerd,
+<span id="L57" class="ln">    57  </span>				SocketPath: &#34;/foo/bar/containerd.socket&#34;})
+<span id="L58" class="ln">    58  </span>			Expect(err).To(BeNil())
+<span id="L59" class="ln">    59  </span>		})
+<span id="L60" class="ln">    60  </span>
+<span id="L61" class="ln">    61  </span>		It(&#34;should work with socket path and ns&#34;, func() {
+<span id="L62" class="ln">    62  </span>			defer func() {
+<span id="L63" class="ln">    63  </span>				err := mock.With(&#34;MockContainerdClient&#34;, &amp;test.MockClient{})()
+<span id="L64" class="ln">    64  </span>				Expect(err).To(BeNil())
+<span id="L65" class="ln">    65  </span>			}()
+<span id="L66" class="ln">    66  </span>			_, err := CreateContainerRuntimeInfoClient(&amp;CrClientConfig{
+<span id="L67" class="ln">    67  </span>				Runtime:      ContainerRuntimeContainerd,
+<span id="L68" class="ln">    68  </span>				SocketPath:   &#34;/foo/bar/containerd.socket&#34;,
+<span id="L69" class="ln">    69  </span>				ContainerdNS: &#34;chaos-mesh.org&#34;})
+<span id="L70" class="ln">    70  </span>			Expect(err).To(BeNil())
+<span id="L71" class="ln">    71  </span>		})
+<span id="L72" class="ln">    72  </span>
+<span id="L73" class="ln">    73  </span>		It(&#34;should error on newContaineredClient&#34;, func() {
+<span id="L74" class="ln">    74  </span>			errorStr := &#34;this is a mocked error&#34;
+<span id="L75" class="ln">    75  </span>
+<span id="L76" class="ln">    76  </span>			defer func() {
+<span id="L77" class="ln">    77  </span>				err := mock.With(&#34;NewContainerdClientError&#34;, errors.New(errorStr))()
+<span id="L78" class="ln">    78  </span>				Expect(err).To(BeNil())
+<span id="L79" class="ln">    79  </span>			}()
+<span id="L80" class="ln">    80  </span>			_, err := CreateContainerRuntimeInfoClient(&amp;CrClientConfig{Runtime: ContainerRuntimeContainerd})
+<span id="L81" class="ln">    81  </span>			Expect(err).ToNot(BeNil())
+<span id="L82" class="ln">    82  </span>			Expect(fmt.Sprintf(&#34;%s&#34;, err)).To(Equal(errorStr))
+<span id="L83" class="ln">    83  </span>		})
+<span id="L84" class="ln">    84  </span>	})
+<span id="L85" class="ln">    85  </span>})
+<span id="L86" class="ln">    86  </span>
 </pre><p></p>
 
 <div id="footer">

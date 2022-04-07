@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 1d07f06. Generated at Thu Apr  7 10:01:58 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b7fde3d. Generated at Thu Apr  7 22:05:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -124,7 +124,12 @@
 				<dd><a href="#ContainerRuntimeInfoClient">type ContainerRuntimeInfoClient</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#CreateContainerRuntimeInfoClient">func CreateContainerRuntimeInfoClient(containerRuntime string) (ContainerRuntimeInfoClient, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#CreateContainerRuntimeInfoClient">func CreateContainerRuntimeInfoClient(clientConfig *CrClientConfig) (ContainerRuntimeInfoClient, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#CrClientConfig">type CrClientConfig</a></dd>
 				
 				
 			
@@ -165,7 +170,7 @@
 		
 			
 			
-			<h2 id="ContainerRuntimeInfoClient">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/crclients/client.go#L41">ContainerRuntimeInfoClient</a>
+			<h2 id="ContainerRuntimeInfoClient">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/crclients/client.go#L48">ContainerRuntimeInfoClient</a>
 				<a class="permalink" href="#ContainerRuntimeInfoClient">&#xb6;</a>
 				
 				
@@ -192,18 +197,49 @@ ContainerRuntimeInfoClient represents a struct which can give you information ab
 
 			
 				
-				<h3 id="CreateContainerRuntimeInfoClient">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/crclients/client.go#L50">CreateContainerRuntimeInfoClient</a>
+				<h3 id="CreateContainerRuntimeInfoClient">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/crclients/client.go#L57">CreateContainerRuntimeInfoClient</a>
 					<a class="permalink" href="#CreateContainerRuntimeInfoClient">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func CreateContainerRuntimeInfoClient(containerRuntime <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (<a href="#ContainerRuntimeInfoClient">ContainerRuntimeInfoClient</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<pre>func CreateContainerRuntimeInfoClient(clientConfig *<a href="#CrClientConfig">CrClientConfig</a>) (<a href="#ContainerRuntimeInfoClient">ContainerRuntimeInfoClient</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 CreateContainerRuntimeInfoClient creates a container runtime information client.
 </p>
 
 				
 				
+			
+
+			
+		
+			
+			
+			<h2 id="CrClientConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/crclients/client.go#L40">CrClientConfig</a>
+				<a class="permalink" href="#CrClientConfig">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+CrClientConfig contains the basic cr client configuration.
+</p>
+
+			<pre>type CrClientConfig struct {
+    <span class="comment">// Support docker, containerd, crio for now</span>
+<span id="CrClientConfig.Runtime"></span>    Runtime      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="CrClientConfig.SocketPath"></span>    SocketPath   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="CrClientConfig.ContainerdNS"></span>    ContainerdNS <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
 			
 
 			

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 1d07f06. Generated at Thu Apr  7 10:01:58 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b7fde3d. Generated at Thu Apr  7 22:05:41 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -104,7 +104,7 @@
 <span id="L39" class="ln">    39  </span>
 <span id="L40" class="ln">    40  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/bpm&#34;
 <span id="L41" class="ln">    41  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/crclients&#34;
-<span id="L42" class="ln">    42  </span>	pb &#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb&#34;
+<span id="L42" class="ln">    42  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb&#34;
 <span id="L43" class="ln">    43  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks&#34;
 <span id="L44" class="ln">    44  </span>	grpcUtils &#34;github.com/chaos-mesh/chaos-mesh/pkg/grpc&#34;
 <span id="L45" class="ln">    45  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/log&#34;
@@ -115,11 +115,11 @@
 <span id="L50" class="ln">    50  </span>
 <span id="L51" class="ln">    51  </span><span class="comment">// Config contains the basic chaos daemon configuration.</span>
 <span id="L52" class="ln">    52  </span>type Config struct {
-<span id="L53" class="ln">    53  </span>	HTTPPort  int
-<span id="L54" class="ln">    54  </span>	GRPCPort  int
-<span id="L55" class="ln">    55  </span>	Host      string
-<span id="L56" class="ln">    56  </span>	Runtime   string
-<span id="L57" class="ln">    57  </span>	Profiling bool
+<span id="L53" class="ln">    53  </span>	HTTPPort       int
+<span id="L54" class="ln">    54  </span>	GRPCPort       int
+<span id="L55" class="ln">    55  </span>	Host           string
+<span id="L56" class="ln">    56  </span>	CrClientConfig *crclients.CrClientConfig
+<span id="L57" class="ln">    57  </span>	Profiling      bool
 <span id="L58" class="ln">    58  </span>
 <span id="L59" class="ln">    59  </span>	tlsConfig
 <span id="L60" class="ln">    60  </span>}
@@ -158,8 +158,8 @@
 <span id="L93" class="ln">    93  </span>	return log.EnrichLoggerWithContext(ctx, s.rootLogger)
 <span id="L94" class="ln">    94  </span>}
 <span id="L95" class="ln">    95  </span>
-<span id="L96" class="ln">    96  </span>func newDaemonServer(containerRuntime string, reg prometheus.Registerer, log logr.Logger) (*DaemonServer, error) {
-<span id="L97" class="ln">    97  </span>	crClient, err := crclients.CreateContainerRuntimeInfoClient(containerRuntime)
+<span id="L96" class="ln">    96  </span>func newDaemonServer(clientConfig *crclients.CrClientConfig, reg prometheus.Registerer, log logr.Logger) (*DaemonServer, error) {
+<span id="L97" class="ln">    97  </span>	crClient, err := crclients.CreateContainerRuntimeInfoClient(clientConfig)
 <span id="L98" class="ln">    98  </span>	if err != nil {
 <span id="L99" class="ln">    99  </span>		return nil, err
 <span id="L100" class="ln">   100  </span>	}
@@ -268,7 +268,7 @@
 <span id="L203" class="ln">   203  </span>func BuildServer(conf *Config, reg RegisterGatherer, log logr.Logger) (*Server, error) {
 <span id="L204" class="ln">   204  </span>	server := &amp;Server{conf: conf, logger: log}
 <span id="L205" class="ln">   205  </span>	var err error
-<span id="L206" class="ln">   206  </span>	server.daemonServer, err = newDaemonServer(conf.Runtime, reg, log)
+<span id="L206" class="ln">   206  </span>	server.daemonServer, err = newDaemonServer(conf.CrClientConfig, reg, log)
 <span id="L207" class="ln">   207  </span>	if err != nil {
 <span id="L208" class="ln">   208  </span>		return nil, errors.Wrap(err, &#34;create daemon server&#34;)
 <span id="L209" class="ln">   209  </span>	}
@@ -301,7 +301,7 @@
 <span id="L236" class="ln">   236  </span>	})
 <span id="L237" class="ln">   237  </span>
 <span id="L238" class="ln">   238  </span>	eg.Go(func() error {
-<span id="L239" class="ln">   239  </span>		s.logger.Info(&#34;Starting grpc endpoint&#34;, &#34;address&#34;, grpcBindAddr, &#34;runtime&#34;, s.conf.Runtime)
+<span id="L239" class="ln">   239  </span>		s.logger.Info(&#34;Starting grpc endpoint&#34;, &#34;address&#34;, grpcBindAddr, &#34;runtime&#34;, s.conf.CrClientConfig.Runtime)
 <span id="L240" class="ln">   240  </span>		if err := s.grpcServer.Serve(grpcListener); err != nil {
 <span id="L241" class="ln">   241  </span>			return errors.Wrap(err, &#34;start grpc endpoint&#34;)
 <span id="L242" class="ln">   242  </span>		}
