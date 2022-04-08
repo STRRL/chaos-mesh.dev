@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b7fde3d. Generated at Thu Apr  7 22:05:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f9a443d. Generated at Fri Apr  8 10:01:51 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -266,16 +266,19 @@
 <span id="L201" class="ln">   201  </span>}
 <span id="L202" class="ln">   202  </span>
 <span id="L203" class="ln">   203  </span>func (obj *NetworkChaos) GetSelectorSpecs() map[string]interface{} {
-<span id="L204" class="ln">   204  </span>	return map[string]interface{}{
-<span id="L205" class="ln">   205  </span>		&#34;.&#34;:       &amp;obj.Spec.PodSelector,
-<span id="L206" class="ln">   206  </span>		&#34;.Target&#34;: obj.Spec.Target,
-<span id="L207" class="ln">   207  </span>	}
-<span id="L208" class="ln">   208  </span>}
-<span id="L209" class="ln">   209  </span>
-<span id="L210" class="ln">   210  </span>func (obj *NetworkChaos) GetCustomStatus() interface{} {
-<span id="L211" class="ln">   211  </span>	return &amp;obj.Status.Instances
-<span id="L212" class="ln">   212  </span>}
-<span id="L213" class="ln">   213  </span>
+<span id="L204" class="ln">   204  </span>	selectors := map[string]interface{}{
+<span id="L205" class="ln">   205  </span>		&#34;.&#34;: &amp;obj.Spec.PodSelector,
+<span id="L206" class="ln">   206  </span>	}
+<span id="L207" class="ln">   207  </span>	if obj.Spec.Target != nil {
+<span id="L208" class="ln">   208  </span>		selectors[&#34;.Target&#34;] = obj.Spec.Target
+<span id="L209" class="ln">   209  </span>	}
+<span id="L210" class="ln">   210  </span>	return selectors
+<span id="L211" class="ln">   211  </span>}
+<span id="L212" class="ln">   212  </span>
+<span id="L213" class="ln">   213  </span>func (obj *NetworkChaos) GetCustomStatus() interface{} {
+<span id="L214" class="ln">   214  </span>	return &amp;obj.Status.Instances
+<span id="L215" class="ln">   215  </span>}
+<span id="L216" class="ln">   216  </span>
 </pre><p></p>
 
 <div id="footer">
