@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit fa57f2e. Generated at Sun Apr 10 22:04:00 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 59cfaba. Generated at Mon Apr 11 10:06:59 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -84,78 +84,77 @@
 <span id="L19" class="ln">    19  </span>	&#34;context&#34;
 <span id="L20" class="ln">    20  </span>	&#34;time&#34;
 <span id="L21" class="ln">    21  </span>
-<span id="L22" class="ln">    22  </span>	utilruntime &#34;k8s.io/apimachinery/pkg/util/runtime&#34;
-<span id="L23" class="ln">    23  </span>	&#34;k8s.io/apimachinery/pkg/util/wait&#34;
-<span id="L24" class="ln">    24  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
+<span id="L22" class="ln">    22  </span>	&#34;github.com/go-logr/logr&#34;
+<span id="L23" class="ln">    23  </span>	utilruntime &#34;k8s.io/apimachinery/pkg/util/runtime&#34;
+<span id="L24" class="ln">    24  </span>	&#34;k8s.io/apimachinery/pkg/util/wait&#34;
 <span id="L25" class="ln">    25  </span>
 <span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core&#34;
 <span id="L27" class="ln">    27  </span>)
 <span id="L28" class="ln">    28  </span>
-<span id="L29" class="ln">    29  </span>var (
-<span id="L30" class="ln">    30  </span>	log = ctrl.Log.WithName(&#34;ttlcontroller&#34;)
-<span id="L31" class="ln">    31  </span>)
-<span id="L32" class="ln">    32  </span>
-<span id="L33" class="ln">    33  </span><span class="comment">// Controller defines the database ttl controller</span>
-<span id="L34" class="ln">    34  </span>type Controller struct {
-<span id="L35" class="ln">    35  </span>	experiment core.ExperimentStore
-<span id="L36" class="ln">    36  </span>	event      core.EventStore
-<span id="L37" class="ln">    37  </span>	schedule   core.ScheduleStore
-<span id="L38" class="ln">    38  </span>	workflow   core.WorkflowStore
-<span id="L39" class="ln">    39  </span>	ttlconfig  *TTLConfig
-<span id="L40" class="ln">    40  </span>}
-<span id="L41" class="ln">    41  </span>
-<span id="L42" class="ln">    42  </span><span class="comment">// TTLConfig defines the ttl</span>
-<span id="L43" class="ln">    43  </span>type TTLConfig struct {
-<span id="L44" class="ln">    44  </span>	<span class="comment">// databaseTTLResyncPeriod defines the time interval to cleanup data in the database</span>
-<span id="L45" class="ln">    45  </span>	DatabaseTTLResyncPeriod time.Duration
-<span id="L46" class="ln">    46  </span>	<span class="comment">// EventTTL defines the ttl of events</span>
-<span id="L47" class="ln">    47  </span>	EventTTL time.Duration
-<span id="L48" class="ln">    48  </span>	<span class="comment">// ArchiveTTL defines the ttl of archives</span>
-<span id="L49" class="ln">    49  </span>	ArchiveTTL time.Duration
-<span id="L50" class="ln">    50  </span>	<span class="comment">// ScheduleTTL defines the ttl of schedule</span>
-<span id="L51" class="ln">    51  </span>	ScheduleTTL time.Duration
-<span id="L52" class="ln">    52  </span>	<span class="comment">// WorkflowTTL defines the ttl of workflow</span>
-<span id="L53" class="ln">    53  </span>	WorkflowTTL time.Duration
-<span id="L54" class="ln">    54  </span>}
-<span id="L55" class="ln">    55  </span>
-<span id="L56" class="ln">    56  </span><span class="comment">// NewController returns a new database ttl controller</span>
-<span id="L57" class="ln">    57  </span>func NewController(
-<span id="L58" class="ln">    58  </span>	experiment core.ExperimentStore,
-<span id="L59" class="ln">    59  </span>	event core.EventStore,
-<span id="L60" class="ln">    60  </span>	schedule core.ScheduleStore,
-<span id="L61" class="ln">    61  </span>	workflow core.WorkflowStore,
-<span id="L62" class="ln">    62  </span>	ttlc *TTLConfig,
-<span id="L63" class="ln">    63  </span>) *Controller {
-<span id="L64" class="ln">    64  </span>	return &amp;Controller{
-<span id="L65" class="ln">    65  </span>		experiment: experiment,
-<span id="L66" class="ln">    66  </span>		event:      event,
-<span id="L67" class="ln">    67  </span>		schedule:   schedule,
-<span id="L68" class="ln">    68  </span>		workflow:   workflow,
-<span id="L69" class="ln">    69  </span>		ttlconfig:  ttlc,
-<span id="L70" class="ln">    70  </span>	}
-<span id="L71" class="ln">    71  </span>}
-<span id="L72" class="ln">    72  </span>
-<span id="L73" class="ln">    73  </span><span class="comment">// Register periodically calls function runWorker to delete the data.</span>
-<span id="L74" class="ln">    74  </span>func Register(ctx context.Context, c *Controller) {
-<span id="L75" class="ln">    75  </span>	defer utilruntime.HandleCrash()
-<span id="L76" class="ln">    76  </span>
-<span id="L77" class="ln">    77  </span>	log.Info(&#34;Starting database TTL controller&#34;)
-<span id="L78" class="ln">    78  </span>
-<span id="L79" class="ln">    79  </span>	go wait.Until(c.runWorker, c.ttlconfig.DatabaseTTLResyncPeriod, ctx.Done())
-<span id="L80" class="ln">    80  </span>}
-<span id="L81" class="ln">    81  </span>
-<span id="L82" class="ln">    82  </span><span class="comment">// runWorker is a long-running function that will be called in order to delete the events, archives, schedule, and workflow.</span>
-<span id="L83" class="ln">    83  </span>func (c *Controller) runWorker() {
-<span id="L84" class="ln">    84  </span>	log.Info(&#34;Deleting expired data from the database&#34;)
-<span id="L85" class="ln">    85  </span>
-<span id="L86" class="ln">    86  </span>	ctx := context.Background()
-<span id="L87" class="ln">    87  </span>
-<span id="L88" class="ln">    88  </span>	_ = c.event.DeleteByDuration(ctx, c.ttlconfig.EventTTL)
-<span id="L89" class="ln">    89  </span>	c.experiment.DeleteByFinishTime(ctx, c.ttlconfig.ArchiveTTL)
-<span id="L90" class="ln">    90  </span>	c.schedule.DeleteByFinishTime(ctx, c.ttlconfig.ScheduleTTL)
-<span id="L91" class="ln">    91  </span>	c.workflow.DeleteByFinishTime(ctx, c.ttlconfig.WorkflowTTL)
-<span id="L92" class="ln">    92  </span>}
-<span id="L93" class="ln">    93  </span>
+<span id="L29" class="ln">    29  </span><span class="comment">// Controller defines the database ttl controller</span>
+<span id="L30" class="ln">    30  </span>type Controller struct {
+<span id="L31" class="ln">    31  </span>	logger     logr.Logger
+<span id="L32" class="ln">    32  </span>	experiment core.ExperimentStore
+<span id="L33" class="ln">    33  </span>	event      core.EventStore
+<span id="L34" class="ln">    34  </span>	schedule   core.ScheduleStore
+<span id="L35" class="ln">    35  </span>	workflow   core.WorkflowStore
+<span id="L36" class="ln">    36  </span>	ttlconfig  *TTLConfig
+<span id="L37" class="ln">    37  </span>}
+<span id="L38" class="ln">    38  </span>
+<span id="L39" class="ln">    39  </span><span class="comment">// TTLConfig defines the ttl</span>
+<span id="L40" class="ln">    40  </span>type TTLConfig struct {
+<span id="L41" class="ln">    41  </span>	<span class="comment">// databaseTTLResyncPeriod defines the time interval to cleanup data in the database</span>
+<span id="L42" class="ln">    42  </span>	DatabaseTTLResyncPeriod time.Duration
+<span id="L43" class="ln">    43  </span>	<span class="comment">// EventTTL defines the ttl of events</span>
+<span id="L44" class="ln">    44  </span>	EventTTL time.Duration
+<span id="L45" class="ln">    45  </span>	<span class="comment">// ArchiveTTL defines the ttl of archives</span>
+<span id="L46" class="ln">    46  </span>	ArchiveTTL time.Duration
+<span id="L47" class="ln">    47  </span>	<span class="comment">// ScheduleTTL defines the ttl of schedule</span>
+<span id="L48" class="ln">    48  </span>	ScheduleTTL time.Duration
+<span id="L49" class="ln">    49  </span>	<span class="comment">// WorkflowTTL defines the ttl of workflow</span>
+<span id="L50" class="ln">    50  </span>	WorkflowTTL time.Duration
+<span id="L51" class="ln">    51  </span>}
+<span id="L52" class="ln">    52  </span>
+<span id="L53" class="ln">    53  </span><span class="comment">// NewController returns a new database ttl controller</span>
+<span id="L54" class="ln">    54  </span>func NewController(
+<span id="L55" class="ln">    55  </span>	experiment core.ExperimentStore,
+<span id="L56" class="ln">    56  </span>	event core.EventStore,
+<span id="L57" class="ln">    57  </span>	schedule core.ScheduleStore,
+<span id="L58" class="ln">    58  </span>	workflow core.WorkflowStore,
+<span id="L59" class="ln">    59  </span>	ttlc *TTLConfig,
+<span id="L60" class="ln">    60  </span>	logger logr.Logger,
+<span id="L61" class="ln">    61  </span>) *Controller {
+<span id="L62" class="ln">    62  </span>	return &amp;Controller{
+<span id="L63" class="ln">    63  </span>		experiment: experiment,
+<span id="L64" class="ln">    64  </span>		event:      event,
+<span id="L65" class="ln">    65  </span>		schedule:   schedule,
+<span id="L66" class="ln">    66  </span>		workflow:   workflow,
+<span id="L67" class="ln">    67  </span>		ttlconfig:  ttlc,
+<span id="L68" class="ln">    68  </span>		logger:     logger,
+<span id="L69" class="ln">    69  </span>	}
+<span id="L70" class="ln">    70  </span>}
+<span id="L71" class="ln">    71  </span>
+<span id="L72" class="ln">    72  </span><span class="comment">// Register periodically calls function runWorker to delete the data.</span>
+<span id="L73" class="ln">    73  </span>func Register(ctx context.Context, c *Controller) {
+<span id="L74" class="ln">    74  </span>	defer utilruntime.HandleCrash()
+<span id="L75" class="ln">    75  </span>
+<span id="L76" class="ln">    76  </span>	c.logger.Info(&#34;Starting database TTL controller&#34;)
+<span id="L77" class="ln">    77  </span>
+<span id="L78" class="ln">    78  </span>	go wait.Until(c.runWorker, c.ttlconfig.DatabaseTTLResyncPeriod, ctx.Done())
+<span id="L79" class="ln">    79  </span>}
+<span id="L80" class="ln">    80  </span>
+<span id="L81" class="ln">    81  </span><span class="comment">// runWorker is a long-running function that will be called in order to delete the events, archives, schedule, and workflow.</span>
+<span id="L82" class="ln">    82  </span>func (c *Controller) runWorker() {
+<span id="L83" class="ln">    83  </span>	c.logger.Info(&#34;Deleting expired data from the database&#34;)
+<span id="L84" class="ln">    84  </span>
+<span id="L85" class="ln">    85  </span>	ctx := context.Background()
+<span id="L86" class="ln">    86  </span>
+<span id="L87" class="ln">    87  </span>	_ = c.event.DeleteByDuration(ctx, c.ttlconfig.EventTTL)
+<span id="L88" class="ln">    88  </span>	c.experiment.DeleteByFinishTime(ctx, c.ttlconfig.ArchiveTTL)
+<span id="L89" class="ln">    89  </span>	c.schedule.DeleteByFinishTime(ctx, c.ttlconfig.ScheduleTTL)
+<span id="L90" class="ln">    90  </span>	c.workflow.DeleteByFinishTime(ctx, c.ttlconfig.WorkflowTTL)
+<span id="L91" class="ln">    91  </span>}
+<span id="L92" class="ln">    92  </span>
 </pre><p></p>
 
 <div id="footer">
