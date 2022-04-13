@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 59cfaba. Generated at Tue Apr 12 22:03:47 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e3ff95e. Generated at Wed Apr 13 10:06:44 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -225,7 +225,7 @@
 <span id="L160" class="ln">   160  </span>	<span class="comment">// OOMScoreAdj sets the oom_score_adj of the stress process. See `man 5 proc` to know more</span>
 <span id="L161" class="ln">   161  </span>	<span class="comment">// about this option.</span>
 <span id="L162" class="ln">   162  </span>	<span class="comment">// +kubebuilder:validation:Minimum=-1000</span>
-<span id="L163" class="ln">   163  </span>	<span class="comment">// +kubebuilder:validation:Maximm=1000</span>
+<span id="L163" class="ln">   163  </span>	<span class="comment">// +kubebuilder:validation:Maximum=1000</span>
 <span id="L164" class="ln">   164  </span>	<span class="comment">// +kubebuilder:default=0</span>
 <span id="L165" class="ln">   165  </span>	<span class="comment">// +optional</span>
 <span id="L166" class="ln">   166  </span>	OOMScoreAdj int `json:&#34;oomScoreAdj,omitempty&#34;`
@@ -240,24 +240,26 @@
 <span id="L175" class="ln">   175  </span>	Stressor `json:&#34;,inline&#34;`
 <span id="L176" class="ln">   176  </span>	<span class="comment">// Load specifies P percent loading per CPU worker. 0 is effectively a sleep (no load) and 100</span>
 <span id="L177" class="ln">   177  </span>	<span class="comment">// is full loading.</span>
-<span id="L178" class="ln">   178  </span>	<span class="comment">// +optional</span>
-<span id="L179" class="ln">   179  </span>	Load *int `json:&#34;load,omitempty&#34;`
-<span id="L180" class="ln">   180  </span>
-<span id="L181" class="ln">   181  </span>	<span class="comment">// extend stress-ng options</span>
-<span id="L182" class="ln">   182  </span>	<span class="comment">// +optional</span>
-<span id="L183" class="ln">   183  </span>	Options []string `json:&#34;options,omitempty&#34;`
-<span id="L184" class="ln">   184  </span>}
-<span id="L185" class="ln">   185  </span>
-<span id="L186" class="ln">   186  </span>func (obj *StressChaos) GetSelectorSpecs() map[string]interface{} {
-<span id="L187" class="ln">   187  </span>	return map[string]interface{}{
-<span id="L188" class="ln">   188  </span>		&#34;.&#34;: &amp;obj.Spec.ContainerSelector,
-<span id="L189" class="ln">   189  </span>	}
-<span id="L190" class="ln">   190  </span>}
-<span id="L191" class="ln">   191  </span>
-<span id="L192" class="ln">   192  </span>func (obj *StressChaos) GetCustomStatus() interface{} {
-<span id="L193" class="ln">   193  </span>	return &amp;obj.Status.Instances
-<span id="L194" class="ln">   194  </span>}
-<span id="L195" class="ln">   195  </span>
+<span id="L178" class="ln">   178  </span>	<span class="comment">// +kubebuilder:validation:Minimum=0</span>
+<span id="L179" class="ln">   179  </span>	<span class="comment">// +kubebuilder:validation:Maximum=100</span>
+<span id="L180" class="ln">   180  </span>	<span class="comment">// +optional</span>
+<span id="L181" class="ln">   181  </span>	Load *int `json:&#34;load,omitempty&#34;`
+<span id="L182" class="ln">   182  </span>
+<span id="L183" class="ln">   183  </span>	<span class="comment">// extend stress-ng options</span>
+<span id="L184" class="ln">   184  </span>	<span class="comment">// +optional</span>
+<span id="L185" class="ln">   185  </span>	Options []string `json:&#34;options,omitempty&#34;`
+<span id="L186" class="ln">   186  </span>}
+<span id="L187" class="ln">   187  </span>
+<span id="L188" class="ln">   188  </span>func (obj *StressChaos) GetSelectorSpecs() map[string]interface{} {
+<span id="L189" class="ln">   189  </span>	return map[string]interface{}{
+<span id="L190" class="ln">   190  </span>		&#34;.&#34;: &amp;obj.Spec.ContainerSelector,
+<span id="L191" class="ln">   191  </span>	}
+<span id="L192" class="ln">   192  </span>}
+<span id="L193" class="ln">   193  </span>
+<span id="L194" class="ln">   194  </span>func (obj *StressChaos) GetCustomStatus() interface{} {
+<span id="L195" class="ln">   195  </span>	return &amp;obj.Status.Instances
+<span id="L196" class="ln">   196  </span>}
+<span id="L197" class="ln">   197  </span>
 </pre><p></p>
 
 <div id="footer">

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 59cfaba. Generated at Tue Apr 12 22:03:47 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e3ff95e. Generated at Wed Apr 13 10:06:44 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -3236,7 +3236,7 @@
 <span id="L3171" class="ln">  3171  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3172" class="ln">  3172  </span>            &#34;properties&#34;: {
 <span id="L3173" class="ln">  3173  </span>                &#34;load&#34;: {
-<span id="L3174" class="ln">  3174  </span>                    &#34;description&#34;: &#34;Load specifies P percent loading per CPU worker. 0 is effectively a sleep (no load) and 100\nis full loading.\n+optional&#34;,
+<span id="L3174" class="ln">  3174  </span>                    &#34;description&#34;: &#34;Load specifies P percent loading per CPU worker. 0 is effectively a sleep (no load) and 100\nis full loading.\n+kubebuilder:validation:Minimum=0\n+kubebuilder:validation:Maximum=100\n+optional&#34;,
 <span id="L3175" class="ln">  3175  </span>                    &#34;type&#34;: &#34;integer&#34;
 <span id="L3176" class="ln">  3176  </span>                },
 <span id="L3177" class="ln">  3177  </span>                &#34;options&#34;: {
@@ -4004,7 +4004,7 @@
 <span id="L3939" class="ln">  3939  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3940" class="ln">  3940  </span>            &#34;properties&#34;: {
 <span id="L3941" class="ln">  3941  </span>                &#34;oomScoreAdj&#34;: {
-<span id="L3942" class="ln">  3942  </span>                    &#34;description&#34;: &#34;OOMScoreAdj sets the oom_score_adj of the stress process. See ` + &#34;`&#34; + `man 5 proc` + &#34;`&#34; + ` to know more\nabout this option.\n+kubebuilder:validation:Minimum=-1000\n+kubebuilder:validation:Maximm=1000\n+kubebuilder:default=0\n+optional&#34;,
+<span id="L3942" class="ln">  3942  </span>                    &#34;description&#34;: &#34;OOMScoreAdj sets the oom_score_adj of the stress process. See ` + &#34;`&#34; + `man 5 proc` + &#34;`&#34; + ` to know more\nabout this option.\n+kubebuilder:validation:Minimum=-1000\n+kubebuilder:validation:Maximum=1000\n+kubebuilder:default=0\n+optional&#34;,
 <span id="L3943" class="ln">  3943  </span>                    &#34;type&#34;: &#34;integer&#34;
 <span id="L3944" class="ln">  3944  </span>                },
 <span id="L3945" class="ln">  3945  </span>                &#34;options&#34;: {
