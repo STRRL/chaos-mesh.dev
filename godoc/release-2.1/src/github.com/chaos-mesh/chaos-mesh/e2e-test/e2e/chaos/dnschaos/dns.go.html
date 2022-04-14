@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2d200a0. Generated at Wed Apr 13 22:04:56 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 6ae8791. Generated at Thu Apr 14 10:04:23 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -144,7 +144,7 @@
 <span id="L79" class="ln">    79  </span>	framework.ExpectNoError(err, &#34;create dns chaos error&#34;)
 <span id="L80" class="ln">    80  </span>
 <span id="L81" class="ln">    81  </span>	for _, domainName := range effectDomainNames {
-<span id="L82" class="ln">    82  </span>		err = wait.Poll(time.Second, 5*time.Second, func() (done bool, err error) {
+<span id="L82" class="ln">    82  </span>		err = wait.Poll(time.Second, 10*time.Second, func() (done bool, err error) {
 <span id="L83" class="ln">    83  </span>			<span class="comment">// get IP of a non exists host, because chaos DNS server will return a random IP,</span>
 <span id="L84" class="ln">    84  </span>			<span class="comment">// so err should be nil</span>
 <span id="L85" class="ln">    85  </span>			_, dnsErr := testDNSServer(c, port, domainName)
@@ -208,8 +208,8 @@
 <span id="L143" class="ln">   143  </span>	framework.ExpectNoError(err, &#34;create dns chaos error&#34;)
 <span id="L144" class="ln">   144  </span>
 <span id="L145" class="ln">   145  </span>	for _, domainName := range effectDomainNames {
-<span id="L146" class="ln">   146  </span>		err = wait.Poll(time.Second, 5*time.Second, func() (done bool, err error) {
-<span id="L147" class="ln">   147  </span>			<span class="comment">// get IP of a chaos-mesh.org, because chaos DNS server will return error,</span>
+<span id="L146" class="ln">   146  </span>		err = wait.Poll(time.Second, 10*time.Second, func() (done bool, err error) {
+<span id="L147" class="ln">   147  </span>			<span class="comment">// get IP of some domain names, because chaos DNS server will return error,</span>
 <span id="L148" class="ln">   148  </span>			<span class="comment">// so err should not be nil</span>
 <span id="L149" class="ln">   149  </span>			_, dnsErr := testDNSServer(c, port, domainName)
 <span id="L150" class="ln">   150  </span>			if dnsErr == nil {
