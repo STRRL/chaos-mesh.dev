@@ -11,6 +11,8 @@ This side provides two type of document now:
 - [godoc](https://chaos-mesh.dev/godoc), godoc like [https://pkg.go.dev/k8s.io/kubernetes](https://pkg.go.dev/k8s.io/kubernetes)
 - [API Reference](https://chaos-mesh.dev/reference), API reference like [https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/)
 
+> There are some issue with generic type in godoc with go 1.18 generic type. I am going to fix it.
+
 ## Others
 
 Feel free to report bugs and request any new features/documents: [GitHub Issues](https://github.com/STRRL/chaos-mesh.dev/issues)!
