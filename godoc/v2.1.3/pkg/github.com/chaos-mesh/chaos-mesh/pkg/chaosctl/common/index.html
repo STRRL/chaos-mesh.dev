@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>common - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.1.3/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.3/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.3/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit cbe7895. Generated at Mon Apr 25 15:07:31 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package common
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#ConnectToLocalChaosDaemon">func ConnectToLocalChaosDaemon(port int) (daemonClient.ChaosDaemonClientInterface, error)</a></dd>
+			
+				
+				<dd><a href="#Exec">func Exec(ctx context.Context, pod v1.Pod, cmd string, c *kubernetes.Clientset) (string, error)</a></dd>
+			
+				
+				<dd><a href="#ExecBypass">func ExecBypass(ctx context.Context, pod v1.Pod, daemon v1.Pod, cmd string, c *kubernetes.Clientset) (string, error)</a></dd>
+			
+				
+				<dd><a href="#ForwardSvcPorts">func ForwardSvcPorts(ctx context.Context, ns, svc string, port uint16) (context.CancelFunc, uint16, error)</a></dd>
+			
+				
+				<dd><a href="#GetChaosList">func GetChaosList(ctx context.Context, chaosType string, chaosName string, ns string, c client.Client) ([]runtime.Object, []string, error)</a></dd>
+			
+				
+				<dd><a href="#GetPidFromPS">func GetPidFromPS(ctx context.Context, pod v1.Pod, daemon v1.Pod, c *kubernetes.Clientset) ([]string, []string, error)</a></dd>
+			
+				
+				<dd><a href="#GetPidFromPod">func GetPidFromPod(ctx context.Context, pod v1.Pod, daemon v1.Pod) (uint32, error)</a></dd>
+			
+				
+				<dd><a href="#GetPods">func GetPods(ctx context.Context, chaosName string, status v1alpha1.ChaosStatus, selectorSpec v1alpha1.PodSelectorSpec, c client.Client) ([]v1.Pod, []v1.Pod, error)</a></dd>
+			
+				
+				<dd><a href="#L">func L() logr.Logger</a></dd>
+			
+				
+				<dd><a href="#Log">func Log(pod v1.Pod, tail int64, c *kubernetes.Clientset) (string, error)</a></dd>
+			
+				
+				<dd><a href="#MarshalChaos">func MarshalChaos(s interface{}) (string, error)</a></dd>
+			
+				
+				<dd><a href="#PrettyPrint">func PrettyPrint(s string, indentLevel int, color Color)</a></dd>
+			
+				
+				<dd><a href="#PrintResult">func PrintResult(result []ChaosResult)</a></dd>
+			
+				
+				<dd><a href="#SetupGlobalLogger">func SetupGlobalLogger(logger logr.Logger)</a></dd>
+			
+				
+				<dd><a href="#SetupKlog">func SetupKlog() error</a></dd>
+			
+			
+				
+				<dd><a href="#ChaosResult">type ChaosResult</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ClientSet">type ClientSet</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InitClientSet">func InitClientSet() (*ClientSet, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Color">type Color</a></dd>
+				
+				
+			
+				
+				<dd><a href="#CommonRestClientGetter">type CommonRestClientGetter</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewCommonRestClientGetter">func NewCommonRestClientGetter() *CommonRestClientGetter</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CommonRestClientGetter.ToRESTConfig">func (it *CommonRestClientGetter) ToRESTConfig() (*rest.Config, error)</a></dd>
+				
+			
+				
+				<dd><a href="#ItemResult">type ItemResult</a></dd>
+				
+				
+			
+				
+				<dd><a href="#LoggerFlushFunc">type LoggerFlushFunc</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewStderrLogger">func NewStderrLogger() (logr.Logger, LoggerFlushFunc, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodResult">type PodResult</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go">common.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common_rest_client_getter.go">common_rest_client_getter.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/exec.go">exec.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/logger.go">logger.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				
+				<pre>const (
+    <span id="ItemSuccess">ItemSuccess</span> = <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#iota">iota</a> + 1
+    <span id="ItemFailure">ItemFailure</span>
+)</pre>
+			
+				
+				<pre>const <span id="ChaosDaemonClientCert">ChaosDaemonClientCert</span> = &#34;chaos-mesh-daemon-client-certs&#34;</pre>
+			
+				
+				<pre>const <span id="ChaosDaemonNamespace">ChaosDaemonNamespace</span> = &#34;chaos-testing&#34;</pre>
+			
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var <span id="Insecure">Insecure</span> <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#bool">bool</a></pre>
+			
+				
+				<pre>var <span id="TLSFiles">TLSFiles</span> <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/grpc/">grpcUtils</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/grpc/#TLSFile">TLSFile</a></pre>
+			
+		
+		
+			
+			
+			<h2 id="ConnectToLocalChaosDaemon">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go#L382">ConnectToLocalChaosDaemon</a>
+				<a class="permalink" href="#ConnectToLocalChaosDaemon">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ConnectToLocalChaosDaemon(port <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/client/">daemonClient</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/client/#ChaosDaemonClientInterface">ChaosDaemonClientInterface</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)</pre>
+			<p>
+ConnectToLocalChaosDaemon would connect to ChaosDaemon run in localhost
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="Exec">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/exec.go#L39">Exec</a>
+				<a class="permalink" href="#Exec">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Exec(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, pod <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, cmd <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, c *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/client-go/kubernetes/">kubernetes</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/client-go/kubernetes/#Clientset">Clientset</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)</pre>
+			<p>
+Exec executes certain command and returns the result
+Only commands in chaos-mesh components should use this way
+for target pod, use ExecBypass
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="ExecBypass">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/exec.go#L85">ExecBypass</a>
+				<a class="permalink" href="#ExecBypass">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ExecBypass(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, pod <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, daemon <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, cmd <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, c *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/client-go/kubernetes/">kubernetes</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/client-go/kubernetes/#Clientset">Clientset</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)</pre>
+			<p>
+ExecBypass use chaos-daemon to enter namespace and execute command in target pod
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="ForwardSvcPorts">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go#L347">ForwardSvcPorts</a>
+				<a class="permalink" href="#ForwardSvcPorts">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ForwardSvcPorts(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, ns, svc <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, port <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#uint16">uint16</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#CancelFunc">CancelFunc</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#uint16">uint16</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="GetChaosList">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go#L221">GetChaosList</a>
+				<a class="permalink" href="#GetChaosList">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GetChaosList(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, chaosType <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, chaosName <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, ns <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, c <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>) ([]<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>, []<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)</pre>
+			<p>
+GetChaosList returns chaos list limited by input
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="GetPidFromPS">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go#L267">GetPidFromPS</a>
+				<a class="permalink" href="#GetPidFromPS">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GetPidFromPS(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, pod <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, daemon <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, c *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/client-go/kubernetes/">kubernetes</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/client-go/kubernetes/#Clientset">Clientset</a>) ([]<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, []<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)</pre>
+			<p>
+GetPidFromPS returns pid-command pairs
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="GetPidFromPod">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go#L304">GetPidFromPod</a>
+				<a class="permalink" href="#GetPidFromPod">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GetPidFromPod(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, pod <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, daemon <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#uint32">uint32</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)</pre>
+			<p>
+GetPidFromPod returns pid given containerd ID in pod
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="GetPods">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go#L181">GetPods</a>
+				<a class="permalink" href="#GetPods">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GetPods(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, chaosName <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, status <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#ChaosStatus">ChaosStatus</a>, selectorSpec <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodSelectorSpec">PodSelectorSpec</a>, c <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>) ([]<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, []<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)</pre>
+			<p>
+GetPods returns pod list and corresponding chaos daemon
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="L">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/logger.go#L47">L</a>
+				<a class="permalink" href="#L">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func L() <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/go-logr/logr/#Logger">Logger</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="Log">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go#L358">Log</a>
+				<a class="permalink" href="#Log">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Log(pod <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, tail <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int64">int64</a>, c *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/client-go/kubernetes/">kubernetes</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/client-go/kubernetes/#Clientset">Clientset</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)</pre>
+			<p>
+Log print log of pod
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="MarshalChaos">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go#L155">MarshalChaos</a>
+				<a class="permalink" href="#MarshalChaos">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func MarshalChaos(s interface{}) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)</pre>
+			<p>
+MarshalChaos returns json in readable format
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="PrettyPrint">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go#L114">PrettyPrint</a>
+				<a class="permalink" href="#PrettyPrint">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func PrettyPrint(s <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, indentLevel <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, color <a href="#Color">Color</a>)</pre>
+			<p>
+PrettyPrint print with tab number and color
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="PrintResult">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go#L132">PrintResult</a>
+				<a class="permalink" href="#PrintResult">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func PrintResult(result []<a href="#ChaosResult">ChaosResult</a>)</pre>
+			<p>
+PrintResult prints result to users in prettier format
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="SetupGlobalLogger">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/logger.go#L43">SetupGlobalLogger</a>
+				<a class="permalink" href="#SetupGlobalLogger">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SetupGlobalLogger(logger <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/go-logr/logr/#Logger">Logger</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="SetupKlog">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/logger.go#L29">SetupKlog</a>
+				<a class="permalink" href="#SetupKlog">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SetupKlog() <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a></pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="ChaosResult">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go#L74">ChaosResult</a>
+				<a class="permalink" href="#ChaosResult">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ChaosResult struct {
+<span id="ChaosResult.Name"></span>    Name <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>
+<span id="ChaosResult.Pods"></span>    Pods []<a href="#PodResult">PodResult</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ClientSet">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go#L69">ClientSet</a>
+				<a class="permalink" href="#ClientSet">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ClientSet contains two different clients
+</p>
+
+			<pre>type ClientSet struct {
+<span id="ClientSet.CtrlCli"></span>    CtrlCli <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+<span id="ClientSet.KubeCli"></span>    KubeCli *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/client-go/kubernetes/">kubernetes</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/client-go/kubernetes/#Clientset">Clientset</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="InitClientSet">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go#L164">InitClientSet</a>
+					<a class="permalink" href="#InitClientSet">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func InitClientSet() (*<a href="#ClientSet">ClientSet</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)</pre>
+				<p>
+InitClientSet inits two different clients that would be used
+</p>
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="Color">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go#L48">Color</a>
+				<a class="permalink" href="#Color">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Color <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="Blue">Blue</span>    <a href="#Color">Color</a> = &#34;Blue&#34;
+    <span id="Red">Red</span>     <a href="#Color">Color</a> = &#34;Red&#34;
+    <span id="Green">Green</span>   <a href="#Color">Color</a> = &#34;Green&#34;
+    <span id="Cyan">Cyan</span>    <a href="#Color">Color</a> = &#34;Cyan&#34;
+    <span id="NoColor">NoColor</span> <a href="#Color">Color</a> = &#34;&#34;
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="CommonRestClientGetter">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common_rest_client_getter.go#L26">CommonRestClientGetter</a>
+				<a class="permalink" href="#CommonRestClientGetter">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+CommonRestClientGetter is used for non-e2e test environment.
+It&#39;s basically do the same thing as genericclioptions.ConfigFlags, but it load rest config from incluster or .kubeconfig file
+</p>
+
+			<pre>type CommonRestClientGetter struct {
+    *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/cli-runtime/pkg/genericclioptions/">genericclioptions</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/cli-runtime/pkg/genericclioptions/#ConfigFlags">ConfigFlags</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewCommonRestClientGetter">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common_rest_client_getter.go#L30">NewCommonRestClientGetter</a>
+					<a class="permalink" href="#NewCommonRestClientGetter">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewCommonRestClientGetter() *<a href="#CommonRestClientGetter">CommonRestClientGetter</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="CommonRestClientGetter.ToRESTConfig">func (*CommonRestClientGetter) <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common_rest_client_getter.go#L35">ToRESTConfig</a>
+					<a class="permalink" href="#CommonRestClientGetter.ToRESTConfig">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#CommonRestClientGetter">CommonRestClientGetter</a>) ToRESTConfig() (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/client-go/rest/">rest</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/client-go/rest/#Config">Config</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ItemResult">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go#L95">ItemResult</a>
+				<a class="permalink" href="#ItemResult">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ItemResult struct {
+<span id="ItemResult.Name"></span>    Name    <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>
+<span id="ItemResult.Value"></span>    Value   <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>
+<span id="ItemResult.Status"></span>    Status  <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>    `json:&#34;,omitempty&#34;`
+<span id="ItemResult.SucInfo"></span>    SucInfo <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a> `json:&#34;,omitempty&#34;`
+<span id="ItemResult.ErrInfo"></span>    ErrInfo <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a> `json:&#34;,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="LoggerFlushFunc">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/logger.go#L27">LoggerFlushFunc</a>
+				<a class="permalink" href="#LoggerFlushFunc">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type LoggerFlushFunc func()</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewStderrLogger">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/logger.go#L36">NewStderrLogger</a>
+					<a class="permalink" href="#NewStderrLogger">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewStderrLogger() (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/go-logr/logr/#Logger">Logger</a>, <a href="#LoggerFlushFunc">LoggerFlushFunc</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="PodResult">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go#L79">PodResult</a>
+				<a class="permalink" href="#PodResult">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PodResult struct {
+<span id="PodResult.Name"></span>    Name  <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>
+<span id="PodResult.Items"></span>    Items []<a href="#ItemResult">ItemResult</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.18.1.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

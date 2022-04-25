@@ -1,0 +1,2077 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>generated - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.1.3/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.3/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.3/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit cbe7895. Generated at Mon Apr 25 15:07:31 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package generated
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#NewExecutableSchema">func NewExecutableSchema(cfg Config) graphql.ExecutableSchema</a></dd>
+			
+			
+				
+				<dd><a href="#AttrOverrideSpecResolver">type AttrOverrideSpecResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#BandwidthSpecResolver">type BandwidthSpecResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ChaosConditionResolver">type ChaosConditionResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ComplexityRoot">type ComplexityRoot</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Config">type Config</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ContainerStateRunningResolver">type ContainerStateRunningResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ContainerStateTerminatedResolver">type ContainerStateTerminatedResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#CorruptSpecResolver">type CorruptSpecResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#DirectiveRoot">type DirectiveRoot</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ExperimentStatusResolver">type ExperimentStatusResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#HTTPChaosResolver">type HTTPChaosResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#HTTPChaosSpecResolver">type HTTPChaosSpecResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#HTTPChaosStatusResolver">type HTTPChaosStatusResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#IOChaosActionResolver">type IOChaosActionResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#IOChaosResolver">type IOChaosResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#IOChaosSpecResolver">type IOChaosSpecResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#IOChaosStatusResolver">type IOChaosStatusResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#IoFaultResolver">type IoFaultResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#LoggerResolver">type LoggerResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MistakeSpecResolver">type MistakeSpecResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#NamespaceResolver">type NamespaceResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#NetworkChaosResolver">type NetworkChaosResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#OwnerReferenceResolver">type OwnerReferenceResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodConditionResolver">type PodConditionResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodHTTPChaosResolver">type PodHTTPChaosResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodHttpChaosReplaceActionsResolver">type PodHttpChaosReplaceActionsResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodHttpChaosRuleResolver">type PodHttpChaosRuleResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodHttpChaosSelectorResolver">type PodHttpChaosSelectorResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodIOChaosResolver">type PodIOChaosResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodNetworkChaosResolver">type PodNetworkChaosResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodResolver">type PodResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodSelectorSpecResolver">type PodSelectorSpecResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodStatusResolver">type PodStatusResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ProcessResolver">type ProcessResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#QueryResolver">type QueryResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#RawIptablesResolver">type RawIptablesResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#RawTrafficControlResolver">type RawTrafficControlResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#RecordResolver">type RecordResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ResolverRoot">type ResolverRoot</a></dd>
+				
+				
+			
+				
+				<dd><a href="#StressChaosResolver">type StressChaosResolver</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go">generated.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="NewExecutableSchema">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L29">NewExecutableSchema</a>
+				<a class="permalink" href="#NewExecutableSchema">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewExecutableSchema(cfg <a href="#Config">Config</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/99designs/gqlgen/graphql/">graphql</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/99designs/gqlgen/graphql/#ExecutableSchema">ExecutableSchema</a></pre>
+			<p>
+NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="AttrOverrideSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L656">AttrOverrideSpecResolver</a>
+				<a class="permalink" href="#AttrOverrideSpecResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type AttrOverrideSpecResolver interface {
+    Ino(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#AttrOverrideSpec">AttrOverrideSpec</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Size(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#AttrOverrideSpec">AttrOverrideSpec</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Blocks(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#AttrOverrideSpec">AttrOverrideSpec</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Kind(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#AttrOverrideSpec">AttrOverrideSpec</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Perm(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#AttrOverrideSpec">AttrOverrideSpec</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Nlink(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#AttrOverrideSpec">AttrOverrideSpec</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    UID(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#AttrOverrideSpec">AttrOverrideSpec</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Gid(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#AttrOverrideSpec">AttrOverrideSpec</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Rdev(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#AttrOverrideSpec">AttrOverrideSpec</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="BandwidthSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L668">BandwidthSpecResolver</a>
+				<a class="permalink" href="#BandwidthSpecResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type BandwidthSpecResolver interface {
+    Limit(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#BandwidthSpec">BandwidthSpec</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Buffer(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#BandwidthSpec">BandwidthSpec</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Peakrate(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#BandwidthSpec">BandwidthSpec</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Minburst(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#BandwidthSpec">BandwidthSpec</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ChaosConditionResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L674">ChaosConditionResolver</a>
+				<a class="permalink" href="#ChaosConditionResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ChaosConditionResolver interface {
+    Type(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#ChaosCondition">ChaosCondition</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Status(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#ChaosCondition">ChaosCondition</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ComplexityRoot">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L85">ComplexityRoot</a>
+				<a class="permalink" href="#ComplexityRoot">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ComplexityRoot struct {
+<span id="ComplexityRoot.AttrOverrideSpec"></span>    AttrOverrideSpec struct {
+        Atime  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Blocks func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Ctime  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Gid    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Ino    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Kind   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Mtime  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Nlink  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Perm   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Rdev   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Size   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        UID    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.BandwidthSpec"></span>    BandwidthSpec struct {
+        Buffer   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Limit    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Minburst func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Peakrate func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Rate     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.ChaosCondition"></span>    ChaosCondition struct {
+        Reason func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Status func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Type   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.ContainerState"></span>    ContainerState struct {
+        Running    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Terminated func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Waiting    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.ContainerStateRunning"></span>    ContainerStateRunning struct {
+        StartedAt func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.ContainerStateTerminated"></span>    ContainerStateTerminated struct {
+        ContainerID func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ExitCode    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        FinishedAt  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Message     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Reason      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Signal      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        StartedAt   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.ContainerStateWaiting"></span>    ContainerStateWaiting struct {
+        Message func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Reason  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.ContainerStatus"></span>    ContainerStatus struct {
+        ContainerID          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Image                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ImageID              func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        LastTerminationState func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Name                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Ready                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        RestartCount         func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Started              func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        State                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.CorruptSpec"></span>    CorruptSpec struct {
+        Correlation func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Corrup      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.DelaySpec"></span>    DelaySpec struct {
+        Correlation func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Jitter      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Latency     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Reorder     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.DuplicateSpec"></span>    DuplicateSpec struct {
+        Correlation func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Duplicate   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.ExperimentStatus"></span>    ExperimentStatus struct {
+        DesiredPhase func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Records      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.Fd"></span>    Fd struct {
+        Fd     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Target func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.HTTPChaos"></span>    HTTPChaos struct {
+        APIVersion                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Annotations                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ClusterName                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        CreationTimestamp          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        DeletionGracePeriodSeconds func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        DeletionTimestamp          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Finalizers                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        GenerateName               func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Generation                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Kind                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Labels                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Name                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+<span id="ComplexityRoot.Namespace"></span>        Namespace                  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        OwnerReferences            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Podhttp                    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ResourceVersion            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        SelfLink                   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Spec                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Status                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        UID                        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.HTTPChaosSpec"></span>    HTTPChaosSpec struct {
+        Abort           func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Code            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Delay           func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Duration        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Method          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Mode            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Patch           func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Path            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Port            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Replace         func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        RequestHeaders  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ResponseHeaders func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Selector        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Target          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Value           func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.HTTPChaosStatus"></span>    HTTPChaosStatus struct {
+        Conditions func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Experiment func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Instances  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.IOChaos"></span>    IOChaos struct {
+        APIVersion                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Annotations                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ClusterName                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        CreationTimestamp          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        DeletionGracePeriodSeconds func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        DeletionTimestamp          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Finalizers                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        GenerateName               func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Generation                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Kind                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Labels                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Name                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Namespace                  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        OwnerReferences            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Podios                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ResourceVersion            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        SelfLink                   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Spec                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Status                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        UID                        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.IOChaosAction"></span>    IOChaosAction struct {
+        Atime          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Blocks         func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Ctime          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Faults         func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Filling        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Gid            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Ino            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Kind           func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Latency        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        MaxLength      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        MaxOccurrences func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Methods        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Mtime          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Nlink          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Path           func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Percent        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Perm           func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Rdev           func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Size           func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Source         func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Type           func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        UID            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.IOChaosSpec"></span>    IOChaosSpec struct {
+        Action         func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Attr           func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ContainerNames func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Delay          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Duration       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Errno          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Methods        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Mistake        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Mode           func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Path           func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Percent        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Selector       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Value          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        VolumePath     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.IOChaosStatus"></span>    IOChaosStatus struct {
+        Conditions func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Experiment func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Instances  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.IoFault"></span>    IoFault struct {
+        Errno  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Weight func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.Logger"></span>    Logger struct {
+        Component func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, ns <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, component <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Component">Component</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+<span id="ComplexityRoot.Pod"></span>        Pod       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, ns <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, name <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.LossSpec"></span>    LossSpec struct {
+        Correlation func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Loss        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.MistakeSpec"></span>    MistakeSpec struct {
+        Filling        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        MaxLength      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        MaxOccurrences func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+    Namespace struct {
+        Component       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, component <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Component">Component</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Httpchaos       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, name *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Iochaos         func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, name *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Networkchaos    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, name *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Ns              func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Pod             func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, name *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Podhttpchaos    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, name *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Podiochaos      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, name *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Podnetworkchaos func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, name *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Stresschaos     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, name *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.NetworkChaos"></span>    NetworkChaos struct {
+        APIVersion                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Annotations                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ClusterName                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        CreationTimestamp          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        DeletionGracePeriodSeconds func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        DeletionTimestamp          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Finalizers                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        GenerateName               func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Generation                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Kind                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Labels                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Name                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Namespace                  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        OwnerReferences            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Podnetwork                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ResourceVersion            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        SelfLink                   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        UID                        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.OwnerReference"></span>    OwnerReference struct {
+        APIVersion         func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        BlockOwnerDeletion func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Controller         func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Kind               func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Name               func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        UID                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+    Pod struct {
+        APIVersion                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Annotations                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ClusterName                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        CreationTimestamp          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Daemon                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        DeletionGracePeriodSeconds func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        DeletionTimestamp          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Finalizers                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        GenerateName               func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Generation                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Ipset                      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Iptables                   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Kind                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Labels                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Logs                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Mounts                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Name                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Namespace                  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        OwnerReferences            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Processes                  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ResourceVersion            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        SelfLink                   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Spec                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Status                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        TcQdisc                    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        UID                        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodCondition"></span>    PodCondition struct {
+        LastProbeTime      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        LastTransitionTime func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Message            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Reason             func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Status             func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Type               func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodHTTPChaos"></span>    PodHTTPChaos struct {
+        APIVersion                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Annotations                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ClusterName                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        CreationTimestamp          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        DeletionGracePeriodSeconds func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        DeletionTimestamp          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Finalizers                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        GenerateName               func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Generation                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Kind                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Labels                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Name                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Namespace                  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        OwnerReferences            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Pod                        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ResourceVersion            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        SelfLink                   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Spec                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Status                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        UID                        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodHTTPChaosActions"></span>    PodHTTPChaosActions struct {
+        Abort   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Delay   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Patch   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Replace func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodHTTPChaosPatchActions"></span>    PodHTTPChaosPatchActions struct {
+        Body    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Headers func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Queries func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodHTTPChaosPatchBodyAction"></span>    PodHTTPChaosPatchBodyAction struct {
+        Type  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Value func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodHTTPChaosReplaceActions"></span>    PodHTTPChaosReplaceActions struct {
+        Body    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Code    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Headers func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Method  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Path    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Queries func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodHTTPChaosRule"></span>    PodHTTPChaosRule struct {
+        Actions  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Port     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Selector func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Source   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Target   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodHTTPChaosSelector"></span>    PodHTTPChaosSelector struct {
+        Code            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Method          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Path            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Port            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        RequestHeaders  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ResponseHeaders func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodHTTPChaosSpec"></span>    PodHTTPChaosSpec struct {
+        Rules func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodHTTPChaosStatus"></span>    PodHTTPChaosStatus struct {
+        FailedMessage      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ObservedGeneration func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Pid                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        StartTime          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodIOChaos"></span>    PodIOChaos struct {
+        APIVersion                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Annotations                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ClusterName                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        CreationTimestamp          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        DeletionGracePeriodSeconds func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        DeletionTimestamp          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Finalizers                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        GenerateName               func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Generation                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Ios                        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Kind                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Labels                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Name                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Namespace                  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        OwnerReferences            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Pod                        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ResourceVersion            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        SelfLink                   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Spec                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Status                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        UID                        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodIOChaosSpec"></span>    PodIOChaosSpec struct {
+        Actions         func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Container       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        VolumeMountPath func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodIOChaosStatus"></span>    PodIOChaosStatus struct {
+        FailedMessage      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ObservedGeneration func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Pid                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        StartTime          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodIP"></span>    PodIP struct {
+        IP func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodNetworkChaos"></span>    PodNetworkChaos struct {
+        APIVersion                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Annotations                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ClusterName                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        CreationTimestamp          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        DeletionGracePeriodSeconds func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        DeletionTimestamp          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Finalizers                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        GenerateName               func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Generation                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Kind                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Labels                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Name                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Namespace                  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        OwnerReferences            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Pod                        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ResourceVersion            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        SelfLink                   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Spec                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Status                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        UID                        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodNetworkChaosSpec"></span>    PodNetworkChaosSpec struct {
+        IPSets          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Iptables        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        TrafficControls func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodNetworkChaosStatus"></span>    PodNetworkChaosStatus struct {
+        FailedMessage      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ObservedGeneration func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodSelectorSpec"></span>    PodSelectorSpec struct {
+        AnnotationSelectors func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        FieldSelectors      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        LabelSelectors      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Namespaces          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        NodeSelectors       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Nodes               func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        PodPhaseSelectors   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Pods                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodSpec"></span>    PodSpec struct {
+        NodeName func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.PodStatus"></span>    PodStatus struct {
+        Conditions                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ContainerStatuses          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        EphemeralContainerStatuses func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        HostIP                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        InitContainerStatuses      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Message                    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        NominatedNodeName          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Phase                      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        PodIP                      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        PodIPs                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        QosClass                   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Reason                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        StartTime                  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.Process"></span>    Process struct {
+        Command func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Fds     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Pid     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Pod     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.Query"></span>    Query struct {
+        Namespace func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, ns *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.RawIPSet"></span>    RawIPSet struct {
+        Cidrs  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Name   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Source func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.RawIptables"></span>    RawIptables struct {
+        Direction func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        IPSets    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Name      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Source    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.RawTrafficControl"></span>    RawTrafficControl struct {
+        Bandwidth func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Corrupt   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Delay     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Duplicate func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        IPSet     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Loss      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Source    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Type      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.Record"></span>    Record struct {
+        Id          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Phase       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        SelectorKey func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.ReorderSpec"></span>    ReorderSpec struct {
+        Correlation func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Gap         func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Reorder     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.StressChaos"></span>    StressChaos struct {
+        APIVersion                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Annotations                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ClusterName                func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        CreationTimestamp          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        DeletionGracePeriodSeconds func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        DeletionTimestamp          func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Finalizers                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        GenerateName               func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Generation                 func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Kind                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Labels                     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Name                       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Namespace                  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        OwnerReferences            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        ResourceVersion            func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        SelfLink                   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        UID                        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.Timespec"></span>    Timespec struct {
+        Nsec func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+        Sec  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>
+    }
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Config">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L37">Config</a>
+				<a class="permalink" href="#Config">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Config struct {
+<span id="Config.Resolvers"></span>    Resolvers  <a href="#ResolverRoot">ResolverRoot</a>
+<span id="Config.Directives"></span>    Directives <a href="#DirectiveRoot">DirectiveRoot</a>
+<span id="Config.Complexity"></span>    Complexity <a href="#ComplexityRoot">ComplexityRoot</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ContainerStateRunningResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L678">ContainerStateRunningResolver</a>
+				<a class="permalink" href="#ContainerStateRunningResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ContainerStateRunningResolver interface {
+    StartedAt(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#ContainerStateRunning">ContainerStateRunning</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ContainerStateTerminatedResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L681">ContainerStateTerminatedResolver</a>
+				<a class="permalink" href="#ContainerStateTerminatedResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ContainerStateTerminatedResolver interface {
+    StartedAt(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#ContainerStateTerminated">ContainerStateTerminated</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    FinishedAt(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#ContainerStateTerminated">ContainerStateTerminated</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="CorruptSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L685">CorruptSpecResolver</a>
+				<a class="permalink" href="#CorruptSpecResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type CorruptSpecResolver interface {
+    Corrup(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#CorruptSpec">CorruptSpec</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="DirectiveRoot">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L82">DirectiveRoot</a>
+				<a class="permalink" href="#DirectiveRoot">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type DirectiveRoot struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ExperimentStatusResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L688">ExperimentStatusResolver</a>
+				<a class="permalink" href="#ExperimentStatusResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ExperimentStatusResolver interface {
+    DesiredPhase(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#ExperimentStatus">ExperimentStatus</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="HTTPChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L691">HTTPChaosResolver</a>
+				<a class="permalink" href="#HTTPChaosResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type HTTPChaosResolver interface {
+    UID(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#HTTPChaos">HTTPChaos</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    CreationTimestamp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#HTTPChaos">HTTPChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    DeletionTimestamp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#HTTPChaos">HTTPChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Labels(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#HTTPChaos">HTTPChaos</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Annotations(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#HTTPChaos">HTTPChaos</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Podhttp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#HTTPChaos">HTTPChaos</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaos">PodHttpChaos</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="HTTPChaosSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L702">HTTPChaosSpecResolver</a>
+				<a class="permalink" href="#HTTPChaosSpecResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type HTTPChaosSpecResolver interface {
+    Mode(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#HTTPChaosSpec">HTTPChaosSpec</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Target(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#HTTPChaosSpec">HTTPChaosSpec</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    RequestHeaders(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#HTTPChaosSpec">HTTPChaosSpec</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    ResponseHeaders(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#HTTPChaosSpec">HTTPChaosSpec</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="HTTPChaosStatusResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L710">HTTPChaosStatusResolver</a>
+				<a class="permalink" href="#HTTPChaosStatusResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type HTTPChaosStatusResolver interface {
+    Instances(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#HTTPChaosStatus">HTTPChaosStatus</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="IOChaosActionResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L724">IOChaosActionResolver</a>
+				<a class="permalink" href="#IOChaosActionResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type IOChaosActionResolver interface {
+    Type(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosAction">IOChaosAction</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Methods(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosAction">IOChaosAction</a>) ([]<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Ino(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosAction">IOChaosAction</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Size(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosAction">IOChaosAction</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Blocks(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosAction">IOChaosAction</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Kind(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosAction">IOChaosAction</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Perm(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosAction">IOChaosAction</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Nlink(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosAction">IOChaosAction</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    UID(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosAction">IOChaosAction</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Gid(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosAction">IOChaosAction</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Rdev(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosAction">IOChaosAction</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Filling(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosAction">IOChaosAction</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="IOChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L713">IOChaosResolver</a>
+				<a class="permalink" href="#IOChaosResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type IOChaosResolver interface {
+    UID(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaos">IOChaos</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    CreationTimestamp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaos">IOChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    DeletionTimestamp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaos">IOChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Labels(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaos">IOChaos</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Annotations(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaos">IOChaos</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Podios(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaos">IOChaos</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodIOChaos">PodIOChaos</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="IOChaosSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L741">IOChaosSpecResolver</a>
+				<a class="permalink" href="#IOChaosSpecResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type IOChaosSpecResolver interface {
+    Mode(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosSpec">IOChaosSpec</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Action(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosSpec">IOChaosSpec</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Errno(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosSpec">IOChaosSpec</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Methods(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosSpec">IOChaosSpec</a>) ([]<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="IOChaosStatusResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L750">IOChaosStatusResolver</a>
+				<a class="permalink" href="#IOChaosStatusResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type IOChaosStatusResolver interface {
+    Instances(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaosStatus">IOChaosStatus</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="IoFaultResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L753">IoFaultResolver</a>
+				<a class="permalink" href="#IoFaultResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type IoFaultResolver interface {
+    Errno(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IoFault">IoFault</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="LoggerResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L756">LoggerResolver</a>
+				<a class="permalink" href="#LoggerResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type LoggerResolver interface {
+    Component(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, ns <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, component <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Component">Component</a>) (&lt;-chan <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Pod(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, ns <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, name <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) (&lt;-chan <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MistakeSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L760">MistakeSpecResolver</a>
+				<a class="permalink" href="#MistakeSpecResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type MistakeSpecResolver interface {
+    Filling(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#MistakeSpec">MistakeSpec</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="NamespaceResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L763">NamespaceResolver</a>
+				<a class="permalink" href="#NamespaceResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type NamespaceResolver interface {
+    Component(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Namespace">Namespace</a>, component <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Component">Component</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Pod(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Namespace">Namespace</a>, name *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Stresschaos(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Namespace">Namespace</a>, name *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#StressChaos">StressChaos</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Iochaos(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Namespace">Namespace</a>, name *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaos">IOChaos</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Podiochaos(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Namespace">Namespace</a>, name *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodIOChaos">PodIOChaos</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Httpchaos(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Namespace">Namespace</a>, name *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#HTTPChaos">HTTPChaos</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Podhttpchaos(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Namespace">Namespace</a>, name *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaos">PodHttpChaos</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Networkchaos(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Namespace">Namespace</a>, name *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#NetworkChaos">NetworkChaos</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Podnetworkchaos(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Namespace">Namespace</a>, name *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodNetworkChaos">PodNetworkChaos</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="NetworkChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L774">NetworkChaosResolver</a>
+				<a class="permalink" href="#NetworkChaosResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type NetworkChaosResolver interface {
+    UID(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#NetworkChaos">NetworkChaos</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    CreationTimestamp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#NetworkChaos">NetworkChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    DeletionTimestamp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#NetworkChaos">NetworkChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Labels(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#NetworkChaos">NetworkChaos</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Annotations(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#NetworkChaos">NetworkChaos</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Podnetwork(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#NetworkChaos">NetworkChaos</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodNetworkChaos">PodNetworkChaos</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="OwnerReferenceResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L785">OwnerReferenceResolver</a>
+				<a class="permalink" href="#OwnerReferenceResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type OwnerReferenceResolver interface {
+    UID(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/apimachinery/pkg/apis/meta/v1/">v11</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/apimachinery/pkg/apis/meta/v1/#OwnerReference">OwnerReference</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodConditionResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L805">PodConditionResolver</a>
+				<a class="permalink" href="#PodConditionResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PodConditionResolver interface {
+    Type(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#PodCondition">PodCondition</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Status(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#PodCondition">PodCondition</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    LastProbeTime(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#PodCondition">PodCondition</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    LastTransitionTime(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#PodCondition">PodCondition</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodHTTPChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L811">PodHTTPChaosResolver</a>
+				<a class="permalink" href="#PodHTTPChaosResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PodHTTPChaosResolver interface {
+    UID(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaos">PodHttpChaos</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    CreationTimestamp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaos">PodHttpChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    DeletionTimestamp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaos">PodHttpChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Labels(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaos">PodHttpChaos</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Annotations(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaos">PodHttpChaos</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Pod(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaos">PodHttpChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodHttpChaosReplaceActionsResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L822">PodHttpChaosReplaceActionsResolver</a>
+				<a class="permalink" href="#PodHttpChaosReplaceActionsResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PodHttpChaosReplaceActionsResolver interface {
+    Body(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaosReplaceActions">PodHttpChaosReplaceActions</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Queries(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaosReplaceActions">PodHttpChaosReplaceActions</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Headers(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaosReplaceActions">PodHttpChaosReplaceActions</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodHttpChaosRuleResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L827">PodHttpChaosRuleResolver</a>
+				<a class="permalink" href="#PodHttpChaosRuleResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PodHttpChaosRuleResolver interface {
+    Target(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaosRule">PodHttpChaosRule</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodHttpChaosSelectorResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L830">PodHttpChaosSelectorResolver</a>
+				<a class="permalink" href="#PodHttpChaosSelectorResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PodHttpChaosSelectorResolver interface {
+    RequestHeaders(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaosSelector">PodHttpChaosSelector</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    ResponseHeaders(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaosSelector">PodHttpChaosSelector</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodIOChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L834">PodIOChaosResolver</a>
+				<a class="permalink" href="#PodIOChaosResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PodIOChaosResolver interface {
+    UID(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodIOChaos">PodIOChaos</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    CreationTimestamp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodIOChaos">PodIOChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    DeletionTimestamp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodIOChaos">PodIOChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Labels(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodIOChaos">PodIOChaos</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Annotations(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodIOChaos">PodIOChaos</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Pod(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodIOChaos">PodIOChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Ios(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodIOChaos">PodIOChaos</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IOChaos">IOChaos</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodNetworkChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L846">PodNetworkChaosResolver</a>
+				<a class="permalink" href="#PodNetworkChaosResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PodNetworkChaosResolver interface {
+    UID(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodNetworkChaos">PodNetworkChaos</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    CreationTimestamp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodNetworkChaos">PodNetworkChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    DeletionTimestamp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodNetworkChaos">PodNetworkChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Labels(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodNetworkChaos">PodNetworkChaos</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Annotations(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodNetworkChaos">PodNetworkChaos</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Pod(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodNetworkChaos">PodNetworkChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L788">PodResolver</a>
+				<a class="permalink" href="#PodResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PodResolver interface {
+    UID(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    CreationTimestamp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    DeletionTimestamp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Labels(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Annotations(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Logs(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Daemon(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Processes(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Process">Process</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Mounts(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) ([]<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Ipset(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    TcQdisc(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Iptables(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#Pod">Pod</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodSelectorSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L857">PodSelectorSpecResolver</a>
+				<a class="permalink" href="#PodSelectorSpecResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PodSelectorSpecResolver interface {
+    Pods(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodSelectorSpec">PodSelectorSpec</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    NodeSelectors(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodSelectorSpec">PodSelectorSpec</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    FieldSelectors(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodSelectorSpec">PodSelectorSpec</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    LabelSelectors(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodSelectorSpec">PodSelectorSpec</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    AnnotationSelectors(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodSelectorSpec">PodSelectorSpec</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodStatusResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L864">PodStatusResolver</a>
+				<a class="permalink" href="#PodStatusResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PodStatusResolver interface {
+    Phase(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#PodStatus">PodStatus</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    StartTime(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#PodStatus">PodStatus</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    QosClass(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/">v1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/k8s.io/api/core/v1/#PodStatus">PodStatus</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ProcessResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L871">ProcessResolver</a>
+				<a class="permalink" href="#ProcessResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ProcessResolver interface {
+    Fds(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Process">Process</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Fd">Fd</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="QueryResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L874">QueryResolver</a>
+				<a class="permalink" href="#QueryResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type QueryResolver interface {
+    Namespace(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, ns *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/model/#Namespace">Namespace</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="RawIptablesResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L877">RawIptablesResolver</a>
+				<a class="permalink" href="#RawIptablesResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type RawIptablesResolver interface {
+    Direction(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#RawIptables">RawIptables</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="RawTrafficControlResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L880">RawTrafficControlResolver</a>
+				<a class="permalink" href="#RawTrafficControlResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type RawTrafficControlResolver interface {
+    Type(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#RawTrafficControl">RawTrafficControl</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="RecordResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L883">RecordResolver</a>
+				<a class="permalink" href="#RecordResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type RecordResolver interface {
+    Phase(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Record">Record</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ResolverRoot">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L43">ResolverRoot</a>
+				<a class="permalink" href="#ResolverRoot">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ResolverRoot interface {
+    AttrOverrideSpec() <a href="#AttrOverrideSpecResolver">AttrOverrideSpecResolver</a>
+    BandwidthSpec() <a href="#BandwidthSpecResolver">BandwidthSpecResolver</a>
+    ChaosCondition() <a href="#ChaosConditionResolver">ChaosConditionResolver</a>
+    ContainerStateRunning() <a href="#ContainerStateRunningResolver">ContainerStateRunningResolver</a>
+    ContainerStateTerminated() <a href="#ContainerStateTerminatedResolver">ContainerStateTerminatedResolver</a>
+    CorruptSpec() <a href="#CorruptSpecResolver">CorruptSpecResolver</a>
+    ExperimentStatus() <a href="#ExperimentStatusResolver">ExperimentStatusResolver</a>
+    HTTPChaos() <a href="#HTTPChaosResolver">HTTPChaosResolver</a>
+    HTTPChaosSpec() <a href="#HTTPChaosSpecResolver">HTTPChaosSpecResolver</a>
+    HTTPChaosStatus() <a href="#HTTPChaosStatusResolver">HTTPChaosStatusResolver</a>
+    IOChaos() <a href="#IOChaosResolver">IOChaosResolver</a>
+    IOChaosAction() <a href="#IOChaosActionResolver">IOChaosActionResolver</a>
+    IOChaosSpec() <a href="#IOChaosSpecResolver">IOChaosSpecResolver</a>
+    IOChaosStatus() <a href="#IOChaosStatusResolver">IOChaosStatusResolver</a>
+    IoFault() <a href="#IoFaultResolver">IoFaultResolver</a>
+    Logger() <a href="#LoggerResolver">LoggerResolver</a>
+    MistakeSpec() <a href="#MistakeSpecResolver">MistakeSpecResolver</a>
+    Namespace() <a href="#NamespaceResolver">NamespaceResolver</a>
+    NetworkChaos() <a href="#NetworkChaosResolver">NetworkChaosResolver</a>
+    OwnerReference() <a href="#OwnerReferenceResolver">OwnerReferenceResolver</a>
+    Pod() <a href="#PodResolver">PodResolver</a>
+    PodCondition() <a href="#PodConditionResolver">PodConditionResolver</a>
+    PodHTTPChaos() <a href="#PodHTTPChaosResolver">PodHTTPChaosResolver</a>
+    PodHttpChaosReplaceActions() <a href="#PodHttpChaosReplaceActionsResolver">PodHttpChaosReplaceActionsResolver</a>
+    PodHttpChaosRule() <a href="#PodHttpChaosRuleResolver">PodHttpChaosRuleResolver</a>
+    PodHttpChaosSelector() <a href="#PodHttpChaosSelectorResolver">PodHttpChaosSelectorResolver</a>
+    PodIOChaos() <a href="#PodIOChaosResolver">PodIOChaosResolver</a>
+    PodNetworkChaos() <a href="#PodNetworkChaosResolver">PodNetworkChaosResolver</a>
+    PodSelectorSpec() <a href="#PodSelectorSpecResolver">PodSelectorSpecResolver</a>
+    PodStatus() <a href="#PodStatusResolver">PodStatusResolver</a>
+    Process() <a href="#ProcessResolver">ProcessResolver</a>
+    Query() <a href="#QueryResolver">QueryResolver</a>
+    RawIptables() <a href="#RawIptablesResolver">RawIptablesResolver</a>
+    RawTrafficControl() <a href="#RawTrafficControlResolver">RawTrafficControlResolver</a>
+    Record() <a href="#RecordResolver">RecordResolver</a>
+    StressChaos() <a href="#StressChaosResolver">StressChaosResolver</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="StressChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.3/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrlserver/graph/generated/generated.go#L886">StressChaosResolver</a>
+				<a class="permalink" href="#StressChaosResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type StressChaosResolver interface {
+    UID(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#StressChaos">StressChaos</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    CreationTimestamp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#StressChaos">StressChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    DeletionTimestamp(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#StressChaos">StressChaos</a>) (*<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/time/#Time">Time</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+
+    Labels(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#StressChaos">StressChaos</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+    Annotations(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#StressChaos">StressChaos</a>) (map[<a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#string">string</a>]interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.3/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.18.1.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
