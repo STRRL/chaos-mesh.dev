@@ -15,7 +15,7 @@
 
 
 
-<script>var goVersion = "go1.17.6";</script>
+<script>var goVersion = "go1.18.1";</script>
 <script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e3ff95e. Generated at Wed Apr 13 22:03:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2521671. Generated at Mon Apr 25 14:37:32 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -156,7 +156,10 @@
 				<dd><a href="#Server">type Server</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewServer">func NewServer(conf *config.ChaosDashboardConfig, experimentArchive core.ExperimentStore, scheduleArchive core.ScheduleStore, event core.EventStore, workflowStore core.WorkflowStore) (*Server, client.Client, client.Reader, *runtime.Scheme)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#Bootstrap">func Bootstrap(conf *config.ChaosDashboardConfig, experimentArchive core.ExperimentStore, scheduleArchive core.ScheduleStore, event core.EventStore, workflowStore core.WorkflowStore, logger logr.Logger) (*Server, client.Client, client.Reader, *runtime.Scheme)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewServer">func NewServer(conf *config.ChaosDashboardConfig, experimentArchive core.ExperimentStore, scheduleArchive core.ScheduleStore, event core.EventStore, workflowStore core.WorkflowStore, logger logr.Logger) (*Server, client.Client, client.Reader, *runtime.Scheme)</a></dd>
 				
 				
 			
@@ -186,6 +189,8 @@
 			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/event_collector.go">event_collector.go</a>
 			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/fx.go">fx.go</a>
+			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/schedule_collector.go">schedule_collector.go</a>
 			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/server.go">server.go</a>
@@ -205,7 +210,7 @@
 		
 			
 			
-			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/server.go#L143">Register</a>
+			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/server.go#L145">Register</a>
 				<a class="permalink" href="#Register">&#xb6;</a>
 				
 				
@@ -413,6 +418,7 @@ Server defines a server to manage collectors.
 
 			<pre>type Server struct {
 <span id="Server.Manager"></span>    Manager <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>
+    <span class="comment">// contains filtered or unexported fields</span>
 }
 </pre>
 
@@ -426,7 +432,25 @@ Server defines a server to manage collectors.
 
 			
 				
-				<h3 id="NewServer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/server.go#L53">NewServer</a>
+				<h3 id="Bootstrap">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/fx.go#L27">Bootstrap</a>
+					<a class="permalink" href="#Bootstrap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Bootstrap(
+    conf *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/">config</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/#ChaosDashboardConfig">ChaosDashboardConfig</a>,
+    experimentArchive <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ExperimentStore">ExperimentStore</a>,
+    scheduleArchive <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ScheduleStore">ScheduleStore</a>,
+    event <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#EventStore">EventStore</a>,
+    workflowStore <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#WorkflowStore">WorkflowStore</a>,
+    logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>,
+) (*<a href="#Server">Server</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>, *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Scheme">Scheme</a>)</pre>
+				
+				
+				
+			
+				
+				<h3 id="NewServer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector/server.go#L54">NewServer</a>
 					<a class="permalink" href="#NewServer">&#xb6;</a>
 					
 					
@@ -437,6 +461,7 @@ Server defines a server to manage collectors.
     scheduleArchive <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ScheduleStore">ScheduleStore</a>,
     event <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#EventStore">EventStore</a>,
     workflowStore <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#WorkflowStore">WorkflowStore</a>,
+    logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>,
 ) (*<a href="#Server">Server</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>, *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Scheme">Scheme</a>)</pre>
 				<p>
 NewServer returns a CollectorServer and Client.
@@ -509,7 +534,7 @@ NewServer returns a CollectorServer and Client.
 
 
 <div id="footer">
-Build version go1.17.6.<br>
+Build version go1.18.1.<br>
 </div>
 
 </div><!-- .container -->

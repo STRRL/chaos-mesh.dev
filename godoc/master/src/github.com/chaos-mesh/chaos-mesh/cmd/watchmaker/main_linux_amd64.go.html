@@ -13,7 +13,7 @@
 
 
 
-<script>var goVersion = "go1.17.6";</script>
+<script>var goVersion = "go1.18.1";</script>
 <script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer=""></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e3ff95e. Generated at Wed Apr 13 22:03:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2521671. Generated at Mon Apr 25 14:37:32 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -86,63 +86,74 @@
 <span id="L21" class="ln">    21  </span>	&#34;os&#34;
 <span id="L22" class="ln">    22  </span>	&#34;strings&#34;
 <span id="L23" class="ln">    23  </span>
-<span id="L24" class="ln">    24  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/log&#34;
-<span id="L25" class="ln">    25  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/time&#34;
-<span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/time/utils&#34;
-<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/version&#34;
-<span id="L28" class="ln">    28  </span>)
-<span id="L29" class="ln">    29  </span>
-<span id="L30" class="ln">    30  </span>var (
-<span id="L31" class="ln">    31  </span>	pid           int
-<span id="L32" class="ln">    32  </span>	secDelta      int64
-<span id="L33" class="ln">    33  </span>	nsecDelta     int64
-<span id="L34" class="ln">    34  </span>	printVersion  bool
-<span id="L35" class="ln">    35  </span>	clockIdsSlice string
-<span id="L36" class="ln">    36  </span>)
-<span id="L37" class="ln">    37  </span>
-<span id="L38" class="ln">    38  </span>func initFlag() {
-<span id="L39" class="ln">    39  </span>	flag.IntVar(&amp;pid, &#34;pid&#34;, 0, &#34;pid of target program&#34;)
-<span id="L40" class="ln">    40  </span>	flag.Int64Var(&amp;secDelta, &#34;sec_delta&#34;, 0, &#34;delta time of sec field&#34;)
-<span id="L41" class="ln">    41  </span>	flag.Int64Var(&amp;nsecDelta, &#34;nsec_delta&#34;, 0, &#34;delta time of nsec field&#34;)
-<span id="L42" class="ln">    42  </span>	flag.StringVar(&amp;clockIdsSlice, &#34;clk_ids&#34;, &#34;CLOCK_REALTIME&#34;, &#34;all affected clock ids split with \&#34;,\&#34;&#34;)
-<span id="L43" class="ln">    43  </span>	flag.BoolVar(&amp;printVersion, &#34;version&#34;, false, &#34;print version information and exit&#34;)
-<span id="L44" class="ln">    44  </span>
-<span id="L45" class="ln">    45  </span>	flag.Parse()
-<span id="L46" class="ln">    46  </span>}
+<span id="L24" class="ln">    24  </span>	&#34;github.com/go-logr/zapr&#34;
+<span id="L25" class="ln">    25  </span>	&#34;go.uber.org/zap&#34;
+<span id="L26" class="ln">    26  </span>
+<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks&#34;
+<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/time&#34;
+<span id="L29" class="ln">    29  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/time/utils&#34;
+<span id="L30" class="ln">    30  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/version&#34;
+<span id="L31" class="ln">    31  </span>)
+<span id="L32" class="ln">    32  </span>
+<span id="L33" class="ln">    33  </span>var (
+<span id="L34" class="ln">    34  </span>	pid           int
+<span id="L35" class="ln">    35  </span>	secDelta      int64
+<span id="L36" class="ln">    36  </span>	nsecDelta     int64
+<span id="L37" class="ln">    37  </span>	printVersion  bool
+<span id="L38" class="ln">    38  </span>	clockIdsSlice string
+<span id="L39" class="ln">    39  </span>)
+<span id="L40" class="ln">    40  </span>
+<span id="L41" class="ln">    41  </span>func initFlag() {
+<span id="L42" class="ln">    42  </span>	flag.IntVar(&amp;pid, &#34;pid&#34;, 0, &#34;pid of target program&#34;)
+<span id="L43" class="ln">    43  </span>	flag.Int64Var(&amp;secDelta, &#34;sec_delta&#34;, 0, &#34;delta time of sec field&#34;)
+<span id="L44" class="ln">    44  </span>	flag.Int64Var(&amp;nsecDelta, &#34;nsec_delta&#34;, 0, &#34;delta time of nsec field&#34;)
+<span id="L45" class="ln">    45  </span>	flag.StringVar(&amp;clockIdsSlice, &#34;clk_ids&#34;, &#34;CLOCK_REALTIME&#34;, &#34;all affected clock ids split with \&#34;,\&#34;&#34;)
+<span id="L46" class="ln">    46  </span>	flag.BoolVar(&amp;printVersion, &#34;version&#34;, false, &#34;print version information and exit&#34;)
 <span id="L47" class="ln">    47  </span>
-<span id="L48" class="ln">    48  </span>func main() {
-<span id="L49" class="ln">    49  </span>	initFlag()
+<span id="L48" class="ln">    48  </span>	flag.Parse()
+<span id="L49" class="ln">    49  </span>}
 <span id="L50" class="ln">    50  </span>
-<span id="L51" class="ln">    51  </span>	version.PrintVersionInfo(&#34;watchmaker&#34;)
-<span id="L52" class="ln">    52  </span>
-<span id="L53" class="ln">    53  </span>	if printVersion {
-<span id="L54" class="ln">    54  </span>		os.Exit(0)
-<span id="L55" class="ln">    55  </span>	}
-<span id="L56" class="ln">    56  </span>
-<span id="L57" class="ln">    57  </span>	logger, err := log.NewDefaultZapLogger()
-<span id="L58" class="ln">    58  </span>	if err != nil {
-<span id="L59" class="ln">    59  </span>		panic(fmt.Sprintf(&#34;error while creating zap logger: %v&#34;, err))
+<span id="L51" class="ln">    51  </span>func main() {
+<span id="L52" class="ln">    52  </span>	fmt.Println(&#34;Watchmaker will not support recovery function in future,&#34; +
+<span id="L53" class="ln">    53  </span>		&#34; please use time attack in chaosd.&#34;)
+<span id="L54" class="ln">    54  </span>	initFlag()
+<span id="L55" class="ln">    55  </span>
+<span id="L56" class="ln">    56  </span>	version.PrintVersionInfo(&#34;watchmaker&#34;)
+<span id="L57" class="ln">    57  </span>
+<span id="L58" class="ln">    58  </span>	if printVersion {
+<span id="L59" class="ln">    59  </span>		os.Exit(0)
 <span id="L60" class="ln">    60  </span>	}
 <span id="L61" class="ln">    61  </span>
-<span id="L62" class="ln">    62  </span>	clkIds := strings.Split(clockIdsSlice, &#34;,&#34;)
-<span id="L63" class="ln">    63  </span>	mask, err := utils.EncodeClkIds(clkIds)
-<span id="L64" class="ln">    64  </span>	if err != nil {
-<span id="L65" class="ln">    65  </span>		logger.Error(err, &#34;error while converting clock ids to mask&#34;)
-<span id="L66" class="ln">    66  </span>		os.Exit(1)
-<span id="L67" class="ln">    67  </span>	}
-<span id="L68" class="ln">    68  </span>	logger.Info(&#34;get clock ids mask&#34;, &#34;mask&#34;, mask)
-<span id="L69" class="ln">    69  </span>
-<span id="L70" class="ln">    70  </span>	err = time.ModifyTime(pid, secDelta, nsecDelta, mask, logger.WithName(&#34;time&#34;))
-<span id="L71" class="ln">    71  </span>
-<span id="L72" class="ln">    72  </span>	if err != nil {
-<span id="L73" class="ln">    73  </span>		logger.Error(err, &#34;error while modifying time&#34;, &#34;pid&#34;, pid, &#34;secDelta&#34;, secDelta, &#34;nsecDelta&#34;, nsecDelta, &#34;mask&#34;, mask)
-<span id="L74" class="ln">    74  </span>	}
-<span id="L75" class="ln">    75  </span>}
-<span id="L76" class="ln">    76  </span>
+<span id="L62" class="ln">    62  </span>	zapLog, err := zap.NewDevelopment()
+<span id="L63" class="ln">    63  </span>	if err != nil {
+<span id="L64" class="ln">    64  </span>		panic(fmt.Sprintf(&#34;error while creating zap logger: %v&#34;, err))
+<span id="L65" class="ln">    65  </span>	}
+<span id="L66" class="ln">    66  </span>	log := zapr.NewLogger(zapLog)
+<span id="L67" class="ln">    67  </span>
+<span id="L68" class="ln">    68  </span>	clkIds := strings.Split(clockIdsSlice, &#34;,&#34;)
+<span id="L69" class="ln">    69  </span>	mask, err := utils.EncodeClkIds(clkIds)
+<span id="L70" class="ln">    70  </span>	if err != nil {
+<span id="L71" class="ln">    71  </span>		log.Error(err, &#34;error while converting clock ids to mask&#34;)
+<span id="L72" class="ln">    72  </span>		os.Exit(1)
+<span id="L73" class="ln">    73  </span>	}
+<span id="L74" class="ln">    74  </span>	log.Info(&#34;get clock ids mask&#34;, &#34;mask&#34;, mask)
+<span id="L75" class="ln">    75  </span>
+<span id="L76" class="ln">    76  </span>	s, err := time.GetSkew(log, time.NewConfig(secDelta, nsecDelta, mask))
+<span id="L77" class="ln">    77  </span>	if err != nil {
+<span id="L78" class="ln">    78  </span>		log.Error(err, &#34;error while GetSkew&#34;)
+<span id="L79" class="ln">    79  </span>		os.Exit(1)
+<span id="L80" class="ln">    80  </span>	}
+<span id="L81" class="ln">    81  </span>	err = s.Inject(tasks.SysPID(pid))
+<span id="L82" class="ln">    82  </span>
+<span id="L83" class="ln">    83  </span>	if err != nil {
+<span id="L84" class="ln">    84  </span>		log.Error(err, &#34;error while modifying time&#34;, &#34;pid&#34;, pid, &#34;secDelta&#34;, secDelta, &#34;nsecDelta&#34;, nsecDelta, &#34;mask&#34;, mask)
+<span id="L85" class="ln">    85  </span>	}
+<span id="L86" class="ln">    86  </span>}
+<span id="L87" class="ln">    87  </span>
 </pre><p></p>
 
 <div id="footer">
-Build version go1.17.6.<br/>
+Build version go1.18.1.<br/>
 </div>
 
 </div><!-- .container -->

@@ -15,7 +15,7 @@
 
 
 
-<script>var goVersion = "go1.17.6";</script>
+<script>var goVersion = "go1.18.1";</script>
 <script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e3ff95e. Generated at Wed Apr 13 22:03:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2521671. Generated at Mon Apr 25 14:37:32 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -123,7 +123,7 @@
 				<dd><a href="#Collector">type Collector</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewCollector">func NewCollector(experimentStore core.ExperimentStore, scheduleStore core.ScheduleStore, workflowStore core.WorkflowStore) *Collector</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NewCollector">func NewCollector(log logr.Logger, experimentStore core.ExperimentStore, scheduleStore core.ScheduleStore, workflowStore core.WorkflowStore) *Collector</a></dd>
 				
 				
 					
@@ -178,7 +178,7 @@
 		
 			
 			
-			<h2 id="Collector">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/metrics/metrics.go#L33">Collector</a>
+			<h2 id="Collector">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/metrics/metrics.go#L31">Collector</a>
 				<a class="permalink" href="#Collector">&#xb6;</a>
 				
 				
@@ -202,12 +202,12 @@ Collector implements prometheus.Collector interface
 
 			
 				
-				<h3 id="NewCollector">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/metrics/metrics.go#L44">NewCollector</a>
+				<h3 id="NewCollector">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/metrics/metrics.go#L43">NewCollector</a>
 					<a class="permalink" href="#NewCollector">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func NewCollector(experimentStore <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ExperimentStore">ExperimentStore</a>, scheduleStore <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ScheduleStore">ScheduleStore</a>, workflowStore <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#WorkflowStore">WorkflowStore</a>) *<a href="#Collector">Collector</a></pre>
+				<pre>func NewCollector(log <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>, experimentStore <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ExperimentStore">ExperimentStore</a>, scheduleStore <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ScheduleStore">ScheduleStore</a>, workflowStore <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#WorkflowStore">WorkflowStore</a>) *<a href="#Collector">Collector</a></pre>
 				<p>
 NewCollector initializes metrics and collector
 </p>
@@ -258,7 +258,7 @@ Describe implements the prometheus.Collector interface.
 			
 			<pre>type Params struct {
     <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#In">In</a>
-
+<span id="Params.Log"></span>    Log             <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>
 <span id="Params.Registry"></span>    Registry        *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/">prometheus</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/prometheus/client_golang/prometheus/#Registry">Registry</a>
 <span id="Params.ExperimentStore"></span>    ExperimentStore <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ExperimentStore">ExperimentStore</a>
 <span id="Params.ScheduleStore"></span>    ScheduleStore   <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ScheduleStore">ScheduleStore</a>
@@ -289,7 +289,7 @@ Describe implements the prometheus.Collector interface.
 
 
 <div id="footer">
-Build version go1.17.6.<br>
+Build version go1.18.1.<br>
 </div>
 
 </div><!-- .container -->

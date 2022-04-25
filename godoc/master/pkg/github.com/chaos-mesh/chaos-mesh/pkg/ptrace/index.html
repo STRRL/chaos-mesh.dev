@@ -15,7 +15,7 @@
 
 
 
-<script>var goVersion = "go1.17.6";</script>
+<script>var goVersion = "go1.18.1";</script>
 <script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e3ff95e. Generated at Wed Apr 13 22:03:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2521671. Generated at Mon Apr 25 14:37:32 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -127,7 +127,7 @@
 					<dd>&nbsp; &nbsp; <a href="#TracedProgram.Detach">func (p *TracedProgram) Detach() error</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#TracedProgram.FindSymbolInEntry">func (p *TracedProgram) FindSymbolInEntry(symbolName string, entry *mapreader.Entry) (uint64, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#TracedProgram.FindSymbolInEntry">func (p *TracedProgram) FindSymbolInEntry(symbolName string, entry *mapreader.Entry) (uint64, uint64, error)</a></dd>
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#TracedProgram.GetLibBuffer">func (p *TracedProgram) GetLibBuffer(entry *mapreader.Entry) (*[]byte, error)</a></dd>
@@ -262,7 +262,7 @@ Detach detaches from all threads of the processes
 					
 					
 				</h3>
-				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) FindSymbolInEntry(symbolName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, entry *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/">mapreader</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/#Entry">Entry</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint64">uint64</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<pre>func (p *<a href="#TracedProgram">TracedProgram</a>) FindSymbolInEntry(symbolName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, entry *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/">mapreader</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/#Entry">Entry</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint64">uint64</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint64">uint64</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 FindSymbolInEntry finds symbol in entry through parsing elf
 </p>
@@ -493,7 +493,7 @@ WriteUint64ToAddr writes uint64 to addr
 
 
 <div id="footer">
-Build version go1.17.6.<br>
+Build version go1.18.1.<br>
 </div>
 
 </div><!-- .container -->

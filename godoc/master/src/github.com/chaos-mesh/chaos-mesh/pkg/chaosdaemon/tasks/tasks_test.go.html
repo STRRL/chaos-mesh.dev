@@ -13,7 +13,7 @@
 
 
 
-<script>var goVersion = "go1.17.6";</script>
+<script>var goVersion = "go1.18.1";</script>
 <script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer=""></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e3ff95e. Generated at Wed Apr 13 22:03:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2521671. Generated at Mon Apr 25 14:37:32 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -90,20 +90,20 @@
 <span id="L25" class="ln">    25  </span>	&#34;github.com/stretchr/testify/assert&#34;
 <span id="L26" class="ln">    26  </span>	&#34;go.uber.org/zap&#34;
 <span id="L27" class="ln">    27  </span>
-<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaoserr&#34;
+<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/cerr&#34;
 <span id="L29" class="ln">    29  </span>)
 <span id="L30" class="ln">    30  </span>
 <span id="L31" class="ln">    31  </span>type FakeConfig struct {
 <span id="L32" class="ln">    32  </span>	i int
 <span id="L33" class="ln">    33  </span>}
 <span id="L34" class="ln">    34  </span>
-<span id="L35" class="ln">    35  </span>func (f *FakeConfig) Add(a Addable) error {
+<span id="L35" class="ln">    35  </span>func (f *FakeConfig) Merge(a Mergeable) error {
 <span id="L36" class="ln">    36  </span>	A, OK := a.(*FakeConfig)
 <span id="L37" class="ln">    37  </span>	if OK {
 <span id="L38" class="ln">    38  </span>		f.i += A.i
 <span id="L39" class="ln">    39  </span>		return nil
 <span id="L40" class="ln">    40  </span>	}
-<span id="L41" class="ln">    41  </span>	return errors.Wrapf(ErrCanNotAdd, &#34;expect type : *FakeConfig, got : %T&#34;, a)
+<span id="L41" class="ln">    41  </span>	return cerr.NotType[*FakeConfig]().WrapInput(a).Err()
 <span id="L42" class="ln">    42  </span>}
 <span id="L43" class="ln">    43  </span>
 <span id="L44" class="ln">    44  </span>func (f *FakeConfig) DeepCopy() Object {
@@ -117,7 +117,7 @@
 <span id="L52" class="ln">    52  </span>		C.C.i = f.i
 <span id="L53" class="ln">    53  </span>		return nil
 <span id="L54" class="ln">    54  </span>	}
-<span id="L55" class="ln">    55  </span>	return errors.Wrapf(ErrCanNotAssign, &#34;expect type : *FakeChaos, got : %T&#34;, c)
+<span id="L55" class="ln">    55  </span>	return cerr.NotType[*FakeConfig]().WrapInput(c).Err()
 <span id="L56" class="ln">    56  </span>}
 <span id="L57" class="ln">    57  </span>
 <span id="L58" class="ln">    58  </span>func (f *FakeConfig) New(immutableValues interface{}) (Injectable, error) {
@@ -133,16 +133,16 @@
 <span id="L68" class="ln">    68  </span>	logger         logr.Logger
 <span id="L69" class="ln">    69  </span>}
 <span id="L70" class="ln">    70  </span>
-<span id="L71" class="ln">    71  </span>func (f *FakeChaos) Inject(pid PID) error {
+<span id="L71" class="ln">    71  </span>func (f *FakeChaos) Inject(pid IsID) error {
 <span id="L72" class="ln">    72  </span>	if f.ErrWhenInject {
-<span id="L73" class="ln">    73  </span>		return chaoserr.NotImplemented(&#34;inject&#34;)
+<span id="L73" class="ln">    73  </span>		return cerr.NotImpl[Injectable]().Err()
 <span id="L74" class="ln">    74  </span>	}
 <span id="L75" class="ln">    75  </span>	return nil
 <span id="L76" class="ln">    76  </span>}
 <span id="L77" class="ln">    77  </span>
-<span id="L78" class="ln">    78  </span>func (f *FakeChaos) Recover(pid PID) error {
+<span id="L78" class="ln">    78  </span>func (f *FakeChaos) Recover(pid IsID) error {
 <span id="L79" class="ln">    79  </span>	if f.ErrWhenRecover {
-<span id="L80" class="ln">    80  </span>		return chaoserr.NotImplemented(&#34;recover&#34;)
+<span id="L80" class="ln">    80  </span>		return cerr.NotImpl[Recoverable]().Err()
 <span id="L81" class="ln">    81  </span>	}
 <span id="L82" class="ln">    82  </span>	return nil
 <span id="L83" class="ln">    83  </span>}
@@ -165,8 +165,8 @@
 <span id="L100" class="ln">   100  </span>	}
 <span id="L101" class="ln">   101  </span>	task1 := FakeConfig{i: 1}
 <span id="L102" class="ln">   102  </span>	uid1 := &#34;1&#34;
-<span id="L103" class="ln">   103  </span>	err = m.Create(uid1, 1, &amp;task1, &amp;chaos)
-<span id="L104" class="ln">   104  </span>	chaosInterface, err := m.GetTaskWithPID(1)
+<span id="L103" class="ln">   103  </span>	err = m.Create(uid1, SysPID(1), &amp;task1, &amp;chaos)
+<span id="L104" class="ln">   104  </span>	chaosInterface, err := m.GetTaskWithPID(SysPID(1))
 <span id="L105" class="ln">   105  </span>	assert.NoError(t, err)
 <span id="L106" class="ln">   106  </span>	chaoso := chaosInterface.(*FakeChaos)
 <span id="L107" class="ln">   107  </span>	assert.Equal(t, chaoso.C, task1)
@@ -174,8 +174,8 @@
 <span id="L109" class="ln">   109  </span>
 <span id="L110" class="ln">   110  </span>	task2 := FakeConfig{i: 1}
 <span id="L111" class="ln">   111  </span>	uid2 := &#34;2&#34;
-<span id="L112" class="ln">   112  </span>	err = m.Apply(uid2, 1, &amp;task2)
-<span id="L113" class="ln">   113  </span>	chaosInterface, err = m.GetTaskWithPID(1)
+<span id="L112" class="ln">   112  </span>	err = m.Apply(uid2, SysPID(1), &amp;task2)
+<span id="L113" class="ln">   113  </span>	chaosInterface, err = m.GetTaskWithPID(SysPID(1))
 <span id="L114" class="ln">   114  </span>	assert.NoError(t, err)
 <span id="L115" class="ln">   115  </span>	chaoso = chaosInterface.(*FakeChaos)
 <span id="L116" class="ln">   116  </span>	assert.Equal(t, chaoso.C, FakeConfig{i: 2})
@@ -203,40 +203,40 @@
 <span id="L138" class="ln">   138  </span>	}
 <span id="L139" class="ln">   139  </span>	task1 := FakeConfig{i: 1}
 <span id="L140" class="ln">   140  </span>	uid1 := &#34;1&#34;
-<span id="L141" class="ln">   141  </span>	err = m.Create(uid1, 1, &amp;task1, &amp;chaos)
+<span id="L141" class="ln">   141  </span>	err = m.Create(uid1, SysPID(1), &amp;task1, &amp;chaos)
 <span id="L142" class="ln">   142  </span>	assert.NoError(t, err)
-<span id="L143" class="ln">   143  </span>	err = m.Apply(uid1, 1, &amp;task1)
-<span id="L144" class="ln">   144  </span>	assert.Equal(t, errors.Cause(err), chaoserr.ErrDuplicateEntity)
-<span id="L145" class="ln">   145  </span>	err = m.Recover(uid1, 1)
+<span id="L143" class="ln">   143  </span>	err = m.Apply(uid1, SysPID(1), &amp;task1)
+<span id="L144" class="ln">   144  </span>	assert.Equal(t, errors.Cause(err), cerr.ErrDuplicateEntity)
+<span id="L145" class="ln">   145  </span>	err = m.Recover(uid1, SysPID(1))
 <span id="L146" class="ln">   146  </span>	assert.NoError(t, err)
-<span id="L147" class="ln">   147  </span>	err = m.Recover(uid1, 1)
-<span id="L148" class="ln">   148  </span>	assert.Equal(t, errors.Cause(err), ErrPIDNotFound)
+<span id="L147" class="ln">   147  </span>	err = m.Recover(uid1, SysPID(1))
+<span id="L148" class="ln">   148  </span>	assert.Equal(t, errors.Cause(err), ErrNotFoundTaskID.Err())
 <span id="L149" class="ln">   149  </span>
 <span id="L150" class="ln">   150  </span>	chaos.ErrWhenInject = true
 <span id="L151" class="ln">   151  </span>	tasks2 := FakeConfig{i: 1}
-<span id="L152" class="ln">   152  </span>	err = m.Create(uid1, 1, &amp;tasks2, &amp;chaos)
-<span id="L153" class="ln">   153  </span>	assert.Equal(t, errors.Cause(err), chaoserr.NotImplemented(&#34;inject&#34;))
+<span id="L152" class="ln">   152  </span>	err = m.Create(uid1, SysPID(1), &amp;tasks2, &amp;chaos)
+<span id="L153" class="ln">   153  </span>	assert.Equal(t, errors.Cause(err).Error(), cerr.NotImpl[Injectable]().Err().Error())
 <span id="L154" class="ln">   154  </span>	_, err = m.GetConfigWithUID(uid1)
-<span id="L155" class="ln">   155  </span>	assert.Equal(t, errors.Cause(err), ErrUIDNotFound)
+<span id="L155" class="ln">   155  </span>	assert.Equal(t, errors.Cause(err), ErrNotFoundTaskID.Err())
 <span id="L156" class="ln">   156  </span>
 <span id="L157" class="ln">   157  </span>	chaos.ErrWhenInject = false
 <span id="L158" class="ln">   158  </span>	chaos.ErrWhenRecover = true
 <span id="L159" class="ln">   159  </span>	tasks3 := FakeConfig{i: 1}
-<span id="L160" class="ln">   160  </span>	err = m.Create(uid1, 1, &amp;tasks3, &amp;chaos)
+<span id="L160" class="ln">   160  </span>	err = m.Create(uid1, SysPID(1), &amp;tasks3, &amp;chaos)
 <span id="L161" class="ln">   161  </span>	assert.NoError(t, err)
-<span id="L162" class="ln">   162  </span>	err = m.Recover(uid1, 1)
-<span id="L163" class="ln">   163  </span>	assert.Equal(t, errors.Cause(err), chaoserr.NotImplemented(&#34;recover&#34;))
-<span id="L164" class="ln">   164  </span>	p, err := m.GetTaskWithPID(1)
+<span id="L162" class="ln">   162  </span>	err = m.Recover(uid1, SysPID(1))
+<span id="L163" class="ln">   163  </span>	assert.Equal(t, errors.Cause(err).Error(), cerr.NotImpl[Recoverable]().Err().Error())
+<span id="L164" class="ln">   164  </span>	p, err := m.GetTaskWithPID(SysPID(1))
 <span id="L165" class="ln">   165  </span>	inner := p.(*FakeChaos)
 <span id="L166" class="ln">   166  </span>	inner.ErrWhenRecover = false
-<span id="L167" class="ln">   167  </span>	err = m.Recover(uid1, 1)
+<span id="L167" class="ln">   167  </span>	err = m.Recover(uid1, SysPID(1))
 <span id="L168" class="ln">   168  </span>	assert.NoError(t, err)
 <span id="L169" class="ln">   169  </span>}
 <span id="L170" class="ln">   170  </span>
 </pre><p></p>
 
 <div id="footer">
-Build version go1.17.6.<br/>
+Build version go1.18.1.<br/>
 </div>
 
 </div><!-- .container -->

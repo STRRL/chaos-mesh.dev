@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>statuscheck - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2521671. Generated at Mon Apr 25 14:37:32 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package statuscheck
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/controllers/statuscheck"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#Bootstrap">func Bootstrap(mgr ctrl.Manager, client client.Client, logger logr.Logger, recorderBuilder *recorder.RecorderBuilder) error</a></dd>
+			
+			
+				
+				<dd><a href="#Executor">type Executor</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Manager">type Manager</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewManager">func NewManager(logger logr.Logger, eventRecorder recorder.ChaosRecorder, newExecutorFunc newExecutorFunc) Manager</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Reconciler">type Reconciler</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewReconciler">func NewReconciler(logger logr.Logger, kubeClient client.Client, eventRecorder recorder.ChaosRecorder, manager Manager) *Reconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Reconciler.Reconcile">func (r *Reconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error)</a></dd>
+				
+			
+				
+				<dd><a href="#Result">type Result</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck/conditions.go">conditions.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck/controller.go">controller.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck/fx.go">fx.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck/manager.go">manager.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck/worker.go">worker.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="Bootstrap">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck/fx.go#L29">Bootstrap</a>
+				<a class="permalink" href="#Bootstrap">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Bootstrap(mgr <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>, client <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>, recorderBuilder *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#RecorderBuilder">RecorderBuilder</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Executor">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck/worker.go#L30">Executor</a>
+				<a class="permalink" href="#Executor">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Executor interface {
+    <span class="comment">// Do will execute according to the status check configuration,</span>
+    <span class="comment">// returns:</span>
+    <span class="comment">// 1. the result status (true for success, false for failure).</span>
+    <span class="comment">// 2. output of execution.</span>
+    <span class="comment">// 3. errors if any, it will lead to throw away the result of the execution.</span>
+    Do() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)
+    <span class="comment">// Type provides the type of executor</span>
+    Type() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Manager">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck/manager.go#L30">Manager</a>
+				<a class="permalink" href="#Manager">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Manager interface {
+    <span class="comment">// Add creates new workers for every status check.</span>
+    Add(statusCheck <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#StatusCheck">StatusCheck</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>
+    <span class="comment">// Get returns the cached results about the status check.</span>
+    Get(statusCheck <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#StatusCheck">StatusCheck</a>) (<a href="#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>)
+    <span class="comment">// Delete handles cleaning up the removed status check state, including terminating workers and</span>
+    <span class="comment">// deleting cached results.</span>
+    <span class="comment">// This should be called when StatusCheck is deleted.</span>
+    Delete(key <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/types/">types</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/types/#NamespacedName">NamespacedName</a>)
+    <span class="comment">// Complete handles terminating workers, but not deleting cached results.</span>
+    <span class="comment">// This should be called when StatusCheck is completed.</span>
+    Complete(statusCheck <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#StatusCheck">StatusCheck</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewManager">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck/manager.go#L55">NewManager</a>
+					<a class="permalink" href="#NewManager">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewManager(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>, eventRecorder <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#ChaosRecorder">ChaosRecorder</a>, newExecutorFunc newExecutorFunc) <a href="#Manager">Manager</a></pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="Reconciler">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck/controller.go#L35">Reconciler</a>
+				<a class="permalink" href="#Reconciler">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Reconciler struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewReconciler">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck/controller.go#L42">NewReconciler</a>
+					<a class="permalink" href="#NewReconciler">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewReconciler(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>, kubeClient <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, eventRecorder <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#ChaosRecorder">ChaosRecorder</a>, manager <a href="#Manager">Manager</a>) *<a href="#Reconciler">Reconciler</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="Reconciler.Reconcile">func (*Reconciler) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck/controller.go#L51">Reconcile</a>
+					<a class="permalink" href="#Reconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Reconciler">Reconciler</a>) Reconcile(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, req <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Result">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck/manager.go#L142">Result</a>
+				<a class="permalink" href="#Result">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Result struct {
+<span id="Result.Records"></span>    Records []<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#StatusCheckRecord">StatusCheckRecord</a>
+<span id="Result.Count"></span>    Count   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="http/">http</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.18.1.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

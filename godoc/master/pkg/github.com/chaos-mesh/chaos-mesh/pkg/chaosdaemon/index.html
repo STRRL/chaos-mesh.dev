@@ -15,7 +15,7 @@
 
 
 
-<script>var goVersion = "go1.17.6";</script>
+<script>var goVersion = "go1.18.1";</script>
 <script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e3ff95e. Generated at Wed Apr 13 22:03:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2521671. Generated at Mon Apr 25 14:37:32 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -223,6 +223,20 @@
 					<dd>&nbsp; &nbsp; <a href="#Server.Start">func (s *Server) Start() error</a></dd>
 				
 			
+				
+				<dd><a href="#TimeChaosServer">type TimeChaosServer</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TimeChaosServer.DelPodContainerNameProcess">func (s *TimeChaosServer) DelPodContainerNameProcess(idName tasks.PodContainerName)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TimeChaosServer.SetPodContainerNameProcess">func (s *TimeChaosServer) SetPodContainerNameProcess(idName tasks.PodContainerName, sysID tasks.SysPID)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TimeChaosServer.SetTimeOffset">func (s *TimeChaosServer) SetTimeOffset(uid tasks.TaskID, id tasks.PodContainerName, config time.Config) error</a></dd>
+				
+			
 			
 			</dl>
 			</div><!-- #manual-nav -->
@@ -318,7 +332,7 @@
 		
 			
 			
-			<h2 id="MetadataExtractor">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L168">MetadataExtractor</a>
+			<h2 id="MetadataExtractor">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L173">MetadataExtractor</a>
 				<a class="permalink" href="#MetadataExtractor">&#xb6;</a>
 				
 				
@@ -418,8 +432,7 @@ DaemonServer represents a grpc server for tc daemon
 </p>
 
 			<pre>type DaemonServer struct {
-<span id="DaemonServer.IPSetLocker"></span>    IPSetLocker      *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/moby/locker/">locker</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/moby/locker/#Locker">Locker</a>
-<span id="DaemonServer.TimeChaosManager"></span>    TimeChaosManager <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/">tasks</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/#TaskManager">TaskManager</a>
+<span id="DaemonServer.IPSetLocker"></span>    IPSetLocker *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/moby/locker/">locker</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/moby/locker/#Locker">Locker</a>
     <span class="comment">// contains filtered or unexported fields</span>
 }
 </pre>
@@ -578,7 +591,7 @@ ContainerKill kills container according to container id in the req
 				
 			
 				
-				<h3 id="DaemonServer.RecoverTimeOffset">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/time_server.go#L56">RecoverTimeOffset</a>
+				<h3 id="DaemonServer.RecoverTimeOffset">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/time_server.go#L95">RecoverTimeOffset</a>
 					<a class="permalink" href="#DaemonServer.RecoverTimeOffset">&#xb6;</a>
 					
 					
@@ -627,7 +640,7 @@ ContainerKill kills container according to container id in the req
 				
 			
 				
-				<h3 id="DaemonServer.SetTimeOffset">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/time_server.go#L28">SetTimeOffset</a>
+				<h3 id="DaemonServer.SetTimeOffset">func (*DaemonServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/time_server.go#L75">SetTimeOffset</a>
 					<a class="permalink" href="#DaemonServer.SetTimeOffset">&#xb6;</a>
 					
 					
@@ -654,7 +667,7 @@ ContainerKill kills container according to container id in the req
 		
 			
 			
-			<h2 id="RegisterGatherer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L187">RegisterGatherer</a>
+			<h2 id="RegisterGatherer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L192">RegisterGatherer</a>
 				<a class="permalink" href="#RegisterGatherer">&#xb6;</a>
 				
 				
@@ -712,7 +725,7 @@ Response is the body part of HTTP Response
 		
 			
 			
-			<h2 id="Server">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L193">Server</a>
+			<h2 id="Server">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L198">Server</a>
 				<a class="permalink" href="#Server">&#xb6;</a>
 				
 				
@@ -736,7 +749,7 @@ Server is the server for chaos daemon
 
 			
 				
-				<h3 id="BuildServer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L203">BuildServer</a>
+				<h3 id="BuildServer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L208">BuildServer</a>
 					<a class="permalink" href="#BuildServer">&#xb6;</a>
 					
 					
@@ -752,7 +765,7 @@ BuildServer builds a chaos daemon server
 
 			
 				
-				<h3 id="Server.Shutdown">func (*Server) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L249">Shutdown</a>
+				<h3 id="Server.Shutdown">func (*Server) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L254">Shutdown</a>
 					<a class="permalink" href="#Server.Shutdown">&#xb6;</a>
 					
 					
@@ -764,7 +777,7 @@ BuildServer builds a chaos daemon server
 				
 			
 				
-				<h3 id="Server.Start">func (*Server) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L221">Start</a>
+				<h3 id="Server.Start">func (*Server) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/server.go#L226">Start</a>
 					<a class="permalink" href="#Server.Start">&#xb6;</a>
 					
 					
@@ -774,6 +787,67 @@ BuildServer builds a chaos daemon server
 Start starts chaos-daemon.
 </p>
 
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="TimeChaosServer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/time_server.go#L31">TimeChaosServer</a>
+				<a class="permalink" href="#TimeChaosServer">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type TimeChaosServer struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="TimeChaosServer.DelPodContainerNameProcess">func (*TimeChaosServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/time_server.go#L43">DelPodContainerNameProcess</a>
+					<a class="permalink" href="#TimeChaosServer.DelPodContainerNameProcess">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#TimeChaosServer">TimeChaosServer</a>) DelPodContainerNameProcess(idName <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/">tasks</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/#PodContainerName">PodContainerName</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TimeChaosServer.SetPodContainerNameProcess">func (*TimeChaosServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/time_server.go#L39">SetPodContainerNameProcess</a>
+					<a class="permalink" href="#TimeChaosServer.SetPodContainerNameProcess">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#TimeChaosServer">TimeChaosServer</a>) SetPodContainerNameProcess(idName <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/">tasks</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/#PodContainerName">PodContainerName</a>, sysID <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/">tasks</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/#SysPID">SysPID</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="TimeChaosServer.SetTimeOffset">func (*TimeChaosServer) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/time_server.go#L47">SetTimeOffset</a>
+					<a class="permalink" href="#TimeChaosServer.SetTimeOffset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#TimeChaosServer">TimeChaosServer</a>) SetTimeOffset(uid <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/">tasks</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/#TaskID">TaskID</a>, id <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/">tasks</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/#PodContainerName">PodContainerName</a>, config <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/time/#Config">Config</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
 				
 				
 				
@@ -954,7 +1028,7 @@ Start starts chaos-daemon.
 
 
 <div id="footer">
-Build version go1.17.6.<br>
+Build version go1.18.1.<br>
 </div>
 
 </div><!-- .container -->

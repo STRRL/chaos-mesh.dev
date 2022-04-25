@@ -15,7 +15,7 @@
 
 
 
-<script>var goVersion = "go1.17.6";</script>
+<script>var goVersion = "go1.18.1";</script>
 <script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e3ff95e. Generated at Wed Apr 13 22:03:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2521671. Generated at Mon Apr 25 14:37:32 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -2987,6 +2987,12 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#StatusCheck.Default">func (in *StatusCheck) Default()</a></dd>
 				
 					
+					<dd>&nbsp; &nbsp; <a href="#StatusCheck.DurationExceed">func (in *StatusCheck) DurationExceed(now time.Time) (bool, time.Duration, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StatusCheck.IsCompleted">func (in *StatusCheck) IsCompleted() bool</a></dd>
+				
+					
 					<dd>&nbsp; &nbsp; <a href="#StatusCheck.Validate">func (in *StatusCheck) Validate() error</a></dd>
 				
 					
@@ -3067,6 +3073,9 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#StatusCheckSpec.Default">func (in *StatusCheckSpec) Default(root interface{}, field *reflect.StructField)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StatusCheckSpec.GetDuration">func (in *StatusCheckSpec) GetDuration() (*time.Duration, error)</a></dd>
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#StatusCheckSpec.Validate">func (in *StatusCheckSpec) Validate(root interface{}, path *field.Path) field.ErrorList</a></dd>
@@ -3772,8 +3781,9 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 			
 				
 				<pre>const (
-    <span id="LabelControlledBy">LabelControlledBy</span> = &#34;chaos-mesh.org/controlled-by&#34;
-    <span id="LabelWorkflow">LabelWorkflow</span>     = &#34;chaos-mesh.org/workflow&#34;
+    <span id="LabelControlledBy">LabelControlledBy</span>       = &#34;chaos-mesh.org/controlled-by&#34;
+    <span id="LabelWorkflow">LabelWorkflow</span>           = &#34;chaos-mesh.org/workflow&#34;
+    <span id="WorkflowAnnotationAbort">WorkflowAnnotationAbort</span> = &#34;workflow.chaos-mesh.org/abort&#34;
 )</pre>
 			
 				<p>
@@ -3781,25 +3791,33 @@ Reasons
 </p>
 
 				<pre>const (
-    <span id="EntryCreated">EntryCreated</span>                <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;EntryCreated&#34;
-    <span id="InvalidEntry">InvalidEntry</span>                <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;InvalidEntry&#34;
-    <span id="WorkflowAccomplished">WorkflowAccomplished</span>        <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;WorkflowAccomplished&#34;
-    <span id="NodeAccomplished">NodeAccomplished</span>            <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;NodeAccomplished&#34;
-    <span id="NodesCreated">NodesCreated</span>                <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;NodesCreated&#34;
-    <span id="NodeDeadlineExceed">NodeDeadlineExceed</span>          <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;NodeDeadlineExceed&#34;
-    <span id="NodeDeadlineNotExceed">NodeDeadlineNotExceed</span>       <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;NodeDeadlineNotExceed&#34;
-    <span id="NodeDeadlineOmitted">NodeDeadlineOmitted</span>         <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;NodeDeadlineOmitted&#34;
-    <span id="ParentNodeDeadlineExceed">ParentNodeDeadlineExceed</span>    <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;ParentNodeDeadlineExceed&#34;
-    <span id="ChaosCRCreated">ChaosCRCreated</span>              <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;ChaosCRCreated&#34;
-    <span id="ChaosCRCreateFailed">ChaosCRCreateFailed</span>         <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;ChaosCRCreateFailed&#34;
-    <span id="ChaosCRDeleted">ChaosCRDeleted</span>              <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;ChaosCRDeleted&#34;
-    <span id="ChaosCRDeleteFailed">ChaosCRDeleteFailed</span>         <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;ChaosCRDeleteFailed&#34;
-    <span id="ChaosCRNotExists">ChaosCRNotExists</span>            <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;ChaosCRNotExists&#34;
-    <span id="TaskPodSpawned">TaskPodSpawned</span>              <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;TaskPodSpawned&#34;
-    <span id="TaskPodSpawnFailed">TaskPodSpawnFailed</span>          <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;TaskPodSpawnFailed&#34;
-    <span id="TaskPodPodCompleted">TaskPodPodCompleted</span>         <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;TaskPodPodCompleted&#34;
-    <span id="ConditionalBranchesSelected">ConditionalBranchesSelected</span> <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;ConditionalBranchesSelected&#34;
-    <span id="RerunBySpecChanged">RerunBySpecChanged</span>          <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;RerunBySpecChanged&#34;
+    <span id="EntryCreated">EntryCreated</span>                         <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;EntryCreated&#34;
+    <span id="InvalidEntry">InvalidEntry</span>                         <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;InvalidEntry&#34;
+    <span id="WorkflowAccomplished">WorkflowAccomplished</span>                 <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;WorkflowAccomplished&#34;
+    <span id="NodeAccomplished">NodeAccomplished</span>                     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;NodeAccomplished&#34;
+    <span id="NodesCreated">NodesCreated</span>                         <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;NodesCreated&#34;
+    <span id="NodeDeadlineExceed">NodeDeadlineExceed</span>                   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;NodeDeadlineExceed&#34;
+    <span id="NodeDeadlineNotExceed">NodeDeadlineNotExceed</span>                <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;NodeDeadlineNotExceed&#34;
+    <span id="NodeDeadlineOmitted">NodeDeadlineOmitted</span>                  <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;NodeDeadlineOmitted&#34;
+    <span id="ParentNodeDeadlineExceed">ParentNodeDeadlineExceed</span>             <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;ParentNodeDeadlineExceed&#34;
+    <span id="ChaosCRCreated">ChaosCRCreated</span>                       <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;ChaosCRCreated&#34;
+    <span id="ChaosCRCreateFailed">ChaosCRCreateFailed</span>                  <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;ChaosCRCreateFailed&#34;
+    <span id="ChaosCRDeleted">ChaosCRDeleted</span>                       <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;ChaosCRDeleted&#34;
+    <span id="ChaosCRDeleteFailed">ChaosCRDeleteFailed</span>                  <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;ChaosCRDeleteFailed&#34;
+    <span id="ChaosCRNotExists">ChaosCRNotExists</span>                     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;ChaosCRNotExists&#34;
+    <span id="TaskPodSpawned">TaskPodSpawned</span>                       <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;TaskPodSpawned&#34;
+    <span id="TaskPodSpawnFailed">TaskPodSpawnFailed</span>                   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;TaskPodSpawnFailed&#34;
+    <span id="TaskPodPodCompleted">TaskPodPodCompleted</span>                  <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;TaskPodPodCompleted&#34;
+    <span id="ConditionalBranchesSelected">ConditionalBranchesSelected</span>          <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;ConditionalBranchesSelected&#34;
+    <span id="RerunBySpecChanged">RerunBySpecChanged</span>                   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;RerunBySpecChanged&#34;
+    <span id="StatusCheckCreated">StatusCheckCreated</span>                   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;StatusCheckCreated&#34;
+    <span id="StatusCheckCreatedFailed">StatusCheckCreatedFailed</span>             <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;StatusCheckCreatedFailed&#34;
+    <span id="StatusCheckDeleted">StatusCheckDeleted</span>                   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;StatusCheckDeleted&#34;
+    <span id="StatusCheckDeletedFailed">StatusCheckDeletedFailed</span>             <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;StatusCheckDeletedFailed&#34;
+    <span id="StatusCheckCompleted">StatusCheckCompleted</span>                 <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;StatusCheckCompleted&#34;
+    <span id="StatusCheckNotExceedSuccessThreshold">StatusCheckNotExceedSuccessThreshold</span> <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;StatusCheckNotExceedSuccessThreshold&#34;
+    <span id="ParentNodeAborted">ParentNodeAborted</span>                    <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;ParentNodeAborted&#34;
+    <span id="WorkflowAborted">WorkflowAborted</span>                      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> = &#34;WorkflowAborted&#34;
 )</pre>
 			
 				
@@ -4049,7 +4067,7 @@ AllKinds returns all chaos kinds.
 		
 			
 			
-			<h2 id="FetchChaosByTemplateType">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L186">FetchChaosByTemplateType</a>
+			<h2 id="FetchChaosByTemplateType">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L194">FetchChaosByTemplateType</a>
 				<a class="permalink" href="#FetchChaosByTemplateType">&#xb6;</a>
 				
 				
@@ -4101,7 +4119,7 @@ AllKinds returns all chaos kinds.
 		
 			
 			
-			<h2 id="IsChaosTemplateType">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L90">IsChaosTemplateType</a>
+			<h2 id="IsChaosTemplateType">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L91">IsChaosTemplateType</a>
 				<a class="permalink" href="#IsChaosTemplateType">&#xb6;</a>
 				
 				
@@ -6574,7 +6592,7 @@ SpawnObject will deepcopy a clean struct for the acquired kind as placeholder
 		
 			
 			
-			<h2 id="ChaosOnlyScheduleSpec">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L127">ChaosOnlyScheduleSpec</a>
+			<h2 id="ChaosOnlyScheduleSpec">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L135">ChaosOnlyScheduleSpec</a>
 				<a class="permalink" href="#ChaosOnlyScheduleSpec">&#xb6;</a>
 				
 				
@@ -6966,7 +6984,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="ConditionalBranch">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L90">ConditionalBranch</a>
+			<h2 id="ConditionalBranch">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L98">ConditionalBranch</a>
 				<a class="permalink" href="#ConditionalBranch">&#xb6;</a>
 				
 				
@@ -7025,7 +7043,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="ConditionalBranchStatus">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L105">ConditionalBranchStatus</a>
+			<h2 id="ConditionalBranchStatus">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L113">ConditionalBranchStatus</a>
 				<a class="permalink" href="#ConditionalBranchStatus">&#xb6;</a>
 				
 				
@@ -7081,7 +7099,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="ConditionalBranchesStatus">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L98">ConditionalBranchesStatus</a>
+			<h2 id="ConditionalBranchesStatus">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L106">ConditionalBranchesStatus</a>
 				<a class="permalink" href="#ConditionalBranchesStatus">&#xb6;</a>
 				
 				
@@ -8527,7 +8545,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="EmbedStatusCheck">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L189">EmbedStatusCheck</a>
+			<h2 id="EmbedStatusCheck">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L193">EmbedStatusCheck</a>
 				<a class="permalink" href="#EmbedStatusCheck">&#xb6;</a>
 				
 				
@@ -9857,7 +9875,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="GenericChaos">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L169">GenericChaos</a>
+			<h2 id="GenericChaos">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L186">GenericChaos</a>
 				<a class="permalink" href="#GenericChaos">&#xb6;</a>
 				
 				
@@ -9886,7 +9904,7 @@ GenericChaos could be a place holder for any kubernetes Kind
 		
 			
 			
-			<h2 id="GenericChaosList">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L160">GenericChaosList</a>
+			<h2 id="GenericChaosList">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L177">GenericChaosList</a>
 				<a class="permalink" href="#GenericChaosList">&#xb6;</a>
 				
 				
@@ -10541,7 +10559,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="HTTPCriteria">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L194">HTTPCriteria</a>
+			<h2 id="HTTPCriteria">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L198">HTTPCriteria</a>
 				<a class="permalink" href="#HTTPCriteria">&#xb6;</a>
 				
 				
@@ -10633,7 +10651,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="HTTPRequestMethod">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L202">HTTPRequestMethod</a>
+			<h2 id="HTTPRequestMethod">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L206">HTTPRequestMethod</a>
 				<a class="permalink" href="#HTTPRequestMethod">&#xb6;</a>
 				
 				
@@ -10655,7 +10673,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="HTTPStatusCheck">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L209">HTTPStatusCheck</a>
+			<h2 id="HTTPStatusCheck">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L213">HTTPStatusCheck</a>
 				<a class="permalink" href="#HTTPStatusCheck">&#xb6;</a>
 				
 				
@@ -12180,7 +12198,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 				
 			
 				
-				<h3 id="JVMChaosSpec.Default">func (*JVMChaosSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/jvmchaos_webhook.go#L27">Default</a>
+				<h3 id="JVMChaosSpec.Default">func (*JVMChaosSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/jvmchaos_webhook.go#L28">Default</a>
 					<a class="permalink" href="#JVMChaosSpec.Default">&#xb6;</a>
 					
 					
@@ -12596,7 +12614,7 @@ JVMParameter represents the detail about jvm chaos action definition
     <a href="#JVMStressCfgSpec">JVMStressCfgSpec</a> `json:&#34;,inline&#34;`
 
     <span class="comment">// +optional</span>
-    <span class="comment">// byteman rule name, should be unique, and will use JVMChaos&#39; name if not set</span>
+    <span class="comment">// byteman rule name, should be unique, and will generate one if not set</span>
 <span id="JVMParameter.Name"></span>    Name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;name&#34;`
 
     <span class="comment">// +optional</span>
@@ -19561,7 +19579,7 @@ StatefulObject defines a basic Object that can get the status
 		
 			
 			
-			<h2 id="StatusCheck">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L28">StatusCheck</a>
+			<h2 id="StatusCheck">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L30">StatusCheck</a>
 				<a class="permalink" href="#StatusCheck">&#xb6;</a>
 				
 				
@@ -19654,6 +19672,33 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 				
 			
 				
+				<h3 id="StatusCheck.DurationExceed">func (*StatusCheck) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L247">DurationExceed</a>
+					<a class="permalink" href="#StatusCheck.DurationExceed">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (in *<a href="#StatusCheck">StatusCheck</a>) DurationExceed(now <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Time">Time</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Duration">Duration</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="StatusCheck.IsCompleted">func (*StatusCheck) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L269">IsCompleted</a>
+					<a class="permalink" href="#StatusCheck.IsCompleted">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (in *<a href="#StatusCheck">StatusCheck</a>) IsCompleted() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+				<p>
+IsCompleted checks if the status check is completed, according to the StatusCheckConditionCompleted condition.
+</p>
+
+				
+				
+				
+			
+				
 				<h3 id="StatusCheck.Validate">func (*StatusCheck) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.chaosmesh.go#L1825">Validate</a>
 					<a class="permalink" href="#StatusCheck.Validate">&#xb6;</a>
 					
@@ -19710,7 +19755,7 @@ ValidateUpdate implements webhook.Validator so a webhook will be registered for 
 		
 			
 			
-			<h2 id="StatusCheckCondition">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L181">StatusCheckCondition</a>
+			<h2 id="StatusCheckCondition">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L185">StatusCheckCondition</a>
 				<a class="permalink" href="#StatusCheckCondition">&#xb6;</a>
 				
 				
@@ -19769,7 +19814,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="StatusCheckConditionType">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L156">StatusCheckConditionType</a>
+			<h2 id="StatusCheckConditionType">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L158">StatusCheckConditionType</a>
 				<a class="permalink" href="#StatusCheckConditionType">&#xb6;</a>
 				
 				
@@ -19807,7 +19852,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="StatusCheckList">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L226">StatusCheckList</a>
+			<h2 id="StatusCheckList">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L230">StatusCheckList</a>
 				<a class="permalink" href="#StatusCheckList">&#xb6;</a>
 				
 				
@@ -19883,7 +19928,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 		
 			
 			
-			<h2 id="StatusCheckMode">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L40">StatusCheckMode</a>
+			<h2 id="StatusCheckMode">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L42">StatusCheckMode</a>
 				<a class="permalink" href="#StatusCheckMode">&#xb6;</a>
 				
 				
@@ -19915,7 +19960,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 		
 			
 			
-			<h2 id="StatusCheckOutcome">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L144">StatusCheckOutcome</a>
+			<h2 id="StatusCheckOutcome">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L146">StatusCheckOutcome</a>
 				<a class="permalink" href="#StatusCheckOutcome">&#xb6;</a>
 				
 				
@@ -19943,7 +19988,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 		
 			
 			
-			<h2 id="StatusCheckReason">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L173">StatusCheckReason</a>
+			<h2 id="StatusCheckReason">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L175">StatusCheckReason</a>
 				<a class="permalink" href="#StatusCheckReason">&#xb6;</a>
 				
 				
@@ -19954,8 +19999,11 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 			
 				
 				<pre>const (
-    <span id="StatusCheckExecutionSucceed">StatusCheckExecutionSucceed</span> <a href="#StatusCheckReason">StatusCheckReason</a> = &#34;StatusCheckExecutionSucceed&#34;
-    <span id="StatusCheckExecutionFailed">StatusCheckExecutionFailed</span>  <a href="#StatusCheckReason">StatusCheckReason</a> = &#34;StatusCheckExecutionFailed&#34;
+    <span id="StatusCheckDurationExceed">StatusCheckDurationExceed</span>         <a href="#StatusCheckReason">StatusCheckReason</a> = &#34;StatusCheckDurationExceed&#34;
+    <span id="StatusCheckFailureThresholdExceed">StatusCheckFailureThresholdExceed</span> <a href="#StatusCheckReason">StatusCheckReason</a> = &#34;StatusCheckFailureThresholdExceed&#34;
+    <span id="StatusCheckSuccessThresholdExceed">StatusCheckSuccessThresholdExceed</span> <a href="#StatusCheckReason">StatusCheckReason</a> = &#34;StatusCheckSuccessThresholdExceed&#34;
+    <span id="StatusCheckExecutionFailed">StatusCheckExecutionFailed</span>        <a href="#StatusCheckReason">StatusCheckReason</a> = &#34;StatusCheckExecutionFailed&#34;
+    <span id="StatusCheckExecutionSucceed">StatusCheckExecutionSucceed</span>       <a href="#StatusCheckReason">StatusCheckReason</a> = &#34;StatusCheckExecutionSucceed&#34;
 )</pre>
 			
 
@@ -19971,7 +20019,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 		
 			
 			
-			<h2 id="StatusCheckRecord">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L151">StatusCheckRecord</a>
+			<h2 id="StatusCheckRecord">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L153">StatusCheckRecord</a>
 				<a class="permalink" href="#StatusCheckRecord">&#xb6;</a>
 				
 				
@@ -20027,7 +20075,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="StatusCheckSpec">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L57">StatusCheckSpec</a>
+			<h2 id="StatusCheckSpec">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L59">StatusCheckSpec</a>
 				<a class="permalink" href="#StatusCheckSpec">&#xb6;</a>
 				
 				
@@ -20151,6 +20199,18 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 				
 			
 				
+				<h3 id="StatusCheckSpec.GetDuration">func (*StatusCheckSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L236">GetDuration</a>
+					<a class="permalink" href="#StatusCheckSpec.GetDuration">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (in *<a href="#StatusCheckSpec">StatusCheckSpec</a>) GetDuration() (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Duration">Duration</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
 				<h3 id="StatusCheckSpec.Validate">func (*StatusCheckSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_webhook.go#L37">Validate</a>
 					<a class="permalink" href="#StatusCheckSpec.Validate">&#xb6;</a>
 					
@@ -20165,7 +20225,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="StatusCheckStatus">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L120">StatusCheckStatus</a>
+			<h2 id="StatusCheckStatus">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L122">StatusCheckStatus</a>
 				<a class="permalink" href="#StatusCheckStatus">&#xb6;</a>
 				
 				
@@ -20294,7 +20354,7 @@ A statusCheckTemplate would save in the ConfigMap named `template-status-check-&
 		
 			
 			
-			<h2 id="StatusCheckType">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L51">StatusCheckType</a>
+			<h2 id="StatusCheckType">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuscheck_types.go#L53">StatusCheckType</a>
 				<a class="permalink" href="#StatusCheckType">&#xb6;</a>
 				
 				
@@ -21265,7 +21325,7 @@ Validate validates whether the Stressors are all well defined
 		
 			
 			
-			<h2 id="Task">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L149">Task</a>
+			<h2 id="Task">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L157">Task</a>
 				<a class="permalink" href="#Task">&#xb6;</a>
 				
 				
@@ -21436,7 +21496,7 @@ TcType the type of traffic control
 		
 			
 			
-			<h2 id="Template">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L103">Template</a>
+			<h2 id="Template">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L104">Template</a>
 				<a class="permalink" href="#Template">&#xb6;</a>
 				
 				
@@ -21462,6 +21522,13 @@ TcType the type of traffic control
 <span id="Template.Schedule"></span>    <span class="comment">// Schedule describe the Schedule(describing scheduled chaos) to be injected with chaos nodes. Only used when Type is TypeSchedule.</span>
     <span class="comment">// +optional</span>
     Schedule *<a href="#ChaosOnlyScheduleSpec">ChaosOnlyScheduleSpec</a> `json:&#34;schedule,omitempty&#34;`
+<span id="Template.StatusCheck"></span>    <span class="comment">// StatusCheck describe the behavior of StatusCheck. Only used when Type is TypeStatusCheck.</span>
+    <span class="comment">// +optional</span>
+    StatusCheck *<a href="#StatusCheckSpec">StatusCheckSpec</a> `json:&#34;statusCheck,omitempty&#34;`
+<span id="Template.AbortWithStatusCheck"></span>    <span class="comment">// AbortWithStatusCheck describe whether to abort the workflow when the failure threshold of StatusCheck is exceeded.</span>
+    <span class="comment">// Only used when Type is TypeStatusCheck.</span>
+    <span class="comment">// +optional</span>
+    AbortWithStatusCheck <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a> `json:&#34;abortWithStatusCheck,omitempty&#34;`
 }
 </pre>
 
@@ -21477,7 +21544,7 @@ TcType the type of traffic control
 
 			
 				
-				<h3 id="Template.DeepCopy">func (*Template) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4078">DeepCopy</a>
+				<h3 id="Template.DeepCopy">func (*Template) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4083">DeepCopy</a>
 					<a class="permalink" href="#Template.DeepCopy">&#xb6;</a>
 					
 					
@@ -21520,11 +21587,12 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 			
 				
 				<pre>const (
-    <span id="TypeTask">TypeTask</span>     <a href="#TemplateType">TemplateType</a> = &#34;Task&#34;
-    <span id="TypeSerial">TypeSerial</span>   <a href="#TemplateType">TemplateType</a> = &#34;Serial&#34;
-    <span id="TypeParallel">TypeParallel</span> <a href="#TemplateType">TemplateType</a> = &#34;Parallel&#34;
-    <span id="TypeSuspend">TypeSuspend</span>  <a href="#TemplateType">TemplateType</a> = &#34;Suspend&#34;
-    <span id="TypeSchedule">TypeSchedule</span> <a href="#TemplateType">TemplateType</a> = &#34;Schedule&#34;
+    <span id="TypeTask">TypeTask</span>        <a href="#TemplateType">TemplateType</a> = &#34;Task&#34;
+    <span id="TypeSerial">TypeSerial</span>      <a href="#TemplateType">TemplateType</a> = &#34;Serial&#34;
+    <span id="TypeParallel">TypeParallel</span>    <a href="#TemplateType">TemplateType</a> = &#34;Parallel&#34;
+    <span id="TypeSuspend">TypeSuspend</span>     <a href="#TemplateType">TemplateType</a> = &#34;Suspend&#34;
+    <span id="TypeSchedule">TypeSchedule</span>    <a href="#TemplateType">TemplateType</a> = &#34;Schedule&#34;
+    <span id="TypeStatusCheck">TypeStatusCheck</span> <a href="#TemplateType">TemplateType</a> = &#34;StatusCheck&#34;
 )</pre>
 			
 				
@@ -21592,7 +21660,7 @@ TimeChaos is the Schema for the timechaos API
 
 			
 				
-				<h3 id="TimeChaos.DeepCopy">func (*TimeChaos) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4097">DeepCopy</a>
+				<h3 id="TimeChaos.DeepCopy">func (*TimeChaos) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4102">DeepCopy</a>
 					<a class="permalink" href="#TimeChaos.DeepCopy">&#xb6;</a>
 					
 					
@@ -21607,7 +21675,7 @@ DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a
 				
 			
 				
-				<h3 id="TimeChaos.DeepCopyInto">func (*TimeChaos) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4088">DeepCopyInto</a>
+				<h3 id="TimeChaos.DeepCopyInto">func (*TimeChaos) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4093">DeepCopyInto</a>
 					<a class="permalink" href="#TimeChaos.DeepCopyInto">&#xb6;</a>
 					
 					
@@ -21622,7 +21690,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 				
 			
 				
-				<h3 id="TimeChaos.DeepCopyObject">func (*TimeChaos) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4107">DeepCopyObject</a>
+				<h3 id="TimeChaos.DeepCopyObject">func (*TimeChaos) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4112">DeepCopyObject</a>
 					<a class="permalink" href="#TimeChaos.DeepCopyObject">&#xb6;</a>
 					
 					
@@ -21844,7 +21912,7 @@ TimeChaosList contains a list of TimeChaos
 
 			
 				
-				<h3 id="TimeChaosList.DeepCopy">func (*TimeChaosList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4129">DeepCopy</a>
+				<h3 id="TimeChaosList.DeepCopy">func (*TimeChaosList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4134">DeepCopy</a>
 					<a class="permalink" href="#TimeChaosList.DeepCopy">&#xb6;</a>
 					
 					
@@ -21859,7 +21927,7 @@ DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a
 				
 			
 				
-				<h3 id="TimeChaosList.DeepCopyInto">func (*TimeChaosList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4115">DeepCopyInto</a>
+				<h3 id="TimeChaosList.DeepCopyInto">func (*TimeChaosList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4120">DeepCopyInto</a>
 					<a class="permalink" href="#TimeChaosList.DeepCopyInto">&#xb6;</a>
 					
 					
@@ -21886,7 +21954,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 				
 			
 				
-				<h3 id="TimeChaosList.DeepCopyObject">func (*TimeChaosList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4139">DeepCopyObject</a>
+				<h3 id="TimeChaosList.DeepCopyObject">func (*TimeChaosList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4144">DeepCopyObject</a>
 					<a class="permalink" href="#TimeChaosList.DeepCopyObject">&#xb6;</a>
 					
 					
@@ -21970,7 +22038,7 @@ TimeChaosSpec defines the desired state of TimeChaos
 
 			
 				
-				<h3 id="TimeChaosSpec.DeepCopy">func (*TimeChaosSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4163">DeepCopy</a>
+				<h3 id="TimeChaosSpec.DeepCopy">func (*TimeChaosSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4168">DeepCopy</a>
 					<a class="permalink" href="#TimeChaosSpec.DeepCopy">&#xb6;</a>
 					
 					
@@ -21985,7 +22053,7 @@ DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a
 				
 			
 				
-				<h3 id="TimeChaosSpec.DeepCopyInto">func (*TimeChaosSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4147">DeepCopyInto</a>
+				<h3 id="TimeChaosSpec.DeepCopyInto">func (*TimeChaosSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4152">DeepCopyInto</a>
 					<a class="permalink" href="#TimeChaosSpec.DeepCopyInto">&#xb6;</a>
 					
 					
@@ -22043,7 +22111,7 @@ TimeChaosStatus defines the observed state of TimeChaos
 
 			
 				
-				<h3 id="TimeChaosStatus.DeepCopy">func (*TimeChaosStatus) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4179">DeepCopy</a>
+				<h3 id="TimeChaosStatus.DeepCopy">func (*TimeChaosStatus) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4184">DeepCopy</a>
 					<a class="permalink" href="#TimeChaosStatus.DeepCopy">&#xb6;</a>
 					
 					
@@ -22058,7 +22126,7 @@ DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a
 				
 			
 				
-				<h3 id="TimeChaosStatus.DeepCopyInto">func (*TimeChaosStatus) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4173">DeepCopyInto</a>
+				<h3 id="TimeChaosStatus.DeepCopyInto">func (*TimeChaosStatus) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4178">DeepCopyInto</a>
 					<a class="permalink" href="#TimeChaosStatus.DeepCopyInto">&#xb6;</a>
 					
 					
@@ -22136,7 +22204,7 @@ Timespec represents a time
 
 			
 				
-				<h3 id="Timespec.DeepCopy">func (*Timespec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4194">DeepCopy</a>
+				<h3 id="Timespec.DeepCopy">func (*Timespec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4199">DeepCopy</a>
 					<a class="permalink" href="#Timespec.DeepCopy">&#xb6;</a>
 					
 					
@@ -22151,7 +22219,7 @@ DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a
 				
 			
 				
-				<h3 id="Timespec.DeepCopyInto">func (*Timespec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4189">DeepCopyInto</a>
+				<h3 id="Timespec.DeepCopyInto">func (*Timespec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4194">DeepCopyInto</a>
 					<a class="permalink" href="#Timespec.DeepCopyInto">&#xb6;</a>
 					
 					
@@ -22233,7 +22301,7 @@ WebhookObject is basic Object which implement `webhook.Validator` and `webhook.D
 
 			
 				
-				<h3 id="Workflow.DeepCopy">func (*Workflow) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4213">DeepCopy</a>
+				<h3 id="Workflow.DeepCopy">func (*Workflow) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4218">DeepCopy</a>
 					<a class="permalink" href="#Workflow.DeepCopy">&#xb6;</a>
 					
 					
@@ -22248,7 +22316,7 @@ DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a
 				
 			
 				
-				<h3 id="Workflow.DeepCopyInto">func (*Workflow) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4204">DeepCopyInto</a>
+				<h3 id="Workflow.DeepCopyInto">func (*Workflow) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4209">DeepCopyInto</a>
 					<a class="permalink" href="#Workflow.DeepCopyInto">&#xb6;</a>
 					
 					
@@ -22263,7 +22331,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 				
 			
 				
-				<h3 id="Workflow.DeepCopyObject">func (*Workflow) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4223">DeepCopyObject</a>
+				<h3 id="Workflow.DeepCopyObject">func (*Workflow) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4228">DeepCopyObject</a>
 					<a class="permalink" href="#Workflow.DeepCopyObject">&#xb6;</a>
 					
 					
@@ -22278,7 +22346,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 				
 			
 				
-				<h3 id="Workflow.Default">func (*Workflow) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_webhook.go#L270">Default</a>
+				<h3 id="Workflow.Default">func (*Workflow) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_webhook.go#L276">Default</a>
 					<a class="permalink" href="#Workflow.Default">&#xb6;</a>
 					
 					
@@ -22366,7 +22434,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 
 			
 				
-				<h3 id="WorkflowCondition.DeepCopy">func (*WorkflowCondition) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4240">DeepCopy</a>
+				<h3 id="WorkflowCondition.DeepCopy">func (*WorkflowCondition) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4245">DeepCopy</a>
 					<a class="permalink" href="#WorkflowCondition.DeepCopy">&#xb6;</a>
 					
 					
@@ -22381,7 +22449,7 @@ DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a
 				
 			
 				
-				<h3 id="WorkflowCondition.DeepCopyInto">func (*WorkflowCondition) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4231">DeepCopyInto</a>
+				<h3 id="WorkflowCondition.DeepCopyInto">func (*WorkflowCondition) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4236">DeepCopyInto</a>
 					<a class="permalink" href="#WorkflowCondition.DeepCopyInto">&#xb6;</a>
 					
 					
@@ -22426,7 +22494,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="WorkflowList">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L162">WorkflowList</a>
+			<h2 id="WorkflowList">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L170">WorkflowList</a>
 				<a class="permalink" href="#WorkflowList">&#xb6;</a>
 				
 				
@@ -22454,7 +22522,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 
 			
 				
-				<h3 id="WorkflowList.DeepCopy">func (*WorkflowList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4264">DeepCopy</a>
+				<h3 id="WorkflowList.DeepCopy">func (*WorkflowList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4269">DeepCopy</a>
 					<a class="permalink" href="#WorkflowList.DeepCopy">&#xb6;</a>
 					
 					
@@ -22469,7 +22537,7 @@ DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a
 				
 			
 				
-				<h3 id="WorkflowList.DeepCopyInto">func (*WorkflowList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4250">DeepCopyInto</a>
+				<h3 id="WorkflowList.DeepCopyInto">func (*WorkflowList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4255">DeepCopyInto</a>
 					<a class="permalink" href="#WorkflowList.DeepCopyInto">&#xb6;</a>
 					
 					
@@ -22484,7 +22552,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 				
 			
 				
-				<h3 id="WorkflowList.DeepCopyList">func (*WorkflowList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L178">DeepCopyList</a>
+				<h3 id="WorkflowList.DeepCopyList">func (*WorkflowList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L186">DeepCopyList</a>
 					<a class="permalink" href="#WorkflowList.DeepCopyList">&#xb6;</a>
 					
 					
@@ -22499,7 +22567,7 @@ TODO: refactor: not so accurate
 				
 			
 				
-				<h3 id="WorkflowList.DeepCopyObject">func (*WorkflowList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4274">DeepCopyObject</a>
+				<h3 id="WorkflowList.DeepCopyObject">func (*WorkflowList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4279">DeepCopyObject</a>
 					<a class="permalink" href="#WorkflowList.DeepCopyObject">&#xb6;</a>
 					
 					
@@ -22514,7 +22582,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 				
 			
 				
-				<h3 id="WorkflowList.GetItems">func (*WorkflowList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L168">GetItems</a>
+				<h3 id="WorkflowList.GetItems">func (*WorkflowList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L176">GetItems</a>
 					<a class="permalink" href="#WorkflowList.GetItems">&#xb6;</a>
 					
 					
@@ -22528,7 +22596,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 		
 			
 			
-			<h2 id="WorkflowNode">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L34">WorkflowNode</a>
+			<h2 id="WorkflowNode">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L35">WorkflowNode</a>
 				<a class="permalink" href="#WorkflowNode">&#xb6;</a>
 				
 				
@@ -22564,7 +22632,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 
 			
 				
-				<h3 id="WorkflowNode.DeepCopy">func (*WorkflowNode) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4291">DeepCopy</a>
+				<h3 id="WorkflowNode.DeepCopy">func (*WorkflowNode) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4296">DeepCopy</a>
 					<a class="permalink" href="#WorkflowNode.DeepCopy">&#xb6;</a>
 					
 					
@@ -22579,7 +22647,7 @@ DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a
 				
 			
 				
-				<h3 id="WorkflowNode.DeepCopyInto">func (*WorkflowNode) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4282">DeepCopyInto</a>
+				<h3 id="WorkflowNode.DeepCopyInto">func (*WorkflowNode) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4287">DeepCopyInto</a>
 					<a class="permalink" href="#WorkflowNode.DeepCopyInto">&#xb6;</a>
 					
 					
@@ -22594,7 +22662,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 				
 			
 				
-				<h3 id="WorkflowNode.DeepCopyObject">func (*WorkflowNode) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4301">DeepCopyObject</a>
+				<h3 id="WorkflowNode.DeepCopyObject">func (*WorkflowNode) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4306">DeepCopyObject</a>
 					<a class="permalink" href="#WorkflowNode.DeepCopyObject">&#xb6;</a>
 					
 					
@@ -22611,7 +22679,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 		
 			
 			
-			<h2 id="WorkflowNodeCondition">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L118">WorkflowNodeCondition</a>
+			<h2 id="WorkflowNodeCondition">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L127">WorkflowNodeCondition</a>
 				<a class="permalink" href="#WorkflowNodeCondition">&#xb6;</a>
 				
 				
@@ -22636,7 +22704,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 
 			
 				
-				<h3 id="WorkflowNodeCondition.DeepCopy">func (*WorkflowNodeCondition) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4314">DeepCopy</a>
+				<h3 id="WorkflowNodeCondition.DeepCopy">func (*WorkflowNodeCondition) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4319">DeepCopy</a>
 					<a class="permalink" href="#WorkflowNodeCondition.DeepCopy">&#xb6;</a>
 					
 					
@@ -22651,7 +22719,7 @@ DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a
 				
 			
 				
-				<h3 id="WorkflowNodeCondition.DeepCopyInto">func (*WorkflowNodeCondition) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4309">DeepCopyInto</a>
+				<h3 id="WorkflowNodeCondition.DeepCopyInto">func (*WorkflowNodeCondition) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4314">DeepCopyInto</a>
 					<a class="permalink" href="#WorkflowNodeCondition.DeepCopyInto">&#xb6;</a>
 					
 					
@@ -22668,7 +22736,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="WorkflowNodeConditionType">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L110">WorkflowNodeConditionType</a>
+			<h2 id="WorkflowNodeConditionType">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L118">WorkflowNodeConditionType</a>
 				<a class="permalink" href="#WorkflowNodeConditionType">&#xb6;</a>
 				
 				
@@ -22682,6 +22750,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
     <span id="ConditionAccomplished">ConditionAccomplished</span>   <a href="#WorkflowNodeConditionType">WorkflowNodeConditionType</a> = &#34;Accomplished&#34;
     <span id="ConditionDeadlineExceed">ConditionDeadlineExceed</span> <a href="#WorkflowNodeConditionType">WorkflowNodeConditionType</a> = &#34;DeadlineExceed&#34;
     <span id="ConditionChaosInjected">ConditionChaosInjected</span>  <a href="#WorkflowNodeConditionType">WorkflowNodeConditionType</a> = &#34;ChaosInjected&#34;
+    <span id="ConditionAborted">ConditionAborted</span>        <a href="#WorkflowNodeConditionType">WorkflowNodeConditionType</a> = &#34;Aborted&#34;
 )</pre>
 			
 
@@ -22697,7 +22766,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="WorkflowNodeList">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L125">WorkflowNodeList</a>
+			<h2 id="WorkflowNodeList">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L134">WorkflowNodeList</a>
 				<a class="permalink" href="#WorkflowNodeList">&#xb6;</a>
 				
 				
@@ -22725,7 +22794,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 
 			
 				
-				<h3 id="WorkflowNodeList.DeepCopy">func (*WorkflowNodeList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4338">DeepCopy</a>
+				<h3 id="WorkflowNodeList.DeepCopy">func (*WorkflowNodeList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4343">DeepCopy</a>
 					<a class="permalink" href="#WorkflowNodeList.DeepCopy">&#xb6;</a>
 					
 					
@@ -22740,7 +22809,7 @@ DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a
 				
 			
 				
-				<h3 id="WorkflowNodeList.DeepCopyInto">func (*WorkflowNodeList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4324">DeepCopyInto</a>
+				<h3 id="WorkflowNodeList.DeepCopyInto">func (*WorkflowNodeList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4329">DeepCopyInto</a>
 					<a class="permalink" href="#WorkflowNodeList.DeepCopyInto">&#xb6;</a>
 					
 					
@@ -22755,7 +22824,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 				
 			
 				
-				<h3 id="WorkflowNodeList.DeepCopyObject">func (*WorkflowNodeList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4348">DeepCopyObject</a>
+				<h3 id="WorkflowNodeList.DeepCopyObject">func (*WorkflowNodeList) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4353">DeepCopyObject</a>
 					<a class="permalink" href="#WorkflowNodeList.DeepCopyObject">&#xb6;</a>
 					
 					
@@ -22772,7 +22841,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 		
 			
 			
-			<h2 id="WorkflowNodeSpec">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L46">WorkflowNodeSpec</a>
+			<h2 id="WorkflowNodeSpec">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L47">WorkflowNodeSpec</a>
 				<a class="permalink" href="#WorkflowNodeSpec">&#xb6;</a>
 				
 				
@@ -22795,6 +22864,13 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
     *<a href="#EmbedChaos">EmbedChaos</a> `json:&#34;,inline,omitempty&#34;`
     <span class="comment">// +optional</span>
 <span id="WorkflowNodeSpec.Schedule"></span>    Schedule *<a href="#ScheduleSpec">ScheduleSpec</a> `json:&#34;schedule,omitempty&#34;`
+<span id="WorkflowNodeSpec.StatusCheck"></span>    <span class="comment">// StatusCheck describe the behavior of StatusCheck. Only used when Type is TypeStatusCheck.</span>
+    <span class="comment">// +optional</span>
+    StatusCheck *<a href="#StatusCheckSpec">StatusCheckSpec</a> `json:&#34;statusCheck,omitempty&#34;`
+<span id="WorkflowNodeSpec.AbortWithStatusCheck"></span>    <span class="comment">// AbortWithStatusCheck describe whether to abort the workflow when the failure threshold of StatusCheck is exceeded.</span>
+    <span class="comment">// Only used when Type is TypeStatusCheck.</span>
+    <span class="comment">// +optional</span>
+    AbortWithStatusCheck <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a> `json:&#34;abortWithStatusCheck,omitempty&#34;`
 }
 </pre>
 
@@ -22810,7 +22886,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 
 			
 				
-				<h3 id="WorkflowNodeSpec.DeepCopy">func (*WorkflowNodeSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4394">DeepCopy</a>
+				<h3 id="WorkflowNodeSpec.DeepCopy">func (*WorkflowNodeSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4404">DeepCopy</a>
 					<a class="permalink" href="#WorkflowNodeSpec.DeepCopy">&#xb6;</a>
 					
 					
@@ -22825,7 +22901,7 @@ DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a
 				
 			
 				
-				<h3 id="WorkflowNodeSpec.DeepCopyInto">func (*WorkflowNodeSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4356">DeepCopyInto</a>
+				<h3 id="WorkflowNodeSpec.DeepCopyInto">func (*WorkflowNodeSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4361">DeepCopyInto</a>
 					<a class="permalink" href="#WorkflowNodeSpec.DeepCopyInto">&#xb6;</a>
 					
 					
@@ -22842,7 +22918,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="WorkflowNodeStatus">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L65">WorkflowNodeStatus</a>
+			<h2 id="WorkflowNodeStatus">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflownode_types.go#L73">WorkflowNodeStatus</a>
 				<a class="permalink" href="#WorkflowNodeStatus">&#xb6;</a>
 				
 				
@@ -22886,7 +22962,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 
 			
 				
-				<h3 id="WorkflowNodeStatus.DeepCopy">func (*WorkflowNodeStatus) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4434">DeepCopy</a>
+				<h3 id="WorkflowNodeStatus.DeepCopy">func (*WorkflowNodeStatus) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4444">DeepCopy</a>
 					<a class="permalink" href="#WorkflowNodeStatus.DeepCopy">&#xb6;</a>
 					
 					
@@ -22901,7 +22977,7 @@ DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a
 				
 			
 				
-				<h3 id="WorkflowNodeStatus.DeepCopyInto">func (*WorkflowNodeStatus) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4404">DeepCopyInto</a>
+				<h3 id="WorkflowNodeStatus.DeepCopyInto">func (*WorkflowNodeStatus) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4414">DeepCopyInto</a>
 					<a class="permalink" href="#WorkflowNodeStatus.DeepCopyInto">&#xb6;</a>
 					
 					
@@ -22942,7 +23018,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 
 			
 				
-				<h3 id="WorkflowSpec.DeepCopy">func (*WorkflowSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4456">DeepCopy</a>
+				<h3 id="WorkflowSpec.DeepCopy">func (*WorkflowSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4466">DeepCopy</a>
 					<a class="permalink" href="#WorkflowSpec.DeepCopy">&#xb6;</a>
 					
 					
@@ -22957,7 +23033,7 @@ DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a
 				
 			
 				
-				<h3 id="WorkflowSpec.DeepCopyInto">func (*WorkflowSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4444">DeepCopyInto</a>
+				<h3 id="WorkflowSpec.DeepCopyInto">func (*WorkflowSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4454">DeepCopyInto</a>
 					<a class="permalink" href="#WorkflowSpec.DeepCopyInto">&#xb6;</a>
 					
 					
@@ -23007,7 +23083,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 
 			
 				
-				<h3 id="WorkflowStatus.DeepCopy">func (*WorkflowStatus) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4491">DeepCopy</a>
+				<h3 id="WorkflowStatus.DeepCopy">func (*WorkflowStatus) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4501">DeepCopy</a>
 					<a class="permalink" href="#WorkflowStatus.DeepCopy">&#xb6;</a>
 					
 					
@@ -23022,7 +23098,7 @@ DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a
 				
 			
 				
-				<h3 id="WorkflowStatus.DeepCopyInto">func (*WorkflowStatus) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4466">DeepCopyInto</a>
+				<h3 id="WorkflowStatus.DeepCopyInto">func (*WorkflowStatus) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/zz_generated.deepcopy.go#L4476">DeepCopyInto</a>
 					<a class="permalink" href="#WorkflowStatus.DeepCopyInto">&#xb6;</a>
 					
 					
@@ -23048,7 +23124,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 
 
 <div id="footer">
-Build version go1.17.6.<br>
+Build version go1.18.1.<br>
 </div>
 
 </div><!-- .container -->

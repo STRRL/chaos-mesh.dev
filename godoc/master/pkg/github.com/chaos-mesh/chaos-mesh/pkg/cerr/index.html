@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#375EAB">
 
-  <title>chaoserr - Chaos Mesh</title>
+  <title>cerr - Chaos Mesh</title>
 
 <link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
 
@@ -15,7 +15,7 @@
 
 
 
-<script>var goVersion = "go1.17.6";</script>
+<script>var goVersion = "go1.18.1";</script>
 <script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e3ff95e. Generated at Wed Apr 13 22:03:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2521671. Generated at Mon Apr 25 14:37:32 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -47,7 +47,7 @@
 
 
   <h1>
-    Package chaoserr
+    Package cerr
     <span class="text-muted"></span>
   </h1>
 
@@ -81,7 +81,7 @@
 		
 		<div id="short-nav">
 			<dl>
-			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/chaoserr"</code></dd>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/cerr"</code></dd>
 			</dl>
 			<dl>
 			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
@@ -118,19 +118,23 @@
 			
 			
 				
-				<dd><a href="#NotFound">func NotFound(name string) error</a></dd>
+				<dd><a href="#FromErr">func FromErr(err error) *errHelper</a></dd>
 			
 				
-				<dd><a href="#NotImplemented">func NotImplemented(name string) error</a></dd>
+				<dd><a href="#NotFound">func NotFound(name string) *errHelper</a></dd>
 			
+				
+				<dd><a href="#NotFoundType">func NotFoundType[in any]() *errHelper</a></dd>
 			
 				
-				<dd><a href="#ErrNotImplemented">type ErrNotImplemented</a></dd>
+				<dd><a href="#NotImpl">func NotImpl[expected any]() *errHelper</a></dd>
+			
 				
+				<dd><a href="#NotInit">func NotInit[in any]() *errHelper</a></dd>
+			
 				
-					
-					<dd>&nbsp; &nbsp; <a href="#ErrNotImplemented.Error">func (e ErrNotImplemented) Error() string</a></dd>
-				
+				<dd><a href="#NotType">func NotType[expected any]() *errHelper</a></dd>
+			
 			
 			
 			</dl>
@@ -143,7 +147,7 @@
 			<p>
 			<span style="font-size:90%">
 			
-				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoserr/common_errors.go">common_errors.go</a>
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/cerr/common_errors.go">common_errors.go</a>
 			
 			</span>
 			</p>
@@ -166,12 +170,25 @@
 		
 			
 			
-			<h2 id="NotFound">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoserr/common_errors.go#L22">NotFound</a>
+			<h2 id="FromErr">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/cerr/common_errors.go#L28">FromErr</a>
+				<a class="permalink" href="#FromErr">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func FromErr(err <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>) *errHelper</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NotFound">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/cerr/common_errors.go#L56">NotFound</a>
 				<a class="permalink" href="#NotFound">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func NotFound(name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+			<pre>func NotFound(name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) *errHelper</pre>
 			
 			
 			
@@ -179,54 +196,56 @@
 		
 			
 			
-			<h2 id="NotImplemented">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoserr/common_errors.go#L34">NotImplemented</a>
-				<a class="permalink" href="#NotImplemented">&#xb6;</a>
+			<h2 id="NotFoundType">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/cerr/common_errors.go#L46">NotFoundType</a>
+				<a class="permalink" href="#NotFoundType">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func NotImplemented(name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+			<pre>func NotFoundType[in <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#any">any</a>]() *errHelper</pre>
 			
 			
 			
 
 		
-		
 			
 			
-			<h2 id="ErrNotImplemented">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoserr/common_errors.go#L26">ErrNotImplemented</a>
-				<a class="permalink" href="#ErrNotImplemented">&#xb6;</a>
+			<h2 id="NotImpl">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/cerr/common_errors.go#L41">NotImpl</a>
+				<a class="permalink" href="#NotImpl">&#xb6;</a>
 				
 				
 			</h2>
-			
-			<pre>type ErrNotImplemented struct {
-    <span class="comment">// contains filtered or unexported fields</span>
-}
-</pre>
-
-			
-
-			
-
+			<pre>func NotImpl[expected <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#any">any</a>]() *errHelper</pre>
 			
 			
 			
 
+		
+			
+			
+			<h2 id="NotInit">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/cerr/common_errors.go#L51">NotInit</a>
+				<a class="permalink" href="#NotInit">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NotInit[in <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#any">any</a>]() *errHelper</pre>
+			
+			
 			
 
+		
 			
-				
-				<h3 id="ErrNotImplemented.Error">func (ErrNotImplemented) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoserr/common_errors.go#L30">Error</a>
-					<a class="permalink" href="#ErrNotImplemented.Error">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func (e <a href="#ErrNotImplemented">ErrNotImplemented</a>) Error() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
-				
-				
-				
-				
 			
+			<h2 id="NotType">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/cerr/common_errors.go#L36">NotType</a>
+				<a class="permalink" href="#NotType">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NotType[expected <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#any">any</a>]() *errHelper</pre>
+			
+			
+			
+
+		
 		
 	
 
@@ -239,7 +258,7 @@
 
 
 <div id="footer">
-Build version go1.17.6.<br>
+Build version go1.18.1.<br>
 </div>
 
 </div><!-- .container -->

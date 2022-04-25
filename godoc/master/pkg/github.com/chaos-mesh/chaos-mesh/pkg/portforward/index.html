@@ -15,7 +15,7 @@
 
 
 
-<script>var goVersion = "go1.17.6";</script>
+<script>var goVersion = "go1.18.1";</script>
 <script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e3ff95e. Generated at Wed Apr 13 22:03:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2521671. Generated at Mon Apr 25 14:37:32 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -123,7 +123,7 @@
 				<dd><a href="#PortForward">type PortForward</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewPortForwarder">func NewPortForwarder(ctx context.Context, restClientGetter genericclioptions.RESTClientGetter, enableLog bool) (PortForward, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NewPortForwarder">func NewPortForwarder(ctx context.Context, restClientGetter genericclioptions.RESTClientGetter, enableLog bool, logger logr.Logger) (PortForward, error)</a></dd>
 				
 				
 			
@@ -153,7 +153,7 @@
 		
 			
 			
-			<h2 id="ForwardOnePort">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/portforward/portforward.go#L179">ForwardOnePort</a>
+			<h2 id="ForwardOnePort">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/portforward/portforward.go#L181">ForwardOnePort</a>
 				<a class="permalink" href="#ForwardOnePort">&#xb6;</a>
 				
 				
@@ -194,12 +194,12 @@ PortForward represents an interface which can forward local ports to a pod.
 
 			
 				
-				<h3 id="NewPortForwarder">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/portforward/portforward.go#L159">NewPortForwarder</a>
+				<h3 id="NewPortForwarder">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/portforward/portforward.go#L160">NewPortForwarder</a>
 					<a class="permalink" href="#NewPortForwarder">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func NewPortForwarder(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, restClientGetter <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/cli-runtime/pkg/genericclioptions/">genericclioptions</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/cli-runtime/pkg/genericclioptions/#RESTClientGetter">RESTClientGetter</a>, enableLog <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>) (<a href="#PortForward">PortForward</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<pre>func NewPortForwarder(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, restClientGetter <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/cli-runtime/pkg/genericclioptions/">genericclioptions</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/cli-runtime/pkg/genericclioptions/#RESTClientGetter">RESTClientGetter</a>, enableLog <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (<a href="#PortForward">PortForward</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 NewPortForwarder would create a new port-forward
 </p>
@@ -221,7 +221,7 @@ NewPortForwarder would create a new port-forward
 
 
 <div id="footer">
-Build version go1.17.6.<br>
+Build version go1.18.1.<br>
 </div>
 
 </div><!-- .container -->

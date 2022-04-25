@@ -13,7 +13,7 @@
 
 
 
-<script>var goVersion = "go1.17.6";</script>
+<script>var goVersion = "go1.18.1";</script>
 <script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer=""></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e3ff95e. Generated at Wed Apr 13 22:03:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2521671. Generated at Mon Apr 25 14:37:32 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -88,49 +88,54 @@
 <span id="L23" class="ln">    23  </span>	&#34;k8s.io/client-go/rest&#34;
 <span id="L24" class="ln">    24  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/client/config&#34;
 <span id="L25" class="ln">    25  </span>
-<span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/portforward&#34;
-<span id="L27" class="ln">    27  </span>)
-<span id="L28" class="ln">    28  </span>
-<span id="L29" class="ln">    29  </span>const (
-<span id="L30" class="ln">    30  </span>	CtrlServerPort = 10082
-<span id="L31" class="ln">    31  </span>)
-<span id="L32" class="ln">    32  </span>
-<span id="L33" class="ln">    33  </span><span class="comment">// CommonRestClientGetter is used for non-e2e test environment.</span>
-<span id="L34" class="ln">    34  </span><span class="comment">// It&#39;s basically do the same thing as genericclioptions.ConfigFlags, but it load rest config from incluster or .kubeconfig file</span>
-<span id="L35" class="ln">    35  </span>type CommonRestClientGetter struct {
-<span id="L36" class="ln">    36  </span>	*genericclioptions.ConfigFlags
-<span id="L37" class="ln">    37  </span>}
-<span id="L38" class="ln">    38  </span>
-<span id="L39" class="ln">    39  </span>func NewCommonRestClientGetter() *CommonRestClientGetter {
-<span id="L40" class="ln">    40  </span>	innerConfigFlags := genericclioptions.NewConfigFlags(false)
-<span id="L41" class="ln">    41  </span>	return &amp;CommonRestClientGetter{innerConfigFlags}
-<span id="L42" class="ln">    42  </span>}
-<span id="L43" class="ln">    43  </span>
-<span id="L44" class="ln">    44  </span>func (it *CommonRestClientGetter) ToRESTConfig() (*rest.Config, error) {
-<span id="L45" class="ln">    45  </span>	return config.GetConfig()
-<span id="L46" class="ln">    46  </span>}
-<span id="L47" class="ln">    47  </span>
-<span id="L48" class="ln">    48  </span>func ForwardSvcPorts(ctx context.Context, ns, svc string, port uint16) (context.CancelFunc, uint16, error) {
-<span id="L49" class="ln">    49  </span>	commonRestClientGetter := NewCommonRestClientGetter()
-<span id="L50" class="ln">    50  </span>	fw, err := portforward.NewPortForwarder(ctx, commonRestClientGetter, false)
-<span id="L51" class="ln">    51  </span>	if err != nil {
-<span id="L52" class="ln">    52  </span>		return nil, 0, errors.Wrap(err, &#34;failed to create port forwarder&#34;)
-<span id="L53" class="ln">    53  </span>	}
-<span id="L54" class="ln">    54  </span>	_, localPort, pfCancel, err := portforward.ForwardOnePort(fw, ns, svc, port)
-<span id="L55" class="ln">    55  </span>
-<span id="L56" class="ln">    56  </span>	<span class="comment">// disable error handler in k8s runtime to prevent complaining from port forwarder</span>
-<span id="L57" class="ln">    57  </span>	DisableRuntimeErrorHandler()
-<span id="L58" class="ln">    58  </span>	return pfCancel, localPort, err
-<span id="L59" class="ln">    59  </span>}
+<span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/log&#34;
+<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/portforward&#34;
+<span id="L28" class="ln">    28  </span>)
+<span id="L29" class="ln">    29  </span>
+<span id="L30" class="ln">    30  </span>const (
+<span id="L31" class="ln">    31  </span>	CtrlServerPort = 10082
+<span id="L32" class="ln">    32  </span>)
+<span id="L33" class="ln">    33  </span>
+<span id="L34" class="ln">    34  </span><span class="comment">// CommonRestClientGetter is used for non-e2e test environment.</span>
+<span id="L35" class="ln">    35  </span><span class="comment">// It&#39;s basically do the same thing as genericclioptions.ConfigFlags, but it load rest config from incluster or .kubeconfig file</span>
+<span id="L36" class="ln">    36  </span>type CommonRestClientGetter struct {
+<span id="L37" class="ln">    37  </span>	*genericclioptions.ConfigFlags
+<span id="L38" class="ln">    38  </span>}
+<span id="L39" class="ln">    39  </span>
+<span id="L40" class="ln">    40  </span>func NewCommonRestClientGetter() *CommonRestClientGetter {
+<span id="L41" class="ln">    41  </span>	innerConfigFlags := genericclioptions.NewConfigFlags(false)
+<span id="L42" class="ln">    42  </span>	return &amp;CommonRestClientGetter{innerConfigFlags}
+<span id="L43" class="ln">    43  </span>}
+<span id="L44" class="ln">    44  </span>
+<span id="L45" class="ln">    45  </span>func (it *CommonRestClientGetter) ToRESTConfig() (*rest.Config, error) {
+<span id="L46" class="ln">    46  </span>	return config.GetConfig()
+<span id="L47" class="ln">    47  </span>}
+<span id="L48" class="ln">    48  </span>
+<span id="L49" class="ln">    49  </span>func ForwardSvcPorts(ctx context.Context, ns, svc string, port uint16) (context.CancelFunc, uint16, error) {
+<span id="L50" class="ln">    50  </span>	commonRestClientGetter := NewCommonRestClientGetter()
+<span id="L51" class="ln">    51  </span>	logger, err := log.NewDefaultZapLogger()
+<span id="L52" class="ln">    52  </span>	if err != nil {
+<span id="L53" class="ln">    53  </span>		return nil, 0, errors.Wrap(err, &#34;failed to create logger&#34;)
+<span id="L54" class="ln">    54  </span>	}
+<span id="L55" class="ln">    55  </span>	fw, err := portforward.NewPortForwarder(ctx, commonRestClientGetter, false, logger)
+<span id="L56" class="ln">    56  </span>	if err != nil {
+<span id="L57" class="ln">    57  </span>		return nil, 0, errors.Wrap(err, &#34;failed to create port forwarder&#34;)
+<span id="L58" class="ln">    58  </span>	}
+<span id="L59" class="ln">    59  </span>	_, localPort, pfCancel, err := portforward.ForwardOnePort(fw, ns, svc, port)
 <span id="L60" class="ln">    60  </span>
-<span id="L61" class="ln">    61  </span>func ForwardCtrlServer(ctx context.Context, ns, managerSvc string) (context.CancelFunc, uint16, error) {
-<span id="L62" class="ln">    62  </span>	return ForwardSvcPorts(ctx, ns, &#34;svc/&#34;+managerSvc, CtrlServerPort)
-<span id="L63" class="ln">    63  </span>}
-<span id="L64" class="ln">    64  </span>
+<span id="L61" class="ln">    61  </span>	<span class="comment">// disable error handler in k8s runtime to prevent complaining from port forwarder</span>
+<span id="L62" class="ln">    62  </span>	DisableRuntimeErrorHandler()
+<span id="L63" class="ln">    63  </span>	return pfCancel, localPort, err
+<span id="L64" class="ln">    64  </span>}
+<span id="L65" class="ln">    65  </span>
+<span id="L66" class="ln">    66  </span>func ForwardCtrlServer(ctx context.Context, ns, managerSvc string) (context.CancelFunc, uint16, error) {
+<span id="L67" class="ln">    67  </span>	return ForwardSvcPorts(ctx, ns, &#34;svc/&#34;+managerSvc, CtrlServerPort)
+<span id="L68" class="ln">    68  </span>}
+<span id="L69" class="ln">    69  </span>
 </pre><p></p>
 
 <div id="footer">
-Build version go1.17.6.<br/>
+Build version go1.18.1.<br/>
 </div>
 
 </div><!-- .container -->

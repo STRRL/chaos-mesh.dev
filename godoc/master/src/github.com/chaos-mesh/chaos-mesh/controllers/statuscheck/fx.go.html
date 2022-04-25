@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="theme-color" content="#375EAB"/>
 
-  <title>src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_linux_arm64.go - Chaos Mesh</title>
+  <title>src/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck/fx.go - Chaos Mesh</title>
 
 <link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css"/>
 
@@ -13,7 +13,7 @@
 
 
 
-<script>var goVersion = "go1.17.6";</script>
+<script>var goVersion = "go1.18.1";</script>
 <script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer=""></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e3ff95e. Generated at Wed Apr 13 22:03:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2521671. Generated at Mon Apr 25 14:37:32 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -46,7 +46,7 @@
 
   <h1>
     Source file
-    <a href="https:/chaos-mesh.dev/godoc/master/src">src</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com">github.com</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg">pkg</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time">time</a>/<span class="text-muted">time_linux_arm64.go</span>
+    <a href="https:/chaos-mesh.dev/godoc/master/src">src</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com">github.com</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers">controllers</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck">statuscheck</a>/<span class="text-muted">fx.go</span>
   </h1>
 
 
@@ -54,7 +54,7 @@
 
 
   <h2>
-    Documentation: <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/time">github.com/chaos-mesh/chaos-mesh/pkg/time</a>
+    Documentation: <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck">github.com/chaos-mesh/chaos-mesh/controllers/statuscheck</a>
   </h2>
 
 
@@ -63,7 +63,7 @@
 
 
 <script type="text/javascript">document.ANALYSIS_DATA = null;</script>
-<pre><span id="L1" class="ln">     1  </span><span class="comment">// Copyright 2021 Chaos Mesh Authors.</span>
+<pre><span id="L1" class="ln">     1  </span><span class="comment">// Copyright Chaos Mesh Authors.</span>
 <span id="L2" class="ln">     2  </span><span class="comment">//</span>
 <span id="L3" class="ln">     3  </span><span class="comment">// Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span>
 <span id="L4" class="ln">     4  </span><span class="comment">// you may not use this file except in compliance with the License.</span>
@@ -78,33 +78,36 @@
 <span id="L13" class="ln">    13  </span><span class="comment">// limitations under the License.</span>
 <span id="L14" class="ln">    14  </span><span class="comment">//</span>
 <span id="L15" class="ln">    15  </span>
-<span id="L16" class="ln">    16  </span>package time
+<span id="L16" class="ln">    16  </span>package statuscheck
 <span id="L17" class="ln">    17  </span>
 <span id="L18" class="ln">    18  </span>import (
 <span id="L19" class="ln">    19  </span>	&#34;github.com/go-logr/logr&#34;
-<span id="L20" class="ln">    20  </span>	&#34;github.com/pkg/errors&#34;
-<span id="L21" class="ln">    21  </span>
-<span id="L22" class="ln">    22  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/mock&#34;
-<span id="L23" class="ln">    23  </span>)
-<span id="L24" class="ln">    24  </span>
-<span id="L25" class="ln">    25  </span><span class="comment">// ModifyTime modifies time of target process</span>
-<span id="L26" class="ln">    26  </span>func ModifyTime(pid int, deltaSec int64, deltaNsec int64, clockIdsMask uint64, logger logr.Logger) error {
-<span id="L27" class="ln">    27  </span>	<span class="comment">// Mock point to return error in unit test</span>
-<span id="L28" class="ln">    28  </span>	if err := mock.On(&#34;ModifyTimeError&#34;); err != nil {
-<span id="L29" class="ln">    29  </span>		if e, ok := err.(error); ok {
-<span id="L30" class="ln">    30  </span>			return e
-<span id="L31" class="ln">    31  </span>		}
-<span id="L32" class="ln">    32  </span>		if ignore, ok := err.(bool); ok &amp;&amp; ignore {
-<span id="L33" class="ln">    33  </span>			return nil
-<span id="L34" class="ln">    34  </span>		}
-<span id="L35" class="ln">    35  </span>	}
-<span id="L36" class="ln">    36  </span>	return errors.New(&#34;arm64 is not supported&#34;)
-<span id="L37" class="ln">    37  </span>}
-<span id="L38" class="ln">    38  </span>
+<span id="L20" class="ln">    20  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
+<span id="L21" class="ln">    21  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/client&#34;
+<span id="L22" class="ln">    22  </span>
+<span id="L23" class="ln">    23  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
+<span id="L24" class="ln">    24  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/config&#34;
+<span id="L25" class="ln">    25  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/utils/builder&#34;
+<span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder&#34;
+<span id="L27" class="ln">    27  </span>)
+<span id="L28" class="ln">    28  </span>
+<span id="L29" class="ln">    29  </span>func Bootstrap(mgr ctrl.Manager, client client.Client, logger logr.Logger, recorderBuilder *recorder.RecorderBuilder) error {
+<span id="L30" class="ln">    30  </span>	if !config.ShouldSpawnController(&#34;statuscheck&#34;) {
+<span id="L31" class="ln">    31  </span>		return nil
+<span id="L32" class="ln">    32  </span>	}
+<span id="L33" class="ln">    33  </span>	eventRecorder := recorderBuilder.Build(&#34;statuscheck&#34;)
+<span id="L34" class="ln">    34  </span>	manager := NewManager(logger.WithName(&#34;statuscheck-manager&#34;), eventRecorder, newExecutor)
+<span id="L35" class="ln">    35  </span>
+<span id="L36" class="ln">    36  </span>	return builder.Default(mgr).
+<span id="L37" class="ln">    37  </span>		For(&amp;v1alpha1.StatusCheck{}).
+<span id="L38" class="ln">    38  </span>		Named(&#34;statuscheck&#34;).
+<span id="L39" class="ln">    39  </span>		Complete(NewReconciler(logger.WithName(&#34;statuscheck-reconciler&#34;), client, eventRecorder, manager))
+<span id="L40" class="ln">    40  </span>}
+<span id="L41" class="ln">    41  </span>
 </pre><p></p>
 
 <div id="footer">
-Build version go1.17.6.<br/>
+Build version go1.18.1.<br/>
 </div>
 
 </div><!-- .container -->
