@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>log - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.1.4/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.4/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.4/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 7ef267c. Generated at Mon Apr 25 14:57:50 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package log
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/log"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>
+Package log contains series of utilities for setting up and accessing logger.
+We use logr.Logger as the facade of each logger.
+</p>
+<p>
+See <a href="https://github.com/chaos-mesh/rfcs/blob/main/text/2021-12-09-logging.md">https://github.com/chaos-mesh/rfcs/blob/main/text/2021-12-09-logging.md</a> for more details.
+</p>
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#EnrichLoggerWithContext">func EnrichLoggerWithContext(ctx context.Context, logger logr.Logger) logr.Logger</a></dd>
+			
+				
+				<dd><a href="#L">func L() logr.Logger</a></dd>
+			
+				
+				<dd><a href="#NewDefaultZapLogger">func NewDefaultZapLogger() (logr.Logger, error)</a></dd>
+			
+				
+				<dd><a href="#ReplaceGlobals">func ReplaceGlobals(logger logr.Logger)</a></dd>
+			
+			
+				
+				<dd><a href="#LogrPrinter">type LogrPrinter</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewLogrPrinter">func NewLogrPrinter(logger logr.Logger) *LogrPrinter</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#LogrPrinter.Printf">func (it *LogrPrinter) Printf(s string, i ...interface{})</a></dd>
+				
+			
+				
+				<dd><a href="#Metadatkey">type Metadatkey</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/log/doc.go">doc.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/log/fx_logger.go">fx_logger.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/log/global_logger.go">global_logger.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/log/metadata.go">metadata.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/log/zap.go">zap.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="EnrichLoggerWithContext">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/log/metadata.go#L30">EnrichLoggerWithContext</a>
+				<a class="permalink" href="#EnrichLoggerWithContext">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EnrichLoggerWithContext(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/context/#Context">Context</a>, logger <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/go-logr/logr/#Logger">Logger</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/go-logr/logr/#Logger">Logger</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="L">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/log/global_logger.go#L40">L</a>
+				<a class="permalink" href="#L">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func L() <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/go-logr/logr/#Logger">Logger</a></pre>
+			<p>
+L is the way to access the global logger. You could use it if there are no logger in your code context. Please notice
+that the default value of &#34;global logger&#34; is a &#34;discard logger&#34; which means that all logs will be ignored. Make sure
+that initialize the global logger by ReplaceGlobals before using it, for example, calling ReplaceGlobals at the beginning
+of your main function.
+</p>
+<p>
+Do NOT save the global logger to a variable for long-term using, because it is possible that the global logger is
+replaced by another. Keep calling L at each time.
+</p>
+<p>
+Deprecated: Do not use global logger anymore. For more detail, see
+<a href="https://github.com/chaos-mesh/rfcs/blob/main/text/2021-12-09-logging.md#global-logger">https://github.com/chaos-mesh/rfcs/blob/main/text/2021-12-09-logging.md#global-logger</a>
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="NewDefaultZapLogger">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/log/zap.go#L26">NewDefaultZapLogger</a>
+				<a class="permalink" href="#NewDefaultZapLogger">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewDefaultZapLogger() (<a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/go-logr/logr/#Logger">Logger</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#error">error</a>)</pre>
+			<p>
+NewDefaultZapLogger is the recommended way to create a new logger, you could call this function to initialize the root
+logger of your application, and provide it to your components, by fx or manually.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="ReplaceGlobals">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/log/global_logger.go#L51">ReplaceGlobals</a>
+				<a class="permalink" href="#ReplaceGlobals">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ReplaceGlobals(logger <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/go-logr/logr/#Logger">Logger</a>)</pre>
+			<p>
+ReplaceGlobals would replace the global logger with the given logger. It should be used when your application starting.
+</p>
+<p>
+Deprecated: Do not use global logger anymore. For more detail, see
+<a href="https://github.com/chaos-mesh/rfcs/blob/main/text/2021-12-09-logging.md#global-logger">https://github.com/chaos-mesh/rfcs/blob/main/text/2021-12-09-logging.md#global-logger</a>
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="LogrPrinter">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/log/fx_logger.go#L24">LogrPrinter</a>
+				<a class="permalink" href="#LogrPrinter">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type LogrPrinter struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewLogrPrinter">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/log/fx_logger.go#L28">NewLogrPrinter</a>
+					<a class="permalink" href="#NewLogrPrinter">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewLogrPrinter(logger <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#LogrPrinter">LogrPrinter</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="LogrPrinter.Printf">func (*LogrPrinter) <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/log/fx_logger.go#L32">Printf</a>
+					<a class="permalink" href="#LogrPrinter.Printf">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#LogrPrinter">LogrPrinter</a>) Printf(s <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>, i ...interface{})</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Metadatkey">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/log/metadata.go#L24">Metadatkey</a>
+				<a class="permalink" href="#Metadatkey">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Metadatkey <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="MetaNamespacedName">MetaNamespacedName</span> <a href="#Metadatkey">Metadatkey</a> = &#34;namespaced-name&#34;
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.18.1.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

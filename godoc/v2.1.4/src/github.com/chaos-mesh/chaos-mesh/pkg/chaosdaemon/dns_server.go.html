@@ -1,0 +1,179 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#375EAB"/>
+
+  <title>src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/dns_server.go - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.1.4/lib/godoc/style.css"/>
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.4/lib/godoc/jquery.js" defer=""></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.4/lib/godoc/godocs.js" defer=""></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id="lowframe" style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 7ef267c. Generated at Mon Apr 25 14:57:50 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Source file
+    <a href="https:/chaos-mesh.dev/godoc/v2.1.4/src">src</a>/<a href="https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com">github.com</a>/<a href="https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg">pkg</a>/<a href="https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon">chaosdaemon</a>/<span class="text-muted">dns_server.go</span>
+  </h1>
+
+
+
+
+
+  <h2>
+    Documentation: <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon">github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon</a>
+  </h2>
+
+
+
+<div id="nav"></div>
+
+
+<script type="text/javascript">document.ANALYSIS_DATA = null;</script>
+<pre><span id="L1" class="ln">     1  </span><span class="comment">// Copyright 2021 Chaos Mesh Authors.</span>
+<span id="L2" class="ln">     2  </span><span class="comment">//</span>
+<span id="L3" class="ln">     3  </span><span class="comment">// Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span>
+<span id="L4" class="ln">     4  </span><span class="comment">// you may not use this file except in compliance with the License.</span>
+<span id="L5" class="ln">     5  </span><span class="comment">// You may obtain a copy of the License at</span>
+<span id="L6" class="ln">     6  </span><span class="comment">//</span>
+<span id="L7" class="ln">     7  </span><span class="comment">// http://www.apache.org/licenses/LICENSE-2.0</span>
+<span id="L8" class="ln">     8  </span><span class="comment">//</span>
+<span id="L9" class="ln">     9  </span><span class="comment">// Unless required by applicable law or agreed to in writing, software</span>
+<span id="L10" class="ln">    10  </span><span class="comment">// distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span>
+<span id="L11" class="ln">    11  </span><span class="comment">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span id="L12" class="ln">    12  </span><span class="comment">// See the License for the specific language governing permissions and</span>
+<span id="L13" class="ln">    13  </span><span class="comment">// limitations under the License.</span>
+<span id="L14" class="ln">    14  </span><span class="comment">//</span>
+<span id="L15" class="ln">    15  </span>
+<span id="L16" class="ln">    16  </span>package chaosdaemon
+<span id="L17" class="ln">    17  </span>
+<span id="L18" class="ln">    18  </span>import (
+<span id="L19" class="ln">    19  </span>	&#34;context&#34;
+<span id="L20" class="ln">    20  </span>	&#34;fmt&#34;
+<span id="L21" class="ln">    21  </span>
+<span id="L22" class="ln">    22  </span>	&#34;github.com/golang/protobuf/ptypes/empty&#34;
+<span id="L23" class="ln">    23  </span>
+<span id="L24" class="ln">    24  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/bpm&#34;
+<span id="L25" class="ln">    25  </span>	pb &#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb&#34;
+<span id="L26" class="ln">    26  </span>)
+<span id="L27" class="ln">    27  </span>
+<span id="L28" class="ln">    28  </span>const (
+<span id="L29" class="ln">    29  </span>	<span class="comment">// DNSServerConfFile is the default config file for DNS server</span>
+<span id="L30" class="ln">    30  </span>	DNSServerConfFile = &#34;/etc/resolv.conf&#34;
+<span id="L31" class="ln">    31  </span>)
+<span id="L32" class="ln">    32  </span>
+<span id="L33" class="ln">    33  </span>func (s *DaemonServer) SetDNSServer(ctx context.Context,
+<span id="L34" class="ln">    34  </span>	req *pb.SetDNSServerRequest) (*empty.Empty, error) {
+<span id="L35" class="ln">    35  </span>	log := s.getLoggerFromContext(ctx)
+<span id="L36" class="ln">    36  </span>
+<span id="L37" class="ln">    37  </span>	log.Info(&#34;SetDNSServer&#34;, &#34;request&#34;, req)
+<span id="L38" class="ln">    38  </span>	pid, err := s.crClient.GetPidFromContainerID(ctx, req.ContainerId)
+<span id="L39" class="ln">    39  </span>	if err != nil {
+<span id="L40" class="ln">    40  </span>		log.Error(err, &#34;GetPidFromContainerID&#34;)
+<span id="L41" class="ln">    41  </span>		return nil, err
+<span id="L42" class="ln">    42  </span>	}
+<span id="L43" class="ln">    43  </span>
+<span id="L44" class="ln">    44  </span>	if req.Enable {
+<span id="L45" class="ln">    45  </span>		<span class="comment">// set dns server to the chaos dns server&#39;s address</span>
+<span id="L46" class="ln">    46  </span>
+<span id="L47" class="ln">    47  </span>		if len(req.DnsServer) == 0 {
+<span id="L48" class="ln">    48  </span>			return &amp;empty.Empty{}, fmt.Errorf(&#34;invalid set dns server request %v&#34;, req)
+<span id="L49" class="ln">    49  </span>		}
+<span id="L50" class="ln">    50  </span>
+<span id="L51" class="ln">    51  </span>		<span class="comment">// backup the /etc/resolv.conf</span>
+<span id="L52" class="ln">    52  </span>		processBuilder := bpm.DefaultProcessBuilder(&#34;sh&#34;, &#34;-c&#34;, fmt.Sprintf(&#34;ls %s.chaos.bak || cp %s %s.chaos.bak&#34;, DNSServerConfFile, DNSServerConfFile, DNSServerConfFile)).SetContext(ctx)
+<span id="L53" class="ln">    53  </span>		if req.EnterNS {
+<span id="L54" class="ln">    54  </span>			processBuilder = processBuilder.SetNS(pid, bpm.MountNS)
+<span id="L55" class="ln">    55  </span>		}
+<span id="L56" class="ln">    56  </span>
+<span id="L57" class="ln">    57  </span>		cmd := processBuilder.Build(ctx)
+<span id="L58" class="ln">    58  </span>		output, err := cmd.CombinedOutput()
+<span id="L59" class="ln">    59  </span>		if err != nil {
+<span id="L60" class="ln">    60  </span>			log.Error(err, &#34;execute command error&#34;, &#34;command&#34;, cmd.String(), &#34;output&#34;, output)
+<span id="L61" class="ln">    61  </span>			return nil, encodeOutputToError(output, err)
+<span id="L62" class="ln">    62  </span>		}
+<span id="L63" class="ln">    63  </span>		if len(output) != 0 {
+<span id="L64" class="ln">    64  </span>			log.Info(&#34;command output&#34;, &#34;output&#34;, string(output))
+<span id="L65" class="ln">    65  </span>		}
+<span id="L66" class="ln">    66  </span>
+<span id="L67" class="ln">    67  </span>		<span class="comment">// add chaos dns server to the first line of /etc/resolv.conf</span>
+<span id="L68" class="ln">    68  </span>		<span class="comment">// Note: can not replace the /etc/resolv.conf like `mv temp resolv.conf`, will execute with error `Device or resource busy`</span>
+<span id="L69" class="ln">    69  </span>		processBuilder = bpm.DefaultProcessBuilder(&#34;sh&#34;, &#34;-c&#34;, fmt.Sprintf(&#34;cp %s temp &amp;&amp; sed -i &#39;s/.*nameserver.*/nameserver %s/&#39; temp &amp;&amp; cat temp &gt; %s&#34;, DNSServerConfFile, req.DnsServer, DNSServerConfFile)).SetContext(ctx)
+<span id="L70" class="ln">    70  </span>		if req.EnterNS {
+<span id="L71" class="ln">    71  </span>			processBuilder = processBuilder.SetNS(pid, bpm.MountNS)
+<span id="L72" class="ln">    72  </span>		}
+<span id="L73" class="ln">    73  </span>
+<span id="L74" class="ln">    74  </span>		cmd = processBuilder.Build(ctx)
+<span id="L75" class="ln">    75  </span>		output, err = cmd.CombinedOutput()
+<span id="L76" class="ln">    76  </span>		if err != nil {
+<span id="L77" class="ln">    77  </span>			log.Error(err, &#34;execute command error&#34;, &#34;command&#34;, cmd.String(), &#34;output&#34;, output)
+<span id="L78" class="ln">    78  </span>			return nil, encodeOutputToError(output, err)
+<span id="L79" class="ln">    79  </span>		}
+<span id="L80" class="ln">    80  </span>		if len(output) != 0 {
+<span id="L81" class="ln">    81  </span>			log.Info(&#34;command output&#34;, &#34;output&#34;, string(output))
+<span id="L82" class="ln">    82  </span>		}
+<span id="L83" class="ln">    83  </span>	} else {
+<span id="L84" class="ln">    84  </span>		<span class="comment">// recover the dns server&#39;s address</span>
+<span id="L85" class="ln">    85  </span>		processBuilder := bpm.DefaultProcessBuilder(&#34;sh&#34;, &#34;-c&#34;, fmt.Sprintf(&#34;ls %s.chaos.bak &amp;&amp; cat %s.chaos.bak &gt; %s || true&#34;, DNSServerConfFile, DNSServerConfFile, DNSServerConfFile)).SetContext(ctx)
+<span id="L86" class="ln">    86  </span>		if req.EnterNS {
+<span id="L87" class="ln">    87  </span>			processBuilder = processBuilder.SetNS(pid, bpm.MountNS)
+<span id="L88" class="ln">    88  </span>		}
+<span id="L89" class="ln">    89  </span>
+<span id="L90" class="ln">    90  </span>		cmd := processBuilder.Build(ctx)
+<span id="L91" class="ln">    91  </span>		output, err := cmd.CombinedOutput()
+<span id="L92" class="ln">    92  </span>		if err != nil {
+<span id="L93" class="ln">    93  </span>			log.Error(err, &#34;execute command error&#34;, &#34;command&#34;, cmd.String(), &#34;output&#34;, output)
+<span id="L94" class="ln">    94  </span>			return nil, encodeOutputToError(output, err)
+<span id="L95" class="ln">    95  </span>		}
+<span id="L96" class="ln">    96  </span>		if len(output) != 0 {
+<span id="L97" class="ln">    97  </span>			log.Info(&#34;command output&#34;, &#34;output&#34;, string(output))
+<span id="L98" class="ln">    98  </span>		}
+<span id="L99" class="ln">    99  </span>	}
+<span id="L100" class="ln">   100  </span>
+<span id="L101" class="ln">   101  </span>	return &amp;empty.Empty{}, nil
+<span id="L102" class="ln">   102  </span>}
+<span id="L103" class="ln">   103  </span>
+</pre><p></p>
+
+<div id="footer">
+Build version go1.18.1.<br/>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+
+
+</body></html>
