@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>grpc - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.1.5/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.5/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.5/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 42e2aaa. Generated at Mon Apr 25 14:57:56 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package grpc
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/grpc"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#TimeoutClientInterceptor">func TimeoutClientInterceptor(timeout time.Duration) func(context.Context, string, interface{}, interface{}, *grpc.ClientConn, grpc.UnaryInvoker, ...grpc.CallOption) error</a></dd>
+			
+				
+				<dd><a href="#TimeoutServerInterceptor">func TimeoutServerInterceptor(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error)</a></dd>
+			
+			
+				
+				<dd><a href="#CredentialProvider">type CredentialProvider</a></dd>
+				
+				
+			
+				
+				<dd><a href="#FileProvider">type FileProvider</a></dd>
+				
+				
+			
+				
+				<dd><a href="#GrpcBuilder">type GrpcBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Builder">func Builder(address string, port int) *GrpcBuilder</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GrpcBuilder.Build">func (it *GrpcBuilder) Build() (*grpc.ClientConn, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GrpcBuilder.Insecure">func (it *GrpcBuilder) Insecure() *GrpcBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GrpcBuilder.TLSFromFile">func (it *GrpcBuilder) TLSFromFile(caCertPath string, certPath string, keyPath string) *GrpcBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GrpcBuilder.TLSFromRaw">func (it *GrpcBuilder) TLSFromRaw(caCert []byte, cert []byte, key []byte) *GrpcBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GrpcBuilder.WithDefaultTimeout">func (it *GrpcBuilder) WithDefaultTimeout() *GrpcBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GrpcBuilder.WithNamespacedName">func (it *GrpcBuilder) WithNamespacedName(id types.NamespacedName) *GrpcBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GrpcBuilder.WithTimeout">func (it *GrpcBuilder) WithTimeout(timeout time.Duration) *GrpcBuilder</a></dd>
+				
+			
+				
+				<dd><a href="#InsecureProvider">type InsecureProvider</a></dd>
+				
+				
+			
+				
+				<dd><a href="#RawProvider">type RawProvider</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TLSFile">type TLSFile</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TLSRaw">type TLSRaw</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go">utils.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				
+				<pre>const <span id="ChaosDaemonServerName">ChaosDaemonServerName</span> = &#34;chaos-daemon.chaos-mesh.org&#34;</pre>
+			
+				<p>
+DefaultRPCTimeout specifies default timeout of RPC between controller and chaos-operator
+</p>
+
+				<pre>const <span id="DefaultRPCTimeout">DefaultRPCTimeout</span> = 60 * <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/time/#Second">Second</a></pre>
+			
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				<p>
+RPCTimeout specifies timeout of RPC between controller and chaos-operator
+</p>
+
+				<pre>var <span id="RPCTimeout">RPCTimeout</span> = <a href="#DefaultRPCTimeout">DefaultRPCTimeout</a></pre>
+			
+		
+		
+			
+			
+			<h2 id="TimeoutClientInterceptor">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L188">TimeoutClientInterceptor</a>
+				<a class="permalink" href="#TimeoutClientInterceptor">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func TimeoutClientInterceptor(timeout <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/time/#Duration">Duration</a>) func(<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#string">string</a>, interface{}, interface{},
+    *<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/google.golang.org/grpc/#ClientConn">ClientConn</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/google.golang.org/grpc/#UnaryInvoker">UnaryInvoker</a>, ...<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#error">error</a></pre>
+			<p>
+TimeoutClientInterceptor wraps the RPC with a timeout.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="TimeoutServerInterceptor">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L200">TimeoutServerInterceptor</a>
+				<a class="permalink" href="#TimeoutServerInterceptor">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func TimeoutServerInterceptor(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/context/#Context">Context</a>, req interface{}, info *<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/google.golang.org/grpc/#UnaryServerInfo">UnaryServerInfo</a>,
+    handler <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/google.golang.org/grpc/#UnaryHandler">UnaryHandler</a>) (interface{}, <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#error">error</a>)</pre>
+			<p>
+TimeoutServerInterceptor ensures the context is intact before handling over the
+request to application.
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="CredentialProvider">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L67">CredentialProvider</a>
+				<a class="permalink" href="#CredentialProvider">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type CredentialProvider interface {
+    <span class="comment">// contains filtered or unexported methods</span>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="FileProvider">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L56">FileProvider</a>
+				<a class="permalink" href="#FileProvider">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type FileProvider struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="GrpcBuilder">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L113">GrpcBuilder</a>
+				<a class="permalink" href="#GrpcBuilder">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type GrpcBuilder struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="Builder">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L120">Builder</a>
+					<a class="permalink" href="#Builder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Builder(address <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#string">string</a>, port <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#int">int</a>) *<a href="#GrpcBuilder">GrpcBuilder</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="GrpcBuilder.Build">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L175">Build</a>
+					<a class="permalink" href="#GrpcBuilder.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#GrpcBuilder">GrpcBuilder</a>) Build() (*<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/google.golang.org/grpc/#ClientConn">ClientConn</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="GrpcBuilder.Insecure">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L147">Insecure</a>
+					<a class="permalink" href="#GrpcBuilder.Insecure">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#GrpcBuilder">GrpcBuilder</a>) Insecure() *<a href="#GrpcBuilder">GrpcBuilder</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="GrpcBuilder.TLSFromFile">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L164">TLSFromFile</a>
+					<a class="permalink" href="#GrpcBuilder.TLSFromFile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#GrpcBuilder">GrpcBuilder</a>) TLSFromFile(caCertPath <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#string">string</a>, certPath <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#string">string</a>, keyPath <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#string">string</a>) *<a href="#GrpcBuilder">GrpcBuilder</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="GrpcBuilder.TLSFromRaw">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L152">TLSFromRaw</a>
+					<a class="permalink" href="#GrpcBuilder.TLSFromRaw">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#GrpcBuilder">GrpcBuilder</a>) TLSFromRaw(caCert []<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#byte">byte</a>, cert []<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#byte">byte</a>, key []<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#byte">byte</a>) *<a href="#GrpcBuilder">GrpcBuilder</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="GrpcBuilder.WithDefaultTimeout">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L124">WithDefaultTimeout</a>
+					<a class="permalink" href="#GrpcBuilder.WithDefaultTimeout">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#GrpcBuilder">GrpcBuilder</a>) WithDefaultTimeout() *<a href="#GrpcBuilder">GrpcBuilder</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="GrpcBuilder.WithNamespacedName">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L142">WithNamespacedName</a>
+					<a class="permalink" href="#GrpcBuilder.WithNamespacedName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#GrpcBuilder">GrpcBuilder</a>) WithNamespacedName(id <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/k8s.io/apimachinery/pkg/types/">types</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/k8s.io/apimachinery/pkg/types/#NamespacedName">NamespacedName</a>) *<a href="#GrpcBuilder">GrpcBuilder</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="GrpcBuilder.WithTimeout">func (*GrpcBuilder) <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L129">WithTimeout</a>
+					<a class="permalink" href="#GrpcBuilder.WithTimeout">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#GrpcBuilder">GrpcBuilder</a>) WithTimeout(timeout <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/time/#Duration">Duration</a>) *<a href="#GrpcBuilder">GrpcBuilder</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="InsecureProvider">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L64">InsecureProvider</a>
+				<a class="permalink" href="#InsecureProvider">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type InsecureProvider struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="RawProvider">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L60">RawProvider</a>
+				<a class="permalink" href="#RawProvider">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type RawProvider struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TLSFile">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L50">TLSFile</a>
+				<a class="permalink" href="#TLSFile">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type TLSFile struct {
+<span id="TLSFile.CaCert"></span>    CaCert <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#string">string</a>
+<span id="TLSFile.Cert"></span>    Cert   <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#string">string</a>
+<span id="TLSFile.Key"></span>    Key    <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TLSRaw">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/pkg/grpc/utils.go#L44">TLSRaw</a>
+				<a class="permalink" href="#TLSRaw">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type TLSRaw struct {
+<span id="TLSRaw.CaCert"></span>    CaCert []<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#byte">byte</a>
+<span id="TLSRaw.Cert"></span>    Cert   []<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#byte">byte</a>
+<span id="TLSRaw.Key"></span>    Key    []<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#byte">byte</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.18.1.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
