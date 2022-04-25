@@ -14,6 +14,7 @@ Here is the directory for API References for each Versions
 
 ### v2.1.z
 
+- [github.com/chaos-mesh/chaos-mesh/api/v1alpha1@v0.0.0-20220418092803-42e2aaa590b4](./v0.0.0-20220418092803-42e2aaa590b4) used with Chaos Mesh v2.1.5
 - [github.com/chaos-mesh/chaos-mesh/api/v1alpha1@v0.0.0-20211229113550-24a1f565ed00](./v0.0.0-20211229113550-24a1f565ed00) used with Chaos Mesh v2.1.2
 
 ### v2.0.z
