@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b63a6d9. Generated at Tue Apr 26 10:06:58 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 8e81846. Generated at Tue Apr 26 22:03:44 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -210,172 +210,175 @@
 <span id="L145" class="ln">   145  </span>
 <span id="L146" class="ln">   146  </span>	err = r.SetIPSets(ctx, pod, obj, pbClient)
 <span id="L147" class="ln">   147  </span>	if err != nil {
-<span id="L148" class="ln">   148  </span>		r.Log.Error(err, &#34;fail to set ipsets&#34;)
-<span id="L149" class="ln">   149  </span>		r.Recorder.Event(obj, recorder.Failed{
-<span id="L150" class="ln">   150  </span>			Activity: &#34;set ipsets&#34;,
-<span id="L151" class="ln">   151  </span>			Err:      err.Error(),
-<span id="L152" class="ln">   152  </span>		})
-<span id="L153" class="ln">   153  </span>		return ctrl.Result{Requeue: true}, nil
-<span id="L154" class="ln">   154  </span>	}
-<span id="L155" class="ln">   155  </span>
-<span id="L156" class="ln">   156  </span>	err = r.SetIptables(ctx, pod, obj, pbClient)
-<span id="L157" class="ln">   157  </span>	if err != nil {
-<span id="L158" class="ln">   158  </span>		r.Log.Error(err, &#34;fail to set iptables&#34;)
-<span id="L159" class="ln">   159  </span>		r.Recorder.Event(obj, recorder.Failed{
-<span id="L160" class="ln">   160  </span>			Activity: &#34;set iptables&#34;,
-<span id="L161" class="ln">   161  </span>			Err:      err.Error(),
-<span id="L162" class="ln">   162  </span>		})
-<span id="L163" class="ln">   163  </span>		return ctrl.Result{Requeue: true}, nil
-<span id="L164" class="ln">   164  </span>	}
-<span id="L165" class="ln">   165  </span>
-<span id="L166" class="ln">   166  </span>	err = r.SetTcs(ctx, pod, obj, pbClient)
-<span id="L167" class="ln">   167  </span>	if err != nil {
-<span id="L168" class="ln">   168  </span>		r.Recorder.Event(obj, recorder.Failed{
-<span id="L169" class="ln">   169  </span>			Activity: &#34;set tc&#34;,
-<span id="L170" class="ln">   170  </span>			Err:      err.Error(),
-<span id="L171" class="ln">   171  </span>		})
-<span id="L172" class="ln">   172  </span>		return ctrl.Result{Requeue: true}, nil
-<span id="L173" class="ln">   173  </span>	}
-<span id="L174" class="ln">   174  </span>
-<span id="L175" class="ln">   175  </span>	return ctrl.Result{}, nil
-<span id="L176" class="ln">   176  </span>}
+<span id="L148" class="ln">   148  </span>		err = errors.Wrapf(err, &#34;fialed to apply for pod %s/%s&#34;, pod.Namespace, pod.Name)
+<span id="L149" class="ln">   149  </span>		r.Log.Error(err, &#34;fail to set ipsets&#34;)
+<span id="L150" class="ln">   150  </span>		r.Recorder.Event(obj, recorder.Failed{
+<span id="L151" class="ln">   151  </span>			Activity: &#34;set ipsets&#34;,
+<span id="L152" class="ln">   152  </span>			Err:      err.Error(),
+<span id="L153" class="ln">   153  </span>		})
+<span id="L154" class="ln">   154  </span>		return ctrl.Result{Requeue: true}, nil
+<span id="L155" class="ln">   155  </span>	}
+<span id="L156" class="ln">   156  </span>
+<span id="L157" class="ln">   157  </span>	err = r.SetIptables(ctx, pod, obj, pbClient)
+<span id="L158" class="ln">   158  </span>	if err != nil {
+<span id="L159" class="ln">   159  </span>		err = errors.Wrapf(err, &#34;fialed to apply for pod %s/%s&#34;, pod.Namespace, pod.Name)
+<span id="L160" class="ln">   160  </span>		r.Log.Error(err, &#34;fail to set iptables&#34;)
+<span id="L161" class="ln">   161  </span>		r.Recorder.Event(obj, recorder.Failed{
+<span id="L162" class="ln">   162  </span>			Activity: &#34;set iptables&#34;,
+<span id="L163" class="ln">   163  </span>			Err:      err.Error(),
+<span id="L164" class="ln">   164  </span>		})
+<span id="L165" class="ln">   165  </span>		return ctrl.Result{Requeue: true}, nil
+<span id="L166" class="ln">   166  </span>	}
+<span id="L167" class="ln">   167  </span>
+<span id="L168" class="ln">   168  </span>	err = r.SetTcs(ctx, pod, obj, pbClient)
+<span id="L169" class="ln">   169  </span>	if err != nil {
+<span id="L170" class="ln">   170  </span>		err = errors.Wrapf(err, &#34;fialed to apply for pod %s/%s&#34;, pod.Namespace, pod.Name)
+<span id="L171" class="ln">   171  </span>		r.Recorder.Event(obj, recorder.Failed{
+<span id="L172" class="ln">   172  </span>			Activity: &#34;set tc&#34;,
+<span id="L173" class="ln">   173  </span>			Err:      err.Error(),
+<span id="L174" class="ln">   174  </span>		})
+<span id="L175" class="ln">   175  </span>		return ctrl.Result{Requeue: true}, nil
+<span id="L176" class="ln">   176  </span>	}
 <span id="L177" class="ln">   177  </span>
-<span id="L178" class="ln">   178  </span><span class="comment">// SetIPSets sets ipset on pod</span>
-<span id="L179" class="ln">   179  </span>func (r *Reconciler) SetIPSets(ctx context.Context, pod *corev1.Pod, chaos *v1alpha1.PodNetworkChaos, chaosdaemonClient chaosdaemonclient.ChaosDaemonClientInterface) error {
-<span id="L180" class="ln">   180  </span>	ipsets := []*pb.IPSet{}
-<span id="L181" class="ln">   181  </span>	for _, ipset := range chaos.Spec.IPSets {
-<span id="L182" class="ln">   182  </span>		cidrAndPorts := []*pb.CidrAndPort{}
-<span id="L183" class="ln">   183  </span>		for _, cidrAndPort := range ipset.CidrAndPorts {
-<span id="L184" class="ln">   184  </span>			cidrAndPorts = append(cidrAndPorts, &amp;pb.CidrAndPort{
-<span id="L185" class="ln">   185  </span>				Cidr: cidrAndPort.Cidr,
-<span id="L186" class="ln">   186  </span>				Port: uint32(cidrAndPort.Port),
-<span id="L187" class="ln">   187  </span>			})
-<span id="L188" class="ln">   188  </span>		}
-<span id="L189" class="ln">   189  </span>		ipsets = append(ipsets, &amp;pb.IPSet{
-<span id="L190" class="ln">   190  </span>			Name:         ipset.Name,
-<span id="L191" class="ln">   191  </span>			Type:         string(ipset.IPSetType),
-<span id="L192" class="ln">   192  </span>			Cidrs:        ipset.Cidrs,
-<span id="L193" class="ln">   193  </span>			CidrAndPorts: cidrAndPorts,
-<span id="L194" class="ln">   194  </span>			SetNames:     ipset.SetNames,
-<span id="L195" class="ln">   195  </span>		})
-<span id="L196" class="ln">   196  </span>	}
-<span id="L197" class="ln">   197  </span>	return ipset.FlushIPSets(ctx, chaosdaemonClient, pod, ipsets)
-<span id="L198" class="ln">   198  </span>}
-<span id="L199" class="ln">   199  </span>
-<span id="L200" class="ln">   200  </span><span class="comment">// SetIptables sets iptables on pod</span>
-<span id="L201" class="ln">   201  </span>func (r *Reconciler) SetIptables(ctx context.Context, pod *corev1.Pod, chaos *v1alpha1.PodNetworkChaos, chaosdaemonClient chaosdaemonclient.ChaosDaemonClientInterface) error {
-<span id="L202" class="ln">   202  </span>	chains := []*pb.Chain{}
-<span id="L203" class="ln">   203  </span>	for _, chain := range chaos.Spec.Iptables {
-<span id="L204" class="ln">   204  </span>		var direction pb.Chain_Direction
-<span id="L205" class="ln">   205  </span>		if chain.Direction == v1alpha1.Input {
-<span id="L206" class="ln">   206  </span>			direction = pb.Chain_INPUT
-<span id="L207" class="ln">   207  </span>		} else if chain.Direction == v1alpha1.Output {
-<span id="L208" class="ln">   208  </span>			direction = pb.Chain_OUTPUT
-<span id="L209" class="ln">   209  </span>		} else {
-<span id="L210" class="ln">   210  </span>			err := errors.Errorf(&#34;unknown direction %s&#34;, string(chain.Direction))
-<span id="L211" class="ln">   211  </span>			r.Log.Error(err, &#34;unknown direction&#34;)
-<span id="L212" class="ln">   212  </span>			return err
-<span id="L213" class="ln">   213  </span>		}
-<span id="L214" class="ln">   214  </span>		chains = append(chains, &amp;pb.Chain{
-<span id="L215" class="ln">   215  </span>			Name:      chain.Name,
-<span id="L216" class="ln">   216  </span>			Ipsets:    chain.IPSets,
-<span id="L217" class="ln">   217  </span>			Direction: direction,
-<span id="L218" class="ln">   218  </span>			Target:    &#34;DROP&#34;,
-<span id="L219" class="ln">   219  </span>			Device:    chain.Device,
-<span id="L220" class="ln">   220  </span>		})
-<span id="L221" class="ln">   221  </span>	}
-<span id="L222" class="ln">   222  </span>	return iptable.SetIptablesChains(ctx, chaosdaemonClient, pod, chains)
-<span id="L223" class="ln">   223  </span>}
-<span id="L224" class="ln">   224  </span>
-<span id="L225" class="ln">   225  </span><span class="comment">// SetTcs sets traffic control related chaos on pod</span>
-<span id="L226" class="ln">   226  </span>func (r *Reconciler) SetTcs(ctx context.Context, pod *corev1.Pod, chaos *v1alpha1.PodNetworkChaos, chaosdaemonClient chaosdaemonclient.ChaosDaemonClientInterface) error {
-<span id="L227" class="ln">   227  </span>	tcs := []*pb.Tc{}
-<span id="L228" class="ln">   228  </span>	for _, tc := range chaos.Spec.TrafficControls {
-<span id="L229" class="ln">   229  </span>		if tc.Type == v1alpha1.Bandwidth {
-<span id="L230" class="ln">   230  </span>			tbf, err := netem.FromBandwidth(tc.Bandwidth)
-<span id="L231" class="ln">   231  </span>			if err != nil {
-<span id="L232" class="ln">   232  </span>				return err
-<span id="L233" class="ln">   233  </span>			}
-<span id="L234" class="ln">   234  </span>			tcs = append(tcs, &amp;pb.Tc{
-<span id="L235" class="ln">   235  </span>				Type:   pb.Tc_BANDWIDTH,
-<span id="L236" class="ln">   236  </span>				Tbf:    tbf,
-<span id="L237" class="ln">   237  </span>				Ipset:  tc.IPSet,
-<span id="L238" class="ln">   238  </span>				Device: tc.Device,
-<span id="L239" class="ln">   239  </span>			})
-<span id="L240" class="ln">   240  </span>		} else if tc.Type == v1alpha1.Netem {
-<span id="L241" class="ln">   241  </span>			netem, err := mergeNetem(tc.TcParameter)
-<span id="L242" class="ln">   242  </span>			if err != nil {
-<span id="L243" class="ln">   243  </span>				return err
-<span id="L244" class="ln">   244  </span>			}
-<span id="L245" class="ln">   245  </span>			tcs = append(tcs, &amp;pb.Tc{
-<span id="L246" class="ln">   246  </span>				Type:   pb.Tc_NETEM,
-<span id="L247" class="ln">   247  </span>				Netem:  netem,
-<span id="L248" class="ln">   248  </span>				Ipset:  tc.IPSet,
-<span id="L249" class="ln">   249  </span>				Device: tc.Device,
-<span id="L250" class="ln">   250  </span>			})
-<span id="L251" class="ln">   251  </span>		} else {
-<span id="L252" class="ln">   252  </span>			return errors.New(&#34;unknown tc type&#34;)
-<span id="L253" class="ln">   253  </span>		}
-<span id="L254" class="ln">   254  </span>	}
-<span id="L255" class="ln">   255  </span>
-<span id="L256" class="ln">   256  </span>	r.Log.Info(&#34;setting tcs&#34;, &#34;tcs&#34;, tcs)
-<span id="L257" class="ln">   257  </span>	return tcpkg.SetTcs(ctx, chaosdaemonClient, pod, tcs)
-<span id="L258" class="ln">   258  </span>}
-<span id="L259" class="ln">   259  </span>
-<span id="L260" class="ln">   260  </span><span class="comment">// NetemSpec defines the interface to convert to a Netem protobuf</span>
-<span id="L261" class="ln">   261  </span>type NetemSpec interface {
-<span id="L262" class="ln">   262  </span>	ToNetem() (*pb.Netem, error)
-<span id="L263" class="ln">   263  </span>}
-<span id="L264" class="ln">   264  </span>
-<span id="L265" class="ln">   265  </span><span class="comment">// mergeNetem calls ToNetem on all non nil network emulation specs and merges them into one request.</span>
-<span id="L266" class="ln">   266  </span>func mergeNetem(spec v1alpha1.TcParameter) (*pb.Netem, error) {
-<span id="L267" class="ln">   267  </span>	<span class="comment">// NOTE: a cleaner way like</span>
-<span id="L268" class="ln">   268  </span>	<span class="comment">// emSpecs = []NetemSpec{spec.Delay, spec.Loss} won&#39;t work.</span>
-<span id="L269" class="ln">   269  </span>	<span class="comment">// Because in the for _, spec := range emSpecs loop,</span>
-<span id="L270" class="ln">   270  </span>	<span class="comment">// spec != nil would always be true.</span>
-<span id="L271" class="ln">   271  </span>	<span class="comment">// See https://stackoverflow.com/questions/13476349/check-for-nil-and-nil-interface-in-go</span>
-<span id="L272" class="ln">   272  </span>	<span class="comment">// And https://groups.google.com/forum/#!topic/golang-nuts/wnH302gBa4I/discussion</span>
-<span id="L273" class="ln">   273  </span>	<span class="comment">// &gt; In short: If you never store (*T)(nil) in an interface, then you can reliably use comparison against nil</span>
-<span id="L274" class="ln">   274  </span>	var emSpecs []*pb.Netem
-<span id="L275" class="ln">   275  </span>	if spec.Delay != nil {
-<span id="L276" class="ln">   276  </span>		em, err := netem.FromDelay(spec.Delay)
-<span id="L277" class="ln">   277  </span>		if err != nil {
-<span id="L278" class="ln">   278  </span>			return nil, err
-<span id="L279" class="ln">   279  </span>		}
-<span id="L280" class="ln">   280  </span>		emSpecs = append(emSpecs, em)
-<span id="L281" class="ln">   281  </span>	}
-<span id="L282" class="ln">   282  </span>	if spec.Loss != nil {
-<span id="L283" class="ln">   283  </span>		em, err := netem.FromLoss(spec.Loss)
-<span id="L284" class="ln">   284  </span>		if err != nil {
-<span id="L285" class="ln">   285  </span>			return nil, err
-<span id="L286" class="ln">   286  </span>		}
-<span id="L287" class="ln">   287  </span>		emSpecs = append(emSpecs, em)
-<span id="L288" class="ln">   288  </span>	}
-<span id="L289" class="ln">   289  </span>	if spec.Duplicate != nil {
-<span id="L290" class="ln">   290  </span>		em, err := netem.FromDuplicate(spec.Duplicate)
-<span id="L291" class="ln">   291  </span>		if err != nil {
-<span id="L292" class="ln">   292  </span>			return nil, err
-<span id="L293" class="ln">   293  </span>		}
-<span id="L294" class="ln">   294  </span>		emSpecs = append(emSpecs, em)
-<span id="L295" class="ln">   295  </span>	}
-<span id="L296" class="ln">   296  </span>	if spec.Corrupt != nil {
-<span id="L297" class="ln">   297  </span>		em, err := netem.FromCorrupt(spec.Corrupt)
-<span id="L298" class="ln">   298  </span>		if err != nil {
-<span id="L299" class="ln">   299  </span>			return nil, err
-<span id="L300" class="ln">   300  </span>		}
-<span id="L301" class="ln">   301  </span>		emSpecs = append(emSpecs, em)
-<span id="L302" class="ln">   302  </span>	}
-<span id="L303" class="ln">   303  </span>	if len(emSpecs) == 0 {
-<span id="L304" class="ln">   304  </span>		return nil, errors.New(invalidNetemSpecMsg)
+<span id="L178" class="ln">   178  </span>	return ctrl.Result{}, nil
+<span id="L179" class="ln">   179  </span>}
+<span id="L180" class="ln">   180  </span>
+<span id="L181" class="ln">   181  </span><span class="comment">// SetIPSets sets ipset on pod</span>
+<span id="L182" class="ln">   182  </span>func (r *Reconciler) SetIPSets(ctx context.Context, pod *corev1.Pod, chaos *v1alpha1.PodNetworkChaos, chaosdaemonClient chaosdaemonclient.ChaosDaemonClientInterface) error {
+<span id="L183" class="ln">   183  </span>	ipsets := []*pb.IPSet{}
+<span id="L184" class="ln">   184  </span>	for _, ipset := range chaos.Spec.IPSets {
+<span id="L185" class="ln">   185  </span>		cidrAndPorts := []*pb.CidrAndPort{}
+<span id="L186" class="ln">   186  </span>		for _, cidrAndPort := range ipset.CidrAndPorts {
+<span id="L187" class="ln">   187  </span>			cidrAndPorts = append(cidrAndPorts, &amp;pb.CidrAndPort{
+<span id="L188" class="ln">   188  </span>				Cidr: cidrAndPort.Cidr,
+<span id="L189" class="ln">   189  </span>				Port: uint32(cidrAndPort.Port),
+<span id="L190" class="ln">   190  </span>			})
+<span id="L191" class="ln">   191  </span>		}
+<span id="L192" class="ln">   192  </span>		ipsets = append(ipsets, &amp;pb.IPSet{
+<span id="L193" class="ln">   193  </span>			Name:         ipset.Name,
+<span id="L194" class="ln">   194  </span>			Type:         string(ipset.IPSetType),
+<span id="L195" class="ln">   195  </span>			Cidrs:        ipset.Cidrs,
+<span id="L196" class="ln">   196  </span>			CidrAndPorts: cidrAndPorts,
+<span id="L197" class="ln">   197  </span>			SetNames:     ipset.SetNames,
+<span id="L198" class="ln">   198  </span>		})
+<span id="L199" class="ln">   199  </span>	}
+<span id="L200" class="ln">   200  </span>	return ipset.FlushIPSets(ctx, chaosdaemonClient, pod, ipsets)
+<span id="L201" class="ln">   201  </span>}
+<span id="L202" class="ln">   202  </span>
+<span id="L203" class="ln">   203  </span><span class="comment">// SetIptables sets iptables on pod</span>
+<span id="L204" class="ln">   204  </span>func (r *Reconciler) SetIptables(ctx context.Context, pod *corev1.Pod, chaos *v1alpha1.PodNetworkChaos, chaosdaemonClient chaosdaemonclient.ChaosDaemonClientInterface) error {
+<span id="L205" class="ln">   205  </span>	chains := []*pb.Chain{}
+<span id="L206" class="ln">   206  </span>	for _, chain := range chaos.Spec.Iptables {
+<span id="L207" class="ln">   207  </span>		var direction pb.Chain_Direction
+<span id="L208" class="ln">   208  </span>		if chain.Direction == v1alpha1.Input {
+<span id="L209" class="ln">   209  </span>			direction = pb.Chain_INPUT
+<span id="L210" class="ln">   210  </span>		} else if chain.Direction == v1alpha1.Output {
+<span id="L211" class="ln">   211  </span>			direction = pb.Chain_OUTPUT
+<span id="L212" class="ln">   212  </span>		} else {
+<span id="L213" class="ln">   213  </span>			err := errors.Errorf(&#34;unknown direction %s&#34;, string(chain.Direction))
+<span id="L214" class="ln">   214  </span>			r.Log.Error(err, &#34;unknown direction&#34;)
+<span id="L215" class="ln">   215  </span>			return err
+<span id="L216" class="ln">   216  </span>		}
+<span id="L217" class="ln">   217  </span>		chains = append(chains, &amp;pb.Chain{
+<span id="L218" class="ln">   218  </span>			Name:      chain.Name,
+<span id="L219" class="ln">   219  </span>			Ipsets:    chain.IPSets,
+<span id="L220" class="ln">   220  </span>			Direction: direction,
+<span id="L221" class="ln">   221  </span>			Target:    &#34;DROP&#34;,
+<span id="L222" class="ln">   222  </span>			Device:    chain.Device,
+<span id="L223" class="ln">   223  </span>		})
+<span id="L224" class="ln">   224  </span>	}
+<span id="L225" class="ln">   225  </span>	return iptable.SetIptablesChains(ctx, chaosdaemonClient, pod, chains)
+<span id="L226" class="ln">   226  </span>}
+<span id="L227" class="ln">   227  </span>
+<span id="L228" class="ln">   228  </span><span class="comment">// SetTcs sets traffic control related chaos on pod</span>
+<span id="L229" class="ln">   229  </span>func (r *Reconciler) SetTcs(ctx context.Context, pod *corev1.Pod, chaos *v1alpha1.PodNetworkChaos, chaosdaemonClient chaosdaemonclient.ChaosDaemonClientInterface) error {
+<span id="L230" class="ln">   230  </span>	tcs := []*pb.Tc{}
+<span id="L231" class="ln">   231  </span>	for _, tc := range chaos.Spec.TrafficControls {
+<span id="L232" class="ln">   232  </span>		if tc.Type == v1alpha1.Bandwidth {
+<span id="L233" class="ln">   233  </span>			tbf, err := netem.FromBandwidth(tc.Bandwidth)
+<span id="L234" class="ln">   234  </span>			if err != nil {
+<span id="L235" class="ln">   235  </span>				return err
+<span id="L236" class="ln">   236  </span>			}
+<span id="L237" class="ln">   237  </span>			tcs = append(tcs, &amp;pb.Tc{
+<span id="L238" class="ln">   238  </span>				Type:   pb.Tc_BANDWIDTH,
+<span id="L239" class="ln">   239  </span>				Tbf:    tbf,
+<span id="L240" class="ln">   240  </span>				Ipset:  tc.IPSet,
+<span id="L241" class="ln">   241  </span>				Device: tc.Device,
+<span id="L242" class="ln">   242  </span>			})
+<span id="L243" class="ln">   243  </span>		} else if tc.Type == v1alpha1.Netem {
+<span id="L244" class="ln">   244  </span>			netem, err := mergeNetem(tc.TcParameter)
+<span id="L245" class="ln">   245  </span>			if err != nil {
+<span id="L246" class="ln">   246  </span>				return err
+<span id="L247" class="ln">   247  </span>			}
+<span id="L248" class="ln">   248  </span>			tcs = append(tcs, &amp;pb.Tc{
+<span id="L249" class="ln">   249  </span>				Type:   pb.Tc_NETEM,
+<span id="L250" class="ln">   250  </span>				Netem:  netem,
+<span id="L251" class="ln">   251  </span>				Ipset:  tc.IPSet,
+<span id="L252" class="ln">   252  </span>				Device: tc.Device,
+<span id="L253" class="ln">   253  </span>			})
+<span id="L254" class="ln">   254  </span>		} else {
+<span id="L255" class="ln">   255  </span>			return errors.New(&#34;unknown tc type&#34;)
+<span id="L256" class="ln">   256  </span>		}
+<span id="L257" class="ln">   257  </span>	}
+<span id="L258" class="ln">   258  </span>
+<span id="L259" class="ln">   259  </span>	r.Log.Info(&#34;setting tcs&#34;, &#34;tcs&#34;, tcs)
+<span id="L260" class="ln">   260  </span>	return tcpkg.SetTcs(ctx, chaosdaemonClient, pod, tcs)
+<span id="L261" class="ln">   261  </span>}
+<span id="L262" class="ln">   262  </span>
+<span id="L263" class="ln">   263  </span><span class="comment">// NetemSpec defines the interface to convert to a Netem protobuf</span>
+<span id="L264" class="ln">   264  </span>type NetemSpec interface {
+<span id="L265" class="ln">   265  </span>	ToNetem() (*pb.Netem, error)
+<span id="L266" class="ln">   266  </span>}
+<span id="L267" class="ln">   267  </span>
+<span id="L268" class="ln">   268  </span><span class="comment">// mergeNetem calls ToNetem on all non nil network emulation specs and merges them into one request.</span>
+<span id="L269" class="ln">   269  </span>func mergeNetem(spec v1alpha1.TcParameter) (*pb.Netem, error) {
+<span id="L270" class="ln">   270  </span>	<span class="comment">// NOTE: a cleaner way like</span>
+<span id="L271" class="ln">   271  </span>	<span class="comment">// emSpecs = []NetemSpec{spec.Delay, spec.Loss} won&#39;t work.</span>
+<span id="L272" class="ln">   272  </span>	<span class="comment">// Because in the for _, spec := range emSpecs loop,</span>
+<span id="L273" class="ln">   273  </span>	<span class="comment">// spec != nil would always be true.</span>
+<span id="L274" class="ln">   274  </span>	<span class="comment">// See https://stackoverflow.com/questions/13476349/check-for-nil-and-nil-interface-in-go</span>
+<span id="L275" class="ln">   275  </span>	<span class="comment">// And https://groups.google.com/forum/#!topic/golang-nuts/wnH302gBa4I/discussion</span>
+<span id="L276" class="ln">   276  </span>	<span class="comment">// &gt; In short: If you never store (*T)(nil) in an interface, then you can reliably use comparison against nil</span>
+<span id="L277" class="ln">   277  </span>	var emSpecs []*pb.Netem
+<span id="L278" class="ln">   278  </span>	if spec.Delay != nil {
+<span id="L279" class="ln">   279  </span>		em, err := netem.FromDelay(spec.Delay)
+<span id="L280" class="ln">   280  </span>		if err != nil {
+<span id="L281" class="ln">   281  </span>			return nil, err
+<span id="L282" class="ln">   282  </span>		}
+<span id="L283" class="ln">   283  </span>		emSpecs = append(emSpecs, em)
+<span id="L284" class="ln">   284  </span>	}
+<span id="L285" class="ln">   285  </span>	if spec.Loss != nil {
+<span id="L286" class="ln">   286  </span>		em, err := netem.FromLoss(spec.Loss)
+<span id="L287" class="ln">   287  </span>		if err != nil {
+<span id="L288" class="ln">   288  </span>			return nil, err
+<span id="L289" class="ln">   289  </span>		}
+<span id="L290" class="ln">   290  </span>		emSpecs = append(emSpecs, em)
+<span id="L291" class="ln">   291  </span>	}
+<span id="L292" class="ln">   292  </span>	if spec.Duplicate != nil {
+<span id="L293" class="ln">   293  </span>		em, err := netem.FromDuplicate(spec.Duplicate)
+<span id="L294" class="ln">   294  </span>		if err != nil {
+<span id="L295" class="ln">   295  </span>			return nil, err
+<span id="L296" class="ln">   296  </span>		}
+<span id="L297" class="ln">   297  </span>		emSpecs = append(emSpecs, em)
+<span id="L298" class="ln">   298  </span>	}
+<span id="L299" class="ln">   299  </span>	if spec.Corrupt != nil {
+<span id="L300" class="ln">   300  </span>		em, err := netem.FromCorrupt(spec.Corrupt)
+<span id="L301" class="ln">   301  </span>		if err != nil {
+<span id="L302" class="ln">   302  </span>			return nil, err
+<span id="L303" class="ln">   303  </span>		}
+<span id="L304" class="ln">   304  </span>		emSpecs = append(emSpecs, em)
 <span id="L305" class="ln">   305  </span>	}
-<span id="L306" class="ln">   306  </span>
-<span id="L307" class="ln">   307  </span>	merged := &amp;pb.Netem{}
-<span id="L308" class="ln">   308  </span>	for _, em := range emSpecs {
-<span id="L309" class="ln">   309  </span>		merged = pbutils.MergeNetem(merged, em)
-<span id="L310" class="ln">   310  </span>	}
-<span id="L311" class="ln">   311  </span>	return merged, nil
-<span id="L312" class="ln">   312  </span>}
-<span id="L313" class="ln">   313  </span>
+<span id="L306" class="ln">   306  </span>	if len(emSpecs) == 0 {
+<span id="L307" class="ln">   307  </span>		return nil, errors.New(invalidNetemSpecMsg)
+<span id="L308" class="ln">   308  </span>	}
+<span id="L309" class="ln">   309  </span>
+<span id="L310" class="ln">   310  </span>	merged := &amp;pb.Netem{}
+<span id="L311" class="ln">   311  </span>	for _, em := range emSpecs {
+<span id="L312" class="ln">   312  </span>		merged = pbutils.MergeNetem(merged, em)
+<span id="L313" class="ln">   313  </span>	}
+<span id="L314" class="ln">   314  </span>	return merged, nil
+<span id="L315" class="ln">   315  </span>}
+<span id="L316" class="ln">   316  </span>
 </pre><p></p>
 
 <div id="footer">
