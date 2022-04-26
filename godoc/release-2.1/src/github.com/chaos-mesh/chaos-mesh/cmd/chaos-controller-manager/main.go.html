@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f4c52e8. Generated at Mon Apr 25 22:05:43 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2f2ba88. Generated at Tue Apr 26 10:12:42 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -210,7 +210,7 @@
 <span id="L145" class="ln">   145  </span>	}
 <span id="L146" class="ln">   146  </span>
 <span id="L147" class="ln">   147  </span>	<span class="comment">// Init metrics collector</span>
-<span id="L148" class="ln">   148  </span>	metricsCollector := metrics.NewChaosControllerManagerMetricsCollector(mgr.GetCache(), controllermetrics.Registry)
+<span id="L148" class="ln">   148  </span>	metricsCollector := metrics.NewChaosControllerManagerMetricsCollector(mgr.GetCache(), controllermetrics.Registry, params.Logger.WithName(&#34;controller-manager-metrics&#34;))
 <span id="L149" class="ln">   149  </span>
 <span id="L150" class="ln">   150  </span>	setupLog.Info(&#34;Setting up webhook server&#34;)
 <span id="L151" class="ln">   151  </span>	hookServer := mgr.GetWebhookServer()

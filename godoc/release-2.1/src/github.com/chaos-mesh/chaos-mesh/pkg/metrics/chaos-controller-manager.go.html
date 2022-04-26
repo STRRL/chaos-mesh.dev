@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f4c52e8. Generated at Mon Apr 25 22:05:43 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2f2ba88. Generated at Tue Apr 26 10:12:42 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -84,36 +84,36 @@
 <span id="L19" class="ln">    19  </span>	&#34;context&#34;
 <span id="L20" class="ln">    20  </span>	&#34;reflect&#34;
 <span id="L21" class="ln">    21  </span>
-<span id="L22" class="ln">    22  </span>	&#34;github.com/prometheus/client_golang/prometheus&#34;
-<span id="L23" class="ln">    23  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
+<span id="L22" class="ln">    22  </span>	&#34;github.com/go-logr/logr&#34;
+<span id="L23" class="ln">    23  </span>	&#34;github.com/prometheus/client_golang/prometheus&#34;
 <span id="L24" class="ln">    24  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/cache&#34;
 <span id="L25" class="ln">    25  </span>
 <span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
 <span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/status&#34;
 <span id="L28" class="ln">    28  </span>)
 <span id="L29" class="ln">    29  </span>
-<span id="L30" class="ln">    30  </span>var log = ctrl.Log.WithName(&#34;metrics-collector&#34;)
-<span id="L31" class="ln">    31  </span>
-<span id="L32" class="ln">    32  </span><span class="comment">// ChaosControllerManagerMetricsCollector implements prometheus.Collector interface</span>
-<span id="L33" class="ln">    33  </span>type ChaosControllerManagerMetricsCollector struct {
-<span id="L34" class="ln">    34  </span>	store               cache.Cache
-<span id="L35" class="ln">    35  </span>	chaosExperiments    *prometheus.GaugeVec
-<span id="L36" class="ln">    36  </span>	SidecarTemplates    prometheus.Gauge
-<span id="L37" class="ln">    37  </span>	ConfigTemplates     *prometheus.GaugeVec
-<span id="L38" class="ln">    38  </span>	InjectionConfigs    *prometheus.GaugeVec
-<span id="L39" class="ln">    39  </span>	TemplateNotExist    *prometheus.CounterVec
-<span id="L40" class="ln">    40  </span>	TemplateLoadError   prometheus.Counter
-<span id="L41" class="ln">    41  </span>	ConfigNameDuplicate *prometheus.CounterVec
-<span id="L42" class="ln">    42  </span>	InjectRequired      *prometheus.CounterVec
-<span id="L43" class="ln">    43  </span>	Injections          *prometheus.CounterVec
-<span id="L44" class="ln">    44  </span>	chaosSchedules      *prometheus.GaugeVec
-<span id="L45" class="ln">    45  </span>	chaosWorkflows      *prometheus.GaugeVec
-<span id="L46" class="ln">    46  </span>}
-<span id="L47" class="ln">    47  </span>
-<span id="L48" class="ln">    48  </span><span class="comment">// NewChaosControllerManagerMetricsCollector initializes metrics and collector</span>
-<span id="L49" class="ln">    49  </span>func NewChaosControllerManagerMetricsCollector(store cache.Cache, registerer prometheus.Registerer) *ChaosControllerManagerMetricsCollector {
-<span id="L50" class="ln">    50  </span>	c := &amp;ChaosControllerManagerMetricsCollector{
-<span id="L51" class="ln">    51  </span>		store: store,
+<span id="L30" class="ln">    30  </span><span class="comment">// ChaosControllerManagerMetricsCollector implements prometheus.Collector interface</span>
+<span id="L31" class="ln">    31  </span>type ChaosControllerManagerMetricsCollector struct {
+<span id="L32" class="ln">    32  </span>	logger              logr.Logger
+<span id="L33" class="ln">    33  </span>	store               cache.Cache
+<span id="L34" class="ln">    34  </span>	chaosExperiments    *prometheus.GaugeVec
+<span id="L35" class="ln">    35  </span>	SidecarTemplates    prometheus.Gauge
+<span id="L36" class="ln">    36  </span>	ConfigTemplates     *prometheus.GaugeVec
+<span id="L37" class="ln">    37  </span>	InjectionConfigs    *prometheus.GaugeVec
+<span id="L38" class="ln">    38  </span>	TemplateNotExist    *prometheus.CounterVec
+<span id="L39" class="ln">    39  </span>	TemplateLoadError   prometheus.Counter
+<span id="L40" class="ln">    40  </span>	ConfigNameDuplicate *prometheus.CounterVec
+<span id="L41" class="ln">    41  </span>	InjectRequired      *prometheus.CounterVec
+<span id="L42" class="ln">    42  </span>	Injections          *prometheus.CounterVec
+<span id="L43" class="ln">    43  </span>	chaosSchedules      *prometheus.GaugeVec
+<span id="L44" class="ln">    44  </span>	chaosWorkflows      *prometheus.GaugeVec
+<span id="L45" class="ln">    45  </span>}
+<span id="L46" class="ln">    46  </span>
+<span id="L47" class="ln">    47  </span><span class="comment">// NewChaosControllerManagerMetricsCollector initializes metrics and collector</span>
+<span id="L48" class="ln">    48  </span>func NewChaosControllerManagerMetricsCollector(store cache.Cache, registerer prometheus.Registerer, logger logr.Logger) *ChaosControllerManagerMetricsCollector {
+<span id="L49" class="ln">    49  </span>	c := &amp;ChaosControllerManagerMetricsCollector{
+<span id="L50" class="ln">    50  </span>		store:  store,
+<span id="L51" class="ln">    51  </span>		logger: logger,
 <span id="L52" class="ln">    52  </span>		chaosExperiments: prometheus.NewGaugeVec(prometheus.GaugeOpts{
 <span id="L53" class="ln">    53  </span>			Name: &#34;chaos_controller_manager_chaos_experiments&#34;,
 <span id="L54" class="ln">    54  </span>			Help: &#34;Total number of chaos experiments and their phases&#34;,
@@ -205,7 +205,7 @@
 <span id="L140" class="ln">   140  </span>		expCache := map[string]map[string]int{}
 <span id="L141" class="ln">   141  </span>		chaosList := obj.SpawnList()
 <span id="L142" class="ln">   142  </span>		if err := collector.store.List(context.TODO(), chaosList); err != nil {
-<span id="L143" class="ln">   143  </span>			log.Error(err, &#34;failed to list chaos&#34;, &#34;kind&#34;, kind)
+<span id="L143" class="ln">   143  </span>			collector.logger.Error(err, &#34;failed to list chaos&#34;, &#34;kind&#34;, kind)
 <span id="L144" class="ln">   144  </span>			return
 <span id="L145" class="ln">   145  </span>		}
 <span id="L146" class="ln">   146  </span>
@@ -232,7 +232,7 @@
 <span id="L167" class="ln">   167  </span>
 <span id="L168" class="ln">   168  </span>	schedules := &amp;v1alpha1.ScheduleList{}
 <span id="L169" class="ln">   169  </span>	if err := collector.store.List(context.TODO(), schedules); err != nil {
-<span id="L170" class="ln">   170  </span>		log.Error(err, &#34;failed to list schedules&#34;)
+<span id="L170" class="ln">   170  </span>		collector.logger.Error(err, &#34;failed to list schedules&#34;)
 <span id="L171" class="ln">   171  </span>		return
 <span id="L172" class="ln">   172  </span>	}
 <span id="L173" class="ln">   173  </span>
@@ -252,7 +252,7 @@
 <span id="L187" class="ln">   187  </span>
 <span id="L188" class="ln">   188  </span>	workflows := &amp;v1alpha1.WorkflowList{}
 <span id="L189" class="ln">   189  </span>	if err := collector.store.List(context.TODO(), workflows); err != nil {
-<span id="L190" class="ln">   190  </span>		log.Error(err, &#34;failed to list workflows&#34;)
+<span id="L190" class="ln">   190  </span>		collector.logger.Error(err, &#34;failed to list workflows&#34;)
 <span id="L191" class="ln">   191  </span>		return
 <span id="L192" class="ln">   192  </span>	}
 <span id="L193" class="ln">   193  </span>
