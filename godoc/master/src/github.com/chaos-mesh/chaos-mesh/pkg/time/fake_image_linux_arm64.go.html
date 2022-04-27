@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 8e81846. Generated at Tue Apr 26 22:03:44 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 484c28b. Generated at Wed Apr 27 10:06:42 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -82,8 +82,8 @@
 <span id="L17" class="ln">    17  </span>
 <span id="L18" class="ln">    18  </span>import (
 <span id="L19" class="ln">    19  </span>	&#34;github.com/go-logr/logr&#34;
-<span id="L20" class="ln">    20  </span>
-<span id="L21" class="ln">    21  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/cerr&#34;
+<span id="L20" class="ln">    20  </span>	&#34;github.com/pkg/errors&#34;
+<span id="L21" class="ln">    21  </span>
 <span id="L22" class="ln">    22  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/mapreader&#34;
 <span id="L23" class="ln">    23  </span>)
 <span id="L24" class="ln">    24  </span>
@@ -110,14 +110,18 @@
 <span id="L45" class="ln">    45  </span>	logger logr.Logger
 <span id="L46" class="ln">    46  </span>}
 <span id="L47" class="ln">    47  </span>
-<span id="L48" class="ln">    48  </span>func (it *FakeImage) AttachToProcess(pid int, variables map[string]uint64) (err error) {
-<span id="L49" class="ln">    49  </span>	return cerr.NotImplemented(&#34;fake image arm64&#34;)
+<span id="L48" class="ln">    48  </span>func NewFakeImage(symbolName string, content []byte, offset map[string]int, logger logr.Logger) *FakeImage {
+<span id="L49" class="ln">    49  </span>	return &amp;FakeImage{symbolName: symbolName, content: content, offset: offset, logger: logger}
 <span id="L50" class="ln">    50  </span>}
 <span id="L51" class="ln">    51  </span>
-<span id="L52" class="ln">    52  </span>func (it *FakeImage) Recover(pid int, vars map[string]uint64) error {
-<span id="L53" class="ln">    53  </span>	return cerr.NotImplemented(&#34;fake image arm64&#34;)
+<span id="L52" class="ln">    52  </span>func (it *FakeImage) AttachToProcess(pid int, variables map[string]uint64) (err error) {
+<span id="L53" class="ln">    53  </span>	return errors.New(&#34;not implement fake image arm64&#34;)
 <span id="L54" class="ln">    54  </span>}
 <span id="L55" class="ln">    55  </span>
+<span id="L56" class="ln">    56  </span>func (it *FakeImage) Recover(pid int, vars map[string]uint64) error {
+<span id="L57" class="ln">    57  </span>	return errors.New(&#34;not implement fake image arm64&#34;)
+<span id="L58" class="ln">    58  </span>}
+<span id="L59" class="ln">    59  </span>
 </pre><p></p>
 
 <div id="footer">
