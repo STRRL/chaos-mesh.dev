@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 484c28b. Generated at Wed Apr 27 22:03:45 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 804b9a7. Generated at Thu Apr 28 10:06:43 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -146,6 +146,15 @@
 				
 				
 					
+					<dd>&nbsp; &nbsp; <a href="#CtrlClient.CleanIptables">func (c *CtrlClient) CleanIptables(ctx context.Context, namespace, name string, chains []string) ([]string, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CtrlClient.CleanTcs">func (c *CtrlClient) CleanTcs(ctx context.Context, namespace, name string, devices []string) ([]string, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CtrlClient.KillProcesses">func (c *CtrlClient) KillProcesses(ctx context.Context, namespace, name string, pids []string) ([]string, error)</a></dd>
+				
+					
 					<dd>&nbsp; &nbsp; <a href="#CtrlClient.ListNamespace">func (c *CtrlClient) ListNamespace(ctx context.Context) ([]string, error)</a></dd>
 				
 			
@@ -165,6 +174,12 @@
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/forward.go">forward.go</a>
 			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/hack.go">hack.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/iptables.go">iptables.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/process.go">process.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/tcs.go">tcs.go</a>
 			
 			</span>
 			</p>
@@ -316,6 +331,42 @@ It&#39;s basically do the same thing as genericclioptions.ConfigFlags, but it lo
 				
 			
 
+			
+				
+				<h3 id="CtrlClient.CleanIptables">func (*CtrlClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/iptables.go#L25">CleanIptables</a>
+					<a class="permalink" href="#CtrlClient.CleanIptables">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#CtrlClient">CtrlClient</a>) CleanIptables(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, chains []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="CtrlClient.CleanTcs">func (*CtrlClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/tcs.go#L25">CleanTcs</a>
+					<a class="permalink" href="#CtrlClient.CleanTcs">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#CtrlClient">CtrlClient</a>) CleanTcs(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, devices []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="CtrlClient.KillProcesses">func (*CtrlClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/process.go#L25">KillProcesses</a>
+					<a class="permalink" href="#CtrlClient.KillProcesses">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#CtrlClient">CtrlClient</a>) KillProcesses(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, pids []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
 			
 				
 				<h3 id="CtrlClient.ListNamespace">func (*CtrlClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/ctrlclient.go#L36">ListNamespace</a>

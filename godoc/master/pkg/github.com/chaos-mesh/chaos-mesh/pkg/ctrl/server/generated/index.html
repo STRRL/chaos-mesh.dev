@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 484c28b. Generated at Wed Apr 27 22:03:45 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 804b9a7. Generated at Thu Apr 28 10:06:43 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -135,6 +135,11 @@
 				
 			
 				
+				<dd><a href="#CidrAndPortResolver">type CidrAndPortResolver</a></dd>
+				
+				
+			
+				
 				<dd><a href="#ComplexityRoot">type ComplexityRoot</a></dd>
 				
 				
@@ -211,6 +216,16 @@
 			
 				
 				<dd><a href="#MistakeSpecResolver">type MistakeSpecResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MutablePodResolver">type MutablePodResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MutationResolver">type MutationResolver</a></dd>
 				
 				
 			
@@ -295,6 +310,11 @@
 				
 			
 				
+				<dd><a href="#RawIPSetResolver">type RawIPSetResolver</a></dd>
+				
+				
+			
+				
 				<dd><a href="#RawIptablesResolver">type RawIptablesResolver</a></dd>
 				
 				
@@ -372,7 +392,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="AttrOverrideSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L723">AttrOverrideSpecResolver</a>
+			<h2 id="AttrOverrideSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L751">AttrOverrideSpecResolver</a>
 				<a class="permalink" href="#AttrOverrideSpecResolver">&#xb6;</a>
 				
 				
@@ -405,7 +425,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="BandwidthSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L735">BandwidthSpecResolver</a>
+			<h2 id="BandwidthSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L763">BandwidthSpecResolver</a>
 				<a class="permalink" href="#BandwidthSpecResolver">&#xb6;</a>
 				
 				
@@ -432,7 +452,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="ChaosConditionResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L741">ChaosConditionResolver</a>
+			<h2 id="ChaosConditionResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L769">ChaosConditionResolver</a>
 				<a class="permalink" href="#ChaosConditionResolver">&#xb6;</a>
 				
 				
@@ -457,7 +477,31 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="ComplexityRoot">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L87">ComplexityRoot</a>
+			<h2 id="CidrAndPortResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L773">CidrAndPortResolver</a>
+				<a class="permalink" href="#CidrAndPortResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type CidrAndPortResolver interface {
+    Port(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#CidrAndPort">CidrAndPort</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ComplexityRoot">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L91">ComplexityRoot</a>
 				<a class="permalink" href="#ComplexityRoot">&#xb6;</a>
 				
 				
@@ -512,6 +556,11 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
         Reason func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
         Status func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
         Type   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.CidrAndPort"></span>    CidrAndPort struct {
+        Cidr func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
+        Port func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
     }
 
 <span id="ComplexityRoot.ContainerState"></span>    ContainerState struct {
@@ -701,6 +750,11 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
         Weight func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
     }
 
+<span id="ComplexityRoot.KillProcessResult"></span>    KillProcessResult struct {
+        Command func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
+        Pid     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
+    }
+
 <span id="ComplexityRoot.Logger"></span>    Logger struct {
         Component func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, ns <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, component <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/#Component">Component</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
 <span id="ComplexityRoot.Pod"></span>        Pod       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, ns <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
@@ -721,6 +775,17 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
         Filling        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
         MaxLength      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
         MaxOccurrences func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.MutablePod"></span>    MutablePod struct {
+        CleanIptables func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, chains []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
+        CleanTcs      func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, devices []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
+        KillProcesses func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, pids []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
+        Pod           func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.Mutation"></span>    Mutation struct {
+        Pod func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, ns <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
     }
 
     Namespace struct {
@@ -1013,9 +1078,12 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
     }
 
 <span id="ComplexityRoot.RawIPSet"></span>    RawIPSet struct {
-        Cidrs  func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
-        Name   func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
-        Source func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
+        CidrAndPorts func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
+        Cidrs        func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
+        IPSetType    func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
+        Name         func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
+        SetNames     func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
+        Source       func(childComplexity <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>
     }
 
 <span id="ComplexityRoot.RawIptables"></span>    RawIptables struct {
@@ -1141,7 +1209,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="ContainerStateRunningResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L745">ContainerStateRunningResolver</a>
+			<h2 id="ContainerStateRunningResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L776">ContainerStateRunningResolver</a>
 				<a class="permalink" href="#ContainerStateRunningResolver">&#xb6;</a>
 				
 				
@@ -1165,7 +1233,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="ContainerStateTerminatedResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L748">ContainerStateTerminatedResolver</a>
+			<h2 id="ContainerStateTerminatedResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L779">ContainerStateTerminatedResolver</a>
 				<a class="permalink" href="#ContainerStateTerminatedResolver">&#xb6;</a>
 				
 				
@@ -1190,7 +1258,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="DirectiveRoot">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L84">DirectiveRoot</a>
+			<h2 id="DirectiveRoot">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L88">DirectiveRoot</a>
 				<a class="permalink" href="#DirectiveRoot">&#xb6;</a>
 				
 				
@@ -1214,7 +1282,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="ExperimentStatusResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L752">ExperimentStatusResolver</a>
+			<h2 id="ExperimentStatusResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L783">ExperimentStatusResolver</a>
 				<a class="permalink" href="#ExperimentStatusResolver">&#xb6;</a>
 				
 				
@@ -1238,7 +1306,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="HTTPChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L755">HTTPChaosResolver</a>
+			<h2 id="HTTPChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L786">HTTPChaosResolver</a>
 				<a class="permalink" href="#HTTPChaosResolver">&#xb6;</a>
 				
 				
@@ -1270,7 +1338,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="HTTPChaosSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L766">HTTPChaosSpecResolver</a>
+			<h2 id="HTTPChaosSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L797">HTTPChaosSpecResolver</a>
 				<a class="permalink" href="#HTTPChaosSpecResolver">&#xb6;</a>
 				
 				
@@ -1299,7 +1367,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="HTTPChaosStatusResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L774">HTTPChaosStatusResolver</a>
+			<h2 id="HTTPChaosStatusResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L805">HTTPChaosStatusResolver</a>
 				<a class="permalink" href="#HTTPChaosStatusResolver">&#xb6;</a>
 				
 				
@@ -1323,7 +1391,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="IOChaosActionResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L788">IOChaosActionResolver</a>
+			<h2 id="IOChaosActionResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L819">IOChaosActionResolver</a>
 				<a class="permalink" href="#IOChaosActionResolver">&#xb6;</a>
 				
 				
@@ -1365,7 +1433,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="IOChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L777">IOChaosResolver</a>
+			<h2 id="IOChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L808">IOChaosResolver</a>
 				<a class="permalink" href="#IOChaosResolver">&#xb6;</a>
 				
 				
@@ -1397,7 +1465,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="IOChaosSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L809">IOChaosSpecResolver</a>
+			<h2 id="IOChaosSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L840">IOChaosSpecResolver</a>
 				<a class="permalink" href="#IOChaosSpecResolver">&#xb6;</a>
 				
 				
@@ -1427,7 +1495,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="IOChaosStatusResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L818">IOChaosStatusResolver</a>
+			<h2 id="IOChaosStatusResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L849">IOChaosStatusResolver</a>
 				<a class="permalink" href="#IOChaosStatusResolver">&#xb6;</a>
 				
 				
@@ -1451,7 +1519,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="IoFaultResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L821">IoFaultResolver</a>
+			<h2 id="IoFaultResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L852">IoFaultResolver</a>
 				<a class="permalink" href="#IoFaultResolver">&#xb6;</a>
 				
 				
@@ -1475,7 +1543,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="LoggerResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L824">LoggerResolver</a>
+			<h2 id="LoggerResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L855">LoggerResolver</a>
 				<a class="permalink" href="#LoggerResolver">&#xb6;</a>
 				
 				
@@ -1500,7 +1568,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="MistakeSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L828">MistakeSpecResolver</a>
+			<h2 id="MistakeSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L859">MistakeSpecResolver</a>
 				<a class="permalink" href="#MistakeSpecResolver">&#xb6;</a>
 				
 				
@@ -1524,7 +1592,57 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="NamespaceResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L831">NamespaceResolver</a>
+			<h2 id="MutablePodResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L862">MutablePodResolver</a>
+				<a class="permalink" href="#MutablePodResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type MutablePodResolver interface {
+    KillProcesses(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/#MutablePod">MutablePod</a>, pids []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) ([]*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/#KillProcessResult">KillProcessResult</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)
+    CleanTcs(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/#MutablePod">MutablePod</a>, devices []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)
+    CleanIptables(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/#MutablePod">MutablePod</a>, chains []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MutationResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L867">MutationResolver</a>
+				<a class="permalink" href="#MutationResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type MutationResolver interface {
+    Pod(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, ns <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/">model</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/model/#MutablePod">MutablePod</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="NamespaceResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L870">NamespaceResolver</a>
 				<a class="permalink" href="#NamespaceResolver">&#xb6;</a>
 				
 				
@@ -1556,7 +1674,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="NetworkChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L842">NetworkChaosResolver</a>
+			<h2 id="NetworkChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L881">NetworkChaosResolver</a>
 				<a class="permalink" href="#NetworkChaosResolver">&#xb6;</a>
 				
 				
@@ -1588,7 +1706,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="OwnerReferenceResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L853">OwnerReferenceResolver</a>
+			<h2 id="OwnerReferenceResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L892">OwnerReferenceResolver</a>
 				<a class="permalink" href="#OwnerReferenceResolver">&#xb6;</a>
 				
 				
@@ -1612,7 +1730,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="PodConditionResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L873">PodConditionResolver</a>
+			<h2 id="PodConditionResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L912">PodConditionResolver</a>
 				<a class="permalink" href="#PodConditionResolver">&#xb6;</a>
 				
 				
@@ -1639,7 +1757,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="PodHTTPChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L879">PodHTTPChaosResolver</a>
+			<h2 id="PodHTTPChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L918">PodHTTPChaosResolver</a>
 				<a class="permalink" href="#PodHTTPChaosResolver">&#xb6;</a>
 				
 				
@@ -1671,7 +1789,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="PodHttpChaosReplaceActionsResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L890">PodHttpChaosReplaceActionsResolver</a>
+			<h2 id="PodHttpChaosReplaceActionsResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L929">PodHttpChaosReplaceActionsResolver</a>
 				<a class="permalink" href="#PodHttpChaosReplaceActionsResolver">&#xb6;</a>
 				
 				
@@ -1697,7 +1815,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="PodHttpChaosRuleResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L895">PodHttpChaosRuleResolver</a>
+			<h2 id="PodHttpChaosRuleResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L934">PodHttpChaosRuleResolver</a>
 				<a class="permalink" href="#PodHttpChaosRuleResolver">&#xb6;</a>
 				
 				
@@ -1721,7 +1839,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="PodHttpChaosSelectorResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L898">PodHttpChaosSelectorResolver</a>
+			<h2 id="PodHttpChaosSelectorResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L937">PodHttpChaosSelectorResolver</a>
 				<a class="permalink" href="#PodHttpChaosSelectorResolver">&#xb6;</a>
 				
 				
@@ -1746,7 +1864,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="PodIOChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L902">PodIOChaosResolver</a>
+			<h2 id="PodIOChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L941">PodIOChaosResolver</a>
 				<a class="permalink" href="#PodIOChaosResolver">&#xb6;</a>
 				
 				
@@ -1779,7 +1897,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="PodNetworkChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L914">PodNetworkChaosResolver</a>
+			<h2 id="PodNetworkChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L953">PodNetworkChaosResolver</a>
 				<a class="permalink" href="#PodNetworkChaosResolver">&#xb6;</a>
 				
 				
@@ -1811,7 +1929,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="PodResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L856">PodResolver</a>
+			<h2 id="PodResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L895">PodResolver</a>
 				<a class="permalink" href="#PodResolver">&#xb6;</a>
 				
 				
@@ -1849,7 +1967,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="PodSelectorSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L925">PodSelectorSpecResolver</a>
+			<h2 id="PodSelectorSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L964">PodSelectorSpecResolver</a>
 				<a class="permalink" href="#PodSelectorSpecResolver">&#xb6;</a>
 				
 				
@@ -1877,7 +1995,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="PodStatusResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L932">PodStatusResolver</a>
+			<h2 id="PodStatusResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L971">PodStatusResolver</a>
 				<a class="permalink" href="#PodStatusResolver">&#xb6;</a>
 				
 				
@@ -1905,7 +2023,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="PodStressChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L939">PodStressChaosResolver</a>
+			<h2 id="PodStressChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L978">PodStressChaosResolver</a>
 				<a class="permalink" href="#PodStressChaosResolver">&#xb6;</a>
 				
 				
@@ -1930,7 +2048,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="ProcessResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L943">ProcessResolver</a>
+			<h2 id="ProcessResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L982">ProcessResolver</a>
 				<a class="permalink" href="#ProcessResolver">&#xb6;</a>
 				
 				
@@ -1954,7 +2072,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="QueryResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L946">QueryResolver</a>
+			<h2 id="QueryResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L985">QueryResolver</a>
 				<a class="permalink" href="#QueryResolver">&#xb6;</a>
 				
 				
@@ -1979,7 +2097,31 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="RawIptablesResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L950">RawIptablesResolver</a>
+			<h2 id="RawIPSetResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L989">RawIPSetResolver</a>
+				<a class="permalink" href="#RawIPSetResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type RawIPSetResolver interface {
+    IPSetType(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, obj *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#RawIPSet">RawIPSet</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="RawIptablesResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L992">RawIptablesResolver</a>
 				<a class="permalink" href="#RawIptablesResolver">&#xb6;</a>
 				
 				
@@ -2003,7 +2145,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="RawTrafficControlResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L953">RawTrafficControlResolver</a>
+			<h2 id="RawTrafficControlResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L995">RawTrafficControlResolver</a>
 				<a class="permalink" href="#RawTrafficControlResolver">&#xb6;</a>
 				
 				
@@ -2027,7 +2169,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="RecordResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L956">RecordResolver</a>
+			<h2 id="RecordResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L998">RecordResolver</a>
 				<a class="permalink" href="#RecordResolver">&#xb6;</a>
 				
 				
@@ -2061,6 +2203,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
     AttrOverrideSpec() <a href="#AttrOverrideSpecResolver">AttrOverrideSpecResolver</a>
     BandwidthSpec() <a href="#BandwidthSpecResolver">BandwidthSpecResolver</a>
     ChaosCondition() <a href="#ChaosConditionResolver">ChaosConditionResolver</a>
+    CidrAndPort() <a href="#CidrAndPortResolver">CidrAndPortResolver</a>
     ContainerStateRunning() <a href="#ContainerStateRunningResolver">ContainerStateRunningResolver</a>
     ContainerStateTerminated() <a href="#ContainerStateTerminatedResolver">ContainerStateTerminatedResolver</a>
     ExperimentStatus() <a href="#ExperimentStatusResolver">ExperimentStatusResolver</a>
@@ -2074,6 +2217,8 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
     IoFault() <a href="#IoFaultResolver">IoFaultResolver</a>
     Logger() <a href="#LoggerResolver">LoggerResolver</a>
     MistakeSpec() <a href="#MistakeSpecResolver">MistakeSpecResolver</a>
+    MutablePod() <a href="#MutablePodResolver">MutablePodResolver</a>
+    Mutation() <a href="#MutationResolver">MutationResolver</a>
     Namespace() <a href="#NamespaceResolver">NamespaceResolver</a>
     NetworkChaos() <a href="#NetworkChaosResolver">NetworkChaosResolver</a>
     OwnerReference() <a href="#OwnerReferenceResolver">OwnerReferenceResolver</a>
@@ -2090,6 +2235,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
     PodStressChaos() <a href="#PodStressChaosResolver">PodStressChaosResolver</a>
     Process() <a href="#ProcessResolver">ProcessResolver</a>
     Query() <a href="#QueryResolver">QueryResolver</a>
+    RawIPSet() <a href="#RawIPSetResolver">RawIPSetResolver</a>
     RawIptables() <a href="#RawIptablesResolver">RawIptablesResolver</a>
     RawTrafficControl() <a href="#RawTrafficControlResolver">RawTrafficControlResolver</a>
     Record() <a href="#RecordResolver">RecordResolver</a>
@@ -2112,7 +2258,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="StressChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L959">StressChaosResolver</a>
+			<h2 id="StressChaosResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L1001">StressChaosResolver</a>
 				<a class="permalink" href="#StressChaosResolver">&#xb6;</a>
 				
 				
@@ -2144,7 +2290,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="StressChaosSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L970">StressChaosSpecResolver</a>
+			<h2 id="StressChaosSpecResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L1012">StressChaosSpecResolver</a>
 				<a class="permalink" href="#StressChaosSpecResolver">&#xb6;</a>
 				
 				
@@ -2168,7 +2314,7 @@ NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
 		
 			
 			
-			<h2 id="StressChaosStatusResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L973">StressChaosStatusResolver</a>
+			<h2 id="StressChaosStatusResolver">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/server/generated/generated.go#L1015">StressChaosStatusResolver</a>
 				<a class="permalink" href="#StressChaosStatusResolver">&#xb6;</a>
 				
 				

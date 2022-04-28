@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 484c28b. Generated at Wed Apr 27 22:03:45 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 804b9a7. Generated at Thu Apr 28 10:06:43 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -125,15 +125,24 @@
 				
 			
 				
-				<dd><a href="#Recover">type Recover</a></dd>
+				<dd><a href="#Recoverer">type Recoverer</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewNoopRecover">func NewNoopRecover(client *ctrlclient.CtrlClient) Recover</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#HTTPRecoverer">func HTTPRecoverer(client *ctrlclient.CtrlClient) Recoverer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#IORecoverer">func IORecoverer(client *ctrlclient.CtrlClient) Recoverer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NetworkRecoverer">func NetworkRecoverer(client *ctrlclient.CtrlClient) Recoverer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StressRecoverer">func StressRecoverer(client *ctrlclient.CtrlClient) Recoverer</a></dd>
 				
 				
 			
 				
-				<dd><a href="#RecoverBuilder">type RecoverBuilder</a></dd>
+				<dd><a href="#RecovererBuilder">type RecovererBuilder</a></dd>
 				
 				
 			
@@ -148,9 +157,19 @@
 			<p>
 			<span style="font-size:90%">
 			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/httpchaos.go">httpchaos.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/iochaos.go">iochaos.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/networkchaos.go">networkchaos.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/print.go">print.go</a>
+			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/recover.go">recover.go</a>
 			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/select.go">select.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/stresschaos.go">stresschaos.go</a>
 			
 			</span>
 			</p>
@@ -166,7 +185,7 @@
 		
 			
 			
-			<h2 id="PartialPod">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/recover.go#L26">PartialPod</a>
+			<h2 id="PartialPod">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/recover.go#L30">PartialPod</a>
 				<a class="permalink" href="#PartialPod">&#xb6;</a>
 				
 				
@@ -212,13 +231,13 @@ It contains necessary information for forced recovery.
 		
 			
 			
-			<h2 id="Recover">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/recover.go#L36">Recover</a>
-				<a class="permalink" href="#Recover">&#xb6;</a>
+			<h2 id="Recoverer">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/recover.go#L40">Recoverer</a>
+				<a class="permalink" href="#Recoverer">&#xb6;</a>
 				
 				
 			</h2>
 			
-			<pre>type Recover interface {
+			<pre>type Recoverer interface {
     <span class="comment">// Recover target pod forcedly</span>
     Recover(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, pod *<a href="#PartialPod">PartialPod</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>
 }</pre>
@@ -233,12 +252,45 @@ It contains necessary information for forced recovery.
 
 			
 				
-				<h3 id="NewNoopRecover">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/recover.go#L45">NewNoopRecover</a>
-					<a class="permalink" href="#NewNoopRecover">&#xb6;</a>
+				<h3 id="HTTPRecoverer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/httpchaos.go#L30">HTTPRecoverer</a>
+					<a class="permalink" href="#HTTPRecoverer">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func NewNoopRecover(client *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>) <a href="#Recover">Recover</a></pre>
+				<pre>func HTTPRecoverer(client *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>) <a href="#Recoverer">Recoverer</a></pre>
+				
+				
+				
+			
+				
+				<h3 id="IORecoverer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/iochaos.go#L30">IORecoverer</a>
+					<a class="permalink" href="#IORecoverer">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func IORecoverer(client *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>) <a href="#Recoverer">Recoverer</a></pre>
+				
+				
+				
+			
+				
+				<h3 id="NetworkRecoverer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/networkchaos.go#L143">NetworkRecoverer</a>
+					<a class="permalink" href="#NetworkRecoverer">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NetworkRecoverer(client *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>) <a href="#Recoverer">Recoverer</a></pre>
+				
+				
+				
+			
+				
+				<h3 id="StressRecoverer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/stresschaos.go#L31">StressRecoverer</a>
+					<a class="permalink" href="#StressRecoverer">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func StressRecoverer(client *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>) <a href="#Recoverer">Recoverer</a></pre>
 				
 				
 				
@@ -248,13 +300,13 @@ It contains necessary information for forced recovery.
 		
 			
 			
-			<h2 id="RecoverBuilder">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/recover.go#L41">RecoverBuilder</a>
-				<a class="permalink" href="#RecoverBuilder">&#xb6;</a>
+			<h2 id="RecovererBuilder">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/recover.go#L45">RecovererBuilder</a>
+				<a class="permalink" href="#RecovererBuilder">&#xb6;</a>
 				
 				
 			</h2>
 			
-			<pre>type RecoverBuilder func(client *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>) <a href="#Recover">Recover</a></pre>
+			<pre>type RecovererBuilder func(client *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>) <a href="#Recoverer">Recoverer</a></pre>
 
 			
 
