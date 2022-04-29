@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 804b9a7. Generated at Thu Apr 28 22:05:58 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b320dcc. Generated at Fri Apr 29 10:01:48 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -228,47 +228,52 @@
 <span id="L163" class="ln">   163  </span><span class="comment">// TcParameter represents the parameters for a traffic control chaos</span>
 <span id="L164" class="ln">   164  </span>type TcParameter struct {
 <span id="L165" class="ln">   165  </span>	<span class="comment">// Delay represents the detail about delay action</span>
-<span id="L166" class="ln">   166  </span>	<span class="comment">// +optional</span>
-<span id="L167" class="ln">   167  </span>	Delay *DelaySpec `json:&#34;delay,omitempty&#34;`
-<span id="L168" class="ln">   168  </span>
-<span id="L169" class="ln">   169  </span>	<span class="comment">// Loss represents the detail about loss action</span>
-<span id="L170" class="ln">   170  </span>	<span class="comment">// +optional</span>
-<span id="L171" class="ln">   171  </span>	Loss *LossSpec `json:&#34;loss,omitempty&#34;`
-<span id="L172" class="ln">   172  </span>
-<span id="L173" class="ln">   173  </span>	<span class="comment">// DuplicateSpec represents the detail about loss action</span>
-<span id="L174" class="ln">   174  </span>	<span class="comment">// +optional</span>
-<span id="L175" class="ln">   175  </span>	Duplicate *DuplicateSpec `json:&#34;duplicate,omitempty&#34;`
-<span id="L176" class="ln">   176  </span>
-<span id="L177" class="ln">   177  </span>	<span class="comment">// Corrupt represents the detail about corrupt action</span>
-<span id="L178" class="ln">   178  </span>	<span class="comment">// +optional</span>
-<span id="L179" class="ln">   179  </span>	Corrupt *CorruptSpec `json:&#34;corrupt,omitempty&#34;`
-<span id="L180" class="ln">   180  </span>
-<span id="L181" class="ln">   181  </span>	<span class="comment">// Bandwidth represents the detail about bandwidth control action</span>
+<span id="L166" class="ln">   166  </span>	<span class="comment">// +ui:form:when=action==&#39;delay&#39;</span>
+<span id="L167" class="ln">   167  </span>	<span class="comment">// +optional</span>
+<span id="L168" class="ln">   168  </span>	Delay *DelaySpec `json:&#34;delay,omitempty&#34;`
+<span id="L169" class="ln">   169  </span>
+<span id="L170" class="ln">   170  </span>	<span class="comment">// Loss represents the detail about loss action</span>
+<span id="L171" class="ln">   171  </span>	<span class="comment">// +ui:form:when=action==&#39;loss&#39;</span>
+<span id="L172" class="ln">   172  </span>	<span class="comment">// +optional</span>
+<span id="L173" class="ln">   173  </span>	Loss *LossSpec `json:&#34;loss,omitempty&#34;`
+<span id="L174" class="ln">   174  </span>
+<span id="L175" class="ln">   175  </span>	<span class="comment">// DuplicateSpec represents the detail about loss action</span>
+<span id="L176" class="ln">   176  </span>	<span class="comment">// +ui:form:when=action==&#39;duplicate&#39;</span>
+<span id="L177" class="ln">   177  </span>	<span class="comment">// +optional</span>
+<span id="L178" class="ln">   178  </span>	Duplicate *DuplicateSpec `json:&#34;duplicate,omitempty&#34;`
+<span id="L179" class="ln">   179  </span>
+<span id="L180" class="ln">   180  </span>	<span class="comment">// Corrupt represents the detail about corrupt action</span>
+<span id="L181" class="ln">   181  </span>	<span class="comment">// +ui:form:when=action==&#39;corrupt&#39;</span>
 <span id="L182" class="ln">   182  </span>	<span class="comment">// +optional</span>
-<span id="L183" class="ln">   183  </span>	Bandwidth *BandwidthSpec `json:&#34;bandwidth,omitempty&#34;`
-<span id="L184" class="ln">   184  </span>}
-<span id="L185" class="ln">   185  </span>
-<span id="L186" class="ln">   186  </span><span class="comment">// RawRuleSource represents the name and namespace of the source network chaos</span>
-<span id="L187" class="ln">   187  </span>type RawRuleSource struct {
-<span id="L188" class="ln">   188  </span>	Source string `json:&#34;source&#34;`
+<span id="L183" class="ln">   183  </span>	Corrupt *CorruptSpec `json:&#34;corrupt,omitempty&#34;`
+<span id="L184" class="ln">   184  </span>
+<span id="L185" class="ln">   185  </span>	<span class="comment">// Bandwidth represents the detail about bandwidth control action</span>
+<span id="L186" class="ln">   186  </span>	<span class="comment">// +ui:form:when=action==&#39;bandwidth&#39;</span>
+<span id="L187" class="ln">   187  </span>	<span class="comment">// +optional</span>
+<span id="L188" class="ln">   188  </span>	Bandwidth *BandwidthSpec `json:&#34;bandwidth,omitempty&#34;`
 <span id="L189" class="ln">   189  </span>}
 <span id="L190" class="ln">   190  </span>
-<span id="L191" class="ln">   191  </span><span class="comment">// PodNetworkChaosStatus defines the observed state of PodNetworkChaos</span>
-<span id="L192" class="ln">   192  </span>type PodNetworkChaosStatus struct {
-<span id="L193" class="ln">   193  </span>	FailedMessage string `json:&#34;failedMessage,omitempty&#34;`
-<span id="L194" class="ln">   194  </span>
-<span id="L195" class="ln">   195  </span>	ObservedGeneration int64 `json:&#34;observedGeneration,omitempty&#34;`
-<span id="L196" class="ln">   196  </span>}
-<span id="L197" class="ln">   197  </span>
-<span id="L198" class="ln">   198  </span><span class="comment">// +kubebuilder:object:root=true</span>
+<span id="L191" class="ln">   191  </span><span class="comment">// RawRuleSource represents the name and namespace of the source network chaos</span>
+<span id="L192" class="ln">   192  </span>type RawRuleSource struct {
+<span id="L193" class="ln">   193  </span>	Source string `json:&#34;source&#34;`
+<span id="L194" class="ln">   194  </span>}
+<span id="L195" class="ln">   195  </span>
+<span id="L196" class="ln">   196  </span><span class="comment">// PodNetworkChaosStatus defines the observed state of PodNetworkChaos</span>
+<span id="L197" class="ln">   197  </span>type PodNetworkChaosStatus struct {
+<span id="L198" class="ln">   198  </span>	FailedMessage string `json:&#34;failedMessage,omitempty&#34;`
 <span id="L199" class="ln">   199  </span>
-<span id="L200" class="ln">   200  </span><span class="comment">// PodNetworkChaosList contains a list of PodNetworkChaos</span>
-<span id="L201" class="ln">   201  </span>type PodNetworkChaosList struct {
-<span id="L202" class="ln">   202  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
-<span id="L203" class="ln">   203  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
-<span id="L204" class="ln">   204  </span>	Items           []PodNetworkChaos `json:&#34;items&#34;`
-<span id="L205" class="ln">   205  </span>}
-<span id="L206" class="ln">   206  </span>
+<span id="L200" class="ln">   200  </span>	ObservedGeneration int64 `json:&#34;observedGeneration,omitempty&#34;`
+<span id="L201" class="ln">   201  </span>}
+<span id="L202" class="ln">   202  </span>
+<span id="L203" class="ln">   203  </span><span class="comment">// +kubebuilder:object:root=true</span>
+<span id="L204" class="ln">   204  </span>
+<span id="L205" class="ln">   205  </span><span class="comment">// PodNetworkChaosList contains a list of PodNetworkChaos</span>
+<span id="L206" class="ln">   206  </span>type PodNetworkChaosList struct {
+<span id="L207" class="ln">   207  </span>	metav1.TypeMeta `json:&#34;,inline&#34;`
+<span id="L208" class="ln">   208  </span>	metav1.ListMeta `json:&#34;metadata,omitempty&#34;`
+<span id="L209" class="ln">   209  </span>	Items           []PodNetworkChaos `json:&#34;items&#34;`
+<span id="L210" class="ln">   210  </span>}
+<span id="L211" class="ln">   211  </span>
 </pre><p></p>
 
 <div id="footer">
