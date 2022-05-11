@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 6111432. Generated at Tue May 10 22:03:29 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b7fe5ba. Generated at Wed May 11 10:06:45 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -129,6 +129,22 @@
 				
 				
 			
+				
+				<dd><a href="#PickChildCRDPredicate">type PickChildCRDPredicate</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PickChildCRDPredicate.Update">func (PickChildCRDPredicate) Update(e event.UpdateEvent) bool</a></dd>
+				
+			
+				
+				<dd><a href="#StatusRecordEventsChangePredicate">type StatusRecordEventsChangePredicate</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StatusRecordEventsChangePredicate.Update">func (StatusRecordEventsChangePredicate) Update(e event.UpdateEvent) bool</a></dd>
+				
+			
 			
 			</dl>
 			</div><!-- #manual-nav -->
@@ -170,7 +186,7 @@
 		
 			
 			
-			<h2 id="Bootstrap">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go#L55">Bootstrap</a>
+			<h2 id="Bootstrap">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go#L57">Bootstrap</a>
 				<a class="permalink" href="#Bootstrap">&#xb6;</a>
 				
 				
@@ -184,7 +200,7 @@
 		
 			
 			
-			<h2 id="Params">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go#L42">Params</a>
+			<h2 id="Params">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go#L44">Params</a>
 				<a class="permalink" href="#Params">&#xb6;</a>
 				
 				
@@ -214,6 +230,97 @@
 
 			
 
+			
+		
+			
+			
+			<h2 id="PickChildCRDPredicate">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go#L161">PickChildCRDPredicate</a>
+				<a class="permalink" href="#PickChildCRDPredicate">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+PickChildCRDPredicate allows events to trigger the Reconcile of Chaos CRD,
+for example:
+Reconcile of IOChaos could be triggered by changes on PodIOChaos.
+For now, we have PodHttpChaos/PodIOChaos/PodNetworkChaos which require to follow this pattern.
+</p>
+
+			<pre>type PickChildCRDPredicate struct {
+    <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/predicate/">predicate</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/predicate/#Funcs">Funcs</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="PickChildCRDPredicate.Update">func (PickChildCRDPredicate) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go#L166">Update</a>
+					<a class="permalink" href="#PickChildCRDPredicate.Update">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#PickChildCRDPredicate">PickChildCRDPredicate</a>) Update(e <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/event/">event</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/event/#UpdateEvent">UpdateEvent</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+				<p>
+Update implements UpdateEvent filter for child CRD.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="StatusRecordEventsChangePredicate">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go#L176">StatusRecordEventsChangePredicate</a>
+				<a class="permalink" href="#StatusRecordEventsChangePredicate">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+StatusRecordEventsChangePredicate skip the update event,
+when we Only update object.status.experiment.records[].events
+</p>
+
+			<pre>type StatusRecordEventsChangePredicate struct {
+    <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/predicate/">predicate</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/predicate/#Funcs">Funcs</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="StatusRecordEventsChangePredicate.Update">func (StatusRecordEventsChangePredicate) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go#L182">Update</a>
+					<a class="permalink" href="#StatusRecordEventsChangePredicate.Update">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#StatusRecordEventsChangePredicate">StatusRecordEventsChangePredicate</a>) Update(e <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/event/">event</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/event/#UpdateEvent">UpdateEvent</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+				<p>
+Update implements UpdateEvent filter for update to filter the events
+which we Only update object.status.experiment.records[].events
+</p>
+
+				
+				
+				
 			
 		
 	
