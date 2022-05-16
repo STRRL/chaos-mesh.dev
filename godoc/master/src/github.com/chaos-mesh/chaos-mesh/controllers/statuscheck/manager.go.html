@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2df6e52. Generated at Sun May 15 22:03:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d80563f. Generated at Mon May 16 10:03:07 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -189,99 +189,91 @@
 <span id="L124" class="ln">   124  </span>	worker.stop()
 <span id="L125" class="ln">   125  </span>}
 <span id="L126" class="ln">   126  </span>
-<span id="L127" class="ln">   127  </span>func (c *workerCache) get(key types.NamespacedName) (*worker, bool) {
-<span id="L128" class="ln">   128  </span>	obj, ok := c.workers.Load(key)
-<span id="L129" class="ln">   129  </span>	if !ok {
-<span id="L130" class="ln">   130  </span>		return nil, ok
-<span id="L131" class="ln">   131  </span>	}
-<span id="L132" class="ln">   132  </span>	return obj.(*worker), ok
-<span id="L133" class="ln">   133  </span>}
-<span id="L134" class="ln">   134  </span>
-<span id="L135" class="ln">   135  </span><span class="comment">// resultCache provides cached status check results.</span>
-<span id="L136" class="ln">   136  </span>type resultCache struct {
-<span id="L137" class="ln">   137  </span>	<span class="comment">// Map of NamespacedName of StatusCheck -&gt; *result</span>
-<span id="L138" class="ln">   138  </span>	results map[types.NamespacedName]Result
-<span id="L139" class="ln">   139  </span>	lock    sync.RWMutex
-<span id="L140" class="ln">   140  </span>}
-<span id="L141" class="ln">   141  </span>
-<span id="L142" class="ln">   142  </span>type Result struct {
-<span id="L143" class="ln">   143  </span>	Records []v1alpha1.StatusCheckRecord
-<span id="L144" class="ln">   144  </span>	Count   int64
-<span id="L145" class="ln">   145  </span>	<span class="comment">// recordsHistoryLimit defines the number of record to retain.</span>
-<span id="L146" class="ln">   146  </span>	recordsHistoryLimit uint
-<span id="L147" class="ln">   147  </span>}
-<span id="L148" class="ln">   148  </span>
-<span id="L149" class="ln">   149  </span><span class="comment">// init should only be called when adding a new worker.</span>
-<span id="L150" class="ln">   150  </span>func (c *resultCache) init(key types.NamespacedName, obj []v1alpha1.StatusCheckRecord, count int64, limit uint) {
-<span id="L151" class="ln">   151  </span>	c.lock.Lock()
-<span id="L152" class="ln">   152  </span>	defer c.lock.Unlock()
-<span id="L153" class="ln">   153  </span>
-<span id="L154" class="ln">   154  </span>	if _, ok := c.results[key]; ok {
-<span id="L155" class="ln">   155  </span>		return
-<span id="L156" class="ln">   156  </span>	}
-<span id="L157" class="ln">   157  </span>	if len(obj) == 0 {
-<span id="L158" class="ln">   158  </span>		obj = make([]v1alpha1.StatusCheckRecord, 0)
-<span id="L159" class="ln">   159  </span>		count = 0
-<span id="L160" class="ln">   160  </span>	}
-<span id="L161" class="ln">   161  </span>	c.results[key] = Result{
-<span id="L162" class="ln">   162  </span>		Records:             limitRecords(obj, limit),
-<span id="L163" class="ln">   163  </span>		Count:               count,
-<span id="L164" class="ln">   164  </span>		recordsHistoryLimit: limit,
-<span id="L165" class="ln">   165  </span>	}
-<span id="L166" class="ln">   166  </span>}
-<span id="L167" class="ln">   167  </span>
-<span id="L168" class="ln">   168  </span><span class="comment">// append will append the record to the cache.</span>
-<span id="L169" class="ln">   169  </span><span class="comment">// It should be only called by worker</span>
-<span id="L170" class="ln">   170  </span>func (c *resultCache) append(key types.NamespacedName, obj v1alpha1.StatusCheckRecord) {
-<span id="L171" class="ln">   171  </span>	c.lock.Lock()
-<span id="L172" class="ln">   172  </span>	defer c.lock.Unlock()
-<span id="L173" class="ln">   173  </span>
-<span id="L174" class="ln">   174  </span>	result := c.results[key]
-<span id="L175" class="ln">   175  </span>	result.Records = append(result.Records, obj)
-<span id="L176" class="ln">   176  </span>	result.Records = limitRecords(result.Records, result.recordsHistoryLimit)
-<span id="L177" class="ln">   177  </span>	result.Count++
-<span id="L178" class="ln">   178  </span>	c.results[key] = result
-<span id="L179" class="ln">   179  </span>}
-<span id="L180" class="ln">   180  </span>
-<span id="L181" class="ln">   181  </span>func (c *resultCache) delete(key types.NamespacedName) {
-<span id="L182" class="ln">   182  </span>	c.lock.Lock()
-<span id="L183" class="ln">   183  </span>	defer c.lock.Unlock()
-<span id="L184" class="ln">   184  </span>
-<span id="L185" class="ln">   185  </span>	delete(c.results, key)
-<span id="L186" class="ln">   186  </span>}
-<span id="L187" class="ln">   187  </span>
-<span id="L188" class="ln">   188  </span>func (c *resultCache) get(key types.NamespacedName) (Result, bool) {
-<span id="L189" class="ln">   189  </span>	c.lock.RLock()
-<span id="L190" class="ln">   190  </span>	defer c.lock.RUnlock()
-<span id="L191" class="ln">   191  </span>	result, ok := c.results[key]
-<span id="L192" class="ln">   192  </span>	return result, ok
+<span id="L127" class="ln">   127  </span><span class="comment">// resultCache provides cached status check results.</span>
+<span id="L128" class="ln">   128  </span>type resultCache struct {
+<span id="L129" class="ln">   129  </span>	<span class="comment">// Map of NamespacedName of StatusCheck -&gt; *result</span>
+<span id="L130" class="ln">   130  </span>	results map[types.NamespacedName]Result
+<span id="L131" class="ln">   131  </span>	lock    sync.RWMutex
+<span id="L132" class="ln">   132  </span>}
+<span id="L133" class="ln">   133  </span>
+<span id="L134" class="ln">   134  </span>type Result struct {
+<span id="L135" class="ln">   135  </span>	Records []v1alpha1.StatusCheckRecord
+<span id="L136" class="ln">   136  </span>	Count   int64
+<span id="L137" class="ln">   137  </span>	<span class="comment">// recordsHistoryLimit defines the number of record to retain.</span>
+<span id="L138" class="ln">   138  </span>	recordsHistoryLimit uint
+<span id="L139" class="ln">   139  </span>}
+<span id="L140" class="ln">   140  </span>
+<span id="L141" class="ln">   141  </span><span class="comment">// init should only be called when adding a new worker.</span>
+<span id="L142" class="ln">   142  </span>func (c *resultCache) init(key types.NamespacedName, obj []v1alpha1.StatusCheckRecord, count int64, limit uint) {
+<span id="L143" class="ln">   143  </span>	c.lock.Lock()
+<span id="L144" class="ln">   144  </span>	defer c.lock.Unlock()
+<span id="L145" class="ln">   145  </span>
+<span id="L146" class="ln">   146  </span>	if _, ok := c.results[key]; ok {
+<span id="L147" class="ln">   147  </span>		return
+<span id="L148" class="ln">   148  </span>	}
+<span id="L149" class="ln">   149  </span>	if len(obj) == 0 {
+<span id="L150" class="ln">   150  </span>		obj = make([]v1alpha1.StatusCheckRecord, 0)
+<span id="L151" class="ln">   151  </span>		count = 0
+<span id="L152" class="ln">   152  </span>	}
+<span id="L153" class="ln">   153  </span>	c.results[key] = Result{
+<span id="L154" class="ln">   154  </span>		Records:             limitRecords(obj, limit),
+<span id="L155" class="ln">   155  </span>		Count:               count,
+<span id="L156" class="ln">   156  </span>		recordsHistoryLimit: limit,
+<span id="L157" class="ln">   157  </span>	}
+<span id="L158" class="ln">   158  </span>}
+<span id="L159" class="ln">   159  </span>
+<span id="L160" class="ln">   160  </span><span class="comment">// append will append the record to the cache.</span>
+<span id="L161" class="ln">   161  </span><span class="comment">// It should be only called by worker</span>
+<span id="L162" class="ln">   162  </span>func (c *resultCache) append(key types.NamespacedName, obj v1alpha1.StatusCheckRecord) {
+<span id="L163" class="ln">   163  </span>	c.lock.Lock()
+<span id="L164" class="ln">   164  </span>	defer c.lock.Unlock()
+<span id="L165" class="ln">   165  </span>
+<span id="L166" class="ln">   166  </span>	result := c.results[key]
+<span id="L167" class="ln">   167  </span>	result.Records = append(result.Records, obj)
+<span id="L168" class="ln">   168  </span>	result.Records = limitRecords(result.Records, result.recordsHistoryLimit)
+<span id="L169" class="ln">   169  </span>	result.Count++
+<span id="L170" class="ln">   170  </span>	c.results[key] = result
+<span id="L171" class="ln">   171  </span>}
+<span id="L172" class="ln">   172  </span>
+<span id="L173" class="ln">   173  </span>func (c *resultCache) delete(key types.NamespacedName) {
+<span id="L174" class="ln">   174  </span>	c.lock.Lock()
+<span id="L175" class="ln">   175  </span>	defer c.lock.Unlock()
+<span id="L176" class="ln">   176  </span>
+<span id="L177" class="ln">   177  </span>	delete(c.results, key)
+<span id="L178" class="ln">   178  </span>}
+<span id="L179" class="ln">   179  </span>
+<span id="L180" class="ln">   180  </span>func (c *resultCache) get(key types.NamespacedName) (Result, bool) {
+<span id="L181" class="ln">   181  </span>	c.lock.RLock()
+<span id="L182" class="ln">   182  </span>	defer c.lock.RUnlock()
+<span id="L183" class="ln">   183  </span>	result, ok := c.results[key]
+<span id="L184" class="ln">   184  </span>	return result, ok
+<span id="L185" class="ln">   185  </span>}
+<span id="L186" class="ln">   186  </span>
+<span id="L187" class="ln">   187  </span>func limitRecords(records []v1alpha1.StatusCheckRecord, limit uint) []v1alpha1.StatusCheckRecord {
+<span id="L188" class="ln">   188  </span>	length := len(records)
+<span id="L189" class="ln">   189  </span>	if length &lt; int(limit) {
+<span id="L190" class="ln">   190  </span>		return records
+<span id="L191" class="ln">   191  </span>	}
+<span id="L192" class="ln">   192  </span>	return records[length-int(limit):]
 <span id="L193" class="ln">   193  </span>}
 <span id="L194" class="ln">   194  </span>
-<span id="L195" class="ln">   195  </span>func limitRecords(records []v1alpha1.StatusCheckRecord, limit uint) []v1alpha1.StatusCheckRecord {
-<span id="L196" class="ln">   196  </span>	length := len(records)
-<span id="L197" class="ln">   197  </span>	if length &lt; int(limit) {
-<span id="L198" class="ln">   198  </span>		return records
-<span id="L199" class="ln">   199  </span>	}
-<span id="L200" class="ln">   200  </span>	return records[length-int(limit):]
-<span id="L201" class="ln">   201  </span>}
-<span id="L202" class="ln">   202  </span>
-<span id="L203" class="ln">   203  </span>func newExecutor(logger logr.Logger, statusCheck v1alpha1.StatusCheck) (Executor, error) {
-<span id="L204" class="ln">   204  </span>	var executor Executor
-<span id="L205" class="ln">   205  </span>	switch statusCheck.Spec.Type {
-<span id="L206" class="ln">   206  </span>	case v1alpha1.TypeHTTP:
-<span id="L207" class="ln">   207  </span>		if statusCheck.Spec.EmbedStatusCheck == nil || statusCheck.Spec.HTTPStatusCheck == nil {
-<span id="L208" class="ln">   208  </span>			<span class="comment">// this should not happen, if the webhook works as expected</span>
-<span id="L209" class="ln">   209  </span>			return nil, errors.New(&#34;illegal status check, http should not be empty&#34;)
-<span id="L210" class="ln">   210  </span>		}
-<span id="L211" class="ln">   211  </span>		executor = http.NewExecutor(
-<span id="L212" class="ln">   212  </span>			logger.WithName(&#34;http-executor&#34;).WithValues(&#34;url&#34;, statusCheck.Spec.HTTPStatusCheck.RequestUrl),
-<span id="L213" class="ln">   213  </span>			statusCheck.Spec.TimeoutSeconds, *statusCheck.Spec.HTTPStatusCheck)
-<span id="L214" class="ln">   214  </span>	default:
-<span id="L215" class="ln">   215  </span>		return nil, errors.Errorf(&#34;unsupported type &#39;%s&#39;&#34;, statusCheck.Spec.Type)
-<span id="L216" class="ln">   216  </span>	}
-<span id="L217" class="ln">   217  </span>	return executor, nil
-<span id="L218" class="ln">   218  </span>}
-<span id="L219" class="ln">   219  </span>
+<span id="L195" class="ln">   195  </span>func newExecutor(logger logr.Logger, statusCheck v1alpha1.StatusCheck) (Executor, error) {
+<span id="L196" class="ln">   196  </span>	var executor Executor
+<span id="L197" class="ln">   197  </span>	switch statusCheck.Spec.Type {
+<span id="L198" class="ln">   198  </span>	case v1alpha1.TypeHTTP:
+<span id="L199" class="ln">   199  </span>		if statusCheck.Spec.EmbedStatusCheck == nil || statusCheck.Spec.HTTPStatusCheck == nil {
+<span id="L200" class="ln">   200  </span>			<span class="comment">// this should not happen, if the webhook works as expected</span>
+<span id="L201" class="ln">   201  </span>			return nil, errors.New(&#34;illegal status check, http should not be empty&#34;)
+<span id="L202" class="ln">   202  </span>		}
+<span id="L203" class="ln">   203  </span>		executor = http.NewExecutor(
+<span id="L204" class="ln">   204  </span>			logger.WithName(&#34;http-executor&#34;).WithValues(&#34;url&#34;, statusCheck.Spec.HTTPStatusCheck.RequestUrl),
+<span id="L205" class="ln">   205  </span>			statusCheck.Spec.TimeoutSeconds, *statusCheck.Spec.HTTPStatusCheck)
+<span id="L206" class="ln">   206  </span>	default:
+<span id="L207" class="ln">   207  </span>		return nil, errors.Errorf(&#34;unsupported type &#39;%s&#39;&#34;, statusCheck.Spec.Type)
+<span id="L208" class="ln">   208  </span>	}
+<span id="L209" class="ln">   209  </span>	return executor, nil
+<span id="L210" class="ln">   210  </span>}
+<span id="L211" class="ln">   211  </span>
 </pre><p></p>
 
 <div id="footer">
