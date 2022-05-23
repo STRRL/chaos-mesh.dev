@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2eca5c1. Generated at Sun May 22 22:03:48 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 61532d2. Generated at Mon May 23 10:01:37 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -132,6 +132,9 @@ See <a href="https://github.com/chaos-mesh/rfcs/blob/main/text/2021-12-09-loggin
 				<dd><a href="#NewDefaultZapLogger">func NewDefaultZapLogger() (logr.Logger, error)</a></dd>
 			
 				
+				<dd><a href="#NewZapLoggerWithWriter">func NewZapLoggerWithWriter(out io.Writer) logr.Logger</a></dd>
+			
+				
 				<dd><a href="#ReplaceGlobals">func ReplaceGlobals(logger logr.Logger)</a></dd>
 			
 			
@@ -225,7 +228,7 @@ Deprecated: Do not use global logger anymore. For more detail, see
 		
 			
 			
-			<h2 id="NewDefaultZapLogger">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/log/zap.go#L26">NewDefaultZapLogger</a>
+			<h2 id="NewDefaultZapLogger">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/log/zap.go#L29">NewDefaultZapLogger</a>
 				<a class="permalink" href="#NewDefaultZapLogger">&#xb6;</a>
 				
 				
@@ -234,6 +237,24 @@ Deprecated: Do not use global logger anymore. For more detail, see
 			<p>
 NewDefaultZapLogger is the recommended way to create a new logger, you could call this function to initialize the root
 logger of your application, and provide it to your components, by fx or manually.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="NewZapLoggerWithWriter">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/log/zap.go#L42">NewZapLoggerWithWriter</a>
+				<a class="permalink" href="#NewZapLoggerWithWriter">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewZapLoggerWithWriter(out <a href="https:/chaos-mesh.dev/godoc/master/pkg/io/">io</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/io/#Writer">Writer</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a></pre>
+			<p>
+NewZapLoggerWithWriter creates a new logger with io.writer
+The provided encoder presets NewDevelopmentEncoderConfig used by NewDevelopmentConfig do not enable function name logging.
+To enable function name, a non-empty value for config.EncoderConfig.FunctionKey.
 </p>
 
 			
