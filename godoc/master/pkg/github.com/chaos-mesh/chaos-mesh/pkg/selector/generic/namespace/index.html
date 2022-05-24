@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 61532d2. Generated at Mon May 23 22:03:48 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c743fc2. Generated at Tue May 24 10:01:46 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -118,7 +118,7 @@
 			
 			
 				
-				<dd><a href="#CheckNamespace">func CheckNamespace(ctx context.Context, c client.Client, namespace string) bool</a></dd>
+				<dd><a href="#CheckNamespace">func CheckNamespace(ctx context.Context, c client.Client, namespace string, logger logr.Logger) bool</a></dd>
 			
 				
 				<dd><a href="#IsAllowedNamespaces">func IsAllowedNamespaces(ctx context.Context, c client.Client, namespace string) (bool, error)</a></dd>
@@ -159,12 +159,12 @@
 		
 			
 			
-			<h2 id="CheckNamespace">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/generic/namespace/selector.go#L87">CheckNamespace</a>
+			<h2 id="CheckNamespace">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/generic/namespace/selector.go#L85">CheckNamespace</a>
 				<a class="permalink" href="#CheckNamespace">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func CheckNamespace(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, c <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, namespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+			<pre>func CheckNamespace(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, c <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, namespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
 			
 			
 			
@@ -172,7 +172,7 @@
 		
 			
 			
-			<h2 id="IsAllowedNamespaces">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/generic/namespace/selector.go#L100">IsAllowedNamespaces</a>
+			<h2 id="IsAllowedNamespaces">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/generic/namespace/selector.go#L98">IsAllowedNamespaces</a>
 				<a class="permalink" href="#IsAllowedNamespaces">&#xb6;</a>
 				
 				
@@ -185,7 +185,7 @@
 		
 			
 			
-			<h2 id="New">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/generic/namespace/selector.go#L66">New</a>
+			<h2 id="New">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/generic/namespace/selector.go#L64">New</a>
 				<a class="permalink" href="#New">&#xb6;</a>
 				
 				

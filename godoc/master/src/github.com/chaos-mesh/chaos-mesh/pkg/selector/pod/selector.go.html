@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 61532d2. Generated at Mon May 23 22:03:48 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c743fc2. Generated at Tue May 24 10:01:46 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -220,163 +220,169 @@
 <span id="L155" class="ln">   155  </span>	clusterScoped bool, targetNamespace string, enableFilterNamespace bool) ([]v1.Pod, error) {
 <span id="L156" class="ln">   156  </span>	var pods []v1.Pod
 <span id="L157" class="ln">   157  </span>	namespaceCheck := make(map[string]bool)
-<span id="L158" class="ln">   158  </span>
-<span id="L159" class="ln">   159  </span>	for ns, names := range spec.Pods {
-<span id="L160" class="ln">   160  </span>		if !clusterScoped {
-<span id="L161" class="ln">   161  </span>			if targetNamespace != ns {
-<span id="L162" class="ln">   162  </span>				log.L().WithName(&#34;pod-selector&#34;).Info(&#34;skip namespace because ns is out of scope within namespace scoped mode&#34;, &#34;namespace&#34;, ns)
-<span id="L163" class="ln">   163  </span>				continue
-<span id="L164" class="ln">   164  </span>			}
-<span id="L165" class="ln">   165  </span>		}
-<span id="L166" class="ln">   166  </span>
-<span id="L167" class="ln">   167  </span>		if enableFilterNamespace {
-<span id="L168" class="ln">   168  </span>			allow, ok := namespaceCheck[ns]
-<span id="L169" class="ln">   169  </span>			if !ok {
-<span id="L170" class="ln">   170  </span>				allow = genericnamespace.CheckNamespace(ctx, c, ns)
-<span id="L171" class="ln">   171  </span>				namespaceCheck[ns] = allow
-<span id="L172" class="ln">   172  </span>			}
-<span id="L173" class="ln">   173  </span>			if !allow {
-<span id="L174" class="ln">   174  </span>				continue
+<span id="L158" class="ln">   158  </span>	logger, err := log.NewDefaultZapLogger()
+<span id="L159" class="ln">   159  </span>	if err != nil {
+<span id="L160" class="ln">   160  </span>		return pods, errors.Wrap(err, &#34;failed to create logger&#34;)
+<span id="L161" class="ln">   161  </span>	}
+<span id="L162" class="ln">   162  </span>	for ns, names := range spec.Pods {
+<span id="L163" class="ln">   163  </span>		if !clusterScoped {
+<span id="L164" class="ln">   164  </span>			if targetNamespace != ns {
+<span id="L165" class="ln">   165  </span>				log.L().WithName(&#34;pod-selector&#34;).Info(&#34;skip namespace because ns is out of scope within namespace scoped mode&#34;, &#34;namespace&#34;, ns)
+<span id="L166" class="ln">   166  </span>				continue
+<span id="L167" class="ln">   167  </span>			}
+<span id="L168" class="ln">   168  </span>		}
+<span id="L169" class="ln">   169  </span>
+<span id="L170" class="ln">   170  </span>		if enableFilterNamespace {
+<span id="L171" class="ln">   171  </span>			allow, ok := namespaceCheck[ns]
+<span id="L172" class="ln">   172  </span>			if !ok {
+<span id="L173" class="ln">   173  </span>				allow = genericnamespace.CheckNamespace(ctx, c, ns, logger)
+<span id="L174" class="ln">   174  </span>				namespaceCheck[ns] = allow
 <span id="L175" class="ln">   175  </span>			}
-<span id="L176" class="ln">   176  </span>		}
-<span id="L177" class="ln">   177  </span>		for _, name := range names {
-<span id="L178" class="ln">   178  </span>			var pod v1.Pod
-<span id="L179" class="ln">   179  </span>			err := c.Get(ctx, types.NamespacedName{
-<span id="L180" class="ln">   180  </span>				Namespace: ns,
-<span id="L181" class="ln">   181  </span>				Name:      name,
-<span id="L182" class="ln">   182  </span>			}, &amp;pod)
-<span id="L183" class="ln">   183  </span>			if err == nil {
-<span id="L184" class="ln">   184  </span>				pods = append(pods, pod)
-<span id="L185" class="ln">   185  </span>				continue
-<span id="L186" class="ln">   186  </span>			}
-<span id="L187" class="ln">   187  </span>
-<span id="L188" class="ln">   188  </span>			if apierrors.IsNotFound(err) {
-<span id="L189" class="ln">   189  </span>				log.L().WithName(&#34;pod-selector&#34;).Info(&#34;pod is not found, skip it&#34;, &#34;namespace&#34;, ns, &#34;pod name&#34;, name)
-<span id="L190" class="ln">   190  </span>				continue
-<span id="L191" class="ln">   191  </span>			}
-<span id="L192" class="ln">   192  </span>
-<span id="L193" class="ln">   193  </span>			return nil, err
-<span id="L194" class="ln">   194  </span>		}
-<span id="L195" class="ln">   195  </span>	}
-<span id="L196" class="ln">   196  </span>	return pods, nil
-<span id="L197" class="ln">   197  </span>}
-<span id="L198" class="ln">   198  </span>
-<span id="L199" class="ln">   199  </span><span class="comment">//revive:enable:flag-parameter</span>
-<span id="L200" class="ln">   200  </span>
-<span id="L201" class="ln">   201  </span><span class="comment">// CheckPodMeetSelector checks if this pod meets the selection criteria.</span>
-<span id="L202" class="ln">   202  </span>func CheckPodMeetSelector(ctx context.Context, c client.Client, pod v1.Pod, selector v1alpha1.PodSelectorSpec, clusterScoped bool, targetNamespace string, enableFilterNamespace bool) (bool, error) {
-<span id="L203" class="ln">   203  </span>	if len(selector.Pods) &gt; 0 {
-<span id="L204" class="ln">   204  </span>		meet := false
-<span id="L205" class="ln">   205  </span>		for ns, names := range selector.Pods {
-<span id="L206" class="ln">   206  </span>			if pod.Namespace != ns {
-<span id="L207" class="ln">   207  </span>				continue
-<span id="L208" class="ln">   208  </span>			}
-<span id="L209" class="ln">   209  </span>
-<span id="L210" class="ln">   210  </span>			for _, name := range names {
-<span id="L211" class="ln">   211  </span>				if pod.Name == name {
-<span id="L212" class="ln">   212  </span>					meet = true
-<span id="L213" class="ln">   213  </span>				}
-<span id="L214" class="ln">   214  </span>			}
-<span id="L215" class="ln">   215  </span>
-<span id="L216" class="ln">   216  </span>			if !meet {
-<span id="L217" class="ln">   217  </span>				return false, nil
-<span id="L218" class="ln">   218  </span>			}
-<span id="L219" class="ln">   219  </span>		}
-<span id="L220" class="ln">   220  </span>	}
-<span id="L221" class="ln">   221  </span>
-<span id="L222" class="ln">   222  </span>	selectorRegistry := newSelectorRegistry(ctx, c, selector)
-<span id="L223" class="ln">   223  </span>	selectorChain, err := registry.Parse(selectorRegistry, selector.GenericSelectorSpec, generic.Option{
-<span id="L224" class="ln">   224  </span>		ClusterScoped:         clusterScoped,
-<span id="L225" class="ln">   225  </span>		TargetNamespace:       targetNamespace,
-<span id="L226" class="ln">   226  </span>		EnableFilterNamespace: enableFilterNamespace,
-<span id="L227" class="ln">   227  </span>	})
-<span id="L228" class="ln">   228  </span>	if err != nil {
-<span id="L229" class="ln">   229  </span>		return false, err
-<span id="L230" class="ln">   230  </span>	}
-<span id="L231" class="ln">   231  </span>
-<span id="L232" class="ln">   232  </span>	return selectorChain.Match(&amp;pod), nil
-<span id="L233" class="ln">   233  </span>}
+<span id="L176" class="ln">   176  </span>			if !allow {
+<span id="L177" class="ln">   177  </span>				continue
+<span id="L178" class="ln">   178  </span>			}
+<span id="L179" class="ln">   179  </span>		}
+<span id="L180" class="ln">   180  </span>		for _, name := range names {
+<span id="L181" class="ln">   181  </span>			var pod v1.Pod
+<span id="L182" class="ln">   182  </span>			err := c.Get(ctx, types.NamespacedName{
+<span id="L183" class="ln">   183  </span>				Namespace: ns,
+<span id="L184" class="ln">   184  </span>				Name:      name,
+<span id="L185" class="ln">   185  </span>			}, &amp;pod)
+<span id="L186" class="ln">   186  </span>			if err == nil {
+<span id="L187" class="ln">   187  </span>				pods = append(pods, pod)
+<span id="L188" class="ln">   188  </span>				continue
+<span id="L189" class="ln">   189  </span>			}
+<span id="L190" class="ln">   190  </span>
+<span id="L191" class="ln">   191  </span>			if apierrors.IsNotFound(err) {
+<span id="L192" class="ln">   192  </span>				log.L().WithName(&#34;pod-selector&#34;).Info(&#34;pod is not found, skip it&#34;, &#34;namespace&#34;, ns, &#34;pod name&#34;, name)
+<span id="L193" class="ln">   193  </span>				continue
+<span id="L194" class="ln">   194  </span>			}
+<span id="L195" class="ln">   195  </span>
+<span id="L196" class="ln">   196  </span>			return nil, err
+<span id="L197" class="ln">   197  </span>		}
+<span id="L198" class="ln">   198  </span>	}
+<span id="L199" class="ln">   199  </span>	return pods, nil
+<span id="L200" class="ln">   200  </span>}
+<span id="L201" class="ln">   201  </span>
+<span id="L202" class="ln">   202  </span><span class="comment">//revive:enable:flag-parameter</span>
+<span id="L203" class="ln">   203  </span>
+<span id="L204" class="ln">   204  </span><span class="comment">// CheckPodMeetSelector checks if this pod meets the selection criteria.</span>
+<span id="L205" class="ln">   205  </span>func CheckPodMeetSelector(ctx context.Context, c client.Client, pod v1.Pod, selector v1alpha1.PodSelectorSpec, clusterScoped bool, targetNamespace string, enableFilterNamespace bool) (bool, error) {
+<span id="L206" class="ln">   206  </span>	if len(selector.Pods) &gt; 0 {
+<span id="L207" class="ln">   207  </span>		meet := false
+<span id="L208" class="ln">   208  </span>		for ns, names := range selector.Pods {
+<span id="L209" class="ln">   209  </span>			if pod.Namespace != ns {
+<span id="L210" class="ln">   210  </span>				continue
+<span id="L211" class="ln">   211  </span>			}
+<span id="L212" class="ln">   212  </span>
+<span id="L213" class="ln">   213  </span>			for _, name := range names {
+<span id="L214" class="ln">   214  </span>				if pod.Name == name {
+<span id="L215" class="ln">   215  </span>					meet = true
+<span id="L216" class="ln">   216  </span>				}
+<span id="L217" class="ln">   217  </span>			}
+<span id="L218" class="ln">   218  </span>
+<span id="L219" class="ln">   219  </span>			if !meet {
+<span id="L220" class="ln">   220  </span>				return false, nil
+<span id="L221" class="ln">   221  </span>			}
+<span id="L222" class="ln">   222  </span>		}
+<span id="L223" class="ln">   223  </span>	}
+<span id="L224" class="ln">   224  </span>
+<span id="L225" class="ln">   225  </span>	selectorRegistry := newSelectorRegistry(ctx, c, selector)
+<span id="L226" class="ln">   226  </span>	selectorChain, err := registry.Parse(selectorRegistry, selector.GenericSelectorSpec, generic.Option{
+<span id="L227" class="ln">   227  </span>		ClusterScoped:         clusterScoped,
+<span id="L228" class="ln">   228  </span>		TargetNamespace:       targetNamespace,
+<span id="L229" class="ln">   229  </span>		EnableFilterNamespace: enableFilterNamespace,
+<span id="L230" class="ln">   230  </span>	})
+<span id="L231" class="ln">   231  </span>	if err != nil {
+<span id="L232" class="ln">   232  </span>		return false, err
+<span id="L233" class="ln">   233  </span>	}
 <span id="L234" class="ln">   234  </span>
-<span id="L235" class="ln">   235  </span>func newSelectorRegistry(ctx context.Context, c client.Client, spec v1alpha1.PodSelectorSpec) registry.Registry {
-<span id="L236" class="ln">   236  </span>	return map[string]registry.SelectorFactory{
-<span id="L237" class="ln">   237  </span>		genericlabel.Name:      genericlabel.New,
-<span id="L238" class="ln">   238  </span>		genericnamespace.Name:  genericnamespace.New,
-<span id="L239" class="ln">   239  </span>		genericfield.Name:      genericfield.New,
-<span id="L240" class="ln">   240  </span>		genericannotation.Name: genericannotation.New,
-<span id="L241" class="ln">   241  </span>		nodeSelectorName: func(selector v1alpha1.GenericSelectorSpec, _ generic.Option) (generic.Selector, error) {
-<span id="L242" class="ln">   242  </span>			return newNodeSelector(ctx, c, spec)
-<span id="L243" class="ln">   243  </span>		},
-<span id="L244" class="ln">   244  </span>		phaseSelectorName: func(selector v1alpha1.GenericSelectorSpec, _ generic.Option) (generic.Selector, error) {
-<span id="L245" class="ln">   245  </span>			return newPhaseSelector(spec)
+<span id="L235" class="ln">   235  </span>	return selectorChain.Match(&amp;pod), nil
+<span id="L236" class="ln">   236  </span>}
+<span id="L237" class="ln">   237  </span>
+<span id="L238" class="ln">   238  </span>func newSelectorRegistry(ctx context.Context, c client.Client, spec v1alpha1.PodSelectorSpec) registry.Registry {
+<span id="L239" class="ln">   239  </span>	return map[string]registry.SelectorFactory{
+<span id="L240" class="ln">   240  </span>		genericlabel.Name:      genericlabel.New,
+<span id="L241" class="ln">   241  </span>		genericnamespace.Name:  genericnamespace.New,
+<span id="L242" class="ln">   242  </span>		genericfield.Name:      genericfield.New,
+<span id="L243" class="ln">   243  </span>		genericannotation.Name: genericannotation.New,
+<span id="L244" class="ln">   244  </span>		nodeSelectorName: func(selector v1alpha1.GenericSelectorSpec, _ generic.Option) (generic.Selector, error) {
+<span id="L245" class="ln">   245  </span>			return newNodeSelector(ctx, c, spec)
 <span id="L246" class="ln">   246  </span>		},
-<span id="L247" class="ln">   247  </span>	}
-<span id="L248" class="ln">   248  </span>}
-<span id="L249" class="ln">   249  </span>
-<span id="L250" class="ln">   250  </span>func listPods(ctx context.Context, c client.Client, r client.Reader, spec v1alpha1.PodSelectorSpec,
-<span id="L251" class="ln">   251  </span>	selectorChain generic.SelectorChain, enableFilterNamespace bool) ([]v1.Pod, error) {
-<span id="L252" class="ln">   252  </span>	var pods []v1.Pod
-<span id="L253" class="ln">   253  </span>	namespaceCheck := make(map[string]bool)
-<span id="L254" class="ln">   254  </span>
-<span id="L255" class="ln">   255  </span>	if err := selectorChain.ListObjects(c, r,
-<span id="L256" class="ln">   256  </span>		func(listFunc generic.ListFunc, opts client.ListOptions) error {
-<span id="L257" class="ln">   257  </span>			var podList v1.PodList
-<span id="L258" class="ln">   258  </span>			if len(spec.Namespaces) &gt; 0 {
-<span id="L259" class="ln">   259  </span>				for _, namespace := range spec.Namespaces {
-<span id="L260" class="ln">   260  </span>					if enableFilterNamespace {
-<span id="L261" class="ln">   261  </span>						allow, ok := namespaceCheck[namespace]
-<span id="L262" class="ln">   262  </span>						if !ok {
-<span id="L263" class="ln">   263  </span>							allow = genericnamespace.CheckNamespace(ctx, c, namespace)
-<span id="L264" class="ln">   264  </span>							namespaceCheck[namespace] = allow
-<span id="L265" class="ln">   265  </span>						}
-<span id="L266" class="ln">   266  </span>						if !allow {
-<span id="L267" class="ln">   267  </span>							continue
-<span id="L268" class="ln">   268  </span>						}
-<span id="L269" class="ln">   269  </span>					}
-<span id="L270" class="ln">   270  </span>
-<span id="L271" class="ln">   271  </span>					opts.Namespace = namespace
-<span id="L272" class="ln">   272  </span>					if err := listFunc(ctx, &amp;podList, &amp;opts); err != nil {
-<span id="L273" class="ln">   273  </span>						return err
-<span id="L274" class="ln">   274  </span>					}
-<span id="L275" class="ln">   275  </span>					pods = append(pods, podList.Items...)
-<span id="L276" class="ln">   276  </span>				}
-<span id="L277" class="ln">   277  </span>			} else {
-<span id="L278" class="ln">   278  </span>				<span class="comment">// in fact, this will never happen</span>
-<span id="L279" class="ln">   279  </span>				if err := listFunc(ctx, &amp;podList, &amp;opts); err != nil {
-<span id="L280" class="ln">   280  </span>					return err
-<span id="L281" class="ln">   281  </span>				}
-<span id="L282" class="ln">   282  </span>				pods = append(pods, podList.Items...)
-<span id="L283" class="ln">   283  </span>			}
-<span id="L284" class="ln">   284  </span>			return nil
-<span id="L285" class="ln">   285  </span>		}); err != nil {
-<span id="L286" class="ln">   286  </span>		return nil, err
-<span id="L287" class="ln">   287  </span>	}
-<span id="L288" class="ln">   288  </span>
-<span id="L289" class="ln">   289  </span>	filterPods := make([]v1.Pod, 0, len(pods))
-<span id="L290" class="ln">   290  </span>	for _, pod := range pods {
-<span id="L291" class="ln">   291  </span>		pod := pod
-<span id="L292" class="ln">   292  </span>		if selectorChain.Match(&amp;pod) {
-<span id="L293" class="ln">   293  </span>			filterPods = append(filterPods, pod)
-<span id="L294" class="ln">   294  </span>		}
-<span id="L295" class="ln">   295  </span>	}
-<span id="L296" class="ln">   296  </span>	return filterPods, nil
-<span id="L297" class="ln">   297  </span>}
-<span id="L298" class="ln">   298  </span>
-<span id="L299" class="ln">   299  </span><span class="comment">// filterPodsByMode filters pods by mode from pod list</span>
-<span id="L300" class="ln">   300  </span>func filterPodsByMode(pods []v1.Pod, mode v1alpha1.SelectorMode, value string) ([]v1.Pod, error) {
-<span id="L301" class="ln">   301  </span>	indexes, err := generic.FilterObjectsByMode(mode, value, len(pods))
-<span id="L302" class="ln">   302  </span>	if err != nil {
-<span id="L303" class="ln">   303  </span>		return nil, err
-<span id="L304" class="ln">   304  </span>	}
-<span id="L305" class="ln">   305  </span>
-<span id="L306" class="ln">   306  </span>	var filteredPods []v1.Pod
-<span id="L307" class="ln">   307  </span>
-<span id="L308" class="ln">   308  </span>	for _, index := range indexes {
-<span id="L309" class="ln">   309  </span>		index := index
-<span id="L310" class="ln">   310  </span>		filteredPods = append(filteredPods, pods[index])
-<span id="L311" class="ln">   311  </span>	}
-<span id="L312" class="ln">   312  </span>	return filteredPods, nil
-<span id="L313" class="ln">   313  </span>}
-<span id="L314" class="ln">   314  </span>
+<span id="L247" class="ln">   247  </span>		phaseSelectorName: func(selector v1alpha1.GenericSelectorSpec, _ generic.Option) (generic.Selector, error) {
+<span id="L248" class="ln">   248  </span>			return newPhaseSelector(spec)
+<span id="L249" class="ln">   249  </span>		},
+<span id="L250" class="ln">   250  </span>	}
+<span id="L251" class="ln">   251  </span>}
+<span id="L252" class="ln">   252  </span>
+<span id="L253" class="ln">   253  </span>func listPods(ctx context.Context, c client.Client, r client.Reader, spec v1alpha1.PodSelectorSpec,
+<span id="L254" class="ln">   254  </span>	selectorChain generic.SelectorChain, enableFilterNamespace bool) ([]v1.Pod, error) {
+<span id="L255" class="ln">   255  </span>	var pods []v1.Pod
+<span id="L256" class="ln">   256  </span>	namespaceCheck := make(map[string]bool)
+<span id="L257" class="ln">   257  </span>	logger, err := log.NewDefaultZapLogger()
+<span id="L258" class="ln">   258  </span>	if err != nil {
+<span id="L259" class="ln">   259  </span>		return pods, errors.Wrap(err, &#34;failed to create logger&#34;)
+<span id="L260" class="ln">   260  </span>	}
+<span id="L261" class="ln">   261  </span>	if err := selectorChain.ListObjects(c, r,
+<span id="L262" class="ln">   262  </span>		func(listFunc generic.ListFunc, opts client.ListOptions) error {
+<span id="L263" class="ln">   263  </span>			var podList v1.PodList
+<span id="L264" class="ln">   264  </span>			if len(spec.Namespaces) &gt; 0 {
+<span id="L265" class="ln">   265  </span>				for _, namespace := range spec.Namespaces {
+<span id="L266" class="ln">   266  </span>					if enableFilterNamespace {
+<span id="L267" class="ln">   267  </span>						allow, ok := namespaceCheck[namespace]
+<span id="L268" class="ln">   268  </span>						if !ok {
+<span id="L269" class="ln">   269  </span>							allow = genericnamespace.CheckNamespace(ctx, c, namespace, logger)
+<span id="L270" class="ln">   270  </span>							namespaceCheck[namespace] = allow
+<span id="L271" class="ln">   271  </span>						}
+<span id="L272" class="ln">   272  </span>						if !allow {
+<span id="L273" class="ln">   273  </span>							continue
+<span id="L274" class="ln">   274  </span>						}
+<span id="L275" class="ln">   275  </span>					}
+<span id="L276" class="ln">   276  </span>
+<span id="L277" class="ln">   277  </span>					opts.Namespace = namespace
+<span id="L278" class="ln">   278  </span>					if err := listFunc(ctx, &amp;podList, &amp;opts); err != nil {
+<span id="L279" class="ln">   279  </span>						return err
+<span id="L280" class="ln">   280  </span>					}
+<span id="L281" class="ln">   281  </span>					pods = append(pods, podList.Items...)
+<span id="L282" class="ln">   282  </span>				}
+<span id="L283" class="ln">   283  </span>			} else {
+<span id="L284" class="ln">   284  </span>				<span class="comment">// in fact, this will never happen</span>
+<span id="L285" class="ln">   285  </span>				if err := listFunc(ctx, &amp;podList, &amp;opts); err != nil {
+<span id="L286" class="ln">   286  </span>					return err
+<span id="L287" class="ln">   287  </span>				}
+<span id="L288" class="ln">   288  </span>				pods = append(pods, podList.Items...)
+<span id="L289" class="ln">   289  </span>			}
+<span id="L290" class="ln">   290  </span>			return nil
+<span id="L291" class="ln">   291  </span>		}); err != nil {
+<span id="L292" class="ln">   292  </span>		return nil, err
+<span id="L293" class="ln">   293  </span>	}
+<span id="L294" class="ln">   294  </span>
+<span id="L295" class="ln">   295  </span>	filterPods := make([]v1.Pod, 0, len(pods))
+<span id="L296" class="ln">   296  </span>	for _, pod := range pods {
+<span id="L297" class="ln">   297  </span>		pod := pod
+<span id="L298" class="ln">   298  </span>		if selectorChain.Match(&amp;pod) {
+<span id="L299" class="ln">   299  </span>			filterPods = append(filterPods, pod)
+<span id="L300" class="ln">   300  </span>		}
+<span id="L301" class="ln">   301  </span>	}
+<span id="L302" class="ln">   302  </span>	return filterPods, nil
+<span id="L303" class="ln">   303  </span>}
+<span id="L304" class="ln">   304  </span>
+<span id="L305" class="ln">   305  </span><span class="comment">// filterPodsByMode filters pods by mode from pod list</span>
+<span id="L306" class="ln">   306  </span>func filterPodsByMode(pods []v1.Pod, mode v1alpha1.SelectorMode, value string) ([]v1.Pod, error) {
+<span id="L307" class="ln">   307  </span>	indexes, err := generic.FilterObjectsByMode(mode, value, len(pods))
+<span id="L308" class="ln">   308  </span>	if err != nil {
+<span id="L309" class="ln">   309  </span>		return nil, err
+<span id="L310" class="ln">   310  </span>	}
+<span id="L311" class="ln">   311  </span>
+<span id="L312" class="ln">   312  </span>	var filteredPods []v1.Pod
+<span id="L313" class="ln">   313  </span>
+<span id="L314" class="ln">   314  </span>	for _, index := range indexes {
+<span id="L315" class="ln">   315  </span>		index := index
+<span id="L316" class="ln">   316  </span>		filteredPods = append(filteredPods, pods[index])
+<span id="L317" class="ln">   317  </span>	}
+<span id="L318" class="ln">   318  </span>	return filteredPods, nil
+<span id="L319" class="ln">   319  </span>}
+<span id="L320" class="ln">   320  </span>
 </pre><p></p>
 
 <div id="footer">
