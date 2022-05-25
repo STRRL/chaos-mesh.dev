@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c743fc2. Generated at Tue May 24 22:03:49 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 08794ce. Generated at Wed May 25 10:02:47 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -84,62 +84,77 @@
 <span id="L19" class="ln">    19  </span>	&#34;fmt&#34;
 <span id="L20" class="ln">    20  </span>	&#34;net/http&#34;
 <span id="L21" class="ln">    21  </span>	&#34;reflect&#34;
-<span id="L22" class="ln">    22  </span>
-<span id="L23" class="ln">    23  </span>	&#34;k8s.io/apimachinery/pkg/util/validation/field&#34;
-<span id="L24" class="ln">    24  </span>
-<span id="L25" class="ln">    25  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/genericwebhook&#34;
-<span id="L26" class="ln">    26  </span>)
-<span id="L27" class="ln">    27  </span>
-<span id="L28" class="ln">    28  </span>type Port int32
-<span id="L29" class="ln">    29  </span>
-<span id="L30" class="ln">    30  </span>func (in *Port) Validate(root interface{}, path *field.Path) field.ErrorList {
-<span id="L31" class="ln">    31  </span>	allErrs := field.ErrorList{}
-<span id="L32" class="ln">    32  </span>	<span class="comment">// in cannot be zero or negative</span>
-<span id="L33" class="ln">    33  </span>	if *in &lt;= 0 {
-<span id="L34" class="ln">    34  </span>		allErrs = append(allErrs, field.Invalid(path, in, fmt.Sprintf(&#34;port %d is not supported&#34;, *in)))
-<span id="L35" class="ln">    35  </span>	}
-<span id="L36" class="ln">    36  </span>	return allErrs
-<span id="L37" class="ln">    37  </span>}
-<span id="L38" class="ln">    38  </span>
-<span id="L39" class="ln">    39  </span>type HTTPMethod string
-<span id="L40" class="ln">    40  </span>
-<span id="L41" class="ln">    41  </span>func (in *HTTPMethod) Validate(root interface{}, path *field.Path) field.ErrorList {
-<span id="L42" class="ln">    42  </span>	allErrs := field.ErrorList{}
-<span id="L43" class="ln">    43  </span>	if in != nil &amp;&amp; root.(*HTTPChaos).Spec.Target == PodHttpRequest {
-<span id="L44" class="ln">    44  </span>		switch *in {
-<span id="L45" class="ln">    45  </span>		case http.MethodGet:
-<span id="L46" class="ln">    46  </span>		case http.MethodPost:
-<span id="L47" class="ln">    47  </span>		case http.MethodPut:
-<span id="L48" class="ln">    48  </span>		case http.MethodDelete:
-<span id="L49" class="ln">    49  </span>		case http.MethodPatch:
-<span id="L50" class="ln">    50  </span>		case http.MethodHead:
-<span id="L51" class="ln">    51  </span>		case http.MethodOptions:
-<span id="L52" class="ln">    52  </span>		case http.MethodTrace:
-<span id="L53" class="ln">    53  </span>		case http.MethodConnect:
-<span id="L54" class="ln">    54  </span>		default:
-<span id="L55" class="ln">    55  </span>			allErrs = append(allErrs, field.Invalid(path, in, fmt.Sprintf(&#34;method %s is not supported&#34;, *in)))
-<span id="L56" class="ln">    56  </span>		}
-<span id="L57" class="ln">    57  </span>	}
-<span id="L58" class="ln">    58  </span>	return allErrs
-<span id="L59" class="ln">    59  </span>}
-<span id="L60" class="ln">    60  </span>
-<span id="L61" class="ln">    61  </span>func (in *PodHttpChaosTarget) Validate(root interface{}, path *field.Path) field.ErrorList {
-<span id="L62" class="ln">    62  </span>	allErrs := field.ErrorList{}
-<span id="L63" class="ln">    63  </span>	switch *in {
-<span id="L64" class="ln">    64  </span>	case PodHttpRequest:
-<span id="L65" class="ln">    65  </span>	case PodHttpResponse:
-<span id="L66" class="ln">    66  </span>	default:
-<span id="L67" class="ln">    67  </span>		allErrs = append(allErrs, field.Invalid(path, in, fmt.Sprintf(&#34;target %s is not supported&#34;, *in)))
-<span id="L68" class="ln">    68  </span>	}
-<span id="L69" class="ln">    69  </span>	return allErrs
-<span id="L70" class="ln">    70  </span>}
-<span id="L71" class="ln">    71  </span>
-<span id="L72" class="ln">    72  </span>func init() {
-<span id="L73" class="ln">    73  </span>	genericwebhook.Register(&#34;Port&#34;, reflect.PtrTo(reflect.TypeOf(Port(0))))
-<span id="L74" class="ln">    74  </span>	genericwebhook.Register(&#34;HTTPMethod&#34;, reflect.PtrTo(reflect.TypeOf(HTTPMethod(&#34;&#34;))))
-<span id="L75" class="ln">    75  </span>	genericwebhook.Register(&#34;PodHttpChaosTarget&#34;, reflect.PtrTo(reflect.TypeOf(PodHttpChaosTarget(&#34;&#34;))))
-<span id="L76" class="ln">    76  </span>}
-<span id="L77" class="ln">    77  </span>
+<span id="L22" class="ln">    22  </span>	&#34;time&#34;
+<span id="L23" class="ln">    23  </span>
+<span id="L24" class="ln">    24  </span>	&#34;k8s.io/apimachinery/pkg/util/validation/field&#34;
+<span id="L25" class="ln">    25  </span>
+<span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/genericwebhook&#34;
+<span id="L27" class="ln">    27  </span>)
+<span id="L28" class="ln">    28  </span>
+<span id="L29" class="ln">    29  </span>type Delay string
+<span id="L30" class="ln">    30  </span>
+<span id="L31" class="ln">    31  </span>func (in *Delay) Validate(root interface{}, path *field.Path) field.ErrorList {
+<span id="L32" class="ln">    32  </span>	allErrs := field.ErrorList{}
+<span id="L33" class="ln">    33  </span>	if in != nil {
+<span id="L34" class="ln">    34  </span>		_, err := time.ParseDuration(string(*in))
+<span id="L35" class="ln">    35  </span>		if err != nil {
+<span id="L36" class="ln">    36  </span>			allErrs = append(allErrs, field.Invalid(path, in, fmt.Sprintf(&#34;invalid duration %s&#34;, *in)))
+<span id="L37" class="ln">    37  </span>		}
+<span id="L38" class="ln">    38  </span>	}
+<span id="L39" class="ln">    39  </span>	return allErrs
+<span id="L40" class="ln">    40  </span>}
+<span id="L41" class="ln">    41  </span>
+<span id="L42" class="ln">    42  </span>type Port int32
+<span id="L43" class="ln">    43  </span>
+<span id="L44" class="ln">    44  </span>func (in *Port) Validate(root interface{}, path *field.Path) field.ErrorList {
+<span id="L45" class="ln">    45  </span>	allErrs := field.ErrorList{}
+<span id="L46" class="ln">    46  </span>	<span class="comment">// in cannot be zero or negative</span>
+<span id="L47" class="ln">    47  </span>	if *in &lt;= 0 {
+<span id="L48" class="ln">    48  </span>		allErrs = append(allErrs, field.Invalid(path, in, fmt.Sprintf(&#34;port %d is not supported&#34;, *in)))
+<span id="L49" class="ln">    49  </span>	}
+<span id="L50" class="ln">    50  </span>	return allErrs
+<span id="L51" class="ln">    51  </span>}
+<span id="L52" class="ln">    52  </span>
+<span id="L53" class="ln">    53  </span>type HTTPMethod string
+<span id="L54" class="ln">    54  </span>
+<span id="L55" class="ln">    55  </span>func (in *HTTPMethod) Validate(root interface{}, path *field.Path) field.ErrorList {
+<span id="L56" class="ln">    56  </span>	allErrs := field.ErrorList{}
+<span id="L57" class="ln">    57  </span>	if in != nil &amp;&amp; root.(*HTTPChaos).Spec.Target == PodHttpRequest {
+<span id="L58" class="ln">    58  </span>		switch *in {
+<span id="L59" class="ln">    59  </span>		case http.MethodGet:
+<span id="L60" class="ln">    60  </span>		case http.MethodPost:
+<span id="L61" class="ln">    61  </span>		case http.MethodPut:
+<span id="L62" class="ln">    62  </span>		case http.MethodDelete:
+<span id="L63" class="ln">    63  </span>		case http.MethodPatch:
+<span id="L64" class="ln">    64  </span>		case http.MethodHead:
+<span id="L65" class="ln">    65  </span>		case http.MethodOptions:
+<span id="L66" class="ln">    66  </span>		case http.MethodTrace:
+<span id="L67" class="ln">    67  </span>		case http.MethodConnect:
+<span id="L68" class="ln">    68  </span>		default:
+<span id="L69" class="ln">    69  </span>			allErrs = append(allErrs, field.Invalid(path, in, fmt.Sprintf(&#34;method %s is not supported&#34;, *in)))
+<span id="L70" class="ln">    70  </span>		}
+<span id="L71" class="ln">    71  </span>	}
+<span id="L72" class="ln">    72  </span>	return allErrs
+<span id="L73" class="ln">    73  </span>}
+<span id="L74" class="ln">    74  </span>
+<span id="L75" class="ln">    75  </span>func (in *PodHttpChaosTarget) Validate(root interface{}, path *field.Path) field.ErrorList {
+<span id="L76" class="ln">    76  </span>	allErrs := field.ErrorList{}
+<span id="L77" class="ln">    77  </span>	switch *in {
+<span id="L78" class="ln">    78  </span>	case PodHttpRequest:
+<span id="L79" class="ln">    79  </span>	case PodHttpResponse:
+<span id="L80" class="ln">    80  </span>	default:
+<span id="L81" class="ln">    81  </span>		allErrs = append(allErrs, field.Invalid(path, in, fmt.Sprintf(&#34;target %s is not supported&#34;, *in)))
+<span id="L82" class="ln">    82  </span>	}
+<span id="L83" class="ln">    83  </span>	return allErrs
+<span id="L84" class="ln">    84  </span>}
+<span id="L85" class="ln">    85  </span>
+<span id="L86" class="ln">    86  </span>func init() {
+<span id="L87" class="ln">    87  </span>	genericwebhook.Register(&#34;Delay&#34;, reflect.PtrTo(reflect.TypeOf(Delay(&#34;&#34;))))
+<span id="L88" class="ln">    88  </span>	genericwebhook.Register(&#34;Port&#34;, reflect.PtrTo(reflect.TypeOf(Port(0))))
+<span id="L89" class="ln">    89  </span>	genericwebhook.Register(&#34;HTTPMethod&#34;, reflect.PtrTo(reflect.TypeOf(HTTPMethod(&#34;&#34;))))
+<span id="L90" class="ln">    90  </span>	genericwebhook.Register(&#34;PodHttpChaosTarget&#34;, reflect.PtrTo(reflect.TypeOf(PodHttpChaosTarget(&#34;&#34;))))
+<span id="L91" class="ln">    91  </span>}
+<span id="L92" class="ln">    92  </span>
 </pre><p></p>
 
 <div id="footer">
