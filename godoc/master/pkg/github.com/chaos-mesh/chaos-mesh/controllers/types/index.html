@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 38b41fc. Generated at Mon May 30 10:01:55 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit bbbb6da. Generated at Mon May 30 22:03:56 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -158,7 +158,11 @@
 		
 			<h2 id="pkg-variables">Variables</h2>
 			
-				
+				<p>
+ChaosObjects is the list of all kind of chaos custom resource, following the registration pattern.
+Deprecated: use WebhookObjects instead.
+</p>
+
 				<pre>var <span id="ChaosObjects">ChaosObjects</span> = <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Supply">Supply</a>(
     <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Annotated">Annotated</a>{
         <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Annotated.Group">Group</a>: &#34;objs&#34;,
@@ -273,7 +277,11 @@
     },
 )</pre>
 			
-				
+				<p>
+WebhookObjects is the list of all kind of chaos custom resource, following the registration pattern.
+When you add a new kind of chaos custom resource, please add it to the list.
+</p>
+
 				<pre>var <span id="WebhookObjects">WebhookObjects</span> = <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Supply">Supply</a>(
     <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Annotated">Annotated</a>{
         <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Annotated.Group">Group</a>: &#34;webhookObjs&#34;,
@@ -318,15 +326,23 @@
 		
 			
 			
-			<h2 id="Object">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/types/types.go#L26">Object</a>
+			<h2 id="Object">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/types/types.go#L29">Object</a>
 				<a class="permalink" href="#Object">&#xb6;</a>
 				
 				
 			</h2>
-			
+			<p>
+Object only used for registration webhook for various Kind of chaos custom resources.
+Deprecated: use WebhookObject instead.
+TODO: migrate it to WebhookObject
+</p>
+
 			<pre>type Object struct {
-<span id="Object.Object"></span>    Object <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>
-<span id="Object.Name"></span>    Name   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="Object.Object"></span>    <span class="comment">// Object should be the same as the kind of the chaos custom resource.</span>
+    Object <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>
+<span id="Object.Name"></span>    <span class="comment">// Name indicates the name of the webhook. It would be used to dedicate enabling the webhook for this Kind of</span>
+    <span class="comment">// chaos custom resource or not.</span>
+    Name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
 }
 </pre>
 
@@ -344,15 +360,21 @@
 		
 			
 			
-			<h2 id="WebhookObject">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/types/types.go#L145">WebhookObject</a>
+			<h2 id="WebhookObject">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/types/types.go#L154">WebhookObject</a>
 				<a class="permalink" href="#WebhookObject">&#xb6;</a>
 				
 				
 			</h2>
-			
+			<p>
+WebhookObject only used for registration the
+</p>
+
 			<pre>type WebhookObject struct {
-<span id="WebhookObject.Object"></span>    Object <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WebhookObject">WebhookObject</a>
-<span id="WebhookObject.Name"></span>    Name   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="WebhookObject.Object"></span>    <span class="comment">// Object should be the same as the kind of the chaos custom resource.</span>
+    Object <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#WebhookObject">WebhookObject</a>
+<span id="WebhookObject.Name"></span>    <span class="comment">// Name indicates the name of the webhook. It would be used to dedicate enabling the webhook for this Kind of</span>
+    <span class="comment">// chaos custom resource or not.</span>
+    Name <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
 }
 </pre>
 

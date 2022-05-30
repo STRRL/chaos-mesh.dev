@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 38b41fc. Generated at Mon May 30 10:01:55 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit bbbb6da. Generated at Mon May 30 22:03:56 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -97,7 +97,10 @@
 			</div>
 			<div class="expanded">
 				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
-				
+				<p>
+Package provider provides several required components for bootstrapping chaos-controller-manager.
+</p>
+
 				
 			</div>
 		</div>
@@ -207,6 +210,8 @@
 			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go">controller.go</a>
 			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/doc.go">doc.go</a>
+			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go">updated_client.go</a>
 			
 			</span>
@@ -242,33 +247,39 @@ Module would provide objects to fx for dependency injection.
 		
 			
 			
-			<h2 id="NewAuthCli">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L109">NewAuthCli</a>
+			<h2 id="NewAuthCli">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L115">NewAuthCli</a>
 				<a class="permalink" href="#NewAuthCli">&#xb6;</a>
 				
 				
 			</h2>
 			<pre>func NewAuthCli(cfg *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/rest/">rest</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/rest/#Config">Config</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/">authorizationv1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/#AuthorizationV1Client">AuthorizationV1Client</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
-			
+			<p>
+NewAuthCli would build the authorizationv1.AuthorizationV1Client with given parameters.
+</p>
+
 			
 			
 
 		
 			
 			
-			<h2 id="NewClient">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L121">NewClient</a>
+			<h2 id="NewClient">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L128">NewClient</a>
 				<a class="permalink" href="#NewClient">&#xb6;</a>
 				
 				
 			</h2>
 			<pre>func NewClient(mgr <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>, scheme *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Scheme">Scheme</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
-			
+			<p>
+NewClient would build the controller-runtime client.Client with given parameters.
+</p>
+
 			
 			
 
 		
 			
 			
-			<h2 id="NewClientSet">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L207">NewClientSet</a>
+			<h2 id="NewClientSet">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L221">NewClientSet</a>
 				<a class="permalink" href="#NewClientSet">&#xb6;</a>
 				
 				
@@ -281,91 +292,115 @@ Module would provide objects to fx for dependency injection.
 		
 			
 			
-			<h2 id="NewConfig">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L94">NewConfig</a>
+			<h2 id="NewConfig">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L98">NewConfig</a>
 				<a class="permalink" href="#NewConfig">&#xb6;</a>
 				
 				
 			</h2>
 			<pre>func NewConfig() *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/rest/">rest</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/rest/#Config">Config</a></pre>
-			
+			<p>
+NewConfig would fetch the rest.Config from environment. When it failed to fetch config, it would exit the whole application.
+</p>
+
 			
 			
 
 		
 			
 			
-			<h2 id="NewControlPlaneCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L164">NewControlPlaneCacheReader</a>
+			<h2 id="NewControlPlaneCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L177">NewControlPlaneCacheReader</a>
 				<a class="permalink" href="#NewControlPlaneCacheReader">&#xb6;</a>
 				
 				
 			</h2>
 			<pre>func NewControlPlaneCacheReader(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>, cfg *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/rest/">rest</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/rest/#Config">Config</a>) (controlPlaneCacheReader, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
-			
+			<p>
+NewControlPlaneCacheReader builds a client.Reader with cache for certain usage for control plane
+</p>
+
 			
 			
 
 		
 			
 			
-			<h2 id="NewGlobalCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L152">NewGlobalCacheReader</a>
+			<h2 id="NewGlobalCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L164">NewGlobalCacheReader</a>
 				<a class="permalink" href="#NewGlobalCacheReader">&#xb6;</a>
 				
 				
 			</h2>
 			<pre>func NewGlobalCacheReader(mgr <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>) globalCacheReader</pre>
-			
+			<p>
+NewGlobalCacheReader builds a client.Reader with cache for global usage
+TODO: we could return with fx.Annotate instead of struct globalCacheReader and magic name &#34;global-cache&#34;
+TODO: it seems this component is not used anymore, maybe we could remote it.
+</p>
+
 			
 			
 
 		
 			
 			
-			<h2 id="NewManager">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L98">NewManager</a>
+			<h2 id="NewManager">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L103">NewManager</a>
 				<a class="permalink" href="#NewManager">&#xb6;</a>
 				
 				
 			</h2>
 			<pre>func NewManager(options *<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Options">Options</a>, cfg *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/rest/">rest</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/rest/#Config">Config</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
-			
+			<p>
+NewManager would build the controller-runtime manager with the given parameters.
+</p>
+
 			
 			
 
 		
 			
 			
-			<h2 id="NewNoCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L140">NewNoCacheReader</a>
+			<h2 id="NewNoCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L149">NewNoCacheReader</a>
 				<a class="permalink" href="#NewNoCacheReader">&#xb6;</a>
 				
 				
 			</h2>
 			<pre>func NewNoCacheReader(mgr <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>) noCacheReader</pre>
-			
+			<p>
+NewNoCacheReader builds a client.Reader with no cache.
+TODO: we could return with fx.Annotate instead of struct noCacheReader and magic name &#34;no-cache&#34;
+</p>
+
 			
 			
 
 		
 			
 			
-			<h2 id="NewOption">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L57">NewOption</a>
+			<h2 id="NewOption">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L59">NewOption</a>
 				<a class="permalink" href="#NewOption">&#xb6;</a>
 				
 				
 			</h2>
 			<pre>func NewOption(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Options">Options</a></pre>
-			
+			<p>
+NewOption returns the manager.Options for build the controller-runtime Manager
+</p>
+
 			
 			
 
 		
 			
 			
-			<h2 id="NewScheme">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L53">NewScheme</a>
+			<h2 id="NewScheme">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L54">NewScheme</a>
 				<a class="permalink" href="#NewScheme">&#xb6;</a>
 				
 				
 			</h2>
 			<pre>func NewScheme() *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Scheme">Scheme</a></pre>
-			
+			<p>
+NewScheme returns the runtime.Scheme used by controller-runtime
+</p>
+
 			
 			
 
