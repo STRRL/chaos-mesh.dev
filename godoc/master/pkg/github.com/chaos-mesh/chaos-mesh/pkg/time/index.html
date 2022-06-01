@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 9ed62da. Generated at Tue May 31 22:03:51 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 5184d78. Generated at Wed Jun  1 10:02:42 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -118,6 +118,9 @@
 			
 			
 				
+				<dd><a href="#AssetLD">func AssetLD(rela elf.Rela64, imageOffset map[string]int, imageContent *[]byte, sym elf.Symbol, byteorder binary.ByteOrder)</a></dd>
+			
+				
 				<dd><a href="#FindVDSOEntry">func FindVDSOEntry(program *ptrace.TracedProgram) (*mapreader.Entry, error)</a></dd>
 			
 			
@@ -169,6 +172,9 @@
 					<dd>&nbsp; &nbsp; <a href="#FakeImage.Recover">func (it *FakeImage) Recover(pid int, vars map[string]uint64) error</a></dd>
 				
 					
+					<dd>&nbsp; &nbsp; <a href="#FakeImage.SetVarUint64">func (it *FakeImage) SetVarUint64(program *ptrace.TracedProgram, entry *mapreader.Entry, symbol string, value uint64) error</a></dd>
+				
+					
 					<dd>&nbsp; &nbsp; <a href="#FakeImage.TryReWriteFakeImage">func (it *FakeImage) TryReWriteFakeImage(program *ptrace.TracedProgram) error</a></dd>
 				
 			
@@ -205,7 +211,11 @@
 			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/asset.go">asset.go</a>
 			
-				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux_amd64.go">fake_image_linux_amd64.go</a>
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/asset_amd64.go">asset_amd64.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_amd64.go">fake_image_amd64.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go">fake_image_linux.go</a>
 			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew.go">time_skew.go</a>
 			
@@ -222,7 +232,20 @@
 		
 			
 			
-			<h2 id="FindVDSOEntry">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux_amd64.go#L121">FindVDSOEntry</a>
+			<h2 id="AssetLD">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/asset_amd64.go#L23">AssetLD</a>
+				<a class="permalink" href="#AssetLD">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func AssetLD(rela <a href="https:/chaos-mesh.dev/godoc/master/pkg/debug/elf/">elf</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/debug/elf/#Rela64">Rela64</a>, imageOffset map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, imageContent *[]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#byte">byte</a>, sym <a href="https:/chaos-mesh.dev/godoc/master/pkg/debug/elf/">elf</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/debug/elf/#Symbol">Symbol</a>, byteorder <a href="https:/chaos-mesh.dev/godoc/master/pkg/encoding/binary/">binary</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/encoding/binary/#ByteOrder">ByteOrder</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="FindVDSOEntry">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go#L118">FindVDSOEntry</a>
 				<a class="permalink" href="#FindVDSOEntry">&#xb6;</a>
 				
 				
@@ -366,7 +389,7 @@ New will init a struct just like PodHandler(ProcessGroupHandler(Skew))
 		
 			
 			
-			<h2 id="FakeImage">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux_amd64.go#L35">FakeImage</a>
+			<h2 id="FakeImage">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go#L35">FakeImage</a>
 				<a class="permalink" href="#FakeImage">&#xb6;</a>
 				
 				
@@ -410,7 +433,7 @@ LoadFakeImageFromEmbedFs builds FakeImage from the embed filesystem. It parses t
 				
 			
 				
-				<h3 id="NewFakeImage">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux_amd64.go#L53">NewFakeImage</a>
+				<h3 id="NewFakeImage">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go#L53">NewFakeImage</a>
 					<a class="permalink" href="#NewFakeImage">&#xb6;</a>
 					
 					
@@ -423,7 +446,7 @@ LoadFakeImageFromEmbedFs builds FakeImage from the embed filesystem. It parses t
 
 			
 				
-				<h3 id="FakeImage.AttachToProcess">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux_amd64.go#L59">AttachToProcess</a>
+				<h3 id="FakeImage.AttachToProcess">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go#L59">AttachToProcess</a>
 					<a class="permalink" href="#FakeImage.AttachToProcess">&#xb6;</a>
 					
 					
@@ -439,7 +462,7 @@ Each item in parameter &#34;variables&#34; needs a corresponding entry in FakeIm
 				
 			
 				
-				<h3 id="FakeImage.FindInjectedImage">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux_amd64.go#L138">FindInjectedImage</a>
+				<h3 id="FakeImage.FindInjectedImage">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go#L135">FindInjectedImage</a>
 					<a class="permalink" href="#FakeImage.FindInjectedImage">&#xb6;</a>
 					
 					
@@ -454,7 +477,7 @@ FindInjectedImage find injected image to avoid redundant inject.
 				
 			
 				
-				<h3 id="FakeImage.InjectFakeImage">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux_amd64.go#L167">InjectFakeImage</a>
+				<h3 id="FakeImage.InjectFakeImage">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go#L164">InjectFakeImage</a>
 					<a class="permalink" href="#FakeImage.InjectFakeImage">&#xb6;</a>
 					
 					
@@ -471,7 +494,7 @@ When error : TryReWriteFakeImage after InjectFakeImage.
 				
 			
 				
-				<h3 id="FakeImage.Recover">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux_amd64.go#L210">Recover</a>
+				<h3 id="FakeImage.Recover">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go#L207">Recover</a>
 					<a class="permalink" href="#FakeImage.Recover">&#xb6;</a>
 					
 					
@@ -487,7 +510,19 @@ Recover will not return error.
 				
 			
 				
-				<h3 id="FakeImage.TryReWriteFakeImage">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux_amd64.go#L196">TryReWriteFakeImage</a>
+				<h3 id="FakeImage.SetVarUint64">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_amd64.go#L27">SetVarUint64</a>
+					<a class="permalink" href="#FakeImage.SetVarUint64">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#FakeImage">FakeImage</a>) SetVarUint64(program *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/">ptrace</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/#TracedProgram">TracedProgram</a>, entry *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/">mapreader</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/#Entry">Entry</a>, symbol <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, value <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint64">uint64</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FakeImage.TryReWriteFakeImage">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go#L193">TryReWriteFakeImage</a>
 					<a class="permalink" href="#FakeImage.TryReWriteFakeImage">&#xb6;</a>
 					
 					

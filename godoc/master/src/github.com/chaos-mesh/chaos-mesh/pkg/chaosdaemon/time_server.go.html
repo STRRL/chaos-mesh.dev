@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 9ed62da. Generated at Tue May 31 22:03:51 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 5184d78. Generated at Wed Jun  1 10:02:42 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -152,42 +152,44 @@
 <span id="L87" class="ln">    87  </span>	err = s.timeChaosServer.SetTimeOffset(req.Uid, tasks.PodContainerName(req.PodContainerName),
 <span id="L88" class="ln">    88  </span>		time.NewConfig(req.Sec, req.Nsec, req.ClkIdsMask))
 <span id="L89" class="ln">    89  </span>	if err != nil {
-<span id="L90" class="ln">    90  </span>		return nil, err
-<span id="L91" class="ln">    91  </span>	}
-<span id="L92" class="ln">    92  </span>	return &amp;empty.Empty{}, nil
-<span id="L93" class="ln">    93  </span>}
-<span id="L94" class="ln">    94  </span>
-<span id="L95" class="ln">    95  </span>func (s *DaemonServer) RecoverTimeOffset(ctx context.Context, req *pb.TimeRequest) (*empty.Empty, error) {
-<span id="L96" class="ln">    96  </span>	logger := s.timeChaosServer.logger
-<span id="L97" class="ln">    97  </span>
-<span id="L98" class="ln">    98  </span>	logger.Info(&#34;Recover time&#34;, &#34;Request&#34;, req)
-<span id="L99" class="ln">    99  </span>
-<span id="L100" class="ln">   100  </span>	pid, err := s.crClient.GetPidFromContainerID(ctx, req.ContainerId)
-<span id="L101" class="ln">   101  </span>	if err != nil {
-<span id="L102" class="ln">   102  </span>		logger.Error(err, &#34;error while getting IsID&#34;)
-<span id="L103" class="ln">   103  </span>		return nil, err
-<span id="L104" class="ln">   104  </span>	}
-<span id="L105" class="ln">   105  </span>
-<span id="L106" class="ln">   106  </span>	nameID := tasks.PodContainerName(req.PodContainerName)
-<span id="L107" class="ln">   107  </span>
-<span id="L108" class="ln">   108  </span>	s.timeChaosServer.SetPodContainerNameProcess(nameID, tasks.SysPID(pid))
-<span id="L109" class="ln">   109  </span>
-<span id="L110" class="ln">   110  </span>	unlock := s.timeChaosServer.nameLocker.Lock(nameID)
-<span id="L111" class="ln">   111  </span>	defer unlock()
-<span id="L112" class="ln">   112  </span>
-<span id="L113" class="ln">   113  </span>	err = s.timeChaosServer.manager.Recover(req.Uid, nameID)
-<span id="L114" class="ln">   114  </span>	if err != nil {
-<span id="L115" class="ln">   115  </span>		return nil, err
-<span id="L116" class="ln">   116  </span>	}
-<span id="L117" class="ln">   117  </span>
-<span id="L118" class="ln">   118  </span>	if len(s.timeChaosServer.manager.GetUIDsWithPID(nameID)) == 0 {
-<span id="L119" class="ln">   119  </span>		s.timeChaosServer.DelPodContainerNameProcess(nameID)
-<span id="L120" class="ln">   120  </span>		s.timeChaosServer.nameLocker.Del(nameID)
-<span id="L121" class="ln">   121  </span>	}
-<span id="L122" class="ln">   122  </span>
-<span id="L123" class="ln">   123  </span>	return &amp;empty.Empty{}, nil
-<span id="L124" class="ln">   124  </span>}
-<span id="L125" class="ln">   125  </span>
+<span id="L90" class="ln">    90  </span>		logger.Error(err, &#34;error while applying chaos&#34;)
+<span id="L91" class="ln">    91  </span>		return nil, err
+<span id="L92" class="ln">    92  </span>	}
+<span id="L93" class="ln">    93  </span>	return &amp;empty.Empty{}, nil
+<span id="L94" class="ln">    94  </span>}
+<span id="L95" class="ln">    95  </span>
+<span id="L96" class="ln">    96  </span>func (s *DaemonServer) RecoverTimeOffset(ctx context.Context, req *pb.TimeRequest) (*empty.Empty, error) {
+<span id="L97" class="ln">    97  </span>	logger := s.timeChaosServer.logger
+<span id="L98" class="ln">    98  </span>
+<span id="L99" class="ln">    99  </span>	logger.Info(&#34;Recover time&#34;, &#34;Request&#34;, req)
+<span id="L100" class="ln">   100  </span>
+<span id="L101" class="ln">   101  </span>	pid, err := s.crClient.GetPidFromContainerID(ctx, req.ContainerId)
+<span id="L102" class="ln">   102  </span>	if err != nil {
+<span id="L103" class="ln">   103  </span>		logger.Error(err, &#34;error while getting IsID&#34;)
+<span id="L104" class="ln">   104  </span>		return nil, err
+<span id="L105" class="ln">   105  </span>	}
+<span id="L106" class="ln">   106  </span>
+<span id="L107" class="ln">   107  </span>	nameID := tasks.PodContainerName(req.PodContainerName)
+<span id="L108" class="ln">   108  </span>
+<span id="L109" class="ln">   109  </span>	s.timeChaosServer.SetPodContainerNameProcess(nameID, tasks.SysPID(pid))
+<span id="L110" class="ln">   110  </span>
+<span id="L111" class="ln">   111  </span>	unlock := s.timeChaosServer.nameLocker.Lock(nameID)
+<span id="L112" class="ln">   112  </span>	defer unlock()
+<span id="L113" class="ln">   113  </span>
+<span id="L114" class="ln">   114  </span>	err = s.timeChaosServer.manager.Recover(req.Uid, nameID)
+<span id="L115" class="ln">   115  </span>	if err != nil {
+<span id="L116" class="ln">   116  </span>		logger.Error(err, &#34;error while recovering chaos&#34;)
+<span id="L117" class="ln">   117  </span>		return nil, err
+<span id="L118" class="ln">   118  </span>	}
+<span id="L119" class="ln">   119  </span>
+<span id="L120" class="ln">   120  </span>	if len(s.timeChaosServer.manager.GetUIDsWithPID(nameID)) == 0 {
+<span id="L121" class="ln">   121  </span>		s.timeChaosServer.DelPodContainerNameProcess(nameID)
+<span id="L122" class="ln">   122  </span>		s.timeChaosServer.nameLocker.Del(nameID)
+<span id="L123" class="ln">   123  </span>	}
+<span id="L124" class="ln">   124  </span>
+<span id="L125" class="ln">   125  </span>	return &amp;empty.Empty{}, nil
+<span id="L126" class="ln">   126  </span>}
+<span id="L127" class="ln">   127  </span>
 </pre><p></p>
 
 <div id="footer">

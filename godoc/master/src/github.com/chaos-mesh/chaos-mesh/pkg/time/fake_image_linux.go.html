@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="theme-color" content="#375EAB"/>
 
-  <title>src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux_amd64.go - Chaos Mesh</title>
+  <title>src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go - Chaos Mesh</title>
 
 <link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css"/>
 
@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 9ed62da. Generated at Tue May 31 22:03:51 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 5184d78. Generated at Wed Jun  1 10:02:42 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -46,7 +46,7 @@
 
   <h1>
     Source file
-    <a href="https:/chaos-mesh.dev/godoc/master/src">src</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com">github.com</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg">pkg</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time">time</a>/<span class="text-muted">fake_image_linux_amd64.go</span>
+    <a href="https:/chaos-mesh.dev/godoc/master/src">src</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com">github.com</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg">pkg</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time">time</a>/<span class="text-muted">fake_image_linux.go</span>
   </h1>
 
 
@@ -170,139 +170,136 @@
 <span id="L105" class="ln">   105  </span>	}
 <span id="L106" class="ln">   106  </span>
 <span id="L107" class="ln">   107  </span>	for k, v := range variables {
-<span id="L108" class="ln">   108  </span>		if offset, ok := it.offset[k]; ok {
-<span id="L109" class="ln">   109  </span>			err = program.WriteUint64ToAddr(fakeEntry.StartAddress+uint64(offset), v)
-<span id="L110" class="ln">   110  </span>			if err != nil {
-<span id="L111" class="ln">   111  </span>				return errors.Wrapf(err, &#34;set %s for time skew, pid: %d&#34;, k, pid)
-<span id="L112" class="ln">   112  </span>			}
-<span id="L113" class="ln">   113  </span>		} else {
-<span id="L114" class="ln">   114  </span>			return errors.Errorf(&#34;no such extern variable in fake image: %s&#34;, k)
-<span id="L115" class="ln">   115  </span>		}
-<span id="L116" class="ln">   116  </span>	}
+<span id="L108" class="ln">   108  </span>		err = it.SetVarUint64(program, fakeEntry, k, v)
+<span id="L109" class="ln">   109  </span>
+<span id="L110" class="ln">   110  </span>		if err != nil {
+<span id="L111" class="ln">   111  </span>			return errors.Wrapf(err, &#34;set %s for time skew, pid: %d&#34;, k, pid)
+<span id="L112" class="ln">   112  </span>		}
+<span id="L113" class="ln">   113  </span>	}
+<span id="L114" class="ln">   114  </span>
+<span id="L115" class="ln">   115  </span>	return
+<span id="L116" class="ln">   116  </span>}
 <span id="L117" class="ln">   117  </span>
-<span id="L118" class="ln">   118  </span>	return
-<span id="L119" class="ln">   119  </span>}
-<span id="L120" class="ln">   120  </span>
-<span id="L121" class="ln">   121  </span>func FindVDSOEntry(program *ptrace.TracedProgram) (*mapreader.Entry, error) {
-<span id="L122" class="ln">   122  </span>	var vdsoEntry *mapreader.Entry
-<span id="L123" class="ln">   123  </span>	for index := range program.Entries {
-<span id="L124" class="ln">   124  </span>		<span class="comment">// reverse loop is faster</span>
-<span id="L125" class="ln">   125  </span>		e := program.Entries[len(program.Entries)-index-1]
-<span id="L126" class="ln">   126  </span>		if e.Path == vdsoEntryName {
-<span id="L127" class="ln">   127  </span>			vdsoEntry = &amp;e
-<span id="L128" class="ln">   128  </span>			break
-<span id="L129" class="ln">   129  </span>		}
+<span id="L118" class="ln">   118  </span>func FindVDSOEntry(program *ptrace.TracedProgram) (*mapreader.Entry, error) {
+<span id="L119" class="ln">   119  </span>	var vdsoEntry *mapreader.Entry
+<span id="L120" class="ln">   120  </span>	for index := range program.Entries {
+<span id="L121" class="ln">   121  </span>		<span class="comment">// reverse loop is faster</span>
+<span id="L122" class="ln">   122  </span>		e := program.Entries[len(program.Entries)-index-1]
+<span id="L123" class="ln">   123  </span>		if e.Path == vdsoEntryName {
+<span id="L124" class="ln">   124  </span>			vdsoEntry = &amp;e
+<span id="L125" class="ln">   125  </span>			break
+<span id="L126" class="ln">   126  </span>		}
+<span id="L127" class="ln">   127  </span>	}
+<span id="L128" class="ln">   128  </span>	if vdsoEntry == nil {
+<span id="L129" class="ln">   129  </span>		return nil, cerr.NotFound(&#34;VDSOEntry&#34;).Err()
 <span id="L130" class="ln">   130  </span>	}
-<span id="L131" class="ln">   131  </span>	if vdsoEntry == nil {
-<span id="L132" class="ln">   132  </span>		return nil, cerr.NotFound(&#34;VDSOEntry&#34;).Err()
-<span id="L133" class="ln">   133  </span>	}
-<span id="L134" class="ln">   134  </span>	return vdsoEntry, nil
-<span id="L135" class="ln">   135  </span>}
-<span id="L136" class="ln">   136  </span>
-<span id="L137" class="ln">   137  </span><span class="comment">// FindInjectedImage find injected image to avoid redundant inject.</span>
-<span id="L138" class="ln">   138  </span>func (it *FakeImage) FindInjectedImage(program *ptrace.TracedProgram, varNum int) (*mapreader.Entry, error) {
-<span id="L139" class="ln">   139  </span>	it.logger.Info(&#34;finding injected image&#34;)
-<span id="L140" class="ln">   140  </span>
-<span id="L141" class="ln">   141  </span>	<span class="comment">// minus tailing variable part</span>
-<span id="L142" class="ln">   142  </span>	<span class="comment">// every variable has 8 bytes</span>
-<span id="L143" class="ln">   143  </span>	if it.fakeEntry != nil {
-<span id="L144" class="ln">   144  </span>		content, err := program.ReadSlice(it.fakeEntry.StartAddress, it.fakeEntry.EndAddress-it.fakeEntry.StartAddress)
-<span id="L145" class="ln">   145  </span>		if err != nil {
-<span id="L146" class="ln">   146  </span>			it.logger.Info(&#34;ReadSlice fail&#34;)
-<span id="L147" class="ln">   147  </span>			return nil, nil
+<span id="L131" class="ln">   131  </span>	return vdsoEntry, nil
+<span id="L132" class="ln">   132  </span>}
+<span id="L133" class="ln">   133  </span>
+<span id="L134" class="ln">   134  </span><span class="comment">// FindInjectedImage find injected image to avoid redundant inject.</span>
+<span id="L135" class="ln">   135  </span>func (it *FakeImage) FindInjectedImage(program *ptrace.TracedProgram, varNum int) (*mapreader.Entry, error) {
+<span id="L136" class="ln">   136  </span>	it.logger.Info(&#34;finding injected image&#34;)
+<span id="L137" class="ln">   137  </span>
+<span id="L138" class="ln">   138  </span>	<span class="comment">// minus tailing variable part</span>
+<span id="L139" class="ln">   139  </span>	<span class="comment">// every variable has 8 bytes</span>
+<span id="L140" class="ln">   140  </span>	if it.fakeEntry != nil {
+<span id="L141" class="ln">   141  </span>		content, err := program.ReadSlice(it.fakeEntry.StartAddress, it.fakeEntry.EndAddress-it.fakeEntry.StartAddress)
+<span id="L142" class="ln">   142  </span>		if err != nil {
+<span id="L143" class="ln">   143  </span>			it.logger.Info(&#34;ReadSlice fail&#34;)
+<span id="L144" class="ln">   144  </span>			return nil, nil
+<span id="L145" class="ln">   145  </span>		}
+<span id="L146" class="ln">   146  </span>		if varNum*8 &gt; len(it.content) {
+<span id="L147" class="ln">   147  </span>			return nil, errors.New(&#34;variable num bigger than content num&#34;)
 <span id="L148" class="ln">   148  </span>		}
-<span id="L149" class="ln">   149  </span>		if varNum*8 &gt; len(it.content) {
-<span id="L150" class="ln">   150  </span>			return nil, errors.New(&#34;variable num bigger than content num&#34;)
-<span id="L151" class="ln">   151  </span>		}
-<span id="L152" class="ln">   152  </span>		contentWithoutVariable := (*content)[:len(it.content)-varNum*8]
-<span id="L153" class="ln">   153  </span>		expectedContentWithoutVariable := it.content[:len(it.content)-varNum*8]
-<span id="L154" class="ln">   154  </span>		it.logger.Info(&#34;successfully read slice&#34;, &#34;content&#34;, contentWithoutVariable, &#34;expected content&#34;, expectedContentWithoutVariable)
-<span id="L155" class="ln">   155  </span>
-<span id="L156" class="ln">   156  </span>		if bytes.Equal(contentWithoutVariable, expectedContentWithoutVariable) {
-<span id="L157" class="ln">   157  </span>			it.logger.Info(&#34;slice found&#34;)
-<span id="L158" class="ln">   158  </span>			return it.fakeEntry, nil
-<span id="L159" class="ln">   159  </span>		}
-<span id="L160" class="ln">   160  </span>		it.logger.Info(&#34;slice not found&#34;)
-<span id="L161" class="ln">   161  </span>	}
-<span id="L162" class="ln">   162  </span>	return nil, nil
-<span id="L163" class="ln">   163  </span>}
-<span id="L164" class="ln">   164  </span>
-<span id="L165" class="ln">   165  </span><span class="comment">// InjectFakeImage Usage CheckList:</span>
-<span id="L166" class="ln">   166  </span><span class="comment">// When error : TryReWriteFakeImage after InjectFakeImage.</span>
-<span id="L167" class="ln">   167  </span>func (it *FakeImage) InjectFakeImage(program *ptrace.TracedProgram,
-<span id="L168" class="ln">   168  </span>	vdsoEntry *mapreader.Entry) (*mapreader.Entry, error) {
-<span id="L169" class="ln">   169  </span>	fakeEntry, err := program.MmapSlice(it.content)
-<span id="L170" class="ln">   170  </span>	if err != nil {
-<span id="L171" class="ln">   171  </span>		return nil, errors.Wrapf(err, &#34;mmap fake image&#34;)
-<span id="L172" class="ln">   172  </span>	}
-<span id="L173" class="ln">   173  </span>	it.fakeEntry = fakeEntry
-<span id="L174" class="ln">   174  </span>	originAddr, size, err := program.FindSymbolInEntry(it.symbolName, vdsoEntry)
-<span id="L175" class="ln">   175  </span>	if err != nil {
-<span id="L176" class="ln">   176  </span>		return nil, errors.Wrapf(err, &#34;find origin %s in vdso&#34;, it.symbolName)
-<span id="L177" class="ln">   177  </span>	}
-<span id="L178" class="ln">   178  </span>	funcBytes, err := program.ReadSlice(originAddr, size)
-<span id="L179" class="ln">   179  </span>	if err != nil {
-<span id="L180" class="ln">   180  </span>		return nil, errors.Wrapf(err, &#34;ReadSlice failed&#34;)
-<span id="L181" class="ln">   181  </span>	}
-<span id="L182" class="ln">   182  </span>	err = program.JumpToFakeFunc(originAddr, fakeEntry.StartAddress)
-<span id="L183" class="ln">   183  </span>	if err != nil {
-<span id="L184" class="ln">   184  </span>		errIn := it.TryReWriteFakeImage(program)
-<span id="L185" class="ln">   185  </span>		if errIn != nil {
-<span id="L186" class="ln">   186  </span>			it.logger.Error(errIn, &#34;rewrite fail, recover fail&#34;)
-<span id="L187" class="ln">   187  </span>		}
-<span id="L188" class="ln">   188  </span>		return nil, errors.Wrapf(err, &#34;override origin %s&#34;, it.symbolName)
-<span id="L189" class="ln">   189  </span>	}
-<span id="L190" class="ln">   190  </span>
-<span id="L191" class="ln">   191  </span>	it.OriginFuncCode = *funcBytes
-<span id="L192" class="ln">   192  </span>	it.OriginAddress = originAddr
-<span id="L193" class="ln">   193  </span>	return fakeEntry, nil
-<span id="L194" class="ln">   194  </span>}
-<span id="L195" class="ln">   195  </span>
-<span id="L196" class="ln">   196  </span>func (it *FakeImage) TryReWriteFakeImage(program *ptrace.TracedProgram) error {
-<span id="L197" class="ln">   197  </span>	if it.OriginFuncCode != nil {
-<span id="L198" class="ln">   198  </span>		err := program.PtraceWriteSlice(it.OriginAddress, it.OriginFuncCode)
-<span id="L199" class="ln">   199  </span>		if err != nil {
-<span id="L200" class="ln">   200  </span>			return err
-<span id="L201" class="ln">   201  </span>		}
-<span id="L202" class="ln">   202  </span>		it.OriginFuncCode = nil
-<span id="L203" class="ln">   203  </span>		it.OriginAddress = 0
-<span id="L204" class="ln">   204  </span>	}
-<span id="L205" class="ln">   205  </span>	return nil
-<span id="L206" class="ln">   206  </span>}
-<span id="L207" class="ln">   207  </span>
-<span id="L208" class="ln">   208  </span><span class="comment">// Recover the injected image. If injected image not found ,</span>
-<span id="L209" class="ln">   209  </span><span class="comment">// Recover will not return error.</span>
-<span id="L210" class="ln">   210  </span>func (it *FakeImage) Recover(pid int, vars map[string]uint64) error {
-<span id="L211" class="ln">   211  </span>	runtime.LockOSThread()
-<span id="L212" class="ln">   212  </span>	defer func() {
-<span id="L213" class="ln">   213  </span>		runtime.UnlockOSThread()
-<span id="L214" class="ln">   214  </span>	}()
-<span id="L215" class="ln">   215  </span>	if it.OriginFuncCode == nil {
-<span id="L216" class="ln">   216  </span>		return nil
-<span id="L217" class="ln">   217  </span>	}
-<span id="L218" class="ln">   218  </span>	program, err := ptrace.Trace(pid, it.logger)
-<span id="L219" class="ln">   219  </span>	if err != nil {
-<span id="L220" class="ln">   220  </span>		return errors.Wrapf(err, &#34;ptrace on target process, pid: %d&#34;, pid)
-<span id="L221" class="ln">   221  </span>	}
-<span id="L222" class="ln">   222  </span>	defer func() {
-<span id="L223" class="ln">   223  </span>		err = program.Detach()
-<span id="L224" class="ln">   224  </span>		if err != nil {
-<span id="L225" class="ln">   225  </span>			it.logger.Error(err, &#34;fail to detach program&#34;, &#34;pid&#34;, program.Pid())
-<span id="L226" class="ln">   226  </span>		}
-<span id="L227" class="ln">   227  </span>	}()
-<span id="L228" class="ln">   228  </span>
-<span id="L229" class="ln">   229  </span>	fakeEntry, err := it.FindInjectedImage(program, len(vars))
-<span id="L230" class="ln">   230  </span>	if err != nil {
-<span id="L231" class="ln">   231  </span>		return errors.Wrapf(err, &#34;FindInjectedImage , pid: %d&#34;, pid)
+<span id="L149" class="ln">   149  </span>		contentWithoutVariable := (*content)[:len(it.content)-varNum*varLength]
+<span id="L150" class="ln">   150  </span>		expectedContentWithoutVariable := it.content[:len(it.content)-varNum*varLength]
+<span id="L151" class="ln">   151  </span>		it.logger.Info(&#34;successfully read slice&#34;, &#34;content&#34;, contentWithoutVariable, &#34;expected content&#34;, expectedContentWithoutVariable)
+<span id="L152" class="ln">   152  </span>
+<span id="L153" class="ln">   153  </span>		if bytes.Equal(contentWithoutVariable, expectedContentWithoutVariable) {
+<span id="L154" class="ln">   154  </span>			it.logger.Info(&#34;slice found&#34;)
+<span id="L155" class="ln">   155  </span>			return it.fakeEntry, nil
+<span id="L156" class="ln">   156  </span>		}
+<span id="L157" class="ln">   157  </span>		it.logger.Info(&#34;slice not found&#34;)
+<span id="L158" class="ln">   158  </span>	}
+<span id="L159" class="ln">   159  </span>	return nil, nil
+<span id="L160" class="ln">   160  </span>}
+<span id="L161" class="ln">   161  </span>
+<span id="L162" class="ln">   162  </span><span class="comment">// InjectFakeImage Usage CheckList:</span>
+<span id="L163" class="ln">   163  </span><span class="comment">// When error : TryReWriteFakeImage after InjectFakeImage.</span>
+<span id="L164" class="ln">   164  </span>func (it *FakeImage) InjectFakeImage(program *ptrace.TracedProgram,
+<span id="L165" class="ln">   165  </span>	vdsoEntry *mapreader.Entry) (*mapreader.Entry, error) {
+<span id="L166" class="ln">   166  </span>	fakeEntry, err := program.MmapSlice(it.content)
+<span id="L167" class="ln">   167  </span>	if err != nil {
+<span id="L168" class="ln">   168  </span>		return nil, errors.Wrapf(err, &#34;mmap fake image&#34;)
+<span id="L169" class="ln">   169  </span>	}
+<span id="L170" class="ln">   170  </span>	it.fakeEntry = fakeEntry
+<span id="L171" class="ln">   171  </span>	originAddr, size, err := program.FindSymbolInEntry(it.symbolName, vdsoEntry)
+<span id="L172" class="ln">   172  </span>	if err != nil {
+<span id="L173" class="ln">   173  </span>		return nil, errors.Wrapf(err, &#34;find origin %s in vdso&#34;, it.symbolName)
+<span id="L174" class="ln">   174  </span>	}
+<span id="L175" class="ln">   175  </span>	funcBytes, err := program.ReadSlice(originAddr, size)
+<span id="L176" class="ln">   176  </span>	if err != nil {
+<span id="L177" class="ln">   177  </span>		return nil, errors.Wrapf(err, &#34;ReadSlice failed&#34;)
+<span id="L178" class="ln">   178  </span>	}
+<span id="L179" class="ln">   179  </span>	err = program.JumpToFakeFunc(originAddr, fakeEntry.StartAddress)
+<span id="L180" class="ln">   180  </span>	if err != nil {
+<span id="L181" class="ln">   181  </span>		errIn := it.TryReWriteFakeImage(program)
+<span id="L182" class="ln">   182  </span>		if errIn != nil {
+<span id="L183" class="ln">   183  </span>			it.logger.Error(errIn, &#34;rewrite fail, recover fail&#34;)
+<span id="L184" class="ln">   184  </span>		}
+<span id="L185" class="ln">   185  </span>		return nil, errors.Wrapf(err, &#34;override origin %s&#34;, it.symbolName)
+<span id="L186" class="ln">   186  </span>	}
+<span id="L187" class="ln">   187  </span>
+<span id="L188" class="ln">   188  </span>	it.OriginFuncCode = *funcBytes
+<span id="L189" class="ln">   189  </span>	it.OriginAddress = originAddr
+<span id="L190" class="ln">   190  </span>	return fakeEntry, nil
+<span id="L191" class="ln">   191  </span>}
+<span id="L192" class="ln">   192  </span>
+<span id="L193" class="ln">   193  </span>func (it *FakeImage) TryReWriteFakeImage(program *ptrace.TracedProgram) error {
+<span id="L194" class="ln">   194  </span>	if it.OriginFuncCode != nil {
+<span id="L195" class="ln">   195  </span>		err := program.PtraceWriteSlice(it.OriginAddress, it.OriginFuncCode)
+<span id="L196" class="ln">   196  </span>		if err != nil {
+<span id="L197" class="ln">   197  </span>			return err
+<span id="L198" class="ln">   198  </span>		}
+<span id="L199" class="ln">   199  </span>		it.OriginFuncCode = nil
+<span id="L200" class="ln">   200  </span>		it.OriginAddress = 0
+<span id="L201" class="ln">   201  </span>	}
+<span id="L202" class="ln">   202  </span>	return nil
+<span id="L203" class="ln">   203  </span>}
+<span id="L204" class="ln">   204  </span>
+<span id="L205" class="ln">   205  </span><span class="comment">// Recover the injected image. If injected image not found ,</span>
+<span id="L206" class="ln">   206  </span><span class="comment">// Recover will not return error.</span>
+<span id="L207" class="ln">   207  </span>func (it *FakeImage) Recover(pid int, vars map[string]uint64) error {
+<span id="L208" class="ln">   208  </span>	runtime.LockOSThread()
+<span id="L209" class="ln">   209  </span>	defer func() {
+<span id="L210" class="ln">   210  </span>		runtime.UnlockOSThread()
+<span id="L211" class="ln">   211  </span>	}()
+<span id="L212" class="ln">   212  </span>	if it.OriginFuncCode == nil {
+<span id="L213" class="ln">   213  </span>		return nil
+<span id="L214" class="ln">   214  </span>	}
+<span id="L215" class="ln">   215  </span>	program, err := ptrace.Trace(pid, it.logger.WithName(&#34;ptrace&#34;).WithValues(&#34;pid&#34;, pid))
+<span id="L216" class="ln">   216  </span>	if err != nil {
+<span id="L217" class="ln">   217  </span>		return errors.Wrapf(err, &#34;ptrace on target process, pid: %d&#34;, pid)
+<span id="L218" class="ln">   218  </span>	}
+<span id="L219" class="ln">   219  </span>	defer func() {
+<span id="L220" class="ln">   220  </span>		err = program.Detach()
+<span id="L221" class="ln">   221  </span>		if err != nil {
+<span id="L222" class="ln">   222  </span>			it.logger.Error(err, &#34;fail to detach program&#34;, &#34;pid&#34;, program.Pid())
+<span id="L223" class="ln">   223  </span>		}
+<span id="L224" class="ln">   224  </span>	}()
+<span id="L225" class="ln">   225  </span>
+<span id="L226" class="ln">   226  </span>	fakeEntry, err := it.FindInjectedImage(program, len(vars))
+<span id="L227" class="ln">   227  </span>	if err != nil {
+<span id="L228" class="ln">   228  </span>		return errors.Wrapf(err, &#34;FindInjectedImage , pid: %d&#34;, pid)
+<span id="L229" class="ln">   229  </span>	}
+<span id="L230" class="ln">   230  </span>	if fakeEntry == nil {
+<span id="L231" class="ln">   231  </span>		return nil
 <span id="L232" class="ln">   232  </span>	}
-<span id="L233" class="ln">   233  </span>	if fakeEntry == nil {
-<span id="L234" class="ln">   234  </span>		return nil
-<span id="L235" class="ln">   235  </span>	}
-<span id="L236" class="ln">   236  </span>
-<span id="L237" class="ln">   237  </span>	err = it.TryReWriteFakeImage(program)
-<span id="L238" class="ln">   238  </span>	return err
-<span id="L239" class="ln">   239  </span>}
-<span id="L240" class="ln">   240  </span>
+<span id="L233" class="ln">   233  </span>
+<span id="L234" class="ln">   234  </span>	err = it.TryReWriteFakeImage(program)
+<span id="L235" class="ln">   235  </span>	return err
+<span id="L236" class="ln">   236  </span>}
+<span id="L237" class="ln">   237  </span>
 </pre><p></p>
 
 <div id="footer">
