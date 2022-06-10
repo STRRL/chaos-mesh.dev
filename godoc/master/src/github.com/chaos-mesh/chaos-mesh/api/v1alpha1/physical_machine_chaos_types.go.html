@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit a7582b0. Generated at Thu Jun  9 22:07:43 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 58227af. Generated at Fri Jun 10 10:02:10 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -296,7 +296,7 @@
 <span id="L231" class="ln">   231  </span>	<span class="comment">// specifies N workers to apply the stressor.</span>
 <span id="L232" class="ln">   232  </span>	Workers int `json:&#34;workers,omitempty&#34;`
 <span id="L233" class="ln">   233  </span>	<span class="comment">// extend stress-ng options</span>
-<span id="L234" class="ln">   234  </span>	Options string `json:&#34;options,omitempty&#34;`
+<span id="L234" class="ln">   234  </span>	Options []string `json:&#34;options,omitempty&#34;`
 <span id="L235" class="ln">   235  </span>}
 <span id="L236" class="ln">   236  </span>
 <span id="L237" class="ln">   237  </span>type StressMemorySpec struct {
@@ -304,7 +304,7 @@
 <span id="L239" class="ln">   239  </span>	<span class="comment">// One can specify the size as % of total available memory or in units of B, KB/KiB, MB/MiB, GB/GiB, TB/TiB..</span>
 <span id="L240" class="ln">   240  </span>	Size string `json:&#34;size,omitempty&#34;`
 <span id="L241" class="ln">   241  </span>	<span class="comment">// extend stress-ng options</span>
-<span id="L242" class="ln">   242  </span>	Options string `json:&#34;options,omitempty&#34;`
+<span id="L242" class="ln">   242  </span>	Options []string `json:&#34;options,omitempty&#34;`
 <span id="L243" class="ln">   243  </span>}
 <span id="L244" class="ln">   244  </span>
 <span id="L245" class="ln">   245  </span>type DiskFileSpec struct {

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit a7582b0. Generated at Thu Jun  9 22:07:43 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 58227af. Generated at Fri Jun 10 10:02:10 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -4973,390 +4973,396 @@
 <span id="L4908" class="ln">  4908  </span>                },
 <span id="L4909" class="ln">  4909  </span>                &#34;options&#34;: {
 <span id="L4910" class="ln">  4910  </span>                    &#34;description&#34;: &#34;extend stress-ng options&#34;,
-<span id="L4911" class="ln">  4911  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L4912" class="ln">  4912  </span>                },
-<span id="L4913" class="ln">  4913  </span>                &#34;workers&#34;: {
-<span id="L4914" class="ln">  4914  </span>                    &#34;description&#34;: &#34;specifies N workers to apply the stressor.&#34;,
-<span id="L4915" class="ln">  4915  </span>                    &#34;type&#34;: &#34;integer&#34;
-<span id="L4916" class="ln">  4916  </span>                }
-<span id="L4917" class="ln">  4917  </span>            }
-<span id="L4918" class="ln">  4918  </span>        },
-<span id="L4919" class="ln">  4919  </span>        &#34;v1alpha1.StressChaosSpec&#34;: {
-<span id="L4920" class="ln">  4920  </span>            &#34;type&#34;: &#34;object&#34;,
-<span id="L4921" class="ln">  4921  </span>            &#34;properties&#34;: {
-<span id="L4922" class="ln">  4922  </span>                &#34;containerNames&#34;: {
-<span id="L4923" class="ln">  4923  </span>                    &#34;description&#34;: &#34;ContainerNames indicates list of the name of affected container.\nIf not set, the first container will be injected\n+optional&#34;,
-<span id="L4924" class="ln">  4924  </span>                    &#34;type&#34;: &#34;array&#34;,
-<span id="L4925" class="ln">  4925  </span>                    &#34;items&#34;: {
-<span id="L4926" class="ln">  4926  </span>                        &#34;type&#34;: &#34;string&#34;
-<span id="L4927" class="ln">  4927  </span>                    }
-<span id="L4928" class="ln">  4928  </span>                },
-<span id="L4929" class="ln">  4929  </span>                &#34;duration&#34;: {
-<span id="L4930" class="ln">  4930  </span>                    &#34;description&#34;: &#34;Duration represents the duration of the chaos action\n+optional&#34;,
-<span id="L4931" class="ln">  4931  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L4932" class="ln">  4932  </span>                },
-<span id="L4933" class="ln">  4933  </span>                &#34;mode&#34;: {
-<span id="L4934" class="ln">  4934  </span>                    &#34;description&#34;: &#34;Mode defines the mode to run chaos action.\nSupported mode: one / all / fixed / fixed-percent / random-max-percent\n+kubebuilder:validation:Enum=one;all;fixed;fixed-percent;random-max-percent&#34;,
-<span id="L4935" class="ln">  4935  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L4936" class="ln">  4936  </span>                },
-<span id="L4937" class="ln">  4937  </span>                &#34;selector&#34;: {
-<span id="L4938" class="ln">  4938  </span>                    &#34;description&#34;: &#34;Selector is used to select pods that are used to inject chaos action.&#34;,
-<span id="L4939" class="ln">  4939  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L4940" class="ln">  4940  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.PodSelectorSpec&#34;
-<span id="L4941" class="ln">  4941  </span>                },
-<span id="L4942" class="ln">  4942  </span>                &#34;stressngStressors&#34;: {
-<span id="L4943" class="ln">  4943  </span>                    &#34;description&#34;: &#34;StressngStressors defines plenty of stressors just like ` + &#34;`&#34; + `Stressors` + &#34;`&#34; + ` except that it&#39;s an experimental\nfeature and more powerful. You can define stressors in ` + &#34;`&#34; + `stress-ng` + &#34;`&#34; + ` (see also ` + &#34;`&#34; + `man stress-ng` + &#34;`&#34; + `) dialect,\nhowever not all of the supported stressors are well tested. It maybe retired in later releases. You\nshould always use ` + &#34;`&#34; + `Stressors` + &#34;`&#34; + ` to define the stressors and use this only when you want more stressors\nunsupported by ` + &#34;`&#34; + `Stressors` + &#34;`&#34; + `. When both ` + &#34;`&#34; + `StressngStressors` + &#34;`&#34; + ` and ` + &#34;`&#34; + `Stressors` + &#34;`&#34; + ` are defined, ` + &#34;`&#34; + `StressngStressors` + &#34;`&#34; + `\nwins.\n+optional&#34;,
-<span id="L4944" class="ln">  4944  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L4945" class="ln">  4945  </span>                },
-<span id="L4946" class="ln">  4946  </span>                &#34;stressors&#34;: {
-<span id="L4947" class="ln">  4947  </span>                    &#34;description&#34;: &#34;Stressors defines plenty of stressors supported to stress system components out.\nYou can use one or more of them to make up various kinds of stresses. At least\none of the stressors should be specified.\n+optional&#34;,
-<span id="L4948" class="ln">  4948  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L4949" class="ln">  4949  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.Stressors&#34;
-<span id="L4950" class="ln">  4950  </span>                },
-<span id="L4951" class="ln">  4951  </span>                &#34;value&#34;: {
-<span id="L4952" class="ln">  4952  </span>                    &#34;description&#34;: &#34;Value is required when the mode is set to ` + &#34;`&#34; + `FixedMode` + &#34;`&#34; + ` / ` + &#34;`&#34; + `FixedPercentMode` + &#34;`&#34; + ` / ` + &#34;`&#34; + `RandomMaxPercentMode` + &#34;`&#34; + `.\nIf ` + &#34;`&#34; + `FixedMode` + &#34;`&#34; + `, provide an integer of pods to do chaos action.\nIf ` + &#34;`&#34; + `FixedPercentMode` + &#34;`&#34; + `, provide a number from 0-100 to specify the percent of pods the server can do chaos action.\nIF ` + &#34;`&#34; + `RandomMaxPercentMode` + &#34;`&#34; + `,  provide a number from 0-100 to specify the max percent of pods to do chaos action\n+optional&#34;,
-<span id="L4953" class="ln">  4953  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L4954" class="ln">  4954  </span>                }
-<span id="L4955" class="ln">  4955  </span>            }
-<span id="L4956" class="ln">  4956  </span>        },
-<span id="L4957" class="ln">  4957  </span>        &#34;v1alpha1.StressMemorySpec&#34;: {
-<span id="L4958" class="ln">  4958  </span>            &#34;type&#34;: &#34;object&#34;,
-<span id="L4959" class="ln">  4959  </span>            &#34;properties&#34;: {
-<span id="L4960" class="ln">  4960  </span>                &#34;options&#34;: {
-<span id="L4961" class="ln">  4961  </span>                    &#34;description&#34;: &#34;extend stress-ng options&#34;,
-<span id="L4962" class="ln">  4962  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L4963" class="ln">  4963  </span>                },
-<span id="L4964" class="ln">  4964  </span>                &#34;size&#34;: {
-<span id="L4965" class="ln">  4965  </span>                    &#34;description&#34;: &#34;specifies N bytes consumed per vm worker, default is the total available memory.\nOne can specify the size as % of total available memory or in units of B, KB/KiB, MB/MiB, GB/GiB, TB/TiB..&#34;,
-<span id="L4966" class="ln">  4966  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L4967" class="ln">  4967  </span>                }
-<span id="L4968" class="ln">  4968  </span>            }
-<span id="L4969" class="ln">  4969  </span>        },
-<span id="L4970" class="ln">  4970  </span>        &#34;v1alpha1.Stressors&#34;: {
-<span id="L4971" class="ln">  4971  </span>            &#34;type&#34;: &#34;object&#34;,
-<span id="L4972" class="ln">  4972  </span>            &#34;properties&#34;: {
-<span id="L4973" class="ln">  4973  </span>                &#34;cpu&#34;: {
-<span id="L4974" class="ln">  4974  </span>                    &#34;description&#34;: &#34;CPUStressor stresses CPU out\n+optional&#34;,
-<span id="L4975" class="ln">  4975  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L4976" class="ln">  4976  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.CPUStressor&#34;
-<span id="L4977" class="ln">  4977  </span>                },
-<span id="L4978" class="ln">  4978  </span>                &#34;memory&#34;: {
-<span id="L4979" class="ln">  4979  </span>                    &#34;description&#34;: &#34;MemoryStressor stresses virtual memory out\n+optional&#34;,
-<span id="L4980" class="ln">  4980  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L4981" class="ln">  4981  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.MemoryStressor&#34;
-<span id="L4982" class="ln">  4982  </span>                }
-<span id="L4983" class="ln">  4983  </span>            }
-<span id="L4984" class="ln">  4984  </span>        },
-<span id="L4985" class="ln">  4985  </span>        &#34;v1alpha1.Task&#34;: {
-<span id="L4986" class="ln">  4986  </span>            &#34;type&#34;: &#34;object&#34;,
-<span id="L4987" class="ln">  4987  </span>            &#34;properties&#34;: {
-<span id="L4988" class="ln">  4988  </span>                &#34;container&#34;: {
-<span id="L4989" class="ln">  4989  </span>                    &#34;description&#34;: &#34;Container is the main container image to run in the pod&#34;,
-<span id="L4990" class="ln">  4990  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L4991" class="ln">  4991  </span>                },
-<span id="L4992" class="ln">  4992  </span>                &#34;volumes&#34;: {
-<span id="L4993" class="ln">  4993  </span>                    &#34;description&#34;: &#34;Volumes is a list of volumes that can be mounted by containers in a template.\n+patchStrategy=merge\n+patchMergeKey=name&#34;,
-<span id="L4994" class="ln">  4994  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L4995" class="ln">  4995  </span>                }
-<span id="L4996" class="ln">  4996  </span>            }
-<span id="L4997" class="ln">  4997  </span>        },
-<span id="L4998" class="ln">  4998  </span>        &#34;v1alpha1.Template&#34;: {
-<span id="L4999" class="ln">  4999  </span>            &#34;type&#34;: &#34;object&#34;,
-<span id="L5000" class="ln">  5000  </span>            &#34;properties&#34;: {
-<span id="L5001" class="ln">  5001  </span>                &#34;abortWithStatusCheck&#34;: {
-<span id="L5002" class="ln">  5002  </span>                    &#34;description&#34;: &#34;AbortWithStatusCheck describe whether to abort the workflow when the failure threshold of StatusCheck is exceeded.\nOnly used when Type is TypeStatusCheck.\n+optional&#34;,
-<span id="L5003" class="ln">  5003  </span>                    &#34;type&#34;: &#34;boolean&#34;
-<span id="L5004" class="ln">  5004  </span>                },
-<span id="L5005" class="ln">  5005  </span>                &#34;awsChaos&#34;: {
-<span id="L5006" class="ln">  5006  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5007" class="ln">  5007  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5008" class="ln">  5008  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.AWSChaosSpec&#34;
-<span id="L5009" class="ln">  5009  </span>                },
-<span id="L5010" class="ln">  5010  </span>                &#34;azureChaos&#34;: {
-<span id="L5011" class="ln">  5011  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5012" class="ln">  5012  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5013" class="ln">  5013  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.AzureChaosSpec&#34;
-<span id="L5014" class="ln">  5014  </span>                },
-<span id="L5015" class="ln">  5015  </span>                &#34;blockChaos&#34;: {
-<span id="L5016" class="ln">  5016  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5017" class="ln">  5017  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5018" class="ln">  5018  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.BlockChaosSpec&#34;
-<span id="L5019" class="ln">  5019  </span>                },
-<span id="L5020" class="ln">  5020  </span>                &#34;children&#34;: {
-<span id="L5021" class="ln">  5021  </span>                    &#34;description&#34;: &#34;Children describes the children steps of serial or parallel node. Only used when Type is TypeSerial or TypeParallel.\n+optional&#34;,
-<span id="L5022" class="ln">  5022  </span>                    &#34;type&#34;: &#34;array&#34;,
-<span id="L5023" class="ln">  5023  </span>                    &#34;items&#34;: {
-<span id="L5024" class="ln">  5024  </span>                        &#34;type&#34;: &#34;string&#34;
-<span id="L5025" class="ln">  5025  </span>                    }
-<span id="L5026" class="ln">  5026  </span>                },
-<span id="L5027" class="ln">  5027  </span>                &#34;conditionalBranches&#34;: {
-<span id="L5028" class="ln">  5028  </span>                    &#34;description&#34;: &#34;ConditionalBranches describes the conditional branches of custom tasks. Only used when Type is TypeTask.\n+optional&#34;,
-<span id="L5029" class="ln">  5029  </span>                    &#34;type&#34;: &#34;array&#34;,
-<span id="L5030" class="ln">  5030  </span>                    &#34;items&#34;: {
-<span id="L5031" class="ln">  5031  </span>                        &#34;$ref&#34;: &#34;#/definitions/v1alpha1.ConditionalBranch&#34;
-<span id="L5032" class="ln">  5032  </span>                    }
-<span id="L5033" class="ln">  5033  </span>                },
-<span id="L5034" class="ln">  5034  </span>                &#34;deadline&#34;: {
-<span id="L5035" class="ln">  5035  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5036" class="ln">  5036  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L5037" class="ln">  5037  </span>                },
-<span id="L5038" class="ln">  5038  </span>                &#34;dnsChaos&#34;: {
-<span id="L5039" class="ln">  5039  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5040" class="ln">  5040  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5041" class="ln">  5041  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.DNSChaosSpec&#34;
-<span id="L5042" class="ln">  5042  </span>                },
-<span id="L5043" class="ln">  5043  </span>                &#34;gcpChaos&#34;: {
-<span id="L5044" class="ln">  5044  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5045" class="ln">  5045  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5046" class="ln">  5046  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.GCPChaosSpec&#34;
-<span id="L5047" class="ln">  5047  </span>                },
-<span id="L5048" class="ln">  5048  </span>                &#34;httpChaos&#34;: {
-<span id="L5049" class="ln">  5049  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5050" class="ln">  5050  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5051" class="ln">  5051  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.HTTPChaosSpec&#34;
-<span id="L5052" class="ln">  5052  </span>                },
-<span id="L5053" class="ln">  5053  </span>                &#34;ioChaos&#34;: {
-<span id="L5054" class="ln">  5054  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5055" class="ln">  5055  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5056" class="ln">  5056  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.IOChaosSpec&#34;
-<span id="L5057" class="ln">  5057  </span>                },
-<span id="L5058" class="ln">  5058  </span>                &#34;jvmChaos&#34;: {
-<span id="L5059" class="ln">  5059  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5060" class="ln">  5060  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5061" class="ln">  5061  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.JVMChaosSpec&#34;
-<span id="L5062" class="ln">  5062  </span>                },
-<span id="L5063" class="ln">  5063  </span>                &#34;kernelChaos&#34;: {
-<span id="L5064" class="ln">  5064  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5065" class="ln">  5065  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5066" class="ln">  5066  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.KernelChaosSpec&#34;
-<span id="L5067" class="ln">  5067  </span>                },
-<span id="L5068" class="ln">  5068  </span>                &#34;name&#34;: {
-<span id="L5069" class="ln">  5069  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L5070" class="ln">  5070  </span>                },
-<span id="L5071" class="ln">  5071  </span>                &#34;networkChaos&#34;: {
-<span id="L5072" class="ln">  5072  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5073" class="ln">  5073  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5074" class="ln">  5074  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.NetworkChaosSpec&#34;
-<span id="L5075" class="ln">  5075  </span>                },
-<span id="L5076" class="ln">  5076  </span>                &#34;physicalmachineChaos&#34;: {
-<span id="L5077" class="ln">  5077  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5078" class="ln">  5078  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5079" class="ln">  5079  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.PhysicalMachineChaosSpec&#34;
-<span id="L5080" class="ln">  5080  </span>                },
-<span id="L5081" class="ln">  5081  </span>                &#34;podChaos&#34;: {
-<span id="L5082" class="ln">  5082  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5083" class="ln">  5083  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5084" class="ln">  5084  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.PodChaosSpec&#34;
-<span id="L5085" class="ln">  5085  </span>                },
-<span id="L5086" class="ln">  5086  </span>                &#34;schedule&#34;: {
-<span id="L5087" class="ln">  5087  </span>                    &#34;description&#34;: &#34;Schedule describe the Schedule(describing scheduled chaos) to be injected with chaos nodes. Only used when Type is TypeSchedule.\n+optional&#34;,
-<span id="L5088" class="ln">  5088  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5089" class="ln">  5089  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.ChaosOnlyScheduleSpec&#34;
-<span id="L5090" class="ln">  5090  </span>                },
-<span id="L5091" class="ln">  5091  </span>                &#34;statusCheck&#34;: {
-<span id="L5092" class="ln">  5092  </span>                    &#34;description&#34;: &#34;StatusCheck describe the behavior of StatusCheck. Only used when Type is TypeStatusCheck.\n+optional&#34;,
-<span id="L5093" class="ln">  5093  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5094" class="ln">  5094  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.StatusCheckSpec&#34;
-<span id="L5095" class="ln">  5095  </span>                },
-<span id="L5096" class="ln">  5096  </span>                &#34;stressChaos&#34;: {
-<span id="L5097" class="ln">  5097  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5098" class="ln">  5098  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5099" class="ln">  5099  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.StressChaosSpec&#34;
-<span id="L5100" class="ln">  5100  </span>                },
-<span id="L5101" class="ln">  5101  </span>                &#34;task&#34;: {
-<span id="L5102" class="ln">  5102  </span>                    &#34;description&#34;: &#34;Task describes the behavior of the custom task. Only used when Type is TypeTask.\n+optional&#34;,
-<span id="L5103" class="ln">  5103  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5104" class="ln">  5104  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.Task&#34;
-<span id="L5105" class="ln">  5105  </span>                },
-<span id="L5106" class="ln">  5106  </span>                &#34;templateType&#34;: {
-<span id="L5107" class="ln">  5107  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L5108" class="ln">  5108  </span>                },
-<span id="L5109" class="ln">  5109  </span>                &#34;timeChaos&#34;: {
-<span id="L5110" class="ln">  5110  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5111" class="ln">  5111  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5112" class="ln">  5112  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.TimeChaosSpec&#34;
-<span id="L5113" class="ln">  5113  </span>                }
-<span id="L5114" class="ln">  5114  </span>            }
-<span id="L5115" class="ln">  5115  </span>        },
-<span id="L5116" class="ln">  5116  </span>        &#34;v1alpha1.TimeChaosSpec&#34;: {
-<span id="L5117" class="ln">  5117  </span>            &#34;type&#34;: &#34;object&#34;,
-<span id="L5118" class="ln">  5118  </span>            &#34;properties&#34;: {
-<span id="L5119" class="ln">  5119  </span>                &#34;clockIds&#34;: {
-<span id="L5120" class="ln">  5120  </span>                    &#34;description&#34;: &#34;ClockIds defines all affected clock id\nAll available options are [\&#34;CLOCK_REALTIME\&#34;,\&#34;CLOCK_MONOTONIC\&#34;,\&#34;CLOCK_PROCESS_CPUTIME_ID\&#34;,\&#34;CLOCK_THREAD_CPUTIME_ID\&#34;,\n\&#34;CLOCK_MONOTONIC_RAW\&#34;,\&#34;CLOCK_REALTIME_COARSE\&#34;,\&#34;CLOCK_MONOTONIC_COARSE\&#34;,\&#34;CLOCK_BOOTTIME\&#34;,\&#34;CLOCK_REALTIME_ALARM\&#34;,\n\&#34;CLOCK_BOOTTIME_ALARM\&#34;]\nDefault value is [\&#34;CLOCK_REALTIME\&#34;]&#34;,
-<span id="L5121" class="ln">  5121  </span>                    &#34;type&#34;: &#34;array&#34;,
-<span id="L5122" class="ln">  5122  </span>                    &#34;items&#34;: {
-<span id="L5123" class="ln">  5123  </span>                        &#34;type&#34;: &#34;string&#34;
-<span id="L5124" class="ln">  5124  </span>                    }
-<span id="L5125" class="ln">  5125  </span>                },
-<span id="L5126" class="ln">  5126  </span>                &#34;containerNames&#34;: {
-<span id="L5127" class="ln">  5127  </span>                    &#34;description&#34;: &#34;ContainerNames indicates list of the name of affected container.\nIf not set, the first container will be injected\n+optional&#34;,
-<span id="L5128" class="ln">  5128  </span>                    &#34;type&#34;: &#34;array&#34;,
-<span id="L5129" class="ln">  5129  </span>                    &#34;items&#34;: {
-<span id="L5130" class="ln">  5130  </span>                        &#34;type&#34;: &#34;string&#34;
-<span id="L5131" class="ln">  5131  </span>                    }
-<span id="L5132" class="ln">  5132  </span>                },
-<span id="L5133" class="ln">  5133  </span>                &#34;duration&#34;: {
-<span id="L5134" class="ln">  5134  </span>                    &#34;description&#34;: &#34;Duration represents the duration of the chaos action&#34;,
-<span id="L5135" class="ln">  5135  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L5136" class="ln">  5136  </span>                },
-<span id="L5137" class="ln">  5137  </span>                &#34;mode&#34;: {
-<span id="L5138" class="ln">  5138  </span>                    &#34;description&#34;: &#34;Mode defines the mode to run chaos action.\nSupported mode: one / all / fixed / fixed-percent / random-max-percent\n+kubebuilder:validation:Enum=one;all;fixed;fixed-percent;random-max-percent&#34;,
-<span id="L5139" class="ln">  5139  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L5140" class="ln">  5140  </span>                },
-<span id="L5141" class="ln">  5141  </span>                &#34;selector&#34;: {
-<span id="L5142" class="ln">  5142  </span>                    &#34;description&#34;: &#34;Selector is used to select pods that are used to inject chaos action.&#34;,
-<span id="L5143" class="ln">  5143  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5144" class="ln">  5144  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.PodSelectorSpec&#34;
-<span id="L5145" class="ln">  5145  </span>                },
-<span id="L5146" class="ln">  5146  </span>                &#34;timeOffset&#34;: {
-<span id="L5147" class="ln">  5147  </span>                    &#34;description&#34;: &#34;TimeOffset defines the delta time of injected program. It&#39;s a possibly signed sequence of decimal numbers, such as\n\&#34;300ms\&#34;, \&#34;-1.5h\&#34; or \&#34;2h45m\&#34;. Valid time units are \&#34;ns\&#34;, \&#34;us\&#34; (or \&#34;µs\&#34;), \&#34;ms\&#34;, \&#34;s\&#34;, \&#34;m\&#34;, \&#34;h\&#34;.&#34;,
-<span id="L5148" class="ln">  5148  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L5149" class="ln">  5149  </span>                },
-<span id="L5150" class="ln">  5150  </span>                &#34;value&#34;: {
-<span id="L5151" class="ln">  5151  </span>                    &#34;description&#34;: &#34;Value is required when the mode is set to ` + &#34;`&#34; + `FixedMode` + &#34;`&#34; + ` / ` + &#34;`&#34; + `FixedPercentMode` + &#34;`&#34; + ` / ` + &#34;`&#34; + `RandomMaxPercentMode` + &#34;`&#34; + `.\nIf ` + &#34;`&#34; + `FixedMode` + &#34;`&#34; + `, provide an integer of pods to do chaos action.\nIf ` + &#34;`&#34; + `FixedPercentMode` + &#34;`&#34; + `, provide a number from 0-100 to specify the percent of pods the server can do chaos action.\nIF ` + &#34;`&#34; + `RandomMaxPercentMode` + &#34;`&#34; + `,  provide a number from 0-100 to specify the max percent of pods to do chaos action\n+optional&#34;,
-<span id="L5152" class="ln">  5152  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L5153" class="ln">  5153  </span>                }
-<span id="L5154" class="ln">  5154  </span>            }
-<span id="L5155" class="ln">  5155  </span>        },
-<span id="L5156" class="ln">  5156  </span>        &#34;v1alpha1.Timespec&#34;: {
-<span id="L5157" class="ln">  5157  </span>            &#34;type&#34;: &#34;object&#34;,
-<span id="L5158" class="ln">  5158  </span>            &#34;properties&#34;: {
-<span id="L5159" class="ln">  5159  </span>                &#34;nsec&#34;: {
-<span id="L5160" class="ln">  5160  </span>                    &#34;type&#34;: &#34;integer&#34;
-<span id="L5161" class="ln">  5161  </span>                },
-<span id="L5162" class="ln">  5162  </span>                &#34;sec&#34;: {
-<span id="L5163" class="ln">  5163  </span>                    &#34;type&#34;: &#34;integer&#34;
-<span id="L5164" class="ln">  5164  </span>                }
-<span id="L5165" class="ln">  5165  </span>            }
-<span id="L5166" class="ln">  5166  </span>        },
-<span id="L5167" class="ln">  5167  </span>        &#34;v1alpha1.Workflow&#34;: {
-<span id="L5168" class="ln">  5168  </span>            &#34;type&#34;: &#34;object&#34;,
-<span id="L5169" class="ln">  5169  </span>            &#34;properties&#34;: {
-<span id="L5170" class="ln">  5170  </span>                &#34;spec&#34;: {
-<span id="L5171" class="ln">  5171  </span>                    &#34;description&#34;: &#34;Spec defines the behavior of a workflow&#34;,
-<span id="L5172" class="ln">  5172  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5173" class="ln">  5173  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.WorkflowSpec&#34;
-<span id="L5174" class="ln">  5174  </span>                },
-<span id="L5175" class="ln">  5175  </span>                &#34;status&#34;: {
-<span id="L5176" class="ln">  5176  </span>                    &#34;description&#34;: &#34;+optional\nMost recently observed status of the workflow&#34;,
-<span id="L5177" class="ln">  5177  </span>                    &#34;type&#34;: &#34;object&#34;,
-<span id="L5178" class="ln">  5178  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.WorkflowStatus&#34;
-<span id="L5179" class="ln">  5179  </span>                }
-<span id="L5180" class="ln">  5180  </span>            }
-<span id="L5181" class="ln">  5181  </span>        },
-<span id="L5182" class="ln">  5182  </span>        &#34;v1alpha1.WorkflowCondition&#34;: {
-<span id="L5183" class="ln">  5183  </span>            &#34;type&#34;: &#34;object&#34;,
-<span id="L5184" class="ln">  5184  </span>            &#34;properties&#34;: {
-<span id="L5185" class="ln">  5185  </span>                &#34;reason&#34;: {
-<span id="L5186" class="ln">  5186  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L5187" class="ln">  5187  </span>                },
-<span id="L5188" class="ln">  5188  </span>                &#34;startTime&#34;: {
-<span id="L5189" class="ln">  5189  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L5190" class="ln">  5190  </span>                },
-<span id="L5191" class="ln">  5191  </span>                &#34;status&#34;: {
+<span id="L4911" class="ln">  4911  </span>                    &#34;type&#34;: &#34;array&#34;,
+<span id="L4912" class="ln">  4912  </span>                    &#34;items&#34;: {
+<span id="L4913" class="ln">  4913  </span>                        &#34;type&#34;: &#34;string&#34;
+<span id="L4914" class="ln">  4914  </span>                    }
+<span id="L4915" class="ln">  4915  </span>                },
+<span id="L4916" class="ln">  4916  </span>                &#34;workers&#34;: {
+<span id="L4917" class="ln">  4917  </span>                    &#34;description&#34;: &#34;specifies N workers to apply the stressor.&#34;,
+<span id="L4918" class="ln">  4918  </span>                    &#34;type&#34;: &#34;integer&#34;
+<span id="L4919" class="ln">  4919  </span>                }
+<span id="L4920" class="ln">  4920  </span>            }
+<span id="L4921" class="ln">  4921  </span>        },
+<span id="L4922" class="ln">  4922  </span>        &#34;v1alpha1.StressChaosSpec&#34;: {
+<span id="L4923" class="ln">  4923  </span>            &#34;type&#34;: &#34;object&#34;,
+<span id="L4924" class="ln">  4924  </span>            &#34;properties&#34;: {
+<span id="L4925" class="ln">  4925  </span>                &#34;containerNames&#34;: {
+<span id="L4926" class="ln">  4926  </span>                    &#34;description&#34;: &#34;ContainerNames indicates list of the name of affected container.\nIf not set, the first container will be injected\n+optional&#34;,
+<span id="L4927" class="ln">  4927  </span>                    &#34;type&#34;: &#34;array&#34;,
+<span id="L4928" class="ln">  4928  </span>                    &#34;items&#34;: {
+<span id="L4929" class="ln">  4929  </span>                        &#34;type&#34;: &#34;string&#34;
+<span id="L4930" class="ln">  4930  </span>                    }
+<span id="L4931" class="ln">  4931  </span>                },
+<span id="L4932" class="ln">  4932  </span>                &#34;duration&#34;: {
+<span id="L4933" class="ln">  4933  </span>                    &#34;description&#34;: &#34;Duration represents the duration of the chaos action\n+optional&#34;,
+<span id="L4934" class="ln">  4934  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L4935" class="ln">  4935  </span>                },
+<span id="L4936" class="ln">  4936  </span>                &#34;mode&#34;: {
+<span id="L4937" class="ln">  4937  </span>                    &#34;description&#34;: &#34;Mode defines the mode to run chaos action.\nSupported mode: one / all / fixed / fixed-percent / random-max-percent\n+kubebuilder:validation:Enum=one;all;fixed;fixed-percent;random-max-percent&#34;,
+<span id="L4938" class="ln">  4938  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L4939" class="ln">  4939  </span>                },
+<span id="L4940" class="ln">  4940  </span>                &#34;selector&#34;: {
+<span id="L4941" class="ln">  4941  </span>                    &#34;description&#34;: &#34;Selector is used to select pods that are used to inject chaos action.&#34;,
+<span id="L4942" class="ln">  4942  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L4943" class="ln">  4943  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.PodSelectorSpec&#34;
+<span id="L4944" class="ln">  4944  </span>                },
+<span id="L4945" class="ln">  4945  </span>                &#34;stressngStressors&#34;: {
+<span id="L4946" class="ln">  4946  </span>                    &#34;description&#34;: &#34;StressngStressors defines plenty of stressors just like ` + &#34;`&#34; + `Stressors` + &#34;`&#34; + ` except that it&#39;s an experimental\nfeature and more powerful. You can define stressors in ` + &#34;`&#34; + `stress-ng` + &#34;`&#34; + ` (see also ` + &#34;`&#34; + `man stress-ng` + &#34;`&#34; + `) dialect,\nhowever not all of the supported stressors are well tested. It maybe retired in later releases. You\nshould always use ` + &#34;`&#34; + `Stressors` + &#34;`&#34; + ` to define the stressors and use this only when you want more stressors\nunsupported by ` + &#34;`&#34; + `Stressors` + &#34;`&#34; + `. When both ` + &#34;`&#34; + `StressngStressors` + &#34;`&#34; + ` and ` + &#34;`&#34; + `Stressors` + &#34;`&#34; + ` are defined, ` + &#34;`&#34; + `StressngStressors` + &#34;`&#34; + `\nwins.\n+optional&#34;,
+<span id="L4947" class="ln">  4947  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L4948" class="ln">  4948  </span>                },
+<span id="L4949" class="ln">  4949  </span>                &#34;stressors&#34;: {
+<span id="L4950" class="ln">  4950  </span>                    &#34;description&#34;: &#34;Stressors defines plenty of stressors supported to stress system components out.\nYou can use one or more of them to make up various kinds of stresses. At least\none of the stressors should be specified.\n+optional&#34;,
+<span id="L4951" class="ln">  4951  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L4952" class="ln">  4952  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.Stressors&#34;
+<span id="L4953" class="ln">  4953  </span>                },
+<span id="L4954" class="ln">  4954  </span>                &#34;value&#34;: {
+<span id="L4955" class="ln">  4955  </span>                    &#34;description&#34;: &#34;Value is required when the mode is set to ` + &#34;`&#34; + `FixedMode` + &#34;`&#34; + ` / ` + &#34;`&#34; + `FixedPercentMode` + &#34;`&#34; + ` / ` + &#34;`&#34; + `RandomMaxPercentMode` + &#34;`&#34; + `.\nIf ` + &#34;`&#34; + `FixedMode` + &#34;`&#34; + `, provide an integer of pods to do chaos action.\nIf ` + &#34;`&#34; + `FixedPercentMode` + &#34;`&#34; + `, provide a number from 0-100 to specify the percent of pods the server can do chaos action.\nIF ` + &#34;`&#34; + `RandomMaxPercentMode` + &#34;`&#34; + `,  provide a number from 0-100 to specify the max percent of pods to do chaos action\n+optional&#34;,
+<span id="L4956" class="ln">  4956  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L4957" class="ln">  4957  </span>                }
+<span id="L4958" class="ln">  4958  </span>            }
+<span id="L4959" class="ln">  4959  </span>        },
+<span id="L4960" class="ln">  4960  </span>        &#34;v1alpha1.StressMemorySpec&#34;: {
+<span id="L4961" class="ln">  4961  </span>            &#34;type&#34;: &#34;object&#34;,
+<span id="L4962" class="ln">  4962  </span>            &#34;properties&#34;: {
+<span id="L4963" class="ln">  4963  </span>                &#34;options&#34;: {
+<span id="L4964" class="ln">  4964  </span>                    &#34;description&#34;: &#34;extend stress-ng options&#34;,
+<span id="L4965" class="ln">  4965  </span>                    &#34;type&#34;: &#34;array&#34;,
+<span id="L4966" class="ln">  4966  </span>                    &#34;items&#34;: {
+<span id="L4967" class="ln">  4967  </span>                        &#34;type&#34;: &#34;string&#34;
+<span id="L4968" class="ln">  4968  </span>                    }
+<span id="L4969" class="ln">  4969  </span>                },
+<span id="L4970" class="ln">  4970  </span>                &#34;size&#34;: {
+<span id="L4971" class="ln">  4971  </span>                    &#34;description&#34;: &#34;specifies N bytes consumed per vm worker, default is the total available memory.\nOne can specify the size as % of total available memory or in units of B, KB/KiB, MB/MiB, GB/GiB, TB/TiB..&#34;,
+<span id="L4972" class="ln">  4972  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L4973" class="ln">  4973  </span>                }
+<span id="L4974" class="ln">  4974  </span>            }
+<span id="L4975" class="ln">  4975  </span>        },
+<span id="L4976" class="ln">  4976  </span>        &#34;v1alpha1.Stressors&#34;: {
+<span id="L4977" class="ln">  4977  </span>            &#34;type&#34;: &#34;object&#34;,
+<span id="L4978" class="ln">  4978  </span>            &#34;properties&#34;: {
+<span id="L4979" class="ln">  4979  </span>                &#34;cpu&#34;: {
+<span id="L4980" class="ln">  4980  </span>                    &#34;description&#34;: &#34;CPUStressor stresses CPU out\n+optional&#34;,
+<span id="L4981" class="ln">  4981  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L4982" class="ln">  4982  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.CPUStressor&#34;
+<span id="L4983" class="ln">  4983  </span>                },
+<span id="L4984" class="ln">  4984  </span>                &#34;memory&#34;: {
+<span id="L4985" class="ln">  4985  </span>                    &#34;description&#34;: &#34;MemoryStressor stresses virtual memory out\n+optional&#34;,
+<span id="L4986" class="ln">  4986  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L4987" class="ln">  4987  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.MemoryStressor&#34;
+<span id="L4988" class="ln">  4988  </span>                }
+<span id="L4989" class="ln">  4989  </span>            }
+<span id="L4990" class="ln">  4990  </span>        },
+<span id="L4991" class="ln">  4991  </span>        &#34;v1alpha1.Task&#34;: {
+<span id="L4992" class="ln">  4992  </span>            &#34;type&#34;: &#34;object&#34;,
+<span id="L4993" class="ln">  4993  </span>            &#34;properties&#34;: {
+<span id="L4994" class="ln">  4994  </span>                &#34;container&#34;: {
+<span id="L4995" class="ln">  4995  </span>                    &#34;description&#34;: &#34;Container is the main container image to run in the pod&#34;,
+<span id="L4996" class="ln">  4996  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L4997" class="ln">  4997  </span>                },
+<span id="L4998" class="ln">  4998  </span>                &#34;volumes&#34;: {
+<span id="L4999" class="ln">  4999  </span>                    &#34;description&#34;: &#34;Volumes is a list of volumes that can be mounted by containers in a template.\n+patchStrategy=merge\n+patchMergeKey=name&#34;,
+<span id="L5000" class="ln">  5000  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L5001" class="ln">  5001  </span>                }
+<span id="L5002" class="ln">  5002  </span>            }
+<span id="L5003" class="ln">  5003  </span>        },
+<span id="L5004" class="ln">  5004  </span>        &#34;v1alpha1.Template&#34;: {
+<span id="L5005" class="ln">  5005  </span>            &#34;type&#34;: &#34;object&#34;,
+<span id="L5006" class="ln">  5006  </span>            &#34;properties&#34;: {
+<span id="L5007" class="ln">  5007  </span>                &#34;abortWithStatusCheck&#34;: {
+<span id="L5008" class="ln">  5008  </span>                    &#34;description&#34;: &#34;AbortWithStatusCheck describe whether to abort the workflow when the failure threshold of StatusCheck is exceeded.\nOnly used when Type is TypeStatusCheck.\n+optional&#34;,
+<span id="L5009" class="ln">  5009  </span>                    &#34;type&#34;: &#34;boolean&#34;
+<span id="L5010" class="ln">  5010  </span>                },
+<span id="L5011" class="ln">  5011  </span>                &#34;awsChaos&#34;: {
+<span id="L5012" class="ln">  5012  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5013" class="ln">  5013  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5014" class="ln">  5014  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.AWSChaosSpec&#34;
+<span id="L5015" class="ln">  5015  </span>                },
+<span id="L5016" class="ln">  5016  </span>                &#34;azureChaos&#34;: {
+<span id="L5017" class="ln">  5017  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5018" class="ln">  5018  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5019" class="ln">  5019  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.AzureChaosSpec&#34;
+<span id="L5020" class="ln">  5020  </span>                },
+<span id="L5021" class="ln">  5021  </span>                &#34;blockChaos&#34;: {
+<span id="L5022" class="ln">  5022  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5023" class="ln">  5023  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5024" class="ln">  5024  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.BlockChaosSpec&#34;
+<span id="L5025" class="ln">  5025  </span>                },
+<span id="L5026" class="ln">  5026  </span>                &#34;children&#34;: {
+<span id="L5027" class="ln">  5027  </span>                    &#34;description&#34;: &#34;Children describes the children steps of serial or parallel node. Only used when Type is TypeSerial or TypeParallel.\n+optional&#34;,
+<span id="L5028" class="ln">  5028  </span>                    &#34;type&#34;: &#34;array&#34;,
+<span id="L5029" class="ln">  5029  </span>                    &#34;items&#34;: {
+<span id="L5030" class="ln">  5030  </span>                        &#34;type&#34;: &#34;string&#34;
+<span id="L5031" class="ln">  5031  </span>                    }
+<span id="L5032" class="ln">  5032  </span>                },
+<span id="L5033" class="ln">  5033  </span>                &#34;conditionalBranches&#34;: {
+<span id="L5034" class="ln">  5034  </span>                    &#34;description&#34;: &#34;ConditionalBranches describes the conditional branches of custom tasks. Only used when Type is TypeTask.\n+optional&#34;,
+<span id="L5035" class="ln">  5035  </span>                    &#34;type&#34;: &#34;array&#34;,
+<span id="L5036" class="ln">  5036  </span>                    &#34;items&#34;: {
+<span id="L5037" class="ln">  5037  </span>                        &#34;$ref&#34;: &#34;#/definitions/v1alpha1.ConditionalBranch&#34;
+<span id="L5038" class="ln">  5038  </span>                    }
+<span id="L5039" class="ln">  5039  </span>                },
+<span id="L5040" class="ln">  5040  </span>                &#34;deadline&#34;: {
+<span id="L5041" class="ln">  5041  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5042" class="ln">  5042  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L5043" class="ln">  5043  </span>                },
+<span id="L5044" class="ln">  5044  </span>                &#34;dnsChaos&#34;: {
+<span id="L5045" class="ln">  5045  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5046" class="ln">  5046  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5047" class="ln">  5047  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.DNSChaosSpec&#34;
+<span id="L5048" class="ln">  5048  </span>                },
+<span id="L5049" class="ln">  5049  </span>                &#34;gcpChaos&#34;: {
+<span id="L5050" class="ln">  5050  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5051" class="ln">  5051  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5052" class="ln">  5052  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.GCPChaosSpec&#34;
+<span id="L5053" class="ln">  5053  </span>                },
+<span id="L5054" class="ln">  5054  </span>                &#34;httpChaos&#34;: {
+<span id="L5055" class="ln">  5055  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5056" class="ln">  5056  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5057" class="ln">  5057  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.HTTPChaosSpec&#34;
+<span id="L5058" class="ln">  5058  </span>                },
+<span id="L5059" class="ln">  5059  </span>                &#34;ioChaos&#34;: {
+<span id="L5060" class="ln">  5060  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5061" class="ln">  5061  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5062" class="ln">  5062  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.IOChaosSpec&#34;
+<span id="L5063" class="ln">  5063  </span>                },
+<span id="L5064" class="ln">  5064  </span>                &#34;jvmChaos&#34;: {
+<span id="L5065" class="ln">  5065  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5066" class="ln">  5066  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5067" class="ln">  5067  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.JVMChaosSpec&#34;
+<span id="L5068" class="ln">  5068  </span>                },
+<span id="L5069" class="ln">  5069  </span>                &#34;kernelChaos&#34;: {
+<span id="L5070" class="ln">  5070  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5071" class="ln">  5071  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5072" class="ln">  5072  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.KernelChaosSpec&#34;
+<span id="L5073" class="ln">  5073  </span>                },
+<span id="L5074" class="ln">  5074  </span>                &#34;name&#34;: {
+<span id="L5075" class="ln">  5075  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L5076" class="ln">  5076  </span>                },
+<span id="L5077" class="ln">  5077  </span>                &#34;networkChaos&#34;: {
+<span id="L5078" class="ln">  5078  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5079" class="ln">  5079  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5080" class="ln">  5080  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.NetworkChaosSpec&#34;
+<span id="L5081" class="ln">  5081  </span>                },
+<span id="L5082" class="ln">  5082  </span>                &#34;physicalmachineChaos&#34;: {
+<span id="L5083" class="ln">  5083  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5084" class="ln">  5084  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5085" class="ln">  5085  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.PhysicalMachineChaosSpec&#34;
+<span id="L5086" class="ln">  5086  </span>                },
+<span id="L5087" class="ln">  5087  </span>                &#34;podChaos&#34;: {
+<span id="L5088" class="ln">  5088  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5089" class="ln">  5089  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5090" class="ln">  5090  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.PodChaosSpec&#34;
+<span id="L5091" class="ln">  5091  </span>                },
+<span id="L5092" class="ln">  5092  </span>                &#34;schedule&#34;: {
+<span id="L5093" class="ln">  5093  </span>                    &#34;description&#34;: &#34;Schedule describe the Schedule(describing scheduled chaos) to be injected with chaos nodes. Only used when Type is TypeSchedule.\n+optional&#34;,
+<span id="L5094" class="ln">  5094  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5095" class="ln">  5095  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.ChaosOnlyScheduleSpec&#34;
+<span id="L5096" class="ln">  5096  </span>                },
+<span id="L5097" class="ln">  5097  </span>                &#34;statusCheck&#34;: {
+<span id="L5098" class="ln">  5098  </span>                    &#34;description&#34;: &#34;StatusCheck describe the behavior of StatusCheck. Only used when Type is TypeStatusCheck.\n+optional&#34;,
+<span id="L5099" class="ln">  5099  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5100" class="ln">  5100  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.StatusCheckSpec&#34;
+<span id="L5101" class="ln">  5101  </span>                },
+<span id="L5102" class="ln">  5102  </span>                &#34;stressChaos&#34;: {
+<span id="L5103" class="ln">  5103  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5104" class="ln">  5104  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5105" class="ln">  5105  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.StressChaosSpec&#34;
+<span id="L5106" class="ln">  5106  </span>                },
+<span id="L5107" class="ln">  5107  </span>                &#34;task&#34;: {
+<span id="L5108" class="ln">  5108  </span>                    &#34;description&#34;: &#34;Task describes the behavior of the custom task. Only used when Type is TypeTask.\n+optional&#34;,
+<span id="L5109" class="ln">  5109  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5110" class="ln">  5110  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.Task&#34;
+<span id="L5111" class="ln">  5111  </span>                },
+<span id="L5112" class="ln">  5112  </span>                &#34;templateType&#34;: {
+<span id="L5113" class="ln">  5113  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L5114" class="ln">  5114  </span>                },
+<span id="L5115" class="ln">  5115  </span>                &#34;timeChaos&#34;: {
+<span id="L5116" class="ln">  5116  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5117" class="ln">  5117  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5118" class="ln">  5118  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.TimeChaosSpec&#34;
+<span id="L5119" class="ln">  5119  </span>                }
+<span id="L5120" class="ln">  5120  </span>            }
+<span id="L5121" class="ln">  5121  </span>        },
+<span id="L5122" class="ln">  5122  </span>        &#34;v1alpha1.TimeChaosSpec&#34;: {
+<span id="L5123" class="ln">  5123  </span>            &#34;type&#34;: &#34;object&#34;,
+<span id="L5124" class="ln">  5124  </span>            &#34;properties&#34;: {
+<span id="L5125" class="ln">  5125  </span>                &#34;clockIds&#34;: {
+<span id="L5126" class="ln">  5126  </span>                    &#34;description&#34;: &#34;ClockIds defines all affected clock id\nAll available options are [\&#34;CLOCK_REALTIME\&#34;,\&#34;CLOCK_MONOTONIC\&#34;,\&#34;CLOCK_PROCESS_CPUTIME_ID\&#34;,\&#34;CLOCK_THREAD_CPUTIME_ID\&#34;,\n\&#34;CLOCK_MONOTONIC_RAW\&#34;,\&#34;CLOCK_REALTIME_COARSE\&#34;,\&#34;CLOCK_MONOTONIC_COARSE\&#34;,\&#34;CLOCK_BOOTTIME\&#34;,\&#34;CLOCK_REALTIME_ALARM\&#34;,\n\&#34;CLOCK_BOOTTIME_ALARM\&#34;]\nDefault value is [\&#34;CLOCK_REALTIME\&#34;]&#34;,
+<span id="L5127" class="ln">  5127  </span>                    &#34;type&#34;: &#34;array&#34;,
+<span id="L5128" class="ln">  5128  </span>                    &#34;items&#34;: {
+<span id="L5129" class="ln">  5129  </span>                        &#34;type&#34;: &#34;string&#34;
+<span id="L5130" class="ln">  5130  </span>                    }
+<span id="L5131" class="ln">  5131  </span>                },
+<span id="L5132" class="ln">  5132  </span>                &#34;containerNames&#34;: {
+<span id="L5133" class="ln">  5133  </span>                    &#34;description&#34;: &#34;ContainerNames indicates list of the name of affected container.\nIf not set, the first container will be injected\n+optional&#34;,
+<span id="L5134" class="ln">  5134  </span>                    &#34;type&#34;: &#34;array&#34;,
+<span id="L5135" class="ln">  5135  </span>                    &#34;items&#34;: {
+<span id="L5136" class="ln">  5136  </span>                        &#34;type&#34;: &#34;string&#34;
+<span id="L5137" class="ln">  5137  </span>                    }
+<span id="L5138" class="ln">  5138  </span>                },
+<span id="L5139" class="ln">  5139  </span>                &#34;duration&#34;: {
+<span id="L5140" class="ln">  5140  </span>                    &#34;description&#34;: &#34;Duration represents the duration of the chaos action&#34;,
+<span id="L5141" class="ln">  5141  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L5142" class="ln">  5142  </span>                },
+<span id="L5143" class="ln">  5143  </span>                &#34;mode&#34;: {
+<span id="L5144" class="ln">  5144  </span>                    &#34;description&#34;: &#34;Mode defines the mode to run chaos action.\nSupported mode: one / all / fixed / fixed-percent / random-max-percent\n+kubebuilder:validation:Enum=one;all;fixed;fixed-percent;random-max-percent&#34;,
+<span id="L5145" class="ln">  5145  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L5146" class="ln">  5146  </span>                },
+<span id="L5147" class="ln">  5147  </span>                &#34;selector&#34;: {
+<span id="L5148" class="ln">  5148  </span>                    &#34;description&#34;: &#34;Selector is used to select pods that are used to inject chaos action.&#34;,
+<span id="L5149" class="ln">  5149  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5150" class="ln">  5150  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.PodSelectorSpec&#34;
+<span id="L5151" class="ln">  5151  </span>                },
+<span id="L5152" class="ln">  5152  </span>                &#34;timeOffset&#34;: {
+<span id="L5153" class="ln">  5153  </span>                    &#34;description&#34;: &#34;TimeOffset defines the delta time of injected program. It&#39;s a possibly signed sequence of decimal numbers, such as\n\&#34;300ms\&#34;, \&#34;-1.5h\&#34; or \&#34;2h45m\&#34;. Valid time units are \&#34;ns\&#34;, \&#34;us\&#34; (or \&#34;µs\&#34;), \&#34;ms\&#34;, \&#34;s\&#34;, \&#34;m\&#34;, \&#34;h\&#34;.&#34;,
+<span id="L5154" class="ln">  5154  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L5155" class="ln">  5155  </span>                },
+<span id="L5156" class="ln">  5156  </span>                &#34;value&#34;: {
+<span id="L5157" class="ln">  5157  </span>                    &#34;description&#34;: &#34;Value is required when the mode is set to ` + &#34;`&#34; + `FixedMode` + &#34;`&#34; + ` / ` + &#34;`&#34; + `FixedPercentMode` + &#34;`&#34; + ` / ` + &#34;`&#34; + `RandomMaxPercentMode` + &#34;`&#34; + `.\nIf ` + &#34;`&#34; + `FixedMode` + &#34;`&#34; + `, provide an integer of pods to do chaos action.\nIf ` + &#34;`&#34; + `FixedPercentMode` + &#34;`&#34; + `, provide a number from 0-100 to specify the percent of pods the server can do chaos action.\nIF ` + &#34;`&#34; + `RandomMaxPercentMode` + &#34;`&#34; + `,  provide a number from 0-100 to specify the max percent of pods to do chaos action\n+optional&#34;,
+<span id="L5158" class="ln">  5158  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L5159" class="ln">  5159  </span>                }
+<span id="L5160" class="ln">  5160  </span>            }
+<span id="L5161" class="ln">  5161  </span>        },
+<span id="L5162" class="ln">  5162  </span>        &#34;v1alpha1.Timespec&#34;: {
+<span id="L5163" class="ln">  5163  </span>            &#34;type&#34;: &#34;object&#34;,
+<span id="L5164" class="ln">  5164  </span>            &#34;properties&#34;: {
+<span id="L5165" class="ln">  5165  </span>                &#34;nsec&#34;: {
+<span id="L5166" class="ln">  5166  </span>                    &#34;type&#34;: &#34;integer&#34;
+<span id="L5167" class="ln">  5167  </span>                },
+<span id="L5168" class="ln">  5168  </span>                &#34;sec&#34;: {
+<span id="L5169" class="ln">  5169  </span>                    &#34;type&#34;: &#34;integer&#34;
+<span id="L5170" class="ln">  5170  </span>                }
+<span id="L5171" class="ln">  5171  </span>            }
+<span id="L5172" class="ln">  5172  </span>        },
+<span id="L5173" class="ln">  5173  </span>        &#34;v1alpha1.Workflow&#34;: {
+<span id="L5174" class="ln">  5174  </span>            &#34;type&#34;: &#34;object&#34;,
+<span id="L5175" class="ln">  5175  </span>            &#34;properties&#34;: {
+<span id="L5176" class="ln">  5176  </span>                &#34;spec&#34;: {
+<span id="L5177" class="ln">  5177  </span>                    &#34;description&#34;: &#34;Spec defines the behavior of a workflow&#34;,
+<span id="L5178" class="ln">  5178  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5179" class="ln">  5179  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.WorkflowSpec&#34;
+<span id="L5180" class="ln">  5180  </span>                },
+<span id="L5181" class="ln">  5181  </span>                &#34;status&#34;: {
+<span id="L5182" class="ln">  5182  </span>                    &#34;description&#34;: &#34;+optional\nMost recently observed status of the workflow&#34;,
+<span id="L5183" class="ln">  5183  </span>                    &#34;type&#34;: &#34;object&#34;,
+<span id="L5184" class="ln">  5184  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1alpha1.WorkflowStatus&#34;
+<span id="L5185" class="ln">  5185  </span>                }
+<span id="L5186" class="ln">  5186  </span>            }
+<span id="L5187" class="ln">  5187  </span>        },
+<span id="L5188" class="ln">  5188  </span>        &#34;v1alpha1.WorkflowCondition&#34;: {
+<span id="L5189" class="ln">  5189  </span>            &#34;type&#34;: &#34;object&#34;,
+<span id="L5190" class="ln">  5190  </span>            &#34;properties&#34;: {
+<span id="L5191" class="ln">  5191  </span>                &#34;reason&#34;: {
 <span id="L5192" class="ln">  5192  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L5193" class="ln">  5193  </span>                },
-<span id="L5194" class="ln">  5194  </span>                &#34;type&#34;: {
+<span id="L5194" class="ln">  5194  </span>                &#34;startTime&#34;: {
 <span id="L5195" class="ln">  5195  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L5196" class="ln">  5196  </span>                }
-<span id="L5197" class="ln">  5197  </span>            }
-<span id="L5198" class="ln">  5198  </span>        },
-<span id="L5199" class="ln">  5199  </span>        &#34;v1alpha1.WorkflowSpec&#34;: {
-<span id="L5200" class="ln">  5200  </span>            &#34;type&#34;: &#34;object&#34;,
-<span id="L5201" class="ln">  5201  </span>            &#34;properties&#34;: {
-<span id="L5202" class="ln">  5202  </span>                &#34;entry&#34;: {
-<span id="L5203" class="ln">  5203  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L5204" class="ln">  5204  </span>                },
-<span id="L5205" class="ln">  5205  </span>                &#34;templates&#34;: {
-<span id="L5206" class="ln">  5206  </span>                    &#34;type&#34;: &#34;array&#34;,
-<span id="L5207" class="ln">  5207  </span>                    &#34;items&#34;: {
-<span id="L5208" class="ln">  5208  </span>                        &#34;$ref&#34;: &#34;#/definitions/v1alpha1.Template&#34;
-<span id="L5209" class="ln">  5209  </span>                    }
-<span id="L5210" class="ln">  5210  </span>                }
-<span id="L5211" class="ln">  5211  </span>            }
-<span id="L5212" class="ln">  5212  </span>        },
-<span id="L5213" class="ln">  5213  </span>        &#34;v1alpha1.WorkflowStatus&#34;: {
-<span id="L5214" class="ln">  5214  </span>            &#34;type&#34;: &#34;object&#34;,
-<span id="L5215" class="ln">  5215  </span>            &#34;properties&#34;: {
-<span id="L5216" class="ln">  5216  </span>                &#34;conditions&#34;: {
-<span id="L5217" class="ln">  5217  </span>                    &#34;description&#34;: &#34;Represents the latest available observations of a workflow&#39;s current state.\n+optional\n+patchMergeKey=type\n+patchStrategy=merge&#34;,
-<span id="L5218" class="ln">  5218  </span>                    &#34;type&#34;: &#34;array&#34;,
-<span id="L5219" class="ln">  5219  </span>                    &#34;items&#34;: {
-<span id="L5220" class="ln">  5220  </span>                        &#34;$ref&#34;: &#34;#/definitions/v1alpha1.WorkflowCondition&#34;
-<span id="L5221" class="ln">  5221  </span>                    }
-<span id="L5222" class="ln">  5222  </span>                },
-<span id="L5223" class="ln">  5223  </span>                &#34;endTime&#34;: {
-<span id="L5224" class="ln">  5224  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5225" class="ln">  5225  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L5226" class="ln">  5226  </span>                },
-<span id="L5227" class="ln">  5227  </span>                &#34;entryNode&#34;: {
-<span id="L5228" class="ln">  5228  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5229" class="ln">  5229  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L5230" class="ln">  5230  </span>                },
-<span id="L5231" class="ln">  5231  </span>                &#34;startTime&#34;: {
-<span id="L5232" class="ln">  5232  </span>                    &#34;description&#34;: &#34;+optional&#34;,
-<span id="L5233" class="ln">  5233  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L5234" class="ln">  5234  </span>                }
-<span id="L5235" class="ln">  5235  </span>            }
-<span id="L5236" class="ln">  5236  </span>        },
-<span id="L5237" class="ln">  5237  </span>        &#34;workflow.StatusResponse&#34;: {
-<span id="L5238" class="ln">  5238  </span>            &#34;type&#34;: &#34;object&#34;,
-<span id="L5239" class="ln">  5239  </span>            &#34;properties&#34;: {
-<span id="L5240" class="ln">  5240  </span>                &#34;status&#34;: {
-<span id="L5241" class="ln">  5241  </span>                    &#34;type&#34;: &#34;string&#34;
-<span id="L5242" class="ln">  5242  </span>                }
-<span id="L5243" class="ln">  5243  </span>            }
-<span id="L5244" class="ln">  5244  </span>        }
-<span id="L5245" class="ln">  5245  </span>    }
-<span id="L5246" class="ln">  5246  </span>}`
-<span id="L5247" class="ln">  5247  </span>
-<span id="L5248" class="ln">  5248  </span>type swaggerInfo struct {
-<span id="L5249" class="ln">  5249  </span>	Version     string
-<span id="L5250" class="ln">  5250  </span>	Host        string
-<span id="L5251" class="ln">  5251  </span>	BasePath    string
-<span id="L5252" class="ln">  5252  </span>	Schemes     []string
-<span id="L5253" class="ln">  5253  </span>	Title       string
-<span id="L5254" class="ln">  5254  </span>	Description string
-<span id="L5255" class="ln">  5255  </span>}
-<span id="L5256" class="ln">  5256  </span>
-<span id="L5257" class="ln">  5257  </span><span class="comment">// SwaggerInfo holds exported Swagger Info so clients can modify it</span>
-<span id="L5258" class="ln">  5258  </span>var SwaggerInfo = swaggerInfo{
-<span id="L5259" class="ln">  5259  </span>	Version:     &#34;2.0&#34;,
-<span id="L5260" class="ln">  5260  </span>	Host:        &#34;&#34;,
-<span id="L5261" class="ln">  5261  </span>	BasePath:    &#34;/api&#34;,
-<span id="L5262" class="ln">  5262  </span>	Schemes:     []string{},
-<span id="L5263" class="ln">  5263  </span>	Title:       &#34;Chaos Mesh Dashboard API&#34;,
-<span id="L5264" class="ln">  5264  </span>	Description: &#34;Swagger for Chaos Mesh Dashboard. If you encounter any problems with API, please click on the issues link below to report.&#34;,
-<span id="L5265" class="ln">  5265  </span>}
-<span id="L5266" class="ln">  5266  </span>
-<span id="L5267" class="ln">  5267  </span>type s struct{}
-<span id="L5268" class="ln">  5268  </span>
-<span id="L5269" class="ln">  5269  </span>func (s *s) ReadDoc() string {
-<span id="L5270" class="ln">  5270  </span>	sInfo := SwaggerInfo
-<span id="L5271" class="ln">  5271  </span>	sInfo.Description = strings.Replace(sInfo.Description, &#34;\n&#34;, &#34;\\n&#34;, -1)
+<span id="L5196" class="ln">  5196  </span>                },
+<span id="L5197" class="ln">  5197  </span>                &#34;status&#34;: {
+<span id="L5198" class="ln">  5198  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L5199" class="ln">  5199  </span>                },
+<span id="L5200" class="ln">  5200  </span>                &#34;type&#34;: {
+<span id="L5201" class="ln">  5201  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L5202" class="ln">  5202  </span>                }
+<span id="L5203" class="ln">  5203  </span>            }
+<span id="L5204" class="ln">  5204  </span>        },
+<span id="L5205" class="ln">  5205  </span>        &#34;v1alpha1.WorkflowSpec&#34;: {
+<span id="L5206" class="ln">  5206  </span>            &#34;type&#34;: &#34;object&#34;,
+<span id="L5207" class="ln">  5207  </span>            &#34;properties&#34;: {
+<span id="L5208" class="ln">  5208  </span>                &#34;entry&#34;: {
+<span id="L5209" class="ln">  5209  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L5210" class="ln">  5210  </span>                },
+<span id="L5211" class="ln">  5211  </span>                &#34;templates&#34;: {
+<span id="L5212" class="ln">  5212  </span>                    &#34;type&#34;: &#34;array&#34;,
+<span id="L5213" class="ln">  5213  </span>                    &#34;items&#34;: {
+<span id="L5214" class="ln">  5214  </span>                        &#34;$ref&#34;: &#34;#/definitions/v1alpha1.Template&#34;
+<span id="L5215" class="ln">  5215  </span>                    }
+<span id="L5216" class="ln">  5216  </span>                }
+<span id="L5217" class="ln">  5217  </span>            }
+<span id="L5218" class="ln">  5218  </span>        },
+<span id="L5219" class="ln">  5219  </span>        &#34;v1alpha1.WorkflowStatus&#34;: {
+<span id="L5220" class="ln">  5220  </span>            &#34;type&#34;: &#34;object&#34;,
+<span id="L5221" class="ln">  5221  </span>            &#34;properties&#34;: {
+<span id="L5222" class="ln">  5222  </span>                &#34;conditions&#34;: {
+<span id="L5223" class="ln">  5223  </span>                    &#34;description&#34;: &#34;Represents the latest available observations of a workflow&#39;s current state.\n+optional\n+patchMergeKey=type\n+patchStrategy=merge&#34;,
+<span id="L5224" class="ln">  5224  </span>                    &#34;type&#34;: &#34;array&#34;,
+<span id="L5225" class="ln">  5225  </span>                    &#34;items&#34;: {
+<span id="L5226" class="ln">  5226  </span>                        &#34;$ref&#34;: &#34;#/definitions/v1alpha1.WorkflowCondition&#34;
+<span id="L5227" class="ln">  5227  </span>                    }
+<span id="L5228" class="ln">  5228  </span>                },
+<span id="L5229" class="ln">  5229  </span>                &#34;endTime&#34;: {
+<span id="L5230" class="ln">  5230  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5231" class="ln">  5231  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L5232" class="ln">  5232  </span>                },
+<span id="L5233" class="ln">  5233  </span>                &#34;entryNode&#34;: {
+<span id="L5234" class="ln">  5234  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5235" class="ln">  5235  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L5236" class="ln">  5236  </span>                },
+<span id="L5237" class="ln">  5237  </span>                &#34;startTime&#34;: {
+<span id="L5238" class="ln">  5238  </span>                    &#34;description&#34;: &#34;+optional&#34;,
+<span id="L5239" class="ln">  5239  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L5240" class="ln">  5240  </span>                }
+<span id="L5241" class="ln">  5241  </span>            }
+<span id="L5242" class="ln">  5242  </span>        },
+<span id="L5243" class="ln">  5243  </span>        &#34;workflow.StatusResponse&#34;: {
+<span id="L5244" class="ln">  5244  </span>            &#34;type&#34;: &#34;object&#34;,
+<span id="L5245" class="ln">  5245  </span>            &#34;properties&#34;: {
+<span id="L5246" class="ln">  5246  </span>                &#34;status&#34;: {
+<span id="L5247" class="ln">  5247  </span>                    &#34;type&#34;: &#34;string&#34;
+<span id="L5248" class="ln">  5248  </span>                }
+<span id="L5249" class="ln">  5249  </span>            }
+<span id="L5250" class="ln">  5250  </span>        }
+<span id="L5251" class="ln">  5251  </span>    }
+<span id="L5252" class="ln">  5252  </span>}`
+<span id="L5253" class="ln">  5253  </span>
+<span id="L5254" class="ln">  5254  </span>type swaggerInfo struct {
+<span id="L5255" class="ln">  5255  </span>	Version     string
+<span id="L5256" class="ln">  5256  </span>	Host        string
+<span id="L5257" class="ln">  5257  </span>	BasePath    string
+<span id="L5258" class="ln">  5258  </span>	Schemes     []string
+<span id="L5259" class="ln">  5259  </span>	Title       string
+<span id="L5260" class="ln">  5260  </span>	Description string
+<span id="L5261" class="ln">  5261  </span>}
+<span id="L5262" class="ln">  5262  </span>
+<span id="L5263" class="ln">  5263  </span><span class="comment">// SwaggerInfo holds exported Swagger Info so clients can modify it</span>
+<span id="L5264" class="ln">  5264  </span>var SwaggerInfo = swaggerInfo{
+<span id="L5265" class="ln">  5265  </span>	Version:     &#34;2.0&#34;,
+<span id="L5266" class="ln">  5266  </span>	Host:        &#34;&#34;,
+<span id="L5267" class="ln">  5267  </span>	BasePath:    &#34;/api&#34;,
+<span id="L5268" class="ln">  5268  </span>	Schemes:     []string{},
+<span id="L5269" class="ln">  5269  </span>	Title:       &#34;Chaos Mesh Dashboard API&#34;,
+<span id="L5270" class="ln">  5270  </span>	Description: &#34;Swagger for Chaos Mesh Dashboard. If you encounter any problems with API, please click on the issues link below to report.&#34;,
+<span id="L5271" class="ln">  5271  </span>}
 <span id="L5272" class="ln">  5272  </span>
-<span id="L5273" class="ln">  5273  </span>	t, err := template.New(&#34;swagger_info&#34;).Funcs(template.FuncMap{
-<span id="L5274" class="ln">  5274  </span>		&#34;marshal&#34;: func(v interface{}) string {
-<span id="L5275" class="ln">  5275  </span>			a, _ := json.Marshal(v)
-<span id="L5276" class="ln">  5276  </span>			return string(a)
-<span id="L5277" class="ln">  5277  </span>		},
-<span id="L5278" class="ln">  5278  </span>	}).Parse(doc)
-<span id="L5279" class="ln">  5279  </span>	if err != nil {
-<span id="L5280" class="ln">  5280  </span>		return doc
-<span id="L5281" class="ln">  5281  </span>	}
-<span id="L5282" class="ln">  5282  </span>
-<span id="L5283" class="ln">  5283  </span>	var tpl bytes.Buffer
-<span id="L5284" class="ln">  5284  </span>	if err := t.Execute(&amp;tpl, sInfo); err != nil {
-<span id="L5285" class="ln">  5285  </span>		return doc
-<span id="L5286" class="ln">  5286  </span>	}
-<span id="L5287" class="ln">  5287  </span>
-<span id="L5288" class="ln">  5288  </span>	return tpl.String()
-<span id="L5289" class="ln">  5289  </span>}
-<span id="L5290" class="ln">  5290  </span>
-<span id="L5291" class="ln">  5291  </span>func init() {
-<span id="L5292" class="ln">  5292  </span>	swag.Register(swag.Name, &amp;s{})
-<span id="L5293" class="ln">  5293  </span>}
-<span id="L5294" class="ln">  5294  </span>
+<span id="L5273" class="ln">  5273  </span>type s struct{}
+<span id="L5274" class="ln">  5274  </span>
+<span id="L5275" class="ln">  5275  </span>func (s *s) ReadDoc() string {
+<span id="L5276" class="ln">  5276  </span>	sInfo := SwaggerInfo
+<span id="L5277" class="ln">  5277  </span>	sInfo.Description = strings.Replace(sInfo.Description, &#34;\n&#34;, &#34;\\n&#34;, -1)
+<span id="L5278" class="ln">  5278  </span>
+<span id="L5279" class="ln">  5279  </span>	t, err := template.New(&#34;swagger_info&#34;).Funcs(template.FuncMap{
+<span id="L5280" class="ln">  5280  </span>		&#34;marshal&#34;: func(v interface{}) string {
+<span id="L5281" class="ln">  5281  </span>			a, _ := json.Marshal(v)
+<span id="L5282" class="ln">  5282  </span>			return string(a)
+<span id="L5283" class="ln">  5283  </span>		},
+<span id="L5284" class="ln">  5284  </span>	}).Parse(doc)
+<span id="L5285" class="ln">  5285  </span>	if err != nil {
+<span id="L5286" class="ln">  5286  </span>		return doc
+<span id="L5287" class="ln">  5287  </span>	}
+<span id="L5288" class="ln">  5288  </span>
+<span id="L5289" class="ln">  5289  </span>	var tpl bytes.Buffer
+<span id="L5290" class="ln">  5290  </span>	if err := t.Execute(&amp;tpl, sInfo); err != nil {
+<span id="L5291" class="ln">  5291  </span>		return doc
+<span id="L5292" class="ln">  5292  </span>	}
+<span id="L5293" class="ln">  5293  </span>
+<span id="L5294" class="ln">  5294  </span>	return tpl.String()
+<span id="L5295" class="ln">  5295  </span>}
+<span id="L5296" class="ln">  5296  </span>
+<span id="L5297" class="ln">  5297  </span>func init() {
+<span id="L5298" class="ln">  5298  </span>	swag.Register(swag.Name, &amp;s{})
+<span id="L5299" class="ln">  5299  </span>}
+<span id="L5300" class="ln">  5300  </span>
 </pre><p></p>
 
 <div id="footer">
