@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ab5d463. Generated at Tue Jun 14 22:03:50 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 55210d2. Generated at Wed Jun 15 10:01:38 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -195,13 +195,22 @@ DO
 ENDRULE
 `
 
-    <span class="comment">// for action &#39;gc&#39; and &#39;stress&#39;</span>
+    <span class="comment">// for action &#39;mysql&#39;, &#39;gc&#39; and &#39;stress&#39;</span>
+    <span id="SQLHelper">SQLHelper</span>    = &#34;org.chaos_mesh.byteman.helper.SQLHelper&#34;
     <span id="GCHelper">GCHelper</span>     = &#34;org.chaos_mesh.byteman.helper.GCHelper&#34;
     <span id="StressHelper">StressHelper</span> = &#34;org.chaos_mesh.byteman.helper.StressHelper&#34;
 
     <span class="comment">// the trigger point for &#39;gc&#39; and &#39;stress&#39;</span>
     <span id="TriggerClass">TriggerClass</span>  = &#34;org.chaos_mesh.chaos_agent.TriggerThread&#34;
     <span id="TriggerMethod">TriggerMethod</span> = &#34;triggerFunc&#34;
+
+    <span id="MySQL5InjectClass">MySQL5InjectClass</span>  = &#34;com.mysql.jdbc.MysqlIO&#34;
+    <span id="MySQL5InjectMethod">MySQL5InjectMethod</span> = &#34;sqlQueryDirect&#34;
+    <span id="MySQL5Exception">MySQL5Exception</span>    = &#34;java.sql.SQLException(\&#34;%s\&#34;)&#34;
+
+    <span id="MySQL8InjectClass">MySQL8InjectClass</span>  = &#34;com.mysql.cj.NativeSession&#34;
+    <span id="MySQL8InjectMethod">MySQL8InjectMethod</span> = &#34;execSQL&#34;
+    <span id="MySQL8Exception">MySQL8Exception</span>    = &#34;com.mysql.cj.exceptions.CJException(\&#34;%s\&#34;)&#34;
 )</pre>
 			
 		
@@ -220,7 +229,7 @@ ENDRULE
 		
 			
 			
-			<h2 id="NewImpl">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L263">NewImpl</a>
+			<h2 id="NewImpl">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L298">NewImpl</a>
 				<a class="permalink" href="#NewImpl">&#xb6;</a>
 				
 				
@@ -237,7 +246,7 @@ Object would return the instance of chaos
 		
 			
 			
-			<h2 id="BytemanTemplateSpec">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L80">BytemanTemplateSpec</a>
+			<h2 id="BytemanTemplateSpec">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L89">BytemanTemplateSpec</a>
 				<a class="permalink" href="#BytemanTemplateSpec">&#xb6;</a>
 				
 				
@@ -276,7 +285,7 @@ BytemanTemplateSpec is the template spec for byteman rule
 		
 			
 			
-			<h2 id="Impl">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L95">Impl</a>
+			<h2 id="Impl">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L104">Impl</a>
 				<a class="permalink" href="#Impl">&#xb6;</a>
 				
 				
@@ -301,7 +310,7 @@ BytemanTemplateSpec is the template spec for byteman rule
 
 			
 				
-				<h3 id="Impl.Apply">func (*Impl) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L103">Apply</a>
+				<h3 id="Impl.Apply">func (*Impl) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L112">Apply</a>
 					<a class="permalink" href="#Impl.Apply">&#xb6;</a>
 					
 					
@@ -316,7 +325,7 @@ Apply applies jvm-chaos
 				
 			
 				
-				<h3 id="Impl.Recover">func (*Impl) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L142">Recover</a>
+				<h3 id="Impl.Recover">func (*Impl) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L151">Recover</a>
 					<a class="permalink" href="#Impl.Recover">&#xb6;</a>
 					
 					
@@ -333,7 +342,7 @@ Recover means the reconciler recovers the chaos action
 		
 			
 			
-			<h2 id="JVMRuleParameter">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L190">JVMRuleParameter</a>
+			<h2 id="JVMRuleParameter">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L199">JVMRuleParameter</a>
 				<a class="permalink" href="#JVMRuleParameter">&#xb6;</a>
 				
 				
