@@ -4680,6 +4680,70 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
+<h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmmysqlspec">JVMMySQLSpec</h4>
+<div class="paragraph">
+<p>JVMMySQLSpec is the specification of MySQL fault injection in JVM only when SQL match the Database, Table and SQLType, JVMChaos mesh will inject fault for examle:   SQL is "select * from test.t1",   only when Database == "test" || Database == "") &amp;&amp; (Table == "t1" || Table == "") &amp;&amp; (SQLType == "select" || SQLType == "" is true, JVMChaos will inject fault</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmparameter">JVMParameter</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>mysqlConnectorVersion</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>the version of mysql-connector-java, only support 5.X.X(set to "5") and 8.X.X(set to "8") now</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>database</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>the match database default value is "", means match all database</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>table</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>the match table default value is "", means match all table</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>sqlType</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>the match sql type default value is "", means match all SQL type. The value can be 'select', 'insert', 'update', 'delete', 'replace'.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
 <h4 id="k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmparameter">JVMParameter</h4>
 <div class="paragraph">
 <p>JVMParameter represents the detail about jvm chaos action definition</p>
@@ -4728,6 +4792,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>JVMMySQLSpec</code></strong> <em><a href="#k8s-api-github-com-chaos-mesh-chaos-mesh-api-v1alpha1-jvmmysqlspec">JVMMySQLSpec</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong><code>name</code></strong> <em>string</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -4747,7 +4817,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong><code>exception</code></strong> <em>string</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>the exception which needs to throw for action <code>exception</code></p>
+<p>the exception which needs to throw for action <code>exception</code> or the exception message needs to throw in action <code>mysql</code></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4755,7 +4825,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong><code>latency</code></strong> <em>integer</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>the latency duration for action 'latency', unit ms</p>
+<p>the latency duration for action 'latency', unit ms or the latency duration in action <code>mysql</code></p>
 </div></div></td>
 </tr>
 <tr>
