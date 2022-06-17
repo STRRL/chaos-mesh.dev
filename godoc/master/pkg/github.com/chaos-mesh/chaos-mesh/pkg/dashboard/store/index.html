@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 55210d2. Generated at Thu Jun 16 22:03:53 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 480981a. Generated at Fri Jun 17 10:01:51 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -120,7 +120,10 @@
 			
 			
 				
-				<dd><a href="#NewDBStore">func NewDBStore(lc fx.Lifecycle, conf *config.ChaosDashboardConfig) (*gorm.DB, error)</a></dd>
+				<dd><a href="#Bootstrap">func Bootstrap(lc fx.Lifecycle, conf *config.ChaosDashboardConfig, logger logr.Logger) (*gorm.DB, error)</a></dd>
+			
+				
+				<dd><a href="#NewDBStore">func NewDBStore(lc fx.Lifecycle, conf *config.ChaosDashboardConfig, logger logr.Logger) (*gorm.DB, error)</a></dd>
 			
 			
 			
@@ -133,6 +136,8 @@
 			<h3>Package files</h3>
 			<p>
 			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/fx.go">fx.go</a>
 			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/store.go">store.go</a>
 			
@@ -169,12 +174,25 @@
 		
 			
 			
-			<h2 id="NewDBStore">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/store.go#L53">NewDBStore</a>
+			<h2 id="Bootstrap">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/fx.go#L26">Bootstrap</a>
+				<a class="permalink" href="#Bootstrap">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Bootstrap(lc <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Lifecycle">Lifecycle</a>, conf *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/">config</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/#ChaosDashboardConfig">ChaosDashboardConfig</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/jinzhu/gorm/">gorm</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/jinzhu/gorm/#DB">DB</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewDBStore">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store/store.go#L52">NewDBStore</a>
 				<a class="permalink" href="#NewDBStore">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func NewDBStore(lc <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Lifecycle">Lifecycle</a>, conf *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/">config</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/#ChaosDashboardConfig">ChaosDashboardConfig</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/jinzhu/gorm/">gorm</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/jinzhu/gorm/#DB">DB</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			<pre>func NewDBStore(lc <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Lifecycle">Lifecycle</a>, conf *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/">config</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/#ChaosDashboardConfig">ChaosDashboardConfig</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/jinzhu/gorm/">gorm</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/jinzhu/gorm/#DB">DB</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 			<p>
 NewDBStore returns a new gorm.DB
 </p>

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 55210d2. Generated at Thu Jun 16 22:03:53 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 480981a. Generated at Fri Jun 17 10:01:51 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -83,9 +83,9 @@
 <span id="L18" class="ln">    18  </span>import (
 <span id="L19" class="ln">    19  </span>	&#34;context&#34;
 <span id="L20" class="ln">    20  </span>
-<span id="L21" class="ln">    21  </span>	&#34;github.com/jinzhu/gorm&#34;
-<span id="L22" class="ln">    22  </span>	&#34;go.uber.org/fx&#34;
-<span id="L23" class="ln">    23  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
+<span id="L21" class="ln">    21  </span>	&#34;github.com/go-logr/logr&#34;
+<span id="L22" class="ln">    22  </span>	&#34;github.com/jinzhu/gorm&#34;
+<span id="L23" class="ln">    23  </span>	&#34;go.uber.org/fx&#34;
 <span id="L24" class="ln">    24  </span>	controllermetrics &#34;sigs.k8s.io/controller-runtime/pkg/metrics&#34;
 <span id="L25" class="ln">    25  </span>
 <span id="L26" class="ln">    26  </span>	config &#34;github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard&#34;
@@ -111,39 +111,37 @@
 <span id="L46" class="ln">    46  </span>		fx.Invoke(schedule.DeleteIncompleteSchedules),
 <span id="L47" class="ln">    47  </span>	)
 <span id="L48" class="ln">    48  </span>	sqliteDriver = &#34;sqlite3&#34;
-<span id="L49" class="ln">    49  </span>	log          = ctrl.Log.WithName(&#34;store&#34;).WithName(&#34;dbstore&#34;)
-<span id="L50" class="ln">    50  </span>)
-<span id="L51" class="ln">    51  </span>
-<span id="L52" class="ln">    52  </span><span class="comment">// NewDBStore returns a new gorm.DB</span>
-<span id="L53" class="ln">    53  </span>func NewDBStore(lc fx.Lifecycle, conf *config.ChaosDashboardConfig) (*gorm.DB, error) {
-<span id="L54" class="ln">    54  </span>	ds := conf.Database.Datasource
-<span id="L55" class="ln">    55  </span>
-<span id="L56" class="ln">    56  </span>	<span class="comment">// fix error `database is locked`, refer to https://github.com/mattn/go-sqlite3/blob/master/README.md#faq</span>
-<span id="L57" class="ln">    57  </span>	if conf.Database.Driver == sqliteDriver {
-<span id="L58" class="ln">    58  </span>		ds += &#34;?cache=shared&#34;
-<span id="L59" class="ln">    59  </span>	}
-<span id="L60" class="ln">    60  </span>
-<span id="L61" class="ln">    61  </span>	gormDB, err := gorm.Open(conf.Database.Driver, ds)
-<span id="L62" class="ln">    62  </span>	if err != nil {
-<span id="L63" class="ln">    63  </span>		log.Error(err, &#34;Failed to open DB: &#34;, &#34;driver =&gt; &#34;, conf.Database.Driver)
-<span id="L64" class="ln">    64  </span>
-<span id="L65" class="ln">    65  </span>		return nil, err
-<span id="L66" class="ln">    66  </span>	}
-<span id="L67" class="ln">    67  </span>
-<span id="L68" class="ln">    68  </span>	<span class="comment">// fix error `database is locked`, refer to https://github.com/mattn/go-sqlite3/blob/master/README.md#faq</span>
-<span id="L69" class="ln">    69  </span>	if conf.Database.Driver == sqliteDriver {
-<span id="L70" class="ln">    70  </span>		gormDB.DB().SetMaxOpenConns(1)
-<span id="L71" class="ln">    71  </span>	}
-<span id="L72" class="ln">    72  </span>
-<span id="L73" class="ln">    73  </span>	lc.Append(fx.Hook{
-<span id="L74" class="ln">    74  </span>		OnStop: func(context.Context) error {
-<span id="L75" class="ln">    75  </span>			return gormDB.Close()
-<span id="L76" class="ln">    76  </span>		},
-<span id="L77" class="ln">    77  </span>	})
-<span id="L78" class="ln">    78  </span>
-<span id="L79" class="ln">    79  </span>	return gormDB, nil
-<span id="L80" class="ln">    80  </span>}
-<span id="L81" class="ln">    81  </span>
+<span id="L49" class="ln">    49  </span>)
+<span id="L50" class="ln">    50  </span>
+<span id="L51" class="ln">    51  </span><span class="comment">// NewDBStore returns a new gorm.DB</span>
+<span id="L52" class="ln">    52  </span>func NewDBStore(lc fx.Lifecycle, conf *config.ChaosDashboardConfig, logger logr.Logger) (*gorm.DB, error) {
+<span id="L53" class="ln">    53  </span>	ds := conf.Database.Datasource
+<span id="L54" class="ln">    54  </span>
+<span id="L55" class="ln">    55  </span>	<span class="comment">// fix error `database is locked`, refer to https://github.com/mattn/go-sqlite3/blob/master/README.md#faq</span>
+<span id="L56" class="ln">    56  </span>	if conf.Database.Driver == sqliteDriver {
+<span id="L57" class="ln">    57  </span>		ds += &#34;?cache=shared&#34;
+<span id="L58" class="ln">    58  </span>	}
+<span id="L59" class="ln">    59  </span>
+<span id="L60" class="ln">    60  </span>	gormDB, err := gorm.Open(conf.Database.Driver, ds)
+<span id="L61" class="ln">    61  </span>	if err != nil {
+<span id="L62" class="ln">    62  </span>		logger.Error(err, &#34;Failed to open DB: &#34;, &#34;driver =&gt; &#34;, conf.Database.Driver)
+<span id="L63" class="ln">    63  </span>		return nil, err
+<span id="L64" class="ln">    64  </span>	}
+<span id="L65" class="ln">    65  </span>
+<span id="L66" class="ln">    66  </span>	<span class="comment">// fix error `database is locked`, refer to https://github.com/mattn/go-sqlite3/blob/master/README.md#faq</span>
+<span id="L67" class="ln">    67  </span>	if conf.Database.Driver == sqliteDriver {
+<span id="L68" class="ln">    68  </span>		gormDB.DB().SetMaxOpenConns(1)
+<span id="L69" class="ln">    69  </span>	}
+<span id="L70" class="ln">    70  </span>
+<span id="L71" class="ln">    71  </span>	lc.Append(fx.Hook{
+<span id="L72" class="ln">    72  </span>		OnStop: func(context.Context) error {
+<span id="L73" class="ln">    73  </span>			return gormDB.Close()
+<span id="L74" class="ln">    74  </span>		},
+<span id="L75" class="ln">    75  </span>	})
+<span id="L76" class="ln">    76  </span>
+<span id="L77" class="ln">    77  </span>	return gormDB, nil
+<span id="L78" class="ln">    78  </span>}
+<span id="L79" class="ln">    79  </span>
 </pre><p></p>
 
 <div id="footer">
