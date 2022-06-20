@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 3e43c60. Generated at Sun Jun 19 22:08:06 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 68b0b7b. Generated at Mon Jun 20 10:01:42 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -123,7 +123,7 @@
 <span id="L58" class="ln">    58  </span>	}
 <span id="L59" class="ln">    59  </span>	cm.SetupGlobalLogger(rootLogger.WithName(&#34;global-logger&#34;))
 <span id="L60" class="ln">    60  </span>
-<span id="L61" class="ln">    61  </span>	rootCmd.PersistentFlags().StringVarP(&amp;managerNamespace, &#34;manager-namespace&#34;, &#34;N&#34;, &#34;chaos-testing&#34;, &#34;the namespace chaos-controller-manager in&#34;)
+<span id="L61" class="ln">    61  </span>	rootCmd.PersistentFlags().StringVarP(&amp;managerNamespace, &#34;manager-namespace&#34;, &#34;N&#34;, &#34;chaos-mesh&#34;, &#34;the namespace chaos-controller-manager in&#34;)
 <span id="L62" class="ln">    62  </span>	rootCmd.PersistentFlags().StringVarP(&amp;managerSvc, &#34;manager-svc&#34;, &#34;s&#34;, &#34;chaos-mesh-controller-manager&#34;, &#34;the service to chaos-controller-manager&#34;)
 <span id="L63" class="ln">    63  </span>	err = rootCmd.RegisterFlagCompletionFunc(&#34;manager-namespace&#34;, func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
 <span id="L64" class="ln">    64  </span>		<span class="comment">// TODO: list namespaces without ctrlserver</span>

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 3e43c60. Generated at Sun Jun 19 22:08:06 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 68b0b7b. Generated at Mon Jun 20 10:01:42 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -122,7 +122,7 @@
 <span id="L57" class="ln">    57  </span>Examples:
 <span id="L58" class="ln">    58  </span>  # Generate TLS certs for remote physical machine, and create PhysicalMachine CustomResource in certain namespace
 <span id="L59" class="ln">    59  </span>  chaosctl pm init PHYSICALMACHINE_NAME -n NAMESPACE --ip REMOTEIP
-<span id="L60" class="ln">    60  </span>  
+<span id="L60" class="ln">    60  </span>
 <span id="L61" class="ln">    61  </span>  # Generate TLS certs for remote physical machine, and create PhysicalMachine CustomResource in certain namespace with specified labels
 <span id="L62" class="ln">    62  </span>  chaosctl pm init PHYSICALMACHINE_NAME -n NAMESPACE --ip REMOTEIP -l key1=value1,key2=value2
 <span id="L63" class="ln">    63  </span>  `,
@@ -135,7 +135,7 @@
 <span id="L70" class="ln">    70  </span>			return initOption.Run(args)
 <span id="L71" class="ln">    71  </span>		},
 <span id="L72" class="ln">    72  </span>	}
-<span id="L73" class="ln">    73  </span>	initCmd.PersistentFlags().StringVar(&amp;initOption.chaosMeshNamespace, &#34;chaos-mesh-namespace&#34;, &#34;chaos-testing&#34;, &#34;namespace where chaos mesh installed&#34;)
+<span id="L73" class="ln">    73  </span>	initCmd.PersistentFlags().StringVar(&amp;initOption.chaosMeshNamespace, &#34;chaos-mesh-namespace&#34;, &#34;chaos-mesh&#34;, &#34;namespace where chaos mesh installed&#34;)
 <span id="L74" class="ln">    74  </span>	initCmd.PersistentFlags().StringVar(&amp;initOption.remoteIP, &#34;ip&#34;, &#34;&#34;, &#34;ip of the remote physical machine&#34;)
 <span id="L75" class="ln">    75  </span>	initCmd.PersistentFlags().StringVar(&amp;initOption.sshUser, &#34;ssh-user&#34;, &#34;root&#34;, &#34;username for ssh connection&#34;)
 <span id="L76" class="ln">    76  </span>	initCmd.PersistentFlags().StringVar(&amp;initOption.sshPrivateKeyFile, &#34;ssh-key&#34;, filepath.Join(os.Getenv(&#34;HOME&#34;), &#34;.ssh&#34;, &#34;id_rsa&#34;), &#34;private key filepath for ssh connection&#34;)

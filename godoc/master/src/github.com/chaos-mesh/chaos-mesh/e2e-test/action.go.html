@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 3e43c60. Generated at Sun Jun 19 22:08:06 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 68b0b7b. Generated at Mon Jun 20 10:01:42 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -166,12 +166,12 @@
 <span id="L101" class="ln">   101  </span>}
 <span id="L102" class="ln">   102  </span>
 <span id="L103" class="ln">   103  </span>func (oa *operatorAction) DeployOperator(info *OperatorConfig) error {
-<span id="L104" class="ln">   104  </span>	klog.Infof(&#34;create namespace chaos-testing&#34;)
+<span id="L104" class="ln">   104  </span>	klog.Infof(&#34;create namespace chaos-mesh&#34;)
 <span id="L105" class="ln">   105  </span>	cmd := fmt.Sprintf(`kubectl create ns %s`, e2econst.ChaosMeshNamespace)
 <span id="L106" class="ln">   106  </span>	klog.Infof(cmd)
 <span id="L107" class="ln">   107  </span>	output, err := exec.Command(&#34;/bin/sh&#34;, &#34;-c&#34;, cmd).CombinedOutput()
 <span id="L108" class="ln">   108  </span>	if err != nil {
-<span id="L109" class="ln">   109  </span>		return errors.Errorf(&#34;failed to create namespace chaos-testing: %v %s&#34;, err, string(output))
+<span id="L109" class="ln">   109  </span>		return errors.Errorf(&#34;failed to create namespace chaos-mesh: %v %s&#34;, err, string(output))
 <span id="L110" class="ln">   110  </span>	}
 <span id="L111" class="ln">   111  </span>	return oa.UpgradeOperator(info)
 <span id="L112" class="ln">   112  </span>}
