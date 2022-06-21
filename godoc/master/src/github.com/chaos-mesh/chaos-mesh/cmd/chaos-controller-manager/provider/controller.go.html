@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 68b0b7b. Generated at Mon Jun 20 22:03:35 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit aef6f9a. Generated at Tue Jun 21 10:06:34 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -217,90 +217,74 @@
 <span id="L152" class="ln">   152  </span>	}
 <span id="L153" class="ln">   153  </span>}
 <span id="L154" class="ln">   154  </span>
-<span id="L155" class="ln">   155  </span>type globalCacheReader struct {
+<span id="L155" class="ln">   155  </span>type controlPlaneCacheReader struct {
 <span id="L156" class="ln">   156  </span>	fx.Out
 <span id="L157" class="ln">   157  </span>
-<span id="L158" class="ln">   158  </span>	client.Reader `name:&#34;global-cache&#34;`
+<span id="L158" class="ln">   158  </span>	client.Reader `name:&#34;control-plane-cache&#34;`
 <span id="L159" class="ln">   159  </span>}
 <span id="L160" class="ln">   160  </span>
-<span id="L161" class="ln">   161  </span><span class="comment">// NewGlobalCacheReader builds a client.Reader with cache for global usage</span>
-<span id="L162" class="ln">   162  </span><span class="comment">// TODO: we could return with fx.Annotate instead of struct globalCacheReader and magic name &#34;global-cache&#34;</span>
-<span id="L163" class="ln">   163  </span><span class="comment">// TODO: it seems this component is not used anymore, maybe we could remote it.</span>
-<span id="L164" class="ln">   164  </span>func NewGlobalCacheReader(mgr ctrl.Manager) globalCacheReader {
-<span id="L165" class="ln">   165  </span>	return globalCacheReader{
-<span id="L166" class="ln">   166  </span>		Reader: mgr.GetClient(),
-<span id="L167" class="ln">   167  </span>	}
-<span id="L168" class="ln">   168  </span>}
-<span id="L169" class="ln">   169  </span>
-<span id="L170" class="ln">   170  </span>type controlPlaneCacheReader struct {
-<span id="L171" class="ln">   171  </span>	fx.Out
-<span id="L172" class="ln">   172  </span>
-<span id="L173" class="ln">   173  </span>	client.Reader `name:&#34;control-plane-cache&#34;`
-<span id="L174" class="ln">   174  </span>}
-<span id="L175" class="ln">   175  </span>
-<span id="L176" class="ln">   176  </span><span class="comment">// NewControlPlaneCacheReader builds a client.Reader with cache for certain usage for control plane</span>
-<span id="L177" class="ln">   177  </span>func NewControlPlaneCacheReader(logger logr.Logger, cfg *rest.Config) (controlPlaneCacheReader, error) {
-<span id="L178" class="ln">   178  </span>	mapper, err := apiutil.NewDynamicRESTMapper(cfg)
-<span id="L179" class="ln">   179  </span>	if err != nil {
-<span id="L180" class="ln">   180  </span>		return controlPlaneCacheReader{}, err
-<span id="L181" class="ln">   181  </span>	}
-<span id="L182" class="ln">   182  </span>
-<span id="L183" class="ln">   183  </span>	scheme := runtime.NewScheme()
-<span id="L184" class="ln">   184  </span>	_ = clientgoscheme.AddToScheme(scheme)
+<span id="L161" class="ln">   161  </span><span class="comment">// NewControlPlaneCacheReader builds a client.Reader with cache for certain usage for control plane</span>
+<span id="L162" class="ln">   162  </span>func NewControlPlaneCacheReader(logger logr.Logger, cfg *rest.Config) (controlPlaneCacheReader, error) {
+<span id="L163" class="ln">   163  </span>	mapper, err := apiutil.NewDynamicRESTMapper(cfg)
+<span id="L164" class="ln">   164  </span>	if err != nil {
+<span id="L165" class="ln">   165  </span>		return controlPlaneCacheReader{}, err
+<span id="L166" class="ln">   166  </span>	}
+<span id="L167" class="ln">   167  </span>
+<span id="L168" class="ln">   168  </span>	scheme := runtime.NewScheme()
+<span id="L169" class="ln">   169  </span>	_ = clientgoscheme.AddToScheme(scheme)
+<span id="L170" class="ln">   170  </span>
+<span id="L171" class="ln">   171  </span>	<span class="comment">// Create the cache for the cached read client and registering informers</span>
+<span id="L172" class="ln">   172  </span>	cacheReader, err := cache.New(cfg, cache.Options{Scheme: scheme, Mapper: mapper, Resync: nil, Namespace: config.ControllerCfg.Namespace})
+<span id="L173" class="ln">   173  </span>	if err != nil {
+<span id="L174" class="ln">   174  </span>		return controlPlaneCacheReader{}, err
+<span id="L175" class="ln">   175  </span>	}
+<span id="L176" class="ln">   176  </span>	<span class="comment">// TODO: store the channel and use it to stop</span>
+<span id="L177" class="ln">   177  </span>	<span class="comment">// FIXME: goroutine leaks</span>
+<span id="L178" class="ln">   178  </span>	go func() {
+<span id="L179" class="ln">   179  </span>		<span class="comment">// FIXME: get context from parameter</span>
+<span id="L180" class="ln">   180  </span>		err := cacheReader.Start(context.TODO())
+<span id="L181" class="ln">   181  </span>		if err != nil {
+<span id="L182" class="ln">   182  </span>			logger.Error(err, &#34;fail to start cached client&#34;)
+<span id="L183" class="ln">   183  </span>		}
+<span id="L184" class="ln">   184  </span>	}()
 <span id="L185" class="ln">   185  </span>
-<span id="L186" class="ln">   186  </span>	<span class="comment">// Create the cache for the cached read client and registering informers</span>
-<span id="L187" class="ln">   187  </span>	cacheReader, err := cache.New(cfg, cache.Options{Scheme: scheme, Mapper: mapper, Resync: nil, Namespace: config.ControllerCfg.Namespace})
-<span id="L188" class="ln">   188  </span>	if err != nil {
-<span id="L189" class="ln">   189  </span>		return controlPlaneCacheReader{}, err
-<span id="L190" class="ln">   190  </span>	}
-<span id="L191" class="ln">   191  </span>	<span class="comment">// TODO: store the channel and use it to stop</span>
-<span id="L192" class="ln">   192  </span>	<span class="comment">// FIXME: goroutine leaks</span>
-<span id="L193" class="ln">   193  </span>	go func() {
-<span id="L194" class="ln">   194  </span>		<span class="comment">// FIXME: get context from parameter</span>
-<span id="L195" class="ln">   195  </span>		err := cacheReader.Start(context.TODO())
-<span id="L196" class="ln">   196  </span>		if err != nil {
-<span id="L197" class="ln">   197  </span>			logger.Error(err, &#34;fail to start cached client&#34;)
-<span id="L198" class="ln">   198  </span>		}
-<span id="L199" class="ln">   199  </span>	}()
+<span id="L186" class="ln">   186  </span>	c, err := client.New(cfg, client.Options{Scheme: scheme, Mapper: mapper})
+<span id="L187" class="ln">   187  </span>	if err != nil {
+<span id="L188" class="ln">   188  </span>		return controlPlaneCacheReader{}, err
+<span id="L189" class="ln">   189  </span>	}
+<span id="L190" class="ln">   190  </span>
+<span id="L191" class="ln">   191  </span>	cachedClient, err := client.NewDelegatingClient(client.NewDelegatingClientInput{
+<span id="L192" class="ln">   192  </span>		CacheReader:       cacheReader,
+<span id="L193" class="ln">   193  </span>		Client:            c,
+<span id="L194" class="ln">   194  </span>		UncachedObjects:   nil,
+<span id="L195" class="ln">   195  </span>		CacheUnstructured: false,
+<span id="L196" class="ln">   196  </span>	})
+<span id="L197" class="ln">   197  </span>	if err != nil {
+<span id="L198" class="ln">   198  </span>		return controlPlaneCacheReader{}, err
+<span id="L199" class="ln">   199  </span>	}
 <span id="L200" class="ln">   200  </span>
-<span id="L201" class="ln">   201  </span>	c, err := client.New(cfg, client.Options{Scheme: scheme, Mapper: mapper})
-<span id="L202" class="ln">   202  </span>	if err != nil {
-<span id="L203" class="ln">   203  </span>		return controlPlaneCacheReader{}, err
-<span id="L204" class="ln">   204  </span>	}
+<span id="L201" class="ln">   201  </span>	return controlPlaneCacheReader{
+<span id="L202" class="ln">   202  </span>		Reader: cachedClient,
+<span id="L203" class="ln">   203  </span>	}, nil
+<span id="L204" class="ln">   204  </span>}
 <span id="L205" class="ln">   205  </span>
-<span id="L206" class="ln">   206  </span>	cachedClient, err := client.NewDelegatingClient(client.NewDelegatingClientInput{
-<span id="L207" class="ln">   207  </span>		CacheReader:       cacheReader,
-<span id="L208" class="ln">   208  </span>		Client:            c,
-<span id="L209" class="ln">   209  </span>		UncachedObjects:   nil,
-<span id="L210" class="ln">   210  </span>		CacheUnstructured: false,
-<span id="L211" class="ln">   211  </span>	})
-<span id="L212" class="ln">   212  </span>	if err != nil {
-<span id="L213" class="ln">   213  </span>		return controlPlaneCacheReader{}, err
-<span id="L214" class="ln">   214  </span>	}
-<span id="L215" class="ln">   215  </span>
-<span id="L216" class="ln">   216  </span>	return controlPlaneCacheReader{
-<span id="L217" class="ln">   217  </span>		Reader: cachedClient,
-<span id="L218" class="ln">   218  </span>	}, nil
-<span id="L219" class="ln">   219  </span>}
-<span id="L220" class="ln">   220  </span>
-<span id="L221" class="ln">   221  </span>func NewClientSet(config *rest.Config) (*kubernetes.Clientset, error) {
-<span id="L222" class="ln">   222  </span>	return kubernetes.NewForConfig(config)
-<span id="L223" class="ln">   223  </span>}
-<span id="L224" class="ln">   224  </span>
-<span id="L225" class="ln">   225  </span><span class="comment">// Module would provide objects to fx for dependency injection.</span>
-<span id="L226" class="ln">   226  </span>var Module = fx.Provide(
-<span id="L227" class="ln">   227  </span>	NewOption,
-<span id="L228" class="ln">   228  </span>	NewClient,
-<span id="L229" class="ln">   229  </span>	NewClientSet,
-<span id="L230" class="ln">   230  </span>	NewManager,
-<span id="L231" class="ln">   231  </span>	NewAuthCli,
-<span id="L232" class="ln">   232  </span>	NewScheme,
-<span id="L233" class="ln">   233  </span>	NewConfig,
-<span id="L234" class="ln">   234  </span>	NewNoCacheReader,
-<span id="L235" class="ln">   235  </span>	NewGlobalCacheReader,
-<span id="L236" class="ln">   236  </span>	NewControlPlaneCacheReader,
-<span id="L237" class="ln">   237  </span>)
-<span id="L238" class="ln">   238  </span>
+<span id="L206" class="ln">   206  </span>func NewClientSet(config *rest.Config) (*kubernetes.Clientset, error) {
+<span id="L207" class="ln">   207  </span>	return kubernetes.NewForConfig(config)
+<span id="L208" class="ln">   208  </span>}
+<span id="L209" class="ln">   209  </span>
+<span id="L210" class="ln">   210  </span><span class="comment">// Module would provide objects to fx for dependency injection.</span>
+<span id="L211" class="ln">   211  </span>var Module = fx.Provide(
+<span id="L212" class="ln">   212  </span>	NewOption,
+<span id="L213" class="ln">   213  </span>	NewClient,
+<span id="L214" class="ln">   214  </span>	NewClientSet,
+<span id="L215" class="ln">   215  </span>	NewManager,
+<span id="L216" class="ln">   216  </span>	NewAuthCli,
+<span id="L217" class="ln">   217  </span>	NewScheme,
+<span id="L218" class="ln">   218  </span>	NewConfig,
+<span id="L219" class="ln">   219  </span>	NewNoCacheReader,
+<span id="L220" class="ln">   220  </span>	NewControlPlaneCacheReader,
+<span id="L221" class="ln">   221  </span>)
+<span id="L222" class="ln">   222  </span>
 </pre><p></p>
 
 <div id="footer">

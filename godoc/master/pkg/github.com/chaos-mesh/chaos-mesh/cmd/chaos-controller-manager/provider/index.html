@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 68b0b7b. Generated at Mon Jun 20 22:03:35 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit aef6f9a. Generated at Tue Jun 21 10:06:34 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -134,9 +134,6 @@ Package provider provides several required components for bootstrapping chaos-co
 			
 				
 				<dd><a href="#NewControlPlaneCacheReader">func NewControlPlaneCacheReader(logger logr.Logger, cfg *rest.Config) (controlPlaneCacheReader, error)</a></dd>
-			
-				
-				<dd><a href="#NewGlobalCacheReader">func NewGlobalCacheReader(mgr ctrl.Manager) globalCacheReader</a></dd>
 			
 				
 				<dd><a href="#NewManager">func NewManager(options *ctrl.Options, cfg *rest.Config) (ctrl.Manager, error)</a></dd>
@@ -239,7 +236,6 @@ Module would provide objects to fx for dependency injection.
     <a href="#NewScheme">NewScheme</a>,
     <a href="#NewConfig">NewConfig</a>,
     <a href="#NewNoCacheReader">NewNoCacheReader</a>,
-    <a href="#NewGlobalCacheReader">NewGlobalCacheReader</a>,
     <a href="#NewControlPlaneCacheReader">NewControlPlaneCacheReader</a>,
 )</pre>
 			
@@ -279,7 +275,7 @@ NewClient would build the controller-runtime client.Client with given parameters
 		
 			
 			
-			<h2 id="NewClientSet">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L221">NewClientSet</a>
+			<h2 id="NewClientSet">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L206">NewClientSet</a>
 				<a class="permalink" href="#NewClientSet">&#xb6;</a>
 				
 				
@@ -308,7 +304,7 @@ NewConfig would fetch the rest.Config from environment. When it failed to fetch 
 		
 			
 			
-			<h2 id="NewControlPlaneCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L177">NewControlPlaneCacheReader</a>
+			<h2 id="NewControlPlaneCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L162">NewControlPlaneCacheReader</a>
 				<a class="permalink" href="#NewControlPlaneCacheReader">&#xb6;</a>
 				
 				
@@ -316,24 +312,6 @@ NewConfig would fetch the rest.Config from environment. When it failed to fetch 
 			<pre>func NewControlPlaneCacheReader(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>, cfg *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/rest/">rest</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/rest/#Config">Config</a>) (controlPlaneCacheReader, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 			<p>
 NewControlPlaneCacheReader builds a client.Reader with cache for certain usage for control plane
-</p>
-
-			
-			
-
-		
-			
-			
-			<h2 id="NewGlobalCacheReader">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/controller.go#L164">NewGlobalCacheReader</a>
-				<a class="permalink" href="#NewGlobalCacheReader">&#xb6;</a>
-				
-				
-			</h2>
-			<pre>func NewGlobalCacheReader(mgr <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Manager">Manager</a>) globalCacheReader</pre>
-			<p>
-NewGlobalCacheReader builds a client.Reader with cache for global usage
-TODO: we could return with fx.Annotate instead of struct globalCacheReader and magic name &#34;global-cache&#34;
-TODO: it seems this component is not used anymore, maybe we could remote it.
 </p>
 
 			
