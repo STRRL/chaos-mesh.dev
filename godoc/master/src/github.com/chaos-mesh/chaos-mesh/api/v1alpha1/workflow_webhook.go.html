@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit fed2001. Generated at Thu Jun 30 22:04:08 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b80f0ca. Generated at Fri Jul  1 10:01:53 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -268,80 +268,81 @@
 <span id="L203" class="ln">   203  </span>
 <span id="L204" class="ln">   204  </span>	if template.EmbedChaos == nil {
 <span id="L205" class="ln">   205  </span>		result = append(result, field.Invalid(path.Child(string(template.Type)), nil, fmt.Sprintf(&#34;the value of chaos %s is required&#34;, template.Type)))
-<span id="L206" class="ln">   206  </span>	}
-<span id="L207" class="ln">   207  </span>
-<span id="L208" class="ln">   208  </span>	spec := reflect.ValueOf(template.EmbedChaos).Elem().FieldByName(string(template.Type))
-<span id="L209" class="ln">   209  </span>	if !spec.IsValid() || spec.IsNil() {
-<span id="L210" class="ln">   210  </span>		result = append(result, field.Invalid(path.Child(string(template.Type)),
-<span id="L211" class="ln">   211  </span>			nil,
-<span id="L212" class="ln">   212  </span>			fmt.Sprintf(&#34;parse workflow field error: missing chaos spec %s&#34;, template.Type)))
-<span id="L213" class="ln">   213  </span>		return result
-<span id="L214" class="ln">   214  </span>	}
-<span id="L215" class="ln">   215  </span>	if commonSpec, ok := spec.Interface().(ContainsDuration); !ok {
-<span id="L216" class="ln">   216  </span>		result = append(result, field.Invalid(path, &#34;&#34;, fmt.Sprintf(&#34;Chaos: %s does not implement CommonSpec&#34;, template.Type)))
-<span id="L217" class="ln">   217  </span>	} else {
-<span id="L218" class="ln">   218  </span>		duration, err := commonSpec.GetDuration()
-<span id="L219" class="ln">   219  </span>		if err != nil {
-<span id="L220" class="ln">   220  </span>			result = append(result, field.Invalid(path, &#34;&#34;, err.Error()))
-<span id="L221" class="ln">   221  </span>			return result
-<span id="L222" class="ln">   222  </span>		}
-<span id="L223" class="ln">   223  </span>		if duration != nil {
-<span id="L224" class="ln">   224  </span>			result = append(result, field.Invalid(path, duration, &#34;should not define duration in chaos when using Workflow, use Template#Deadline instead.&#34;))
-<span id="L225" class="ln">   225  </span>		}
-<span id="L226" class="ln">   226  </span>	}
-<span id="L227" class="ln">   227  </span>	return result
-<span id="L228" class="ln">   228  </span>}
-<span id="L229" class="ln">   229  </span>
-<span id="L230" class="ln">   230  </span>func shouldBeNoTask(path *field.Path, template Template) field.ErrorList {
-<span id="L231" class="ln">   231  </span>	if template.Task != nil {
-<span id="L232" class="ln">   232  </span>		return field.ErrorList{
-<span id="L233" class="ln">   233  </span>			field.Invalid(path, template.Task, &#34;this template should not contain Task&#34;),
-<span id="L234" class="ln">   234  </span>		}
-<span id="L235" class="ln">   235  </span>	}
-<span id="L236" class="ln">   236  </span>	return nil
-<span id="L237" class="ln">   237  </span>}
-<span id="L238" class="ln">   238  </span>
-<span id="L239" class="ln">   239  </span>func shouldBeNoChildren(path *field.Path, template Template) field.ErrorList {
-<span id="L240" class="ln">   240  </span>	if len(template.Children) &gt; 0 {
-<span id="L241" class="ln">   241  </span>		return field.ErrorList{
-<span id="L242" class="ln">   242  </span>			field.Invalid(path, template.Children, &#34;this template should not contain Children&#34;),
-<span id="L243" class="ln">   243  </span>		}
-<span id="L244" class="ln">   244  </span>	}
-<span id="L245" class="ln">   245  </span>	return nil
-<span id="L246" class="ln">   246  </span>}
-<span id="L247" class="ln">   247  </span>
-<span id="L248" class="ln">   248  </span>func shouldBeNoConditionalBranches(path *field.Path, template Template) field.ErrorList {
-<span id="L249" class="ln">   249  </span>	if len(template.ConditionalBranches) &gt; 0 {
-<span id="L250" class="ln">   250  </span>		return field.ErrorList{
-<span id="L251" class="ln">   251  </span>			field.Invalid(path, template.ConditionalBranches, &#34;this template should not contain ConditionalBranches&#34;),
-<span id="L252" class="ln">   252  </span>		}
-<span id="L253" class="ln">   253  </span>	}
-<span id="L254" class="ln">   254  </span>	return nil
-<span id="L255" class="ln">   255  </span>}
-<span id="L256" class="ln">   256  </span>
-<span id="L257" class="ln">   257  </span>func shouldBeNoEmbedChaos(path *field.Path, template Template) field.ErrorList {
-<span id="L258" class="ln">   258  </span>	<span class="comment">// TODO: we could improve that with code generation in the future</span>
-<span id="L259" class="ln">   259  </span>	if template.EmbedChaos != nil {
-<span id="L260" class="ln">   260  </span>		return field.ErrorList{
-<span id="L261" class="ln">   261  </span>			field.Invalid(path, template.EmbedChaos, &#34;this template should not contain any Chaos&#34;),
-<span id="L262" class="ln">   262  </span>		}
-<span id="L263" class="ln">   263  </span>	}
-<span id="L264" class="ln">   264  </span>	return nil
-<span id="L265" class="ln">   265  </span>}
-<span id="L266" class="ln">   266  </span>
-<span id="L267" class="ln">   267  </span>func shouldBeNoSchedule(path *field.Path, template Template) field.ErrorList {
-<span id="L268" class="ln">   268  </span>	if template.Schedule != nil {
-<span id="L269" class="ln">   269  </span>		return field.ErrorList{
-<span id="L270" class="ln">   270  </span>			field.Invalid(path, template.Schedule, &#34;this template should not contain Schedule&#34;),
-<span id="L271" class="ln">   271  </span>		}
-<span id="L272" class="ln">   272  </span>	}
-<span id="L273" class="ln">   273  </span>	return nil
-<span id="L274" class="ln">   274  </span>}
-<span id="L275" class="ln">   275  </span>
-<span id="L276" class="ln">   276  </span>func (in *Workflow) Default() {
-<span id="L277" class="ln">   277  </span>	gw.Default(in)
-<span id="L278" class="ln">   278  </span>}
-<span id="L279" class="ln">   279  </span>
+<span id="L206" class="ln">   206  </span>		return result
+<span id="L207" class="ln">   207  </span>	}
+<span id="L208" class="ln">   208  </span>
+<span id="L209" class="ln">   209  </span>	spec := reflect.ValueOf(template.EmbedChaos).Elem().FieldByName(string(template.Type))
+<span id="L210" class="ln">   210  </span>	if !spec.IsValid() || spec.IsNil() {
+<span id="L211" class="ln">   211  </span>		result = append(result, field.Invalid(path.Child(string(template.Type)),
+<span id="L212" class="ln">   212  </span>			nil,
+<span id="L213" class="ln">   213  </span>			fmt.Sprintf(&#34;parse workflow field error: missing chaos spec %s&#34;, template.Type)))
+<span id="L214" class="ln">   214  </span>		return result
+<span id="L215" class="ln">   215  </span>	}
+<span id="L216" class="ln">   216  </span>	if commonSpec, ok := spec.Interface().(ContainsDuration); !ok {
+<span id="L217" class="ln">   217  </span>		result = append(result, field.Invalid(path, &#34;&#34;, fmt.Sprintf(&#34;Chaos: %s does not implement CommonSpec&#34;, template.Type)))
+<span id="L218" class="ln">   218  </span>	} else {
+<span id="L219" class="ln">   219  </span>		duration, err := commonSpec.GetDuration()
+<span id="L220" class="ln">   220  </span>		if err != nil {
+<span id="L221" class="ln">   221  </span>			result = append(result, field.Invalid(path, &#34;&#34;, err.Error()))
+<span id="L222" class="ln">   222  </span>			return result
+<span id="L223" class="ln">   223  </span>		}
+<span id="L224" class="ln">   224  </span>		if duration != nil {
+<span id="L225" class="ln">   225  </span>			result = append(result, field.Invalid(path, duration, &#34;should not define duration in chaos when using Workflow, use Template#Deadline instead.&#34;))
+<span id="L226" class="ln">   226  </span>		}
+<span id="L227" class="ln">   227  </span>	}
+<span id="L228" class="ln">   228  </span>	return result
+<span id="L229" class="ln">   229  </span>}
+<span id="L230" class="ln">   230  </span>
+<span id="L231" class="ln">   231  </span>func shouldBeNoTask(path *field.Path, template Template) field.ErrorList {
+<span id="L232" class="ln">   232  </span>	if template.Task != nil {
+<span id="L233" class="ln">   233  </span>		return field.ErrorList{
+<span id="L234" class="ln">   234  </span>			field.Invalid(path, template.Task, &#34;this template should not contain Task&#34;),
+<span id="L235" class="ln">   235  </span>		}
+<span id="L236" class="ln">   236  </span>	}
+<span id="L237" class="ln">   237  </span>	return nil
+<span id="L238" class="ln">   238  </span>}
+<span id="L239" class="ln">   239  </span>
+<span id="L240" class="ln">   240  </span>func shouldBeNoChildren(path *field.Path, template Template) field.ErrorList {
+<span id="L241" class="ln">   241  </span>	if len(template.Children) &gt; 0 {
+<span id="L242" class="ln">   242  </span>		return field.ErrorList{
+<span id="L243" class="ln">   243  </span>			field.Invalid(path, template.Children, &#34;this template should not contain Children&#34;),
+<span id="L244" class="ln">   244  </span>		}
+<span id="L245" class="ln">   245  </span>	}
+<span id="L246" class="ln">   246  </span>	return nil
+<span id="L247" class="ln">   247  </span>}
+<span id="L248" class="ln">   248  </span>
+<span id="L249" class="ln">   249  </span>func shouldBeNoConditionalBranches(path *field.Path, template Template) field.ErrorList {
+<span id="L250" class="ln">   250  </span>	if len(template.ConditionalBranches) &gt; 0 {
+<span id="L251" class="ln">   251  </span>		return field.ErrorList{
+<span id="L252" class="ln">   252  </span>			field.Invalid(path, template.ConditionalBranches, &#34;this template should not contain ConditionalBranches&#34;),
+<span id="L253" class="ln">   253  </span>		}
+<span id="L254" class="ln">   254  </span>	}
+<span id="L255" class="ln">   255  </span>	return nil
+<span id="L256" class="ln">   256  </span>}
+<span id="L257" class="ln">   257  </span>
+<span id="L258" class="ln">   258  </span>func shouldBeNoEmbedChaos(path *field.Path, template Template) field.ErrorList {
+<span id="L259" class="ln">   259  </span>	<span class="comment">// TODO: we could improve that with code generation in the future</span>
+<span id="L260" class="ln">   260  </span>	if template.EmbedChaos != nil {
+<span id="L261" class="ln">   261  </span>		return field.ErrorList{
+<span id="L262" class="ln">   262  </span>			field.Invalid(path, template.EmbedChaos, &#34;this template should not contain any Chaos&#34;),
+<span id="L263" class="ln">   263  </span>		}
+<span id="L264" class="ln">   264  </span>	}
+<span id="L265" class="ln">   265  </span>	return nil
+<span id="L266" class="ln">   266  </span>}
+<span id="L267" class="ln">   267  </span>
+<span id="L268" class="ln">   268  </span>func shouldBeNoSchedule(path *field.Path, template Template) field.ErrorList {
+<span id="L269" class="ln">   269  </span>	if template.Schedule != nil {
+<span id="L270" class="ln">   270  </span>		return field.ErrorList{
+<span id="L271" class="ln">   271  </span>			field.Invalid(path, template.Schedule, &#34;this template should not contain Schedule&#34;),
+<span id="L272" class="ln">   272  </span>		}
+<span id="L273" class="ln">   273  </span>	}
+<span id="L274" class="ln">   274  </span>	return nil
+<span id="L275" class="ln">   275  </span>}
+<span id="L276" class="ln">   276  </span>
+<span id="L277" class="ln">   277  </span>func (in *Workflow) Default() {
+<span id="L278" class="ln">   278  </span>	gw.Default(in)
+<span id="L279" class="ln">   279  </span>}
+<span id="L280" class="ln">   280  </span>
 </pre><p></p>
 
 <div id="footer">
