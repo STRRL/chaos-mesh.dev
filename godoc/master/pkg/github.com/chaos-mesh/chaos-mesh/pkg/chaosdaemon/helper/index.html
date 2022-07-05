@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>helper - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit a49c43d. Generated at Tue Jul  5 10:01:51 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package helper
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/helper"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/helper/blockchaos.go">blockchaos.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var <span id="NormalizeVolumeNameCmd">NormalizeVolumeNameCmd</span> = &amp;<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>{
+    <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command.Use">Use</a>:   &#34;normalize-volume-name [path]&#34;,
+    <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command.Short">Short</a>: &#34;get the device name from the path&#34;,
+    <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command.Long">Long</a>: `Get the device name from the path.
+The path could be a directory, a partition, or a block device.
+The block device name will be printed out.`,
+    <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command.Run">Run</a>: func(cmd *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, args []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) {
+        if <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#len">len</a>(args) != 1 {
+            cmd.<a href="#Help">Help</a>()
+            <a href="https:/chaos-mesh.dev/godoc/master/pkg/os/">os</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/os/#Exit">Exit</a>(1)
+        }
+
+        volumePath := args[0]
+        deviceName, err := normalizeVolumeName(volumePath)
+        if err != <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#nil">nil</a> {
+            <a href="https:/chaos-mesh.dev/godoc/master/pkg/fmt/">fmt</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/fmt/#Fprintln">Fprintln</a>(<a href="https:/chaos-mesh.dev/godoc/master/pkg/os/">os</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/os/#Stderr">Stderr</a>, err)
+            <a href="https:/chaos-mesh.dev/godoc/master/pkg/os/">os</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/os/#Exit">Exit</a>(1)
+        }
+
+        <a href="https:/chaos-mesh.dev/godoc/master/pkg/fmt/">fmt</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/fmt/#Println">Println</a>(deviceName)
+    },
+}</pre>
+			
+		
+		
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.18.1.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

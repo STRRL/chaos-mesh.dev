@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit fdd4bb7. Generated at Mon Jul  4 22:03:29 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit a49c43d. Generated at Tue Jul  5 10:01:51 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -106,19 +106,37 @@
 <span id="L41" class="ln">    41  </span>func ParseNamespacedNameContainer(namespacedName string) (types.NamespacedName, string, error) {
 <span id="L42" class="ln">    42  </span>	parts := strings.Split(namespacedName, &#34;/&#34;)
 <span id="L43" class="ln">    43  </span>	if len(parts) &gt; 2 {
-<span id="L44" class="ln">    44  </span>		return types.NamespacedName{
-<span id="L45" class="ln">    45  </span>			Namespace: parts[0],
-<span id="L46" class="ln">    46  </span>			Name:      parts[1],
-<span id="L47" class="ln">    47  </span>		}, strings.Join(parts[2:], &#34;&#34;), nil
-<span id="L48" class="ln">    48  </span>	}
-<span id="L49" class="ln">    49  </span>
-<span id="L50" class="ln">    50  </span>	return types.NamespacedName{
-<span id="L51" class="ln">    51  </span>		Namespace: &#34;&#34;,
-<span id="L52" class="ln">    52  </span>		Name:      &#34;&#34;,
-<span id="L53" class="ln">    53  </span>	}, &#34;&#34;, errors.New(&#34;too few parts of namespacedname&#34;)
-<span id="L54" class="ln">    54  </span>
-<span id="L55" class="ln">    55  </span>}
-<span id="L56" class="ln">    56  </span>
+<span id="L44" class="ln">    44  </span>		<span class="comment">//  a lowercase RFC 1123 label must consist of lower case alphanumeric</span>
+<span id="L45" class="ln">    45  </span>		<span class="comment">//  characters or &#39;-&#39;, and must start and end with an alphanumeric</span>
+<span id="L46" class="ln">    46  </span>		<span class="comment">//  character, so the container name can never have &#34;/&#34;</span>
+<span id="L47" class="ln">    47  </span>		return types.NamespacedName{
+<span id="L48" class="ln">    48  </span>			Namespace: parts[0],
+<span id="L49" class="ln">    49  </span>			Name:      parts[1],
+<span id="L50" class="ln">    50  </span>		}, parts[2], nil
+<span id="L51" class="ln">    51  </span>	}
+<span id="L52" class="ln">    52  </span>
+<span id="L53" class="ln">    53  </span>	return types.NamespacedName{
+<span id="L54" class="ln">    54  </span>		Namespace: &#34;&#34;,
+<span id="L55" class="ln">    55  </span>		Name:      &#34;&#34;,
+<span id="L56" class="ln">    56  </span>	}, &#34;&#34;, errors.New(&#34;too few parts of namespacedname&#34;)
+<span id="L57" class="ln">    57  </span>
+<span id="L58" class="ln">    58  </span>}
+<span id="L59" class="ln">    59  </span>
+<span id="L60" class="ln">    60  </span>func ParseNamespacedNameContainerVolumePath(record string) (types.NamespacedName, string, string, error) {
+<span id="L61" class="ln">    61  </span>	parts := strings.Split(record, &#34;/&#34;)
+<span id="L62" class="ln">    62  </span>	if len(parts) &gt; 3 {
+<span id="L63" class="ln">    63  </span>		return types.NamespacedName{
+<span id="L64" class="ln">    64  </span>			Namespace: parts[0],
+<span id="L65" class="ln">    65  </span>			Name:      parts[1],
+<span id="L66" class="ln">    66  </span>		}, parts[2], strings.Join(parts[3:], &#34;/&#34;), nil
+<span id="L67" class="ln">    67  </span>	}
+<span id="L68" class="ln">    68  </span>
+<span id="L69" class="ln">    69  </span>	return types.NamespacedName{
+<span id="L70" class="ln">    70  </span>		Namespace: &#34;&#34;,
+<span id="L71" class="ln">    71  </span>		Name:      &#34;&#34;,
+<span id="L72" class="ln">    72  </span>	}, &#34;&#34;, &#34;&#34;, errors.New(&#34;too few parts of namespacedname&#34;)
+<span id="L73" class="ln">    73  </span>}
+<span id="L74" class="ln">    74  </span>
 </pre><p></p>
 
 <div id="footer">
