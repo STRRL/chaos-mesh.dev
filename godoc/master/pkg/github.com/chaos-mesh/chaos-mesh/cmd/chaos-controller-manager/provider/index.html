@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c5ab2fe. Generated at Wed Jul  6 22:03:55 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 40d7f06. Generated at Thu Jul  7 10:07:01 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -142,7 +142,7 @@ Package provider provides several required components for bootstrapping chaos-co
 				<dd><a href="#NewNoCacheReader">func NewNoCacheReader(mgr ctrl.Manager) noCacheReader</a></dd>
 			
 				
-				<dd><a href="#NewOption">func NewOption(logger logr.Logger) *ctrl.Options</a></dd>
+				<dd><a href="#NewOption">func NewOption(logger logr.Logger, scheme *runtime.Scheme) *ctrl.Options</a></dd>
 			
 				
 				<dd><a href="#NewScheme">func NewScheme() *runtime.Scheme</a></dd>
@@ -358,7 +358,7 @@ TODO: we could return with fx.Annotate instead of struct noCacheReader and magic
 				
 				
 			</h2>
-			<pre>func NewOption(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Options">Options</a></pre>
+			<pre>func NewOption(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>, scheme *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Scheme">Scheme</a>) *<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Options">Options</a></pre>
 			<p>
 NewOption returns the manager.Options for build the controller-runtime Manager
 </p>

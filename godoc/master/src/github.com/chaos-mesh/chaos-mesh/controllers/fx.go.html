@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c5ab2fe. Generated at Wed Jul  6 22:03:55 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 40d7f06. Generated at Thu Jul  7 10:07:01 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -85,34 +85,36 @@
 <span id="L20" class="ln">    20  </span>
 <span id="L21" class="ln">    21  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl&#34;
 <span id="L22" class="ln">    22  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/common&#34;
-<span id="L23" class="ln">    23  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/podhttpchaos&#34;
-<span id="L24" class="ln">    24  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/podiochaos&#34;
-<span id="L25" class="ln">    25  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos&#34;
-<span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/schedule&#34;
-<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/statuscheck&#34;
-<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon&#34;
-<span id="L29" class="ln">    29  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder&#34;
-<span id="L30" class="ln">    30  </span>	wfcontrollers &#34;github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers&#34;
-<span id="L31" class="ln">    31  </span>)
-<span id="L32" class="ln">    32  </span>
-<span id="L33" class="ln">    33  </span>var Module = fx.Options(
-<span id="L34" class="ln">    34  </span>	fx.Provide(
-<span id="L35" class="ln">    35  </span>		chaosdaemon.New,
-<span id="L36" class="ln">    36  </span>		recorder.NewRecorderBuilder,
-<span id="L37" class="ln">    37  </span>	),
-<span id="L38" class="ln">    38  </span>	fx.Provide(
+<span id="L23" class="ln">    23  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/multicluster/clusterregistry&#34;
+<span id="L24" class="ln">    24  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/multicluster/remotecluster&#34;
+<span id="L25" class="ln">    25  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/podhttpchaos&#34;
+<span id="L26" class="ln">    26  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/podiochaos&#34;
+<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/podnetworkchaos&#34;
+<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/schedule&#34;
+<span id="L29" class="ln">    29  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/statuscheck&#34;
+<span id="L30" class="ln">    30  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon&#34;
+<span id="L31" class="ln">    31  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder&#34;
+<span id="L32" class="ln">    32  </span>	wfcontrollers &#34;github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers&#34;
+<span id="L33" class="ln">    33  </span>)
+<span id="L34" class="ln">    34  </span>
+<span id="L35" class="ln">    35  </span>var Module = fx.Options(
+<span id="L36" class="ln">    36  </span>	fx.Provide(
+<span id="L37" class="ln">    37  </span>		chaosdaemon.New,
+<span id="L38" class="ln">    38  </span>		recorder.NewRecorderBuilder,
 <span id="L39" class="ln">    39  </span>		common.AllSteps,
-<span id="L40" class="ln">    40  </span>	),
-<span id="L41" class="ln">    41  </span>	fx.Invoke(common.Bootstrap),
-<span id="L42" class="ln">    42  </span>	fx.Invoke(podhttpchaos.Bootstrap),
-<span id="L43" class="ln">    43  </span>	fx.Invoke(podnetworkchaos.Bootstrap),
-<span id="L44" class="ln">    44  </span>	fx.Invoke(podiochaos.Bootstrap),
-<span id="L45" class="ln">    45  </span>	fx.Invoke(wfcontrollers.BootstrapWorkflowControllers),
-<span id="L46" class="ln">    46  </span>	fx.Invoke(statuscheck.Bootstrap),
-<span id="L47" class="ln">    47  </span>
-<span id="L48" class="ln">    48  </span>	schedule.Module,
-<span id="L49" class="ln">    49  </span>	chaosimpl.AllImpl)
-<span id="L50" class="ln">    50  </span>
+<span id="L40" class="ln">    40  </span>		clusterregistry.New,
+<span id="L41" class="ln">    41  </span>	),
+<span id="L42" class="ln">    42  </span>	fx.Invoke(common.Bootstrap),
+<span id="L43" class="ln">    43  </span>	fx.Invoke(podhttpchaos.Bootstrap),
+<span id="L44" class="ln">    44  </span>	fx.Invoke(podnetworkchaos.Bootstrap),
+<span id="L45" class="ln">    45  </span>	fx.Invoke(podiochaos.Bootstrap),
+<span id="L46" class="ln">    46  </span>	fx.Invoke(wfcontrollers.BootstrapWorkflowControllers),
+<span id="L47" class="ln">    47  </span>	fx.Invoke(statuscheck.Bootstrap),
+<span id="L48" class="ln">    48  </span>	fx.Invoke(remotecluster.Bootstrap),
+<span id="L49" class="ln">    49  </span>
+<span id="L50" class="ln">    50  </span>	schedule.Module,
+<span id="L51" class="ln">    51  </span>	chaosimpl.AllImpl)
+<span id="L52" class="ln">    52  </span>
 </pre><p></p>
 
 <div id="footer">

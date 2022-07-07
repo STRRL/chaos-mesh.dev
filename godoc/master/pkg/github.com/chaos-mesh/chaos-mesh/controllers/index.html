@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c5ab2fe. Generated at Wed Jul  6 22:03:55 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 40d7f06. Generated at Thu Jul  7 10:07:01 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -150,9 +150,8 @@
     <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Provide">Provide</a>(
         <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon/#New">New</a>,
         <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#NewRecorderBuilder">NewRecorderBuilder</a>,
-    ),
-    <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Provide">Provide</a>(
         <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/common/">common</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/common/#AllSteps">AllSteps</a>,
+        <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/multicluster/clusterregistry/">clusterregistry</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/multicluster/clusterregistry/#New">New</a>,
     ),
     <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Invoke">Invoke</a>(<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/common/">common</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/common/#Bootstrap">Bootstrap</a>),
     <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Invoke">Invoke</a>(<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/podhttpchaos/">podhttpchaos</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/podhttpchaos/#Bootstrap">Bootstrap</a>),
@@ -160,6 +159,7 @@
     <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Invoke">Invoke</a>(<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/podiochaos/">podiochaos</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/podiochaos/#Bootstrap">Bootstrap</a>),
     <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Invoke">Invoke</a>(<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/">wfcontrollers</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/workflow/controllers/#BootstrapWorkflowControllers">BootstrapWorkflowControllers</a>),
     <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Invoke">Invoke</a>(<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck/">statuscheck</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/statuscheck/#Bootstrap">Bootstrap</a>),
+    <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Invoke">Invoke</a>(<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/multicluster/remotecluster/">remotecluster</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/multicluster/remotecluster/#Bootstrap">Bootstrap</a>),
 
     <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/schedule/">schedule</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/schedule/#Module">Module</a>,
     <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/">chaosimpl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/#AllImpl">AllImpl</a>)</pre>
@@ -670,6 +670,50 @@
 				
 					<td class="pkg-name" style="padding-left: 0px;">
 						<a href="config/">config</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="multicluster/">multicluster</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="multicluster/clusterregistry/">clusterregistry</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="multicluster/remotecluster/">remotecluster</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="multicluster/remotepodreconciler/">remotepodreconciler</a>
 					</td>
 				
 					<td class="pkg-synopsis">

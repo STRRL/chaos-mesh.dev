@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c5ab2fe. Generated at Wed Jul  6 22:03:55 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 40d7f06. Generated at Thu Jul  7 10:07:01 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -121,7 +121,7 @@
 <span id="L56" class="ln">    56  </span>}
 <span id="L57" class="ln">    57  </span>
 <span id="L58" class="ln">    58  </span><span class="comment">// NewOption returns the manager.Options for build the controller-runtime Manager</span>
-<span id="L59" class="ln">    59  </span>func NewOption(logger logr.Logger) *ctrl.Options {
+<span id="L59" class="ln">    59  </span>func NewOption(logger logr.Logger, scheme *runtime.Scheme) *ctrl.Options {
 <span id="L60" class="ln">    60  </span>	setupLog := logger.WithName(&#34;setup&#34;)
 <span id="L61" class="ln">    61  </span>
 <span id="L62" class="ln">    62  </span>	leaderElectionNamespace := config.ControllerCfg.Namespace
