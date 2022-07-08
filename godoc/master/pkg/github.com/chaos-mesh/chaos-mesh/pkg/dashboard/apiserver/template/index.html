@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 9522623. Generated at Fri Jul  8 10:06:12 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 046961d. Generated at Fri Jul  8 22:03:38 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -130,21 +130,6 @@
 				
 				
 			
-				
-				<dd><a href="#StatusCheckTemplate">type StatusCheckTemplate</a></dd>
-				
-				
-			
-				
-				<dd><a href="#StatusCheckTemplateBase">type StatusCheckTemplateBase</a></dd>
-				
-				
-			
-				
-				<dd><a href="#StatusCheckTemplateDetail">type StatusCheckTemplateDetail</a></dd>
-				
-				
-			
 			
 			</dl>
 			</div><!-- #manual-nav -->
@@ -173,7 +158,7 @@
 		
 			
 			
-			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/template/template.go#L48">Register</a>
+			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/template/template.go#L49">Register</a>
 				<a class="permalink" href="#Register">&#xb6;</a>
 				
 				
@@ -187,7 +172,7 @@
 		
 			
 			
-			<h2 id="Service">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/template/template.go#L39">Service</a>
+			<h2 id="Service">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/template/template.go#L40">Service</a>
 				<a class="permalink" href="#Service">&#xb6;</a>
 				
 				
@@ -222,7 +207,7 @@ Service defines a handler service for cluster common objects.
 				
 			
 				
-				<h3 id="NewService">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/template/template.go#L44">NewService</a>
+				<h3 id="NewService">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/template/template.go#L45">NewService</a>
 					<a class="permalink" href="#NewService">&#xb6;</a>
 					
 					
@@ -231,92 +216,6 @@ Service defines a handler service for cluster common objects.
 				
 				
 				
-			
-
-			
-		
-			
-			
-			<h2 id="StatusCheckTemplate">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/template/template.go#L73">StatusCheckTemplate</a>
-				<a class="permalink" href="#StatusCheckTemplate">&#xb6;</a>
-				
-				
-			</h2>
-			
-			<pre>type StatusCheckTemplate struct {
-<span id="StatusCheckTemplate.Namespace"></span>    Namespace   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>                       `json:&#34;namespace&#34;`
-<span id="StatusCheckTemplate.Name"></span>    Name        <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>                       `json:&#34;name&#34;`
-<span id="StatusCheckTemplate.Description"></span>    Description <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>                       `json:&#34;description,omitempty&#34;`
-<span id="StatusCheckTemplate.Spec"></span>    Spec        <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#StatusCheckTemplate">StatusCheckTemplate</a> `json:&#34;spec&#34;`
-}
-</pre>
-
-			
-
-			
-
-			
-			
-			
-
-			
-
-			
-		
-			
-			
-			<h2 id="StatusCheckTemplateBase">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/template/template.go#L59">StatusCheckTemplateBase</a>
-				<a class="permalink" href="#StatusCheckTemplateBase">&#xb6;</a>
-				
-				
-			</h2>
-			
-			<pre>type StatusCheckTemplateBase struct {
-<span id="StatusCheckTemplateBase.Namespace"></span>    Namespace   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;namespace&#34;`
-<span id="StatusCheckTemplateBase.Name"></span>    Name        <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;name&#34;`
-<span id="StatusCheckTemplateBase.UID"></span>    UID         <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;uid&#34;`
-<span id="StatusCheckTemplateBase.Description"></span>    Description <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;description,omitempty&#34;`
-<span id="StatusCheckTemplateBase.Created"></span>    Created     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;created_at&#34;`
-}
-</pre>
-
-			
-
-			
-
-			
-			
-			
-
-			
-
-			
-		
-			
-			
-			<h2 id="StatusCheckTemplateDetail">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/template/template.go#L68">StatusCheckTemplateDetail</a>
-				<a class="permalink" href="#StatusCheckTemplateDetail">&#xb6;</a>
-				
-				
-			</h2>
-			<p>
-StatusCheckTemplateDetail represent details of StatusCheckTemplate.
-</p>
-
-			<pre>type StatusCheckTemplateDetail struct {
-    <a href="#StatusCheckTemplateBase">StatusCheckTemplateBase</a> `json:&#34;,inline,omitempty&#34;`
-<span id="StatusCheckTemplateDetail.Spec"></span>    Spec                    <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#StatusCheckTemplate">StatusCheckTemplate</a> `json:&#34;spec&#34;`
-}
-</pre>
-
-			
-
-			
-
-			
-			
-			
-
 			
 
 			

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>types - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 046961d. Generated at Fri Jul  8 22:03:38 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package types
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/types"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#Archive">type Archive</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ArchiveDetail">type ArchiveDetail</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Experiment">type Experiment</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ExperimentDetail">type ExperimentDetail</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PhysicalMachine">type PhysicalMachine</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Pod">type Pod</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Schedule">type Schedule</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ScheduleDetail">type ScheduleDetail</a></dd>
+				
+				
+			
+				
+				<dd><a href="#StatusCheckTemplate">type StatusCheckTemplate</a></dd>
+				
+				
+			
+				
+				<dd><a href="#StatusCheckTemplateBase">type StatusCheckTemplateBase</a></dd>
+				
+				
+			
+				
+				<dd><a href="#StatusCheckTemplateDetail">type StatusCheckTemplateDetail</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/types/types.go">types.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="Archive">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/types/types.go#L25">Archive</a>
+				<a class="permalink" href="#Archive">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Archive defines the basic information of an archive.
+</p>
+
+			<pre>type Archive = <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ObjectBase">ObjectBase</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ArchiveDetail">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/types/types.go#L32">ArchiveDetail</a>
+				<a class="permalink" href="#ArchiveDetail">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ArchiveDetail represents an archive instance.
+</p>
+<p>
+It inherits `Archive` and adds complete definition of an experiment.
+</p>
+
+			<pre>type ArchiveDetail struct {
+    <a href="#Archive">Archive</a>
+<span id="ArchiveDetail.KubeObject"></span>    KubeObject <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#KubeObjectDesc">KubeObjectDesc</a> `json:&#34;kube_object&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Experiment">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/types/types.go#L38">Experiment</a>
+				<a class="permalink" href="#Experiment">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Experiment defines the basic information of an experiment.
+</p>
+
+			<pre>type Experiment struct {
+    <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ObjectBase">ObjectBase</a>
+<span id="Experiment.Status"></span>    Status        <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/status/">status</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/status/#ChaosStatus">ChaosStatus</a> `json:&#34;status&#34;`
+<span id="Experiment.FailedMessage"></span>    FailedMessage <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>             `json:&#34;failed_message,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ExperimentDetail">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/types/types.go#L49">ExperimentDetail</a>
+				<a class="permalink" href="#ExperimentDetail">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ExperimentDetail represents an experiment instance.
+</p>
+<p>
+It inherits `Experiment` and adds complete definition of an experiment.
+</p>
+
+			<pre>type ExperimentDetail struct {
+    <a href="#Experiment">Experiment</a>
+<span id="ExperimentDetail.KubeObject"></span>    KubeObject <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#KubeObjectDesc">KubeObjectDesc</a> `json:&#34;kube_object&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PhysicalMachine">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/types/types.go#L55">PhysicalMachine</a>
+				<a class="permalink" href="#PhysicalMachine">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+PhysicalMachine defines the basic information of a physical machine.
+</p>
+
+			<pre>type PhysicalMachine struct {
+<span id="PhysicalMachine.Name"></span>    Name      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;name&#34;`
+<span id="PhysicalMachine.Namespace"></span>    Namespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;namespace&#34;`
+<span id="PhysicalMachine.Address"></span>    Address   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;address&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Pod">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/types/types.go#L62">Pod</a>
+				<a class="permalink" href="#Pod">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Pod defines the basic information of a pod.
+</p>
+
+			<pre>type Pod struct {
+<span id="Pod.IP"></span>    IP        <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;ip&#34;`
+<span id="Pod.Name"></span>    Name      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;name&#34;`
+<span id="Pod.Namespace"></span>    Namespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;namespace&#34;`
+<span id="Pod.State"></span>    State     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;state&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Schedule">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/types/types.go#L70">Schedule</a>
+				<a class="permalink" href="#Schedule">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Schedule defines the basic information of a schedule.
+</p>
+
+			<pre>type Schedule struct {
+    <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ObjectBase">ObjectBase</a>
+<span id="Schedule.Status"></span>    Status <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/status/">status</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/status/#ScheduleStatus">ScheduleStatus</a> `json:&#34;status&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ScheduleDetail">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/types/types.go#L80">ScheduleDetail</a>
+				<a class="permalink" href="#ScheduleDetail">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ScheduleDetail represents an archive instance.
+</p>
+<p>
+It inherits `Schedule` and adds complete definition of a schedule.
+</p>
+
+			<pre>type ScheduleDetail struct {
+    <a href="#Schedule">Schedule</a>
+<span id="ScheduleDetail.ExperimentUIDs"></span>    ExperimentUIDs []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>            `json:&#34;experiment_uids&#34;`
+<span id="ScheduleDetail.KubeObject"></span>    KubeObject     <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#KubeObjectDesc">KubeObjectDesc</a> `json:&#34;kube_object&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="StatusCheckTemplate">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/types/types.go#L104">StatusCheckTemplate</a>
+				<a class="permalink" href="#StatusCheckTemplate">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type StatusCheckTemplate struct {
+<span id="StatusCheckTemplate.Namespace"></span>    Namespace   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>                       `json:&#34;namespace&#34;`
+<span id="StatusCheckTemplate.Name"></span>    Name        <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>                       `json:&#34;name&#34;`
+<span id="StatusCheckTemplate.Description"></span>    Description <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>                       `json:&#34;description,omitempty&#34;`
+<span id="StatusCheckTemplate.Spec"></span>    Spec        <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#StatusCheckTemplate">StatusCheckTemplate</a> `json:&#34;spec&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="StatusCheckTemplateBase">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/types/types.go#L86">StatusCheckTemplateBase</a>
+				<a class="permalink" href="#StatusCheckTemplateBase">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type StatusCheckTemplateBase struct {
+<span id="StatusCheckTemplateBase.Namespace"></span>    Namespace   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;namespace&#34;`
+<span id="StatusCheckTemplateBase.Name"></span>    Name        <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;name&#34;`
+<span id="StatusCheckTemplateBase.UID"></span>    UID         <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;uid&#34;`
+<span id="StatusCheckTemplateBase.Description"></span>    Description <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;description,omitempty&#34;`
+<span id="StatusCheckTemplateBase.Created"></span>    Created     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;created_at&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="StatusCheckTemplateDetail">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/types/types.go#L99">StatusCheckTemplateDetail</a>
+				<a class="permalink" href="#StatusCheckTemplateDetail">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+StatusCheckTemplateDetail represents an archive instance.
+</p>
+<p>
+It inherits `StatusCheckTemplateBase` and adds complete definition of a Status Check template.
+</p>
+
+			<pre>type StatusCheckTemplateDetail struct {
+    <a href="#StatusCheckTemplateBase">StatusCheckTemplateBase</a> `json:&#34;,inline,omitempty&#34;`
+<span id="StatusCheckTemplateDetail.Spec"></span>    Spec                    <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#StatusCheckTemplate">StatusCheckTemplate</a> `json:&#34;spec&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.18.1.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 9522623. Generated at Fri Jul  8 10:06:12 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 046961d. Generated at Fri Jul  8 22:03:38 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -98,350 +98,345 @@
 <span id="L33" class="ln">    33  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core&#34;
 <span id="L34" class="ln">    34  </span>)
 <span id="L35" class="ln">    35  </span>
-<span id="L36" class="ln">    36  </span><span class="comment">// StatusResponse defines a common status struct.</span>
-<span id="L37" class="ln">    37  </span>type StatusResponse struct {
-<span id="L38" class="ln">    38  </span>	Status string `json:&#34;status&#34;`
-<span id="L39" class="ln">    39  </span>}
-<span id="L40" class="ln">    40  </span>
-<span id="L41" class="ln">    41  </span>func Register(r *gin.RouterGroup, s *Service) {
-<span id="L42" class="ln">    42  </span>	endpoint := r.Group(&#34;/workflows&#34;)
-<span id="L43" class="ln">    43  </span>	endpoint.GET(&#34;&#34;, s.listWorkflows)
-<span id="L44" class="ln">    44  </span>	endpoint.POST(&#34;&#34;, s.createWorkflow)
-<span id="L45" class="ln">    45  </span>	endpoint.GET(&#34;/:uid&#34;, s.getWorkflowDetailByUID)
-<span id="L46" class="ln">    46  </span>	endpoint.PUT(&#34;/:uid&#34;, s.updateWorkflow)
-<span id="L47" class="ln">    47  </span>	endpoint.DELETE(&#34;/:uid&#34;, s.deleteWorkflow)
-<span id="L48" class="ln">    48  </span>	endpoint.POST(&#34;/render-task/http&#34;, s.renderHTTPTask)
-<span id="L49" class="ln">    49  </span>	endpoint.POST(&#34;/parse-task/http&#34;, s.parseHTTPTask)
-<span id="L50" class="ln">    50  </span>	endpoint.POST(&#34;/validate-task/http&#34;, s.isValidRenderedHTTPTask)
-<span id="L51" class="ln">    51  </span>}
-<span id="L52" class="ln">    52  </span>
-<span id="L53" class="ln">    53  </span><span class="comment">// Service defines a handler service for workflows.</span>
-<span id="L54" class="ln">    54  </span>type Service struct {
-<span id="L55" class="ln">    55  </span>	conf   *config.ChaosDashboardConfig
-<span id="L56" class="ln">    56  </span>	store  core.WorkflowStore
-<span id="L57" class="ln">    57  </span>	logger logr.Logger
-<span id="L58" class="ln">    58  </span>}
-<span id="L59" class="ln">    59  </span>
-<span id="L60" class="ln">    60  </span>func NewService(conf *config.ChaosDashboardConfig, store core.WorkflowStore, logger logr.Logger) *Service {
-<span id="L61" class="ln">    61  </span>	return &amp;Service{conf: conf, store: store, logger: logger}
-<span id="L62" class="ln">    62  </span>}
-<span id="L63" class="ln">    63  </span>
-<span id="L64" class="ln">    64  </span><span class="comment">// @Summary Render a task which sends HTTP request</span>
-<span id="L65" class="ln">    65  </span><span class="comment">// @Description Render a task which sends HTTP request</span>
-<span id="L66" class="ln">    66  </span><span class="comment">// @Tags workflows</span>
-<span id="L67" class="ln">    67  </span><span class="comment">// @Produce json</span>
-<span id="L68" class="ln">    68  </span><span class="comment">// @Param request body curl.RequestForm true &#34;Origin HTTP Request&#34;</span>
-<span id="L69" class="ln">    69  </span><span class="comment">// @Router /workflows/render-task/http [post]</span>
-<span id="L70" class="ln">    70  </span><span class="comment">// @Success 200 {object} v1alpha1.Template</span>
-<span id="L71" class="ln">    71  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
-<span id="L72" class="ln">    72  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
-<span id="L73" class="ln">    73  </span>func (it *Service) renderHTTPTask(c *gin.Context) {
-<span id="L74" class="ln">    74  </span>	requestBody := curl.RequestForm{}
-<span id="L75" class="ln">    75  </span>	if err := c.ShouldBindJSON(&amp;requestBody); err != nil {
-<span id="L76" class="ln">    76  </span>		utils.SetAPIError(c, utils.ErrBadRequest.Wrap(err, &#34;failed to parse request body&#34;))
+<span id="L36" class="ln">    36  </span>func Register(r *gin.RouterGroup, s *Service) {
+<span id="L37" class="ln">    37  </span>	endpoint := r.Group(&#34;/workflows&#34;)
+<span id="L38" class="ln">    38  </span>	endpoint.GET(&#34;&#34;, s.listWorkflows)
+<span id="L39" class="ln">    39  </span>	endpoint.POST(&#34;&#34;, s.createWorkflow)
+<span id="L40" class="ln">    40  </span>	endpoint.GET(&#34;/:uid&#34;, s.getWorkflowDetailByUID)
+<span id="L41" class="ln">    41  </span>	endpoint.PUT(&#34;/:uid&#34;, s.updateWorkflow)
+<span id="L42" class="ln">    42  </span>	endpoint.DELETE(&#34;/:uid&#34;, s.deleteWorkflow)
+<span id="L43" class="ln">    43  </span>	endpoint.POST(&#34;/render-task/http&#34;, s.renderHTTPTask)
+<span id="L44" class="ln">    44  </span>	endpoint.POST(&#34;/parse-task/http&#34;, s.parseHTTPTask)
+<span id="L45" class="ln">    45  </span>	endpoint.POST(&#34;/validate-task/http&#34;, s.isValidRenderedHTTPTask)
+<span id="L46" class="ln">    46  </span>}
+<span id="L47" class="ln">    47  </span>
+<span id="L48" class="ln">    48  </span><span class="comment">// Service defines a handler service for workflows.</span>
+<span id="L49" class="ln">    49  </span>type Service struct {
+<span id="L50" class="ln">    50  </span>	conf   *config.ChaosDashboardConfig
+<span id="L51" class="ln">    51  </span>	store  core.WorkflowStore
+<span id="L52" class="ln">    52  </span>	logger logr.Logger
+<span id="L53" class="ln">    53  </span>}
+<span id="L54" class="ln">    54  </span>
+<span id="L55" class="ln">    55  </span>func NewService(conf *config.ChaosDashboardConfig, store core.WorkflowStore, logger logr.Logger) *Service {
+<span id="L56" class="ln">    56  </span>	return &amp;Service{conf: conf, store: store, logger: logger}
+<span id="L57" class="ln">    57  </span>}
+<span id="L58" class="ln">    58  </span>
+<span id="L59" class="ln">    59  </span><span class="comment">// @Summary Render a task which sends HTTP request</span>
+<span id="L60" class="ln">    60  </span><span class="comment">// @Description Render a task which sends HTTP request</span>
+<span id="L61" class="ln">    61  </span><span class="comment">// @Tags workflows</span>
+<span id="L62" class="ln">    62  </span><span class="comment">// @Produce json</span>
+<span id="L63" class="ln">    63  </span><span class="comment">// @Param request body curl.RequestForm true &#34;Origin HTTP Request&#34;</span>
+<span id="L64" class="ln">    64  </span><span class="comment">// @Success 200 {object} v1alpha1.Template</span>
+<span id="L65" class="ln">    65  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
+<span id="L66" class="ln">    66  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L67" class="ln">    67  </span><span class="comment">// @Router /workflows/render-task/http [post]</span>
+<span id="L68" class="ln">    68  </span>func (it *Service) renderHTTPTask(c *gin.Context) {
+<span id="L69" class="ln">    69  </span>	requestBody := curl.RequestForm{}
+<span id="L70" class="ln">    70  </span>	if err := c.ShouldBindJSON(&amp;requestBody); err != nil {
+<span id="L71" class="ln">    71  </span>		utils.SetAPIError(c, utils.ErrBadRequest.Wrap(err, &#34;failed to parse request body&#34;))
+<span id="L72" class="ln">    72  </span>		return
+<span id="L73" class="ln">    73  </span>	}
+<span id="L74" class="ln">    74  </span>	result, err := curl.RenderWorkflowTaskTemplate(requestBody)
+<span id="L75" class="ln">    75  </span>	if err != nil {
+<span id="L76" class="ln">    76  </span>		utils.SetAPIError(c, utils.ErrInternalServer.Wrap(err, &#34;failed to parse request body&#34;))
 <span id="L77" class="ln">    77  </span>		return
 <span id="L78" class="ln">    78  </span>	}
-<span id="L79" class="ln">    79  </span>	result, err := curl.RenderWorkflowTaskTemplate(requestBody)
-<span id="L80" class="ln">    80  </span>	if err != nil {
-<span id="L81" class="ln">    81  </span>		utils.SetAPIError(c, utils.ErrInternalServer.Wrap(err, &#34;failed to parse request body&#34;))
-<span id="L82" class="ln">    82  </span>		return
-<span id="L83" class="ln">    83  </span>	}
-<span id="L84" class="ln">    84  </span>	c.JSON(http.StatusOK, result)
-<span id="L85" class="ln">    85  </span>}
-<span id="L86" class="ln">    86  </span>
-<span id="L87" class="ln">    87  </span><span class="comment">// @Summary Validate the given template is a valid rendered HTTP Task</span>
-<span id="L88" class="ln">    88  </span><span class="comment">// @Description Validate the given template is a valid rendered HTTP Task</span>
-<span id="L89" class="ln">    89  </span><span class="comment">// @Tags workflows</span>
-<span id="L90" class="ln">    90  </span><span class="comment">// @Produce json</span>
-<span id="L91" class="ln">    91  </span><span class="comment">// @Param request body v1alpha1.Template true &#34;Rendered Task&#34;</span>
-<span id="L92" class="ln">    92  </span><span class="comment">// @Router /workflows/validate-task/http [post]</span>
-<span id="L93" class="ln">    93  </span><span class="comment">// @Success 200 {object} bool</span>
-<span id="L94" class="ln">    94  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
-<span id="L95" class="ln">    95  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
-<span id="L96" class="ln">    96  </span>func (it *Service) isValidRenderedHTTPTask(c *gin.Context) {
-<span id="L97" class="ln">    97  </span>	requestBody := v1alpha1.Template{}
-<span id="L98" class="ln">    98  </span>	if err := c.ShouldBindJSON(&amp;requestBody); err != nil {
-<span id="L99" class="ln">    99  </span>		utils.SetAPIError(c, utils.ErrBadRequest.Wrap(err, &#34;failed to parse request body&#34;))
-<span id="L100" class="ln">   100  </span>		return
-<span id="L101" class="ln">   101  </span>	}
-<span id="L102" class="ln">   102  </span>	result := curl.IsValidRenderedTask(&amp;requestBody)
-<span id="L103" class="ln">   103  </span>	c.JSON(http.StatusOK, result)
-<span id="L104" class="ln">   104  </span>}
-<span id="L105" class="ln">   105  </span>
-<span id="L106" class="ln">   106  </span><span class="comment">// @Summary Parse the rendered task back to the original request</span>
-<span id="L107" class="ln">   107  </span><span class="comment">// @Description Parse the rendered task back to the original request</span>
-<span id="L108" class="ln">   108  </span><span class="comment">// @Tags workflows</span>
-<span id="L109" class="ln">   109  </span><span class="comment">// @Produce json</span>
-<span id="L110" class="ln">   110  </span><span class="comment">// @Param request body v1alpha1.Template true &#34;Rendered Task&#34;</span>
-<span id="L111" class="ln">   111  </span><span class="comment">// @Router /workflows/parse-task/http [post]</span>
-<span id="L112" class="ln">   112  </span><span class="comment">// @Success 200 {object} curl.RequestForm</span>
-<span id="L113" class="ln">   113  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
-<span id="L114" class="ln">   114  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
-<span id="L115" class="ln">   115  </span>func (it *Service) parseHTTPTask(c *gin.Context) {
-<span id="L116" class="ln">   116  </span>	requestBody := v1alpha1.Template{}
-<span id="L117" class="ln">   117  </span>	if err := c.ShouldBindJSON(&amp;requestBody); err != nil {
-<span id="L118" class="ln">   118  </span>		utils.SetAPIError(c, utils.ErrBadRequest.Wrap(err, &#34;failed to parse request body&#34;))
+<span id="L79" class="ln">    79  </span>	c.JSON(http.StatusOK, result)
+<span id="L80" class="ln">    80  </span>}
+<span id="L81" class="ln">    81  </span>
+<span id="L82" class="ln">    82  </span><span class="comment">// @Summary Validate the given template is a valid rendered HTTP Task</span>
+<span id="L83" class="ln">    83  </span><span class="comment">// @Description Validate the given template is a valid rendered HTTP Task</span>
+<span id="L84" class="ln">    84  </span><span class="comment">// @Tags workflows</span>
+<span id="L85" class="ln">    85  </span><span class="comment">// @Produce json</span>
+<span id="L86" class="ln">    86  </span><span class="comment">// @Param request body v1alpha1.Template true &#34;Rendered Task&#34;</span>
+<span id="L87" class="ln">    87  </span><span class="comment">// @Router /workflows/validate-task/http [post]</span>
+<span id="L88" class="ln">    88  </span><span class="comment">// @Success 200 {object} bool</span>
+<span id="L89" class="ln">    89  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
+<span id="L90" class="ln">    90  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L91" class="ln">    91  </span>func (it *Service) isValidRenderedHTTPTask(c *gin.Context) {
+<span id="L92" class="ln">    92  </span>	requestBody := v1alpha1.Template{}
+<span id="L93" class="ln">    93  </span>	if err := c.ShouldBindJSON(&amp;requestBody); err != nil {
+<span id="L94" class="ln">    94  </span>		utils.SetAPIError(c, utils.ErrBadRequest.Wrap(err, &#34;failed to parse request body&#34;))
+<span id="L95" class="ln">    95  </span>		return
+<span id="L96" class="ln">    96  </span>	}
+<span id="L97" class="ln">    97  </span>	result := curl.IsValidRenderedTask(&amp;requestBody)
+<span id="L98" class="ln">    98  </span>	c.JSON(http.StatusOK, result)
+<span id="L99" class="ln">    99  </span>}
+<span id="L100" class="ln">   100  </span>
+<span id="L101" class="ln">   101  </span><span class="comment">// @Summary Parse the rendered task back to the original request</span>
+<span id="L102" class="ln">   102  </span><span class="comment">// @Description Parse the rendered task back to the original request</span>
+<span id="L103" class="ln">   103  </span><span class="comment">// @Tags workflows</span>
+<span id="L104" class="ln">   104  </span><span class="comment">// @Produce json</span>
+<span id="L105" class="ln">   105  </span><span class="comment">// @Param request body v1alpha1.Template true &#34;Rendered Task&#34;</span>
+<span id="L106" class="ln">   106  </span><span class="comment">// @Router /workflows/parse-task/http [post]</span>
+<span id="L107" class="ln">   107  </span><span class="comment">// @Success 200 {object} curl.RequestForm</span>
+<span id="L108" class="ln">   108  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
+<span id="L109" class="ln">   109  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L110" class="ln">   110  </span>func (it *Service) parseHTTPTask(c *gin.Context) {
+<span id="L111" class="ln">   111  </span>	requestBody := v1alpha1.Template{}
+<span id="L112" class="ln">   112  </span>	if err := c.ShouldBindJSON(&amp;requestBody); err != nil {
+<span id="L113" class="ln">   113  </span>		utils.SetAPIError(c, utils.ErrBadRequest.Wrap(err, &#34;failed to parse request body&#34;))
+<span id="L114" class="ln">   114  </span>		return
+<span id="L115" class="ln">   115  </span>	}
+<span id="L116" class="ln">   116  </span>	result, err := curl.ParseWorkflowTaskTemplate(&amp;requestBody)
+<span id="L117" class="ln">   117  </span>	if err != nil {
+<span id="L118" class="ln">   118  </span>		utils.SetAPIError(c, utils.ErrInternalServer.Wrap(err, &#34;failed to parse request body&#34;))
 <span id="L119" class="ln">   119  </span>		return
 <span id="L120" class="ln">   120  </span>	}
-<span id="L121" class="ln">   121  </span>	result, err := curl.ParseWorkflowTaskTemplate(&amp;requestBody)
-<span id="L122" class="ln">   122  </span>	if err != nil {
-<span id="L123" class="ln">   123  </span>		utils.SetAPIError(c, utils.ErrInternalServer.Wrap(err, &#34;failed to parse request body&#34;))
-<span id="L124" class="ln">   124  </span>		return
-<span id="L125" class="ln">   125  </span>	}
-<span id="L126" class="ln">   126  </span>	c.JSON(http.StatusOK, result)
-<span id="L127" class="ln">   127  </span>}
-<span id="L128" class="ln">   128  </span>
-<span id="L129" class="ln">   129  </span><span class="comment">// @Summary List workflows from Kubernetes cluster.</span>
-<span id="L130" class="ln">   130  </span><span class="comment">// @Description List workflows from Kubernetes cluster.</span>
-<span id="L131" class="ln">   131  </span><span class="comment">// @Tags workflows</span>
-<span id="L132" class="ln">   132  </span><span class="comment">// @Produce json</span>
-<span id="L133" class="ln">   133  </span><span class="comment">// @Param namespace query string false &#34;namespace, given empty string means list from all namespace&#34;</span>
-<span id="L134" class="ln">   134  </span><span class="comment">// @Param status query string false &#34;status&#34; Enums(Initializing, Running, Errored, Finished)</span>
-<span id="L135" class="ln">   135  </span><span class="comment">// @Success 200 {array} core.WorkflowMeta</span>
-<span id="L136" class="ln">   136  </span><span class="comment">// @Router /workflows [get]</span>
-<span id="L137" class="ln">   137  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
-<span id="L138" class="ln">   138  </span>func (it *Service) listWorkflows(c *gin.Context) {
-<span id="L139" class="ln">   139  </span>	namespace := c.Query(&#34;namespace&#34;)
-<span id="L140" class="ln">   140  </span>	if len(namespace) == 0 &amp;&amp; !it.conf.ClusterScoped &amp;&amp;
-<span id="L141" class="ln">   141  </span>		len(it.conf.TargetNamespace) != 0 {
-<span id="L142" class="ln">   142  </span>		namespace = it.conf.TargetNamespace
-<span id="L143" class="ln">   143  </span>	}
-<span id="L144" class="ln">   144  </span>
-<span id="L145" class="ln">   145  </span>	result := make([]core.WorkflowMeta, 0)
-<span id="L146" class="ln">   146  </span>
-<span id="L147" class="ln">   147  </span>	kubeClient, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
-<span id="L148" class="ln">   148  </span>	if err != nil {
-<span id="L149" class="ln">   149  </span>		_ = c.Error(utils.ErrBadRequest.WrapWithNoMessage(err))
-<span id="L150" class="ln">   150  </span>		return
-<span id="L151" class="ln">   151  </span>	}
-<span id="L152" class="ln">   152  </span>	repo := core.NewKubeWorkflowRepository(kubeClient)
-<span id="L153" class="ln">   153  </span>
-<span id="L154" class="ln">   154  </span>	if namespace != &#34;&#34; {
-<span id="L155" class="ln">   155  </span>		workflowFromNs, err := repo.ListByNamespace(c.Request.Context(), namespace)
-<span id="L156" class="ln">   156  </span>		if err != nil {
-<span id="L157" class="ln">   157  </span>			utils.SetAPImachineryError(c, err)
-<span id="L158" class="ln">   158  </span>			return
-<span id="L159" class="ln">   159  </span>		}
-<span id="L160" class="ln">   160  </span>		result = append(result, workflowFromNs...)
-<span id="L161" class="ln">   161  </span>	} else {
-<span id="L162" class="ln">   162  </span>		allWorkflow, err := repo.List(c.Request.Context())
-<span id="L163" class="ln">   163  </span>		if err != nil {
-<span id="L164" class="ln">   164  </span>			utils.SetAPImachineryError(c, err)
-<span id="L165" class="ln">   165  </span>			return
-<span id="L166" class="ln">   166  </span>		}
-<span id="L167" class="ln">   167  </span>		result = append(result, allWorkflow...)
-<span id="L168" class="ln">   168  </span>	}
-<span id="L169" class="ln">   169  </span>
-<span id="L170" class="ln">   170  </span>	<span class="comment">// enriching with ID</span>
-<span id="L171" class="ln">   171  </span>	for index, item := range result {
-<span id="L172" class="ln">   172  </span>		entity, err := it.store.FindByUID(c.Request.Context(), string(item.UID))
-<span id="L173" class="ln">   173  </span>		if err != nil {
-<span id="L174" class="ln">   174  </span>			it.logger.Info(&#34;warning: workflow does not have a record in database&#34;,
-<span id="L175" class="ln">   175  </span>				&#34;namespaced name&#34;, fmt.Sprintf(&#34;%s/%s&#34;, item.Namespace, item.Name),
-<span id="L176" class="ln">   176  </span>				&#34;uid&#34;, item.UID,
-<span id="L177" class="ln">   177  </span>			)
-<span id="L178" class="ln">   178  </span>		}
+<span id="L121" class="ln">   121  </span>	c.JSON(http.StatusOK, result)
+<span id="L122" class="ln">   122  </span>}
+<span id="L123" class="ln">   123  </span>
+<span id="L124" class="ln">   124  </span><span class="comment">// @Summary List workflows from Kubernetes cluster.</span>
+<span id="L125" class="ln">   125  </span><span class="comment">// @Description List workflows from Kubernetes cluster.</span>
+<span id="L126" class="ln">   126  </span><span class="comment">// @Tags workflows</span>
+<span id="L127" class="ln">   127  </span><span class="comment">// @Produce json</span>
+<span id="L128" class="ln">   128  </span><span class="comment">// @Param namespace query string false &#34;namespace, given empty string means list from all namespace&#34;</span>
+<span id="L129" class="ln">   129  </span><span class="comment">// @Param status query string false &#34;status&#34; Enums(Initializing, Running, Errored, Finished)</span>
+<span id="L130" class="ln">   130  </span><span class="comment">// @Success 200 {array} core.WorkflowMeta</span>
+<span id="L131" class="ln">   131  </span><span class="comment">// @Router /workflows [get]</span>
+<span id="L132" class="ln">   132  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L133" class="ln">   133  </span>func (it *Service) listWorkflows(c *gin.Context) {
+<span id="L134" class="ln">   134  </span>	namespace := c.Query(&#34;namespace&#34;)
+<span id="L135" class="ln">   135  </span>	if len(namespace) == 0 &amp;&amp; !it.conf.ClusterScoped &amp;&amp;
+<span id="L136" class="ln">   136  </span>		len(it.conf.TargetNamespace) != 0 {
+<span id="L137" class="ln">   137  </span>		namespace = it.conf.TargetNamespace
+<span id="L138" class="ln">   138  </span>	}
+<span id="L139" class="ln">   139  </span>
+<span id="L140" class="ln">   140  </span>	result := make([]core.WorkflowMeta, 0)
+<span id="L141" class="ln">   141  </span>
+<span id="L142" class="ln">   142  </span>	kubeClient, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
+<span id="L143" class="ln">   143  </span>	if err != nil {
+<span id="L144" class="ln">   144  </span>		_ = c.Error(utils.ErrBadRequest.WrapWithNoMessage(err))
+<span id="L145" class="ln">   145  </span>		return
+<span id="L146" class="ln">   146  </span>	}
+<span id="L147" class="ln">   147  </span>	repo := core.NewKubeWorkflowRepository(kubeClient)
+<span id="L148" class="ln">   148  </span>
+<span id="L149" class="ln">   149  </span>	if namespace != &#34;&#34; {
+<span id="L150" class="ln">   150  </span>		workflowFromNs, err := repo.ListByNamespace(c.Request.Context(), namespace)
+<span id="L151" class="ln">   151  </span>		if err != nil {
+<span id="L152" class="ln">   152  </span>			utils.SetAPImachineryError(c, err)
+<span id="L153" class="ln">   153  </span>			return
+<span id="L154" class="ln">   154  </span>		}
+<span id="L155" class="ln">   155  </span>		result = append(result, workflowFromNs...)
+<span id="L156" class="ln">   156  </span>	} else {
+<span id="L157" class="ln">   157  </span>		allWorkflow, err := repo.List(c.Request.Context())
+<span id="L158" class="ln">   158  </span>		if err != nil {
+<span id="L159" class="ln">   159  </span>			utils.SetAPImachineryError(c, err)
+<span id="L160" class="ln">   160  </span>			return
+<span id="L161" class="ln">   161  </span>		}
+<span id="L162" class="ln">   162  </span>		result = append(result, allWorkflow...)
+<span id="L163" class="ln">   163  </span>	}
+<span id="L164" class="ln">   164  </span>
+<span id="L165" class="ln">   165  </span>	<span class="comment">// enriching with ID</span>
+<span id="L166" class="ln">   166  </span>	for index, item := range result {
+<span id="L167" class="ln">   167  </span>		entity, err := it.store.FindByUID(c.Request.Context(), string(item.UID))
+<span id="L168" class="ln">   168  </span>		if err != nil {
+<span id="L169" class="ln">   169  </span>			it.logger.Info(&#34;warning: workflow does not have a record in database&#34;,
+<span id="L170" class="ln">   170  </span>				&#34;namespaced name&#34;, fmt.Sprintf(&#34;%s/%s&#34;, item.Namespace, item.Name),
+<span id="L171" class="ln">   171  </span>				&#34;uid&#34;, item.UID,
+<span id="L172" class="ln">   172  </span>			)
+<span id="L173" class="ln">   173  </span>		}
+<span id="L174" class="ln">   174  </span>
+<span id="L175" class="ln">   175  </span>		if entity != nil {
+<span id="L176" class="ln">   176  </span>			result[index].ID = entity.ID
+<span id="L177" class="ln">   177  </span>		}
+<span id="L178" class="ln">   178  </span>	}
 <span id="L179" class="ln">   179  </span>
-<span id="L180" class="ln">   180  </span>		if entity != nil {
-<span id="L181" class="ln">   181  </span>			result[index].ID = entity.ID
-<span id="L182" class="ln">   182  </span>		}
-<span id="L183" class="ln">   183  </span>	}
-<span id="L184" class="ln">   184  </span>
-<span id="L185" class="ln">   185  </span>	sort.Slice(result, func(i, j int) bool {
-<span id="L186" class="ln">   186  </span>		return result[i].CreatedAt.After(result[i].CreatedAt)
-<span id="L187" class="ln">   187  </span>	})
-<span id="L188" class="ln">   188  </span>
-<span id="L189" class="ln">   189  </span>	c.JSON(http.StatusOK, result)
-<span id="L190" class="ln">   190  </span>}
-<span id="L191" class="ln">   191  </span>
-<span id="L192" class="ln">   192  </span><span class="comment">// @Summary Get detailed information about the specified workflow.</span>
-<span id="L193" class="ln">   193  </span><span class="comment">// @Description Get detailed information about the specified workflow. If that object is not existed in kubernetes, it will only return ths persisted data in the database.</span>
-<span id="L194" class="ln">   194  </span><span class="comment">// @Tags workflows</span>
-<span id="L195" class="ln">   195  </span><span class="comment">// @Produce json</span>
-<span id="L196" class="ln">   196  </span><span class="comment">// @Param uid path string true &#34;uid&#34;</span>
-<span id="L197" class="ln">   197  </span><span class="comment">// @Router /workflows/{uid} [GET]</span>
-<span id="L198" class="ln">   198  </span><span class="comment">// @Success 200 {object} core.WorkflowDetail</span>
-<span id="L199" class="ln">   199  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
-<span id="L200" class="ln">   200  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
-<span id="L201" class="ln">   201  </span>func (it *Service) getWorkflowDetailByUID(c *gin.Context) {
-<span id="L202" class="ln">   202  </span>	uid := c.Param(&#34;uid&#34;)
-<span id="L203" class="ln">   203  </span>
-<span id="L204" class="ln">   204  </span>	entity, err := it.store.FindByUID(c.Request.Context(), uid)
-<span id="L205" class="ln">   205  </span>	if err != nil {
-<span id="L206" class="ln">   206  </span>		utils.SetAPImachineryError(c, err)
-<span id="L207" class="ln">   207  </span>		return
-<span id="L208" class="ln">   208  </span>	}
-<span id="L209" class="ln">   209  </span>
-<span id="L210" class="ln">   210  </span>	namespace := entity.Namespace
-<span id="L211" class="ln">   211  </span>	name := entity.Name
-<span id="L212" class="ln">   212  </span>
-<span id="L213" class="ln">   213  </span>	kubeClient, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
-<span id="L214" class="ln">   214  </span>	if err != nil {
-<span id="L215" class="ln">   215  </span>		if apierrors.IsNotFound(err) {
-<span id="L216" class="ln">   216  </span>			<span class="comment">// if not exists in kubernetes anymore, return the persisted entity directly.</span>
-<span id="L217" class="ln">   217  </span>			workflowDetail, err := core.WorkflowEntity2WorkflowDetail(entity)
-<span id="L218" class="ln">   218  </span>			if err != nil {
-<span id="L219" class="ln">   219  </span>				utils.SetAPImachineryError(c, err)
-<span id="L220" class="ln">   220  </span>				return
-<span id="L221" class="ln">   221  </span>			}
-<span id="L222" class="ln">   222  </span>			c.JSON(http.StatusOK, workflowDetail)
-<span id="L223" class="ln">   223  </span>			return
-<span id="L224" class="ln">   224  </span>		}
-<span id="L225" class="ln">   225  </span>		_ = c.Error(utils.ErrBadRequest.WrapWithNoMessage(err))
-<span id="L226" class="ln">   226  </span>		return
-<span id="L227" class="ln">   227  </span>	}
-<span id="L228" class="ln">   228  </span>
-<span id="L229" class="ln">   229  </span>	<span class="comment">// enriching the topology and spec/status with CR in kubernetes</span>
-<span id="L230" class="ln">   230  </span>	repo := core.NewKubeWorkflowRepository(kubeClient)
-<span id="L231" class="ln">   231  </span>
-<span id="L232" class="ln">   232  </span>	workflowCRInKubernetes, err := repo.Get(c.Request.Context(), namespace, name)
+<span id="L180" class="ln">   180  </span>	sort.Slice(result, func(i, j int) bool {
+<span id="L181" class="ln">   181  </span>		return result[i].CreatedAt.After(result[i].CreatedAt)
+<span id="L182" class="ln">   182  </span>	})
+<span id="L183" class="ln">   183  </span>
+<span id="L184" class="ln">   184  </span>	c.JSON(http.StatusOK, result)
+<span id="L185" class="ln">   185  </span>}
+<span id="L186" class="ln">   186  </span>
+<span id="L187" class="ln">   187  </span><span class="comment">// @Summary Get detailed information about the specified workflow.</span>
+<span id="L188" class="ln">   188  </span><span class="comment">// @Description Get detailed information about the specified workflow. If that object is not existed in kubernetes, it will only return ths persisted data in the database.</span>
+<span id="L189" class="ln">   189  </span><span class="comment">// @Tags workflows</span>
+<span id="L190" class="ln">   190  </span><span class="comment">// @Produce json</span>
+<span id="L191" class="ln">   191  </span><span class="comment">// @Param uid path string true &#34;uid&#34;</span>
+<span id="L192" class="ln">   192  </span><span class="comment">// @Router /workflows/{uid} [GET]</span>
+<span id="L193" class="ln">   193  </span><span class="comment">// @Success 200 {object} core.WorkflowDetail</span>
+<span id="L194" class="ln">   194  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
+<span id="L195" class="ln">   195  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L196" class="ln">   196  </span>func (it *Service) getWorkflowDetailByUID(c *gin.Context) {
+<span id="L197" class="ln">   197  </span>	uid := c.Param(&#34;uid&#34;)
+<span id="L198" class="ln">   198  </span>
+<span id="L199" class="ln">   199  </span>	entity, err := it.store.FindByUID(c.Request.Context(), uid)
+<span id="L200" class="ln">   200  </span>	if err != nil {
+<span id="L201" class="ln">   201  </span>		utils.SetAPImachineryError(c, err)
+<span id="L202" class="ln">   202  </span>		return
+<span id="L203" class="ln">   203  </span>	}
+<span id="L204" class="ln">   204  </span>
+<span id="L205" class="ln">   205  </span>	namespace := entity.Namespace
+<span id="L206" class="ln">   206  </span>	name := entity.Name
+<span id="L207" class="ln">   207  </span>
+<span id="L208" class="ln">   208  </span>	kubeClient, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
+<span id="L209" class="ln">   209  </span>	if err != nil {
+<span id="L210" class="ln">   210  </span>		if apierrors.IsNotFound(err) {
+<span id="L211" class="ln">   211  </span>			<span class="comment">// if not exists in kubernetes anymore, return the persisted entity directly.</span>
+<span id="L212" class="ln">   212  </span>			workflowDetail, err := core.WorkflowEntity2WorkflowDetail(entity)
+<span id="L213" class="ln">   213  </span>			if err != nil {
+<span id="L214" class="ln">   214  </span>				utils.SetAPImachineryError(c, err)
+<span id="L215" class="ln">   215  </span>				return
+<span id="L216" class="ln">   216  </span>			}
+<span id="L217" class="ln">   217  </span>			c.JSON(http.StatusOK, workflowDetail)
+<span id="L218" class="ln">   218  </span>			return
+<span id="L219" class="ln">   219  </span>		}
+<span id="L220" class="ln">   220  </span>		_ = c.Error(utils.ErrBadRequest.WrapWithNoMessage(err))
+<span id="L221" class="ln">   221  </span>		return
+<span id="L222" class="ln">   222  </span>	}
+<span id="L223" class="ln">   223  </span>
+<span id="L224" class="ln">   224  </span>	<span class="comment">// enriching the topology and spec/status with CR in kubernetes</span>
+<span id="L225" class="ln">   225  </span>	repo := core.NewKubeWorkflowRepository(kubeClient)
+<span id="L226" class="ln">   226  </span>
+<span id="L227" class="ln">   227  </span>	workflowCRInKubernetes, err := repo.Get(c.Request.Context(), namespace, name)
+<span id="L228" class="ln">   228  </span>	if err != nil {
+<span id="L229" class="ln">   229  </span>		utils.SetAPImachineryError(c, err)
+<span id="L230" class="ln">   230  </span>		return
+<span id="L231" class="ln">   231  </span>	}
+<span id="L232" class="ln">   232  </span>	result, err := core.WorkflowEntity2WorkflowDetail(entity)
 <span id="L233" class="ln">   233  </span>	if err != nil {
 <span id="L234" class="ln">   234  </span>		utils.SetAPImachineryError(c, err)
 <span id="L235" class="ln">   235  </span>		return
 <span id="L236" class="ln">   236  </span>	}
-<span id="L237" class="ln">   237  </span>	result, err := core.WorkflowEntity2WorkflowDetail(entity)
-<span id="L238" class="ln">   238  </span>	if err != nil {
-<span id="L239" class="ln">   239  </span>		utils.SetAPImachineryError(c, err)
-<span id="L240" class="ln">   240  </span>		return
-<span id="L241" class="ln">   241  </span>	}
-<span id="L242" class="ln">   242  </span>	result.Topology = workflowCRInKubernetes.Topology
-<span id="L243" class="ln">   243  </span>	result.KubeObject = workflowCRInKubernetes.KubeObject
-<span id="L244" class="ln">   244  </span>
-<span id="L245" class="ln">   245  </span>	c.JSON(http.StatusOK, result)
-<span id="L246" class="ln">   246  </span>}
-<span id="L247" class="ln">   247  </span>
-<span id="L248" class="ln">   248  </span><span class="comment">// @Summary Create a new workflow.</span>
-<span id="L249" class="ln">   249  </span><span class="comment">// @Description Create a new workflow.</span>
-<span id="L250" class="ln">   250  </span><span class="comment">// @Tags workflows</span>
-<span id="L251" class="ln">   251  </span><span class="comment">// @Produce json</span>
-<span id="L252" class="ln">   252  </span><span class="comment">// @Param request body v1alpha1.Workflow true &#34;Request body&#34;</span>
-<span id="L253" class="ln">   253  </span><span class="comment">// @Success 200 {object} core.WorkflowDetail</span>
-<span id="L254" class="ln">   254  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
-<span id="L255" class="ln">   255  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
-<span id="L256" class="ln">   256  </span><span class="comment">// @Router /workflows [post]</span>
-<span id="L257" class="ln">   257  </span>func (it *Service) createWorkflow(c *gin.Context) {
-<span id="L258" class="ln">   258  </span>	payload := v1alpha1.Workflow{}
-<span id="L259" class="ln">   259  </span>
-<span id="L260" class="ln">   260  </span>	err := json.NewDecoder(c.Request.Body).Decode(&amp;payload)
-<span id="L261" class="ln">   261  </span>	if err != nil {
-<span id="L262" class="ln">   262  </span>		_ = c.Error(utils.ErrInternalServer.Wrap(err, &#34;failed to parse request body&#34;))
-<span id="L263" class="ln">   263  </span>		return
-<span id="L264" class="ln">   264  </span>	}
-<span id="L265" class="ln">   265  </span>
-<span id="L266" class="ln">   266  </span>	kubeClient, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
-<span id="L267" class="ln">   267  </span>	if err != nil {
-<span id="L268" class="ln">   268  </span>		utils.SetAPImachineryError(c, err)
-<span id="L269" class="ln">   269  </span>		return
-<span id="L270" class="ln">   270  </span>	}
-<span id="L271" class="ln">   271  </span>
-<span id="L272" class="ln">   272  </span>	repo := core.NewKubeWorkflowRepository(kubeClient)
-<span id="L273" class="ln">   273  </span>
-<span id="L274" class="ln">   274  </span>	result, err := repo.Create(c.Request.Context(), payload)
-<span id="L275" class="ln">   275  </span>	if err != nil {
-<span id="L276" class="ln">   276  </span>		utils.SetAPImachineryError(c, err)
-<span id="L277" class="ln">   277  </span>		return
-<span id="L278" class="ln">   278  </span>	}
-<span id="L279" class="ln">   279  </span>	c.JSON(http.StatusOK, result)
-<span id="L280" class="ln">   280  </span>}
-<span id="L281" class="ln">   281  </span>
-<span id="L282" class="ln">   282  </span><span class="comment">// @Summary Delete the specified workflow.</span>
-<span id="L283" class="ln">   283  </span><span class="comment">// @Description Delete the specified workflow.</span>
-<span id="L284" class="ln">   284  </span><span class="comment">// @Tags workflows</span>
-<span id="L285" class="ln">   285  </span><span class="comment">// @Produce json</span>
-<span id="L286" class="ln">   286  </span><span class="comment">// @Param uid path string true &#34;uid&#34;</span>
-<span id="L287" class="ln">   287  </span><span class="comment">// @Success 200 {object} StatusResponse</span>
-<span id="L288" class="ln">   288  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
-<span id="L289" class="ln">   289  </span><span class="comment">// @Failure 404 {object} utils.APIError</span>
-<span id="L290" class="ln">   290  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
-<span id="L291" class="ln">   291  </span><span class="comment">// @Router /workflows/{uid} [delete]</span>
-<span id="L292" class="ln">   292  </span>func (it *Service) deleteWorkflow(c *gin.Context) {
-<span id="L293" class="ln">   293  </span>	uid := c.Param(&#34;uid&#34;)
-<span id="L294" class="ln">   294  </span>
-<span id="L295" class="ln">   295  </span>	entity, err := it.store.FindByUID(c.Request.Context(), uid)
-<span id="L296" class="ln">   296  </span>	if err != nil {
-<span id="L297" class="ln">   297  </span>		utils.SetAPImachineryError(c, err)
-<span id="L298" class="ln">   298  </span>		return
-<span id="L299" class="ln">   299  </span>	}
-<span id="L300" class="ln">   300  </span>
-<span id="L301" class="ln">   301  </span>	namespace := entity.Namespace
-<span id="L302" class="ln">   302  </span>	name := entity.Name
-<span id="L303" class="ln">   303  </span>
-<span id="L304" class="ln">   304  </span>	kubeClient, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
-<span id="L305" class="ln">   305  </span>	if err != nil {
-<span id="L306" class="ln">   306  </span>		_ = c.Error(utils.ErrBadRequest.WrapWithNoMessage(err))
-<span id="L307" class="ln">   307  </span>		return
-<span id="L308" class="ln">   308  </span>	}
-<span id="L309" class="ln">   309  </span>
-<span id="L310" class="ln">   310  </span>	repo := core.NewKubeWorkflowRepository(kubeClient)
-<span id="L311" class="ln">   311  </span>
-<span id="L312" class="ln">   312  </span>	err = repo.Delete(c.Request.Context(), namespace, name)
-<span id="L313" class="ln">   313  </span>	if err != nil {
-<span id="L314" class="ln">   314  </span>		utils.SetAPImachineryError(c, err)
-<span id="L315" class="ln">   315  </span>		return
-<span id="L316" class="ln">   316  </span>	}
-<span id="L317" class="ln">   317  </span>	c.JSON(http.StatusOK, StatusResponse{Status: &#34;success&#34;})
-<span id="L318" class="ln">   318  </span>}
-<span id="L319" class="ln">   319  </span>
-<span id="L320" class="ln">   320  </span><span class="comment">// @Summary Update a workflow.</span>
-<span id="L321" class="ln">   321  </span><span class="comment">// @Description Update a workflow.</span>
-<span id="L322" class="ln">   322  </span><span class="comment">// @Tags workflows</span>
-<span id="L323" class="ln">   323  </span><span class="comment">// @Produce json</span>
-<span id="L324" class="ln">   324  </span><span class="comment">// @Param uid path string true &#34;uid&#34;</span>
-<span id="L325" class="ln">   325  </span><span class="comment">// @Param request body v1alpha1.Workflow true &#34;Request body&#34;</span>
-<span id="L326" class="ln">   326  </span><span class="comment">// @Success 200 {object} core.WorkflowDetail</span>
-<span id="L327" class="ln">   327  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
-<span id="L328" class="ln">   328  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
-<span id="L329" class="ln">   329  </span><span class="comment">// @Router /workflows/{uid} [put]</span>
-<span id="L330" class="ln">   330  </span>func (it *Service) updateWorkflow(c *gin.Context) {
-<span id="L331" class="ln">   331  </span>	payload := v1alpha1.Workflow{}
-<span id="L332" class="ln">   332  </span>
-<span id="L333" class="ln">   333  </span>	err := json.NewDecoder(c.Request.Body).Decode(&amp;payload)
-<span id="L334" class="ln">   334  </span>	if err != nil {
-<span id="L335" class="ln">   335  </span>		utils.SetAPIError(c, utils.ErrInternalServer.Wrap(err, &#34;failed to parse request body&#34;))
-<span id="L336" class="ln">   336  </span>		return
-<span id="L337" class="ln">   337  </span>	}
-<span id="L338" class="ln">   338  </span>	uid := c.Param(&#34;uid&#34;)
-<span id="L339" class="ln">   339  </span>	entity, err := it.store.FindByUID(c.Request.Context(), uid)
-<span id="L340" class="ln">   340  </span>	if err != nil {
-<span id="L341" class="ln">   341  </span>		utils.SetAPImachineryError(c, err)
-<span id="L342" class="ln">   342  </span>		return
-<span id="L343" class="ln">   343  </span>	}
-<span id="L344" class="ln">   344  </span>
-<span id="L345" class="ln">   345  </span>	namespace := entity.Namespace
-<span id="L346" class="ln">   346  </span>	name := entity.Name
-<span id="L347" class="ln">   347  </span>
-<span id="L348" class="ln">   348  </span>	if namespace != payload.Namespace {
-<span id="L349" class="ln">   349  </span>		utils.SetAPIError(c, utils.ErrBadRequest.Wrap(err,
-<span id="L350" class="ln">   350  </span>			&#34;namespace is not consistent, pathParameter: %s, metaInRaw: %s&#34;,
-<span id="L351" class="ln">   351  </span>			namespace,
-<span id="L352" class="ln">   352  </span>			payload.Namespace))
-<span id="L353" class="ln">   353  </span>		return
-<span id="L354" class="ln">   354  </span>	}
-<span id="L355" class="ln">   355  </span>	if name != payload.Name {
-<span id="L356" class="ln">   356  </span>		utils.SetAPIError(c, utils.ErrBadRequest.Wrap(err,
-<span id="L357" class="ln">   357  </span>			&#34;name is not consistent, pathParameter: %s, metaInRaw: %s&#34;,
-<span id="L358" class="ln">   358  </span>			name,
-<span id="L359" class="ln">   359  </span>			payload.Name))
-<span id="L360" class="ln">   360  </span>		return
-<span id="L361" class="ln">   361  </span>	}
-<span id="L362" class="ln">   362  </span>
-<span id="L363" class="ln">   363  </span>	kubeClient, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
-<span id="L364" class="ln">   364  </span>	if err != nil {
-<span id="L365" class="ln">   365  </span>		utils.SetAPImachineryError(c, err)
-<span id="L366" class="ln">   366  </span>		return
-<span id="L367" class="ln">   367  </span>	}
-<span id="L368" class="ln">   368  </span>
-<span id="L369" class="ln">   369  </span>	repo := core.NewKubeWorkflowRepository(kubeClient)
-<span id="L370" class="ln">   370  </span>
-<span id="L371" class="ln">   371  </span>	result, err := repo.Update(c.Request.Context(), namespace, name, payload)
-<span id="L372" class="ln">   372  </span>	if err != nil {
-<span id="L373" class="ln">   373  </span>		utils.SetAPImachineryError(c, err)
-<span id="L374" class="ln">   374  </span>		return
-<span id="L375" class="ln">   375  </span>	}
-<span id="L376" class="ln">   376  </span>
-<span id="L377" class="ln">   377  </span>	c.JSON(http.StatusOK, result)
-<span id="L378" class="ln">   378  </span>}
-<span id="L379" class="ln">   379  </span>
+<span id="L237" class="ln">   237  </span>	result.Topology = workflowCRInKubernetes.Topology
+<span id="L238" class="ln">   238  </span>	result.KubeObject = workflowCRInKubernetes.KubeObject
+<span id="L239" class="ln">   239  </span>
+<span id="L240" class="ln">   240  </span>	c.JSON(http.StatusOK, result)
+<span id="L241" class="ln">   241  </span>}
+<span id="L242" class="ln">   242  </span>
+<span id="L243" class="ln">   243  </span><span class="comment">// @Summary Create a new workflow.</span>
+<span id="L244" class="ln">   244  </span><span class="comment">// @Description Create a new workflow.</span>
+<span id="L245" class="ln">   245  </span><span class="comment">// @Tags workflows</span>
+<span id="L246" class="ln">   246  </span><span class="comment">// @Produce json</span>
+<span id="L247" class="ln">   247  </span><span class="comment">// @Param request body v1alpha1.Workflow true &#34;Request body&#34;</span>
+<span id="L248" class="ln">   248  </span><span class="comment">// @Success 200 {object} core.WorkflowDetail</span>
+<span id="L249" class="ln">   249  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
+<span id="L250" class="ln">   250  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L251" class="ln">   251  </span><span class="comment">// @Router /workflows [post]</span>
+<span id="L252" class="ln">   252  </span>func (it *Service) createWorkflow(c *gin.Context) {
+<span id="L253" class="ln">   253  </span>	payload := v1alpha1.Workflow{}
+<span id="L254" class="ln">   254  </span>
+<span id="L255" class="ln">   255  </span>	err := json.NewDecoder(c.Request.Body).Decode(&amp;payload)
+<span id="L256" class="ln">   256  </span>	if err != nil {
+<span id="L257" class="ln">   257  </span>		_ = c.Error(utils.ErrInternalServer.Wrap(err, &#34;failed to parse request body&#34;))
+<span id="L258" class="ln">   258  </span>		return
+<span id="L259" class="ln">   259  </span>	}
+<span id="L260" class="ln">   260  </span>
+<span id="L261" class="ln">   261  </span>	kubeClient, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
+<span id="L262" class="ln">   262  </span>	if err != nil {
+<span id="L263" class="ln">   263  </span>		utils.SetAPImachineryError(c, err)
+<span id="L264" class="ln">   264  </span>		return
+<span id="L265" class="ln">   265  </span>	}
+<span id="L266" class="ln">   266  </span>
+<span id="L267" class="ln">   267  </span>	repo := core.NewKubeWorkflowRepository(kubeClient)
+<span id="L268" class="ln">   268  </span>
+<span id="L269" class="ln">   269  </span>	result, err := repo.Create(c.Request.Context(), payload)
+<span id="L270" class="ln">   270  </span>	if err != nil {
+<span id="L271" class="ln">   271  </span>		utils.SetAPImachineryError(c, err)
+<span id="L272" class="ln">   272  </span>		return
+<span id="L273" class="ln">   273  </span>	}
+<span id="L274" class="ln">   274  </span>	c.JSON(http.StatusOK, result)
+<span id="L275" class="ln">   275  </span>}
+<span id="L276" class="ln">   276  </span>
+<span id="L277" class="ln">   277  </span><span class="comment">// @Summary Delete the specified workflow.</span>
+<span id="L278" class="ln">   278  </span><span class="comment">// @Description Delete the specified workflow.</span>
+<span id="L279" class="ln">   279  </span><span class="comment">// @Tags workflows</span>
+<span id="L280" class="ln">   280  </span><span class="comment">// @Produce json</span>
+<span id="L281" class="ln">   281  </span><span class="comment">// @Param uid path string true &#34;uid&#34;</span>
+<span id="L282" class="ln">   282  </span><span class="comment">// @Success 200 {object} utils.Response</span>
+<span id="L283" class="ln">   283  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
+<span id="L284" class="ln">   284  </span><span class="comment">// @Failure 404 {object} utils.APIError</span>
+<span id="L285" class="ln">   285  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L286" class="ln">   286  </span><span class="comment">// @Router /workflows/{uid} [delete]</span>
+<span id="L287" class="ln">   287  </span>func (it *Service) deleteWorkflow(c *gin.Context) {
+<span id="L288" class="ln">   288  </span>	uid := c.Param(&#34;uid&#34;)
+<span id="L289" class="ln">   289  </span>
+<span id="L290" class="ln">   290  </span>	entity, err := it.store.FindByUID(c.Request.Context(), uid)
+<span id="L291" class="ln">   291  </span>	if err != nil {
+<span id="L292" class="ln">   292  </span>		utils.SetAPImachineryError(c, err)
+<span id="L293" class="ln">   293  </span>		return
+<span id="L294" class="ln">   294  </span>	}
+<span id="L295" class="ln">   295  </span>
+<span id="L296" class="ln">   296  </span>	namespace := entity.Namespace
+<span id="L297" class="ln">   297  </span>	name := entity.Name
+<span id="L298" class="ln">   298  </span>
+<span id="L299" class="ln">   299  </span>	kubeClient, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
+<span id="L300" class="ln">   300  </span>	if err != nil {
+<span id="L301" class="ln">   301  </span>		_ = c.Error(utils.ErrBadRequest.WrapWithNoMessage(err))
+<span id="L302" class="ln">   302  </span>		return
+<span id="L303" class="ln">   303  </span>	}
+<span id="L304" class="ln">   304  </span>
+<span id="L305" class="ln">   305  </span>	repo := core.NewKubeWorkflowRepository(kubeClient)
+<span id="L306" class="ln">   306  </span>
+<span id="L307" class="ln">   307  </span>	err = repo.Delete(c.Request.Context(), namespace, name)
+<span id="L308" class="ln">   308  </span>	if err != nil {
+<span id="L309" class="ln">   309  </span>		utils.SetAPImachineryError(c, err)
+<span id="L310" class="ln">   310  </span>		return
+<span id="L311" class="ln">   311  </span>	}
+<span id="L312" class="ln">   312  </span>	c.JSON(http.StatusOK, utils.ResponseSuccess)
+<span id="L313" class="ln">   313  </span>}
+<span id="L314" class="ln">   314  </span>
+<span id="L315" class="ln">   315  </span><span class="comment">// @Summary Update a workflow.</span>
+<span id="L316" class="ln">   316  </span><span class="comment">// @Description Update a workflow.</span>
+<span id="L317" class="ln">   317  </span><span class="comment">// @Tags workflows</span>
+<span id="L318" class="ln">   318  </span><span class="comment">// @Produce json</span>
+<span id="L319" class="ln">   319  </span><span class="comment">// @Param uid path string true &#34;uid&#34;</span>
+<span id="L320" class="ln">   320  </span><span class="comment">// @Param request body v1alpha1.Workflow true &#34;Request body&#34;</span>
+<span id="L321" class="ln">   321  </span><span class="comment">// @Success 200 {object} core.WorkflowDetail</span>
+<span id="L322" class="ln">   322  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
+<span id="L323" class="ln">   323  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L324" class="ln">   324  </span><span class="comment">// @Router /workflows/{uid} [put]</span>
+<span id="L325" class="ln">   325  </span>func (it *Service) updateWorkflow(c *gin.Context) {
+<span id="L326" class="ln">   326  </span>	payload := v1alpha1.Workflow{}
+<span id="L327" class="ln">   327  </span>
+<span id="L328" class="ln">   328  </span>	err := json.NewDecoder(c.Request.Body).Decode(&amp;payload)
+<span id="L329" class="ln">   329  </span>	if err != nil {
+<span id="L330" class="ln">   330  </span>		utils.SetAPIError(c, utils.ErrInternalServer.Wrap(err, &#34;failed to parse request body&#34;))
+<span id="L331" class="ln">   331  </span>		return
+<span id="L332" class="ln">   332  </span>	}
+<span id="L333" class="ln">   333  </span>	uid := c.Param(&#34;uid&#34;)
+<span id="L334" class="ln">   334  </span>	entity, err := it.store.FindByUID(c.Request.Context(), uid)
+<span id="L335" class="ln">   335  </span>	if err != nil {
+<span id="L336" class="ln">   336  </span>		utils.SetAPImachineryError(c, err)
+<span id="L337" class="ln">   337  </span>		return
+<span id="L338" class="ln">   338  </span>	}
+<span id="L339" class="ln">   339  </span>
+<span id="L340" class="ln">   340  </span>	namespace := entity.Namespace
+<span id="L341" class="ln">   341  </span>	name := entity.Name
+<span id="L342" class="ln">   342  </span>
+<span id="L343" class="ln">   343  </span>	if namespace != payload.Namespace {
+<span id="L344" class="ln">   344  </span>		utils.SetAPIError(c, utils.ErrBadRequest.Wrap(err,
+<span id="L345" class="ln">   345  </span>			&#34;namespace is not consistent, pathParameter: %s, metaInRaw: %s&#34;,
+<span id="L346" class="ln">   346  </span>			namespace,
+<span id="L347" class="ln">   347  </span>			payload.Namespace))
+<span id="L348" class="ln">   348  </span>		return
+<span id="L349" class="ln">   349  </span>	}
+<span id="L350" class="ln">   350  </span>	if name != payload.Name {
+<span id="L351" class="ln">   351  </span>		utils.SetAPIError(c, utils.ErrBadRequest.Wrap(err,
+<span id="L352" class="ln">   352  </span>			&#34;name is not consistent, pathParameter: %s, metaInRaw: %s&#34;,
+<span id="L353" class="ln">   353  </span>			name,
+<span id="L354" class="ln">   354  </span>			payload.Name))
+<span id="L355" class="ln">   355  </span>		return
+<span id="L356" class="ln">   356  </span>	}
+<span id="L357" class="ln">   357  </span>
+<span id="L358" class="ln">   358  </span>	kubeClient, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
+<span id="L359" class="ln">   359  </span>	if err != nil {
+<span id="L360" class="ln">   360  </span>		utils.SetAPImachineryError(c, err)
+<span id="L361" class="ln">   361  </span>		return
+<span id="L362" class="ln">   362  </span>	}
+<span id="L363" class="ln">   363  </span>
+<span id="L364" class="ln">   364  </span>	repo := core.NewKubeWorkflowRepository(kubeClient)
+<span id="L365" class="ln">   365  </span>
+<span id="L366" class="ln">   366  </span>	result, err := repo.Update(c.Request.Context(), namespace, name, payload)
+<span id="L367" class="ln">   367  </span>	if err != nil {
+<span id="L368" class="ln">   368  </span>		utils.SetAPImachineryError(c, err)
+<span id="L369" class="ln">   369  </span>		return
+<span id="L370" class="ln">   370  </span>	}
+<span id="L371" class="ln">   371  </span>
+<span id="L372" class="ln">   372  </span>	c.JSON(http.StatusOK, result)
+<span id="L373" class="ln">   373  </span>}
+<span id="L374" class="ln">   374  </span>
 </pre><p></p>
 
 <div id="footer">
