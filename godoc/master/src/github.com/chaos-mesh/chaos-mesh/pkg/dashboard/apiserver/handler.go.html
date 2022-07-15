@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b7024bc. Generated at Thu Jul 14 22:05:10 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 54757e7. Generated at Fri Jul 15 10:01:49 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -96,7 +96,7 @@
 <span id="L31" class="ln">    31  </span>var handlerModule = fx.Options(
 <span id="L32" class="ln">    32  </span>	fx.Provide(
 <span id="L33" class="ln">    33  </span>		common.NewService,
-<span id="L34" class="ln">    34  </span>		experiment.NewService,
+<span id="L34" class="ln">    34  </span>		experiment.Bootstrap,
 <span id="L35" class="ln">    35  </span>		schedule.Bootstrap,
 <span id="L36" class="ln">    36  </span>		workflow.Bootstrap,
 <span id="L37" class="ln">    37  </span>		event.NewService,
@@ -107,17 +107,16 @@
 <span id="L42" class="ln">    42  </span>	fx.Invoke(
 <span id="L43" class="ln">    43  </span>		<span class="comment">// gcp should register at the first, because it registers a middleware</span>
 <span id="L44" class="ln">    44  </span>		gcp.Register,
-<span id="L45" class="ln">    45  </span>
-<span id="L46" class="ln">    46  </span>		common.Register,
-<span id="L47" class="ln">    47  </span>		experiment.Register,
-<span id="L48" class="ln">    48  </span>		schedule.Register,
-<span id="L49" class="ln">    49  </span>		workflow.Register,
-<span id="L50" class="ln">    50  </span>		event.Register,
-<span id="L51" class="ln">    51  </span>		archive.Register,
-<span id="L52" class="ln">    52  </span>		template.Register,
-<span id="L53" class="ln">    53  </span>	),
-<span id="L54" class="ln">    54  </span>)
-<span id="L55" class="ln">    55  </span>
+<span id="L45" class="ln">    45  </span>		common.Register,
+<span id="L46" class="ln">    46  </span>		experiment.Register,
+<span id="L47" class="ln">    47  </span>		schedule.Register,
+<span id="L48" class="ln">    48  </span>		workflow.Register,
+<span id="L49" class="ln">    49  </span>		event.Register,
+<span id="L50" class="ln">    50  </span>		archive.Register,
+<span id="L51" class="ln">    51  </span>		template.Register,
+<span id="L52" class="ln">    52  </span>	),
+<span id="L53" class="ln">    53  </span>)
+<span id="L54" class="ln">    54  </span>
 </pre><p></p>
 
 <div id="footer">

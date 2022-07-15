@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b7024bc. Generated at Thu Jul 14 22:05:10 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 54757e7. Generated at Fri Jul 15 10:01:49 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -123,7 +123,10 @@
 				<dd><a href="#Service">type Service</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewService">func NewService(archive core.ExperimentStore, event core.EventStore, config *config.ChaosDashboardConfig, scheme *runtime.Scheme) *Service</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#Bootstrap">func Bootstrap(archive core.ExperimentStore, event core.EventStore, config *config.ChaosDashboardConfig, scheme *runtime.Scheme, log logr.Logger) *Service</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewService">func NewService(archive core.ExperimentStore, event core.EventStore, config *config.ChaosDashboardConfig, scheme *runtime.Scheme, log logr.Logger) *Service</a></dd>
 				
 				
 			
@@ -140,6 +143,8 @@
 			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/experiment/experiment.go">experiment.go</a>
 			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/experiment/fx.go">fx.go</a>
+			
 			</span>
 			</p>
 		
@@ -153,7 +158,7 @@
 		
 			
 			
-			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/experiment/experiment.go#L73">Register</a>
+			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/experiment/experiment.go#L75">Register</a>
 				<a class="permalink" href="#Register">&#xb6;</a>
 				
 				
@@ -170,7 +175,7 @@ Register experiments RouterGroup.
 		
 			
 			
-			<h2 id="Service">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/experiment/experiment.go#L51">Service</a>
+			<h2 id="Service">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/experiment/experiment.go#L50">Service</a>
 				<a class="permalink" href="#Service">&#xb6;</a>
 				
 				
@@ -194,6 +199,21 @@ Service defines a handler service for experiments.
 
 			
 				
+				<h3 id="Bootstrap">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/experiment/fx.go#L26">Bootstrap</a>
+					<a class="permalink" href="#Bootstrap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Bootstrap(archive <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ExperimentStore">ExperimentStore</a>,
+    event <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#EventStore">EventStore</a>,
+    config *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/">config</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/#ChaosDashboardConfig">ChaosDashboardConfig</a>,
+    scheme *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Scheme">Scheme</a>,
+    log <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#Service">Service</a></pre>
+				
+				
+				
+			
+				
 				<h3 id="NewService">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/experiment/experiment.go#L58">NewService</a>
 					<a class="permalink" href="#NewService">&#xb6;</a>
 					
@@ -204,6 +224,7 @@ Service defines a handler service for experiments.
     event <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#EventStore">EventStore</a>,
     config *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/">config</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/#ChaosDashboardConfig">ChaosDashboardConfig</a>,
     scheme *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Scheme">Scheme</a>,
+    log <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>,
 ) *<a href="#Service">Service</a></pre>
 				
 				
