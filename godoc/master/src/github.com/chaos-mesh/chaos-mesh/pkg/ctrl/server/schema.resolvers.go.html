@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 0aa9a87. Generated at Wed Jul 20 22:03:56 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d73d4dd. Generated at Thu Jul 21 10:01:44 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -1222,7 +1222,7 @@
 <span id="L1157" class="ln">  1157  </span>}
 <span id="L1158" class="ln">  1158  </span>
 <span id="L1159" class="ln">  1159  </span>func (r *rawIPSetResolver) IPSetType(ctx context.Context, obj *v1alpha1.RawIPSet) (string, error) {
-<span id="L1160" class="ln">  1160  </span>	panic(fmt.Errorf(&#34;not implemented&#34;))
+<span id="L1160" class="ln">  1160  </span>	return string(obj.IPSetType), nil
 <span id="L1161" class="ln">  1161  </span>}
 <span id="L1162" class="ln">  1162  </span>
 <span id="L1163" class="ln">  1163  </span>func (r *rawIptablesResolver) Direction(ctx context.Context, obj *v1alpha1.RawIptables) (string, error) {
@@ -1287,210 +1287,214 @@
 <span id="L1222" class="ln">  1222  </span>}
 <span id="L1223" class="ln">  1223  </span>
 <span id="L1224" class="ln">  1224  </span>func (r *stressChaosStatusResolver) Instances(ctx context.Context, obj *v1alpha1.StressChaosStatus) (map[string]interface{}, error) {
-<span id="L1225" class="ln">  1225  </span>	panic(fmt.Errorf(&#34;not implemented&#34;))
-<span id="L1226" class="ln">  1226  </span>}
-<span id="L1227" class="ln">  1227  </span>
-<span id="L1228" class="ln">  1228  </span><span class="comment">// AttrOverrideSpec returns generated.AttrOverrideSpecResolver implementation.</span>
-<span id="L1229" class="ln">  1229  </span>func (r *Resolver) AttrOverrideSpec() generated.AttrOverrideSpecResolver {
-<span id="L1230" class="ln">  1230  </span>	return &amp;attrOverrideSpecResolver{r}
-<span id="L1231" class="ln">  1231  </span>}
-<span id="L1232" class="ln">  1232  </span>
-<span id="L1233" class="ln">  1233  </span><span class="comment">// BandwidthSpec returns generated.BandwidthSpecResolver implementation.</span>
-<span id="L1234" class="ln">  1234  </span>func (r *Resolver) BandwidthSpec() generated.BandwidthSpecResolver { return &amp;bandwidthSpecResolver{r} }
-<span id="L1235" class="ln">  1235  </span>
-<span id="L1236" class="ln">  1236  </span><span class="comment">// ChaosCondition returns generated.ChaosConditionResolver implementation.</span>
-<span id="L1237" class="ln">  1237  </span>func (r *Resolver) ChaosCondition() generated.ChaosConditionResolver {
-<span id="L1238" class="ln">  1238  </span>	return &amp;chaosConditionResolver{r}
-<span id="L1239" class="ln">  1239  </span>}
-<span id="L1240" class="ln">  1240  </span>
-<span id="L1241" class="ln">  1241  </span><span class="comment">// CidrAndPort returns generated.CidrAndPortResolver implementation.</span>
-<span id="L1242" class="ln">  1242  </span>func (r *Resolver) CidrAndPort() generated.CidrAndPortResolver { return &amp;cidrAndPortResolver{r} }
-<span id="L1243" class="ln">  1243  </span>
-<span id="L1244" class="ln">  1244  </span><span class="comment">// ContainerStateRunning returns generated.ContainerStateRunningResolver implementation.</span>
-<span id="L1245" class="ln">  1245  </span>func (r *Resolver) ContainerStateRunning() generated.ContainerStateRunningResolver {
-<span id="L1246" class="ln">  1246  </span>	return &amp;containerStateRunningResolver{r}
-<span id="L1247" class="ln">  1247  </span>}
-<span id="L1248" class="ln">  1248  </span>
-<span id="L1249" class="ln">  1249  </span><span class="comment">// ContainerStateTerminated returns generated.ContainerStateTerminatedResolver implementation.</span>
-<span id="L1250" class="ln">  1250  </span>func (r *Resolver) ContainerStateTerminated() generated.ContainerStateTerminatedResolver {
-<span id="L1251" class="ln">  1251  </span>	return &amp;containerStateTerminatedResolver{r}
-<span id="L1252" class="ln">  1252  </span>}
-<span id="L1253" class="ln">  1253  </span>
-<span id="L1254" class="ln">  1254  </span><span class="comment">// ExperimentStatus returns generated.ExperimentStatusResolver implementation.</span>
-<span id="L1255" class="ln">  1255  </span>func (r *Resolver) ExperimentStatus() generated.ExperimentStatusResolver {
-<span id="L1256" class="ln">  1256  </span>	return &amp;experimentStatusResolver{r}
-<span id="L1257" class="ln">  1257  </span>}
-<span id="L1258" class="ln">  1258  </span>
-<span id="L1259" class="ln">  1259  </span><span class="comment">// HTTPChaos returns generated.HTTPChaosResolver implementation.</span>
-<span id="L1260" class="ln">  1260  </span>func (r *Resolver) HTTPChaos() generated.HTTPChaosResolver { return &amp;hTTPChaosResolver{r} }
-<span id="L1261" class="ln">  1261  </span>
-<span id="L1262" class="ln">  1262  </span><span class="comment">// HTTPChaosSpec returns generated.HTTPChaosSpecResolver implementation.</span>
-<span id="L1263" class="ln">  1263  </span>func (r *Resolver) HTTPChaosSpec() generated.HTTPChaosSpecResolver { return &amp;hTTPChaosSpecResolver{r} }
-<span id="L1264" class="ln">  1264  </span>
-<span id="L1265" class="ln">  1265  </span><span class="comment">// HTTPChaosStatus returns generated.HTTPChaosStatusResolver implementation.</span>
-<span id="L1266" class="ln">  1266  </span>func (r *Resolver) HTTPChaosStatus() generated.HTTPChaosStatusResolver {
-<span id="L1267" class="ln">  1267  </span>	return &amp;hTTPChaosStatusResolver{r}
-<span id="L1268" class="ln">  1268  </span>}
-<span id="L1269" class="ln">  1269  </span>
-<span id="L1270" class="ln">  1270  </span><span class="comment">// IOChaos returns generated.IOChaosResolver implementation.</span>
-<span id="L1271" class="ln">  1271  </span>func (r *Resolver) IOChaos() generated.IOChaosResolver { return &amp;iOChaosResolver{r} }
-<span id="L1272" class="ln">  1272  </span>
-<span id="L1273" class="ln">  1273  </span><span class="comment">// IOChaosAction returns generated.IOChaosActionResolver implementation.</span>
-<span id="L1274" class="ln">  1274  </span>func (r *Resolver) IOChaosAction() generated.IOChaosActionResolver { return &amp;iOChaosActionResolver{r} }
-<span id="L1275" class="ln">  1275  </span>
-<span id="L1276" class="ln">  1276  </span><span class="comment">// IOChaosSpec returns generated.IOChaosSpecResolver implementation.</span>
-<span id="L1277" class="ln">  1277  </span>func (r *Resolver) IOChaosSpec() generated.IOChaosSpecResolver { return &amp;iOChaosSpecResolver{r} }
-<span id="L1278" class="ln">  1278  </span>
-<span id="L1279" class="ln">  1279  </span><span class="comment">// IOChaosStatus returns generated.IOChaosStatusResolver implementation.</span>
-<span id="L1280" class="ln">  1280  </span>func (r *Resolver) IOChaosStatus() generated.IOChaosStatusResolver { return &amp;iOChaosStatusResolver{r} }
-<span id="L1281" class="ln">  1281  </span>
-<span id="L1282" class="ln">  1282  </span><span class="comment">// IoFault returns generated.IoFaultResolver implementation.</span>
-<span id="L1283" class="ln">  1283  </span>func (r *Resolver) IoFault() generated.IoFaultResolver { return &amp;ioFaultResolver{r} }
-<span id="L1284" class="ln">  1284  </span>
-<span id="L1285" class="ln">  1285  </span><span class="comment">// Logger returns generated.LoggerResolver implementation.</span>
-<span id="L1286" class="ln">  1286  </span>func (r *Resolver) Logger() generated.LoggerResolver { return &amp;loggerResolver{r} }
-<span id="L1287" class="ln">  1287  </span>
-<span id="L1288" class="ln">  1288  </span><span class="comment">// MistakeSpec returns generated.MistakeSpecResolver implementation.</span>
-<span id="L1289" class="ln">  1289  </span>func (r *Resolver) MistakeSpec() generated.MistakeSpecResolver { return &amp;mistakeSpecResolver{r} }
-<span id="L1290" class="ln">  1290  </span>
-<span id="L1291" class="ln">  1291  </span><span class="comment">// MutablePod returns generated.MutablePodResolver implementation.</span>
-<span id="L1292" class="ln">  1292  </span>func (r *Resolver) MutablePod() generated.MutablePodResolver { return &amp;mutablePodResolver{r} }
-<span id="L1293" class="ln">  1293  </span>
-<span id="L1294" class="ln">  1294  </span><span class="comment">// Mutation returns generated.MutationResolver implementation.</span>
-<span id="L1295" class="ln">  1295  </span>func (r *Resolver) Mutation() generated.MutationResolver { return &amp;mutationResolver{r} }
-<span id="L1296" class="ln">  1296  </span>
-<span id="L1297" class="ln">  1297  </span><span class="comment">// Namespace returns generated.NamespaceResolver implementation.</span>
-<span id="L1298" class="ln">  1298  </span>func (r *Resolver) Namespace() generated.NamespaceResolver { return &amp;namespaceResolver{r} }
-<span id="L1299" class="ln">  1299  </span>
-<span id="L1300" class="ln">  1300  </span><span class="comment">// NetworkChaos returns generated.NetworkChaosResolver implementation.</span>
-<span id="L1301" class="ln">  1301  </span>func (r *Resolver) NetworkChaos() generated.NetworkChaosResolver { return &amp;networkChaosResolver{r} }
-<span id="L1302" class="ln">  1302  </span>
-<span id="L1303" class="ln">  1303  </span><span class="comment">// OwnerReference returns generated.OwnerReferenceResolver implementation.</span>
-<span id="L1304" class="ln">  1304  </span>func (r *Resolver) OwnerReference() generated.OwnerReferenceResolver {
-<span id="L1305" class="ln">  1305  </span>	return &amp;ownerReferenceResolver{r}
-<span id="L1306" class="ln">  1306  </span>}
-<span id="L1307" class="ln">  1307  </span>
-<span id="L1308" class="ln">  1308  </span><span class="comment">// Pod returns generated.PodResolver implementation.</span>
-<span id="L1309" class="ln">  1309  </span>func (r *Resolver) Pod() generated.PodResolver { return &amp;podResolver{r} }
-<span id="L1310" class="ln">  1310  </span>
-<span id="L1311" class="ln">  1311  </span><span class="comment">// PodCondition returns generated.PodConditionResolver implementation.</span>
-<span id="L1312" class="ln">  1312  </span>func (r *Resolver) PodCondition() generated.PodConditionResolver { return &amp;podConditionResolver{r} }
-<span id="L1313" class="ln">  1313  </span>
-<span id="L1314" class="ln">  1314  </span><span class="comment">// PodHTTPChaos returns generated.PodHTTPChaosResolver implementation.</span>
-<span id="L1315" class="ln">  1315  </span>func (r *Resolver) PodHTTPChaos() generated.PodHTTPChaosResolver { return &amp;podHTTPChaosResolver{r} }
-<span id="L1316" class="ln">  1316  </span>
-<span id="L1317" class="ln">  1317  </span><span class="comment">// PodHttpChaosReplaceActions returns generated.PodHttpChaosReplaceActionsResolver implementation.</span>
-<span id="L1318" class="ln">  1318  </span>func (r *Resolver) PodHttpChaosReplaceActions() generated.PodHttpChaosReplaceActionsResolver {
-<span id="L1319" class="ln">  1319  </span>	return &amp;podHttpChaosReplaceActionsResolver{r}
-<span id="L1320" class="ln">  1320  </span>}
-<span id="L1321" class="ln">  1321  </span>
-<span id="L1322" class="ln">  1322  </span><span class="comment">// PodHttpChaosRule returns generated.PodHttpChaosRuleResolver implementation.</span>
-<span id="L1323" class="ln">  1323  </span>func (r *Resolver) PodHttpChaosRule() generated.PodHttpChaosRuleResolver {
-<span id="L1324" class="ln">  1324  </span>	return &amp;podHttpChaosRuleResolver{r}
-<span id="L1325" class="ln">  1325  </span>}
-<span id="L1326" class="ln">  1326  </span>
-<span id="L1327" class="ln">  1327  </span><span class="comment">// PodHttpChaosSelector returns generated.PodHttpChaosSelectorResolver implementation.</span>
-<span id="L1328" class="ln">  1328  </span>func (r *Resolver) PodHttpChaosSelector() generated.PodHttpChaosSelectorResolver {
-<span id="L1329" class="ln">  1329  </span>	return &amp;podHttpChaosSelectorResolver{r}
-<span id="L1330" class="ln">  1330  </span>}
-<span id="L1331" class="ln">  1331  </span>
-<span id="L1332" class="ln">  1332  </span><span class="comment">// PodIOChaos returns generated.PodIOChaosResolver implementation.</span>
-<span id="L1333" class="ln">  1333  </span>func (r *Resolver) PodIOChaos() generated.PodIOChaosResolver { return &amp;podIOChaosResolver{r} }
-<span id="L1334" class="ln">  1334  </span>
-<span id="L1335" class="ln">  1335  </span><span class="comment">// PodNetworkChaos returns generated.PodNetworkChaosResolver implementation.</span>
-<span id="L1336" class="ln">  1336  </span>func (r *Resolver) PodNetworkChaos() generated.PodNetworkChaosResolver {
-<span id="L1337" class="ln">  1337  </span>	return &amp;podNetworkChaosResolver{r}
-<span id="L1338" class="ln">  1338  </span>}
-<span id="L1339" class="ln">  1339  </span>
-<span id="L1340" class="ln">  1340  </span><span class="comment">// PodSelectorSpec returns generated.PodSelectorSpecResolver implementation.</span>
-<span id="L1341" class="ln">  1341  </span>func (r *Resolver) PodSelectorSpec() generated.PodSelectorSpecResolver {
-<span id="L1342" class="ln">  1342  </span>	return &amp;podSelectorSpecResolver{r}
-<span id="L1343" class="ln">  1343  </span>}
-<span id="L1344" class="ln">  1344  </span>
-<span id="L1345" class="ln">  1345  </span><span class="comment">// PodStatus returns generated.PodStatusResolver implementation.</span>
-<span id="L1346" class="ln">  1346  </span>func (r *Resolver) PodStatus() generated.PodStatusResolver { return &amp;podStatusResolver{r} }
-<span id="L1347" class="ln">  1347  </span>
-<span id="L1348" class="ln">  1348  </span><span class="comment">// PodStressChaos returns generated.PodStressChaosResolver implementation.</span>
-<span id="L1349" class="ln">  1349  </span>func (r *Resolver) PodStressChaos() generated.PodStressChaosResolver {
-<span id="L1350" class="ln">  1350  </span>	return &amp;podStressChaosResolver{r}
-<span id="L1351" class="ln">  1351  </span>}
-<span id="L1352" class="ln">  1352  </span>
-<span id="L1353" class="ln">  1353  </span><span class="comment">// Process returns generated.ProcessResolver implementation.</span>
-<span id="L1354" class="ln">  1354  </span>func (r *Resolver) Process() generated.ProcessResolver { return &amp;processResolver{r} }
-<span id="L1355" class="ln">  1355  </span>
-<span id="L1356" class="ln">  1356  </span><span class="comment">// Query returns generated.QueryResolver implementation.</span>
-<span id="L1357" class="ln">  1357  </span>func (r *Resolver) Query() generated.QueryResolver { return &amp;queryResolver{r} }
-<span id="L1358" class="ln">  1358  </span>
-<span id="L1359" class="ln">  1359  </span><span class="comment">// RawIPSet returns generated.RawIPSetResolver implementation.</span>
-<span id="L1360" class="ln">  1360  </span>func (r *Resolver) RawIPSet() generated.RawIPSetResolver { return &amp;rawIPSetResolver{r} }
-<span id="L1361" class="ln">  1361  </span>
-<span id="L1362" class="ln">  1362  </span><span class="comment">// RawIptables returns generated.RawIptablesResolver implementation.</span>
-<span id="L1363" class="ln">  1363  </span>func (r *Resolver) RawIptables() generated.RawIptablesResolver { return &amp;rawIptablesResolver{r} }
-<span id="L1364" class="ln">  1364  </span>
-<span id="L1365" class="ln">  1365  </span><span class="comment">// RawTrafficControl returns generated.RawTrafficControlResolver implementation.</span>
-<span id="L1366" class="ln">  1366  </span>func (r *Resolver) RawTrafficControl() generated.RawTrafficControlResolver {
-<span id="L1367" class="ln">  1367  </span>	return &amp;rawTrafficControlResolver{r}
-<span id="L1368" class="ln">  1368  </span>}
-<span id="L1369" class="ln">  1369  </span>
-<span id="L1370" class="ln">  1370  </span><span class="comment">// Record returns generated.RecordResolver implementation.</span>
-<span id="L1371" class="ln">  1371  </span>func (r *Resolver) Record() generated.RecordResolver { return &amp;recordResolver{r} }
-<span id="L1372" class="ln">  1372  </span>
-<span id="L1373" class="ln">  1373  </span><span class="comment">// StressChaos returns generated.StressChaosResolver implementation.</span>
-<span id="L1374" class="ln">  1374  </span>func (r *Resolver) StressChaos() generated.StressChaosResolver { return &amp;stressChaosResolver{r} }
-<span id="L1375" class="ln">  1375  </span>
-<span id="L1376" class="ln">  1376  </span><span class="comment">// StressChaosSpec returns generated.StressChaosSpecResolver implementation.</span>
-<span id="L1377" class="ln">  1377  </span>func (r *Resolver) StressChaosSpec() generated.StressChaosSpecResolver {
-<span id="L1378" class="ln">  1378  </span>	return &amp;stressChaosSpecResolver{r}
-<span id="L1379" class="ln">  1379  </span>}
-<span id="L1380" class="ln">  1380  </span>
-<span id="L1381" class="ln">  1381  </span><span class="comment">// StressChaosStatus returns generated.StressChaosStatusResolver implementation.</span>
-<span id="L1382" class="ln">  1382  </span>func (r *Resolver) StressChaosStatus() generated.StressChaosStatusResolver {
-<span id="L1383" class="ln">  1383  </span>	return &amp;stressChaosStatusResolver{r}
-<span id="L1384" class="ln">  1384  </span>}
-<span id="L1385" class="ln">  1385  </span>
-<span id="L1386" class="ln">  1386  </span>type attrOverrideSpecResolver struct{ *Resolver }
-<span id="L1387" class="ln">  1387  </span>type bandwidthSpecResolver struct{ *Resolver }
-<span id="L1388" class="ln">  1388  </span>type chaosConditionResolver struct{ *Resolver }
-<span id="L1389" class="ln">  1389  </span>type cidrAndPortResolver struct{ *Resolver }
-<span id="L1390" class="ln">  1390  </span>type containerStateRunningResolver struct{ *Resolver }
-<span id="L1391" class="ln">  1391  </span>type containerStateTerminatedResolver struct{ *Resolver }
-<span id="L1392" class="ln">  1392  </span>type experimentStatusResolver struct{ *Resolver }
-<span id="L1393" class="ln">  1393  </span>type hTTPChaosResolver struct{ *Resolver }
-<span id="L1394" class="ln">  1394  </span>type hTTPChaosSpecResolver struct{ *Resolver }
-<span id="L1395" class="ln">  1395  </span>type hTTPChaosStatusResolver struct{ *Resolver }
-<span id="L1396" class="ln">  1396  </span>type iOChaosResolver struct{ *Resolver }
-<span id="L1397" class="ln">  1397  </span>type iOChaosActionResolver struct{ *Resolver }
-<span id="L1398" class="ln">  1398  </span>type iOChaosSpecResolver struct{ *Resolver }
-<span id="L1399" class="ln">  1399  </span>type iOChaosStatusResolver struct{ *Resolver }
-<span id="L1400" class="ln">  1400  </span>type ioFaultResolver struct{ *Resolver }
-<span id="L1401" class="ln">  1401  </span>type loggerResolver struct{ *Resolver }
-<span id="L1402" class="ln">  1402  </span>type mistakeSpecResolver struct{ *Resolver }
-<span id="L1403" class="ln">  1403  </span>type mutablePodResolver struct{ *Resolver }
-<span id="L1404" class="ln">  1404  </span>type mutationResolver struct{ *Resolver }
-<span id="L1405" class="ln">  1405  </span>type namespaceResolver struct{ *Resolver }
-<span id="L1406" class="ln">  1406  </span>type networkChaosResolver struct{ *Resolver }
-<span id="L1407" class="ln">  1407  </span>type ownerReferenceResolver struct{ *Resolver }
-<span id="L1408" class="ln">  1408  </span>type podResolver struct{ *Resolver }
-<span id="L1409" class="ln">  1409  </span>type podConditionResolver struct{ *Resolver }
-<span id="L1410" class="ln">  1410  </span>type podHTTPChaosResolver struct{ *Resolver }
-<span id="L1411" class="ln">  1411  </span>type podHttpChaosReplaceActionsResolver struct{ *Resolver }
-<span id="L1412" class="ln">  1412  </span>type podHttpChaosRuleResolver struct{ *Resolver }
-<span id="L1413" class="ln">  1413  </span>type podHttpChaosSelectorResolver struct{ *Resolver }
-<span id="L1414" class="ln">  1414  </span>type podIOChaosResolver struct{ *Resolver }
-<span id="L1415" class="ln">  1415  </span>type podNetworkChaosResolver struct{ *Resolver }
-<span id="L1416" class="ln">  1416  </span>type podSelectorSpecResolver struct{ *Resolver }
-<span id="L1417" class="ln">  1417  </span>type podStatusResolver struct{ *Resolver }
-<span id="L1418" class="ln">  1418  </span>type podStressChaosResolver struct{ *Resolver }
-<span id="L1419" class="ln">  1419  </span>type processResolver struct{ *Resolver }
-<span id="L1420" class="ln">  1420  </span>type queryResolver struct{ *Resolver }
-<span id="L1421" class="ln">  1421  </span>type rawIPSetResolver struct{ *Resolver }
-<span id="L1422" class="ln">  1422  </span>type rawIptablesResolver struct{ *Resolver }
-<span id="L1423" class="ln">  1423  </span>type rawTrafficControlResolver struct{ *Resolver }
-<span id="L1424" class="ln">  1424  </span>type recordResolver struct{ *Resolver }
-<span id="L1425" class="ln">  1425  </span>type stressChaosResolver struct{ *Resolver }
-<span id="L1426" class="ln">  1426  </span>type stressChaosSpecResolver struct{ *Resolver }
-<span id="L1427" class="ln">  1427  </span>type stressChaosStatusResolver struct{ *Resolver }
-<span id="L1428" class="ln">  1428  </span>
+<span id="L1225" class="ln">  1225  </span>	instances := make(map[string]interface{})
+<span id="L1226" class="ln">  1226  </span>	for k, v := range obj.Instances {
+<span id="L1227" class="ln">  1227  </span>		instances[k] = v
+<span id="L1228" class="ln">  1228  </span>	}
+<span id="L1229" class="ln">  1229  </span>	return instances, nil
+<span id="L1230" class="ln">  1230  </span>}
+<span id="L1231" class="ln">  1231  </span>
+<span id="L1232" class="ln">  1232  </span><span class="comment">// AttrOverrideSpec returns generated.AttrOverrideSpecResolver implementation.</span>
+<span id="L1233" class="ln">  1233  </span>func (r *Resolver) AttrOverrideSpec() generated.AttrOverrideSpecResolver {
+<span id="L1234" class="ln">  1234  </span>	return &amp;attrOverrideSpecResolver{r}
+<span id="L1235" class="ln">  1235  </span>}
+<span id="L1236" class="ln">  1236  </span>
+<span id="L1237" class="ln">  1237  </span><span class="comment">// BandwidthSpec returns generated.BandwidthSpecResolver implementation.</span>
+<span id="L1238" class="ln">  1238  </span>func (r *Resolver) BandwidthSpec() generated.BandwidthSpecResolver { return &amp;bandwidthSpecResolver{r} }
+<span id="L1239" class="ln">  1239  </span>
+<span id="L1240" class="ln">  1240  </span><span class="comment">// ChaosCondition returns generated.ChaosConditionResolver implementation.</span>
+<span id="L1241" class="ln">  1241  </span>func (r *Resolver) ChaosCondition() generated.ChaosConditionResolver {
+<span id="L1242" class="ln">  1242  </span>	return &amp;chaosConditionResolver{r}
+<span id="L1243" class="ln">  1243  </span>}
+<span id="L1244" class="ln">  1244  </span>
+<span id="L1245" class="ln">  1245  </span><span class="comment">// CidrAndPort returns generated.CidrAndPortResolver implementation.</span>
+<span id="L1246" class="ln">  1246  </span>func (r *Resolver) CidrAndPort() generated.CidrAndPortResolver { return &amp;cidrAndPortResolver{r} }
+<span id="L1247" class="ln">  1247  </span>
+<span id="L1248" class="ln">  1248  </span><span class="comment">// ContainerStateRunning returns generated.ContainerStateRunningResolver implementation.</span>
+<span id="L1249" class="ln">  1249  </span>func (r *Resolver) ContainerStateRunning() generated.ContainerStateRunningResolver {
+<span id="L1250" class="ln">  1250  </span>	return &amp;containerStateRunningResolver{r}
+<span id="L1251" class="ln">  1251  </span>}
+<span id="L1252" class="ln">  1252  </span>
+<span id="L1253" class="ln">  1253  </span><span class="comment">// ContainerStateTerminated returns generated.ContainerStateTerminatedResolver implementation.</span>
+<span id="L1254" class="ln">  1254  </span>func (r *Resolver) ContainerStateTerminated() generated.ContainerStateTerminatedResolver {
+<span id="L1255" class="ln">  1255  </span>	return &amp;containerStateTerminatedResolver{r}
+<span id="L1256" class="ln">  1256  </span>}
+<span id="L1257" class="ln">  1257  </span>
+<span id="L1258" class="ln">  1258  </span><span class="comment">// ExperimentStatus returns generated.ExperimentStatusResolver implementation.</span>
+<span id="L1259" class="ln">  1259  </span>func (r *Resolver) ExperimentStatus() generated.ExperimentStatusResolver {
+<span id="L1260" class="ln">  1260  </span>	return &amp;experimentStatusResolver{r}
+<span id="L1261" class="ln">  1261  </span>}
+<span id="L1262" class="ln">  1262  </span>
+<span id="L1263" class="ln">  1263  </span><span class="comment">// HTTPChaos returns generated.HTTPChaosResolver implementation.</span>
+<span id="L1264" class="ln">  1264  </span>func (r *Resolver) HTTPChaos() generated.HTTPChaosResolver { return &amp;hTTPChaosResolver{r} }
+<span id="L1265" class="ln">  1265  </span>
+<span id="L1266" class="ln">  1266  </span><span class="comment">// HTTPChaosSpec returns generated.HTTPChaosSpecResolver implementation.</span>
+<span id="L1267" class="ln">  1267  </span>func (r *Resolver) HTTPChaosSpec() generated.HTTPChaosSpecResolver { return &amp;hTTPChaosSpecResolver{r} }
+<span id="L1268" class="ln">  1268  </span>
+<span id="L1269" class="ln">  1269  </span><span class="comment">// HTTPChaosStatus returns generated.HTTPChaosStatusResolver implementation.</span>
+<span id="L1270" class="ln">  1270  </span>func (r *Resolver) HTTPChaosStatus() generated.HTTPChaosStatusResolver {
+<span id="L1271" class="ln">  1271  </span>	return &amp;hTTPChaosStatusResolver{r}
+<span id="L1272" class="ln">  1272  </span>}
+<span id="L1273" class="ln">  1273  </span>
+<span id="L1274" class="ln">  1274  </span><span class="comment">// IOChaos returns generated.IOChaosResolver implementation.</span>
+<span id="L1275" class="ln">  1275  </span>func (r *Resolver) IOChaos() generated.IOChaosResolver { return &amp;iOChaosResolver{r} }
+<span id="L1276" class="ln">  1276  </span>
+<span id="L1277" class="ln">  1277  </span><span class="comment">// IOChaosAction returns generated.IOChaosActionResolver implementation.</span>
+<span id="L1278" class="ln">  1278  </span>func (r *Resolver) IOChaosAction() generated.IOChaosActionResolver { return &amp;iOChaosActionResolver{r} }
+<span id="L1279" class="ln">  1279  </span>
+<span id="L1280" class="ln">  1280  </span><span class="comment">// IOChaosSpec returns generated.IOChaosSpecResolver implementation.</span>
+<span id="L1281" class="ln">  1281  </span>func (r *Resolver) IOChaosSpec() generated.IOChaosSpecResolver { return &amp;iOChaosSpecResolver{r} }
+<span id="L1282" class="ln">  1282  </span>
+<span id="L1283" class="ln">  1283  </span><span class="comment">// IOChaosStatus returns generated.IOChaosStatusResolver implementation.</span>
+<span id="L1284" class="ln">  1284  </span>func (r *Resolver) IOChaosStatus() generated.IOChaosStatusResolver { return &amp;iOChaosStatusResolver{r} }
+<span id="L1285" class="ln">  1285  </span>
+<span id="L1286" class="ln">  1286  </span><span class="comment">// IoFault returns generated.IoFaultResolver implementation.</span>
+<span id="L1287" class="ln">  1287  </span>func (r *Resolver) IoFault() generated.IoFaultResolver { return &amp;ioFaultResolver{r} }
+<span id="L1288" class="ln">  1288  </span>
+<span id="L1289" class="ln">  1289  </span><span class="comment">// Logger returns generated.LoggerResolver implementation.</span>
+<span id="L1290" class="ln">  1290  </span>func (r *Resolver) Logger() generated.LoggerResolver { return &amp;loggerResolver{r} }
+<span id="L1291" class="ln">  1291  </span>
+<span id="L1292" class="ln">  1292  </span><span class="comment">// MistakeSpec returns generated.MistakeSpecResolver implementation.</span>
+<span id="L1293" class="ln">  1293  </span>func (r *Resolver) MistakeSpec() generated.MistakeSpecResolver { return &amp;mistakeSpecResolver{r} }
+<span id="L1294" class="ln">  1294  </span>
+<span id="L1295" class="ln">  1295  </span><span class="comment">// MutablePod returns generated.MutablePodResolver implementation.</span>
+<span id="L1296" class="ln">  1296  </span>func (r *Resolver) MutablePod() generated.MutablePodResolver { return &amp;mutablePodResolver{r} }
+<span id="L1297" class="ln">  1297  </span>
+<span id="L1298" class="ln">  1298  </span><span class="comment">// Mutation returns generated.MutationResolver implementation.</span>
+<span id="L1299" class="ln">  1299  </span>func (r *Resolver) Mutation() generated.MutationResolver { return &amp;mutationResolver{r} }
+<span id="L1300" class="ln">  1300  </span>
+<span id="L1301" class="ln">  1301  </span><span class="comment">// Namespace returns generated.NamespaceResolver implementation.</span>
+<span id="L1302" class="ln">  1302  </span>func (r *Resolver) Namespace() generated.NamespaceResolver { return &amp;namespaceResolver{r} }
+<span id="L1303" class="ln">  1303  </span>
+<span id="L1304" class="ln">  1304  </span><span class="comment">// NetworkChaos returns generated.NetworkChaosResolver implementation.</span>
+<span id="L1305" class="ln">  1305  </span>func (r *Resolver) NetworkChaos() generated.NetworkChaosResolver { return &amp;networkChaosResolver{r} }
+<span id="L1306" class="ln">  1306  </span>
+<span id="L1307" class="ln">  1307  </span><span class="comment">// OwnerReference returns generated.OwnerReferenceResolver implementation.</span>
+<span id="L1308" class="ln">  1308  </span>func (r *Resolver) OwnerReference() generated.OwnerReferenceResolver {
+<span id="L1309" class="ln">  1309  </span>	return &amp;ownerReferenceResolver{r}
+<span id="L1310" class="ln">  1310  </span>}
+<span id="L1311" class="ln">  1311  </span>
+<span id="L1312" class="ln">  1312  </span><span class="comment">// Pod returns generated.PodResolver implementation.</span>
+<span id="L1313" class="ln">  1313  </span>func (r *Resolver) Pod() generated.PodResolver { return &amp;podResolver{r} }
+<span id="L1314" class="ln">  1314  </span>
+<span id="L1315" class="ln">  1315  </span><span class="comment">// PodCondition returns generated.PodConditionResolver implementation.</span>
+<span id="L1316" class="ln">  1316  </span>func (r *Resolver) PodCondition() generated.PodConditionResolver { return &amp;podConditionResolver{r} }
+<span id="L1317" class="ln">  1317  </span>
+<span id="L1318" class="ln">  1318  </span><span class="comment">// PodHTTPChaos returns generated.PodHTTPChaosResolver implementation.</span>
+<span id="L1319" class="ln">  1319  </span>func (r *Resolver) PodHTTPChaos() generated.PodHTTPChaosResolver { return &amp;podHTTPChaosResolver{r} }
+<span id="L1320" class="ln">  1320  </span>
+<span id="L1321" class="ln">  1321  </span><span class="comment">// PodHttpChaosReplaceActions returns generated.PodHttpChaosReplaceActionsResolver implementation.</span>
+<span id="L1322" class="ln">  1322  </span>func (r *Resolver) PodHttpChaosReplaceActions() generated.PodHttpChaosReplaceActionsResolver {
+<span id="L1323" class="ln">  1323  </span>	return &amp;podHttpChaosReplaceActionsResolver{r}
+<span id="L1324" class="ln">  1324  </span>}
+<span id="L1325" class="ln">  1325  </span>
+<span id="L1326" class="ln">  1326  </span><span class="comment">// PodHttpChaosRule returns generated.PodHttpChaosRuleResolver implementation.</span>
+<span id="L1327" class="ln">  1327  </span>func (r *Resolver) PodHttpChaosRule() generated.PodHttpChaosRuleResolver {
+<span id="L1328" class="ln">  1328  </span>	return &amp;podHttpChaosRuleResolver{r}
+<span id="L1329" class="ln">  1329  </span>}
+<span id="L1330" class="ln">  1330  </span>
+<span id="L1331" class="ln">  1331  </span><span class="comment">// PodHttpChaosSelector returns generated.PodHttpChaosSelectorResolver implementation.</span>
+<span id="L1332" class="ln">  1332  </span>func (r *Resolver) PodHttpChaosSelector() generated.PodHttpChaosSelectorResolver {
+<span id="L1333" class="ln">  1333  </span>	return &amp;podHttpChaosSelectorResolver{r}
+<span id="L1334" class="ln">  1334  </span>}
+<span id="L1335" class="ln">  1335  </span>
+<span id="L1336" class="ln">  1336  </span><span class="comment">// PodIOChaos returns generated.PodIOChaosResolver implementation.</span>
+<span id="L1337" class="ln">  1337  </span>func (r *Resolver) PodIOChaos() generated.PodIOChaosResolver { return &amp;podIOChaosResolver{r} }
+<span id="L1338" class="ln">  1338  </span>
+<span id="L1339" class="ln">  1339  </span><span class="comment">// PodNetworkChaos returns generated.PodNetworkChaosResolver implementation.</span>
+<span id="L1340" class="ln">  1340  </span>func (r *Resolver) PodNetworkChaos() generated.PodNetworkChaosResolver {
+<span id="L1341" class="ln">  1341  </span>	return &amp;podNetworkChaosResolver{r}
+<span id="L1342" class="ln">  1342  </span>}
+<span id="L1343" class="ln">  1343  </span>
+<span id="L1344" class="ln">  1344  </span><span class="comment">// PodSelectorSpec returns generated.PodSelectorSpecResolver implementation.</span>
+<span id="L1345" class="ln">  1345  </span>func (r *Resolver) PodSelectorSpec() generated.PodSelectorSpecResolver {
+<span id="L1346" class="ln">  1346  </span>	return &amp;podSelectorSpecResolver{r}
+<span id="L1347" class="ln">  1347  </span>}
+<span id="L1348" class="ln">  1348  </span>
+<span id="L1349" class="ln">  1349  </span><span class="comment">// PodStatus returns generated.PodStatusResolver implementation.</span>
+<span id="L1350" class="ln">  1350  </span>func (r *Resolver) PodStatus() generated.PodStatusResolver { return &amp;podStatusResolver{r} }
+<span id="L1351" class="ln">  1351  </span>
+<span id="L1352" class="ln">  1352  </span><span class="comment">// PodStressChaos returns generated.PodStressChaosResolver implementation.</span>
+<span id="L1353" class="ln">  1353  </span>func (r *Resolver) PodStressChaos() generated.PodStressChaosResolver {
+<span id="L1354" class="ln">  1354  </span>	return &amp;podStressChaosResolver{r}
+<span id="L1355" class="ln">  1355  </span>}
+<span id="L1356" class="ln">  1356  </span>
+<span id="L1357" class="ln">  1357  </span><span class="comment">// Process returns generated.ProcessResolver implementation.</span>
+<span id="L1358" class="ln">  1358  </span>func (r *Resolver) Process() generated.ProcessResolver { return &amp;processResolver{r} }
+<span id="L1359" class="ln">  1359  </span>
+<span id="L1360" class="ln">  1360  </span><span class="comment">// Query returns generated.QueryResolver implementation.</span>
+<span id="L1361" class="ln">  1361  </span>func (r *Resolver) Query() generated.QueryResolver { return &amp;queryResolver{r} }
+<span id="L1362" class="ln">  1362  </span>
+<span id="L1363" class="ln">  1363  </span><span class="comment">// RawIPSet returns generated.RawIPSetResolver implementation.</span>
+<span id="L1364" class="ln">  1364  </span>func (r *Resolver) RawIPSet() generated.RawIPSetResolver { return &amp;rawIPSetResolver{r} }
+<span id="L1365" class="ln">  1365  </span>
+<span id="L1366" class="ln">  1366  </span><span class="comment">// RawIptables returns generated.RawIptablesResolver implementation.</span>
+<span id="L1367" class="ln">  1367  </span>func (r *Resolver) RawIptables() generated.RawIptablesResolver { return &amp;rawIptablesResolver{r} }
+<span id="L1368" class="ln">  1368  </span>
+<span id="L1369" class="ln">  1369  </span><span class="comment">// RawTrafficControl returns generated.RawTrafficControlResolver implementation.</span>
+<span id="L1370" class="ln">  1370  </span>func (r *Resolver) RawTrafficControl() generated.RawTrafficControlResolver {
+<span id="L1371" class="ln">  1371  </span>	return &amp;rawTrafficControlResolver{r}
+<span id="L1372" class="ln">  1372  </span>}
+<span id="L1373" class="ln">  1373  </span>
+<span id="L1374" class="ln">  1374  </span><span class="comment">// Record returns generated.RecordResolver implementation.</span>
+<span id="L1375" class="ln">  1375  </span>func (r *Resolver) Record() generated.RecordResolver { return &amp;recordResolver{r} }
+<span id="L1376" class="ln">  1376  </span>
+<span id="L1377" class="ln">  1377  </span><span class="comment">// StressChaos returns generated.StressChaosResolver implementation.</span>
+<span id="L1378" class="ln">  1378  </span>func (r *Resolver) StressChaos() generated.StressChaosResolver { return &amp;stressChaosResolver{r} }
+<span id="L1379" class="ln">  1379  </span>
+<span id="L1380" class="ln">  1380  </span><span class="comment">// StressChaosSpec returns generated.StressChaosSpecResolver implementation.</span>
+<span id="L1381" class="ln">  1381  </span>func (r *Resolver) StressChaosSpec() generated.StressChaosSpecResolver {
+<span id="L1382" class="ln">  1382  </span>	return &amp;stressChaosSpecResolver{r}
+<span id="L1383" class="ln">  1383  </span>}
+<span id="L1384" class="ln">  1384  </span>
+<span id="L1385" class="ln">  1385  </span><span class="comment">// StressChaosStatus returns generated.StressChaosStatusResolver implementation.</span>
+<span id="L1386" class="ln">  1386  </span>func (r *Resolver) StressChaosStatus() generated.StressChaosStatusResolver {
+<span id="L1387" class="ln">  1387  </span>	return &amp;stressChaosStatusResolver{r}
+<span id="L1388" class="ln">  1388  </span>}
+<span id="L1389" class="ln">  1389  </span>
+<span id="L1390" class="ln">  1390  </span>type attrOverrideSpecResolver struct{ *Resolver }
+<span id="L1391" class="ln">  1391  </span>type bandwidthSpecResolver struct{ *Resolver }
+<span id="L1392" class="ln">  1392  </span>type chaosConditionResolver struct{ *Resolver }
+<span id="L1393" class="ln">  1393  </span>type cidrAndPortResolver struct{ *Resolver }
+<span id="L1394" class="ln">  1394  </span>type containerStateRunningResolver struct{ *Resolver }
+<span id="L1395" class="ln">  1395  </span>type containerStateTerminatedResolver struct{ *Resolver }
+<span id="L1396" class="ln">  1396  </span>type experimentStatusResolver struct{ *Resolver }
+<span id="L1397" class="ln">  1397  </span>type hTTPChaosResolver struct{ *Resolver }
+<span id="L1398" class="ln">  1398  </span>type hTTPChaosSpecResolver struct{ *Resolver }
+<span id="L1399" class="ln">  1399  </span>type hTTPChaosStatusResolver struct{ *Resolver }
+<span id="L1400" class="ln">  1400  </span>type iOChaosResolver struct{ *Resolver }
+<span id="L1401" class="ln">  1401  </span>type iOChaosActionResolver struct{ *Resolver }
+<span id="L1402" class="ln">  1402  </span>type iOChaosSpecResolver struct{ *Resolver }
+<span id="L1403" class="ln">  1403  </span>type iOChaosStatusResolver struct{ *Resolver }
+<span id="L1404" class="ln">  1404  </span>type ioFaultResolver struct{ *Resolver }
+<span id="L1405" class="ln">  1405  </span>type loggerResolver struct{ *Resolver }
+<span id="L1406" class="ln">  1406  </span>type mistakeSpecResolver struct{ *Resolver }
+<span id="L1407" class="ln">  1407  </span>type mutablePodResolver struct{ *Resolver }
+<span id="L1408" class="ln">  1408  </span>type mutationResolver struct{ *Resolver }
+<span id="L1409" class="ln">  1409  </span>type namespaceResolver struct{ *Resolver }
+<span id="L1410" class="ln">  1410  </span>type networkChaosResolver struct{ *Resolver }
+<span id="L1411" class="ln">  1411  </span>type ownerReferenceResolver struct{ *Resolver }
+<span id="L1412" class="ln">  1412  </span>type podResolver struct{ *Resolver }
+<span id="L1413" class="ln">  1413  </span>type podConditionResolver struct{ *Resolver }
+<span id="L1414" class="ln">  1414  </span>type podHTTPChaosResolver struct{ *Resolver }
+<span id="L1415" class="ln">  1415  </span>type podHttpChaosReplaceActionsResolver struct{ *Resolver }
+<span id="L1416" class="ln">  1416  </span>type podHttpChaosRuleResolver struct{ *Resolver }
+<span id="L1417" class="ln">  1417  </span>type podHttpChaosSelectorResolver struct{ *Resolver }
+<span id="L1418" class="ln">  1418  </span>type podIOChaosResolver struct{ *Resolver }
+<span id="L1419" class="ln">  1419  </span>type podNetworkChaosResolver struct{ *Resolver }
+<span id="L1420" class="ln">  1420  </span>type podSelectorSpecResolver struct{ *Resolver }
+<span id="L1421" class="ln">  1421  </span>type podStatusResolver struct{ *Resolver }
+<span id="L1422" class="ln">  1422  </span>type podStressChaosResolver struct{ *Resolver }
+<span id="L1423" class="ln">  1423  </span>type processResolver struct{ *Resolver }
+<span id="L1424" class="ln">  1424  </span>type queryResolver struct{ *Resolver }
+<span id="L1425" class="ln">  1425  </span>type rawIPSetResolver struct{ *Resolver }
+<span id="L1426" class="ln">  1426  </span>type rawIptablesResolver struct{ *Resolver }
+<span id="L1427" class="ln">  1427  </span>type rawTrafficControlResolver struct{ *Resolver }
+<span id="L1428" class="ln">  1428  </span>type recordResolver struct{ *Resolver }
+<span id="L1429" class="ln">  1429  </span>type stressChaosResolver struct{ *Resolver }
+<span id="L1430" class="ln">  1430  </span>type stressChaosSpecResolver struct{ *Resolver }
+<span id="L1431" class="ln">  1431  </span>type stressChaosStatusResolver struct{ *Resolver }
+<span id="L1432" class="ln">  1432  </span>
 </pre><p></p>
 
 <div id="footer">
