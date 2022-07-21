@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 4de9076. Generated at Thu Jul 21 10:03:09 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 8f0bc20. Generated at Thu Jul 21 22:07:39 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -364,80 +364,83 @@
 <span id="L299" class="ln">   299  </span>	Process string `json:&#34;process,omitempty&#34;`
 <span id="L300" class="ln">   300  </span>	<span class="comment">// the signal number to send</span>
 <span id="L301" class="ln">   301  </span>	Signal int `json:&#34;signal,omitempty&#34;`
-<span id="L302" class="ln">   302  </span>}
-<span id="L303" class="ln">   303  </span>
-<span id="L304" class="ln">   304  </span>type JVMCommonSpec struct {
-<span id="L305" class="ln">   305  </span>	<span class="comment">// the port of agent server</span>
-<span id="L306" class="ln">   306  </span>	Port int `json:&#34;port,omitempty&#34;`
-<span id="L307" class="ln">   307  </span>
-<span id="L308" class="ln">   308  </span>	<span class="comment">// the pid of Java process which need to attach</span>
-<span id="L309" class="ln">   309  </span>	Pid int `json:&#34;pid,omitempty&#34;`
-<span id="L310" class="ln">   310  </span>}
-<span id="L311" class="ln">   311  </span>
-<span id="L312" class="ln">   312  </span>type JVMClassMethodSpec struct {
-<span id="L313" class="ln">   313  </span>	<span class="comment">// Java class</span>
-<span id="L314" class="ln">   314  </span>	Class string `json:&#34;class,omitempty&#34;`
-<span id="L315" class="ln">   315  </span>
-<span id="L316" class="ln">   316  </span>	<span class="comment">// the method in Java class</span>
-<span id="L317" class="ln">   317  </span>	Method string `json:&#34;method,omitempty&#34;`
-<span id="L318" class="ln">   318  </span>}
-<span id="L319" class="ln">   319  </span>
-<span id="L320" class="ln">   320  </span>type JVMExceptionSpec struct {
-<span id="L321" class="ln">   321  </span>	JVMCommonSpec      `json:&#34;,inline&#34;`
-<span id="L322" class="ln">   322  </span>	JVMClassMethodSpec `json:&#34;,inline&#34;`
-<span id="L323" class="ln">   323  </span>
-<span id="L324" class="ln">   324  </span>	<span class="comment">// the exception which needs to throw for action `exception`</span>
-<span id="L325" class="ln">   325  </span>	ThrowException string `json:&#34;exception,omitempty&#34;`
-<span id="L326" class="ln">   326  </span>}
-<span id="L327" class="ln">   327  </span>
-<span id="L328" class="ln">   328  </span>type JVMGCSpec struct {
-<span id="L329" class="ln">   329  </span>	JVMCommonSpec `json:&#34;,inline&#34;`
-<span id="L330" class="ln">   330  </span>}
-<span id="L331" class="ln">   331  </span>
-<span id="L332" class="ln">   332  </span>type JVMLatencySpec struct {
-<span id="L333" class="ln">   333  </span>	JVMCommonSpec      `json:&#34;,inline&#34;`
-<span id="L334" class="ln">   334  </span>	JVMClassMethodSpec `json:&#34;,inline&#34;`
-<span id="L335" class="ln">   335  </span>
-<span id="L336" class="ln">   336  </span>	<span class="comment">// the latency duration for action &#39;latency&#39;, unit ms</span>
-<span id="L337" class="ln">   337  </span>	LatencyDuration int `json:&#34;latency,omitempty&#34;`
-<span id="L338" class="ln">   338  </span>}
-<span id="L339" class="ln">   339  </span>
-<span id="L340" class="ln">   340  </span>type JVMReturnSpec struct {
-<span id="L341" class="ln">   341  </span>	JVMCommonSpec      `json:&#34;,inline&#34;`
-<span id="L342" class="ln">   342  </span>	JVMClassMethodSpec `json:&#34;,inline&#34;`
-<span id="L343" class="ln">   343  </span>
-<span id="L344" class="ln">   344  </span>	<span class="comment">// the return value for action &#39;return&#39;</span>
-<span id="L345" class="ln">   345  </span>	ReturnValue string `json:&#34;value,omitempty&#34;`
-<span id="L346" class="ln">   346  </span>}
-<span id="L347" class="ln">   347  </span>
-<span id="L348" class="ln">   348  </span>type JVMStressSpec struct {
-<span id="L349" class="ln">   349  </span>	JVMCommonSpec `json:&#34;,inline&#34;`
+<span id="L302" class="ln">   302  </span>
+<span id="L303" class="ln">   303  </span>	<span class="comment">// the command to be run when recovering experiment</span>
+<span id="L304" class="ln">   304  </span>	RecoverCmd string `json:&#34;recoverCmd,omitempty&#34;`
+<span id="L305" class="ln">   305  </span>}
+<span id="L306" class="ln">   306  </span>
+<span id="L307" class="ln">   307  </span>type JVMCommonSpec struct {
+<span id="L308" class="ln">   308  </span>	<span class="comment">// the port of agent server</span>
+<span id="L309" class="ln">   309  </span>	Port int `json:&#34;port,omitempty&#34;`
+<span id="L310" class="ln">   310  </span>
+<span id="L311" class="ln">   311  </span>	<span class="comment">// the pid of Java process which need to attach</span>
+<span id="L312" class="ln">   312  </span>	Pid int `json:&#34;pid,omitempty&#34;`
+<span id="L313" class="ln">   313  </span>}
+<span id="L314" class="ln">   314  </span>
+<span id="L315" class="ln">   315  </span>type JVMClassMethodSpec struct {
+<span id="L316" class="ln">   316  </span>	<span class="comment">// Java class</span>
+<span id="L317" class="ln">   317  </span>	Class string `json:&#34;class,omitempty&#34;`
+<span id="L318" class="ln">   318  </span>
+<span id="L319" class="ln">   319  </span>	<span class="comment">// the method in Java class</span>
+<span id="L320" class="ln">   320  </span>	Method string `json:&#34;method,omitempty&#34;`
+<span id="L321" class="ln">   321  </span>}
+<span id="L322" class="ln">   322  </span>
+<span id="L323" class="ln">   323  </span>type JVMExceptionSpec struct {
+<span id="L324" class="ln">   324  </span>	JVMCommonSpec      `json:&#34;,inline&#34;`
+<span id="L325" class="ln">   325  </span>	JVMClassMethodSpec `json:&#34;,inline&#34;`
+<span id="L326" class="ln">   326  </span>
+<span id="L327" class="ln">   327  </span>	<span class="comment">// the exception which needs to throw for action `exception`</span>
+<span id="L328" class="ln">   328  </span>	ThrowException string `json:&#34;exception,omitempty&#34;`
+<span id="L329" class="ln">   329  </span>}
+<span id="L330" class="ln">   330  </span>
+<span id="L331" class="ln">   331  </span>type JVMGCSpec struct {
+<span id="L332" class="ln">   332  </span>	JVMCommonSpec `json:&#34;,inline&#34;`
+<span id="L333" class="ln">   333  </span>}
+<span id="L334" class="ln">   334  </span>
+<span id="L335" class="ln">   335  </span>type JVMLatencySpec struct {
+<span id="L336" class="ln">   336  </span>	JVMCommonSpec      `json:&#34;,inline&#34;`
+<span id="L337" class="ln">   337  </span>	JVMClassMethodSpec `json:&#34;,inline&#34;`
+<span id="L338" class="ln">   338  </span>
+<span id="L339" class="ln">   339  </span>	<span class="comment">// the latency duration for action &#39;latency&#39;, unit ms</span>
+<span id="L340" class="ln">   340  </span>	LatencyDuration int `json:&#34;latency,omitempty&#34;`
+<span id="L341" class="ln">   341  </span>}
+<span id="L342" class="ln">   342  </span>
+<span id="L343" class="ln">   343  </span>type JVMReturnSpec struct {
+<span id="L344" class="ln">   344  </span>	JVMCommonSpec      `json:&#34;,inline&#34;`
+<span id="L345" class="ln">   345  </span>	JVMClassMethodSpec `json:&#34;,inline&#34;`
+<span id="L346" class="ln">   346  </span>
+<span id="L347" class="ln">   347  </span>	<span class="comment">// the return value for action &#39;return&#39;</span>
+<span id="L348" class="ln">   348  </span>	ReturnValue string `json:&#34;value,omitempty&#34;`
+<span id="L349" class="ln">   349  </span>}
 <span id="L350" class="ln">   350  </span>
-<span id="L351" class="ln">   351  </span>	<span class="comment">// the CPU core number need to use, only set it when action is stress</span>
-<span id="L352" class="ln">   352  </span>	CPUCount int `json:&#34;cpu-count,omitempty&#34;`
+<span id="L351" class="ln">   351  </span>type JVMStressSpec struct {
+<span id="L352" class="ln">   352  </span>	JVMCommonSpec `json:&#34;,inline&#34;`
 <span id="L353" class="ln">   353  </span>
-<span id="L354" class="ln">   354  </span>	<span class="comment">// the memory type need to locate, only set it when action is stress, the value can be &#39;stack&#39; or &#39;heap&#39;</span>
-<span id="L355" class="ln">   355  </span>	MemoryType string `json:&#34;mem-type,omitempty&#34;`
-<span id="L356" class="ln">   356  </span>}
-<span id="L357" class="ln">   357  </span>
-<span id="L358" class="ln">   358  </span>type JVMRuleDataSpec struct {
-<span id="L359" class="ln">   359  </span>	JVMCommonSpec `json:&#34;,inline&#34;`
+<span id="L354" class="ln">   354  </span>	<span class="comment">// the CPU core number need to use, only set it when action is stress</span>
+<span id="L355" class="ln">   355  </span>	CPUCount int `json:&#34;cpu-count,omitempty&#34;`
+<span id="L356" class="ln">   356  </span>
+<span id="L357" class="ln">   357  </span>	<span class="comment">// the memory type need to locate, only set it when action is stress, the value can be &#39;stack&#39; or &#39;heap&#39;</span>
+<span id="L358" class="ln">   358  </span>	MemoryType string `json:&#34;mem-type,omitempty&#34;`
+<span id="L359" class="ln">   359  </span>}
 <span id="L360" class="ln">   360  </span>
-<span id="L361" class="ln">   361  </span>	<span class="comment">// RuleData used to save the rule file&#39;s data, will use it when recover</span>
-<span id="L362" class="ln">   362  </span>	RuleData string `json:&#34;rule-data,omitempty&#34;`
-<span id="L363" class="ln">   363  </span>}
-<span id="L364" class="ln">   364  </span>
-<span id="L365" class="ln">   365  </span>type ClockSpec struct {
-<span id="L366" class="ln">   366  </span>	<span class="comment">// the pid of target program.</span>
-<span id="L367" class="ln">   367  </span>	Pid int `json:&#34;pid,omitempty&#34;`
-<span id="L368" class="ln">   368  </span>	<span class="comment">// specifies the length of time offset.</span>
-<span id="L369" class="ln">   369  </span>	TimeOffset string `json:&#34;time-offset,omitempty&#34;`
-<span id="L370" class="ln">   370  </span>	<span class="comment">// the identifier of the particular clock on which to act.</span>
-<span id="L371" class="ln">   371  </span>	<span class="comment">// More clock description in linux kernel can be found in man page of clock_getres, clock_gettime, clock_settime.</span>
-<span id="L372" class="ln">   372  </span>	<span class="comment">// Muti clock ids should be split with &#34;,&#34;</span>
-<span id="L373" class="ln">   373  </span>	ClockIdsSlice string `json:&#34;clock-ids-slice,omitempty&#34;`
-<span id="L374" class="ln">   374  </span>}
-<span id="L375" class="ln">   375  </span>
+<span id="L361" class="ln">   361  </span>type JVMRuleDataSpec struct {
+<span id="L362" class="ln">   362  </span>	JVMCommonSpec `json:&#34;,inline&#34;`
+<span id="L363" class="ln">   363  </span>
+<span id="L364" class="ln">   364  </span>	<span class="comment">// RuleData used to save the rule file&#39;s data, will use it when recover</span>
+<span id="L365" class="ln">   365  </span>	RuleData string `json:&#34;rule-data,omitempty&#34;`
+<span id="L366" class="ln">   366  </span>}
+<span id="L367" class="ln">   367  </span>
+<span id="L368" class="ln">   368  </span>type ClockSpec struct {
+<span id="L369" class="ln">   369  </span>	<span class="comment">// the pid of target program.</span>
+<span id="L370" class="ln">   370  </span>	Pid int `json:&#34;pid,omitempty&#34;`
+<span id="L371" class="ln">   371  </span>	<span class="comment">// specifies the length of time offset.</span>
+<span id="L372" class="ln">   372  </span>	TimeOffset string `json:&#34;time-offset,omitempty&#34;`
+<span id="L373" class="ln">   373  </span>	<span class="comment">// the identifier of the particular clock on which to act.</span>
+<span id="L374" class="ln">   374  </span>	<span class="comment">// More clock description in linux kernel can be found in man page of clock_getres, clock_gettime, clock_settime.</span>
+<span id="L375" class="ln">   375  </span>	<span class="comment">// Muti clock ids should be split with &#34;,&#34;</span>
+<span id="L376" class="ln">   376  </span>	ClockIdsSlice string `json:&#34;clock-ids-slice,omitempty&#34;`
+<span id="L377" class="ln">   377  </span>}
+<span id="L378" class="ln">   378  </span>
 </pre><p></p>
 
 <div id="footer">
