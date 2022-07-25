@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d73d4dd. Generated at Sun Jul 24 22:03:34 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 457723d. Generated at Mon Jul 25 10:01:50 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -163,7 +163,7 @@
 		
 			
 			
-			<h2 id="ParsePersistTTLConfig">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L80">ParsePersistTTLConfig</a>
+			<h2 id="ParsePersistTTLConfig">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L85">ParsePersistTTLConfig</a>
 				<a class="permalink" href="#ParsePersistTTLConfig">&#xb6;</a>
 				
 				
@@ -216,6 +216,11 @@ ChaosDashboardConfig defines the configuration for Chaos Dashboard
 
 <span id="ChaosDashboardConfig.DNSServerCreate"></span>    DNSServerCreate <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>   `envconfig:&#34;DNS_SERVER_CREATE&#34; default:&#34;false&#34; json:&#34;dns_server_create&#34;`
 <span id="ChaosDashboardConfig.Version"></span>    Version         <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;version&#34;`
+
+    <span class="comment">// The QPS config for kubernetes client</span>
+<span id="ChaosDashboardConfig.QPS"></span>    QPS <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#float32">float32</a> `envconfig:&#34;QPS&#34; default:&#34;200&#34;`
+    <span class="comment">// The Burst config for kubernetes client</span>
+<span id="ChaosDashboardConfig.Burst"></span>    Burst <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a> `envconfig:&#34;BURST&#34; default:&#34;300&#34;`
 }
 </pre>
 
@@ -229,7 +234,7 @@ ChaosDashboardConfig defines the configuration for Chaos Dashboard
 
 			
 				
-				<h3 id="GetChaosDashboardEnv">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L73">GetChaosDashboardEnv</a>
+				<h3 id="GetChaosDashboardEnv">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L78">GetChaosDashboardEnv</a>
 					<a class="permalink" href="#GetChaosDashboardEnv">&#xb6;</a>
 					
 					
@@ -247,7 +252,7 @@ GetChaosDashboardEnv gets all env variables related to dashboard.
 		
 			
 			
-			<h2 id="DatabaseConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L67">DatabaseConfig</a>
+			<h2 id="DatabaseConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L72">DatabaseConfig</a>
 				<a class="permalink" href="#DatabaseConfig">&#xb6;</a>
 				
 				
@@ -276,7 +281,7 @@ DatabaseConfig defines the configuration for databases
 		
 			
 			
-			<h2 id="PersistTTLConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L58">PersistTTLConfig</a>
+			<h2 id="PersistTTLConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/dashboard.go#L63">PersistTTLConfig</a>
 				<a class="permalink" href="#PersistTTLConfig">&#xb6;</a>
 				
 				
