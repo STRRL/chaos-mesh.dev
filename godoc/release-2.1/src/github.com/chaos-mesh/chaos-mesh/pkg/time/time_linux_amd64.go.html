@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 3a476f8. Generated at Sun Aug  7 22:05:14 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f770cbb. Generated at Mon Aug  8 10:03:10 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -81,28 +81,30 @@
 <span id="L16" class="ln">    16  </span>package time
 <span id="L17" class="ln">    17  </span>
 <span id="L18" class="ln">    18  </span>import (
-<span id="L19" class="ln">    19  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/mock&#34;
-<span id="L20" class="ln">    20  </span>)
-<span id="L21" class="ln">    21  </span>
-<span id="L22" class="ln">    22  </span><span class="comment">// ModifyTime modifies time of target process</span>
-<span id="L23" class="ln">    23  </span><span class="comment">// Deprecated:  Please use FakeClockInjector.Inject and FakeClockInjector.Recover instead.</span>
-<span id="L24" class="ln">    24  </span>func ModifyTime(pid int, deltaSec int64, deltaNsec int64, clockIdsMask uint64) error {
-<span id="L25" class="ln">    25  </span>	<span class="comment">// Mock point to return error in unit test</span>
-<span id="L26" class="ln">    26  </span>	if err := mock.On(&#34;ModifyTimeError&#34;); err != nil {
-<span id="L27" class="ln">    27  </span>		if e, ok := err.(error); ok {
-<span id="L28" class="ln">    28  </span>			return e
-<span id="L29" class="ln">    29  </span>		}
-<span id="L30" class="ln">    30  </span>		if ignore, ok := err.(bool); ok &amp;&amp; ignore {
-<span id="L31" class="ln">    31  </span>			return nil
-<span id="L32" class="ln">    32  </span>		}
-<span id="L33" class="ln">    33  </span>	}
-<span id="L34" class="ln">    34  </span>	timeSkew, err := NewTimeSkew(deltaSec, deltaNsec, clockIdsMask)
-<span id="L35" class="ln">    35  </span>	if err != nil {
-<span id="L36" class="ln">    36  </span>		return err
-<span id="L37" class="ln">    37  </span>	}
-<span id="L38" class="ln">    38  </span>	return timeSkew.Inject(pid)
-<span id="L39" class="ln">    39  </span>}
-<span id="L40" class="ln">    40  </span>
+<span id="L19" class="ln">    19  </span>	&#34;github.com/go-logr/logr&#34;
+<span id="L20" class="ln">    20  </span>
+<span id="L21" class="ln">    21  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/mock&#34;
+<span id="L22" class="ln">    22  </span>)
+<span id="L23" class="ln">    23  </span>
+<span id="L24" class="ln">    24  </span><span class="comment">// ModifyTime modifies time of target process</span>
+<span id="L25" class="ln">    25  </span><span class="comment">// Deprecated:  Please use FakeClockInjector.Inject and FakeClockInjector.Recover instead.</span>
+<span id="L26" class="ln">    26  </span>func ModifyTime(pid int, deltaSec int64, deltaNsec int64, clockIdsMask uint64, logger logr.Logger) error {
+<span id="L27" class="ln">    27  </span>	<span class="comment">// Mock point to return error in unit test</span>
+<span id="L28" class="ln">    28  </span>	if err := mock.On(&#34;ModifyTimeError&#34;); err != nil {
+<span id="L29" class="ln">    29  </span>		if e, ok := err.(error); ok {
+<span id="L30" class="ln">    30  </span>			return e
+<span id="L31" class="ln">    31  </span>		}
+<span id="L32" class="ln">    32  </span>		if ignore, ok := err.(bool); ok &amp;&amp; ignore {
+<span id="L33" class="ln">    33  </span>			return nil
+<span id="L34" class="ln">    34  </span>		}
+<span id="L35" class="ln">    35  </span>	}
+<span id="L36" class="ln">    36  </span>	timeSkew, err := NewTimeSkew(deltaSec, deltaNsec, clockIdsMask, logger)
+<span id="L37" class="ln">    37  </span>	if err != nil {
+<span id="L38" class="ln">    38  </span>		return err
+<span id="L39" class="ln">    39  </span>	}
+<span id="L40" class="ln">    40  </span>	return timeSkew.Inject(pid)
+<span id="L41" class="ln">    41  </span>}
+<span id="L42" class="ln">    42  </span>
 </pre><p></p>
 
 <div id="footer">
