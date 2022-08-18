@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit cff370e. Generated at Thu Aug 18 10:01:45 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f9935a8. Generated at Thu Aug 18 22:04:03 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -123,7 +123,7 @@
 				<dd><a href="#Service">type Service</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewService">func NewService(event core.EventStore, workflowStore core.WorkflowStore, conf *config.ChaosDashboardConfig) *Service</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NewService">func NewService(event core.EventStore, workflowStore core.WorkflowStore, conf *config.ChaosDashboardConfig, logger logr.Logger) *Service</a></dd>
 				
 				
 			
@@ -153,7 +153,7 @@
 		
 			
 			
-			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/event/event.go#L59">Register</a>
+			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/event/event.go#L61">Register</a>
 				<a class="permalink" href="#Register">&#xb6;</a>
 				
 				
@@ -170,7 +170,7 @@ Register events RouterGroup.
 		
 			
 			
-			<h2 id="Service">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/event/event.go#L40">Service</a>
+			<h2 id="Service">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/event/event.go#L39">Service</a>
 				<a class="permalink" href="#Service">&#xb6;</a>
 				
 				
@@ -203,6 +203,7 @@ Service defines a handler service for events.
     event <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#EventStore">EventStore</a>,
     workflowStore <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#WorkflowStore">WorkflowStore</a>,
     conf *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/">config</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/#ChaosDashboardConfig">ChaosDashboardConfig</a>,
+    logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>,
 ) *<a href="#Service">Service</a></pre>
 				
 				
