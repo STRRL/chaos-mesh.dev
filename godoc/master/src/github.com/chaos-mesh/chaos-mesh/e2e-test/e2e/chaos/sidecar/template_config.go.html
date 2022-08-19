@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f9935a8. Generated at Thu Aug 18 22:04:03 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 460caa6. Generated at Fri Aug 19 10:01:58 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -125,7 +125,7 @@
 <span id="L60" class="ln">    60  </span>		if !fixture.HaveSameUIDs(pods.Items, newPods.Items) {
 <span id="L61" class="ln">    61  </span>			return true, nil
 <span id="L62" class="ln">    62  </span>		}
-<span id="L63" class="ln">    63  </span>		if newPods.Items[0].Status.ContainerStatuses[0].RestartCount &gt; 0 {
+<span id="L63" class="ln">    63  </span>		if len(newPods.Items) &gt; 0 &amp;&amp; newPods.Items[0].Status.ContainerStatuses[0].RestartCount &gt; 0 {
 <span id="L64" class="ln">    64  </span>			return true, nil
 <span id="L65" class="ln">    65  </span>		}
 <span id="L66" class="ln">    66  </span>		return false, nil
@@ -168,7 +168,7 @@
 <span id="L103" class="ln">   103  </span>		if !fixture.HaveSameUIDs(pods.Items, newPods.Items) {
 <span id="L104" class="ln">   104  </span>			return true, nil
 <span id="L105" class="ln">   105  </span>		}
-<span id="L106" class="ln">   106  </span>		if newPods.Items[0].Status.ContainerStatuses[0].RestartCount &gt; 0 {
+<span id="L106" class="ln">   106  </span>		if len(newPods.Items) &gt; 0 &amp;&amp; newPods.Items[0].Status.ContainerStatuses[0].RestartCount &gt; 0 {
 <span id="L107" class="ln">   107  </span>			return true, nil
 <span id="L108" class="ln">   108  </span>		}
 <span id="L109" class="ln">   109  </span>		return false, nil
