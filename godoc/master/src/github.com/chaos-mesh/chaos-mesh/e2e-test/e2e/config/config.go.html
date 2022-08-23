@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 460caa6. Generated at Mon Aug 22 22:04:00 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit cbead3e. Generated at Tue Aug 23 10:01:42 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -102,22 +102,23 @@
 <span id="L37" class="ln">    37  </span>	flags.StringVar(&amp;TestConfig.DaemonImage, &#34;daemon-image&#34;, &#34;pingcap/chaos-daemon&#34;, &#34;chaos-daemon image&#34;)
 <span id="L38" class="ln">    38  </span>	flags.StringVar(&amp;TestConfig.DaemonTag, &#34;daemon-image-tag&#34;, &#34;latest&#34;, &#34;chaos-daemon image tag&#34;)
 <span id="L39" class="ln">    39  </span>	flags.StringVar(&amp;TestConfig.E2EImage, &#34;e2e-image&#34;, &#34;pingcap/e2e-helper:latest&#34;, &#34;e2e helper image&#34;)
-<span id="L40" class="ln">    40  </span>	flags.StringVar(&amp;TestConfig.ChaosDNSImage, &#34;chaos-dns-image&#34;, &#34;pingcap/coredns:v0.2.0&#34;, &#34;chaos-dns image&#34;)
-<span id="L41" class="ln">    41  </span>	flags.BoolVar(&amp;TestConfig.InstallChaosMesh, &#34;install-chaos-mesh&#34;, false, &#34;automatically install chaos-mesh&#34;)
-<span id="L42" class="ln">    42  </span>	flags.BoolVar(&amp;TestConfig.EnableDashboard, &#34;enable-dashboard&#34;, false, &#34;enable Chaos Dashboard&#34;)
-<span id="L43" class="ln">    43  </span>}
-<span id="L44" class="ln">    44  </span>
-<span id="L45" class="ln">    45  </span><span class="comment">// LoadClientRawConfig would provide client raw config</span>
-<span id="L46" class="ln">    46  </span>func LoadClientRawConfig() (clientcmdapi.Config, error) {
-<span id="L47" class="ln">    47  </span>	loadingRules := clientcmd.NewDefaultClientConfigLoadingRules()
-<span id="L48" class="ln">    48  </span>	loadingRules.ExplicitPath = framework.TestContext.KubeConfig
-<span id="L49" class="ln">    49  </span>	overrides := &amp;clientcmd.ConfigOverrides{ClusterDefaults: clientcmd.ClusterDefaults}
-<span id="L50" class="ln">    50  </span>	if framework.TestContext.KubeContext != &#34;&#34; {
-<span id="L51" class="ln">    51  </span>		overrides.CurrentContext = framework.TestContext.KubeContext
-<span id="L52" class="ln">    52  </span>	}
-<span id="L53" class="ln">    53  </span>	return clientcmd.NewNonInteractiveDeferredLoadingClientConfig(loadingRules, overrides).RawConfig()
-<span id="L54" class="ln">    54  </span>}
-<span id="L55" class="ln">    55  </span>
+<span id="L40" class="ln">    40  </span>	flags.StringVar(&amp;TestConfig.PauseImage, &#34;pause-image&#34;, &#34;gcr.io/google-containers/pause:latest&#34;, &#34;custom pause container image for pod failure chaos&#34;)
+<span id="L41" class="ln">    41  </span>	flags.StringVar(&amp;TestConfig.ChaosDNSImage, &#34;chaos-dns-image&#34;, &#34;pingcap/coredns:v0.2.0&#34;, &#34;chaos-dns image&#34;)
+<span id="L42" class="ln">    42  </span>	flags.BoolVar(&amp;TestConfig.InstallChaosMesh, &#34;install-chaos-mesh&#34;, false, &#34;automatically install chaos-mesh&#34;)
+<span id="L43" class="ln">    43  </span>	flags.BoolVar(&amp;TestConfig.EnableDashboard, &#34;enable-dashboard&#34;, false, &#34;enable Chaos Dashboard&#34;)
+<span id="L44" class="ln">    44  </span>}
+<span id="L45" class="ln">    45  </span>
+<span id="L46" class="ln">    46  </span><span class="comment">// LoadClientRawConfig would provide client raw config</span>
+<span id="L47" class="ln">    47  </span>func LoadClientRawConfig() (clientcmdapi.Config, error) {
+<span id="L48" class="ln">    48  </span>	loadingRules := clientcmd.NewDefaultClientConfigLoadingRules()
+<span id="L49" class="ln">    49  </span>	loadingRules.ExplicitPath = framework.TestContext.KubeConfig
+<span id="L50" class="ln">    50  </span>	overrides := &amp;clientcmd.ConfigOverrides{ClusterDefaults: clientcmd.ClusterDefaults}
+<span id="L51" class="ln">    51  </span>	if framework.TestContext.KubeContext != &#34;&#34; {
+<span id="L52" class="ln">    52  </span>		overrides.CurrentContext = framework.TestContext.KubeContext
+<span id="L53" class="ln">    53  </span>	}
+<span id="L54" class="ln">    54  </span>	return clientcmd.NewNonInteractiveDeferredLoadingClientConfig(loadingRules, overrides).RawConfig()
+<span id="L55" class="ln">    55  </span>}
+<span id="L56" class="ln">    56  </span>
 </pre><p></p>
 
 <div id="footer">

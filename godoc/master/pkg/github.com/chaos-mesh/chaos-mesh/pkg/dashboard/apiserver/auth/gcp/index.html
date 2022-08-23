@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 460caa6. Generated at Mon Aug 22 22:04:00 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit cbead3e. Generated at Tue Aug 23 10:01:42 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -123,7 +123,7 @@
 				<dd><a href="#Service">type Service</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewService">func NewService(conf *config.ChaosDashboardConfig) (*Service, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NewService">func NewService(conf *config.ChaosDashboardConfig, logger logr.Logger) (*Service, error)</a></dd>
 				
 				
 					
@@ -160,7 +160,7 @@
 		
 			
 			
-			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/auth/gcp/service.go#L60">Register</a>
+			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/auth/gcp/service.go#L61">Register</a>
 				<a class="permalink" href="#Register">&#xb6;</a>
 				
 				
@@ -177,7 +177,7 @@ Register mounts HTTP handler on the mux.
 		
 			
 			
-			<h2 id="Service">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/auth/gcp/service.go#L34">Service</a>
+			<h2 id="Service">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/auth/gcp/service.go#L32">Service</a>
 				<a class="permalink" href="#Service">&#xb6;</a>
 				
 				
@@ -198,13 +198,14 @@ Register mounts HTTP handler on the mux.
 
 			
 				
-				<h3 id="NewService">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/auth/gcp/service.go#L41">NewService</a>
+				<h3 id="NewService">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/auth/gcp/service.go#L40">NewService</a>
 					<a class="permalink" href="#NewService">&#xb6;</a>
 					
 					
 				</h3>
 				<pre>func NewService(
     conf *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/">config</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard/#ChaosDashboardConfig">ChaosDashboardConfig</a>,
+    logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>,
 ) (*<a href="#Service">Service</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 NewService returns an experiment service instance.
