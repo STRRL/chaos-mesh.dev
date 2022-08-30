@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f770cbb. Generated at Mon Aug 29 22:05:03 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit fb2ddf6. Generated at Tue Aug 30 10:02:53 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.1/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -166,7 +166,7 @@
 <span id="L101" class="ln">   101  </span>			selector.Module,
 <span id="L102" class="ln">   102  </span>			fx.Provide(chaosdaemon.New),
 <span id="L103" class="ln">   103  </span>			fx.Provide(func() []pipeline.PipelineStep {
-<span id="L104" class="ln">   104  </span>				return []pipeline.PipelineStep{finalizers.Step, desiredphase.Step, condition.Step}
+<span id="L104" class="ln">   104  </span>				return []pipeline.PipelineStep{finalizers.InitStep, desiredphase.Step, condition.Step, finalizers.CleanStep}
 <span id="L105" class="ln">   105  </span>			}),
 <span id="L106" class="ln">   106  </span>			fx.Invoke(Bootstrap),
 <span id="L107" class="ln">   107  </span>			fx.Supply(cfg),
