@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 62f9e43. Generated at Tue Aug 30 22:03:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d60254d. Generated at Wed Aug 31 10:01:43 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -492,343 +492,346 @@
 <span id="L427" class="ln">   427  </span>	Jitter string `json:&#34;jitter,omitempty&#34;`
 <span id="L428" class="ln">   428  </span>	<span class="comment">// delay egress time, time units: ns, us (or µs), ms, s, m, h.</span>
 <span id="L429" class="ln">   429  </span>	Latency string `json:&#34;latency,omitempty&#34;`
-<span id="L430" class="ln">   430  </span>}
-<span id="L431" class="ln">   431  </span>
-<span id="L432" class="ln">   432  </span>type NetworkPartitionSpec struct {
-<span id="L433" class="ln">   433  </span>	<span class="comment">// the network interface to impact</span>
-<span id="L434" class="ln">   434  </span>	Device string `json:&#34;device,omitempty&#34;`
-<span id="L435" class="ln">   435  </span>	<span class="comment">// only impact traffic to these hostnames</span>
-<span id="L436" class="ln">   436  </span>	Hostname string `json:&#34;hostname,omitempty&#34;`
-<span id="L437" class="ln">   437  </span>	<span class="comment">// only impact egress traffic to these IP addresses</span>
-<span id="L438" class="ln">   438  </span>	IPAddress string `json:&#34;ip-address,omitempty&#34;`
-<span id="L439" class="ln">   439  </span>	<span class="comment">// specifies the partition direction, values can be &#39;from&#39;, &#39;to&#39;.</span>
-<span id="L440" class="ln">   440  </span>	<span class="comment">// &#39;from&#39; means packets coming from the &#39;IPAddress&#39; or &#39;Hostname&#39; and going to your server,</span>
-<span id="L441" class="ln">   441  </span>	<span class="comment">// &#39;to&#39; means packets originating from your server and going to the &#39;IPAddress&#39; or &#39;Hostname&#39;.</span>
-<span id="L442" class="ln">   442  </span>	Direction string `json:&#34;direction,omitempty&#34;`
-<span id="L443" class="ln">   443  </span>	<span class="comment">// only impact egress traffic to these IP addresses</span>
-<span id="L444" class="ln">   444  </span>	IPProtocol string `json:&#34;ip-protocol,omitempty&#34;`
-<span id="L445" class="ln">   445  </span>	<span class="comment">// only the packet which match the tcp flag can be accepted, others will be dropped.</span>
-<span id="L446" class="ln">   446  </span>	<span class="comment">// only set when the IPProtocol is tcp, used for partition.</span>
-<span id="L447" class="ln">   447  </span>	AcceptTCPFlags string `json:&#34;accept-tcp-flags,omitempty&#34;`
-<span id="L448" class="ln">   448  </span>}
-<span id="L449" class="ln">   449  </span>
-<span id="L450" class="ln">   450  </span>type NetworkDNSSpec struct {
-<span id="L451" class="ln">   451  </span>	<span class="comment">// update the DNS server in /etc/resolv.conf with this value</span>
-<span id="L452" class="ln">   452  </span>	DNSServer string `json:&#34;dns-server,omitempty&#34;`
-<span id="L453" class="ln">   453  </span>	<span class="comment">// map specified host to this IP address</span>
-<span id="L454" class="ln">   454  </span>	DNSIp string `json:&#34;dns-ip,omitempty&#34;`
-<span id="L455" class="ln">   455  </span>	<span class="comment">// map this host to specified IP</span>
-<span id="L456" class="ln">   456  </span>	DNSDomainName string `json:&#34;dns-domain-name,omitempty&#34;`
-<span id="L457" class="ln">   457  </span>}
-<span id="L458" class="ln">   458  </span>
-<span id="L459" class="ln">   459  </span>type NetworkBandwidthSpec struct {
-<span id="L460" class="ln">   460  </span>	Rate string `json:&#34;rate&#34;`
-<span id="L461" class="ln">   461  </span>	<span class="comment">// +kubebuilder:validation:Minimum=1</span>
-<span id="L462" class="ln">   462  </span>	Limit uint32 `json:&#34;limit&#34;`
-<span id="L463" class="ln">   463  </span>	<span class="comment">// +kubebuilder:validation:Minimum=1</span>
-<span id="L464" class="ln">   464  </span>	Buffer uint32 `json:&#34;buffer&#34;`
-<span id="L465" class="ln">   465  </span>
-<span id="L466" class="ln">   466  </span>	Peakrate *uint64 `json:&#34;peakrate,omitempty&#34;`
-<span id="L467" class="ln">   467  </span>	Minburst *uint32 `json:&#34;minburst,omitempty&#34;`
+<span id="L430" class="ln">   430  </span>	<span class="comment">// only the packet which match the tcp flag can be accepted, others will be dropped.</span>
+<span id="L431" class="ln">   431  </span>	<span class="comment">// only set when the IPProtocol is tcp, used for partition.</span>
+<span id="L432" class="ln">   432  </span>	AcceptTCPFlags string `json:&#34;accept-tcp-flags,omitempty&#34;`
+<span id="L433" class="ln">   433  </span>}
+<span id="L434" class="ln">   434  </span>
+<span id="L435" class="ln">   435  </span>type NetworkPartitionSpec struct {
+<span id="L436" class="ln">   436  </span>	<span class="comment">// the network interface to impact</span>
+<span id="L437" class="ln">   437  </span>	Device string `json:&#34;device,omitempty&#34;`
+<span id="L438" class="ln">   438  </span>	<span class="comment">// only impact traffic to these hostnames</span>
+<span id="L439" class="ln">   439  </span>	Hostname string `json:&#34;hostname,omitempty&#34;`
+<span id="L440" class="ln">   440  </span>	<span class="comment">// only impact egress traffic to these IP addresses</span>
+<span id="L441" class="ln">   441  </span>	IPAddress string `json:&#34;ip-address,omitempty&#34;`
+<span id="L442" class="ln">   442  </span>	<span class="comment">// specifies the partition direction, values can be &#39;from&#39;, &#39;to&#39;.</span>
+<span id="L443" class="ln">   443  </span>	<span class="comment">// &#39;from&#39; means packets coming from the &#39;IPAddress&#39; or &#39;Hostname&#39; and going to your server,</span>
+<span id="L444" class="ln">   444  </span>	<span class="comment">// &#39;to&#39; means packets originating from your server and going to the &#39;IPAddress&#39; or &#39;Hostname&#39;.</span>
+<span id="L445" class="ln">   445  </span>	Direction string `json:&#34;direction,omitempty&#34;`
+<span id="L446" class="ln">   446  </span>	<span class="comment">// only impact egress traffic to these IP addresses</span>
+<span id="L447" class="ln">   447  </span>	IPProtocol string `json:&#34;ip-protocol,omitempty&#34;`
+<span id="L448" class="ln">   448  </span>	<span class="comment">// only the packet which match the tcp flag can be accepted, others will be dropped.</span>
+<span id="L449" class="ln">   449  </span>	<span class="comment">// only set when the IPProtocol is tcp, used for partition.</span>
+<span id="L450" class="ln">   450  </span>	AcceptTCPFlags string `json:&#34;accept-tcp-flags,omitempty&#34;`
+<span id="L451" class="ln">   451  </span>}
+<span id="L452" class="ln">   452  </span>
+<span id="L453" class="ln">   453  </span>type NetworkDNSSpec struct {
+<span id="L454" class="ln">   454  </span>	<span class="comment">// update the DNS server in /etc/resolv.conf with this value</span>
+<span id="L455" class="ln">   455  </span>	DNSServer string `json:&#34;dns-server,omitempty&#34;`
+<span id="L456" class="ln">   456  </span>	<span class="comment">// map specified host to this IP address</span>
+<span id="L457" class="ln">   457  </span>	DNSIp string `json:&#34;dns-ip,omitempty&#34;`
+<span id="L458" class="ln">   458  </span>	<span class="comment">// map this host to specified IP</span>
+<span id="L459" class="ln">   459  </span>	DNSDomainName string `json:&#34;dns-domain-name,omitempty&#34;`
+<span id="L460" class="ln">   460  </span>}
+<span id="L461" class="ln">   461  </span>
+<span id="L462" class="ln">   462  </span>type NetworkBandwidthSpec struct {
+<span id="L463" class="ln">   463  </span>	Rate string `json:&#34;rate&#34;`
+<span id="L464" class="ln">   464  </span>	<span class="comment">// +kubebuilder:validation:Minimum=1</span>
+<span id="L465" class="ln">   465  </span>	Limit uint32 `json:&#34;limit&#34;`
+<span id="L466" class="ln">   466  </span>	<span class="comment">// +kubebuilder:validation:Minimum=1</span>
+<span id="L467" class="ln">   467  </span>	Buffer uint32 `json:&#34;buffer&#34;`
 <span id="L468" class="ln">   468  </span>
-<span id="L469" class="ln">   469  </span>	Device    string `json:&#34;device,omitempty&#34;`
-<span id="L470" class="ln">   470  </span>	IPAddress string `json:&#34;ip-address,omitempty&#34;`
-<span id="L471" class="ln">   471  </span>	Hostname  string `json:&#34;hostname,omitempty&#34;`
-<span id="L472" class="ln">   472  </span>}
-<span id="L473" class="ln">   473  </span>
-<span id="L474" class="ln">   474  </span>type NetworkFloodSpec struct {
-<span id="L475" class="ln">   475  </span>	<span class="comment">// The speed of network traffic, allows bps, kbps, mbps, gbps, tbps unit. bps means bytes per second</span>
-<span id="L476" class="ln">   476  </span>	Rate string `json:&#34;rate&#34;`
-<span id="L477" class="ln">   477  </span>	<span class="comment">// Generate traffic to this IP address</span>
-<span id="L478" class="ln">   478  </span>	IPAddress string `json:&#34;ip-address,omitempty&#34;`
-<span id="L479" class="ln">   479  </span>	<span class="comment">// Generate traffic to this port on the IP address</span>
-<span id="L480" class="ln">   480  </span>	Port string `json:&#34;port,omitempty&#34;`
-<span id="L481" class="ln">   481  </span>	<span class="comment">// The number of iperf parallel client threads to run</span>
-<span id="L482" class="ln">   482  </span>	Parallel int32 `json:&#34;parallel,omitempty&#34;`
-<span id="L483" class="ln">   483  </span>	<span class="comment">// The number of seconds to run the iperf test</span>
-<span id="L484" class="ln">   484  </span>	Duration string `json:&#34;duration&#34;`
-<span id="L485" class="ln">   485  </span>}
-<span id="L486" class="ln">   486  </span>
-<span id="L487" class="ln">   487  </span>type NetworkDownSpec struct {
-<span id="L488" class="ln">   488  </span>	<span class="comment">// The network interface to impact</span>
-<span id="L489" class="ln">   489  </span>	Device string `json:&#34;device,omitempty&#34;`
-<span id="L490" class="ln">   490  </span>	<span class="comment">// NIC down time, time units: ns, us (or µs), ms, s, m, h.</span>
-<span id="L491" class="ln">   491  </span>	Duration string `json:&#34;duration,omitempty&#34;`
-<span id="L492" class="ln">   492  </span>}
-<span id="L493" class="ln">   493  </span>
-<span id="L494" class="ln">   494  </span>type ProcessSpec struct {
-<span id="L495" class="ln">   495  </span>	<span class="comment">// the process name or the process ID</span>
-<span id="L496" class="ln">   496  </span>	Process string `json:&#34;process,omitempty&#34;`
-<span id="L497" class="ln">   497  </span>	<span class="comment">// the signal number to send</span>
-<span id="L498" class="ln">   498  </span>	Signal int `json:&#34;signal,omitempty&#34;`
-<span id="L499" class="ln">   499  </span>
-<span id="L500" class="ln">   500  </span>	<span class="comment">// the command to be run when recovering experiment</span>
-<span id="L501" class="ln">   501  </span>	RecoverCmd string `json:&#34;recoverCmd,omitempty&#34;`
-<span id="L502" class="ln">   502  </span>}
-<span id="L503" class="ln">   503  </span>
-<span id="L504" class="ln">   504  </span>type JVMExceptionSpec struct {
-<span id="L505" class="ln">   505  </span>	JVMCommonSpec      `json:&#34;,inline&#34;`
-<span id="L506" class="ln">   506  </span>	JVMClassMethodSpec `json:&#34;,inline&#34;`
-<span id="L507" class="ln">   507  </span>
-<span id="L508" class="ln">   508  </span>	<span class="comment">// the exception which needs to throw for action `exception`</span>
-<span id="L509" class="ln">   509  </span>	ThrowException string `json:&#34;exception,omitempty&#34;`
-<span id="L510" class="ln">   510  </span>}
-<span id="L511" class="ln">   511  </span>
-<span id="L512" class="ln">   512  </span>type JVMStressSpec struct {
-<span id="L513" class="ln">   513  </span>	JVMCommonSpec `json:&#34;,inline&#34;`
+<span id="L469" class="ln">   469  </span>	Peakrate *uint64 `json:&#34;peakrate,omitempty&#34;`
+<span id="L470" class="ln">   470  </span>	Minburst *uint32 `json:&#34;minburst,omitempty&#34;`
+<span id="L471" class="ln">   471  </span>
+<span id="L472" class="ln">   472  </span>	Device    string `json:&#34;device,omitempty&#34;`
+<span id="L473" class="ln">   473  </span>	IPAddress string `json:&#34;ip-address,omitempty&#34;`
+<span id="L474" class="ln">   474  </span>	Hostname  string `json:&#34;hostname,omitempty&#34;`
+<span id="L475" class="ln">   475  </span>}
+<span id="L476" class="ln">   476  </span>
+<span id="L477" class="ln">   477  </span>type NetworkFloodSpec struct {
+<span id="L478" class="ln">   478  </span>	<span class="comment">// The speed of network traffic, allows bps, kbps, mbps, gbps, tbps unit. bps means bytes per second</span>
+<span id="L479" class="ln">   479  </span>	Rate string `json:&#34;rate&#34;`
+<span id="L480" class="ln">   480  </span>	<span class="comment">// Generate traffic to this IP address</span>
+<span id="L481" class="ln">   481  </span>	IPAddress string `json:&#34;ip-address,omitempty&#34;`
+<span id="L482" class="ln">   482  </span>	<span class="comment">// Generate traffic to this port on the IP address</span>
+<span id="L483" class="ln">   483  </span>	Port string `json:&#34;port,omitempty&#34;`
+<span id="L484" class="ln">   484  </span>	<span class="comment">// The number of iperf parallel client threads to run</span>
+<span id="L485" class="ln">   485  </span>	Parallel int32 `json:&#34;parallel,omitempty&#34;`
+<span id="L486" class="ln">   486  </span>	<span class="comment">// The number of seconds to run the iperf test</span>
+<span id="L487" class="ln">   487  </span>	Duration string `json:&#34;duration&#34;`
+<span id="L488" class="ln">   488  </span>}
+<span id="L489" class="ln">   489  </span>
+<span id="L490" class="ln">   490  </span>type NetworkDownSpec struct {
+<span id="L491" class="ln">   491  </span>	<span class="comment">// The network interface to impact</span>
+<span id="L492" class="ln">   492  </span>	Device string `json:&#34;device,omitempty&#34;`
+<span id="L493" class="ln">   493  </span>	<span class="comment">// NIC down time, time units: ns, us (or µs), ms, s, m, h.</span>
+<span id="L494" class="ln">   494  </span>	Duration string `json:&#34;duration,omitempty&#34;`
+<span id="L495" class="ln">   495  </span>}
+<span id="L496" class="ln">   496  </span>
+<span id="L497" class="ln">   497  </span>type ProcessSpec struct {
+<span id="L498" class="ln">   498  </span>	<span class="comment">// the process name or the process ID</span>
+<span id="L499" class="ln">   499  </span>	Process string `json:&#34;process,omitempty&#34;`
+<span id="L500" class="ln">   500  </span>	<span class="comment">// the signal number to send</span>
+<span id="L501" class="ln">   501  </span>	Signal int `json:&#34;signal,omitempty&#34;`
+<span id="L502" class="ln">   502  </span>
+<span id="L503" class="ln">   503  </span>	<span class="comment">// the command to be run when recovering experiment</span>
+<span id="L504" class="ln">   504  </span>	RecoverCmd string `json:&#34;recoverCmd,omitempty&#34;`
+<span id="L505" class="ln">   505  </span>}
+<span id="L506" class="ln">   506  </span>
+<span id="L507" class="ln">   507  </span>type JVMExceptionSpec struct {
+<span id="L508" class="ln">   508  </span>	JVMCommonSpec      `json:&#34;,inline&#34;`
+<span id="L509" class="ln">   509  </span>	JVMClassMethodSpec `json:&#34;,inline&#34;`
+<span id="L510" class="ln">   510  </span>
+<span id="L511" class="ln">   511  </span>	<span class="comment">// the exception which needs to throw for action `exception`</span>
+<span id="L512" class="ln">   512  </span>	ThrowException string `json:&#34;exception,omitempty&#34;`
+<span id="L513" class="ln">   513  </span>}
 <span id="L514" class="ln">   514  </span>
-<span id="L515" class="ln">   515  </span>	<span class="comment">// the CPU core number need to use, only set it when action is stress</span>
-<span id="L516" class="ln">   516  </span>	CPUCount int `json:&#34;cpu-count,omitempty&#34;`
+<span id="L515" class="ln">   515  </span>type JVMStressSpec struct {
+<span id="L516" class="ln">   516  </span>	JVMCommonSpec `json:&#34;,inline&#34;`
 <span id="L517" class="ln">   517  </span>
-<span id="L518" class="ln">   518  </span>	<span class="comment">// the memory type need to locate, only set it when action is stress, the value can be &#39;stack&#39; or &#39;heap&#39;</span>
-<span id="L519" class="ln">   519  </span>	MemoryType string `json:&#34;mem-type,omitempty&#34;`
-<span id="L520" class="ln">   520  </span>}
-<span id="L521" class="ln">   521  </span>
-<span id="L522" class="ln">   522  </span>type JVMGCSpec struct {
-<span id="L523" class="ln">   523  </span>	JVMCommonSpec `json:&#34;,inline&#34;`
-<span id="L524" class="ln">   524  </span>}
-<span id="L525" class="ln">   525  </span>
-<span id="L526" class="ln">   526  </span>type JVMLatencySpec struct {
-<span id="L527" class="ln">   527  </span>	JVMCommonSpec      `json:&#34;,inline&#34;`
-<span id="L528" class="ln">   528  </span>	JVMClassMethodSpec `json:&#34;,inline&#34;`
-<span id="L529" class="ln">   529  </span>
-<span id="L530" class="ln">   530  </span>	<span class="comment">// the latency duration for action &#39;latency&#39;, unit ms</span>
-<span id="L531" class="ln">   531  </span>	LatencyDuration int `json:&#34;latency,omitempty&#34;`
-<span id="L532" class="ln">   532  </span>}
-<span id="L533" class="ln">   533  </span>
-<span id="L534" class="ln">   534  </span>type JVMReturnSpec struct {
-<span id="L535" class="ln">   535  </span>	JVMCommonSpec      `json:&#34;,inline&#34;`
-<span id="L536" class="ln">   536  </span>	JVMClassMethodSpec `json:&#34;,inline&#34;`
-<span id="L537" class="ln">   537  </span>
-<span id="L538" class="ln">   538  </span>	<span class="comment">// the return value for action &#39;return&#39;</span>
-<span id="L539" class="ln">   539  </span>	ReturnValue string `json:&#34;value,omitempty&#34;`
-<span id="L540" class="ln">   540  </span>}
-<span id="L541" class="ln">   541  </span>
-<span id="L542" class="ln">   542  </span>type JVMRuleDataSpec struct {
-<span id="L543" class="ln">   543  </span>	JVMCommonSpec `json:&#34;,inline&#34;`
+<span id="L518" class="ln">   518  </span>	<span class="comment">// the CPU core number need to use, only set it when action is stress</span>
+<span id="L519" class="ln">   519  </span>	CPUCount int `json:&#34;cpu-count,omitempty&#34;`
+<span id="L520" class="ln">   520  </span>
+<span id="L521" class="ln">   521  </span>	<span class="comment">// the memory type need to locate, only set it when action is stress, the value can be &#39;stack&#39; or &#39;heap&#39;</span>
+<span id="L522" class="ln">   522  </span>	MemoryType string `json:&#34;mem-type,omitempty&#34;`
+<span id="L523" class="ln">   523  </span>}
+<span id="L524" class="ln">   524  </span>
+<span id="L525" class="ln">   525  </span>type JVMGCSpec struct {
+<span id="L526" class="ln">   526  </span>	JVMCommonSpec `json:&#34;,inline&#34;`
+<span id="L527" class="ln">   527  </span>}
+<span id="L528" class="ln">   528  </span>
+<span id="L529" class="ln">   529  </span>type JVMLatencySpec struct {
+<span id="L530" class="ln">   530  </span>	JVMCommonSpec      `json:&#34;,inline&#34;`
+<span id="L531" class="ln">   531  </span>	JVMClassMethodSpec `json:&#34;,inline&#34;`
+<span id="L532" class="ln">   532  </span>
+<span id="L533" class="ln">   533  </span>	<span class="comment">// the latency duration for action &#39;latency&#39;, unit ms</span>
+<span id="L534" class="ln">   534  </span>	LatencyDuration int `json:&#34;latency,omitempty&#34;`
+<span id="L535" class="ln">   535  </span>}
+<span id="L536" class="ln">   536  </span>
+<span id="L537" class="ln">   537  </span>type JVMReturnSpec struct {
+<span id="L538" class="ln">   538  </span>	JVMCommonSpec      `json:&#34;,inline&#34;`
+<span id="L539" class="ln">   539  </span>	JVMClassMethodSpec `json:&#34;,inline&#34;`
+<span id="L540" class="ln">   540  </span>
+<span id="L541" class="ln">   541  </span>	<span class="comment">// the return value for action &#39;return&#39;</span>
+<span id="L542" class="ln">   542  </span>	ReturnValue string `json:&#34;value,omitempty&#34;`
+<span id="L543" class="ln">   543  </span>}
 <span id="L544" class="ln">   544  </span>
-<span id="L545" class="ln">   545  </span>	<span class="comment">// RuleData used to save the rule file&#39;s data, will use it when recover</span>
-<span id="L546" class="ln">   546  </span>	RuleData string `json:&#34;rule-data,omitempty&#34;`
-<span id="L547" class="ln">   547  </span>}
-<span id="L548" class="ln">   548  </span>
-<span id="L549" class="ln">   549  </span>type PMJVMMySQLSpec struct {
-<span id="L550" class="ln">   550  </span>	JVMCommonSpec `json:&#34;,inline&#34;`
+<span id="L545" class="ln">   545  </span>type JVMRuleDataSpec struct {
+<span id="L546" class="ln">   546  </span>	JVMCommonSpec `json:&#34;,inline&#34;`
+<span id="L547" class="ln">   547  </span>
+<span id="L548" class="ln">   548  </span>	<span class="comment">// RuleData used to save the rule file&#39;s data, will use it when recover</span>
+<span id="L549" class="ln">   549  </span>	RuleData string `json:&#34;rule-data,omitempty&#34;`
+<span id="L550" class="ln">   550  </span>}
 <span id="L551" class="ln">   551  </span>
-<span id="L552" class="ln">   552  </span>	JVMMySQLSpec `json:&#34;,inline&#34;`
-<span id="L553" class="ln">   553  </span>
-<span id="L554" class="ln">   554  </span>	<span class="comment">// The exception which needs to throw for action `exception`</span>
-<span id="L555" class="ln">   555  </span>	<span class="comment">// or the exception message needs to throw in action `mysql`</span>
-<span id="L556" class="ln">   556  </span>	ThrowException string `json:&#34;exception,omitempty&#34;`
-<span id="L557" class="ln">   557  </span>
-<span id="L558" class="ln">   558  </span>	<span class="comment">// The latency duration for action &#39;latency&#39;</span>
-<span id="L559" class="ln">   559  </span>	<span class="comment">// or the latency duration in action `mysql`</span>
-<span id="L560" class="ln">   560  </span>	LatencyDuration int `json:&#34;latency,omitempty&#34;`
-<span id="L561" class="ln">   561  </span>}
-<span id="L562" class="ln">   562  </span>
-<span id="L563" class="ln">   563  </span>type ClockSpec struct {
-<span id="L564" class="ln">   564  </span>	<span class="comment">// the pid of target program.</span>
-<span id="L565" class="ln">   565  </span>	Pid int `json:&#34;pid,omitempty&#34;`
-<span id="L566" class="ln">   566  </span>	<span class="comment">// specifies the length of time offset.</span>
-<span id="L567" class="ln">   567  </span>	TimeOffset string `json:&#34;time-offset,omitempty&#34;`
-<span id="L568" class="ln">   568  </span>	<span class="comment">// the identifier of the particular clock on which to act.</span>
-<span id="L569" class="ln">   569  </span>	<span class="comment">// More clock description in linux kernel can be found in man page of clock_getres, clock_gettime, clock_settime.</span>
-<span id="L570" class="ln">   570  </span>	<span class="comment">// Muti clock ids should be split with &#34;,&#34;</span>
-<span id="L571" class="ln">   571  </span>	ClockIdsSlice string `json:&#34;clock-ids-slice,omitempty&#34;`
-<span id="L572" class="ln">   572  </span>}
-<span id="L573" class="ln">   573  </span>
-<span id="L574" class="ln">   574  </span>type RedisCommonSpec struct {
-<span id="L575" class="ln">   575  </span>	<span class="comment">// The adress of Redis server</span>
-<span id="L576" class="ln">   576  </span>	Addr string `json:&#34;addr,omitempty&#34;`
-<span id="L577" class="ln">   577  </span>	<span class="comment">// The password of Redis server</span>
-<span id="L578" class="ln">   578  </span>	Password string `json:&#34;password,omitempty&#34;`
-<span id="L579" class="ln">   579  </span>}
-<span id="L580" class="ln">   580  </span>
-<span id="L581" class="ln">   581  </span>type RedisExpirationSpec struct {
-<span id="L582" class="ln">   582  </span>	RedisCommonSpec `json:&#34;,inline&#34;`
-<span id="L583" class="ln">   583  </span>	<span class="comment">// The expiration of the keys</span>
-<span id="L584" class="ln">   584  </span>	Expiration string `json:&#34;expiration,omitempty&#34;`
-<span id="L585" class="ln">   585  </span>	<span class="comment">// The keys to be expired</span>
-<span id="L586" class="ln">   586  </span>	Key string `json:&#34;key,omitempty&#34;`
-<span id="L587" class="ln">   587  </span>	<span class="comment">// Additional options for `expiration`</span>
-<span id="L588" class="ln">   588  </span>	Option string `json:&#34;option,omitempty&#34;`
-<span id="L589" class="ln">   589  </span>}
-<span id="L590" class="ln">   590  </span>
-<span id="L591" class="ln">   591  </span>type RedisPenetrationSpec struct {
-<span id="L592" class="ln">   592  </span>	RedisCommonSpec `json:&#34;,inline&#34;`
-<span id="L593" class="ln">   593  </span>	<span class="comment">// The number of requests to be sent</span>
-<span id="L594" class="ln">   594  </span>	RequestNum int `json:&#34;requestNum,omitempty&#34;`
-<span id="L595" class="ln">   595  </span>}
-<span id="L596" class="ln">   596  </span>
-<span id="L597" class="ln">   597  </span>type RedisCacheLimitSpec struct {
-<span id="L598" class="ln">   598  </span>	RedisCommonSpec `json:&#34;,inline&#34;`
-<span id="L599" class="ln">   599  </span>	<span class="comment">// The size of `maxmemory`</span>
-<span id="L600" class="ln">   600  </span>	Size string `json:&#34;cacheSize,omitempty&#34;`
-<span id="L601" class="ln">   601  </span>	<span class="comment">// Specifies maxmemory as a percentage of the original value</span>
-<span id="L602" class="ln">   602  </span>	Percent string `json:&#34;percent,omitempty&#34;`
-<span id="L603" class="ln">   603  </span>}
-<span id="L604" class="ln">   604  </span>
-<span id="L605" class="ln">   605  </span>type RedisSentinelRestartSpec struct {
-<span id="L606" class="ln">   606  </span>	RedisCommonSpec `json:&#34;,inline&#34;`
-<span id="L607" class="ln">   607  </span>	<span class="comment">// The path of Sentinel conf</span>
-<span id="L608" class="ln">   608  </span>	Conf string `json:&#34;conf,omitempty&#34;`
-<span id="L609" class="ln">   609  </span>	<span class="comment">// The control flag determines whether to flush config</span>
-<span id="L610" class="ln">   610  </span>	FlushConfig bool `json:&#34;flushConfig,omitempty&#34;`
-<span id="L611" class="ln">   611  </span>	<span class="comment">// The path of `redis-server` command-line tool</span>
-<span id="L612" class="ln">   612  </span>	RedisPath bool `json:&#34;redisPath,omitempty&#34;`
-<span id="L613" class="ln">   613  </span>}
-<span id="L614" class="ln">   614  </span>
-<span id="L615" class="ln">   615  </span>type RedisSentinelStopSpec struct {
-<span id="L616" class="ln">   616  </span>	RedisCommonSpec `json:&#34;,inline&#34;`
-<span id="L617" class="ln">   617  </span>	<span class="comment">// The path of Sentinel conf</span>
-<span id="L618" class="ln">   618  </span>	Conf string `json:&#34;conf,omitempty&#34;`
-<span id="L619" class="ln">   619  </span>	<span class="comment">// The control flag determines whether to flush config</span>
-<span id="L620" class="ln">   620  </span>	FlushConfig bool `json:&#34;flushConfig,omitempty&#34;`
-<span id="L621" class="ln">   621  </span>	<span class="comment">// The path of `redis-server` command-line tool</span>
-<span id="L622" class="ln">   622  </span>	RedisPath bool `json:&#34;redisPath,omitempty&#34;`
-<span id="L623" class="ln">   623  </span>}
-<span id="L624" class="ln">   624  </span>
-<span id="L625" class="ln">   625  </span>type KafkaCommonSpec struct {
-<span id="L626" class="ln">   626  </span>	<span class="comment">// The topic to attack</span>
-<span id="L627" class="ln">   627  </span>	Topic string `json:&#34;topic,omitempty&#34;`
-<span id="L628" class="ln">   628  </span>	<span class="comment">// The host of kafka server</span>
-<span id="L629" class="ln">   629  </span>	Host string `json:&#34;host,omitempty&#34;`
-<span id="L630" class="ln">   630  </span>	<span class="comment">// The port of kafka server</span>
-<span id="L631" class="ln">   631  </span>	Port uint16 `json:&#34;port,omitempty&#34;`
-<span id="L632" class="ln">   632  </span>	<span class="comment">// The username of kafka client</span>
-<span id="L633" class="ln">   633  </span>	Username string `json:&#34;username,omitempty&#34;`
-<span id="L634" class="ln">   634  </span>	<span class="comment">// The password of kafka client</span>
-<span id="L635" class="ln">   635  </span>	Password string `json:&#34;password,omitempty&#34;`
-<span id="L636" class="ln">   636  </span>}
-<span id="L637" class="ln">   637  </span>
-<span id="L638" class="ln">   638  </span>type KafkaFillSpec struct {
-<span id="L639" class="ln">   639  </span>	KafkaCommonSpec `json:&#34;,inline&#34;`
-<span id="L640" class="ln">   640  </span>	<span class="comment">// The size of each message</span>
-<span id="L641" class="ln">   641  </span>	MessageSize uint `json:&#34;messageSize,omitempty&#34;`
-<span id="L642" class="ln">   642  </span>	<span class="comment">// The max bytes to fill</span>
-<span id="L643" class="ln">   643  </span>	MaxBytes uint64 `json:&#34;maxBytes,omitempty&#34;`
-<span id="L644" class="ln">   644  </span>	<span class="comment">// The command to reload kafka config</span>
-<span id="L645" class="ln">   645  </span>	ReloadCommand string `json:&#34;reloadCommand,omitempty&#34;`
-<span id="L646" class="ln">   646  </span>}
-<span id="L647" class="ln">   647  </span>
-<span id="L648" class="ln">   648  </span>type KafkaFloodSpec struct {
-<span id="L649" class="ln">   649  </span>	KafkaCommonSpec `json:&#34;,inline&#34;`
-<span id="L650" class="ln">   650  </span>	<span class="comment">// The size of each message</span>
-<span id="L651" class="ln">   651  </span>	MessageSize uint `json:&#34;messageSize,omitempty&#34;`
-<span id="L652" class="ln">   652  </span>	<span class="comment">// The number of worker threads</span>
-<span id="L653" class="ln">   653  </span>	Threads uint `json:&#34;threads,omitempty&#34;`
-<span id="L654" class="ln">   654  </span>}
-<span id="L655" class="ln">   655  </span>
-<span id="L656" class="ln">   656  </span>type KafkaIOSpec struct {
-<span id="L657" class="ln">   657  </span>	<span class="comment">// The topic to attack</span>
-<span id="L658" class="ln">   658  </span>	Topic string `json:&#34;topic,omitempty&#34;`
-<span id="L659" class="ln">   659  </span>	<span class="comment">// The path of server config</span>
-<span id="L660" class="ln">   660  </span>	ConfigFile string `json:&#34;configFile,omitempty&#34;`
-<span id="L661" class="ln">   661  </span>	<span class="comment">// Make kafka cluster non-readable</span>
-<span id="L662" class="ln">   662  </span>	NonReadable bool `json:&#34;nonReadable,omitempty&#34;`
-<span id="L663" class="ln">   663  </span>	<span class="comment">// Make kafka cluster non-writable</span>
-<span id="L664" class="ln">   664  </span>	NonWritable bool `json:&#34;nonWritable,omitempty&#34;`
-<span id="L665" class="ln">   665  </span>}
-<span id="L666" class="ln">   666  </span>
-<span id="L667" class="ln">   667  </span>type HTTPCommonSpec struct {
-<span id="L668" class="ln">   668  </span>	<span class="comment">// Composed with one of the port of HTTP connection, we will only attack HTTP connection with port inside proxy_ports</span>
-<span id="L669" class="ln">   669  </span>	ProxyPorts []uint `json:&#34;proxy_ports&#34;`
-<span id="L670" class="ln">   670  </span>	<span class="comment">// HTTP target: Request or Response</span>
-<span id="L671" class="ln">   671  </span>	Target string `json:&#34;target&#34;`
-<span id="L672" class="ln">   672  </span>	<span class="comment">// The TCP port that the target service listens on</span>
-<span id="L673" class="ln">   673  </span>	Port int32 `json:&#34;port,omitempty&#34;`
-<span id="L674" class="ln">   674  </span>	<span class="comment">// Match path of Uri with wildcard matches</span>
-<span id="L675" class="ln">   675  </span>	Path string `json:&#34;path,omitempty&#34;`
-<span id="L676" class="ln">   676  </span>	<span class="comment">// HTTP method</span>
-<span id="L677" class="ln">   677  </span>	Method string `json:&#34;method,omitempty&#34;`
-<span id="L678" class="ln">   678  </span>	<span class="comment">// Code is a rule to select target by http status code in response</span>
-<span id="L679" class="ln">   679  </span>	Code string `json:&#34;code,omitempty&#34;`
-<span id="L680" class="ln">   680  </span>}
-<span id="L681" class="ln">   681  </span>
-<span id="L682" class="ln">   682  </span>type HTTPAbortSpec struct {
-<span id="L683" class="ln">   683  </span>	HTTPCommonSpec `json:&#34;,inline&#34;`
-<span id="L684" class="ln">   684  </span>}
-<span id="L685" class="ln">   685  </span>
-<span id="L686" class="ln">   686  </span>type HTTPDelaySpec struct {
-<span id="L687" class="ln">   687  </span>	HTTPCommonSpec `json:&#34;,inline&#34;`
-<span id="L688" class="ln">   688  </span>	<span class="comment">// Delay represents the delay of the target request/response</span>
-<span id="L689" class="ln">   689  </span>	Delay string `json:&#34;delay&#34;`
-<span id="L690" class="ln">   690  </span>}
-<span id="L691" class="ln">   691  </span>
-<span id="L692" class="ln">   692  </span>type HTTPConfigSpec struct {
-<span id="L693" class="ln">   693  </span>	<span class="comment">// The config file path</span>
-<span id="L694" class="ln">   694  </span>	FilePath string `json:&#34;file_path,omitempty&#34;`
-<span id="L695" class="ln">   695  </span>}
-<span id="L696" class="ln">   696  </span>
-<span id="L697" class="ln">   697  </span><span class="comment">// used for HTTP request, now only support GET</span>
-<span id="L698" class="ln">   698  </span>type HTTPRequestSpec struct {
-<span id="L699" class="ln">   699  </span>	<span class="comment">// Request to send&#34;</span>
-<span id="L700" class="ln">   700  </span>	URL string `json:&#34;url,omitempty&#34;`
-<span id="L701" class="ln">   701  </span>	<span class="comment">// Enable connection pool</span>
-<span id="L702" class="ln">   702  </span>	EnableConnPool bool `json:&#34;enable-conn-pool,omitempty&#34;`
-<span id="L703" class="ln">   703  </span>	<span class="comment">// The number of requests to send</span>
-<span id="L704" class="ln">   704  </span>	Count int `json:&#34;count,omitempty&#34;`
-<span id="L705" class="ln">   705  </span>}
-<span id="L706" class="ln">   706  </span>
-<span id="L707" class="ln">   707  </span>type FileCreateSpec struct {
-<span id="L708" class="ln">   708  </span>	<span class="comment">// FileName is the name of the file to be created, modified, deleted, renamed, or appended.</span>
-<span id="L709" class="ln">   709  </span>	FileName string `json:&#34;file-name,omitempty&#34;`
-<span id="L710" class="ln">   710  </span>	<span class="comment">// DirName is the directory name to create or delete.</span>
-<span id="L711" class="ln">   711  </span>	DirName string `json:&#34;dir-name,omitempty&#34;`
-<span id="L712" class="ln">   712  </span>}
-<span id="L713" class="ln">   713  </span>
-<span id="L714" class="ln">   714  </span>type FileModifyPrivilegeSpec struct {
-<span id="L715" class="ln">   715  </span>	<span class="comment">// FileName is the name of the file to be created, modified, deleted, renamed, or appended.</span>
-<span id="L716" class="ln">   716  </span>	FileName string `json:&#34;file-name,omitempty&#34;`
-<span id="L717" class="ln">   717  </span>	<span class="comment">// Privilege is the file privilege to be set.</span>
-<span id="L718" class="ln">   718  </span>	Privilege uint32 `json:&#34;privilege,omitempty&#34;`
-<span id="L719" class="ln">   719  </span>}
-<span id="L720" class="ln">   720  </span>
-<span id="L721" class="ln">   721  </span>type FileDeleteSpec struct {
-<span id="L722" class="ln">   722  </span>	<span class="comment">// FileName is the name of the file to be created, modified, deleted, renamed, or appended.</span>
-<span id="L723" class="ln">   723  </span>	FileName string `json:&#34;file-name,omitempty&#34;`
-<span id="L724" class="ln">   724  </span>	<span class="comment">// DirName is the directory name to create or delete.</span>
-<span id="L725" class="ln">   725  </span>	DirName string `json:&#34;dir-name,omitempty&#34;`
-<span id="L726" class="ln">   726  </span>}
-<span id="L727" class="ln">   727  </span>
-<span id="L728" class="ln">   728  </span>type FileRenameSpec struct {
-<span id="L729" class="ln">   729  </span>	<span class="comment">// SourceFile is the name need to be renamed.</span>
-<span id="L730" class="ln">   730  </span>	SourceFile string `json:&#34;source-file,omitempty&#34;`
-<span id="L731" class="ln">   731  </span>	<span class="comment">// DestFile is the name to be renamed.</span>
-<span id="L732" class="ln">   732  </span>	DestFile string `json:&#34;dest-file,omitempty&#34;`
-<span id="L733" class="ln">   733  </span>}
-<span id="L734" class="ln">   734  </span>
-<span id="L735" class="ln">   735  </span>type FileAppendSpec struct {
-<span id="L736" class="ln">   736  </span>	<span class="comment">// FileName is the name of the file to be created, modified, deleted, renamed, or appended.</span>
-<span id="L737" class="ln">   737  </span>	FileName string `json:&#34;file-name,omitempty&#34;`
-<span id="L738" class="ln">   738  </span>	<span class="comment">// Data is the data for append.</span>
-<span id="L739" class="ln">   739  </span>	Data string `json:&#34;data,omitempty&#34;`
-<span id="L740" class="ln">   740  </span>	<span class="comment">// Count is the number of times to append the data.</span>
-<span id="L741" class="ln">   741  </span>	Count int `json:&#34;count,omitempty&#34;`
-<span id="L742" class="ln">   742  </span>}
-<span id="L743" class="ln">   743  </span>
-<span id="L744" class="ln">   744  </span>type FileReplaceSpec struct {
-<span id="L745" class="ln">   745  </span>	<span class="comment">// FileName is the name of the file to be created, modified, deleted, renamed, or appended.</span>
-<span id="L746" class="ln">   746  </span>	FileName string `json:&#34;file-name,omitempty&#34;`
-<span id="L747" class="ln">   747  </span>	<span class="comment">// OriginStr is the origin string of the file.</span>
-<span id="L748" class="ln">   748  </span>	OriginStr string `json:&#34;origin-string,omitempty&#34;`
-<span id="L749" class="ln">   749  </span>	<span class="comment">// DestStr is the destination string of the file.</span>
-<span id="L750" class="ln">   750  </span>	DestStr string `json:&#34;dest-string,omitempty&#34;`
-<span id="L751" class="ln">   751  </span>	<span class="comment">// Line is the line number of the file to be replaced.</span>
-<span id="L752" class="ln">   752  </span>	Line int `json:&#34;line,omitempty&#34;`
-<span id="L753" class="ln">   753  </span>}
-<span id="L754" class="ln">   754  </span>
-<span id="L755" class="ln">   755  </span>type VMSpec struct {
-<span id="L756" class="ln">   756  </span>	<span class="comment">// The name of the VM to be injected</span>
-<span id="L757" class="ln">   757  </span>	VMName string `json:&#34;vm-name,omitempty&#34;`
-<span id="L758" class="ln">   758  </span>}
-<span id="L759" class="ln">   759  </span>
-<span id="L760" class="ln">   760  </span>type UserDefinedSpec struct {
-<span id="L761" class="ln">   761  </span>	<span class="comment">// The command to be executed when attack</span>
-<span id="L762" class="ln">   762  </span>	AttackCmd string `json:&#34;attackCmd,omitempty&#34;`
-<span id="L763" class="ln">   763  </span>	<span class="comment">// The command to be executed when recover</span>
-<span id="L764" class="ln">   764  </span>	RecoverCmd string `json:&#34;recoverCmd,omitempty&#34;`
-<span id="L765" class="ln">   765  </span>}
-<span id="L766" class="ln">   766  </span>
+<span id="L552" class="ln">   552  </span>type PMJVMMySQLSpec struct {
+<span id="L553" class="ln">   553  </span>	JVMCommonSpec `json:&#34;,inline&#34;`
+<span id="L554" class="ln">   554  </span>
+<span id="L555" class="ln">   555  </span>	JVMMySQLSpec `json:&#34;,inline&#34;`
+<span id="L556" class="ln">   556  </span>
+<span id="L557" class="ln">   557  </span>	<span class="comment">// The exception which needs to throw for action `exception`</span>
+<span id="L558" class="ln">   558  </span>	<span class="comment">// or the exception message needs to throw in action `mysql`</span>
+<span id="L559" class="ln">   559  </span>	ThrowException string `json:&#34;exception,omitempty&#34;`
+<span id="L560" class="ln">   560  </span>
+<span id="L561" class="ln">   561  </span>	<span class="comment">// The latency duration for action &#39;latency&#39;</span>
+<span id="L562" class="ln">   562  </span>	<span class="comment">// or the latency duration in action `mysql`</span>
+<span id="L563" class="ln">   563  </span>	LatencyDuration int `json:&#34;latency,omitempty&#34;`
+<span id="L564" class="ln">   564  </span>}
+<span id="L565" class="ln">   565  </span>
+<span id="L566" class="ln">   566  </span>type ClockSpec struct {
+<span id="L567" class="ln">   567  </span>	<span class="comment">// the pid of target program.</span>
+<span id="L568" class="ln">   568  </span>	Pid int `json:&#34;pid,omitempty&#34;`
+<span id="L569" class="ln">   569  </span>	<span class="comment">// specifies the length of time offset.</span>
+<span id="L570" class="ln">   570  </span>	TimeOffset string `json:&#34;time-offset,omitempty&#34;`
+<span id="L571" class="ln">   571  </span>	<span class="comment">// the identifier of the particular clock on which to act.</span>
+<span id="L572" class="ln">   572  </span>	<span class="comment">// More clock description in linux kernel can be found in man page of clock_getres, clock_gettime, clock_settime.</span>
+<span id="L573" class="ln">   573  </span>	<span class="comment">// Muti clock ids should be split with &#34;,&#34;</span>
+<span id="L574" class="ln">   574  </span>	ClockIdsSlice string `json:&#34;clock-ids-slice,omitempty&#34;`
+<span id="L575" class="ln">   575  </span>}
+<span id="L576" class="ln">   576  </span>
+<span id="L577" class="ln">   577  </span>type RedisCommonSpec struct {
+<span id="L578" class="ln">   578  </span>	<span class="comment">// The adress of Redis server</span>
+<span id="L579" class="ln">   579  </span>	Addr string `json:&#34;addr,omitempty&#34;`
+<span id="L580" class="ln">   580  </span>	<span class="comment">// The password of Redis server</span>
+<span id="L581" class="ln">   581  </span>	Password string `json:&#34;password,omitempty&#34;`
+<span id="L582" class="ln">   582  </span>}
+<span id="L583" class="ln">   583  </span>
+<span id="L584" class="ln">   584  </span>type RedisExpirationSpec struct {
+<span id="L585" class="ln">   585  </span>	RedisCommonSpec `json:&#34;,inline&#34;`
+<span id="L586" class="ln">   586  </span>	<span class="comment">// The expiration of the keys</span>
+<span id="L587" class="ln">   587  </span>	Expiration string `json:&#34;expiration,omitempty&#34;`
+<span id="L588" class="ln">   588  </span>	<span class="comment">// The keys to be expired</span>
+<span id="L589" class="ln">   589  </span>	Key string `json:&#34;key,omitempty&#34;`
+<span id="L590" class="ln">   590  </span>	<span class="comment">// Additional options for `expiration`</span>
+<span id="L591" class="ln">   591  </span>	Option string `json:&#34;option,omitempty&#34;`
+<span id="L592" class="ln">   592  </span>}
+<span id="L593" class="ln">   593  </span>
+<span id="L594" class="ln">   594  </span>type RedisPenetrationSpec struct {
+<span id="L595" class="ln">   595  </span>	RedisCommonSpec `json:&#34;,inline&#34;`
+<span id="L596" class="ln">   596  </span>	<span class="comment">// The number of requests to be sent</span>
+<span id="L597" class="ln">   597  </span>	RequestNum int `json:&#34;requestNum,omitempty&#34;`
+<span id="L598" class="ln">   598  </span>}
+<span id="L599" class="ln">   599  </span>
+<span id="L600" class="ln">   600  </span>type RedisCacheLimitSpec struct {
+<span id="L601" class="ln">   601  </span>	RedisCommonSpec `json:&#34;,inline&#34;`
+<span id="L602" class="ln">   602  </span>	<span class="comment">// The size of `maxmemory`</span>
+<span id="L603" class="ln">   603  </span>	Size string `json:&#34;cacheSize,omitempty&#34;`
+<span id="L604" class="ln">   604  </span>	<span class="comment">// Specifies maxmemory as a percentage of the original value</span>
+<span id="L605" class="ln">   605  </span>	Percent string `json:&#34;percent,omitempty&#34;`
+<span id="L606" class="ln">   606  </span>}
+<span id="L607" class="ln">   607  </span>
+<span id="L608" class="ln">   608  </span>type RedisSentinelRestartSpec struct {
+<span id="L609" class="ln">   609  </span>	RedisCommonSpec `json:&#34;,inline&#34;`
+<span id="L610" class="ln">   610  </span>	<span class="comment">// The path of Sentinel conf</span>
+<span id="L611" class="ln">   611  </span>	Conf string `json:&#34;conf,omitempty&#34;`
+<span id="L612" class="ln">   612  </span>	<span class="comment">// The control flag determines whether to flush config</span>
+<span id="L613" class="ln">   613  </span>	FlushConfig bool `json:&#34;flushConfig,omitempty&#34;`
+<span id="L614" class="ln">   614  </span>	<span class="comment">// The path of `redis-server` command-line tool</span>
+<span id="L615" class="ln">   615  </span>	RedisPath bool `json:&#34;redisPath,omitempty&#34;`
+<span id="L616" class="ln">   616  </span>}
+<span id="L617" class="ln">   617  </span>
+<span id="L618" class="ln">   618  </span>type RedisSentinelStopSpec struct {
+<span id="L619" class="ln">   619  </span>	RedisCommonSpec `json:&#34;,inline&#34;`
+<span id="L620" class="ln">   620  </span>	<span class="comment">// The path of Sentinel conf</span>
+<span id="L621" class="ln">   621  </span>	Conf string `json:&#34;conf,omitempty&#34;`
+<span id="L622" class="ln">   622  </span>	<span class="comment">// The control flag determines whether to flush config</span>
+<span id="L623" class="ln">   623  </span>	FlushConfig bool `json:&#34;flushConfig,omitempty&#34;`
+<span id="L624" class="ln">   624  </span>	<span class="comment">// The path of `redis-server` command-line tool</span>
+<span id="L625" class="ln">   625  </span>	RedisPath bool `json:&#34;redisPath,omitempty&#34;`
+<span id="L626" class="ln">   626  </span>}
+<span id="L627" class="ln">   627  </span>
+<span id="L628" class="ln">   628  </span>type KafkaCommonSpec struct {
+<span id="L629" class="ln">   629  </span>	<span class="comment">// The topic to attack</span>
+<span id="L630" class="ln">   630  </span>	Topic string `json:&#34;topic,omitempty&#34;`
+<span id="L631" class="ln">   631  </span>	<span class="comment">// The host of kafka server</span>
+<span id="L632" class="ln">   632  </span>	Host string `json:&#34;host,omitempty&#34;`
+<span id="L633" class="ln">   633  </span>	<span class="comment">// The port of kafka server</span>
+<span id="L634" class="ln">   634  </span>	Port uint16 `json:&#34;port,omitempty&#34;`
+<span id="L635" class="ln">   635  </span>	<span class="comment">// The username of kafka client</span>
+<span id="L636" class="ln">   636  </span>	Username string `json:&#34;username,omitempty&#34;`
+<span id="L637" class="ln">   637  </span>	<span class="comment">// The password of kafka client</span>
+<span id="L638" class="ln">   638  </span>	Password string `json:&#34;password,omitempty&#34;`
+<span id="L639" class="ln">   639  </span>}
+<span id="L640" class="ln">   640  </span>
+<span id="L641" class="ln">   641  </span>type KafkaFillSpec struct {
+<span id="L642" class="ln">   642  </span>	KafkaCommonSpec `json:&#34;,inline&#34;`
+<span id="L643" class="ln">   643  </span>	<span class="comment">// The size of each message</span>
+<span id="L644" class="ln">   644  </span>	MessageSize uint `json:&#34;messageSize,omitempty&#34;`
+<span id="L645" class="ln">   645  </span>	<span class="comment">// The max bytes to fill</span>
+<span id="L646" class="ln">   646  </span>	MaxBytes uint64 `json:&#34;maxBytes,omitempty&#34;`
+<span id="L647" class="ln">   647  </span>	<span class="comment">// The command to reload kafka config</span>
+<span id="L648" class="ln">   648  </span>	ReloadCommand string `json:&#34;reloadCommand,omitempty&#34;`
+<span id="L649" class="ln">   649  </span>}
+<span id="L650" class="ln">   650  </span>
+<span id="L651" class="ln">   651  </span>type KafkaFloodSpec struct {
+<span id="L652" class="ln">   652  </span>	KafkaCommonSpec `json:&#34;,inline&#34;`
+<span id="L653" class="ln">   653  </span>	<span class="comment">// The size of each message</span>
+<span id="L654" class="ln">   654  </span>	MessageSize uint `json:&#34;messageSize,omitempty&#34;`
+<span id="L655" class="ln">   655  </span>	<span class="comment">// The number of worker threads</span>
+<span id="L656" class="ln">   656  </span>	Threads uint `json:&#34;threads,omitempty&#34;`
+<span id="L657" class="ln">   657  </span>}
+<span id="L658" class="ln">   658  </span>
+<span id="L659" class="ln">   659  </span>type KafkaIOSpec struct {
+<span id="L660" class="ln">   660  </span>	<span class="comment">// The topic to attack</span>
+<span id="L661" class="ln">   661  </span>	Topic string `json:&#34;topic,omitempty&#34;`
+<span id="L662" class="ln">   662  </span>	<span class="comment">// The path of server config</span>
+<span id="L663" class="ln">   663  </span>	ConfigFile string `json:&#34;configFile,omitempty&#34;`
+<span id="L664" class="ln">   664  </span>	<span class="comment">// Make kafka cluster non-readable</span>
+<span id="L665" class="ln">   665  </span>	NonReadable bool `json:&#34;nonReadable,omitempty&#34;`
+<span id="L666" class="ln">   666  </span>	<span class="comment">// Make kafka cluster non-writable</span>
+<span id="L667" class="ln">   667  </span>	NonWritable bool `json:&#34;nonWritable,omitempty&#34;`
+<span id="L668" class="ln">   668  </span>}
+<span id="L669" class="ln">   669  </span>
+<span id="L670" class="ln">   670  </span>type HTTPCommonSpec struct {
+<span id="L671" class="ln">   671  </span>	<span class="comment">// Composed with one of the port of HTTP connection, we will only attack HTTP connection with port inside proxy_ports</span>
+<span id="L672" class="ln">   672  </span>	ProxyPorts []uint `json:&#34;proxy_ports&#34;`
+<span id="L673" class="ln">   673  </span>	<span class="comment">// HTTP target: Request or Response</span>
+<span id="L674" class="ln">   674  </span>	Target string `json:&#34;target&#34;`
+<span id="L675" class="ln">   675  </span>	<span class="comment">// The TCP port that the target service listens on</span>
+<span id="L676" class="ln">   676  </span>	Port int32 `json:&#34;port,omitempty&#34;`
+<span id="L677" class="ln">   677  </span>	<span class="comment">// Match path of Uri with wildcard matches</span>
+<span id="L678" class="ln">   678  </span>	Path string `json:&#34;path,omitempty&#34;`
+<span id="L679" class="ln">   679  </span>	<span class="comment">// HTTP method</span>
+<span id="L680" class="ln">   680  </span>	Method string `json:&#34;method,omitempty&#34;`
+<span id="L681" class="ln">   681  </span>	<span class="comment">// Code is a rule to select target by http status code in response</span>
+<span id="L682" class="ln">   682  </span>	Code string `json:&#34;code,omitempty&#34;`
+<span id="L683" class="ln">   683  </span>}
+<span id="L684" class="ln">   684  </span>
+<span id="L685" class="ln">   685  </span>type HTTPAbortSpec struct {
+<span id="L686" class="ln">   686  </span>	HTTPCommonSpec `json:&#34;,inline&#34;`
+<span id="L687" class="ln">   687  </span>}
+<span id="L688" class="ln">   688  </span>
+<span id="L689" class="ln">   689  </span>type HTTPDelaySpec struct {
+<span id="L690" class="ln">   690  </span>	HTTPCommonSpec `json:&#34;,inline&#34;`
+<span id="L691" class="ln">   691  </span>	<span class="comment">// Delay represents the delay of the target request/response</span>
+<span id="L692" class="ln">   692  </span>	Delay string `json:&#34;delay&#34;`
+<span id="L693" class="ln">   693  </span>}
+<span id="L694" class="ln">   694  </span>
+<span id="L695" class="ln">   695  </span>type HTTPConfigSpec struct {
+<span id="L696" class="ln">   696  </span>	<span class="comment">// The config file path</span>
+<span id="L697" class="ln">   697  </span>	FilePath string `json:&#34;file_path,omitempty&#34;`
+<span id="L698" class="ln">   698  </span>}
+<span id="L699" class="ln">   699  </span>
+<span id="L700" class="ln">   700  </span><span class="comment">// used for HTTP request, now only support GET</span>
+<span id="L701" class="ln">   701  </span>type HTTPRequestSpec struct {
+<span id="L702" class="ln">   702  </span>	<span class="comment">// Request to send&#34;</span>
+<span id="L703" class="ln">   703  </span>	URL string `json:&#34;url,omitempty&#34;`
+<span id="L704" class="ln">   704  </span>	<span class="comment">// Enable connection pool</span>
+<span id="L705" class="ln">   705  </span>	EnableConnPool bool `json:&#34;enable-conn-pool,omitempty&#34;`
+<span id="L706" class="ln">   706  </span>	<span class="comment">// The number of requests to send</span>
+<span id="L707" class="ln">   707  </span>	Count int `json:&#34;count,omitempty&#34;`
+<span id="L708" class="ln">   708  </span>}
+<span id="L709" class="ln">   709  </span>
+<span id="L710" class="ln">   710  </span>type FileCreateSpec struct {
+<span id="L711" class="ln">   711  </span>	<span class="comment">// FileName is the name of the file to be created, modified, deleted, renamed, or appended.</span>
+<span id="L712" class="ln">   712  </span>	FileName string `json:&#34;file-name,omitempty&#34;`
+<span id="L713" class="ln">   713  </span>	<span class="comment">// DirName is the directory name to create or delete.</span>
+<span id="L714" class="ln">   714  </span>	DirName string `json:&#34;dir-name,omitempty&#34;`
+<span id="L715" class="ln">   715  </span>}
+<span id="L716" class="ln">   716  </span>
+<span id="L717" class="ln">   717  </span>type FileModifyPrivilegeSpec struct {
+<span id="L718" class="ln">   718  </span>	<span class="comment">// FileName is the name of the file to be created, modified, deleted, renamed, or appended.</span>
+<span id="L719" class="ln">   719  </span>	FileName string `json:&#34;file-name,omitempty&#34;`
+<span id="L720" class="ln">   720  </span>	<span class="comment">// Privilege is the file privilege to be set.</span>
+<span id="L721" class="ln">   721  </span>	Privilege uint32 `json:&#34;privilege,omitempty&#34;`
+<span id="L722" class="ln">   722  </span>}
+<span id="L723" class="ln">   723  </span>
+<span id="L724" class="ln">   724  </span>type FileDeleteSpec struct {
+<span id="L725" class="ln">   725  </span>	<span class="comment">// FileName is the name of the file to be created, modified, deleted, renamed, or appended.</span>
+<span id="L726" class="ln">   726  </span>	FileName string `json:&#34;file-name,omitempty&#34;`
+<span id="L727" class="ln">   727  </span>	<span class="comment">// DirName is the directory name to create or delete.</span>
+<span id="L728" class="ln">   728  </span>	DirName string `json:&#34;dir-name,omitempty&#34;`
+<span id="L729" class="ln">   729  </span>}
+<span id="L730" class="ln">   730  </span>
+<span id="L731" class="ln">   731  </span>type FileRenameSpec struct {
+<span id="L732" class="ln">   732  </span>	<span class="comment">// SourceFile is the name need to be renamed.</span>
+<span id="L733" class="ln">   733  </span>	SourceFile string `json:&#34;source-file,omitempty&#34;`
+<span id="L734" class="ln">   734  </span>	<span class="comment">// DestFile is the name to be renamed.</span>
+<span id="L735" class="ln">   735  </span>	DestFile string `json:&#34;dest-file,omitempty&#34;`
+<span id="L736" class="ln">   736  </span>}
+<span id="L737" class="ln">   737  </span>
+<span id="L738" class="ln">   738  </span>type FileAppendSpec struct {
+<span id="L739" class="ln">   739  </span>	<span class="comment">// FileName is the name of the file to be created, modified, deleted, renamed, or appended.</span>
+<span id="L740" class="ln">   740  </span>	FileName string `json:&#34;file-name,omitempty&#34;`
+<span id="L741" class="ln">   741  </span>	<span class="comment">// Data is the data for append.</span>
+<span id="L742" class="ln">   742  </span>	Data string `json:&#34;data,omitempty&#34;`
+<span id="L743" class="ln">   743  </span>	<span class="comment">// Count is the number of times to append the data.</span>
+<span id="L744" class="ln">   744  </span>	Count int `json:&#34;count,omitempty&#34;`
+<span id="L745" class="ln">   745  </span>}
+<span id="L746" class="ln">   746  </span>
+<span id="L747" class="ln">   747  </span>type FileReplaceSpec struct {
+<span id="L748" class="ln">   748  </span>	<span class="comment">// FileName is the name of the file to be created, modified, deleted, renamed, or appended.</span>
+<span id="L749" class="ln">   749  </span>	FileName string `json:&#34;file-name,omitempty&#34;`
+<span id="L750" class="ln">   750  </span>	<span class="comment">// OriginStr is the origin string of the file.</span>
+<span id="L751" class="ln">   751  </span>	OriginStr string `json:&#34;origin-string,omitempty&#34;`
+<span id="L752" class="ln">   752  </span>	<span class="comment">// DestStr is the destination string of the file.</span>
+<span id="L753" class="ln">   753  </span>	DestStr string `json:&#34;dest-string,omitempty&#34;`
+<span id="L754" class="ln">   754  </span>	<span class="comment">// Line is the line number of the file to be replaced.</span>
+<span id="L755" class="ln">   755  </span>	Line int `json:&#34;line,omitempty&#34;`
+<span id="L756" class="ln">   756  </span>}
+<span id="L757" class="ln">   757  </span>
+<span id="L758" class="ln">   758  </span>type VMSpec struct {
+<span id="L759" class="ln">   759  </span>	<span class="comment">// The name of the VM to be injected</span>
+<span id="L760" class="ln">   760  </span>	VMName string `json:&#34;vm-name,omitempty&#34;`
+<span id="L761" class="ln">   761  </span>}
+<span id="L762" class="ln">   762  </span>
+<span id="L763" class="ln">   763  </span>type UserDefinedSpec struct {
+<span id="L764" class="ln">   764  </span>	<span class="comment">// The command to be executed when attack</span>
+<span id="L765" class="ln">   765  </span>	AttackCmd string `json:&#34;attackCmd,omitempty&#34;`
+<span id="L766" class="ln">   766  </span>	<span class="comment">// The command to be executed when recover</span>
+<span id="L767" class="ln">   767  </span>	RecoverCmd string `json:&#34;recoverCmd,omitempty&#34;`
+<span id="L768" class="ln">   768  </span>}
+<span id="L769" class="ln">   769  </span>
 </pre><p></p>
 
 <div id="footer">
