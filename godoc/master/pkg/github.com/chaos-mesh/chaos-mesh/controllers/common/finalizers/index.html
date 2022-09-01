@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d60254d. Generated at Wed Aug 31 22:03:42 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d7012f2. Generated at Thu Sep  1 10:01:44 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -118,18 +118,34 @@
 			
 			
 				
+				<dd><a href="#CleanStep">func CleanStep(ctx *pipeline.PipelineContext) reconcile.Reconciler</a></dd>
+			
+				
 				<dd><a href="#ContainsFinalizer">func ContainsFinalizer(o metav1.Object, finalizer string) bool</a></dd>
 			
 				
-				<dd><a href="#Step">func Step(ctx *pipeline.PipelineContext) reconcile.Reconciler</a></dd>
+				<dd><a href="#InitStep">func InitStep(ctx *pipeline.PipelineContext) reconcile.Reconciler</a></dd>
 			
 			
 				
-				<dd><a href="#Reconciler">type Reconciler</a></dd>
+				<dd><a href="#CleanReconciler">type CleanReconciler</a></dd>
 				
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#Reconciler.Reconcile">func (r *Reconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#CleanReconciler.Reconcile">func (r *CleanReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error)</a></dd>
+				
+			
+				
+				<dd><a href="#InitReconciler">type InitReconciler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InitReconciler.Reconcile">func (r *InitReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error)</a></dd>
+				
+			
+				
+				<dd><a href="#ReconcilerMeta">type ReconcilerMeta</a></dd>
+				
 				
 			
 			
@@ -173,7 +189,20 @@
 		
 			
 			
-			<h2 id="ContainsFinalizer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/finalizers/controller.go#L122">ContainsFinalizer</a>
+			<h2 id="CleanStep">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/finalizers/step.go#L44">CleanStep</a>
+				<a class="permalink" href="#CleanStep">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func CleanStep(ctx *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/common/pipeline/">pipeline</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/common/pipeline/#PipelineContext">PipelineContext</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Reconciler">Reconciler</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="ContainsFinalizer">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/finalizers/controller.go#L152">ContainsFinalizer</a>
 				<a class="permalink" href="#ContainsFinalizer">&#xb6;</a>
 				
 				
@@ -189,12 +218,12 @@ ContainsFinalizer checks an Object that the provided finalizer is present.
 		
 			
 			
-			<h2 id="Step">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/finalizers/step.go#L25">Step</a>
-				<a class="permalink" href="#Step">&#xb6;</a>
+			<h2 id="InitStep">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/finalizers/step.go#L25">InitStep</a>
+				<a class="permalink" href="#InitStep">&#xb6;</a>
 				
 				
 			</h2>
-			<pre>func Step(ctx *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/common/pipeline/">pipeline</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/common/pipeline/#PipelineContext">PipelineContext</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Reconciler">Reconciler</a></pre>
+			<pre>func InitStep(ctx *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/common/pipeline/">pipeline</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/common/pipeline/#PipelineContext">PipelineContext</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/">reconcile</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/reconcile/#Reconciler">Reconciler</a></pre>
 			
 			
 			
@@ -203,25 +232,17 @@ ContainsFinalizer checks an Object that the provided finalizer is present.
 		
 			
 			
-			<h2 id="Reconciler">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/finalizers/controller.go#L42">Reconciler</a>
-				<a class="permalink" href="#Reconciler">&#xb6;</a>
+			<h2 id="CleanReconciler">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/finalizers/controller.go#L85">CleanReconciler</a>
+				<a class="permalink" href="#CleanReconciler">&#xb6;</a>
 				
 				
 			</h2>
 			<p>
-Reconciler for common chaos
+CleanReconciler for common chaos to clean the finalizer
 </p>
 
-			<pre>type Reconciler struct {
-<span id="Reconciler.Object"></span>    <span class="comment">// Object is used to mark the target type of this Reconciler</span>
-    Object <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>
-
-    <span class="comment">// Client is used to operate on the Kubernetes cluster</span>
-    <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
-
-<span id="Reconciler.Recorder"></span>    Recorder <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#ChaosRecorder">ChaosRecorder</a>
-
-<span id="Reconciler.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+			<pre>type CleanReconciler struct {
+    <a href="#ReconcilerMeta">ReconcilerMeta</a>
 }
 </pre>
 
@@ -237,19 +258,98 @@ Reconciler for common chaos
 
 			
 				
-				<h3 id="Reconciler.Reconcile">func (*Reconciler) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/finalizers/controller.go#L55">Reconcile</a>
-					<a class="permalink" href="#Reconciler.Reconcile">&#xb6;</a>
+				<h3 id="CleanReconciler.Reconcile">func (*CleanReconciler) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/finalizers/controller.go#L90">Reconcile</a>
+					<a class="permalink" href="#CleanReconciler.Reconcile">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (r *<a href="#Reconciler">Reconciler</a>) Reconcile(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, req <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<pre>func (r *<a href="#CleanReconciler">CleanReconciler</a>) Reconcile(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, req <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
-Reconcile the common chaos
+Reconcile the common chaos to clean the finalizer
 </p>
 
 				
 				
 				
+			
+		
+			
+			
+			<h2 id="InitReconciler">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/finalizers/controller.go#L55">InitReconciler</a>
+				<a class="permalink" href="#InitReconciler">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+InitReconciler for common chaos to init the finalizer
+</p>
+
+			<pre>type InitReconciler struct {
+    <a href="#ReconcilerMeta">ReconcilerMeta</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="InitReconciler.Reconcile">func (*InitReconciler) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/finalizers/controller.go#L60">Reconcile</a>
+					<a class="permalink" href="#InitReconciler.Reconcile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#InitReconciler">InitReconciler</a>) Reconcile(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, req <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Request">Request</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/">ctrl</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/#Result">Result</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Reconcile the common chaos to init the finalizer
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ReconcilerMeta">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/finalizers/controller.go#L42">ReconcilerMeta</a>
+				<a class="permalink" href="#ReconcilerMeta">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ReconcilerMeta defines the meta of InitReconciler and CleanReconciler struct.
+</p>
+
+			<pre>type ReconcilerMeta struct {
+<span id="ReconcilerMeta.Object"></span>    <span class="comment">// Object is used to mark the target type of this Reconciler</span>
+    Object <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>
+
+    <span class="comment">// Client is used to operate on the Kubernetes cluster</span>
+    <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+
+<span id="ReconcilerMeta.Recorder"></span>    Recorder <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/">recorder</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/utils/recorder/#ChaosRecorder">ChaosRecorder</a>
+
+<span id="ReconcilerMeta.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
 			
 		
 	
