@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 1404196. Generated at Sun Sep  4 22:07:03 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f8bee46. Generated at Mon Sep  5 10:04:10 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -339,1173 +339,1169 @@
 <span id="L274" class="ln">   274  </span>		},
 <span id="L275" class="ln">   275  </span>	}
 <span id="L276" class="ln">   276  </span>
-<span id="L277" class="ln">   277  </span>	if exp.Target.IOChaos.ContainerName != &#34;&#34; {
-<span id="L278" class="ln">   278  </span>		chaos.Spec.ContainerNames = []string{exp.Target.IOChaos.ContainerName}
+<span id="L277" class="ln">   277  </span>	if exp.Scheduler.Duration != &#34;&#34; {
+<span id="L278" class="ln">   278  </span>		chaos.Spec.Duration = &amp;exp.Scheduler.Duration
 <span id="L279" class="ln">   279  </span>	}
 <span id="L280" class="ln">   280  </span>
-<span id="L281" class="ln">   281  </span>	if exp.Scheduler.Duration != &#34;&#34; {
-<span id="L282" class="ln">   282  </span>		chaos.Spec.Duration = &amp;exp.Scheduler.Duration
-<span id="L283" class="ln">   283  </span>	}
-<span id="L284" class="ln">   284  </span>
-<span id="L285" class="ln">   285  </span>	return kubeCli.Create(context.Background(), chaos)
-<span id="L286" class="ln">   286  </span>}
-<span id="L287" class="ln">   287  </span>
-<span id="L288" class="ln">   288  </span>func (s *Service) createTimeChaos(exp *core.ExperimentInfo, kubeCli client.Client) error {
-<span id="L289" class="ln">   289  </span>	chaos := &amp;v1alpha1.TimeChaos{
-<span id="L290" class="ln">   290  </span>		ObjectMeta: metav1.ObjectMeta{
-<span id="L291" class="ln">   291  </span>			Name:        exp.Name,
-<span id="L292" class="ln">   292  </span>			Namespace:   exp.Namespace,
-<span id="L293" class="ln">   293  </span>			Labels:      exp.Labels,
-<span id="L294" class="ln">   294  </span>			Annotations: exp.Annotations,
-<span id="L295" class="ln">   295  </span>		},
-<span id="L296" class="ln">   296  </span>		Spec: v1alpha1.TimeChaosSpec{
-<span id="L297" class="ln">   297  </span>			ContainerSelector: v1alpha1.ContainerSelector{
-<span id="L298" class="ln">   298  </span>				PodSelector: v1alpha1.PodSelector{
-<span id="L299" class="ln">   299  </span>					Selector: exp.Scope.ParseSelector(),
-<span id="L300" class="ln">   300  </span>					Mode:     v1alpha1.PodMode(exp.Scope.Mode),
-<span id="L301" class="ln">   301  </span>					Value:    exp.Scope.Value,
-<span id="L302" class="ln">   302  </span>				},
-<span id="L303" class="ln">   303  </span>			},
-<span id="L304" class="ln">   304  </span>			TimeOffset: exp.Target.TimeChaos.TimeOffset,
-<span id="L305" class="ln">   305  </span>			ClockIds:   exp.Target.TimeChaos.ClockIDs,
-<span id="L306" class="ln">   306  </span>		},
+<span id="L281" class="ln">   281  </span>	return kubeCli.Create(context.Background(), chaos)
+<span id="L282" class="ln">   282  </span>}
+<span id="L283" class="ln">   283  </span>
+<span id="L284" class="ln">   284  </span>func (s *Service) createTimeChaos(exp *core.ExperimentInfo, kubeCli client.Client) error {
+<span id="L285" class="ln">   285  </span>	chaos := &amp;v1alpha1.TimeChaos{
+<span id="L286" class="ln">   286  </span>		ObjectMeta: metav1.ObjectMeta{
+<span id="L287" class="ln">   287  </span>			Name:        exp.Name,
+<span id="L288" class="ln">   288  </span>			Namespace:   exp.Namespace,
+<span id="L289" class="ln">   289  </span>			Labels:      exp.Labels,
+<span id="L290" class="ln">   290  </span>			Annotations: exp.Annotations,
+<span id="L291" class="ln">   291  </span>		},
+<span id="L292" class="ln">   292  </span>		Spec: v1alpha1.TimeChaosSpec{
+<span id="L293" class="ln">   293  </span>			ContainerSelector: v1alpha1.ContainerSelector{
+<span id="L294" class="ln">   294  </span>				PodSelector: v1alpha1.PodSelector{
+<span id="L295" class="ln">   295  </span>					Selector: exp.Scope.ParseSelector(),
+<span id="L296" class="ln">   296  </span>					Mode:     v1alpha1.PodMode(exp.Scope.Mode),
+<span id="L297" class="ln">   297  </span>					Value:    exp.Scope.Value,
+<span id="L298" class="ln">   298  </span>				},
+<span id="L299" class="ln">   299  </span>			},
+<span id="L300" class="ln">   300  </span>			TimeOffset: exp.Target.TimeChaos.TimeOffset,
+<span id="L301" class="ln">   301  </span>			ClockIds:   exp.Target.TimeChaos.ClockIDs,
+<span id="L302" class="ln">   302  </span>		},
+<span id="L303" class="ln">   303  </span>	}
+<span id="L304" class="ln">   304  </span>
+<span id="L305" class="ln">   305  </span>	if len(exp.Target.TimeChaos.ContainerNames) != 0 {
+<span id="L306" class="ln">   306  </span>		chaos.Spec.ContainerNames = exp.Target.TimeChaos.ContainerNames
 <span id="L307" class="ln">   307  </span>	}
 <span id="L308" class="ln">   308  </span>
-<span id="L309" class="ln">   309  </span>	if len(exp.Target.TimeChaos.ContainerNames) != 0 {
-<span id="L310" class="ln">   310  </span>		chaos.Spec.ContainerNames = exp.Target.TimeChaos.ContainerNames
+<span id="L309" class="ln">   309  </span>	if exp.Scheduler.Duration != &#34;&#34; {
+<span id="L310" class="ln">   310  </span>		chaos.Spec.Duration = &amp;exp.Scheduler.Duration
 <span id="L311" class="ln">   311  </span>	}
 <span id="L312" class="ln">   312  </span>
-<span id="L313" class="ln">   313  </span>	if exp.Scheduler.Duration != &#34;&#34; {
-<span id="L314" class="ln">   314  </span>		chaos.Spec.Duration = &amp;exp.Scheduler.Duration
-<span id="L315" class="ln">   315  </span>	}
-<span id="L316" class="ln">   316  </span>
-<span id="L317" class="ln">   317  </span>	return kubeCli.Create(context.Background(), chaos)
-<span id="L318" class="ln">   318  </span>}
-<span id="L319" class="ln">   319  </span>
-<span id="L320" class="ln">   320  </span>func (s *Service) createKernelChaos(exp *core.ExperimentInfo, kubeCli client.Client) error {
-<span id="L321" class="ln">   321  </span>	chaos := &amp;v1alpha1.KernelChaos{
-<span id="L322" class="ln">   322  </span>		ObjectMeta: metav1.ObjectMeta{
-<span id="L323" class="ln">   323  </span>			Name:        exp.Name,
-<span id="L324" class="ln">   324  </span>			Namespace:   exp.Namespace,
-<span id="L325" class="ln">   325  </span>			Labels:      exp.Labels,
-<span id="L326" class="ln">   326  </span>			Annotations: exp.Annotations,
-<span id="L327" class="ln">   327  </span>		},
-<span id="L328" class="ln">   328  </span>		Spec: v1alpha1.KernelChaosSpec{
-<span id="L329" class="ln">   329  </span>			PodSelector: v1alpha1.PodSelector{
-<span id="L330" class="ln">   330  </span>				Selector: exp.Scope.ParseSelector(),
-<span id="L331" class="ln">   331  </span>				Mode:     v1alpha1.PodMode(exp.Scope.Mode),
-<span id="L332" class="ln">   332  </span>				Value:    exp.Scope.Value,
-<span id="L333" class="ln">   333  </span>			},
-<span id="L334" class="ln">   334  </span>			FailKernRequest: exp.Target.KernelChaos.FailKernRequest,
-<span id="L335" class="ln">   335  </span>		},
+<span id="L313" class="ln">   313  </span>	return kubeCli.Create(context.Background(), chaos)
+<span id="L314" class="ln">   314  </span>}
+<span id="L315" class="ln">   315  </span>
+<span id="L316" class="ln">   316  </span>func (s *Service) createKernelChaos(exp *core.ExperimentInfo, kubeCli client.Client) error {
+<span id="L317" class="ln">   317  </span>	chaos := &amp;v1alpha1.KernelChaos{
+<span id="L318" class="ln">   318  </span>		ObjectMeta: metav1.ObjectMeta{
+<span id="L319" class="ln">   319  </span>			Name:        exp.Name,
+<span id="L320" class="ln">   320  </span>			Namespace:   exp.Namespace,
+<span id="L321" class="ln">   321  </span>			Labels:      exp.Labels,
+<span id="L322" class="ln">   322  </span>			Annotations: exp.Annotations,
+<span id="L323" class="ln">   323  </span>		},
+<span id="L324" class="ln">   324  </span>		Spec: v1alpha1.KernelChaosSpec{
+<span id="L325" class="ln">   325  </span>			PodSelector: v1alpha1.PodSelector{
+<span id="L326" class="ln">   326  </span>				Selector: exp.Scope.ParseSelector(),
+<span id="L327" class="ln">   327  </span>				Mode:     v1alpha1.PodMode(exp.Scope.Mode),
+<span id="L328" class="ln">   328  </span>				Value:    exp.Scope.Value,
+<span id="L329" class="ln">   329  </span>			},
+<span id="L330" class="ln">   330  </span>			FailKernRequest: exp.Target.KernelChaos.FailKernRequest,
+<span id="L331" class="ln">   331  </span>		},
+<span id="L332" class="ln">   332  </span>	}
+<span id="L333" class="ln">   333  </span>
+<span id="L334" class="ln">   334  </span>	if exp.Scheduler.Duration != &#34;&#34; {
+<span id="L335" class="ln">   335  </span>		chaos.Spec.Duration = &amp;exp.Scheduler.Duration
 <span id="L336" class="ln">   336  </span>	}
 <span id="L337" class="ln">   337  </span>
-<span id="L338" class="ln">   338  </span>	if exp.Scheduler.Duration != &#34;&#34; {
-<span id="L339" class="ln">   339  </span>		chaos.Spec.Duration = &amp;exp.Scheduler.Duration
-<span id="L340" class="ln">   340  </span>	}
-<span id="L341" class="ln">   341  </span>
-<span id="L342" class="ln">   342  </span>	return kubeCli.Create(context.Background(), chaos)
-<span id="L343" class="ln">   343  </span>}
-<span id="L344" class="ln">   344  </span>
-<span id="L345" class="ln">   345  </span>func (s *Service) createStressChaos(exp *core.ExperimentInfo, kubeCli client.Client) error {
-<span id="L346" class="ln">   346  </span>	var stressors *v1alpha1.Stressors
-<span id="L347" class="ln">   347  </span>
-<span id="L348" class="ln">   348  </span>	<span class="comment">// Error checking</span>
-<span id="L349" class="ln">   349  </span>	originStressors := exp.Target.StressChaos.Stressors
-<span id="L350" class="ln">   350  </span>	if originStressors == nil {
-<span id="L351" class="ln">   351  </span>		return utils.ErrInvalidRequest.New(&#34;stressor is required&#34;)
-<span id="L352" class="ln">   352  </span>	}
-<span id="L353" class="ln">   353  </span>	if originStressors.CPUStressor == nil &amp;&amp; originStressors.MemoryStressor == nil {
-<span id="L354" class="ln">   354  </span>		return utils.ErrInvalidRequest.New(&#34;one of CPUStressor or MemoryStressor is required&#34;)
-<span id="L355" class="ln">   355  </span>	}
-<span id="L356" class="ln">   356  </span>	if originStressors.MemoryStressor != nil &amp;&amp; originStressors.MemoryStressor.Workers &gt; 0 &amp;&amp;
-<span id="L357" class="ln">   357  </span>		(originStressors.CPUStressor == nil || originStressors.CPUStressor.Workers &lt;= 0) {
-<span id="L358" class="ln">   358  </span>		stressors = &amp;v1alpha1.Stressors{
-<span id="L359" class="ln">   359  </span>			MemoryStressor: originStressors.MemoryStressor,
-<span id="L360" class="ln">   360  </span>		}
-<span id="L361" class="ln">   361  </span>	} else if originStressors.CPUStressor != nil &amp;&amp; originStressors.CPUStressor.Workers &gt; 0 &amp;&amp;
-<span id="L362" class="ln">   362  </span>		(originStressors.MemoryStressor == nil || originStressors.MemoryStressor.Workers &lt;= 0) {
-<span id="L363" class="ln">   363  </span>		stressors = &amp;v1alpha1.Stressors{
-<span id="L364" class="ln">   364  </span>			CPUStressor: originStressors.CPUStressor,
-<span id="L365" class="ln">   365  </span>		}
-<span id="L366" class="ln">   366  </span>	} else {
-<span id="L367" class="ln">   367  </span>		stressors = originStressors
-<span id="L368" class="ln">   368  </span>	}
-<span id="L369" class="ln">   369  </span>
-<span id="L370" class="ln">   370  </span>	chaos := &amp;v1alpha1.StressChaos{
-<span id="L371" class="ln">   371  </span>		ObjectMeta: metav1.ObjectMeta{
-<span id="L372" class="ln">   372  </span>			Name:        exp.Name,
-<span id="L373" class="ln">   373  </span>			Namespace:   exp.Namespace,
-<span id="L374" class="ln">   374  </span>			Labels:      exp.Labels,
-<span id="L375" class="ln">   375  </span>			Annotations: exp.Annotations,
-<span id="L376" class="ln">   376  </span>		},
-<span id="L377" class="ln">   377  </span>		Spec: v1alpha1.StressChaosSpec{
-<span id="L378" class="ln">   378  </span>			ContainerSelector: v1alpha1.ContainerSelector{
-<span id="L379" class="ln">   379  </span>				PodSelector: v1alpha1.PodSelector{
-<span id="L380" class="ln">   380  </span>					Selector: exp.Scope.ParseSelector(),
-<span id="L381" class="ln">   381  </span>					Mode:     v1alpha1.PodMode(exp.Scope.Mode),
-<span id="L382" class="ln">   382  </span>					Value:    exp.Scope.Value,
-<span id="L383" class="ln">   383  </span>				},
-<span id="L384" class="ln">   384  </span>				ContainerNames: exp.Target.StressChaos.ContainerNames,
-<span id="L385" class="ln">   385  </span>			},
-<span id="L386" class="ln">   386  </span>			Stressors:         stressors,
-<span id="L387" class="ln">   387  </span>			StressngStressors: exp.Target.StressChaos.StressngStressors,
-<span id="L388" class="ln">   388  </span>		},
+<span id="L338" class="ln">   338  </span>	return kubeCli.Create(context.Background(), chaos)
+<span id="L339" class="ln">   339  </span>}
+<span id="L340" class="ln">   340  </span>
+<span id="L341" class="ln">   341  </span>func (s *Service) createStressChaos(exp *core.ExperimentInfo, kubeCli client.Client) error {
+<span id="L342" class="ln">   342  </span>	var stressors *v1alpha1.Stressors
+<span id="L343" class="ln">   343  </span>
+<span id="L344" class="ln">   344  </span>	<span class="comment">// Error checking</span>
+<span id="L345" class="ln">   345  </span>	originStressors := exp.Target.StressChaos.Stressors
+<span id="L346" class="ln">   346  </span>	if originStressors == nil {
+<span id="L347" class="ln">   347  </span>		return utils.ErrInvalidRequest.New(&#34;stressor is required&#34;)
+<span id="L348" class="ln">   348  </span>	}
+<span id="L349" class="ln">   349  </span>	if originStressors.CPUStressor == nil &amp;&amp; originStressors.MemoryStressor == nil {
+<span id="L350" class="ln">   350  </span>		return utils.ErrInvalidRequest.New(&#34;one of CPUStressor or MemoryStressor is required&#34;)
+<span id="L351" class="ln">   351  </span>	}
+<span id="L352" class="ln">   352  </span>	if originStressors.MemoryStressor != nil &amp;&amp; originStressors.MemoryStressor.Workers &gt; 0 &amp;&amp;
+<span id="L353" class="ln">   353  </span>		(originStressors.CPUStressor == nil || originStressors.CPUStressor.Workers &lt;= 0) {
+<span id="L354" class="ln">   354  </span>		stressors = &amp;v1alpha1.Stressors{
+<span id="L355" class="ln">   355  </span>			MemoryStressor: originStressors.MemoryStressor,
+<span id="L356" class="ln">   356  </span>		}
+<span id="L357" class="ln">   357  </span>	} else if originStressors.CPUStressor != nil &amp;&amp; originStressors.CPUStressor.Workers &gt; 0 &amp;&amp;
+<span id="L358" class="ln">   358  </span>		(originStressors.MemoryStressor == nil || originStressors.MemoryStressor.Workers &lt;= 0) {
+<span id="L359" class="ln">   359  </span>		stressors = &amp;v1alpha1.Stressors{
+<span id="L360" class="ln">   360  </span>			CPUStressor: originStressors.CPUStressor,
+<span id="L361" class="ln">   361  </span>		}
+<span id="L362" class="ln">   362  </span>	} else {
+<span id="L363" class="ln">   363  </span>		stressors = originStressors
+<span id="L364" class="ln">   364  </span>	}
+<span id="L365" class="ln">   365  </span>
+<span id="L366" class="ln">   366  </span>	chaos := &amp;v1alpha1.StressChaos{
+<span id="L367" class="ln">   367  </span>		ObjectMeta: metav1.ObjectMeta{
+<span id="L368" class="ln">   368  </span>			Name:        exp.Name,
+<span id="L369" class="ln">   369  </span>			Namespace:   exp.Namespace,
+<span id="L370" class="ln">   370  </span>			Labels:      exp.Labels,
+<span id="L371" class="ln">   371  </span>			Annotations: exp.Annotations,
+<span id="L372" class="ln">   372  </span>		},
+<span id="L373" class="ln">   373  </span>		Spec: v1alpha1.StressChaosSpec{
+<span id="L374" class="ln">   374  </span>			ContainerSelector: v1alpha1.ContainerSelector{
+<span id="L375" class="ln">   375  </span>				PodSelector: v1alpha1.PodSelector{
+<span id="L376" class="ln">   376  </span>					Selector: exp.Scope.ParseSelector(),
+<span id="L377" class="ln">   377  </span>					Mode:     v1alpha1.PodMode(exp.Scope.Mode),
+<span id="L378" class="ln">   378  </span>					Value:    exp.Scope.Value,
+<span id="L379" class="ln">   379  </span>				},
+<span id="L380" class="ln">   380  </span>				ContainerNames: exp.Target.StressChaos.ContainerNames,
+<span id="L381" class="ln">   381  </span>			},
+<span id="L382" class="ln">   382  </span>			Stressors:         stressors,
+<span id="L383" class="ln">   383  </span>			StressngStressors: exp.Target.StressChaos.StressngStressors,
+<span id="L384" class="ln">   384  </span>		},
+<span id="L385" class="ln">   385  </span>	}
+<span id="L386" class="ln">   386  </span>
+<span id="L387" class="ln">   387  </span>	if exp.Scheduler.Duration != &#34;&#34; {
+<span id="L388" class="ln">   388  </span>		chaos.Spec.Duration = &amp;exp.Scheduler.Duration
 <span id="L389" class="ln">   389  </span>	}
 <span id="L390" class="ln">   390  </span>
-<span id="L391" class="ln">   391  </span>	if exp.Scheduler.Duration != &#34;&#34; {
-<span id="L392" class="ln">   392  </span>		chaos.Spec.Duration = &amp;exp.Scheduler.Duration
-<span id="L393" class="ln">   393  </span>	}
-<span id="L394" class="ln">   394  </span>
-<span id="L395" class="ln">   395  </span>	return kubeCli.Create(context.Background(), chaos)
-<span id="L396" class="ln">   396  </span>}
-<span id="L397" class="ln">   397  </span>
-<span id="L398" class="ln">   398  </span>func (s *Service) createDNSChaos(exp *core.ExperimentInfo, kubeCli client.Client) error {
-<span id="L399" class="ln">   399  </span>	chaos := &amp;v1alpha1.DNSChaos{
-<span id="L400" class="ln">   400  </span>		ObjectMeta: metav1.ObjectMeta{
-<span id="L401" class="ln">   401  </span>			Name:        exp.Name,
-<span id="L402" class="ln">   402  </span>			Namespace:   exp.Namespace,
-<span id="L403" class="ln">   403  </span>			Labels:      exp.Labels,
-<span id="L404" class="ln">   404  </span>			Annotations: exp.Annotations,
-<span id="L405" class="ln">   405  </span>		},
-<span id="L406" class="ln">   406  </span>		Spec: v1alpha1.DNSChaosSpec{
-<span id="L407" class="ln">   407  </span>			Action: v1alpha1.DNSChaosAction(exp.Target.DNSChaos.Action),
-<span id="L408" class="ln">   408  </span>			ContainerSelector: v1alpha1.ContainerSelector{
-<span id="L409" class="ln">   409  </span>				PodSelector: v1alpha1.PodSelector{
-<span id="L410" class="ln">   410  </span>					Selector: exp.Scope.ParseSelector(),
-<span id="L411" class="ln">   411  </span>					Mode:     v1alpha1.PodMode(exp.Scope.Mode),
-<span id="L412" class="ln">   412  </span>					Value:    exp.Scope.Value,
-<span id="L413" class="ln">   413  </span>				},
-<span id="L414" class="ln">   414  </span>			},
-<span id="L415" class="ln">   415  </span>			DomainNamePatterns: exp.Target.DNSChaos.DomainNamePatterns,
-<span id="L416" class="ln">   416  </span>		},
+<span id="L391" class="ln">   391  </span>	return kubeCli.Create(context.Background(), chaos)
+<span id="L392" class="ln">   392  </span>}
+<span id="L393" class="ln">   393  </span>
+<span id="L394" class="ln">   394  </span>func (s *Service) createDNSChaos(exp *core.ExperimentInfo, kubeCli client.Client) error {
+<span id="L395" class="ln">   395  </span>	chaos := &amp;v1alpha1.DNSChaos{
+<span id="L396" class="ln">   396  </span>		ObjectMeta: metav1.ObjectMeta{
+<span id="L397" class="ln">   397  </span>			Name:        exp.Name,
+<span id="L398" class="ln">   398  </span>			Namespace:   exp.Namespace,
+<span id="L399" class="ln">   399  </span>			Labels:      exp.Labels,
+<span id="L400" class="ln">   400  </span>			Annotations: exp.Annotations,
+<span id="L401" class="ln">   401  </span>		},
+<span id="L402" class="ln">   402  </span>		Spec: v1alpha1.DNSChaosSpec{
+<span id="L403" class="ln">   403  </span>			Action: v1alpha1.DNSChaosAction(exp.Target.DNSChaos.Action),
+<span id="L404" class="ln">   404  </span>			ContainerSelector: v1alpha1.ContainerSelector{
+<span id="L405" class="ln">   405  </span>				PodSelector: v1alpha1.PodSelector{
+<span id="L406" class="ln">   406  </span>					Selector: exp.Scope.ParseSelector(),
+<span id="L407" class="ln">   407  </span>					Mode:     v1alpha1.PodMode(exp.Scope.Mode),
+<span id="L408" class="ln">   408  </span>					Value:    exp.Scope.Value,
+<span id="L409" class="ln">   409  </span>				},
+<span id="L410" class="ln">   410  </span>			},
+<span id="L411" class="ln">   411  </span>			DomainNamePatterns: exp.Target.DNSChaos.DomainNamePatterns,
+<span id="L412" class="ln">   412  </span>		},
+<span id="L413" class="ln">   413  </span>	}
+<span id="L414" class="ln">   414  </span>
+<span id="L415" class="ln">   415  </span>	if len(exp.Target.DNSChaos.ContainerNames) != 0 {
+<span id="L416" class="ln">   416  </span>		chaos.Spec.ContainerNames = exp.Target.DNSChaos.ContainerNames
 <span id="L417" class="ln">   417  </span>	}
 <span id="L418" class="ln">   418  </span>
-<span id="L419" class="ln">   419  </span>	if len(exp.Target.DNSChaos.ContainerNames) != 0 {
-<span id="L420" class="ln">   420  </span>		chaos.Spec.ContainerNames = exp.Target.DNSChaos.ContainerNames
+<span id="L419" class="ln">   419  </span>	if exp.Scheduler.Duration != &#34;&#34; {
+<span id="L420" class="ln">   420  </span>		chaos.Spec.Duration = &amp;exp.Scheduler.Duration
 <span id="L421" class="ln">   421  </span>	}
 <span id="L422" class="ln">   422  </span>
-<span id="L423" class="ln">   423  </span>	if exp.Scheduler.Duration != &#34;&#34; {
-<span id="L424" class="ln">   424  </span>		chaos.Spec.Duration = &amp;exp.Scheduler.Duration
-<span id="L425" class="ln">   425  </span>	}
-<span id="L426" class="ln">   426  </span>
-<span id="L427" class="ln">   427  </span>	return kubeCli.Create(context.Background(), chaos)
-<span id="L428" class="ln">   428  </span>}
-<span id="L429" class="ln">   429  </span>
-<span id="L430" class="ln">   430  </span>func (s *Service) createAWSChaos(exp *core.ExperimentInfo, kubeCli client.Client) error {
-<span id="L431" class="ln">   431  </span>	chaos := &amp;v1alpha1.AWSChaos{
-<span id="L432" class="ln">   432  </span>		ObjectMeta: metav1.ObjectMeta{
-<span id="L433" class="ln">   433  </span>			Name:        exp.Name,
-<span id="L434" class="ln">   434  </span>			Namespace:   exp.Namespace,
-<span id="L435" class="ln">   435  </span>			Labels:      exp.Labels,
-<span id="L436" class="ln">   436  </span>			Annotations: exp.Annotations,
-<span id="L437" class="ln">   437  </span>		},
-<span id="L438" class="ln">   438  </span>		Spec: v1alpha1.AWSChaosSpec{
-<span id="L439" class="ln">   439  </span>			Action:     v1alpha1.AWSChaosAction(exp.Target.AWSChaos.Action),
-<span id="L440" class="ln">   440  </span>			SecretName: exp.Target.AWSChaos.SecretName,
-<span id="L441" class="ln">   441  </span>			AWSSelector: v1alpha1.AWSSelector{
-<span id="L442" class="ln">   442  </span>				AWSRegion:   exp.Target.AWSChaos.AWSRegion,
-<span id="L443" class="ln">   443  </span>				Ec2Instance: exp.Target.AWSChaos.Ec2Instance,
-<span id="L444" class="ln">   444  </span>				EbsVolume:   exp.Target.AWSChaos.EbsVolume,
-<span id="L445" class="ln">   445  </span>				DeviceName:  exp.Target.AWSChaos.DeviceName,
-<span id="L446" class="ln">   446  </span>			},
-<span id="L447" class="ln">   447  </span>		},
+<span id="L423" class="ln">   423  </span>	return kubeCli.Create(context.Background(), chaos)
+<span id="L424" class="ln">   424  </span>}
+<span id="L425" class="ln">   425  </span>
+<span id="L426" class="ln">   426  </span>func (s *Service) createAWSChaos(exp *core.ExperimentInfo, kubeCli client.Client) error {
+<span id="L427" class="ln">   427  </span>	chaos := &amp;v1alpha1.AWSChaos{
+<span id="L428" class="ln">   428  </span>		ObjectMeta: metav1.ObjectMeta{
+<span id="L429" class="ln">   429  </span>			Name:        exp.Name,
+<span id="L430" class="ln">   430  </span>			Namespace:   exp.Namespace,
+<span id="L431" class="ln">   431  </span>			Labels:      exp.Labels,
+<span id="L432" class="ln">   432  </span>			Annotations: exp.Annotations,
+<span id="L433" class="ln">   433  </span>		},
+<span id="L434" class="ln">   434  </span>		Spec: v1alpha1.AWSChaosSpec{
+<span id="L435" class="ln">   435  </span>			Action:     v1alpha1.AWSChaosAction(exp.Target.AWSChaos.Action),
+<span id="L436" class="ln">   436  </span>			SecretName: exp.Target.AWSChaos.SecretName,
+<span id="L437" class="ln">   437  </span>			AWSSelector: v1alpha1.AWSSelector{
+<span id="L438" class="ln">   438  </span>				AWSRegion:   exp.Target.AWSChaos.AWSRegion,
+<span id="L439" class="ln">   439  </span>				Ec2Instance: exp.Target.AWSChaos.Ec2Instance,
+<span id="L440" class="ln">   440  </span>				EbsVolume:   exp.Target.AWSChaos.EbsVolume,
+<span id="L441" class="ln">   441  </span>				DeviceName:  exp.Target.AWSChaos.DeviceName,
+<span id="L442" class="ln">   442  </span>			},
+<span id="L443" class="ln">   443  </span>		},
+<span id="L444" class="ln">   444  </span>	}
+<span id="L445" class="ln">   445  </span>
+<span id="L446" class="ln">   446  </span>	if exp.Scheduler.Duration != &#34;&#34; {
+<span id="L447" class="ln">   447  </span>		chaos.Spec.Duration = &amp;exp.Scheduler.Duration
 <span id="L448" class="ln">   448  </span>	}
 <span id="L449" class="ln">   449  </span>
-<span id="L450" class="ln">   450  </span>	if exp.Scheduler.Duration != &#34;&#34; {
-<span id="L451" class="ln">   451  </span>		chaos.Spec.Duration = &amp;exp.Scheduler.Duration
-<span id="L452" class="ln">   452  </span>	}
-<span id="L453" class="ln">   453  </span>
-<span id="L454" class="ln">   454  </span>	return kubeCli.Create(context.Background(), chaos)
-<span id="L455" class="ln">   455  </span>}
-<span id="L456" class="ln">   456  </span>
-<span id="L457" class="ln">   457  </span>func (s *Service) createGCPChaos(exp *core.ExperimentInfo, kubeCli client.Client) error {
-<span id="L458" class="ln">   458  </span>	chaos := &amp;v1alpha1.GCPChaos{
-<span id="L459" class="ln">   459  </span>		ObjectMeta: metav1.ObjectMeta{
-<span id="L460" class="ln">   460  </span>			Name:        exp.Name,
-<span id="L461" class="ln">   461  </span>			Namespace:   exp.Namespace,
-<span id="L462" class="ln">   462  </span>			Labels:      exp.Labels,
-<span id="L463" class="ln">   463  </span>			Annotations: exp.Annotations,
-<span id="L464" class="ln">   464  </span>		},
-<span id="L465" class="ln">   465  </span>		Spec: v1alpha1.GCPChaosSpec{
-<span id="L466" class="ln">   466  </span>			Action:     v1alpha1.GCPChaosAction(exp.Target.GCPChaos.Action),
-<span id="L467" class="ln">   467  </span>			SecretName: exp.Target.GCPChaos.SecretName,
-<span id="L468" class="ln">   468  </span>			GCPSelector: v1alpha1.GCPSelector{
-<span id="L469" class="ln">   469  </span>				Project:     exp.Target.GCPChaos.Project,
-<span id="L470" class="ln">   470  </span>				Zone:        exp.Target.GCPChaos.Zone,
-<span id="L471" class="ln">   471  </span>				Instance:    exp.Target.GCPChaos.Instance,
-<span id="L472" class="ln">   472  </span>				DeviceNames: exp.Target.GCPChaos.DeviceNames,
-<span id="L473" class="ln">   473  </span>			},
-<span id="L474" class="ln">   474  </span>		},
+<span id="L450" class="ln">   450  </span>	return kubeCli.Create(context.Background(), chaos)
+<span id="L451" class="ln">   451  </span>}
+<span id="L452" class="ln">   452  </span>
+<span id="L453" class="ln">   453  </span>func (s *Service) createGCPChaos(exp *core.ExperimentInfo, kubeCli client.Client) error {
+<span id="L454" class="ln">   454  </span>	chaos := &amp;v1alpha1.GCPChaos{
+<span id="L455" class="ln">   455  </span>		ObjectMeta: metav1.ObjectMeta{
+<span id="L456" class="ln">   456  </span>			Name:        exp.Name,
+<span id="L457" class="ln">   457  </span>			Namespace:   exp.Namespace,
+<span id="L458" class="ln">   458  </span>			Labels:      exp.Labels,
+<span id="L459" class="ln">   459  </span>			Annotations: exp.Annotations,
+<span id="L460" class="ln">   460  </span>		},
+<span id="L461" class="ln">   461  </span>		Spec: v1alpha1.GCPChaosSpec{
+<span id="L462" class="ln">   462  </span>			Action:     v1alpha1.GCPChaosAction(exp.Target.GCPChaos.Action),
+<span id="L463" class="ln">   463  </span>			SecretName: exp.Target.GCPChaos.SecretName,
+<span id="L464" class="ln">   464  </span>			GCPSelector: v1alpha1.GCPSelector{
+<span id="L465" class="ln">   465  </span>				Project:     exp.Target.GCPChaos.Project,
+<span id="L466" class="ln">   466  </span>				Zone:        exp.Target.GCPChaos.Zone,
+<span id="L467" class="ln">   467  </span>				Instance:    exp.Target.GCPChaos.Instance,
+<span id="L468" class="ln">   468  </span>				DeviceNames: exp.Target.GCPChaos.DeviceNames,
+<span id="L469" class="ln">   469  </span>			},
+<span id="L470" class="ln">   470  </span>		},
+<span id="L471" class="ln">   471  </span>	}
+<span id="L472" class="ln">   472  </span>
+<span id="L473" class="ln">   473  </span>	if exp.Scheduler.Duration != &#34;&#34; {
+<span id="L474" class="ln">   474  </span>		chaos.Spec.Duration = &amp;exp.Scheduler.Duration
 <span id="L475" class="ln">   475  </span>	}
 <span id="L476" class="ln">   476  </span>
-<span id="L477" class="ln">   477  </span>	if exp.Scheduler.Duration != &#34;&#34; {
-<span id="L478" class="ln">   478  </span>		chaos.Spec.Duration = &amp;exp.Scheduler.Duration
-<span id="L479" class="ln">   479  </span>	}
-<span id="L480" class="ln">   480  </span>
-<span id="L481" class="ln">   481  </span>	return kubeCli.Create(context.Background(), chaos)
-<span id="L482" class="ln">   482  </span>}
-<span id="L483" class="ln">   483  </span>
-<span id="L484" class="ln">   484  </span>func (s *Service) getPodChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
-<span id="L485" class="ln">   485  </span>	chaos := &amp;v1alpha1.PodChaos{}
-<span id="L486" class="ln">   486  </span>
-<span id="L487" class="ln">   487  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
-<span id="L488" class="ln">   488  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
-<span id="L489" class="ln">   489  </span>		if apierrors.IsNotFound(err) {
-<span id="L490" class="ln">   490  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
-<span id="L491" class="ln">   491  </span>		}
-<span id="L492" class="ln">   492  </span>
-<span id="L493" class="ln">   493  </span>		return Detail{}, err
-<span id="L494" class="ln">   494  </span>	}
-<span id="L495" class="ln">   495  </span>
-<span id="L496" class="ln">   496  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
-<span id="L497" class="ln">   497  </span>	if err != nil {
-<span id="L498" class="ln">   498  </span>		return Detail{}, err
-<span id="L499" class="ln">   499  </span>	}
-<span id="L500" class="ln">   500  </span>
-<span id="L501" class="ln">   501  </span>	return Detail{
-<span id="L502" class="ln">   502  </span>		Experiment: Experiment{
-<span id="L503" class="ln">   503  </span>			Base: Base{
-<span id="L504" class="ln">   504  </span>				Kind:      gvk.Kind,
-<span id="L505" class="ln">   505  </span>				Namespace: chaos.Namespace,
-<span id="L506" class="ln">   506  </span>				Name:      chaos.Name,
-<span id="L507" class="ln">   507  </span>			},
-<span id="L508" class="ln">   508  </span>			UID:     chaos.GetChaos().UID,
-<span id="L509" class="ln">   509  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
-<span id="L510" class="ln">   510  </span>			Status:  string(utils.GetChaosState(chaos)),
-<span id="L511" class="ln">   511  </span>		},
-<span id="L512" class="ln">   512  </span>		KubeObject: core.KubeObjectDesc{
-<span id="L513" class="ln">   513  </span>			TypeMeta: metav1.TypeMeta{
-<span id="L514" class="ln">   514  </span>				APIVersion: gvk.GroupVersion().String(),
-<span id="L515" class="ln">   515  </span>				Kind:       gvk.Kind,
-<span id="L516" class="ln">   516  </span>			},
-<span id="L517" class="ln">   517  </span>			Meta: core.KubeObjectMeta{
-<span id="L518" class="ln">   518  </span>				Name:        chaos.Name,
-<span id="L519" class="ln">   519  </span>				Namespace:   chaos.Namespace,
-<span id="L520" class="ln">   520  </span>				Labels:      chaos.Labels,
-<span id="L521" class="ln">   521  </span>				Annotations: chaos.Annotations,
-<span id="L522" class="ln">   522  </span>			},
-<span id="L523" class="ln">   523  </span>			Spec: chaos.Spec,
-<span id="L524" class="ln">   524  </span>		},
-<span id="L525" class="ln">   525  </span>	}, nil
-<span id="L526" class="ln">   526  </span>}
-<span id="L527" class="ln">   527  </span>
-<span id="L528" class="ln">   528  </span>func (s *Service) getIOChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
-<span id="L529" class="ln">   529  </span>	chaos := &amp;v1alpha1.IOChaos{}
-<span id="L530" class="ln">   530  </span>
-<span id="L531" class="ln">   531  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
-<span id="L532" class="ln">   532  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
-<span id="L533" class="ln">   533  </span>		if apierrors.IsNotFound(err) {
-<span id="L534" class="ln">   534  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
-<span id="L535" class="ln">   535  </span>		}
-<span id="L536" class="ln">   536  </span>
-<span id="L537" class="ln">   537  </span>		return Detail{}, err
-<span id="L538" class="ln">   538  </span>	}
-<span id="L539" class="ln">   539  </span>
-<span id="L540" class="ln">   540  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
-<span id="L541" class="ln">   541  </span>	if err != nil {
-<span id="L542" class="ln">   542  </span>		return Detail{}, err
-<span id="L543" class="ln">   543  </span>	}
-<span id="L544" class="ln">   544  </span>
-<span id="L545" class="ln">   545  </span>	return Detail{
-<span id="L546" class="ln">   546  </span>		Experiment: Experiment{
-<span id="L547" class="ln">   547  </span>			Base: Base{
-<span id="L548" class="ln">   548  </span>				Kind:      gvk.Kind,
-<span id="L549" class="ln">   549  </span>				Namespace: chaos.Namespace,
-<span id="L550" class="ln">   550  </span>				Name:      chaos.Name,
-<span id="L551" class="ln">   551  </span>			},
-<span id="L552" class="ln">   552  </span>			UID:     chaos.GetChaos().UID,
-<span id="L553" class="ln">   553  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
-<span id="L554" class="ln">   554  </span>			Status:  string(utils.GetChaosState(chaos)),
-<span id="L555" class="ln">   555  </span>		},
-<span id="L556" class="ln">   556  </span>		KubeObject: core.KubeObjectDesc{
-<span id="L557" class="ln">   557  </span>			TypeMeta: metav1.TypeMeta{
-<span id="L558" class="ln">   558  </span>				APIVersion: gvk.GroupVersion().String(),
-<span id="L559" class="ln">   559  </span>				Kind:       gvk.Kind,
-<span id="L560" class="ln">   560  </span>			},
-<span id="L561" class="ln">   561  </span>			Meta: core.KubeObjectMeta{
-<span id="L562" class="ln">   562  </span>				Name:        chaos.Name,
-<span id="L563" class="ln">   563  </span>				Namespace:   chaos.Namespace,
-<span id="L564" class="ln">   564  </span>				Labels:      chaos.Labels,
-<span id="L565" class="ln">   565  </span>				Annotations: chaos.Annotations,
-<span id="L566" class="ln">   566  </span>			},
-<span id="L567" class="ln">   567  </span>			Spec: chaos.Spec,
-<span id="L568" class="ln">   568  </span>		},
-<span id="L569" class="ln">   569  </span>	}, nil
-<span id="L570" class="ln">   570  </span>}
-<span id="L571" class="ln">   571  </span>
-<span id="L572" class="ln">   572  </span>func (s *Service) getNetworkChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
-<span id="L573" class="ln">   573  </span>	chaos := &amp;v1alpha1.NetworkChaos{}
-<span id="L574" class="ln">   574  </span>
-<span id="L575" class="ln">   575  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
-<span id="L576" class="ln">   576  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
-<span id="L577" class="ln">   577  </span>		if apierrors.IsNotFound(err) {
-<span id="L578" class="ln">   578  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
-<span id="L579" class="ln">   579  </span>		}
-<span id="L580" class="ln">   580  </span>
-<span id="L581" class="ln">   581  </span>		return Detail{}, err
-<span id="L582" class="ln">   582  </span>	}
-<span id="L583" class="ln">   583  </span>
-<span id="L584" class="ln">   584  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
-<span id="L585" class="ln">   585  </span>	if err != nil {
-<span id="L586" class="ln">   586  </span>		return Detail{}, err
-<span id="L587" class="ln">   587  </span>	}
-<span id="L588" class="ln">   588  </span>
-<span id="L589" class="ln">   589  </span>	return Detail{
-<span id="L590" class="ln">   590  </span>		Experiment: Experiment{
-<span id="L591" class="ln">   591  </span>			Base: Base{
-<span id="L592" class="ln">   592  </span>				Kind:      gvk.Kind,
-<span id="L593" class="ln">   593  </span>				Namespace: chaos.Namespace,
-<span id="L594" class="ln">   594  </span>				Name:      chaos.Name,
-<span id="L595" class="ln">   595  </span>			},
-<span id="L596" class="ln">   596  </span>			UID:     chaos.GetChaos().UID,
-<span id="L597" class="ln">   597  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
-<span id="L598" class="ln">   598  </span>			Status:  string(utils.GetChaosState(chaos)),
-<span id="L599" class="ln">   599  </span>		},
-<span id="L600" class="ln">   600  </span>		KubeObject: core.KubeObjectDesc{
-<span id="L601" class="ln">   601  </span>			TypeMeta: metav1.TypeMeta{
-<span id="L602" class="ln">   602  </span>				APIVersion: gvk.GroupVersion().String(),
-<span id="L603" class="ln">   603  </span>				Kind:       gvk.Kind,
-<span id="L604" class="ln">   604  </span>			},
-<span id="L605" class="ln">   605  </span>			Meta: core.KubeObjectMeta{
-<span id="L606" class="ln">   606  </span>				Name:        chaos.Name,
-<span id="L607" class="ln">   607  </span>				Namespace:   chaos.Namespace,
-<span id="L608" class="ln">   608  </span>				Labels:      chaos.Labels,
-<span id="L609" class="ln">   609  </span>				Annotations: chaos.Annotations,
-<span id="L610" class="ln">   610  </span>			},
-<span id="L611" class="ln">   611  </span>			Spec: chaos.Spec,
-<span id="L612" class="ln">   612  </span>		},
-<span id="L613" class="ln">   613  </span>	}, nil
-<span id="L614" class="ln">   614  </span>}
-<span id="L615" class="ln">   615  </span>
-<span id="L616" class="ln">   616  </span>func (s *Service) getTimeChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
-<span id="L617" class="ln">   617  </span>	chaos := &amp;v1alpha1.TimeChaos{}
-<span id="L618" class="ln">   618  </span>
-<span id="L619" class="ln">   619  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
-<span id="L620" class="ln">   620  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
-<span id="L621" class="ln">   621  </span>		if apierrors.IsNotFound(err) {
-<span id="L622" class="ln">   622  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
-<span id="L623" class="ln">   623  </span>		}
-<span id="L624" class="ln">   624  </span>
-<span id="L625" class="ln">   625  </span>		return Detail{}, err
-<span id="L626" class="ln">   626  </span>	}
-<span id="L627" class="ln">   627  </span>
-<span id="L628" class="ln">   628  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
-<span id="L629" class="ln">   629  </span>	if err != nil {
-<span id="L630" class="ln">   630  </span>		return Detail{}, err
-<span id="L631" class="ln">   631  </span>	}
-<span id="L632" class="ln">   632  </span>
-<span id="L633" class="ln">   633  </span>	return Detail{
-<span id="L634" class="ln">   634  </span>		Experiment: Experiment{
-<span id="L635" class="ln">   635  </span>			Base: Base{
-<span id="L636" class="ln">   636  </span>				Kind:      gvk.Kind,
-<span id="L637" class="ln">   637  </span>				Namespace: chaos.Namespace,
-<span id="L638" class="ln">   638  </span>				Name:      chaos.Name,
-<span id="L639" class="ln">   639  </span>			},
-<span id="L640" class="ln">   640  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
-<span id="L641" class="ln">   641  </span>			Status:  string(utils.GetChaosState(chaos)),
-<span id="L642" class="ln">   642  </span>			UID:     chaos.GetChaos().UID,
-<span id="L643" class="ln">   643  </span>		},
-<span id="L644" class="ln">   644  </span>		KubeObject: core.KubeObjectDesc{
-<span id="L645" class="ln">   645  </span>			TypeMeta: metav1.TypeMeta{
-<span id="L646" class="ln">   646  </span>				APIVersion: gvk.GroupVersion().String(),
-<span id="L647" class="ln">   647  </span>				Kind:       gvk.Kind,
-<span id="L648" class="ln">   648  </span>			},
-<span id="L649" class="ln">   649  </span>			Meta: core.KubeObjectMeta{
-<span id="L650" class="ln">   650  </span>				Name:        chaos.Name,
-<span id="L651" class="ln">   651  </span>				Namespace:   chaos.Namespace,
-<span id="L652" class="ln">   652  </span>				Labels:      chaos.Labels,
-<span id="L653" class="ln">   653  </span>				Annotations: chaos.Annotations,
-<span id="L654" class="ln">   654  </span>			},
-<span id="L655" class="ln">   655  </span>			Spec: chaos.Spec,
-<span id="L656" class="ln">   656  </span>		},
-<span id="L657" class="ln">   657  </span>	}, nil
-<span id="L658" class="ln">   658  </span>}
-<span id="L659" class="ln">   659  </span>
-<span id="L660" class="ln">   660  </span>func (s *Service) getKernelChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
-<span id="L661" class="ln">   661  </span>	chaos := &amp;v1alpha1.KernelChaos{}
-<span id="L662" class="ln">   662  </span>
-<span id="L663" class="ln">   663  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
-<span id="L664" class="ln">   664  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
-<span id="L665" class="ln">   665  </span>		if apierrors.IsNotFound(err) {
-<span id="L666" class="ln">   666  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
-<span id="L667" class="ln">   667  </span>		}
-<span id="L668" class="ln">   668  </span>
-<span id="L669" class="ln">   669  </span>		return Detail{}, err
-<span id="L670" class="ln">   670  </span>	}
-<span id="L671" class="ln">   671  </span>
-<span id="L672" class="ln">   672  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
-<span id="L673" class="ln">   673  </span>	if err != nil {
-<span id="L674" class="ln">   674  </span>		return Detail{}, err
-<span id="L675" class="ln">   675  </span>	}
-<span id="L676" class="ln">   676  </span>
-<span id="L677" class="ln">   677  </span>	return Detail{
-<span id="L678" class="ln">   678  </span>		Experiment: Experiment{
-<span id="L679" class="ln">   679  </span>			Base: Base{
-<span id="L680" class="ln">   680  </span>				Kind:      gvk.Kind,
-<span id="L681" class="ln">   681  </span>				Namespace: chaos.Namespace,
-<span id="L682" class="ln">   682  </span>				Name:      chaos.Name,
-<span id="L683" class="ln">   683  </span>			},
-<span id="L684" class="ln">   684  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
-<span id="L685" class="ln">   685  </span>			Status:  string(utils.GetChaosState(chaos)),
-<span id="L686" class="ln">   686  </span>			UID:     chaos.GetChaos().UID,
-<span id="L687" class="ln">   687  </span>		},
-<span id="L688" class="ln">   688  </span>		KubeObject: core.KubeObjectDesc{
-<span id="L689" class="ln">   689  </span>			TypeMeta: metav1.TypeMeta{
-<span id="L690" class="ln">   690  </span>				APIVersion: gvk.GroupVersion().String(),
-<span id="L691" class="ln">   691  </span>				Kind:       gvk.Kind,
-<span id="L692" class="ln">   692  </span>			},
-<span id="L693" class="ln">   693  </span>			Meta: core.KubeObjectMeta{
-<span id="L694" class="ln">   694  </span>				Name:        chaos.Name,
-<span id="L695" class="ln">   695  </span>				Namespace:   chaos.Namespace,
-<span id="L696" class="ln">   696  </span>				Labels:      chaos.Labels,
-<span id="L697" class="ln">   697  </span>				Annotations: chaos.Annotations,
-<span id="L698" class="ln">   698  </span>			},
-<span id="L699" class="ln">   699  </span>			Spec: chaos.Spec,
-<span id="L700" class="ln">   700  </span>		},
-<span id="L701" class="ln">   701  </span>	}, nil
-<span id="L702" class="ln">   702  </span>}
-<span id="L703" class="ln">   703  </span>
-<span id="L704" class="ln">   704  </span>func (s *Service) getStressChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
-<span id="L705" class="ln">   705  </span>	chaos := &amp;v1alpha1.StressChaos{}
-<span id="L706" class="ln">   706  </span>
-<span id="L707" class="ln">   707  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
-<span id="L708" class="ln">   708  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
-<span id="L709" class="ln">   709  </span>		if apierrors.IsNotFound(err) {
-<span id="L710" class="ln">   710  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
-<span id="L711" class="ln">   711  </span>		}
-<span id="L712" class="ln">   712  </span>
-<span id="L713" class="ln">   713  </span>		return Detail{}, err
-<span id="L714" class="ln">   714  </span>	}
-<span id="L715" class="ln">   715  </span>
-<span id="L716" class="ln">   716  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
-<span id="L717" class="ln">   717  </span>	if err != nil {
-<span id="L718" class="ln">   718  </span>		return Detail{}, err
-<span id="L719" class="ln">   719  </span>	}
-<span id="L720" class="ln">   720  </span>
-<span id="L721" class="ln">   721  </span>	return Detail{
-<span id="L722" class="ln">   722  </span>		Experiment: Experiment{
-<span id="L723" class="ln">   723  </span>			Base: Base{
-<span id="L724" class="ln">   724  </span>				Kind:      gvk.Kind,
-<span id="L725" class="ln">   725  </span>				Namespace: chaos.Namespace,
-<span id="L726" class="ln">   726  </span>				Name:      chaos.Name,
-<span id="L727" class="ln">   727  </span>			},
-<span id="L728" class="ln">   728  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
-<span id="L729" class="ln">   729  </span>			Status:  string(utils.GetChaosState(chaos)),
-<span id="L730" class="ln">   730  </span>			UID:     chaos.GetChaos().UID,
-<span id="L731" class="ln">   731  </span>		},
-<span id="L732" class="ln">   732  </span>		KubeObject: core.KubeObjectDesc{
-<span id="L733" class="ln">   733  </span>			TypeMeta: metav1.TypeMeta{
-<span id="L734" class="ln">   734  </span>				APIVersion: gvk.GroupVersion().String(),
-<span id="L735" class="ln">   735  </span>				Kind:       gvk.Kind,
-<span id="L736" class="ln">   736  </span>			},
-<span id="L737" class="ln">   737  </span>			Meta: core.KubeObjectMeta{
-<span id="L738" class="ln">   738  </span>				Name:        chaos.Name,
-<span id="L739" class="ln">   739  </span>				Namespace:   chaos.Namespace,
-<span id="L740" class="ln">   740  </span>				Labels:      chaos.Labels,
-<span id="L741" class="ln">   741  </span>				Annotations: chaos.Annotations,
-<span id="L742" class="ln">   742  </span>			},
-<span id="L743" class="ln">   743  </span>			Spec: chaos.Spec,
-<span id="L744" class="ln">   744  </span>		},
-<span id="L745" class="ln">   745  </span>	}, nil
-<span id="L746" class="ln">   746  </span>}
-<span id="L747" class="ln">   747  </span>
-<span id="L748" class="ln">   748  </span>func (s *Service) getDNSChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
-<span id="L749" class="ln">   749  </span>	chaos := &amp;v1alpha1.DNSChaos{}
-<span id="L750" class="ln">   750  </span>
-<span id="L751" class="ln">   751  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
-<span id="L752" class="ln">   752  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
-<span id="L753" class="ln">   753  </span>		if apierrors.IsNotFound(err) {
-<span id="L754" class="ln">   754  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
-<span id="L755" class="ln">   755  </span>		}
-<span id="L756" class="ln">   756  </span>
-<span id="L757" class="ln">   757  </span>		return Detail{}, err
-<span id="L758" class="ln">   758  </span>	}
-<span id="L759" class="ln">   759  </span>
-<span id="L760" class="ln">   760  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
-<span id="L761" class="ln">   761  </span>	if err != nil {
-<span id="L762" class="ln">   762  </span>		return Detail{}, err
-<span id="L763" class="ln">   763  </span>	}
-<span id="L764" class="ln">   764  </span>
-<span id="L765" class="ln">   765  </span>	return Detail{
-<span id="L766" class="ln">   766  </span>		Experiment: Experiment{
-<span id="L767" class="ln">   767  </span>			Base: Base{
-<span id="L768" class="ln">   768  </span>				Kind:      gvk.Kind,
-<span id="L769" class="ln">   769  </span>				Namespace: chaos.Namespace,
-<span id="L770" class="ln">   770  </span>				Name:      chaos.Name,
-<span id="L771" class="ln">   771  </span>			},
-<span id="L772" class="ln">   772  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
-<span id="L773" class="ln">   773  </span>			Status:  string(utils.GetChaosState(chaos)),
-<span id="L774" class="ln">   774  </span>			UID:     chaos.GetChaos().UID,
-<span id="L775" class="ln">   775  </span>		},
-<span id="L776" class="ln">   776  </span>		KubeObject: core.KubeObjectDesc{
-<span id="L777" class="ln">   777  </span>			TypeMeta: metav1.TypeMeta{
-<span id="L778" class="ln">   778  </span>				APIVersion: gvk.GroupVersion().String(),
-<span id="L779" class="ln">   779  </span>				Kind:       gvk.Kind,
-<span id="L780" class="ln">   780  </span>			},
-<span id="L781" class="ln">   781  </span>			Meta: core.KubeObjectMeta{
-<span id="L782" class="ln">   782  </span>				Name:        chaos.Name,
-<span id="L783" class="ln">   783  </span>				Namespace:   chaos.Namespace,
-<span id="L784" class="ln">   784  </span>				Labels:      chaos.Labels,
-<span id="L785" class="ln">   785  </span>				Annotations: chaos.Annotations,
-<span id="L786" class="ln">   786  </span>			},
-<span id="L787" class="ln">   787  </span>			Spec: chaos.Spec,
-<span id="L788" class="ln">   788  </span>		},
-<span id="L789" class="ln">   789  </span>	}, nil
-<span id="L790" class="ln">   790  </span>}
-<span id="L791" class="ln">   791  </span>
-<span id="L792" class="ln">   792  </span>func (s *Service) getAWSChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
-<span id="L793" class="ln">   793  </span>	chaos := &amp;v1alpha1.AWSChaos{}
-<span id="L794" class="ln">   794  </span>
-<span id="L795" class="ln">   795  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
-<span id="L796" class="ln">   796  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
-<span id="L797" class="ln">   797  </span>		if apierrors.IsNotFound(err) {
-<span id="L798" class="ln">   798  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
-<span id="L799" class="ln">   799  </span>		}
-<span id="L800" class="ln">   800  </span>
-<span id="L801" class="ln">   801  </span>		return Detail{}, err
-<span id="L802" class="ln">   802  </span>	}
-<span id="L803" class="ln">   803  </span>
-<span id="L804" class="ln">   804  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
-<span id="L805" class="ln">   805  </span>	if err != nil {
-<span id="L806" class="ln">   806  </span>		return Detail{}, err
-<span id="L807" class="ln">   807  </span>	}
-<span id="L808" class="ln">   808  </span>
-<span id="L809" class="ln">   809  </span>	return Detail{
-<span id="L810" class="ln">   810  </span>		Experiment: Experiment{
-<span id="L811" class="ln">   811  </span>			Base: Base{
-<span id="L812" class="ln">   812  </span>				Kind:      gvk.Kind,
-<span id="L813" class="ln">   813  </span>				Namespace: chaos.Namespace,
-<span id="L814" class="ln">   814  </span>				Name:      chaos.Name,
-<span id="L815" class="ln">   815  </span>			},
-<span id="L816" class="ln">   816  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
-<span id="L817" class="ln">   817  </span>			Status:  string(utils.GetChaosState(chaos)),
-<span id="L818" class="ln">   818  </span>			UID:     chaos.GetChaos().UID,
-<span id="L819" class="ln">   819  </span>		},
-<span id="L820" class="ln">   820  </span>		KubeObject: core.KubeObjectDesc{
-<span id="L821" class="ln">   821  </span>			TypeMeta: metav1.TypeMeta{
-<span id="L822" class="ln">   822  </span>				APIVersion: gvk.GroupVersion().String(),
-<span id="L823" class="ln">   823  </span>				Kind:       gvk.Kind,
-<span id="L824" class="ln">   824  </span>			},
-<span id="L825" class="ln">   825  </span>			Meta: core.KubeObjectMeta{
-<span id="L826" class="ln">   826  </span>				Name:        chaos.Name,
-<span id="L827" class="ln">   827  </span>				Namespace:   chaos.Namespace,
-<span id="L828" class="ln">   828  </span>				Labels:      chaos.Labels,
-<span id="L829" class="ln">   829  </span>				Annotations: chaos.Annotations,
-<span id="L830" class="ln">   830  </span>			},
-<span id="L831" class="ln">   831  </span>			Spec: chaos.Spec,
-<span id="L832" class="ln">   832  </span>		},
-<span id="L833" class="ln">   833  </span>	}, nil
-<span id="L834" class="ln">   834  </span>}
-<span id="L835" class="ln">   835  </span>
-<span id="L836" class="ln">   836  </span>func (s *Service) getGCPChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
-<span id="L837" class="ln">   837  </span>	chaos := &amp;v1alpha1.GCPChaos{}
-<span id="L838" class="ln">   838  </span>
-<span id="L839" class="ln">   839  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
-<span id="L840" class="ln">   840  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
-<span id="L841" class="ln">   841  </span>		if apierrors.IsNotFound(err) {
-<span id="L842" class="ln">   842  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
-<span id="L843" class="ln">   843  </span>		}
-<span id="L844" class="ln">   844  </span>
-<span id="L845" class="ln">   845  </span>		return Detail{}, err
-<span id="L846" class="ln">   846  </span>	}
-<span id="L847" class="ln">   847  </span>
-<span id="L848" class="ln">   848  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
-<span id="L849" class="ln">   849  </span>	if err != nil {
-<span id="L850" class="ln">   850  </span>		return Detail{}, err
-<span id="L851" class="ln">   851  </span>	}
-<span id="L852" class="ln">   852  </span>
-<span id="L853" class="ln">   853  </span>	return Detail{
-<span id="L854" class="ln">   854  </span>		Experiment: Experiment{
-<span id="L855" class="ln">   855  </span>			Base: Base{
-<span id="L856" class="ln">   856  </span>				Kind:      gvk.Kind,
-<span id="L857" class="ln">   857  </span>				Namespace: chaos.Namespace,
-<span id="L858" class="ln">   858  </span>				Name:      chaos.Name,
-<span id="L859" class="ln">   859  </span>			},
-<span id="L860" class="ln">   860  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
-<span id="L861" class="ln">   861  </span>			Status:  string(utils.GetChaosState(chaos)),
-<span id="L862" class="ln">   862  </span>			UID:     chaos.GetChaos().UID,
-<span id="L863" class="ln">   863  </span>		},
-<span id="L864" class="ln">   864  </span>		KubeObject: core.KubeObjectDesc{
-<span id="L865" class="ln">   865  </span>			TypeMeta: metav1.TypeMeta{
-<span id="L866" class="ln">   866  </span>				APIVersion: gvk.GroupVersion().String(),
-<span id="L867" class="ln">   867  </span>				Kind:       gvk.Kind,
-<span id="L868" class="ln">   868  </span>			},
-<span id="L869" class="ln">   869  </span>			Meta: core.KubeObjectMeta{
-<span id="L870" class="ln">   870  </span>				Name:        chaos.Name,
-<span id="L871" class="ln">   871  </span>				Namespace:   chaos.Namespace,
-<span id="L872" class="ln">   872  </span>				Labels:      chaos.Labels,
-<span id="L873" class="ln">   873  </span>				Annotations: chaos.Annotations,
-<span id="L874" class="ln">   874  </span>			},
-<span id="L875" class="ln">   875  </span>			Spec: chaos.Spec,
-<span id="L876" class="ln">   876  </span>		},
-<span id="L877" class="ln">   877  </span>	}, nil
-<span id="L878" class="ln">   878  </span>}
-<span id="L879" class="ln">   879  </span>
-<span id="L880" class="ln">   880  </span><span class="comment">// @Summary Get chaos experiments from Kubernetes cluster.</span>
-<span id="L881" class="ln">   881  </span><span class="comment">// @Description Get chaos experiments from Kubernetes cluster.</span>
-<span id="L882" class="ln">   882  </span><span class="comment">// @Tags experiments</span>
-<span id="L883" class="ln">   883  </span><span class="comment">// @Produce json</span>
-<span id="L884" class="ln">   884  </span><span class="comment">// @Param namespace query string false &#34;namespace&#34;</span>
-<span id="L885" class="ln">   885  </span><span class="comment">// @Param name query string false &#34;name&#34;</span>
-<span id="L886" class="ln">   886  </span><span class="comment">// @Param kind query string false &#34;kind&#34; Enums(PodChaos, IOChaos, NetworkChaos, TimeChaos, KernelChaos, StressChaos)</span>
-<span id="L887" class="ln">   887  </span><span class="comment">// @Param status query string false &#34;status&#34; Enums(Running, Paused, Failed, Finished)</span>
-<span id="L888" class="ln">   888  </span><span class="comment">// @Success 200 {array} Experiment</span>
-<span id="L889" class="ln">   889  </span><span class="comment">// @Router /experiments [get]</span>
-<span id="L890" class="ln">   890  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
-<span id="L891" class="ln">   891  </span>func (s *Service) listExperiments(c *gin.Context) {
-<span id="L892" class="ln">   892  </span>	kubeCli, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
-<span id="L893" class="ln">   893  </span>	if err != nil {
-<span id="L894" class="ln">   894  </span>		_ = c.Error(utils.ErrInvalidRequest.WrapWithNoMessage(err))
-<span id="L895" class="ln">   895  </span>		return
-<span id="L896" class="ln">   896  </span>	}
+<span id="L477" class="ln">   477  </span>	return kubeCli.Create(context.Background(), chaos)
+<span id="L478" class="ln">   478  </span>}
+<span id="L479" class="ln">   479  </span>
+<span id="L480" class="ln">   480  </span>func (s *Service) getPodChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
+<span id="L481" class="ln">   481  </span>	chaos := &amp;v1alpha1.PodChaos{}
+<span id="L482" class="ln">   482  </span>
+<span id="L483" class="ln">   483  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
+<span id="L484" class="ln">   484  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
+<span id="L485" class="ln">   485  </span>		if apierrors.IsNotFound(err) {
+<span id="L486" class="ln">   486  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
+<span id="L487" class="ln">   487  </span>		}
+<span id="L488" class="ln">   488  </span>
+<span id="L489" class="ln">   489  </span>		return Detail{}, err
+<span id="L490" class="ln">   490  </span>	}
+<span id="L491" class="ln">   491  </span>
+<span id="L492" class="ln">   492  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
+<span id="L493" class="ln">   493  </span>	if err != nil {
+<span id="L494" class="ln">   494  </span>		return Detail{}, err
+<span id="L495" class="ln">   495  </span>	}
+<span id="L496" class="ln">   496  </span>
+<span id="L497" class="ln">   497  </span>	return Detail{
+<span id="L498" class="ln">   498  </span>		Experiment: Experiment{
+<span id="L499" class="ln">   499  </span>			Base: Base{
+<span id="L500" class="ln">   500  </span>				Kind:      gvk.Kind,
+<span id="L501" class="ln">   501  </span>				Namespace: chaos.Namespace,
+<span id="L502" class="ln">   502  </span>				Name:      chaos.Name,
+<span id="L503" class="ln">   503  </span>			},
+<span id="L504" class="ln">   504  </span>			UID:     chaos.GetChaos().UID,
+<span id="L505" class="ln">   505  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
+<span id="L506" class="ln">   506  </span>			Status:  string(utils.GetChaosState(chaos)),
+<span id="L507" class="ln">   507  </span>		},
+<span id="L508" class="ln">   508  </span>		KubeObject: core.KubeObjectDesc{
+<span id="L509" class="ln">   509  </span>			TypeMeta: metav1.TypeMeta{
+<span id="L510" class="ln">   510  </span>				APIVersion: gvk.GroupVersion().String(),
+<span id="L511" class="ln">   511  </span>				Kind:       gvk.Kind,
+<span id="L512" class="ln">   512  </span>			},
+<span id="L513" class="ln">   513  </span>			Meta: core.KubeObjectMeta{
+<span id="L514" class="ln">   514  </span>				Name:        chaos.Name,
+<span id="L515" class="ln">   515  </span>				Namespace:   chaos.Namespace,
+<span id="L516" class="ln">   516  </span>				Labels:      chaos.Labels,
+<span id="L517" class="ln">   517  </span>				Annotations: chaos.Annotations,
+<span id="L518" class="ln">   518  </span>			},
+<span id="L519" class="ln">   519  </span>			Spec: chaos.Spec,
+<span id="L520" class="ln">   520  </span>		},
+<span id="L521" class="ln">   521  </span>	}, nil
+<span id="L522" class="ln">   522  </span>}
+<span id="L523" class="ln">   523  </span>
+<span id="L524" class="ln">   524  </span>func (s *Service) getIOChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
+<span id="L525" class="ln">   525  </span>	chaos := &amp;v1alpha1.IOChaos{}
+<span id="L526" class="ln">   526  </span>
+<span id="L527" class="ln">   527  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
+<span id="L528" class="ln">   528  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
+<span id="L529" class="ln">   529  </span>		if apierrors.IsNotFound(err) {
+<span id="L530" class="ln">   530  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
+<span id="L531" class="ln">   531  </span>		}
+<span id="L532" class="ln">   532  </span>
+<span id="L533" class="ln">   533  </span>		return Detail{}, err
+<span id="L534" class="ln">   534  </span>	}
+<span id="L535" class="ln">   535  </span>
+<span id="L536" class="ln">   536  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
+<span id="L537" class="ln">   537  </span>	if err != nil {
+<span id="L538" class="ln">   538  </span>		return Detail{}, err
+<span id="L539" class="ln">   539  </span>	}
+<span id="L540" class="ln">   540  </span>
+<span id="L541" class="ln">   541  </span>	return Detail{
+<span id="L542" class="ln">   542  </span>		Experiment: Experiment{
+<span id="L543" class="ln">   543  </span>			Base: Base{
+<span id="L544" class="ln">   544  </span>				Kind:      gvk.Kind,
+<span id="L545" class="ln">   545  </span>				Namespace: chaos.Namespace,
+<span id="L546" class="ln">   546  </span>				Name:      chaos.Name,
+<span id="L547" class="ln">   547  </span>			},
+<span id="L548" class="ln">   548  </span>			UID:     chaos.GetChaos().UID,
+<span id="L549" class="ln">   549  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
+<span id="L550" class="ln">   550  </span>			Status:  string(utils.GetChaosState(chaos)),
+<span id="L551" class="ln">   551  </span>		},
+<span id="L552" class="ln">   552  </span>		KubeObject: core.KubeObjectDesc{
+<span id="L553" class="ln">   553  </span>			TypeMeta: metav1.TypeMeta{
+<span id="L554" class="ln">   554  </span>				APIVersion: gvk.GroupVersion().String(),
+<span id="L555" class="ln">   555  </span>				Kind:       gvk.Kind,
+<span id="L556" class="ln">   556  </span>			},
+<span id="L557" class="ln">   557  </span>			Meta: core.KubeObjectMeta{
+<span id="L558" class="ln">   558  </span>				Name:        chaos.Name,
+<span id="L559" class="ln">   559  </span>				Namespace:   chaos.Namespace,
+<span id="L560" class="ln">   560  </span>				Labels:      chaos.Labels,
+<span id="L561" class="ln">   561  </span>				Annotations: chaos.Annotations,
+<span id="L562" class="ln">   562  </span>			},
+<span id="L563" class="ln">   563  </span>			Spec: chaos.Spec,
+<span id="L564" class="ln">   564  </span>		},
+<span id="L565" class="ln">   565  </span>	}, nil
+<span id="L566" class="ln">   566  </span>}
+<span id="L567" class="ln">   567  </span>
+<span id="L568" class="ln">   568  </span>func (s *Service) getNetworkChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
+<span id="L569" class="ln">   569  </span>	chaos := &amp;v1alpha1.NetworkChaos{}
+<span id="L570" class="ln">   570  </span>
+<span id="L571" class="ln">   571  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
+<span id="L572" class="ln">   572  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
+<span id="L573" class="ln">   573  </span>		if apierrors.IsNotFound(err) {
+<span id="L574" class="ln">   574  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
+<span id="L575" class="ln">   575  </span>		}
+<span id="L576" class="ln">   576  </span>
+<span id="L577" class="ln">   577  </span>		return Detail{}, err
+<span id="L578" class="ln">   578  </span>	}
+<span id="L579" class="ln">   579  </span>
+<span id="L580" class="ln">   580  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
+<span id="L581" class="ln">   581  </span>	if err != nil {
+<span id="L582" class="ln">   582  </span>		return Detail{}, err
+<span id="L583" class="ln">   583  </span>	}
+<span id="L584" class="ln">   584  </span>
+<span id="L585" class="ln">   585  </span>	return Detail{
+<span id="L586" class="ln">   586  </span>		Experiment: Experiment{
+<span id="L587" class="ln">   587  </span>			Base: Base{
+<span id="L588" class="ln">   588  </span>				Kind:      gvk.Kind,
+<span id="L589" class="ln">   589  </span>				Namespace: chaos.Namespace,
+<span id="L590" class="ln">   590  </span>				Name:      chaos.Name,
+<span id="L591" class="ln">   591  </span>			},
+<span id="L592" class="ln">   592  </span>			UID:     chaos.GetChaos().UID,
+<span id="L593" class="ln">   593  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
+<span id="L594" class="ln">   594  </span>			Status:  string(utils.GetChaosState(chaos)),
+<span id="L595" class="ln">   595  </span>		},
+<span id="L596" class="ln">   596  </span>		KubeObject: core.KubeObjectDesc{
+<span id="L597" class="ln">   597  </span>			TypeMeta: metav1.TypeMeta{
+<span id="L598" class="ln">   598  </span>				APIVersion: gvk.GroupVersion().String(),
+<span id="L599" class="ln">   599  </span>				Kind:       gvk.Kind,
+<span id="L600" class="ln">   600  </span>			},
+<span id="L601" class="ln">   601  </span>			Meta: core.KubeObjectMeta{
+<span id="L602" class="ln">   602  </span>				Name:        chaos.Name,
+<span id="L603" class="ln">   603  </span>				Namespace:   chaos.Namespace,
+<span id="L604" class="ln">   604  </span>				Labels:      chaos.Labels,
+<span id="L605" class="ln">   605  </span>				Annotations: chaos.Annotations,
+<span id="L606" class="ln">   606  </span>			},
+<span id="L607" class="ln">   607  </span>			Spec: chaos.Spec,
+<span id="L608" class="ln">   608  </span>		},
+<span id="L609" class="ln">   609  </span>	}, nil
+<span id="L610" class="ln">   610  </span>}
+<span id="L611" class="ln">   611  </span>
+<span id="L612" class="ln">   612  </span>func (s *Service) getTimeChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
+<span id="L613" class="ln">   613  </span>	chaos := &amp;v1alpha1.TimeChaos{}
+<span id="L614" class="ln">   614  </span>
+<span id="L615" class="ln">   615  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
+<span id="L616" class="ln">   616  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
+<span id="L617" class="ln">   617  </span>		if apierrors.IsNotFound(err) {
+<span id="L618" class="ln">   618  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
+<span id="L619" class="ln">   619  </span>		}
+<span id="L620" class="ln">   620  </span>
+<span id="L621" class="ln">   621  </span>		return Detail{}, err
+<span id="L622" class="ln">   622  </span>	}
+<span id="L623" class="ln">   623  </span>
+<span id="L624" class="ln">   624  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
+<span id="L625" class="ln">   625  </span>	if err != nil {
+<span id="L626" class="ln">   626  </span>		return Detail{}, err
+<span id="L627" class="ln">   627  </span>	}
+<span id="L628" class="ln">   628  </span>
+<span id="L629" class="ln">   629  </span>	return Detail{
+<span id="L630" class="ln">   630  </span>		Experiment: Experiment{
+<span id="L631" class="ln">   631  </span>			Base: Base{
+<span id="L632" class="ln">   632  </span>				Kind:      gvk.Kind,
+<span id="L633" class="ln">   633  </span>				Namespace: chaos.Namespace,
+<span id="L634" class="ln">   634  </span>				Name:      chaos.Name,
+<span id="L635" class="ln">   635  </span>			},
+<span id="L636" class="ln">   636  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
+<span id="L637" class="ln">   637  </span>			Status:  string(utils.GetChaosState(chaos)),
+<span id="L638" class="ln">   638  </span>			UID:     chaos.GetChaos().UID,
+<span id="L639" class="ln">   639  </span>		},
+<span id="L640" class="ln">   640  </span>		KubeObject: core.KubeObjectDesc{
+<span id="L641" class="ln">   641  </span>			TypeMeta: metav1.TypeMeta{
+<span id="L642" class="ln">   642  </span>				APIVersion: gvk.GroupVersion().String(),
+<span id="L643" class="ln">   643  </span>				Kind:       gvk.Kind,
+<span id="L644" class="ln">   644  </span>			},
+<span id="L645" class="ln">   645  </span>			Meta: core.KubeObjectMeta{
+<span id="L646" class="ln">   646  </span>				Name:        chaos.Name,
+<span id="L647" class="ln">   647  </span>				Namespace:   chaos.Namespace,
+<span id="L648" class="ln">   648  </span>				Labels:      chaos.Labels,
+<span id="L649" class="ln">   649  </span>				Annotations: chaos.Annotations,
+<span id="L650" class="ln">   650  </span>			},
+<span id="L651" class="ln">   651  </span>			Spec: chaos.Spec,
+<span id="L652" class="ln">   652  </span>		},
+<span id="L653" class="ln">   653  </span>	}, nil
+<span id="L654" class="ln">   654  </span>}
+<span id="L655" class="ln">   655  </span>
+<span id="L656" class="ln">   656  </span>func (s *Service) getKernelChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
+<span id="L657" class="ln">   657  </span>	chaos := &amp;v1alpha1.KernelChaos{}
+<span id="L658" class="ln">   658  </span>
+<span id="L659" class="ln">   659  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
+<span id="L660" class="ln">   660  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
+<span id="L661" class="ln">   661  </span>		if apierrors.IsNotFound(err) {
+<span id="L662" class="ln">   662  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
+<span id="L663" class="ln">   663  </span>		}
+<span id="L664" class="ln">   664  </span>
+<span id="L665" class="ln">   665  </span>		return Detail{}, err
+<span id="L666" class="ln">   666  </span>	}
+<span id="L667" class="ln">   667  </span>
+<span id="L668" class="ln">   668  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
+<span id="L669" class="ln">   669  </span>	if err != nil {
+<span id="L670" class="ln">   670  </span>		return Detail{}, err
+<span id="L671" class="ln">   671  </span>	}
+<span id="L672" class="ln">   672  </span>
+<span id="L673" class="ln">   673  </span>	return Detail{
+<span id="L674" class="ln">   674  </span>		Experiment: Experiment{
+<span id="L675" class="ln">   675  </span>			Base: Base{
+<span id="L676" class="ln">   676  </span>				Kind:      gvk.Kind,
+<span id="L677" class="ln">   677  </span>				Namespace: chaos.Namespace,
+<span id="L678" class="ln">   678  </span>				Name:      chaos.Name,
+<span id="L679" class="ln">   679  </span>			},
+<span id="L680" class="ln">   680  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
+<span id="L681" class="ln">   681  </span>			Status:  string(utils.GetChaosState(chaos)),
+<span id="L682" class="ln">   682  </span>			UID:     chaos.GetChaos().UID,
+<span id="L683" class="ln">   683  </span>		},
+<span id="L684" class="ln">   684  </span>		KubeObject: core.KubeObjectDesc{
+<span id="L685" class="ln">   685  </span>			TypeMeta: metav1.TypeMeta{
+<span id="L686" class="ln">   686  </span>				APIVersion: gvk.GroupVersion().String(),
+<span id="L687" class="ln">   687  </span>				Kind:       gvk.Kind,
+<span id="L688" class="ln">   688  </span>			},
+<span id="L689" class="ln">   689  </span>			Meta: core.KubeObjectMeta{
+<span id="L690" class="ln">   690  </span>				Name:        chaos.Name,
+<span id="L691" class="ln">   691  </span>				Namespace:   chaos.Namespace,
+<span id="L692" class="ln">   692  </span>				Labels:      chaos.Labels,
+<span id="L693" class="ln">   693  </span>				Annotations: chaos.Annotations,
+<span id="L694" class="ln">   694  </span>			},
+<span id="L695" class="ln">   695  </span>			Spec: chaos.Spec,
+<span id="L696" class="ln">   696  </span>		},
+<span id="L697" class="ln">   697  </span>	}, nil
+<span id="L698" class="ln">   698  </span>}
+<span id="L699" class="ln">   699  </span>
+<span id="L700" class="ln">   700  </span>func (s *Service) getStressChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
+<span id="L701" class="ln">   701  </span>	chaos := &amp;v1alpha1.StressChaos{}
+<span id="L702" class="ln">   702  </span>
+<span id="L703" class="ln">   703  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
+<span id="L704" class="ln">   704  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
+<span id="L705" class="ln">   705  </span>		if apierrors.IsNotFound(err) {
+<span id="L706" class="ln">   706  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
+<span id="L707" class="ln">   707  </span>		}
+<span id="L708" class="ln">   708  </span>
+<span id="L709" class="ln">   709  </span>		return Detail{}, err
+<span id="L710" class="ln">   710  </span>	}
+<span id="L711" class="ln">   711  </span>
+<span id="L712" class="ln">   712  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
+<span id="L713" class="ln">   713  </span>	if err != nil {
+<span id="L714" class="ln">   714  </span>		return Detail{}, err
+<span id="L715" class="ln">   715  </span>	}
+<span id="L716" class="ln">   716  </span>
+<span id="L717" class="ln">   717  </span>	return Detail{
+<span id="L718" class="ln">   718  </span>		Experiment: Experiment{
+<span id="L719" class="ln">   719  </span>			Base: Base{
+<span id="L720" class="ln">   720  </span>				Kind:      gvk.Kind,
+<span id="L721" class="ln">   721  </span>				Namespace: chaos.Namespace,
+<span id="L722" class="ln">   722  </span>				Name:      chaos.Name,
+<span id="L723" class="ln">   723  </span>			},
+<span id="L724" class="ln">   724  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
+<span id="L725" class="ln">   725  </span>			Status:  string(utils.GetChaosState(chaos)),
+<span id="L726" class="ln">   726  </span>			UID:     chaos.GetChaos().UID,
+<span id="L727" class="ln">   727  </span>		},
+<span id="L728" class="ln">   728  </span>		KubeObject: core.KubeObjectDesc{
+<span id="L729" class="ln">   729  </span>			TypeMeta: metav1.TypeMeta{
+<span id="L730" class="ln">   730  </span>				APIVersion: gvk.GroupVersion().String(),
+<span id="L731" class="ln">   731  </span>				Kind:       gvk.Kind,
+<span id="L732" class="ln">   732  </span>			},
+<span id="L733" class="ln">   733  </span>			Meta: core.KubeObjectMeta{
+<span id="L734" class="ln">   734  </span>				Name:        chaos.Name,
+<span id="L735" class="ln">   735  </span>				Namespace:   chaos.Namespace,
+<span id="L736" class="ln">   736  </span>				Labels:      chaos.Labels,
+<span id="L737" class="ln">   737  </span>				Annotations: chaos.Annotations,
+<span id="L738" class="ln">   738  </span>			},
+<span id="L739" class="ln">   739  </span>			Spec: chaos.Spec,
+<span id="L740" class="ln">   740  </span>		},
+<span id="L741" class="ln">   741  </span>	}, nil
+<span id="L742" class="ln">   742  </span>}
+<span id="L743" class="ln">   743  </span>
+<span id="L744" class="ln">   744  </span>func (s *Service) getDNSChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
+<span id="L745" class="ln">   745  </span>	chaos := &amp;v1alpha1.DNSChaos{}
+<span id="L746" class="ln">   746  </span>
+<span id="L747" class="ln">   747  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
+<span id="L748" class="ln">   748  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
+<span id="L749" class="ln">   749  </span>		if apierrors.IsNotFound(err) {
+<span id="L750" class="ln">   750  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
+<span id="L751" class="ln">   751  </span>		}
+<span id="L752" class="ln">   752  </span>
+<span id="L753" class="ln">   753  </span>		return Detail{}, err
+<span id="L754" class="ln">   754  </span>	}
+<span id="L755" class="ln">   755  </span>
+<span id="L756" class="ln">   756  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
+<span id="L757" class="ln">   757  </span>	if err != nil {
+<span id="L758" class="ln">   758  </span>		return Detail{}, err
+<span id="L759" class="ln">   759  </span>	}
+<span id="L760" class="ln">   760  </span>
+<span id="L761" class="ln">   761  </span>	return Detail{
+<span id="L762" class="ln">   762  </span>		Experiment: Experiment{
+<span id="L763" class="ln">   763  </span>			Base: Base{
+<span id="L764" class="ln">   764  </span>				Kind:      gvk.Kind,
+<span id="L765" class="ln">   765  </span>				Namespace: chaos.Namespace,
+<span id="L766" class="ln">   766  </span>				Name:      chaos.Name,
+<span id="L767" class="ln">   767  </span>			},
+<span id="L768" class="ln">   768  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
+<span id="L769" class="ln">   769  </span>			Status:  string(utils.GetChaosState(chaos)),
+<span id="L770" class="ln">   770  </span>			UID:     chaos.GetChaos().UID,
+<span id="L771" class="ln">   771  </span>		},
+<span id="L772" class="ln">   772  </span>		KubeObject: core.KubeObjectDesc{
+<span id="L773" class="ln">   773  </span>			TypeMeta: metav1.TypeMeta{
+<span id="L774" class="ln">   774  </span>				APIVersion: gvk.GroupVersion().String(),
+<span id="L775" class="ln">   775  </span>				Kind:       gvk.Kind,
+<span id="L776" class="ln">   776  </span>			},
+<span id="L777" class="ln">   777  </span>			Meta: core.KubeObjectMeta{
+<span id="L778" class="ln">   778  </span>				Name:        chaos.Name,
+<span id="L779" class="ln">   779  </span>				Namespace:   chaos.Namespace,
+<span id="L780" class="ln">   780  </span>				Labels:      chaos.Labels,
+<span id="L781" class="ln">   781  </span>				Annotations: chaos.Annotations,
+<span id="L782" class="ln">   782  </span>			},
+<span id="L783" class="ln">   783  </span>			Spec: chaos.Spec,
+<span id="L784" class="ln">   784  </span>		},
+<span id="L785" class="ln">   785  </span>	}, nil
+<span id="L786" class="ln">   786  </span>}
+<span id="L787" class="ln">   787  </span>
+<span id="L788" class="ln">   788  </span>func (s *Service) getAWSChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
+<span id="L789" class="ln">   789  </span>	chaos := &amp;v1alpha1.AWSChaos{}
+<span id="L790" class="ln">   790  </span>
+<span id="L791" class="ln">   791  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
+<span id="L792" class="ln">   792  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
+<span id="L793" class="ln">   793  </span>		if apierrors.IsNotFound(err) {
+<span id="L794" class="ln">   794  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
+<span id="L795" class="ln">   795  </span>		}
+<span id="L796" class="ln">   796  </span>
+<span id="L797" class="ln">   797  </span>		return Detail{}, err
+<span id="L798" class="ln">   798  </span>	}
+<span id="L799" class="ln">   799  </span>
+<span id="L800" class="ln">   800  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
+<span id="L801" class="ln">   801  </span>	if err != nil {
+<span id="L802" class="ln">   802  </span>		return Detail{}, err
+<span id="L803" class="ln">   803  </span>	}
+<span id="L804" class="ln">   804  </span>
+<span id="L805" class="ln">   805  </span>	return Detail{
+<span id="L806" class="ln">   806  </span>		Experiment: Experiment{
+<span id="L807" class="ln">   807  </span>			Base: Base{
+<span id="L808" class="ln">   808  </span>				Kind:      gvk.Kind,
+<span id="L809" class="ln">   809  </span>				Namespace: chaos.Namespace,
+<span id="L810" class="ln">   810  </span>				Name:      chaos.Name,
+<span id="L811" class="ln">   811  </span>			},
+<span id="L812" class="ln">   812  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
+<span id="L813" class="ln">   813  </span>			Status:  string(utils.GetChaosState(chaos)),
+<span id="L814" class="ln">   814  </span>			UID:     chaos.GetChaos().UID,
+<span id="L815" class="ln">   815  </span>		},
+<span id="L816" class="ln">   816  </span>		KubeObject: core.KubeObjectDesc{
+<span id="L817" class="ln">   817  </span>			TypeMeta: metav1.TypeMeta{
+<span id="L818" class="ln">   818  </span>				APIVersion: gvk.GroupVersion().String(),
+<span id="L819" class="ln">   819  </span>				Kind:       gvk.Kind,
+<span id="L820" class="ln">   820  </span>			},
+<span id="L821" class="ln">   821  </span>			Meta: core.KubeObjectMeta{
+<span id="L822" class="ln">   822  </span>				Name:        chaos.Name,
+<span id="L823" class="ln">   823  </span>				Namespace:   chaos.Namespace,
+<span id="L824" class="ln">   824  </span>				Labels:      chaos.Labels,
+<span id="L825" class="ln">   825  </span>				Annotations: chaos.Annotations,
+<span id="L826" class="ln">   826  </span>			},
+<span id="L827" class="ln">   827  </span>			Spec: chaos.Spec,
+<span id="L828" class="ln">   828  </span>		},
+<span id="L829" class="ln">   829  </span>	}, nil
+<span id="L830" class="ln">   830  </span>}
+<span id="L831" class="ln">   831  </span>
+<span id="L832" class="ln">   832  </span>func (s *Service) getGCPChaosDetail(namespace string, name string, kubeCli client.Client) (Detail, error) {
+<span id="L833" class="ln">   833  </span>	chaos := &amp;v1alpha1.GCPChaos{}
+<span id="L834" class="ln">   834  </span>
+<span id="L835" class="ln">   835  </span>	chaosKey := types.NamespacedName{Namespace: namespace, Name: name}
+<span id="L836" class="ln">   836  </span>	if err := kubeCli.Get(context.Background(), chaosKey, chaos); err != nil {
+<span id="L837" class="ln">   837  </span>		if apierrors.IsNotFound(err) {
+<span id="L838" class="ln">   838  </span>			return Detail{}, utils.ErrNotFound.NewWithNoMessage()
+<span id="L839" class="ln">   839  </span>		}
+<span id="L840" class="ln">   840  </span>
+<span id="L841" class="ln">   841  </span>		return Detail{}, err
+<span id="L842" class="ln">   842  </span>	}
+<span id="L843" class="ln">   843  </span>
+<span id="L844" class="ln">   844  </span>	gvk, err := apiutil.GVKForObject(chaos, s.scheme)
+<span id="L845" class="ln">   845  </span>	if err != nil {
+<span id="L846" class="ln">   846  </span>		return Detail{}, err
+<span id="L847" class="ln">   847  </span>	}
+<span id="L848" class="ln">   848  </span>
+<span id="L849" class="ln">   849  </span>	return Detail{
+<span id="L850" class="ln">   850  </span>		Experiment: Experiment{
+<span id="L851" class="ln">   851  </span>			Base: Base{
+<span id="L852" class="ln">   852  </span>				Kind:      gvk.Kind,
+<span id="L853" class="ln">   853  </span>				Namespace: chaos.Namespace,
+<span id="L854" class="ln">   854  </span>				Name:      chaos.Name,
+<span id="L855" class="ln">   855  </span>			},
+<span id="L856" class="ln">   856  </span>			Created: chaos.GetChaos().StartTime.Format(time.RFC3339),
+<span id="L857" class="ln">   857  </span>			Status:  string(utils.GetChaosState(chaos)),
+<span id="L858" class="ln">   858  </span>			UID:     chaos.GetChaos().UID,
+<span id="L859" class="ln">   859  </span>		},
+<span id="L860" class="ln">   860  </span>		KubeObject: core.KubeObjectDesc{
+<span id="L861" class="ln">   861  </span>			TypeMeta: metav1.TypeMeta{
+<span id="L862" class="ln">   862  </span>				APIVersion: gvk.GroupVersion().String(),
+<span id="L863" class="ln">   863  </span>				Kind:       gvk.Kind,
+<span id="L864" class="ln">   864  </span>			},
+<span id="L865" class="ln">   865  </span>			Meta: core.KubeObjectMeta{
+<span id="L866" class="ln">   866  </span>				Name:        chaos.Name,
+<span id="L867" class="ln">   867  </span>				Namespace:   chaos.Namespace,
+<span id="L868" class="ln">   868  </span>				Labels:      chaos.Labels,
+<span id="L869" class="ln">   869  </span>				Annotations: chaos.Annotations,
+<span id="L870" class="ln">   870  </span>			},
+<span id="L871" class="ln">   871  </span>			Spec: chaos.Spec,
+<span id="L872" class="ln">   872  </span>		},
+<span id="L873" class="ln">   873  </span>	}, nil
+<span id="L874" class="ln">   874  </span>}
+<span id="L875" class="ln">   875  </span>
+<span id="L876" class="ln">   876  </span><span class="comment">// @Summary Get chaos experiments from Kubernetes cluster.</span>
+<span id="L877" class="ln">   877  </span><span class="comment">// @Description Get chaos experiments from Kubernetes cluster.</span>
+<span id="L878" class="ln">   878  </span><span class="comment">// @Tags experiments</span>
+<span id="L879" class="ln">   879  </span><span class="comment">// @Produce json</span>
+<span id="L880" class="ln">   880  </span><span class="comment">// @Param namespace query string false &#34;namespace&#34;</span>
+<span id="L881" class="ln">   881  </span><span class="comment">// @Param name query string false &#34;name&#34;</span>
+<span id="L882" class="ln">   882  </span><span class="comment">// @Param kind query string false &#34;kind&#34; Enums(PodChaos, IOChaos, NetworkChaos, TimeChaos, KernelChaos, StressChaos)</span>
+<span id="L883" class="ln">   883  </span><span class="comment">// @Param status query string false &#34;status&#34; Enums(Running, Paused, Failed, Finished)</span>
+<span id="L884" class="ln">   884  </span><span class="comment">// @Success 200 {array} Experiment</span>
+<span id="L885" class="ln">   885  </span><span class="comment">// @Router /experiments [get]</span>
+<span id="L886" class="ln">   886  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L887" class="ln">   887  </span>func (s *Service) listExperiments(c *gin.Context) {
+<span id="L888" class="ln">   888  </span>	kubeCli, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
+<span id="L889" class="ln">   889  </span>	if err != nil {
+<span id="L890" class="ln">   890  </span>		_ = c.Error(utils.ErrInvalidRequest.WrapWithNoMessage(err))
+<span id="L891" class="ln">   891  </span>		return
+<span id="L892" class="ln">   892  </span>	}
+<span id="L893" class="ln">   893  </span>
+<span id="L894" class="ln">   894  </span>	kind := c.Query(&#34;kind&#34;)
+<span id="L895" class="ln">   895  </span>	name := c.Query(&#34;name&#34;)
+<span id="L896" class="ln">   896  </span>	ns := c.Query(&#34;namespace&#34;)
 <span id="L897" class="ln">   897  </span>
-<span id="L898" class="ln">   898  </span>	kind := c.Query(&#34;kind&#34;)
-<span id="L899" class="ln">   899  </span>	name := c.Query(&#34;name&#34;)
-<span id="L900" class="ln">   900  </span>	ns := c.Query(&#34;namespace&#34;)
-<span id="L901" class="ln">   901  </span>
-<span id="L902" class="ln">   902  </span>	if len(ns) == 0 &amp;&amp; !s.conf.ClusterScoped &amp;&amp;
-<span id="L903" class="ln">   903  </span>		len(s.conf.TargetNamespace) != 0 {
-<span id="L904" class="ln">   904  </span>		ns = s.conf.TargetNamespace
-<span id="L905" class="ln">   905  </span>	}
-<span id="L906" class="ln">   906  </span>
-<span id="L907" class="ln">   907  </span>	exps := make([]*Experiment, 0)
-<span id="L908" class="ln">   908  </span>	for key, list := range v1alpha1.AllKinds() {
-<span id="L909" class="ln">   909  </span>		if kind != &#34;&#34; &amp;&amp; key != kind {
-<span id="L910" class="ln">   910  </span>			continue
-<span id="L911" class="ln">   911  </span>		}
-<span id="L912" class="ln">   912  </span>		if err := kubeCli.List(context.Background(), list.ChaosList, &amp;client.ListOptions{Namespace: ns}); err != nil {
-<span id="L913" class="ln">   913  </span>			c.Status(http.StatusInternalServerError)
-<span id="L914" class="ln">   914  </span>			utils.SetErrorForGinCtx(c, err)
-<span id="L915" class="ln">   915  </span>			return
-<span id="L916" class="ln">   916  </span>		}
-<span id="L917" class="ln">   917  </span>
-<span id="L918" class="ln">   918  </span>		items := reflect.ValueOf(list.ChaosList).Elem().FieldByName(&#34;Items&#34;)
-<span id="L919" class="ln">   919  </span>		for i := 0; i &lt; items.Len(); i++ {
-<span id="L920" class="ln">   920  </span>			item := items.Index(i).Addr().Interface().(v1alpha1.InnerObject)
-<span id="L921" class="ln">   921  </span>			chaos := item.GetChaos()
-<span id="L922" class="ln">   922  </span>			if name != &#34;&#34; &amp;&amp; chaos.Name != name {
-<span id="L923" class="ln">   923  </span>				continue
-<span id="L924" class="ln">   924  </span>			}
-<span id="L925" class="ln">   925  </span>			status := utils.GetChaosState(item)
-<span id="L926" class="ln">   926  </span>			exps = append(exps, &amp;Experiment{
-<span id="L927" class="ln">   927  </span>				Base: Base{
-<span id="L928" class="ln">   928  </span>					Name:      chaos.Name,
-<span id="L929" class="ln">   929  </span>					Namespace: chaos.Namespace,
-<span id="L930" class="ln">   930  </span>					Kind:      chaos.Kind,
-<span id="L931" class="ln">   931  </span>				},
-<span id="L932" class="ln">   932  </span>				Created: chaos.StartTime.Format(time.RFC3339),
-<span id="L933" class="ln">   933  </span>				Status:  string(status),
-<span id="L934" class="ln">   934  </span>				UID:     chaos.UID,
-<span id="L935" class="ln">   935  </span>			})
-<span id="L936" class="ln">   936  </span>		}
-<span id="L937" class="ln">   937  </span>	}
+<span id="L898" class="ln">   898  </span>	if len(ns) == 0 &amp;&amp; !s.conf.ClusterScoped &amp;&amp;
+<span id="L899" class="ln">   899  </span>		len(s.conf.TargetNamespace) != 0 {
+<span id="L900" class="ln">   900  </span>		ns = s.conf.TargetNamespace
+<span id="L901" class="ln">   901  </span>	}
+<span id="L902" class="ln">   902  </span>
+<span id="L903" class="ln">   903  </span>	exps := make([]*Experiment, 0)
+<span id="L904" class="ln">   904  </span>	for key, list := range v1alpha1.AllKinds() {
+<span id="L905" class="ln">   905  </span>		if kind != &#34;&#34; &amp;&amp; key != kind {
+<span id="L906" class="ln">   906  </span>			continue
+<span id="L907" class="ln">   907  </span>		}
+<span id="L908" class="ln">   908  </span>		if err := kubeCli.List(context.Background(), list.ChaosList, &amp;client.ListOptions{Namespace: ns}); err != nil {
+<span id="L909" class="ln">   909  </span>			c.Status(http.StatusInternalServerError)
+<span id="L910" class="ln">   910  </span>			utils.SetErrorForGinCtx(c, err)
+<span id="L911" class="ln">   911  </span>			return
+<span id="L912" class="ln">   912  </span>		}
+<span id="L913" class="ln">   913  </span>
+<span id="L914" class="ln">   914  </span>		items := reflect.ValueOf(list.ChaosList).Elem().FieldByName(&#34;Items&#34;)
+<span id="L915" class="ln">   915  </span>		for i := 0; i &lt; items.Len(); i++ {
+<span id="L916" class="ln">   916  </span>			item := items.Index(i).Addr().Interface().(v1alpha1.InnerObject)
+<span id="L917" class="ln">   917  </span>			chaos := item.GetChaos()
+<span id="L918" class="ln">   918  </span>			if name != &#34;&#34; &amp;&amp; chaos.Name != name {
+<span id="L919" class="ln">   919  </span>				continue
+<span id="L920" class="ln">   920  </span>			}
+<span id="L921" class="ln">   921  </span>			status := utils.GetChaosState(item)
+<span id="L922" class="ln">   922  </span>			exps = append(exps, &amp;Experiment{
+<span id="L923" class="ln">   923  </span>				Base: Base{
+<span id="L924" class="ln">   924  </span>					Name:      chaos.Name,
+<span id="L925" class="ln">   925  </span>					Namespace: chaos.Namespace,
+<span id="L926" class="ln">   926  </span>					Kind:      chaos.Kind,
+<span id="L927" class="ln">   927  </span>				},
+<span id="L928" class="ln">   928  </span>				Created: chaos.StartTime.Format(time.RFC3339),
+<span id="L929" class="ln">   929  </span>				Status:  string(status),
+<span id="L930" class="ln">   930  </span>				UID:     chaos.UID,
+<span id="L931" class="ln">   931  </span>			})
+<span id="L932" class="ln">   932  </span>		}
+<span id="L933" class="ln">   933  </span>	}
+<span id="L934" class="ln">   934  </span>
+<span id="L935" class="ln">   935  </span>	sort.Slice(exps, func(i, j int) bool {
+<span id="L936" class="ln">   936  </span>		return exps[i].Created &gt; exps[j].Created
+<span id="L937" class="ln">   937  </span>	})
 <span id="L938" class="ln">   938  </span>
-<span id="L939" class="ln">   939  </span>	sort.Slice(exps, func(i, j int) bool {
-<span id="L940" class="ln">   940  </span>		return exps[i].Created &gt; exps[j].Created
-<span id="L941" class="ln">   941  </span>	})
-<span id="L942" class="ln">   942  </span>
-<span id="L943" class="ln">   943  </span>	c.JSON(http.StatusOK, exps)
-<span id="L944" class="ln">   944  </span>}
-<span id="L945" class="ln">   945  </span>
-<span id="L946" class="ln">   946  </span><span class="comment">// @Summary Get detailed information about the specified chaos experiment.</span>
-<span id="L947" class="ln">   947  </span><span class="comment">// @Description Get detailed information about the specified chaos experiment.</span>
-<span id="L948" class="ln">   948  </span><span class="comment">// @Tags experiments</span>
-<span id="L949" class="ln">   949  </span><span class="comment">// @Produce json</span>
-<span id="L950" class="ln">   950  </span><span class="comment">// @Param uid path string true &#34;uid&#34;</span>
-<span id="L951" class="ln">   951  </span><span class="comment">// @Router /experiments/detail/{uid} [GET]</span>
-<span id="L952" class="ln">   952  </span><span class="comment">// @Success 200 {object} Detail</span>
-<span id="L953" class="ln">   953  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
-<span id="L954" class="ln">   954  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
-<span id="L955" class="ln">   955  </span>func (s *Service) getExperimentDetail(c *gin.Context) {
-<span id="L956" class="ln">   956  </span>	var (
-<span id="L957" class="ln">   957  </span>		exp       *core.Experiment
-<span id="L958" class="ln">   958  </span>		expDetail Detail
-<span id="L959" class="ln">   959  </span>	)
-<span id="L960" class="ln">   960  </span>
-<span id="L961" class="ln">   961  </span>	kubeCli, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
-<span id="L962" class="ln">   962  </span>	if err != nil {
-<span id="L963" class="ln">   963  </span>		_ = c.Error(utils.ErrInvalidRequest.WrapWithNoMessage(err))
-<span id="L964" class="ln">   964  </span>		return
-<span id="L965" class="ln">   965  </span>	}
-<span id="L966" class="ln">   966  </span>
-<span id="L967" class="ln">   967  </span>	uid := c.Param(&#34;uid&#34;)
-<span id="L968" class="ln">   968  </span>	if exp, err = s.archive.FindByUID(context.Background(), uid); err != nil {
-<span id="L969" class="ln">   969  </span>		if gorm.IsRecordNotFoundError(err) {
-<span id="L970" class="ln">   970  </span>			c.Status(http.StatusInternalServerError)
-<span id="L971" class="ln">   971  </span>			_ = c.Error(utils.ErrInvalidRequest.New(&#34;the experiment is not found&#34;))
-<span id="L972" class="ln">   972  </span>		} else {
-<span id="L973" class="ln">   973  </span>			c.Status(http.StatusInternalServerError)
-<span id="L974" class="ln">   974  </span>			_ = c.Error(utils.ErrInternalServer.NewWithNoMessage())
-<span id="L975" class="ln">   975  </span>		}
-<span id="L976" class="ln">   976  </span>		return
-<span id="L977" class="ln">   977  </span>	}
+<span id="L939" class="ln">   939  </span>	c.JSON(http.StatusOK, exps)
+<span id="L940" class="ln">   940  </span>}
+<span id="L941" class="ln">   941  </span>
+<span id="L942" class="ln">   942  </span><span class="comment">// @Summary Get detailed information about the specified chaos experiment.</span>
+<span id="L943" class="ln">   943  </span><span class="comment">// @Description Get detailed information about the specified chaos experiment.</span>
+<span id="L944" class="ln">   944  </span><span class="comment">// @Tags experiments</span>
+<span id="L945" class="ln">   945  </span><span class="comment">// @Produce json</span>
+<span id="L946" class="ln">   946  </span><span class="comment">// @Param uid path string true &#34;uid&#34;</span>
+<span id="L947" class="ln">   947  </span><span class="comment">// @Router /experiments/detail/{uid} [GET]</span>
+<span id="L948" class="ln">   948  </span><span class="comment">// @Success 200 {object} Detail</span>
+<span id="L949" class="ln">   949  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
+<span id="L950" class="ln">   950  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L951" class="ln">   951  </span>func (s *Service) getExperimentDetail(c *gin.Context) {
+<span id="L952" class="ln">   952  </span>	var (
+<span id="L953" class="ln">   953  </span>		exp       *core.Experiment
+<span id="L954" class="ln">   954  </span>		expDetail Detail
+<span id="L955" class="ln">   955  </span>	)
+<span id="L956" class="ln">   956  </span>
+<span id="L957" class="ln">   957  </span>	kubeCli, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
+<span id="L958" class="ln">   958  </span>	if err != nil {
+<span id="L959" class="ln">   959  </span>		_ = c.Error(utils.ErrInvalidRequest.WrapWithNoMessage(err))
+<span id="L960" class="ln">   960  </span>		return
+<span id="L961" class="ln">   961  </span>	}
+<span id="L962" class="ln">   962  </span>
+<span id="L963" class="ln">   963  </span>	uid := c.Param(&#34;uid&#34;)
+<span id="L964" class="ln">   964  </span>	if exp, err = s.archive.FindByUID(context.Background(), uid); err != nil {
+<span id="L965" class="ln">   965  </span>		if gorm.IsRecordNotFoundError(err) {
+<span id="L966" class="ln">   966  </span>			c.Status(http.StatusInternalServerError)
+<span id="L967" class="ln">   967  </span>			_ = c.Error(utils.ErrInvalidRequest.New(&#34;the experiment is not found&#34;))
+<span id="L968" class="ln">   968  </span>		} else {
+<span id="L969" class="ln">   969  </span>			c.Status(http.StatusInternalServerError)
+<span id="L970" class="ln">   970  </span>			_ = c.Error(utils.ErrInternalServer.NewWithNoMessage())
+<span id="L971" class="ln">   971  </span>		}
+<span id="L972" class="ln">   972  </span>		return
+<span id="L973" class="ln">   973  </span>	}
+<span id="L974" class="ln">   974  </span>
+<span id="L975" class="ln">   975  </span>	kind := exp.Kind
+<span id="L976" class="ln">   976  </span>	ns := exp.Namespace
+<span id="L977" class="ln">   977  </span>	name := exp.Name
 <span id="L978" class="ln">   978  </span>
-<span id="L979" class="ln">   979  </span>	kind := exp.Kind
-<span id="L980" class="ln">   980  </span>	ns := exp.Namespace
-<span id="L981" class="ln">   981  </span>	name := exp.Name
-<span id="L982" class="ln">   982  </span>
-<span id="L983" class="ln">   983  </span>	switch kind {
-<span id="L984" class="ln">   984  </span>	case v1alpha1.KindPodChaos:
-<span id="L985" class="ln">   985  </span>		expDetail, err = s.getPodChaosDetail(ns, name, kubeCli)
-<span id="L986" class="ln">   986  </span>	case v1alpha1.KindIOChaos:
-<span id="L987" class="ln">   987  </span>		expDetail, err = s.getIOChaosDetail(ns, name, kubeCli)
-<span id="L988" class="ln">   988  </span>	case v1alpha1.KindNetworkChaos:
-<span id="L989" class="ln">   989  </span>		expDetail, err = s.getNetworkChaosDetail(ns, name, kubeCli)
-<span id="L990" class="ln">   990  </span>	case v1alpha1.KindTimeChaos:
-<span id="L991" class="ln">   991  </span>		expDetail, err = s.getTimeChaosDetail(ns, name, kubeCli)
-<span id="L992" class="ln">   992  </span>	case v1alpha1.KindKernelChaos:
-<span id="L993" class="ln">   993  </span>		expDetail, err = s.getKernelChaosDetail(ns, name, kubeCli)
-<span id="L994" class="ln">   994  </span>	case v1alpha1.KindStressChaos:
-<span id="L995" class="ln">   995  </span>		expDetail, err = s.getStressChaosDetail(ns, name, kubeCli)
-<span id="L996" class="ln">   996  </span>	case v1alpha1.KindDNSChaos:
-<span id="L997" class="ln">   997  </span>		expDetail, err = s.getDNSChaosDetail(ns, name, kubeCli)
-<span id="L998" class="ln">   998  </span>	case v1alpha1.KindAWSChaos:
-<span id="L999" class="ln">   999  </span>		expDetail, err = s.getAWSChaosDetail(ns, name, kubeCli)
-<span id="L1000" class="ln">  1000  </span>	case v1alpha1.KindGCPChaos:
-<span id="L1001" class="ln">  1001  </span>		expDetail, err = s.getGCPChaosDetail(ns, name, kubeCli)
-<span id="L1002" class="ln">  1002  </span>	}
-<span id="L1003" class="ln">  1003  </span>	if err != nil {
-<span id="L1004" class="ln">  1004  </span>		c.Status(http.StatusInternalServerError)
-<span id="L1005" class="ln">  1005  </span>		_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(err))
-<span id="L1006" class="ln">  1006  </span>		return
-<span id="L1007" class="ln">  1007  </span>	}
-<span id="L1008" class="ln">  1008  </span>
-<span id="L1009" class="ln">  1009  </span>	c.JSON(http.StatusOK, expDetail)
-<span id="L1010" class="ln">  1010  </span>}
-<span id="L1011" class="ln">  1011  </span>
-<span id="L1012" class="ln">  1012  </span><span class="comment">// @Summary Delete the specified chaos experiment.</span>
-<span id="L1013" class="ln">  1013  </span><span class="comment">// @Description Delete the specified chaos experiment.</span>
-<span id="L1014" class="ln">  1014  </span><span class="comment">// @Tags experiments</span>
-<span id="L1015" class="ln">  1015  </span><span class="comment">// @Produce json</span>
-<span id="L1016" class="ln">  1016  </span><span class="comment">// @Param uid path string true &#34;uid&#34;</span>
-<span id="L1017" class="ln">  1017  </span><span class="comment">// @Param force query string true &#34;force&#34; Enums(true, false)</span>
-<span id="L1018" class="ln">  1018  </span><span class="comment">// @Success 200 {object} StatusResponse</span>
-<span id="L1019" class="ln">  1019  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
-<span id="L1020" class="ln">  1020  </span><span class="comment">// @Failure 404 {object} utils.APIError</span>
-<span id="L1021" class="ln">  1021  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
-<span id="L1022" class="ln">  1022  </span><span class="comment">// @Router /experiments/{uid} [delete]</span>
-<span id="L1023" class="ln">  1023  </span>func (s *Service) deleteExperiment(c *gin.Context) {
-<span id="L1024" class="ln">  1024  </span>	var (
-<span id="L1025" class="ln">  1025  </span>		chaosKind *v1alpha1.ChaosKind
-<span id="L1026" class="ln">  1026  </span>		ok        bool
-<span id="L1027" class="ln">  1027  </span>		exp       *core.Experiment
-<span id="L1028" class="ln">  1028  </span>	)
-<span id="L1029" class="ln">  1029  </span>
-<span id="L1030" class="ln">  1030  </span>	kubeCli, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
-<span id="L1031" class="ln">  1031  </span>	if err != nil {
-<span id="L1032" class="ln">  1032  </span>		_ = c.Error(utils.ErrInvalidRequest.WrapWithNoMessage(err))
-<span id="L1033" class="ln">  1033  </span>		return
-<span id="L1034" class="ln">  1034  </span>	}
-<span id="L1035" class="ln">  1035  </span>
-<span id="L1036" class="ln">  1036  </span>	uid := c.Param(&#34;uid&#34;)
-<span id="L1037" class="ln">  1037  </span>	if exp, err = s.archive.FindByUID(context.Background(), uid); err != nil {
-<span id="L1038" class="ln">  1038  </span>		if gorm.IsRecordNotFoundError(err) {
-<span id="L1039" class="ln">  1039  </span>			c.Status(http.StatusInternalServerError)
-<span id="L1040" class="ln">  1040  </span>			_ = c.Error(utils.ErrInvalidRequest.New(&#34;the experiment is not found&#34;))
-<span id="L1041" class="ln">  1041  </span>		} else {
-<span id="L1042" class="ln">  1042  </span>			c.Status(http.StatusInternalServerError)
-<span id="L1043" class="ln">  1043  </span>			_ = c.Error(utils.ErrInternalServer.NewWithNoMessage())
-<span id="L1044" class="ln">  1044  </span>		}
-<span id="L1045" class="ln">  1045  </span>		return
-<span id="L1046" class="ln">  1046  </span>	}
-<span id="L1047" class="ln">  1047  </span>
-<span id="L1048" class="ln">  1048  </span>	kind := exp.Kind
-<span id="L1049" class="ln">  1049  </span>	ns := exp.Namespace
-<span id="L1050" class="ln">  1050  </span>	name := exp.Name
-<span id="L1051" class="ln">  1051  </span>	force := c.DefaultQuery(&#34;force&#34;, &#34;false&#34;)
-<span id="L1052" class="ln">  1052  </span>
-<span id="L1053" class="ln">  1053  </span>	ctx := context.TODO()
-<span id="L1054" class="ln">  1054  </span>	chaosKey := types.NamespacedName{Namespace: ns, Name: name}
-<span id="L1055" class="ln">  1055  </span>
-<span id="L1056" class="ln">  1056  </span>	if chaosKind, ok = v1alpha1.AllKinds()[kind]; !ok {
-<span id="L1057" class="ln">  1057  </span>		c.Status(http.StatusBadRequest)
-<span id="L1058" class="ln">  1058  </span>		_ = c.Error(utils.ErrInvalidRequest.New(kind + &#34; is not supported&#34;))
-<span id="L1059" class="ln">  1059  </span>		return
-<span id="L1060" class="ln">  1060  </span>	}
-<span id="L1061" class="ln">  1061  </span>	if err := kubeCli.Get(ctx, chaosKey, chaosKind.Chaos); err != nil {
-<span id="L1062" class="ln">  1062  </span>		if apierrors.IsNotFound(err) {
-<span id="L1063" class="ln">  1063  </span>			c.Status(http.StatusNotFound)
-<span id="L1064" class="ln">  1064  </span>			_ = c.Error(utils.ErrNotFound.NewWithNoMessage())
-<span id="L1065" class="ln">  1065  </span>		} else {
-<span id="L1066" class="ln">  1066  </span>			c.Status(http.StatusInternalServerError)
-<span id="L1067" class="ln">  1067  </span>			_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(err))
-<span id="L1068" class="ln">  1068  </span>		}
-<span id="L1069" class="ln">  1069  </span>		return
-<span id="L1070" class="ln">  1070  </span>	}
-<span id="L1071" class="ln">  1071  </span>
-<span id="L1072" class="ln">  1072  </span>	if force == &#34;true&#34; {
-<span id="L1073" class="ln">  1073  </span>		err = retry.RetryOnConflict(retry.DefaultRetry, func() error {
-<span id="L1074" class="ln">  1074  </span>			return setAnnotation(kubeCli, kind, ns, name)
-<span id="L1075" class="ln">  1075  </span>		})
-<span id="L1076" class="ln">  1076  </span>		if err != nil {
-<span id="L1077" class="ln">  1077  </span>			c.Status(http.StatusInternalServerError)
-<span id="L1078" class="ln">  1078  </span>			_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;forced deletion of chaos failed, because update chaos annotation error&#34;)))
-<span id="L1079" class="ln">  1079  </span>			return
-<span id="L1080" class="ln">  1080  </span>		}
-<span id="L1081" class="ln">  1081  </span>	}
-<span id="L1082" class="ln">  1082  </span>
-<span id="L1083" class="ln">  1083  </span>	if err := kubeCli.Delete(ctx, chaosKind.Chaos, &amp;client.DeleteOptions{}); err != nil {
-<span id="L1084" class="ln">  1084  </span>		if apierrors.IsNotFound(err) {
-<span id="L1085" class="ln">  1085  </span>			c.Status(http.StatusNotFound)
-<span id="L1086" class="ln">  1086  </span>			_ = c.Error(utils.ErrNotFound.NewWithNoMessage())
-<span id="L1087" class="ln">  1087  </span>		} else {
-<span id="L1088" class="ln">  1088  </span>			c.Status(http.StatusInternalServerError)
-<span id="L1089" class="ln">  1089  </span>			_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(err))
-<span id="L1090" class="ln">  1090  </span>		}
-<span id="L1091" class="ln">  1091  </span>		return
-<span id="L1092" class="ln">  1092  </span>	}
-<span id="L1093" class="ln">  1093  </span>
-<span id="L1094" class="ln">  1094  </span>	c.JSON(http.StatusOK, StatusResponse{Status: &#34;success&#34;})
-<span id="L1095" class="ln">  1095  </span>}
-<span id="L1096" class="ln">  1096  </span>
-<span id="L1097" class="ln">  1097  </span><span class="comment">// @Summary Delete the specified chaos experiment.</span>
-<span id="L1098" class="ln">  1098  </span><span class="comment">// @Description Delete the specified chaos experiment.</span>
-<span id="L1099" class="ln">  1099  </span><span class="comment">// @Tags experiments</span>
-<span id="L1100" class="ln">  1100  </span><span class="comment">// @Produce json</span>
-<span id="L1101" class="ln">  1101  </span><span class="comment">// @Param uids query string true &#34;uids&#34;</span>
-<span id="L1102" class="ln">  1102  </span><span class="comment">// @Param force query string true &#34;force&#34; Enums(true, false)</span>
-<span id="L1103" class="ln">  1103  </span><span class="comment">// @Success 200 {object} StatusResponse</span>
-<span id="L1104" class="ln">  1104  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
-<span id="L1105" class="ln">  1105  </span><span class="comment">// @Failure 404 {object} utils.APIError</span>
-<span id="L1106" class="ln">  1106  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
-<span id="L1107" class="ln">  1107  </span><span class="comment">// @Router /experiments [delete]</span>
-<span id="L1108" class="ln">  1108  </span>func (s *Service) batchDeleteExperiment(c *gin.Context) {
-<span id="L1109" class="ln">  1109  </span>	var (
-<span id="L1110" class="ln">  1110  </span>		chaosKind *v1alpha1.ChaosKind
-<span id="L1111" class="ln">  1111  </span>		ok        bool
-<span id="L1112" class="ln">  1112  </span>		exp       *core.Experiment
-<span id="L1113" class="ln">  1113  </span>		errFlag   bool
-<span id="L1114" class="ln">  1114  </span>		uidSlice  []string
-<span id="L1115" class="ln">  1115  </span>	)
-<span id="L1116" class="ln">  1116  </span>
-<span id="L1117" class="ln">  1117  </span>	kubeCli, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
-<span id="L1118" class="ln">  1118  </span>	if err != nil {
-<span id="L1119" class="ln">  1119  </span>		_ = c.Error(utils.ErrInvalidRequest.WrapWithNoMessage(err))
-<span id="L1120" class="ln">  1120  </span>		return
-<span id="L1121" class="ln">  1121  </span>	}
-<span id="L1122" class="ln">  1122  </span>
-<span id="L1123" class="ln">  1123  </span>	uids := c.Query(&#34;uids&#34;)
-<span id="L1124" class="ln">  1124  </span>	if uids == &#34;&#34; {
-<span id="L1125" class="ln">  1125  </span>		c.Status(http.StatusBadRequest)
-<span id="L1126" class="ln">  1126  </span>		_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;uids cannot be empty&#34;)))
-<span id="L1127" class="ln">  1127  </span>		return
-<span id="L1128" class="ln">  1128  </span>	}
-<span id="L1129" class="ln">  1129  </span>	force := c.DefaultQuery(&#34;force&#34;, &#34;false&#34;)
-<span id="L1130" class="ln">  1130  </span>	uidSlice = strings.Split(uids, &#34;,&#34;)
-<span id="L1131" class="ln">  1131  </span>	errFlag = false
-<span id="L1132" class="ln">  1132  </span>
-<span id="L1133" class="ln">  1133  </span>	if len(uidSlice) &gt; 100 {
-<span id="L1134" class="ln">  1134  </span>		c.Status(http.StatusBadRequest)
-<span id="L1135" class="ln">  1135  </span>		_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;too many uids, please reduce the number of uids&#34;)))
-<span id="L1136" class="ln">  1136  </span>		return
-<span id="L1137" class="ln">  1137  </span>	}
-<span id="L1138" class="ln">  1138  </span>
-<span id="L1139" class="ln">  1139  </span>	for _, uid := range uidSlice {
-<span id="L1140" class="ln">  1140  </span>		if exp, err = s.archive.FindByUID(context.Background(), uid); err != nil {
-<span id="L1141" class="ln">  1141  </span>			if gorm.IsRecordNotFoundError(err) {
-<span id="L1142" class="ln">  1142  </span>				_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;delete experiment uid (%s) error, because the experiment is not found&#34;, uid)))
-<span id="L1143" class="ln">  1143  </span>			} else {
-<span id="L1144" class="ln">  1144  </span>				_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;delete experiment uid (%s) error, because %s&#34;, uid, err.Error())))
-<span id="L1145" class="ln">  1145  </span>			}
-<span id="L1146" class="ln">  1146  </span>			errFlag = true
-<span id="L1147" class="ln">  1147  </span>			continue
-<span id="L1148" class="ln">  1148  </span>		}
+<span id="L979" class="ln">   979  </span>	switch kind {
+<span id="L980" class="ln">   980  </span>	case v1alpha1.KindPodChaos:
+<span id="L981" class="ln">   981  </span>		expDetail, err = s.getPodChaosDetail(ns, name, kubeCli)
+<span id="L982" class="ln">   982  </span>	case v1alpha1.KindIOChaos:
+<span id="L983" class="ln">   983  </span>		expDetail, err = s.getIOChaosDetail(ns, name, kubeCli)
+<span id="L984" class="ln">   984  </span>	case v1alpha1.KindNetworkChaos:
+<span id="L985" class="ln">   985  </span>		expDetail, err = s.getNetworkChaosDetail(ns, name, kubeCli)
+<span id="L986" class="ln">   986  </span>	case v1alpha1.KindTimeChaos:
+<span id="L987" class="ln">   987  </span>		expDetail, err = s.getTimeChaosDetail(ns, name, kubeCli)
+<span id="L988" class="ln">   988  </span>	case v1alpha1.KindKernelChaos:
+<span id="L989" class="ln">   989  </span>		expDetail, err = s.getKernelChaosDetail(ns, name, kubeCli)
+<span id="L990" class="ln">   990  </span>	case v1alpha1.KindStressChaos:
+<span id="L991" class="ln">   991  </span>		expDetail, err = s.getStressChaosDetail(ns, name, kubeCli)
+<span id="L992" class="ln">   992  </span>	case v1alpha1.KindDNSChaos:
+<span id="L993" class="ln">   993  </span>		expDetail, err = s.getDNSChaosDetail(ns, name, kubeCli)
+<span id="L994" class="ln">   994  </span>	case v1alpha1.KindAWSChaos:
+<span id="L995" class="ln">   995  </span>		expDetail, err = s.getAWSChaosDetail(ns, name, kubeCli)
+<span id="L996" class="ln">   996  </span>	case v1alpha1.KindGCPChaos:
+<span id="L997" class="ln">   997  </span>		expDetail, err = s.getGCPChaosDetail(ns, name, kubeCli)
+<span id="L998" class="ln">   998  </span>	}
+<span id="L999" class="ln">   999  </span>	if err != nil {
+<span id="L1000" class="ln">  1000  </span>		c.Status(http.StatusInternalServerError)
+<span id="L1001" class="ln">  1001  </span>		_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(err))
+<span id="L1002" class="ln">  1002  </span>		return
+<span id="L1003" class="ln">  1003  </span>	}
+<span id="L1004" class="ln">  1004  </span>
+<span id="L1005" class="ln">  1005  </span>	c.JSON(http.StatusOK, expDetail)
+<span id="L1006" class="ln">  1006  </span>}
+<span id="L1007" class="ln">  1007  </span>
+<span id="L1008" class="ln">  1008  </span><span class="comment">// @Summary Delete the specified chaos experiment.</span>
+<span id="L1009" class="ln">  1009  </span><span class="comment">// @Description Delete the specified chaos experiment.</span>
+<span id="L1010" class="ln">  1010  </span><span class="comment">// @Tags experiments</span>
+<span id="L1011" class="ln">  1011  </span><span class="comment">// @Produce json</span>
+<span id="L1012" class="ln">  1012  </span><span class="comment">// @Param uid path string true &#34;uid&#34;</span>
+<span id="L1013" class="ln">  1013  </span><span class="comment">// @Param force query string true &#34;force&#34; Enums(true, false)</span>
+<span id="L1014" class="ln">  1014  </span><span class="comment">// @Success 200 {object} StatusResponse</span>
+<span id="L1015" class="ln">  1015  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
+<span id="L1016" class="ln">  1016  </span><span class="comment">// @Failure 404 {object} utils.APIError</span>
+<span id="L1017" class="ln">  1017  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L1018" class="ln">  1018  </span><span class="comment">// @Router /experiments/{uid} [delete]</span>
+<span id="L1019" class="ln">  1019  </span>func (s *Service) deleteExperiment(c *gin.Context) {
+<span id="L1020" class="ln">  1020  </span>	var (
+<span id="L1021" class="ln">  1021  </span>		chaosKind *v1alpha1.ChaosKind
+<span id="L1022" class="ln">  1022  </span>		ok        bool
+<span id="L1023" class="ln">  1023  </span>		exp       *core.Experiment
+<span id="L1024" class="ln">  1024  </span>	)
+<span id="L1025" class="ln">  1025  </span>
+<span id="L1026" class="ln">  1026  </span>	kubeCli, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
+<span id="L1027" class="ln">  1027  </span>	if err != nil {
+<span id="L1028" class="ln">  1028  </span>		_ = c.Error(utils.ErrInvalidRequest.WrapWithNoMessage(err))
+<span id="L1029" class="ln">  1029  </span>		return
+<span id="L1030" class="ln">  1030  </span>	}
+<span id="L1031" class="ln">  1031  </span>
+<span id="L1032" class="ln">  1032  </span>	uid := c.Param(&#34;uid&#34;)
+<span id="L1033" class="ln">  1033  </span>	if exp, err = s.archive.FindByUID(context.Background(), uid); err != nil {
+<span id="L1034" class="ln">  1034  </span>		if gorm.IsRecordNotFoundError(err) {
+<span id="L1035" class="ln">  1035  </span>			c.Status(http.StatusInternalServerError)
+<span id="L1036" class="ln">  1036  </span>			_ = c.Error(utils.ErrInvalidRequest.New(&#34;the experiment is not found&#34;))
+<span id="L1037" class="ln">  1037  </span>		} else {
+<span id="L1038" class="ln">  1038  </span>			c.Status(http.StatusInternalServerError)
+<span id="L1039" class="ln">  1039  </span>			_ = c.Error(utils.ErrInternalServer.NewWithNoMessage())
+<span id="L1040" class="ln">  1040  </span>		}
+<span id="L1041" class="ln">  1041  </span>		return
+<span id="L1042" class="ln">  1042  </span>	}
+<span id="L1043" class="ln">  1043  </span>
+<span id="L1044" class="ln">  1044  </span>	kind := exp.Kind
+<span id="L1045" class="ln">  1045  </span>	ns := exp.Namespace
+<span id="L1046" class="ln">  1046  </span>	name := exp.Name
+<span id="L1047" class="ln">  1047  </span>	force := c.DefaultQuery(&#34;force&#34;, &#34;false&#34;)
+<span id="L1048" class="ln">  1048  </span>
+<span id="L1049" class="ln">  1049  </span>	ctx := context.TODO()
+<span id="L1050" class="ln">  1050  </span>	chaosKey := types.NamespacedName{Namespace: ns, Name: name}
+<span id="L1051" class="ln">  1051  </span>
+<span id="L1052" class="ln">  1052  </span>	if chaosKind, ok = v1alpha1.AllKinds()[kind]; !ok {
+<span id="L1053" class="ln">  1053  </span>		c.Status(http.StatusBadRequest)
+<span id="L1054" class="ln">  1054  </span>		_ = c.Error(utils.ErrInvalidRequest.New(kind + &#34; is not supported&#34;))
+<span id="L1055" class="ln">  1055  </span>		return
+<span id="L1056" class="ln">  1056  </span>	}
+<span id="L1057" class="ln">  1057  </span>	if err := kubeCli.Get(ctx, chaosKey, chaosKind.Chaos); err != nil {
+<span id="L1058" class="ln">  1058  </span>		if apierrors.IsNotFound(err) {
+<span id="L1059" class="ln">  1059  </span>			c.Status(http.StatusNotFound)
+<span id="L1060" class="ln">  1060  </span>			_ = c.Error(utils.ErrNotFound.NewWithNoMessage())
+<span id="L1061" class="ln">  1061  </span>		} else {
+<span id="L1062" class="ln">  1062  </span>			c.Status(http.StatusInternalServerError)
+<span id="L1063" class="ln">  1063  </span>			_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(err))
+<span id="L1064" class="ln">  1064  </span>		}
+<span id="L1065" class="ln">  1065  </span>		return
+<span id="L1066" class="ln">  1066  </span>	}
+<span id="L1067" class="ln">  1067  </span>
+<span id="L1068" class="ln">  1068  </span>	if force == &#34;true&#34; {
+<span id="L1069" class="ln">  1069  </span>		err = retry.RetryOnConflict(retry.DefaultRetry, func() error {
+<span id="L1070" class="ln">  1070  </span>			return setAnnotation(kubeCli, kind, ns, name)
+<span id="L1071" class="ln">  1071  </span>		})
+<span id="L1072" class="ln">  1072  </span>		if err != nil {
+<span id="L1073" class="ln">  1073  </span>			c.Status(http.StatusInternalServerError)
+<span id="L1074" class="ln">  1074  </span>			_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;forced deletion of chaos failed, because update chaos annotation error&#34;)))
+<span id="L1075" class="ln">  1075  </span>			return
+<span id="L1076" class="ln">  1076  </span>		}
+<span id="L1077" class="ln">  1077  </span>	}
+<span id="L1078" class="ln">  1078  </span>
+<span id="L1079" class="ln">  1079  </span>	if err := kubeCli.Delete(ctx, chaosKind.Chaos, &amp;client.DeleteOptions{}); err != nil {
+<span id="L1080" class="ln">  1080  </span>		if apierrors.IsNotFound(err) {
+<span id="L1081" class="ln">  1081  </span>			c.Status(http.StatusNotFound)
+<span id="L1082" class="ln">  1082  </span>			_ = c.Error(utils.ErrNotFound.NewWithNoMessage())
+<span id="L1083" class="ln">  1083  </span>		} else {
+<span id="L1084" class="ln">  1084  </span>			c.Status(http.StatusInternalServerError)
+<span id="L1085" class="ln">  1085  </span>			_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(err))
+<span id="L1086" class="ln">  1086  </span>		}
+<span id="L1087" class="ln">  1087  </span>		return
+<span id="L1088" class="ln">  1088  </span>	}
+<span id="L1089" class="ln">  1089  </span>
+<span id="L1090" class="ln">  1090  </span>	c.JSON(http.StatusOK, StatusResponse{Status: &#34;success&#34;})
+<span id="L1091" class="ln">  1091  </span>}
+<span id="L1092" class="ln">  1092  </span>
+<span id="L1093" class="ln">  1093  </span><span class="comment">// @Summary Delete the specified chaos experiment.</span>
+<span id="L1094" class="ln">  1094  </span><span class="comment">// @Description Delete the specified chaos experiment.</span>
+<span id="L1095" class="ln">  1095  </span><span class="comment">// @Tags experiments</span>
+<span id="L1096" class="ln">  1096  </span><span class="comment">// @Produce json</span>
+<span id="L1097" class="ln">  1097  </span><span class="comment">// @Param uids query string true &#34;uids&#34;</span>
+<span id="L1098" class="ln">  1098  </span><span class="comment">// @Param force query string true &#34;force&#34; Enums(true, false)</span>
+<span id="L1099" class="ln">  1099  </span><span class="comment">// @Success 200 {object} StatusResponse</span>
+<span id="L1100" class="ln">  1100  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
+<span id="L1101" class="ln">  1101  </span><span class="comment">// @Failure 404 {object} utils.APIError</span>
+<span id="L1102" class="ln">  1102  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L1103" class="ln">  1103  </span><span class="comment">// @Router /experiments [delete]</span>
+<span id="L1104" class="ln">  1104  </span>func (s *Service) batchDeleteExperiment(c *gin.Context) {
+<span id="L1105" class="ln">  1105  </span>	var (
+<span id="L1106" class="ln">  1106  </span>		chaosKind *v1alpha1.ChaosKind
+<span id="L1107" class="ln">  1107  </span>		ok        bool
+<span id="L1108" class="ln">  1108  </span>		exp       *core.Experiment
+<span id="L1109" class="ln">  1109  </span>		errFlag   bool
+<span id="L1110" class="ln">  1110  </span>		uidSlice  []string
+<span id="L1111" class="ln">  1111  </span>	)
+<span id="L1112" class="ln">  1112  </span>
+<span id="L1113" class="ln">  1113  </span>	kubeCli, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
+<span id="L1114" class="ln">  1114  </span>	if err != nil {
+<span id="L1115" class="ln">  1115  </span>		_ = c.Error(utils.ErrInvalidRequest.WrapWithNoMessage(err))
+<span id="L1116" class="ln">  1116  </span>		return
+<span id="L1117" class="ln">  1117  </span>	}
+<span id="L1118" class="ln">  1118  </span>
+<span id="L1119" class="ln">  1119  </span>	uids := c.Query(&#34;uids&#34;)
+<span id="L1120" class="ln">  1120  </span>	if uids == &#34;&#34; {
+<span id="L1121" class="ln">  1121  </span>		c.Status(http.StatusBadRequest)
+<span id="L1122" class="ln">  1122  </span>		_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;uids cannot be empty&#34;)))
+<span id="L1123" class="ln">  1123  </span>		return
+<span id="L1124" class="ln">  1124  </span>	}
+<span id="L1125" class="ln">  1125  </span>	force := c.DefaultQuery(&#34;force&#34;, &#34;false&#34;)
+<span id="L1126" class="ln">  1126  </span>	uidSlice = strings.Split(uids, &#34;,&#34;)
+<span id="L1127" class="ln">  1127  </span>	errFlag = false
+<span id="L1128" class="ln">  1128  </span>
+<span id="L1129" class="ln">  1129  </span>	if len(uidSlice) &gt; 100 {
+<span id="L1130" class="ln">  1130  </span>		c.Status(http.StatusBadRequest)
+<span id="L1131" class="ln">  1131  </span>		_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;too many uids, please reduce the number of uids&#34;)))
+<span id="L1132" class="ln">  1132  </span>		return
+<span id="L1133" class="ln">  1133  </span>	}
+<span id="L1134" class="ln">  1134  </span>
+<span id="L1135" class="ln">  1135  </span>	for _, uid := range uidSlice {
+<span id="L1136" class="ln">  1136  </span>		if exp, err = s.archive.FindByUID(context.Background(), uid); err != nil {
+<span id="L1137" class="ln">  1137  </span>			if gorm.IsRecordNotFoundError(err) {
+<span id="L1138" class="ln">  1138  </span>				_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;delete experiment uid (%s) error, because the experiment is not found&#34;, uid)))
+<span id="L1139" class="ln">  1139  </span>			} else {
+<span id="L1140" class="ln">  1140  </span>				_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;delete experiment uid (%s) error, because %s&#34;, uid, err.Error())))
+<span id="L1141" class="ln">  1141  </span>			}
+<span id="L1142" class="ln">  1142  </span>			errFlag = true
+<span id="L1143" class="ln">  1143  </span>			continue
+<span id="L1144" class="ln">  1144  </span>		}
+<span id="L1145" class="ln">  1145  </span>
+<span id="L1146" class="ln">  1146  </span>		kind := exp.Kind
+<span id="L1147" class="ln">  1147  </span>		ns := exp.Namespace
+<span id="L1148" class="ln">  1148  </span>		name := exp.Name
 <span id="L1149" class="ln">  1149  </span>
-<span id="L1150" class="ln">  1150  </span>		kind := exp.Kind
-<span id="L1151" class="ln">  1151  </span>		ns := exp.Namespace
-<span id="L1152" class="ln">  1152  </span>		name := exp.Name
-<span id="L1153" class="ln">  1153  </span>
-<span id="L1154" class="ln">  1154  </span>		ctx := context.TODO()
-<span id="L1155" class="ln">  1155  </span>		chaosKey := types.NamespacedName{Namespace: ns, Name: name}
-<span id="L1156" class="ln">  1156  </span>
-<span id="L1157" class="ln">  1157  </span>		if chaosKind, ok = v1alpha1.AllKinds()[kind]; !ok {
-<span id="L1158" class="ln">  1158  </span>			_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;delete experiment uid (%s) error, because kind (%s) is not supported&#34;, uid, kind)))
-<span id="L1159" class="ln">  1159  </span>			errFlag = true
-<span id="L1160" class="ln">  1160  </span>			continue
-<span id="L1161" class="ln">  1161  </span>		}
-<span id="L1162" class="ln">  1162  </span>		if err := kubeCli.Get(ctx, chaosKey, chaosKind.Chaos); err != nil {
-<span id="L1163" class="ln">  1163  </span>			if apierrors.IsNotFound(err) {
-<span id="L1164" class="ln">  1164  </span>				_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;delete experiment uid (%s) error, because the chaos is not found&#34;, uid)))
-<span id="L1165" class="ln">  1165  </span>			} else {
-<span id="L1166" class="ln">  1166  </span>				_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;delete experiment uid (%s) error, because %s&#34;, uid, err.Error())))
-<span id="L1167" class="ln">  1167  </span>			}
-<span id="L1168" class="ln">  1168  </span>			errFlag = true
-<span id="L1169" class="ln">  1169  </span>			continue
-<span id="L1170" class="ln">  1170  </span>		}
-<span id="L1171" class="ln">  1171  </span>
-<span id="L1172" class="ln">  1172  </span>		if force == &#34;true&#34; {
-<span id="L1173" class="ln">  1173  </span>			err = retry.RetryOnConflict(retry.DefaultRetry, func() error {
-<span id="L1174" class="ln">  1174  </span>				return setAnnotation(kubeCli, kind, ns, name)
-<span id="L1175" class="ln">  1175  </span>			})
-<span id="L1176" class="ln">  1176  </span>			if err != nil {
-<span id="L1177" class="ln">  1177  </span>				_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;forced delete experiment uid (%s) error, because update chaos annotation error&#34;, uid)))
-<span id="L1178" class="ln">  1178  </span>				errFlag = true
-<span id="L1179" class="ln">  1179  </span>				continue
-<span id="L1180" class="ln">  1180  </span>			}
-<span id="L1181" class="ln">  1181  </span>		}
-<span id="L1182" class="ln">  1182  </span>
-<span id="L1183" class="ln">  1183  </span>		if err := kubeCli.Delete(ctx, chaosKind.Chaos, &amp;client.DeleteOptions{}); err != nil {
-<span id="L1184" class="ln">  1184  </span>			if apierrors.IsNotFound(err) {
-<span id="L1185" class="ln">  1185  </span>				_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;delete experiment uid (%s) error, because the chaos is not found&#34;, uid)))
-<span id="L1186" class="ln">  1186  </span>			} else {
-<span id="L1187" class="ln">  1187  </span>				_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;delete experiment uid (%s) error, because %s&#34;, uid, err.Error())))
-<span id="L1188" class="ln">  1188  </span>			}
-<span id="L1189" class="ln">  1189  </span>			errFlag = true
-<span id="L1190" class="ln">  1190  </span>			continue
-<span id="L1191" class="ln">  1191  </span>		}
-<span id="L1192" class="ln">  1192  </span>	}
-<span id="L1193" class="ln">  1193  </span>	if errFlag {
-<span id="L1194" class="ln">  1194  </span>		c.Status(http.StatusInternalServerError)
-<span id="L1195" class="ln">  1195  </span>	} else {
-<span id="L1196" class="ln">  1196  </span>		c.JSON(http.StatusOK, StatusResponse{Status: &#34;success&#34;})
-<span id="L1197" class="ln">  1197  </span>	}
-<span id="L1198" class="ln">  1198  </span>}
-<span id="L1199" class="ln">  1199  </span>
-<span id="L1200" class="ln">  1200  </span><span class="comment">// @Summary Pause a chaos experiment.</span>
-<span id="L1201" class="ln">  1201  </span><span class="comment">// @Description Pause a chaos experiment.</span>
-<span id="L1202" class="ln">  1202  </span><span class="comment">// @Tags experiments</span>
-<span id="L1203" class="ln">  1203  </span><span class="comment">// @Produce json</span>
-<span id="L1204" class="ln">  1204  </span><span class="comment">// @Param uid path string true &#34;uid&#34;</span>
-<span id="L1205" class="ln">  1205  </span><span class="comment">// @Success 200 {object} StatusResponse</span>
-<span id="L1206" class="ln">  1206  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
-<span id="L1207" class="ln">  1207  </span><span class="comment">// @Failure 404 {object} utils.APIError</span>
-<span id="L1208" class="ln">  1208  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
-<span id="L1209" class="ln">  1209  </span><span class="comment">// @Router /experiments/pause/{uid} [put]</span>
-<span id="L1210" class="ln">  1210  </span>func (s *Service) pauseExperiment(c *gin.Context) {
-<span id="L1211" class="ln">  1211  </span>	var experiment *core.Experiment
-<span id="L1212" class="ln">  1212  </span>
-<span id="L1213" class="ln">  1213  </span>	kubeCli, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
-<span id="L1214" class="ln">  1214  </span>	if err != nil {
-<span id="L1215" class="ln">  1215  </span>		_ = c.Error(utils.ErrInvalidRequest.WrapWithNoMessage(err))
-<span id="L1216" class="ln">  1216  </span>		return
-<span id="L1217" class="ln">  1217  </span>	}
-<span id="L1218" class="ln">  1218  </span>
-<span id="L1219" class="ln">  1219  </span>	uid := c.Param(&#34;uid&#34;)
-<span id="L1220" class="ln">  1220  </span>	if experiment, err = s.archive.FindByUID(context.Background(), uid); err != nil {
-<span id="L1221" class="ln">  1221  </span>		if gorm.IsRecordNotFoundError(err) {
-<span id="L1222" class="ln">  1222  </span>			c.Status(http.StatusInternalServerError)
-<span id="L1223" class="ln">  1223  </span>			_ = c.Error(utils.ErrInvalidRequest.New(&#34;the experiment is not found&#34;))
-<span id="L1224" class="ln">  1224  </span>		} else {
-<span id="L1225" class="ln">  1225  </span>			c.Status(http.StatusInternalServerError)
-<span id="L1226" class="ln">  1226  </span>			_ = c.Error(utils.ErrInternalServer.NewWithNoMessage())
-<span id="L1227" class="ln">  1227  </span>		}
-<span id="L1228" class="ln">  1228  </span>		return
-<span id="L1229" class="ln">  1229  </span>	}
-<span id="L1230" class="ln">  1230  </span>
-<span id="L1231" class="ln">  1231  </span>	exp := &amp;Base{
-<span id="L1232" class="ln">  1232  </span>		Kind:      experiment.Kind,
-<span id="L1233" class="ln">  1233  </span>		Name:      experiment.Name,
-<span id="L1234" class="ln">  1234  </span>		Namespace: experiment.Namespace,
+<span id="L1150" class="ln">  1150  </span>		ctx := context.TODO()
+<span id="L1151" class="ln">  1151  </span>		chaosKey := types.NamespacedName{Namespace: ns, Name: name}
+<span id="L1152" class="ln">  1152  </span>
+<span id="L1153" class="ln">  1153  </span>		if chaosKind, ok = v1alpha1.AllKinds()[kind]; !ok {
+<span id="L1154" class="ln">  1154  </span>			_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;delete experiment uid (%s) error, because kind (%s) is not supported&#34;, uid, kind)))
+<span id="L1155" class="ln">  1155  </span>			errFlag = true
+<span id="L1156" class="ln">  1156  </span>			continue
+<span id="L1157" class="ln">  1157  </span>		}
+<span id="L1158" class="ln">  1158  </span>		if err := kubeCli.Get(ctx, chaosKey, chaosKind.Chaos); err != nil {
+<span id="L1159" class="ln">  1159  </span>			if apierrors.IsNotFound(err) {
+<span id="L1160" class="ln">  1160  </span>				_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;delete experiment uid (%s) error, because the chaos is not found&#34;, uid)))
+<span id="L1161" class="ln">  1161  </span>			} else {
+<span id="L1162" class="ln">  1162  </span>				_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;delete experiment uid (%s) error, because %s&#34;, uid, err.Error())))
+<span id="L1163" class="ln">  1163  </span>			}
+<span id="L1164" class="ln">  1164  </span>			errFlag = true
+<span id="L1165" class="ln">  1165  </span>			continue
+<span id="L1166" class="ln">  1166  </span>		}
+<span id="L1167" class="ln">  1167  </span>
+<span id="L1168" class="ln">  1168  </span>		if force == &#34;true&#34; {
+<span id="L1169" class="ln">  1169  </span>			err = retry.RetryOnConflict(retry.DefaultRetry, func() error {
+<span id="L1170" class="ln">  1170  </span>				return setAnnotation(kubeCli, kind, ns, name)
+<span id="L1171" class="ln">  1171  </span>			})
+<span id="L1172" class="ln">  1172  </span>			if err != nil {
+<span id="L1173" class="ln">  1173  </span>				_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;forced delete experiment uid (%s) error, because update chaos annotation error&#34;, uid)))
+<span id="L1174" class="ln">  1174  </span>				errFlag = true
+<span id="L1175" class="ln">  1175  </span>				continue
+<span id="L1176" class="ln">  1176  </span>			}
+<span id="L1177" class="ln">  1177  </span>		}
+<span id="L1178" class="ln">  1178  </span>
+<span id="L1179" class="ln">  1179  </span>		if err := kubeCli.Delete(ctx, chaosKind.Chaos, &amp;client.DeleteOptions{}); err != nil {
+<span id="L1180" class="ln">  1180  </span>			if apierrors.IsNotFound(err) {
+<span id="L1181" class="ln">  1181  </span>				_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;delete experiment uid (%s) error, because the chaos is not found&#34;, uid)))
+<span id="L1182" class="ln">  1182  </span>			} else {
+<span id="L1183" class="ln">  1183  </span>				_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(fmt.Errorf(&#34;delete experiment uid (%s) error, because %s&#34;, uid, err.Error())))
+<span id="L1184" class="ln">  1184  </span>			}
+<span id="L1185" class="ln">  1185  </span>			errFlag = true
+<span id="L1186" class="ln">  1186  </span>			continue
+<span id="L1187" class="ln">  1187  </span>		}
+<span id="L1188" class="ln">  1188  </span>	}
+<span id="L1189" class="ln">  1189  </span>	if errFlag {
+<span id="L1190" class="ln">  1190  </span>		c.Status(http.StatusInternalServerError)
+<span id="L1191" class="ln">  1191  </span>	} else {
+<span id="L1192" class="ln">  1192  </span>		c.JSON(http.StatusOK, StatusResponse{Status: &#34;success&#34;})
+<span id="L1193" class="ln">  1193  </span>	}
+<span id="L1194" class="ln">  1194  </span>}
+<span id="L1195" class="ln">  1195  </span>
+<span id="L1196" class="ln">  1196  </span><span class="comment">// @Summary Pause a chaos experiment.</span>
+<span id="L1197" class="ln">  1197  </span><span class="comment">// @Description Pause a chaos experiment.</span>
+<span id="L1198" class="ln">  1198  </span><span class="comment">// @Tags experiments</span>
+<span id="L1199" class="ln">  1199  </span><span class="comment">// @Produce json</span>
+<span id="L1200" class="ln">  1200  </span><span class="comment">// @Param uid path string true &#34;uid&#34;</span>
+<span id="L1201" class="ln">  1201  </span><span class="comment">// @Success 200 {object} StatusResponse</span>
+<span id="L1202" class="ln">  1202  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
+<span id="L1203" class="ln">  1203  </span><span class="comment">// @Failure 404 {object} utils.APIError</span>
+<span id="L1204" class="ln">  1204  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L1205" class="ln">  1205  </span><span class="comment">// @Router /experiments/pause/{uid} [put]</span>
+<span id="L1206" class="ln">  1206  </span>func (s *Service) pauseExperiment(c *gin.Context) {
+<span id="L1207" class="ln">  1207  </span>	var experiment *core.Experiment
+<span id="L1208" class="ln">  1208  </span>
+<span id="L1209" class="ln">  1209  </span>	kubeCli, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
+<span id="L1210" class="ln">  1210  </span>	if err != nil {
+<span id="L1211" class="ln">  1211  </span>		_ = c.Error(utils.ErrInvalidRequest.WrapWithNoMessage(err))
+<span id="L1212" class="ln">  1212  </span>		return
+<span id="L1213" class="ln">  1213  </span>	}
+<span id="L1214" class="ln">  1214  </span>
+<span id="L1215" class="ln">  1215  </span>	uid := c.Param(&#34;uid&#34;)
+<span id="L1216" class="ln">  1216  </span>	if experiment, err = s.archive.FindByUID(context.Background(), uid); err != nil {
+<span id="L1217" class="ln">  1217  </span>		if gorm.IsRecordNotFoundError(err) {
+<span id="L1218" class="ln">  1218  </span>			c.Status(http.StatusInternalServerError)
+<span id="L1219" class="ln">  1219  </span>			_ = c.Error(utils.ErrInvalidRequest.New(&#34;the experiment is not found&#34;))
+<span id="L1220" class="ln">  1220  </span>		} else {
+<span id="L1221" class="ln">  1221  </span>			c.Status(http.StatusInternalServerError)
+<span id="L1222" class="ln">  1222  </span>			_ = c.Error(utils.ErrInternalServer.NewWithNoMessage())
+<span id="L1223" class="ln">  1223  </span>		}
+<span id="L1224" class="ln">  1224  </span>		return
+<span id="L1225" class="ln">  1225  </span>	}
+<span id="L1226" class="ln">  1226  </span>
+<span id="L1227" class="ln">  1227  </span>	exp := &amp;Base{
+<span id="L1228" class="ln">  1228  </span>		Kind:      experiment.Kind,
+<span id="L1229" class="ln">  1229  </span>		Name:      experiment.Name,
+<span id="L1230" class="ln">  1230  </span>		Namespace: experiment.Namespace,
+<span id="L1231" class="ln">  1231  </span>	}
+<span id="L1232" class="ln">  1232  </span>
+<span id="L1233" class="ln">  1233  </span>	annotations := map[string]string{
+<span id="L1234" class="ln">  1234  </span>		v1alpha1.PauseAnnotationKey: &#34;true&#34;,
 <span id="L1235" class="ln">  1235  </span>	}
-<span id="L1236" class="ln">  1236  </span>
-<span id="L1237" class="ln">  1237  </span>	annotations := map[string]string{
-<span id="L1238" class="ln">  1238  </span>		v1alpha1.PauseAnnotationKey: &#34;true&#34;,
-<span id="L1239" class="ln">  1239  </span>	}
-<span id="L1240" class="ln">  1240  </span>	if err := s.patchExperiment(exp, annotations, kubeCli); err != nil {
-<span id="L1241" class="ln">  1241  </span>		if apierrors.IsNotFound(err) {
-<span id="L1242" class="ln">  1242  </span>			c.Status(http.StatusNotFound)
-<span id="L1243" class="ln">  1243  </span>			_ = c.Error(utils.ErrNotFound.WrapWithNoMessage(err))
-<span id="L1244" class="ln">  1244  </span>			return
-<span id="L1245" class="ln">  1245  </span>		}
-<span id="L1246" class="ln">  1246  </span>		c.Status(http.StatusInternalServerError)
-<span id="L1247" class="ln">  1247  </span>		_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(err))
-<span id="L1248" class="ln">  1248  </span>		return
-<span id="L1249" class="ln">  1249  </span>	}
-<span id="L1250" class="ln">  1250  </span>
-<span id="L1251" class="ln">  1251  </span>	c.JSON(http.StatusOK, StatusResponse{Status: &#34;success&#34;})
-<span id="L1252" class="ln">  1252  </span>}
-<span id="L1253" class="ln">  1253  </span>
-<span id="L1254" class="ln">  1254  </span><span class="comment">// @Summary Start a chaos experiment.</span>
-<span id="L1255" class="ln">  1255  </span><span class="comment">// @Description Start a chaos experiment.</span>
-<span id="L1256" class="ln">  1256  </span><span class="comment">// @Tags experiments</span>
-<span id="L1257" class="ln">  1257  </span><span class="comment">// @Produce json</span>
-<span id="L1258" class="ln">  1258  </span><span class="comment">// @Param uid path string true &#34;uid&#34;</span>
-<span id="L1259" class="ln">  1259  </span><span class="comment">// @Success 200 {object} StatusResponse</span>
-<span id="L1260" class="ln">  1260  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
-<span id="L1261" class="ln">  1261  </span><span class="comment">// @Failure 404 {object} utils.APIError</span>
-<span id="L1262" class="ln">  1262  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
-<span id="L1263" class="ln">  1263  </span><span class="comment">// @Router /experiments/start/{uid} [put]</span>
-<span id="L1264" class="ln">  1264  </span>func (s *Service) startExperiment(c *gin.Context) {
-<span id="L1265" class="ln">  1265  </span>	var experiment *core.Experiment
-<span id="L1266" class="ln">  1266  </span>
-<span id="L1267" class="ln">  1267  </span>	kubeCli, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
-<span id="L1268" class="ln">  1268  </span>	if err != nil {
-<span id="L1269" class="ln">  1269  </span>		_ = c.Error(utils.ErrInvalidRequest.WrapWithNoMessage(err))
-<span id="L1270" class="ln">  1270  </span>		return
-<span id="L1271" class="ln">  1271  </span>	}
-<span id="L1272" class="ln">  1272  </span>
-<span id="L1273" class="ln">  1273  </span>	uid := c.Param(&#34;uid&#34;)
-<span id="L1274" class="ln">  1274  </span>	if experiment, err = s.archive.FindByUID(context.Background(), uid); err != nil {
-<span id="L1275" class="ln">  1275  </span>		if gorm.IsRecordNotFoundError(err) {
-<span id="L1276" class="ln">  1276  </span>			c.Status(http.StatusInternalServerError)
-<span id="L1277" class="ln">  1277  </span>			_ = c.Error(utils.ErrInvalidRequest.New(&#34;the experiment is not found&#34;))
-<span id="L1278" class="ln">  1278  </span>		} else {
-<span id="L1279" class="ln">  1279  </span>			c.Status(http.StatusInternalServerError)
-<span id="L1280" class="ln">  1280  </span>			_ = c.Error(utils.ErrInternalServer.NewWithNoMessage())
-<span id="L1281" class="ln">  1281  </span>		}
-<span id="L1282" class="ln">  1282  </span>		return
-<span id="L1283" class="ln">  1283  </span>	}
-<span id="L1284" class="ln">  1284  </span>
-<span id="L1285" class="ln">  1285  </span>	exp := &amp;Base{
-<span id="L1286" class="ln">  1286  </span>		Kind:      experiment.Kind,
-<span id="L1287" class="ln">  1287  </span>		Name:      experiment.Name,
-<span id="L1288" class="ln">  1288  </span>		Namespace: experiment.Namespace,
+<span id="L1236" class="ln">  1236  </span>	if err := s.patchExperiment(exp, annotations, kubeCli); err != nil {
+<span id="L1237" class="ln">  1237  </span>		if apierrors.IsNotFound(err) {
+<span id="L1238" class="ln">  1238  </span>			c.Status(http.StatusNotFound)
+<span id="L1239" class="ln">  1239  </span>			_ = c.Error(utils.ErrNotFound.WrapWithNoMessage(err))
+<span id="L1240" class="ln">  1240  </span>			return
+<span id="L1241" class="ln">  1241  </span>		}
+<span id="L1242" class="ln">  1242  </span>		c.Status(http.StatusInternalServerError)
+<span id="L1243" class="ln">  1243  </span>		_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(err))
+<span id="L1244" class="ln">  1244  </span>		return
+<span id="L1245" class="ln">  1245  </span>	}
+<span id="L1246" class="ln">  1246  </span>
+<span id="L1247" class="ln">  1247  </span>	c.JSON(http.StatusOK, StatusResponse{Status: &#34;success&#34;})
+<span id="L1248" class="ln">  1248  </span>}
+<span id="L1249" class="ln">  1249  </span>
+<span id="L1250" class="ln">  1250  </span><span class="comment">// @Summary Start a chaos experiment.</span>
+<span id="L1251" class="ln">  1251  </span><span class="comment">// @Description Start a chaos experiment.</span>
+<span id="L1252" class="ln">  1252  </span><span class="comment">// @Tags experiments</span>
+<span id="L1253" class="ln">  1253  </span><span class="comment">// @Produce json</span>
+<span id="L1254" class="ln">  1254  </span><span class="comment">// @Param uid path string true &#34;uid&#34;</span>
+<span id="L1255" class="ln">  1255  </span><span class="comment">// @Success 200 {object} StatusResponse</span>
+<span id="L1256" class="ln">  1256  </span><span class="comment">// @Failure 400 {object} utils.APIError</span>
+<span id="L1257" class="ln">  1257  </span><span class="comment">// @Failure 404 {object} utils.APIError</span>
+<span id="L1258" class="ln">  1258  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L1259" class="ln">  1259  </span><span class="comment">// @Router /experiments/start/{uid} [put]</span>
+<span id="L1260" class="ln">  1260  </span>func (s *Service) startExperiment(c *gin.Context) {
+<span id="L1261" class="ln">  1261  </span>	var experiment *core.Experiment
+<span id="L1262" class="ln">  1262  </span>
+<span id="L1263" class="ln">  1263  </span>	kubeCli, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
+<span id="L1264" class="ln">  1264  </span>	if err != nil {
+<span id="L1265" class="ln">  1265  </span>		_ = c.Error(utils.ErrInvalidRequest.WrapWithNoMessage(err))
+<span id="L1266" class="ln">  1266  </span>		return
+<span id="L1267" class="ln">  1267  </span>	}
+<span id="L1268" class="ln">  1268  </span>
+<span id="L1269" class="ln">  1269  </span>	uid := c.Param(&#34;uid&#34;)
+<span id="L1270" class="ln">  1270  </span>	if experiment, err = s.archive.FindByUID(context.Background(), uid); err != nil {
+<span id="L1271" class="ln">  1271  </span>		if gorm.IsRecordNotFoundError(err) {
+<span id="L1272" class="ln">  1272  </span>			c.Status(http.StatusInternalServerError)
+<span id="L1273" class="ln">  1273  </span>			_ = c.Error(utils.ErrInvalidRequest.New(&#34;the experiment is not found&#34;))
+<span id="L1274" class="ln">  1274  </span>		} else {
+<span id="L1275" class="ln">  1275  </span>			c.Status(http.StatusInternalServerError)
+<span id="L1276" class="ln">  1276  </span>			_ = c.Error(utils.ErrInternalServer.NewWithNoMessage())
+<span id="L1277" class="ln">  1277  </span>		}
+<span id="L1278" class="ln">  1278  </span>		return
+<span id="L1279" class="ln">  1279  </span>	}
+<span id="L1280" class="ln">  1280  </span>
+<span id="L1281" class="ln">  1281  </span>	exp := &amp;Base{
+<span id="L1282" class="ln">  1282  </span>		Kind:      experiment.Kind,
+<span id="L1283" class="ln">  1283  </span>		Name:      experiment.Name,
+<span id="L1284" class="ln">  1284  </span>		Namespace: experiment.Namespace,
+<span id="L1285" class="ln">  1285  </span>	}
+<span id="L1286" class="ln">  1286  </span>
+<span id="L1287" class="ln">  1287  </span>	annotations := map[string]string{
+<span id="L1288" class="ln">  1288  </span>		v1alpha1.PauseAnnotationKey: &#34;false&#34;,
 <span id="L1289" class="ln">  1289  </span>	}
 <span id="L1290" class="ln">  1290  </span>
-<span id="L1291" class="ln">  1291  </span>	annotations := map[string]string{
-<span id="L1292" class="ln">  1292  </span>		v1alpha1.PauseAnnotationKey: &#34;false&#34;,
-<span id="L1293" class="ln">  1293  </span>	}
-<span id="L1294" class="ln">  1294  </span>
-<span id="L1295" class="ln">  1295  </span>	if err := s.patchExperiment(exp, annotations, kubeCli); err != nil {
-<span id="L1296" class="ln">  1296  </span>		if apierrors.IsNotFound(err) {
-<span id="L1297" class="ln">  1297  </span>			c.Status(http.StatusNotFound)
-<span id="L1298" class="ln">  1298  </span>			_ = c.Error(utils.ErrNotFound.WrapWithNoMessage(err))
-<span id="L1299" class="ln">  1299  </span>			return
-<span id="L1300" class="ln">  1300  </span>		}
-<span id="L1301" class="ln">  1301  </span>		c.Status(http.StatusInternalServerError)
-<span id="L1302" class="ln">  1302  </span>		_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(err))
-<span id="L1303" class="ln">  1303  </span>		return
-<span id="L1304" class="ln">  1304  </span>	}
-<span id="L1305" class="ln">  1305  </span>
-<span id="L1306" class="ln">  1306  </span>	c.JSON(http.StatusOK, StatusResponse{Status: &#34;success&#34;})
-<span id="L1307" class="ln">  1307  </span>}
-<span id="L1308" class="ln">  1308  </span>
-<span id="L1309" class="ln">  1309  </span>func (s *Service) patchExperiment(exp *Base, annotations map[string]string, kubeCli client.Client) error {
-<span id="L1310" class="ln">  1310  </span>	var (
-<span id="L1311" class="ln">  1311  </span>		chaosKind *v1alpha1.ChaosKind
-<span id="L1312" class="ln">  1312  </span>		ok        bool
-<span id="L1313" class="ln">  1313  </span>	)
+<span id="L1291" class="ln">  1291  </span>	if err := s.patchExperiment(exp, annotations, kubeCli); err != nil {
+<span id="L1292" class="ln">  1292  </span>		if apierrors.IsNotFound(err) {
+<span id="L1293" class="ln">  1293  </span>			c.Status(http.StatusNotFound)
+<span id="L1294" class="ln">  1294  </span>			_ = c.Error(utils.ErrNotFound.WrapWithNoMessage(err))
+<span id="L1295" class="ln">  1295  </span>			return
+<span id="L1296" class="ln">  1296  </span>		}
+<span id="L1297" class="ln">  1297  </span>		c.Status(http.StatusInternalServerError)
+<span id="L1298" class="ln">  1298  </span>		_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(err))
+<span id="L1299" class="ln">  1299  </span>		return
+<span id="L1300" class="ln">  1300  </span>	}
+<span id="L1301" class="ln">  1301  </span>
+<span id="L1302" class="ln">  1302  </span>	c.JSON(http.StatusOK, StatusResponse{Status: &#34;success&#34;})
+<span id="L1303" class="ln">  1303  </span>}
+<span id="L1304" class="ln">  1304  </span>
+<span id="L1305" class="ln">  1305  </span>func (s *Service) patchExperiment(exp *Base, annotations map[string]string, kubeCli client.Client) error {
+<span id="L1306" class="ln">  1306  </span>	var (
+<span id="L1307" class="ln">  1307  </span>		chaosKind *v1alpha1.ChaosKind
+<span id="L1308" class="ln">  1308  </span>		ok        bool
+<span id="L1309" class="ln">  1309  </span>	)
+<span id="L1310" class="ln">  1310  </span>
+<span id="L1311" class="ln">  1311  </span>	if chaosKind, ok = v1alpha1.AllKinds()[exp.Kind]; !ok {
+<span id="L1312" class="ln">  1312  </span>		return fmt.Errorf(&#34;%s is not supported&#34;, exp.Kind)
+<span id="L1313" class="ln">  1313  </span>	}
 <span id="L1314" class="ln">  1314  </span>
-<span id="L1315" class="ln">  1315  </span>	if chaosKind, ok = v1alpha1.AllKinds()[exp.Kind]; !ok {
-<span id="L1316" class="ln">  1316  </span>		return fmt.Errorf(&#34;%s is not supported&#34;, exp.Kind)
-<span id="L1317" class="ln">  1317  </span>	}
-<span id="L1318" class="ln">  1318  </span>
-<span id="L1319" class="ln">  1319  </span>	key := types.NamespacedName{Namespace: exp.Namespace, Name: exp.Name}
-<span id="L1320" class="ln">  1320  </span>	if err := kubeCli.Get(context.Background(), key, chaosKind.Chaos); err != nil {
-<span id="L1321" class="ln">  1321  </span>		return err
-<span id="L1322" class="ln">  1322  </span>	}
-<span id="L1323" class="ln">  1323  </span>
-<span id="L1324" class="ln">  1324  </span>	var mergePatch []byte
-<span id="L1325" class="ln">  1325  </span>	mergePatch, _ = json.Marshal(map[string]interface{}{
-<span id="L1326" class="ln">  1326  </span>		&#34;metadata&#34;: map[string]interface{}{
-<span id="L1327" class="ln">  1327  </span>			&#34;annotations&#34;: annotations,
-<span id="L1328" class="ln">  1328  </span>		},
-<span id="L1329" class="ln">  1329  </span>	})
-<span id="L1330" class="ln">  1330  </span>
-<span id="L1331" class="ln">  1331  </span>	return kubeCli.Patch(context.Background(),
-<span id="L1332" class="ln">  1332  </span>		chaosKind.Chaos,
-<span id="L1333" class="ln">  1333  </span>		client.ConstantPatch(types.MergePatchType, mergePatch))
-<span id="L1334" class="ln">  1334  </span>}
-<span id="L1335" class="ln">  1335  </span>
-<span id="L1336" class="ln">  1336  </span><span class="comment">// @Summary Get chaos experiments state from Kubernetes cluster.</span>
-<span id="L1337" class="ln">  1337  </span><span class="comment">// @Description Get chaos experiments state from Kubernetes cluster.</span>
-<span id="L1338" class="ln">  1338  </span><span class="comment">// @Tags experiments</span>
-<span id="L1339" class="ln">  1339  </span><span class="comment">// @Produce json</span>
-<span id="L1340" class="ln">  1340  </span><span class="comment">// @Param namespace query string false &#34;namespace&#34;</span>
-<span id="L1341" class="ln">  1341  </span><span class="comment">// @Success 200 {object} ChaosState</span>
-<span id="L1342" class="ln">  1342  </span><span class="comment">// @Router /experiments/state [get]</span>
-<span id="L1343" class="ln">  1343  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
-<span id="L1344" class="ln">  1344  </span>func (s *Service) state(c *gin.Context) {
-<span id="L1345" class="ln">  1345  </span>	var (
-<span id="L1346" class="ln">  1346  </span>		err error
-<span id="L1347" class="ln">  1347  </span>	)
-<span id="L1348" class="ln">  1348  </span>	kubeCli, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
-<span id="L1349" class="ln">  1349  </span>	if err != nil {
-<span id="L1350" class="ln">  1350  </span>		_ = c.Error(utils.ErrInvalidRequest.WrapWithNoMessage(err))
-<span id="L1351" class="ln">  1351  </span>		return
-<span id="L1352" class="ln">  1352  </span>	}
-<span id="L1353" class="ln">  1353  </span>
-<span id="L1354" class="ln">  1354  </span>	namespace := c.Query(&#34;namespace&#34;)
-<span id="L1355" class="ln">  1355  </span>	if len(namespace) == 0 &amp;&amp; !s.conf.ClusterScoped &amp;&amp;
-<span id="L1356" class="ln">  1356  </span>		len(s.conf.TargetNamespace) != 0 {
-<span id="L1357" class="ln">  1357  </span>		namespace = s.conf.TargetNamespace
-<span id="L1358" class="ln">  1358  </span>	}
-<span id="L1359" class="ln">  1359  </span>
-<span id="L1360" class="ln">  1360  </span>	states := new(ChaosState)
+<span id="L1315" class="ln">  1315  </span>	key := types.NamespacedName{Namespace: exp.Namespace, Name: exp.Name}
+<span id="L1316" class="ln">  1316  </span>	if err := kubeCli.Get(context.Background(), key, chaosKind.Chaos); err != nil {
+<span id="L1317" class="ln">  1317  </span>		return err
+<span id="L1318" class="ln">  1318  </span>	}
+<span id="L1319" class="ln">  1319  </span>
+<span id="L1320" class="ln">  1320  </span>	var mergePatch []byte
+<span id="L1321" class="ln">  1321  </span>	mergePatch, _ = json.Marshal(map[string]interface{}{
+<span id="L1322" class="ln">  1322  </span>		&#34;metadata&#34;: map[string]interface{}{
+<span id="L1323" class="ln">  1323  </span>			&#34;annotations&#34;: annotations,
+<span id="L1324" class="ln">  1324  </span>		},
+<span id="L1325" class="ln">  1325  </span>	})
+<span id="L1326" class="ln">  1326  </span>
+<span id="L1327" class="ln">  1327  </span>	return kubeCli.Patch(context.Background(),
+<span id="L1328" class="ln">  1328  </span>		chaosKind.Chaos,
+<span id="L1329" class="ln">  1329  </span>		client.ConstantPatch(types.MergePatchType, mergePatch))
+<span id="L1330" class="ln">  1330  </span>}
+<span id="L1331" class="ln">  1331  </span>
+<span id="L1332" class="ln">  1332  </span><span class="comment">// @Summary Get chaos experiments state from Kubernetes cluster.</span>
+<span id="L1333" class="ln">  1333  </span><span class="comment">// @Description Get chaos experiments state from Kubernetes cluster.</span>
+<span id="L1334" class="ln">  1334  </span><span class="comment">// @Tags experiments</span>
+<span id="L1335" class="ln">  1335  </span><span class="comment">// @Produce json</span>
+<span id="L1336" class="ln">  1336  </span><span class="comment">// @Param namespace query string false &#34;namespace&#34;</span>
+<span id="L1337" class="ln">  1337  </span><span class="comment">// @Success 200 {object} ChaosState</span>
+<span id="L1338" class="ln">  1338  </span><span class="comment">// @Router /experiments/state [get]</span>
+<span id="L1339" class="ln">  1339  </span><span class="comment">// @Failure 500 {object} utils.APIError</span>
+<span id="L1340" class="ln">  1340  </span>func (s *Service) state(c *gin.Context) {
+<span id="L1341" class="ln">  1341  </span>	var (
+<span id="L1342" class="ln">  1342  </span>		err error
+<span id="L1343" class="ln">  1343  </span>	)
+<span id="L1344" class="ln">  1344  </span>	kubeCli, err := clientpool.ExtractTokenAndGetClient(c.Request.Header)
+<span id="L1345" class="ln">  1345  </span>	if err != nil {
+<span id="L1346" class="ln">  1346  </span>		_ = c.Error(utils.ErrInvalidRequest.WrapWithNoMessage(err))
+<span id="L1347" class="ln">  1347  </span>		return
+<span id="L1348" class="ln">  1348  </span>	}
+<span id="L1349" class="ln">  1349  </span>
+<span id="L1350" class="ln">  1350  </span>	namespace := c.Query(&#34;namespace&#34;)
+<span id="L1351" class="ln">  1351  </span>	if len(namespace) == 0 &amp;&amp; !s.conf.ClusterScoped &amp;&amp;
+<span id="L1352" class="ln">  1352  </span>		len(s.conf.TargetNamespace) != 0 {
+<span id="L1353" class="ln">  1353  </span>		namespace = s.conf.TargetNamespace
+<span id="L1354" class="ln">  1354  </span>	}
+<span id="L1355" class="ln">  1355  </span>
+<span id="L1356" class="ln">  1356  </span>	states := new(ChaosState)
+<span id="L1357" class="ln">  1357  </span>
+<span id="L1358" class="ln">  1358  </span>	g, ctx := errgroup.WithContext(context.Background())
+<span id="L1359" class="ln">  1359  </span>	m := &amp;sync.Mutex{}
+<span id="L1360" class="ln">  1360  </span>	kinds := v1alpha1.AllKinds()
 <span id="L1361" class="ln">  1361  </span>
-<span id="L1362" class="ln">  1362  </span>	g, ctx := errgroup.WithContext(context.Background())
-<span id="L1363" class="ln">  1363  </span>	m := &amp;sync.Mutex{}
-<span id="L1364" class="ln">  1364  </span>	kinds := v1alpha1.AllKinds()
-<span id="L1365" class="ln">  1365  </span>
-<span id="L1366" class="ln">  1366  </span>	var listOptions []client.ListOption
-<span id="L1367" class="ln">  1367  </span>	if !s.conf.ClusterScoped {
-<span id="L1368" class="ln">  1368  </span>		listOptions = append(listOptions, &amp;client.ListOptions{Namespace: s.conf.TargetNamespace})
-<span id="L1369" class="ln">  1369  </span>	} else if len(namespace) != 0 {
-<span id="L1370" class="ln">  1370  </span>		listOptions = append(listOptions, &amp;client.ListOptions{Namespace: namespace})
-<span id="L1371" class="ln">  1371  </span>	}
-<span id="L1372" class="ln">  1372  </span>
-<span id="L1373" class="ln">  1373  </span>	for index := range kinds {
-<span id="L1374" class="ln">  1374  </span>		list := kinds[index]
-<span id="L1375" class="ln">  1375  </span>		g.Go(func() error {
-<span id="L1376" class="ln">  1376  </span>			if err := kubeCli.List(ctx, list.ChaosList, listOptions...); err != nil {
-<span id="L1377" class="ln">  1377  </span>				return err
-<span id="L1378" class="ln">  1378  </span>			}
-<span id="L1379" class="ln">  1379  </span>			m.Lock()
-<span id="L1380" class="ln">  1380  </span>
-<span id="L1381" class="ln">  1381  </span>			items := reflect.ValueOf(list.ChaosList).Elem().FieldByName(&#34;Items&#34;)
-<span id="L1382" class="ln">  1382  </span>			for i := 0; i &lt; items.Len(); i++ {
-<span id="L1383" class="ln">  1383  </span>				item := items.Index(i).Addr().Interface().(v1alpha1.InnerObject)
-<span id="L1384" class="ln">  1384  </span>				state := utils.GetChaosState(item)
-<span id="L1385" class="ln">  1385  </span>				if err != nil {
-<span id="L1386" class="ln">  1386  </span>					c.Status(http.StatusInternalServerError)
-<span id="L1387" class="ln">  1387  </span>					_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(err))
-<span id="L1388" class="ln">  1388  </span>					return err
-<span id="L1389" class="ln">  1389  </span>				}
-<span id="L1390" class="ln">  1390  </span>				switch state {
-<span id="L1391" class="ln">  1391  </span>				case utils.Paused:
-<span id="L1392" class="ln">  1392  </span>					states.Paused++
-<span id="L1393" class="ln">  1393  </span>				case utils.Running:
-<span id="L1394" class="ln">  1394  </span>					states.Running++
-<span id="L1395" class="ln">  1395  </span>				case utils.Injecting:
-<span id="L1396" class="ln">  1396  </span>					states.Injecting++
-<span id="L1397" class="ln">  1397  </span>				case utils.Finished:
-<span id="L1398" class="ln">  1398  </span>					states.Finished++
-<span id="L1399" class="ln">  1399  </span>				}
-<span id="L1400" class="ln">  1400  </span>			}
-<span id="L1401" class="ln">  1401  </span>
-<span id="L1402" class="ln">  1402  </span>			m.Unlock()
-<span id="L1403" class="ln">  1403  </span>			return nil
-<span id="L1404" class="ln">  1404  </span>		})
-<span id="L1405" class="ln">  1405  </span>	}
-<span id="L1406" class="ln">  1406  </span>	if err := g.Wait(); err != nil {
-<span id="L1407" class="ln">  1407  </span>		c.Status(http.StatusInternalServerError)
-<span id="L1408" class="ln">  1408  </span>		utils.SetErrorForGinCtx(c, err)
-<span id="L1409" class="ln">  1409  </span>		return
-<span id="L1410" class="ln">  1410  </span>	}
-<span id="L1411" class="ln">  1411  </span>
-<span id="L1412" class="ln">  1412  </span>	c.JSON(http.StatusOK, states)
-<span id="L1413" class="ln">  1413  </span>}
-<span id="L1414" class="ln">  1414  </span>
-<span id="L1415" class="ln">  1415  </span>func setAnnotation(kubeCli client.Client, kind string, ns string, name string) error {
-<span id="L1416" class="ln">  1416  </span>	var (
-<span id="L1417" class="ln">  1417  </span>		chaosKind *v1alpha1.ChaosKind
-<span id="L1418" class="ln">  1418  </span>		chaosMeta metav1.Object
-<span id="L1419" class="ln">  1419  </span>		ok        bool
-<span id="L1420" class="ln">  1420  </span>	)
-<span id="L1421" class="ln">  1421  </span>
-<span id="L1422" class="ln">  1422  </span>	if chaosKind, ok = v1alpha1.AllKinds()[kind]; !ok {
-<span id="L1423" class="ln">  1423  </span>		return fmt.Errorf(kind + &#34; is not supported&#34;)
-<span id="L1424" class="ln">  1424  </span>	}
-<span id="L1425" class="ln">  1425  </span>	ctx := context.TODO()
-<span id="L1426" class="ln">  1426  </span>	chaosKey := types.NamespacedName{Namespace: ns, Name: name}
-<span id="L1427" class="ln">  1427  </span>	if err := kubeCli.Get(ctx, chaosKey, chaosKind.Chaos); err != nil {
-<span id="L1428" class="ln">  1428  </span>		return err
+<span id="L1362" class="ln">  1362  </span>	var listOptions []client.ListOption
+<span id="L1363" class="ln">  1363  </span>	if !s.conf.ClusterScoped {
+<span id="L1364" class="ln">  1364  </span>		listOptions = append(listOptions, &amp;client.ListOptions{Namespace: s.conf.TargetNamespace})
+<span id="L1365" class="ln">  1365  </span>	} else if len(namespace) != 0 {
+<span id="L1366" class="ln">  1366  </span>		listOptions = append(listOptions, &amp;client.ListOptions{Namespace: namespace})
+<span id="L1367" class="ln">  1367  </span>	}
+<span id="L1368" class="ln">  1368  </span>
+<span id="L1369" class="ln">  1369  </span>	for index := range kinds {
+<span id="L1370" class="ln">  1370  </span>		list := kinds[index]
+<span id="L1371" class="ln">  1371  </span>		g.Go(func() error {
+<span id="L1372" class="ln">  1372  </span>			if err := kubeCli.List(ctx, list.ChaosList, listOptions...); err != nil {
+<span id="L1373" class="ln">  1373  </span>				return err
+<span id="L1374" class="ln">  1374  </span>			}
+<span id="L1375" class="ln">  1375  </span>			m.Lock()
+<span id="L1376" class="ln">  1376  </span>
+<span id="L1377" class="ln">  1377  </span>			items := reflect.ValueOf(list.ChaosList).Elem().FieldByName(&#34;Items&#34;)
+<span id="L1378" class="ln">  1378  </span>			for i := 0; i &lt; items.Len(); i++ {
+<span id="L1379" class="ln">  1379  </span>				item := items.Index(i).Addr().Interface().(v1alpha1.InnerObject)
+<span id="L1380" class="ln">  1380  </span>				state := utils.GetChaosState(item)
+<span id="L1381" class="ln">  1381  </span>				if err != nil {
+<span id="L1382" class="ln">  1382  </span>					c.Status(http.StatusInternalServerError)
+<span id="L1383" class="ln">  1383  </span>					_ = c.Error(utils.ErrInternalServer.WrapWithNoMessage(err))
+<span id="L1384" class="ln">  1384  </span>					return err
+<span id="L1385" class="ln">  1385  </span>				}
+<span id="L1386" class="ln">  1386  </span>				switch state {
+<span id="L1387" class="ln">  1387  </span>				case utils.Paused:
+<span id="L1388" class="ln">  1388  </span>					states.Paused++
+<span id="L1389" class="ln">  1389  </span>				case utils.Running:
+<span id="L1390" class="ln">  1390  </span>					states.Running++
+<span id="L1391" class="ln">  1391  </span>				case utils.Injecting:
+<span id="L1392" class="ln">  1392  </span>					states.Injecting++
+<span id="L1393" class="ln">  1393  </span>				case utils.Finished:
+<span id="L1394" class="ln">  1394  </span>					states.Finished++
+<span id="L1395" class="ln">  1395  </span>				}
+<span id="L1396" class="ln">  1396  </span>			}
+<span id="L1397" class="ln">  1397  </span>
+<span id="L1398" class="ln">  1398  </span>			m.Unlock()
+<span id="L1399" class="ln">  1399  </span>			return nil
+<span id="L1400" class="ln">  1400  </span>		})
+<span id="L1401" class="ln">  1401  </span>	}
+<span id="L1402" class="ln">  1402  </span>	if err := g.Wait(); err != nil {
+<span id="L1403" class="ln">  1403  </span>		c.Status(http.StatusInternalServerError)
+<span id="L1404" class="ln">  1404  </span>		utils.SetErrorForGinCtx(c, err)
+<span id="L1405" class="ln">  1405  </span>		return
+<span id="L1406" class="ln">  1406  </span>	}
+<span id="L1407" class="ln">  1407  </span>
+<span id="L1408" class="ln">  1408  </span>	c.JSON(http.StatusOK, states)
+<span id="L1409" class="ln">  1409  </span>}
+<span id="L1410" class="ln">  1410  </span>
+<span id="L1411" class="ln">  1411  </span>func setAnnotation(kubeCli client.Client, kind string, ns string, name string) error {
+<span id="L1412" class="ln">  1412  </span>	var (
+<span id="L1413" class="ln">  1413  </span>		chaosKind *v1alpha1.ChaosKind
+<span id="L1414" class="ln">  1414  </span>		chaosMeta metav1.Object
+<span id="L1415" class="ln">  1415  </span>		ok        bool
+<span id="L1416" class="ln">  1416  </span>	)
+<span id="L1417" class="ln">  1417  </span>
+<span id="L1418" class="ln">  1418  </span>	if chaosKind, ok = v1alpha1.AllKinds()[kind]; !ok {
+<span id="L1419" class="ln">  1419  </span>		return fmt.Errorf(kind + &#34; is not supported&#34;)
+<span id="L1420" class="ln">  1420  </span>	}
+<span id="L1421" class="ln">  1421  </span>	ctx := context.TODO()
+<span id="L1422" class="ln">  1422  </span>	chaosKey := types.NamespacedName{Namespace: ns, Name: name}
+<span id="L1423" class="ln">  1423  </span>	if err := kubeCli.Get(ctx, chaosKey, chaosKind.Chaos); err != nil {
+<span id="L1424" class="ln">  1424  </span>		return err
+<span id="L1425" class="ln">  1425  </span>	}
+<span id="L1426" class="ln">  1426  </span>
+<span id="L1427" class="ln">  1427  </span>	if chaosMeta, ok = chaosKind.Chaos.(metav1.Object); !ok {
+<span id="L1428" class="ln">  1428  </span>		return fmt.Errorf(&#34;failed to get chaos meta information&#34;)
 <span id="L1429" class="ln">  1429  </span>	}
-<span id="L1430" class="ln">  1430  </span>
-<span id="L1431" class="ln">  1431  </span>	if chaosMeta, ok = chaosKind.Chaos.(metav1.Object); !ok {
-<span id="L1432" class="ln">  1432  </span>		return fmt.Errorf(&#34;failed to get chaos meta information&#34;)
+<span id="L1430" class="ln">  1430  </span>	annotations := chaosMeta.GetAnnotations()
+<span id="L1431" class="ln">  1431  </span>	if annotations == nil {
+<span id="L1432" class="ln">  1432  </span>		annotations = make(map[string]string)
 <span id="L1433" class="ln">  1433  </span>	}
-<span id="L1434" class="ln">  1434  </span>	annotations := chaosMeta.GetAnnotations()
-<span id="L1435" class="ln">  1435  </span>	if annotations == nil {
-<span id="L1436" class="ln">  1436  </span>		annotations = make(map[string]string)
-<span id="L1437" class="ln">  1437  </span>	}
-<span id="L1438" class="ln">  1438  </span>	annotations[finalizers.AnnotationCleanFinalizer] = finalizers.AnnotationCleanFinalizerForced
-<span id="L1439" class="ln">  1439  </span>	chaosMeta.SetAnnotations(annotations)
-<span id="L1440" class="ln">  1440  </span>
-<span id="L1441" class="ln">  1441  </span>	return kubeCli.Update(context.Background(), chaosKind.Chaos)
-<span id="L1442" class="ln">  1442  </span>}
-<span id="L1443" class="ln">  1443  </span>
+<span id="L1434" class="ln">  1434  </span>	annotations[finalizers.AnnotationCleanFinalizer] = finalizers.AnnotationCleanFinalizerForced
+<span id="L1435" class="ln">  1435  </span>	chaosMeta.SetAnnotations(annotations)
+<span id="L1436" class="ln">  1436  </span>
+<span id="L1437" class="ln">  1437  </span>	return kubeCli.Update(context.Background(), chaosKind.Chaos)
+<span id="L1438" class="ln">  1438  </span>}
+<span id="L1439" class="ln">  1439  </span>
 </pre><p></p>
 
 <div id="footer">

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 1404196. Generated at Sun Sep  4 22:07:03 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f8bee46. Generated at Mon Sep  5 10:04:10 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/release-2.0/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -252,16 +252,16 @@
 <span id="L187" class="ln">   187  </span>
 <span id="L188" class="ln">   188  </span><span class="comment">// IOChaosInfo defines the basic information of io chaos for creating a new IOChaos.</span>
 <span id="L189" class="ln">   189  </span>type IOChaosInfo struct {
-<span id="L190" class="ln">   190  </span>	Action        string                     `json:&#34;action&#34; binding:&#34;oneof=&#39;&#39; &#39;latency&#39; &#39;fault&#39; &#39;attrOverride&#39;&#34;`
-<span id="L191" class="ln">   191  </span>	Delay         string                     `json:&#34;delay&#34;`
-<span id="L192" class="ln">   192  </span>	Errno         uint32                     `json:&#34;errno&#34;`
-<span id="L193" class="ln">   193  </span>	Attr          *v1alpha1.AttrOverrideSpec `json:&#34;attr&#34;`
-<span id="L194" class="ln">   194  </span>	Mistake       *v1alpha1.MistakeSpec      `json:&#34;mistake&#34;`
-<span id="L195" class="ln">   195  </span>	Path          string                     `json:&#34;path&#34;`
-<span id="L196" class="ln">   196  </span>	Percent       int                        `json:&#34;percent&#34;`
-<span id="L197" class="ln">   197  </span>	Methods       []v1alpha1.IoMethod        `json:&#34;methods&#34;`
-<span id="L198" class="ln">   198  </span>	VolumePath    string                     `json:&#34;volume_path&#34;`
-<span id="L199" class="ln">   199  </span>	ContainerName string                     `json:&#34;container_name&#34;`
+<span id="L190" class="ln">   190  </span>	Action         string                     `json:&#34;action&#34; binding:&#34;oneof=&#39;&#39; &#39;latency&#39; &#39;fault&#39; &#39;attrOverride&#39;&#34;`
+<span id="L191" class="ln">   191  </span>	Delay          string                     `json:&#34;delay&#34;`
+<span id="L192" class="ln">   192  </span>	Errno          uint32                     `json:&#34;errno&#34;`
+<span id="L193" class="ln">   193  </span>	Attr           *v1alpha1.AttrOverrideSpec `json:&#34;attr&#34;`
+<span id="L194" class="ln">   194  </span>	Mistake        *v1alpha1.MistakeSpec      `json:&#34;mistake&#34;`
+<span id="L195" class="ln">   195  </span>	Path           string                     `json:&#34;path&#34;`
+<span id="L196" class="ln">   196  </span>	Percent        int                        `json:&#34;percent&#34;`
+<span id="L197" class="ln">   197  </span>	Methods        []v1alpha1.IoMethod        `json:&#34;methods&#34;`
+<span id="L198" class="ln">   198  </span>	VolumePath     string                     `json:&#34;volume_path&#34;`
+<span id="L199" class="ln">   199  </span>	ContainerNames []string                   `json:&#34;container_names&#34;`
 <span id="L200" class="ln">   200  </span>}
 <span id="L201" class="ln">   201  </span>
 <span id="L202" class="ln">   202  </span><span class="comment">// KernelChaosInfo defines the basic information of kernel chaos for creating a new KernelChaos.</span>
