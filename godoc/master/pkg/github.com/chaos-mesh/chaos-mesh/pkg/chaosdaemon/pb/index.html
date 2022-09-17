@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 0ec3317. Generated at Fri Sep 16 22:03:52 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 60df8b3. Generated at Sat Sep 17 10:01:51 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -356,13 +356,13 @@
 					<dd>&nbsp; &nbsp; <a href="#BlockDelaySpec.Descriptor">func (*BlockDelaySpec) Descriptor() ([]byte, []int)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#BlockDelaySpec.GetCorrelation">func (x *BlockDelaySpec) GetCorrelation() float32</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#BlockDelaySpec.GetCorrelation">func (x *BlockDelaySpec) GetCorrelation() float64</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#BlockDelaySpec.GetDelay">func (x *BlockDelaySpec) GetDelay() int32</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#BlockDelaySpec.GetDelay">func (x *BlockDelaySpec) GetDelay() int64</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#BlockDelaySpec.GetJitter">func (x *BlockDelaySpec) GetJitter() int32</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#BlockDelaySpec.GetJitter">func (x *BlockDelaySpec) GetJitter() int64</a></dd>
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#BlockDelaySpec.ProtoMessage">func (*BlockDelaySpec) ProtoMessage()</a></dd>
@@ -2609,9 +2609,9 @@ Deprecated: Use ApplyIOChaosResponse.ProtoReflect.Descriptor instead.
 			</h2>
 			
 			<pre>type BlockDelaySpec struct {
-<span id="BlockDelaySpec.Delay"></span>    Delay       <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int32">int32</a>   `protobuf:&#34;varint,1,opt,name=delay,proto3&#34; json:&#34;delay,omitempty&#34;`
-<span id="BlockDelaySpec.Correlation"></span>    Correlation <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#float32">float32</a> `protobuf:&#34;fixed32,2,opt,name=correlation,proto3&#34; json:&#34;correlation,omitempty&#34;`
-<span id="BlockDelaySpec.Jitter"></span>    Jitter      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int32">int32</a>   `protobuf:&#34;varint,3,opt,name=jitter,proto3&#34; json:&#34;jitter,omitempty&#34;`
+<span id="BlockDelaySpec.Delay"></span>    Delay       <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>   `protobuf:&#34;varint,1,opt,name=delay,proto3&#34; json:&#34;delay,omitempty&#34;`
+<span id="BlockDelaySpec.Correlation"></span>    Correlation <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#float64">float64</a> `protobuf:&#34;fixed64,2,opt,name=correlation,proto3&#34; json:&#34;correlation,omitempty&#34;`
+<span id="BlockDelaySpec.Jitter"></span>    Jitter      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>   `protobuf:&#34;varint,3,opt,name=jitter,proto3&#34; json:&#34;jitter,omitempty&#34;`
     <span class="comment">// contains filtered or unexported fields</span>
 }
 </pre>
@@ -2648,7 +2648,7 @@ Deprecated: Use BlockDelaySpec.ProtoReflect.Descriptor instead.
 					
 					
 				</h3>
-				<pre>func (x *<a href="#BlockDelaySpec">BlockDelaySpec</a>) GetCorrelation() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#float32">float32</a></pre>
+				<pre>func (x *<a href="#BlockDelaySpec">BlockDelaySpec</a>) GetCorrelation() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#float64">float64</a></pre>
 				
 				
 				
@@ -2660,7 +2660,7 @@ Deprecated: Use BlockDelaySpec.ProtoReflect.Descriptor instead.
 					
 					
 				</h3>
-				<pre>func (x *<a href="#BlockDelaySpec">BlockDelaySpec</a>) GetDelay() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int32">int32</a></pre>
+				<pre>func (x *<a href="#BlockDelaySpec">BlockDelaySpec</a>) GetDelay() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a></pre>
 				
 				
 				
@@ -2672,7 +2672,7 @@ Deprecated: Use BlockDelaySpec.ProtoReflect.Descriptor instead.
 					
 					
 				</h3>
-				<pre>func (x *<a href="#BlockDelaySpec">BlockDelaySpec</a>) GetJitter() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int32">int32</a></pre>
+				<pre>func (x *<a href="#BlockDelaySpec">BlockDelaySpec</a>) GetJitter() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a></pre>
 				
 				
 				

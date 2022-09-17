@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 0ec3317. Generated at Fri Sep 16 22:03:52 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 60df8b3. Generated at Sat Sep 17 10:01:51 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -2751,9 +2751,9 @@
 <span id="L2686" class="ln">  2686  </span>	sizeCache     protoimpl.SizeCache
 <span id="L2687" class="ln">  2687  </span>	unknownFields protoimpl.UnknownFields
 <span id="L2688" class="ln">  2688  </span>
-<span id="L2689" class="ln">  2689  </span>	Delay       int32   `protobuf:&#34;varint,1,opt,name=delay,proto3&#34; json:&#34;delay,omitempty&#34;`
-<span id="L2690" class="ln">  2690  </span>	Correlation float32 `protobuf:&#34;fixed32,2,opt,name=correlation,proto3&#34; json:&#34;correlation,omitempty&#34;`
-<span id="L2691" class="ln">  2691  </span>	Jitter      int32   `protobuf:&#34;varint,3,opt,name=jitter,proto3&#34; json:&#34;jitter,omitempty&#34;`
+<span id="L2689" class="ln">  2689  </span>	Delay       int64   `protobuf:&#34;varint,1,opt,name=delay,proto3&#34; json:&#34;delay,omitempty&#34;`
+<span id="L2690" class="ln">  2690  </span>	Correlation float64 `protobuf:&#34;fixed64,2,opt,name=correlation,proto3&#34; json:&#34;correlation,omitempty&#34;`
+<span id="L2691" class="ln">  2691  </span>	Jitter      int64   `protobuf:&#34;varint,3,opt,name=jitter,proto3&#34; json:&#34;jitter,omitempty&#34;`
 <span id="L2692" class="ln">  2692  </span>}
 <span id="L2693" class="ln">  2693  </span>
 <span id="L2694" class="ln">  2694  </span>func (x *BlockDelaySpec) Reset() {
@@ -2788,21 +2788,21 @@
 <span id="L2723" class="ln">  2723  </span>	return file_chaosdaemon_proto_rawDescGZIP(), []int{33}
 <span id="L2724" class="ln">  2724  </span>}
 <span id="L2725" class="ln">  2725  </span>
-<span id="L2726" class="ln">  2726  </span>func (x *BlockDelaySpec) GetDelay() int32 {
+<span id="L2726" class="ln">  2726  </span>func (x *BlockDelaySpec) GetDelay() int64 {
 <span id="L2727" class="ln">  2727  </span>	if x != nil {
 <span id="L2728" class="ln">  2728  </span>		return x.Delay
 <span id="L2729" class="ln">  2729  </span>	}
 <span id="L2730" class="ln">  2730  </span>	return 0
 <span id="L2731" class="ln">  2731  </span>}
 <span id="L2732" class="ln">  2732  </span>
-<span id="L2733" class="ln">  2733  </span>func (x *BlockDelaySpec) GetCorrelation() float32 {
+<span id="L2733" class="ln">  2733  </span>func (x *BlockDelaySpec) GetCorrelation() float64 {
 <span id="L2734" class="ln">  2734  </span>	if x != nil {
 <span id="L2735" class="ln">  2735  </span>		return x.Correlation
 <span id="L2736" class="ln">  2736  </span>	}
 <span id="L2737" class="ln">  2737  </span>	return 0
 <span id="L2738" class="ln">  2738  </span>}
 <span id="L2739" class="ln">  2739  </span>
-<span id="L2740" class="ln">  2740  </span>func (x *BlockDelaySpec) GetJitter() int32 {
+<span id="L2740" class="ln">  2740  </span>func (x *BlockDelaySpec) GetJitter() int64 {
 <span id="L2741" class="ln">  2741  </span>	if x != nil {
 <span id="L2742" class="ln">  2742  </span>		return x.Jitter
 <span id="L2743" class="ln">  2743  </span>	}
@@ -3290,11 +3290,11 @@
 <span id="L3225" class="ln">  3225  </span>	0x65, 0x6e, 0x74, 0x65, 0x72, 0x4e, 0x53, 0x22, 0x13, 0x0a, 0x06, 0x41, 0x63, 0x74, 0x69, 0x6f,
 <span id="L3226" class="ln">  3226  </span>	0x6e, 0x12, 0x09, 0x0a, 0x05, 0x44, 0x65, 0x6c, 0x61, 0x79, 0x10, 0x00, 0x22, 0x60, 0x0a, 0x0e,
 <span id="L3227" class="ln">  3227  </span>	0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x44, 0x65, 0x6c, 0x61, 0x79, 0x53, 0x70, 0x65, 0x63, 0x12, 0x14,
-<span id="L3228" class="ln">  3228  </span>	0x0a, 0x05, 0x64, 0x65, 0x6c, 0x61, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x05, 0x64,
+<span id="L3228" class="ln">  3228  </span>	0x0a, 0x05, 0x64, 0x65, 0x6c, 0x61, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x64,
 <span id="L3229" class="ln">  3229  </span>	0x65, 0x6c, 0x61, 0x79, 0x12, 0x20, 0x0a, 0x0b, 0x63, 0x6f, 0x72, 0x72, 0x65, 0x6c, 0x61, 0x74,
-<span id="L3230" class="ln">  3230  </span>	0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x02, 0x52, 0x0b, 0x63, 0x6f, 0x72, 0x72, 0x65,
+<span id="L3230" class="ln">  3230  </span>	0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x01, 0x52, 0x0b, 0x63, 0x6f, 0x72, 0x72, 0x65,
 <span id="L3231" class="ln">  3231  </span>	0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x16, 0x0a, 0x06, 0x6a, 0x69, 0x74, 0x74, 0x65, 0x72,
-<span id="L3232" class="ln">  3232  </span>	0x18, 0x03, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x6a, 0x69, 0x74, 0x74, 0x65, 0x72, 0x22, 0x43,
+<span id="L3232" class="ln">  3232  </span>	0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x6a, 0x69, 0x74, 0x74, 0x65, 0x72, 0x22, 0x43,
 <span id="L3233" class="ln">  3233  </span>	0x0a, 0x0e, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x4c, 0x69, 0x6d, 0x69, 0x74, 0x53, 0x70, 0x65, 0x63,
 <span id="L3234" class="ln">  3234  </span>	0x12, 0x14, 0x0a, 0x05, 0x71, 0x75, 0x6f, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52,
 <span id="L3235" class="ln">  3235  </span>	0x05, 0x71, 0x75, 0x6f, 0x74, 0x61, 0x12, 0x1b, 0x0a, 0x09, 0x70, 0x65, 0x72, 0x69, 0x6f, 0x64,

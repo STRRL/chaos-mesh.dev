@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 0ec3317. Generated at Fri Sep 16 22:03:52 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 60df8b3. Generated at Sat Sep 17 10:01:51 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -132,7 +132,7 @@
 <span id="L67" class="ln">    67  </span>	if req.Action == pb.ApplyBlockChaosRequest_Delay {
 <span id="L68" class="ln">    68  </span>		log.Info(&#34;Injecting IOEM Delay&#34;, &#34;delay&#34;, req.Delay.Delay, &#34;jitter&#34;, req.Delay.Jitter, &#34;corr&#34;, req.Delay.Correlation)
 <span id="L69" class="ln">    69  </span>
-<span id="L70" class="ln">    70  </span>		id, err := c.InjectIOEMDelay(volumePath, 0, uint(pid), int64(req.Delay.Delay), int64(req.Delay.Jitter), float64(req.Delay.Correlation))
+<span id="L70" class="ln">    70  </span>		id, err := c.InjectIOEMDelay(volumePath, 0, uint(pid), req.Delay.Delay, req.Delay.Jitter, float64(req.Delay.Correlation))
 <span id="L71" class="ln">    71  </span>		if err != nil {
 <span id="L72" class="ln">    72  </span>			log.Error(err, &#34;inject ioem delay&#34;)
 <span id="L73" class="ln">    73  </span>			return nil, err
