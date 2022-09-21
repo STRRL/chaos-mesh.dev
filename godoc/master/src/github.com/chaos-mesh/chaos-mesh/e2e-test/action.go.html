@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 7e472f7. Generated at Wed Sep 21 10:01:37 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit a6620f7. Generated at Wed Sep 21 22:04:00 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -220,90 +220,77 @@
 <span id="L155" class="ln">   155  </span>
 <span id="L156" class="ln">   156  </span>func (oa *operatorAction) InstallCRD(info *OperatorConfig) error {
 <span id="L157" class="ln">   157  </span>	klog.Infof(&#34;deploying chaos-mesh crd :%v&#34;, info.ReleaseName)
-<span id="L158" class="ln">   158  </span>	if oa.apiextensionsV1Available() {
-<span id="L159" class="ln">   159  </span>		oa.runKubectlOrDie(&#34;create&#34;, &#34;-f&#34;, oa.manifestPath(&#34;e2e/crd.yaml&#34;), &#34;--validate=false&#34;)
-<span id="L160" class="ln">   160  </span>	} else {
-<span id="L161" class="ln">   161  </span>		oa.runKubectlOrDie(&#34;create&#34;, &#34;-f&#34;, oa.manifestPath(&#34;e2e/crd-v1beta1.yaml&#34;), &#34;--validate=false&#34;)
-<span id="L162" class="ln">   162  </span>	}
-<span id="L163" class="ln">   163  </span>	e2eutil.WaitForCRDsEstablished(oa.apiExtCli, labels.Everything())
-<span id="L164" class="ln">   164  </span>	<span class="comment">// workaround for https://github.com/kubernetes/kubernetes/issues/65517</span>
-<span id="L165" class="ln">   165  </span>	klog.Infof(&#34;force sync kubectl cache&#34;)
-<span id="L166" class="ln">   166  </span>	cmdArgs := []string{&#34;sh&#34;, &#34;-c&#34;, &#34;rm -rf ~/.kube/cache ~/.kube/http-cache&#34;}
-<span id="L167" class="ln">   167  </span>	_, err := exec.Command(cmdArgs[0], cmdArgs[1:]...).CombinedOutput()
-<span id="L168" class="ln">   168  </span>	if err != nil {
-<span id="L169" class="ln">   169  </span>		klog.Fatalf(&#34;Failed to run &#39;%s&#39;: %v&#34;, strings.Join(cmdArgs, &#34; &#34;), err)
-<span id="L170" class="ln">   170  </span>	}
-<span id="L171" class="ln">   171  </span>	return nil
-<span id="L172" class="ln">   172  </span>}
-<span id="L173" class="ln">   173  </span>
-<span id="L174" class="ln">   174  </span>func (oa *operatorAction) RestartDaemon(info *OperatorConfig) error {
-<span id="L175" class="ln">   175  </span>	return oa.restartComponent(info, &#34;chaos-daemon-&#34;)
-<span id="L176" class="ln">   176  </span>}
-<span id="L177" class="ln">   177  </span>
-<span id="L178" class="ln">   178  </span>func (oa *operatorAction) RestartControllerManager(info *OperatorConfig) error {
-<span id="L179" class="ln">   179  </span>	return oa.restartComponent(info, &#34;chaos-controller-manager-&#34;)
-<span id="L180" class="ln">   180  </span>}
-<span id="L181" class="ln">   181  </span>
-<span id="L182" class="ln">   182  </span>func (oa *operatorAction) restartComponent(info *OperatorConfig, prefix string) error {
-<span id="L183" class="ln">   183  </span>	klog.Infof(&#34;klling component %v&#34;, prefix)
-<span id="L184" class="ln">   184  </span>	ls := &amp;metav1.LabelSelector{
-<span id="L185" class="ln">   185  </span>		MatchLabels: map[string]string{
-<span id="L186" class="ln">   186  </span>			&#34;app.kubernetes.io/instance&#34;: &#34;chaos-mesh&#34;,
-<span id="L187" class="ln">   187  </span>		},
-<span id="L188" class="ln">   188  </span>	}
-<span id="L189" class="ln">   189  </span>	l, err := metav1.LabelSelectorAsSelector(ls)
-<span id="L190" class="ln">   190  </span>	if err != nil {
-<span id="L191" class="ln">   191  </span>		return errors.Wrap(err, &#34;get selector&#34;)
-<span id="L192" class="ln">   192  </span>	}
-<span id="L193" class="ln">   193  </span>
-<span id="L194" class="ln">   194  </span>	pods, err := oa.kubeCli.CoreV1().Pods(info.Namespace).List(context.TODO(), metav1.ListOptions{LabelSelector: l.String()})
-<span id="L195" class="ln">   195  </span>	if err != nil {
-<span id="L196" class="ln">   196  </span>		return errors.Wrap(err, &#34;select pods&#34;)
-<span id="L197" class="ln">   197  </span>	}
-<span id="L198" class="ln">   198  </span>
-<span id="L199" class="ln">   199  </span>	for _, pod := range pods.Items {
-<span id="L200" class="ln">   200  </span>		if strings.HasPrefix(pod.Name, prefix) {
-<span id="L201" class="ln">   201  </span>			err = oa.kubeCli.CoreV1().Pods(info.Namespace).Delete(context.TODO(), pod.Name, metav1.DeleteOptions{})
-<span id="L202" class="ln">   202  </span>			if err != nil {
-<span id="L203" class="ln">   203  </span>				return errors.Wrapf(err, &#34;delete pod(%s)&#34;, pod.Name)
-<span id="L204" class="ln">   204  </span>			}
-<span id="L205" class="ln">   205  </span>		}
-<span id="L206" class="ln">   206  </span>	}
-<span id="L207" class="ln">   207  </span>
-<span id="L208" class="ln">   208  </span>	klog.Infof(&#34;start to waiting chaos-mesh ready&#34;)
-<span id="L209" class="ln">   209  </span>	err = wait.Poll(5*time.Second, 5*time.Minute, func() (done bool, err error) {
-<span id="L210" class="ln">   210  </span>		pods, err := oa.kubeCli.CoreV1().Pods(info.Namespace).List(context.TODO(), metav1.ListOptions{LabelSelector: l.String()})
-<span id="L211" class="ln">   211  </span>		if err != nil {
-<span id="L212" class="ln">   212  </span>			klog.Errorf(&#34;get chaos-mesh pods: %v&#34;, err)
-<span id="L213" class="ln">   213  </span>			return false, nil
-<span id="L214" class="ln">   214  </span>		}
-<span id="L215" class="ln">   215  </span>		for _, pod := range pods.Items {
-<span id="L216" class="ln">   216  </span>			if pod.Status.Phase != corev1.PodRunning {
-<span id="L217" class="ln">   217  </span>				return false, nil
-<span id="L218" class="ln">   218  </span>			}
-<span id="L219" class="ln">   219  </span>		}
-<span id="L220" class="ln">   220  </span>		return true, nil
-<span id="L221" class="ln">   221  </span>	})
-<span id="L222" class="ln">   222  </span>	if err != nil {
-<span id="L223" class="ln">   223  </span>		return err
-<span id="L224" class="ln">   224  </span>	}
-<span id="L225" class="ln">   225  </span>	return e2eutil.WaitForAPIServicesAvailable(oa.aggrCli, labels.Everything())
-<span id="L226" class="ln">   226  </span>}
-<span id="L227" class="ln">   227  </span>
-<span id="L228" class="ln">   228  </span><span class="comment">// check apiextensions.k8s.io/v1 CustomResourceDefinition is Availabel or not</span>
-<span id="L229" class="ln">   229  </span>func (oa *operatorAction) apiextensionsV1Available() bool {
-<span id="L230" class="ln">   230  </span>	for _, item := range oa.apiVersions() {
-<span id="L231" class="ln">   231  </span>		if item == &#34;apiextensions.k8s.io/v1&#34; {
-<span id="L232" class="ln">   232  </span>			return true
-<span id="L233" class="ln">   233  </span>		}
-<span id="L234" class="ln">   234  </span>	}
-<span id="L235" class="ln">   235  </span>	return false
-<span id="L236" class="ln">   236  </span>}
-<span id="L237" class="ln">   237  </span>
-<span id="L238" class="ln">   238  </span>func (oa *operatorAction) CleanCRDOrDie() {
-<span id="L239" class="ln">   239  </span>	oa.runKubectlOrDie(&#34;delete&#34;, &#34;crds&#34;, &#34;--all&#34;)
-<span id="L240" class="ln">   240  </span>}
-<span id="L241" class="ln">   241  </span>
+<span id="L158" class="ln">   158  </span>	oa.runKubectlOrDie(&#34;create&#34;, &#34;-f&#34;, oa.manifestPath(&#34;e2e/crd.yaml&#34;), &#34;--validate=false&#34;)
+<span id="L159" class="ln">   159  </span>
+<span id="L160" class="ln">   160  </span>	e2eutil.WaitForCRDsEstablished(oa.apiExtCli, labels.Everything())
+<span id="L161" class="ln">   161  </span>	<span class="comment">// workaround for https://github.com/kubernetes/kubernetes/issues/65517</span>
+<span id="L162" class="ln">   162  </span>	klog.Infof(&#34;force sync kubectl cache&#34;)
+<span id="L163" class="ln">   163  </span>	cmdArgs := []string{&#34;sh&#34;, &#34;-c&#34;, &#34;rm -rf ~/.kube/cache ~/.kube/http-cache&#34;}
+<span id="L164" class="ln">   164  </span>	_, err := exec.Command(cmdArgs[0], cmdArgs[1:]...).CombinedOutput()
+<span id="L165" class="ln">   165  </span>	if err != nil {
+<span id="L166" class="ln">   166  </span>		klog.Fatalf(&#34;Failed to run &#39;%s&#39;: %v&#34;, strings.Join(cmdArgs, &#34; &#34;), err)
+<span id="L167" class="ln">   167  </span>	}
+<span id="L168" class="ln">   168  </span>	return nil
+<span id="L169" class="ln">   169  </span>}
+<span id="L170" class="ln">   170  </span>
+<span id="L171" class="ln">   171  </span>func (oa *operatorAction) RestartDaemon(info *OperatorConfig) error {
+<span id="L172" class="ln">   172  </span>	return oa.restartComponent(info, &#34;chaos-daemon-&#34;)
+<span id="L173" class="ln">   173  </span>}
+<span id="L174" class="ln">   174  </span>
+<span id="L175" class="ln">   175  </span>func (oa *operatorAction) RestartControllerManager(info *OperatorConfig) error {
+<span id="L176" class="ln">   176  </span>	return oa.restartComponent(info, &#34;chaos-controller-manager-&#34;)
+<span id="L177" class="ln">   177  </span>}
+<span id="L178" class="ln">   178  </span>
+<span id="L179" class="ln">   179  </span>func (oa *operatorAction) restartComponent(info *OperatorConfig, prefix string) error {
+<span id="L180" class="ln">   180  </span>	klog.Infof(&#34;klling component %v&#34;, prefix)
+<span id="L181" class="ln">   181  </span>	ls := &amp;metav1.LabelSelector{
+<span id="L182" class="ln">   182  </span>		MatchLabels: map[string]string{
+<span id="L183" class="ln">   183  </span>			&#34;app.kubernetes.io/instance&#34;: &#34;chaos-mesh&#34;,
+<span id="L184" class="ln">   184  </span>		},
+<span id="L185" class="ln">   185  </span>	}
+<span id="L186" class="ln">   186  </span>	l, err := metav1.LabelSelectorAsSelector(ls)
+<span id="L187" class="ln">   187  </span>	if err != nil {
+<span id="L188" class="ln">   188  </span>		return errors.Wrap(err, &#34;get selector&#34;)
+<span id="L189" class="ln">   189  </span>	}
+<span id="L190" class="ln">   190  </span>
+<span id="L191" class="ln">   191  </span>	pods, err := oa.kubeCli.CoreV1().Pods(info.Namespace).List(context.TODO(), metav1.ListOptions{LabelSelector: l.String()})
+<span id="L192" class="ln">   192  </span>	if err != nil {
+<span id="L193" class="ln">   193  </span>		return errors.Wrap(err, &#34;select pods&#34;)
+<span id="L194" class="ln">   194  </span>	}
+<span id="L195" class="ln">   195  </span>
+<span id="L196" class="ln">   196  </span>	for _, pod := range pods.Items {
+<span id="L197" class="ln">   197  </span>		if strings.HasPrefix(pod.Name, prefix) {
+<span id="L198" class="ln">   198  </span>			err = oa.kubeCli.CoreV1().Pods(info.Namespace).Delete(context.TODO(), pod.Name, metav1.DeleteOptions{})
+<span id="L199" class="ln">   199  </span>			if err != nil {
+<span id="L200" class="ln">   200  </span>				return errors.Wrapf(err, &#34;delete pod(%s)&#34;, pod.Name)
+<span id="L201" class="ln">   201  </span>			}
+<span id="L202" class="ln">   202  </span>		}
+<span id="L203" class="ln">   203  </span>	}
+<span id="L204" class="ln">   204  </span>
+<span id="L205" class="ln">   205  </span>	klog.Infof(&#34;start to waiting chaos-mesh ready&#34;)
+<span id="L206" class="ln">   206  </span>	err = wait.Poll(5*time.Second, 5*time.Minute, func() (done bool, err error) {
+<span id="L207" class="ln">   207  </span>		pods, err := oa.kubeCli.CoreV1().Pods(info.Namespace).List(context.TODO(), metav1.ListOptions{LabelSelector: l.String()})
+<span id="L208" class="ln">   208  </span>		if err != nil {
+<span id="L209" class="ln">   209  </span>			klog.Errorf(&#34;get chaos-mesh pods: %v&#34;, err)
+<span id="L210" class="ln">   210  </span>			return false, nil
+<span id="L211" class="ln">   211  </span>		}
+<span id="L212" class="ln">   212  </span>		for _, pod := range pods.Items {
+<span id="L213" class="ln">   213  </span>			if pod.Status.Phase != corev1.PodRunning {
+<span id="L214" class="ln">   214  </span>				return false, nil
+<span id="L215" class="ln">   215  </span>			}
+<span id="L216" class="ln">   216  </span>		}
+<span id="L217" class="ln">   217  </span>		return true, nil
+<span id="L218" class="ln">   218  </span>	})
+<span id="L219" class="ln">   219  </span>	if err != nil {
+<span id="L220" class="ln">   220  </span>		return err
+<span id="L221" class="ln">   221  </span>	}
+<span id="L222" class="ln">   222  </span>	return e2eutil.WaitForAPIServicesAvailable(oa.aggrCli, labels.Everything())
+<span id="L223" class="ln">   223  </span>}
+<span id="L224" class="ln">   224  </span>
+<span id="L225" class="ln">   225  </span>func (oa *operatorAction) CleanCRDOrDie() {
+<span id="L226" class="ln">   226  </span>	oa.runKubectlOrDie(&#34;delete&#34;, &#34;crds&#34;, &#34;--all&#34;)
+<span id="L227" class="ln">   227  </span>}
+<span id="L228" class="ln">   228  </span>
 </pre><p></p>
 
 <div id="footer">

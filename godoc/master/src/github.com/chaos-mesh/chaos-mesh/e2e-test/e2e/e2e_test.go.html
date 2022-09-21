@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 7e472f7. Generated at Wed Sep 21 10:01:37 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit a6620f7. Generated at Wed Sep 21 22:04:00 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -158,34 +158,33 @@
 <span id="L93" class="ln">    93  </span>	flags.StringVar(&amp;framework.TestContext.KubeContext, clientcmd.FlagContext, &#34;&#34;, &#34;kubeconfig context to use/override. If unset, will use value from &#39;current-context&#39;&#34;)
 <span id="L94" class="ln">    94  </span>	flags.StringVar(&amp;framework.TestContext.KubeAPIContentType, &#34;kube-api-content-type&#34;, &#34;application/vnd.kubernetes.protobuf&#34;, &#34;ContentType used to communicate with apiserver&#34;)
 <span id="L95" class="ln">    95  </span>
-<span id="L96" class="ln">    96  </span>	flags.StringVar(&amp;framework.TestContext.KubeVolumeDir, &#34;volume-dir&#34;, &#34;/var/lib/kubelet&#34;, &#34;Path to the directory containing the kubelet volumes.&#34;)
-<span id="L97" class="ln">    97  </span>	flags.StringVar(&amp;framework.TestContext.CertDir, &#34;cert-dir&#34;, &#34;&#34;, &#34;Path to the directory containing the certs. Default is empty, which doesn&#39;t use certs.&#34;)
-<span id="L98" class="ln">    98  </span>	flags.StringVar(&amp;framework.TestContext.RepoRoot, &#34;repo-root&#34;, &#34;../../&#34;, &#34;Root directory of kubernetes repository, for finding test files.&#34;)
-<span id="L99" class="ln">    99  </span>	flags.StringVar(&amp;framework.TestContext.Provider, &#34;provider&#34;, &#34;&#34;, &#34;The name of the Kubernetes provider (gce, gke, local, skeleton (the fallback if not set), etc.)&#34;)
-<span id="L100" class="ln">   100  </span>	flags.StringVar(&amp;framework.TestContext.Tooling, &#34;tooling&#34;, &#34;&#34;, &#34;The tooling in use (kops, gke, etc.)&#34;)
-<span id="L101" class="ln">   101  </span>	flags.StringVar(&amp;framework.TestContext.OutputDir, &#34;e2e-output-dir&#34;, &#34;/tmp&#34;, &#34;Output directory for interesting/useful test data, like performance data, benchmarks, and other metrics.&#34;)
-<span id="L102" class="ln">   102  </span>	flags.StringVar(&amp;framework.TestContext.Prefix, &#34;prefix&#34;, &#34;e2e&#34;, &#34;A prefix to be added to cloud resources created during testing.&#34;)
-<span id="L103" class="ln">   103  </span>	flags.StringVar(&amp;framework.TestContext.MasterOSDistro, &#34;master-os-distro&#34;, &#34;debian&#34;, &#34;The OS distribution of cluster master (debian, ubuntu, gci, coreos, or custom).&#34;)
-<span id="L104" class="ln">   104  </span>	flags.StringVar(&amp;framework.TestContext.NodeOSDistro, &#34;node-os-distro&#34;, &#34;debian&#34;, &#34;The OS distribution of cluster VM instances (debian, ubuntu, gci, coreos, or custom).&#34;)
-<span id="L105" class="ln">   105  </span>	flags.StringVar(&amp;framework.TestContext.ClusterDNSDomain, &#34;dns-domain&#34;, &#34;cluster.local&#34;, &#34;The DNS Domain of the cluster.&#34;)
-<span id="L106" class="ln">   106  </span>
-<span id="L107" class="ln">   107  </span>	flags.IntVar(&amp;framework.TestContext.MinStartupPods, &#34;minStartupPods&#34;, 0, &#34;The number of pods which we need to see in &#39;Running&#39; state with a &#39;Ready&#39; condition of true, before we try running tests. This is useful in any cluster which needs some base pod-based services running before it can be used.&#34;)
-<span id="L108" class="ln">   108  </span>	flags.DurationVar(&amp;framework.TestContext.SystemPodsStartupTimeout, &#34;system-pods-startup-timeout&#34;, 10*time.Minute, &#34;Timeout for waiting for all system pods to be running before starting tests.&#34;)
-<span id="L109" class="ln">   109  </span>	flags.DurationVar(&amp;framework.TestContext.NodeSchedulableTimeout, &#34;node-schedulable-timeout&#34;, 30*time.Minute, &#34;Timeout for waiting for all nodes to be schedulable.&#34;)
-<span id="L110" class="ln">   110  </span>	flags.DurationVar(&amp;framework.TestContext.SystemDaemonsetStartupTimeout, &#34;system-daemonsets-startup-timeout&#34;, 5*time.Minute, &#34;Timeout for waiting for all system daemonsets to be ready.&#34;)
-<span id="L111" class="ln">   111  </span>	flags.StringVar(&amp;framework.TestContext.EtcdUpgradeStorage, &#34;etcd-upgrade-storage&#34;, &#34;&#34;, &#34;The storage version to upgrade to (either &#39;etcdv2&#39; or &#39;etcdv3&#39;) if doing an etcd upgrade test.&#34;)
-<span id="L112" class="ln">   112  </span>	flags.StringVar(&amp;framework.TestContext.EtcdUpgradeVersion, &#34;etcd-upgrade-version&#34;, &#34;&#34;, &#34;The etcd binary version to upgrade to (e.g., &#39;3.0.14&#39;, &#39;2.3.7&#39;) if doing an etcd upgrade test.&#34;)
-<span id="L113" class="ln">   113  </span>	flags.StringVar(&amp;framework.TestContext.GCEUpgradeScript, &#34;gce-upgrade-script&#34;, &#34;&#34;, &#34;Script to use to upgrade a GCE cluster.&#34;)
-<span id="L114" class="ln">   114  </span>	flags.BoolVar(&amp;framework.TestContext.CleanStart, &#34;clean-start&#34;, false, &#34;If true, purge all namespaces except default and system before running tests. This serves to Cleanup test namespaces from failed/interrupted e2e runs in a long-lived cluster.&#34;)
-<span id="L115" class="ln">   115  </span>
-<span id="L116" class="ln">   116  </span>	nodeKiller := &amp;framework.TestContext.NodeKiller
-<span id="L117" class="ln">   117  </span>	flags.BoolVar(&amp;nodeKiller.Enabled, &#34;node-killer&#34;, false, &#34;Whether NodeKiller should kill any nodes.&#34;)
-<span id="L118" class="ln">   118  </span>	flags.Float64Var(&amp;nodeKiller.FailureRatio, &#34;node-killer-failure-ratio&#34;, 0.01, &#34;Percentage of nodes to be killed&#34;)
-<span id="L119" class="ln">   119  </span>	flags.DurationVar(&amp;nodeKiller.Interval, &#34;node-killer-interval&#34;, 1*time.Minute, &#34;Time between node failures.&#34;)
-<span id="L120" class="ln">   120  </span>	flags.Float64Var(&amp;nodeKiller.JitterFactor, &#34;node-killer-jitter-factor&#34;, 60, &#34;Factor used to jitter node failures.&#34;)
-<span id="L121" class="ln">   121  </span>	flags.DurationVar(&amp;nodeKiller.SimulatedDowntime, &#34;node-killer-simulated-downtime&#34;, 10*time.Minute, &#34;A delay between node death and recreation&#34;)
-<span id="L122" class="ln">   122  </span>}
-<span id="L123" class="ln">   123  </span>
+<span id="L96" class="ln">    96  </span>	flags.StringVar(&amp;framework.TestContext.CertDir, &#34;cert-dir&#34;, &#34;&#34;, &#34;Path to the directory containing the certs. Default is empty, which doesn&#39;t use certs.&#34;)
+<span id="L97" class="ln">    97  </span>	flags.StringVar(&amp;framework.TestContext.RepoRoot, &#34;repo-root&#34;, &#34;../../&#34;, &#34;Root directory of kubernetes repository, for finding test files.&#34;)
+<span id="L98" class="ln">    98  </span>	flags.StringVar(&amp;framework.TestContext.Provider, &#34;provider&#34;, &#34;&#34;, &#34;The name of the Kubernetes provider (gce, gke, local, skeleton (the fallback if not set), etc.)&#34;)
+<span id="L99" class="ln">    99  </span>	flags.StringVar(&amp;framework.TestContext.Tooling, &#34;tooling&#34;, &#34;&#34;, &#34;The tooling in use (kops, gke, etc.)&#34;)
+<span id="L100" class="ln">   100  </span>	flags.StringVar(&amp;framework.TestContext.OutputDir, &#34;e2e-output-dir&#34;, &#34;/tmp&#34;, &#34;Output directory for interesting/useful test data, like performance data, benchmarks, and other metrics.&#34;)
+<span id="L101" class="ln">   101  </span>	flags.StringVar(&amp;framework.TestContext.Prefix, &#34;prefix&#34;, &#34;e2e&#34;, &#34;A prefix to be added to cloud resources created during testing.&#34;)
+<span id="L102" class="ln">   102  </span>	flags.StringVar(&amp;framework.TestContext.MasterOSDistro, &#34;master-os-distro&#34;, &#34;debian&#34;, &#34;The OS distribution of cluster master (debian, ubuntu, gci, coreos, or custom).&#34;)
+<span id="L103" class="ln">   103  </span>	flags.StringVar(&amp;framework.TestContext.NodeOSDistro, &#34;node-os-distro&#34;, &#34;debian&#34;, &#34;The OS distribution of cluster VM instances (debian, ubuntu, gci, coreos, or custom).&#34;)
+<span id="L104" class="ln">   104  </span>	flags.StringVar(&amp;framework.TestContext.ClusterDNSDomain, &#34;dns-domain&#34;, &#34;cluster.local&#34;, &#34;The DNS Domain of the cluster.&#34;)
+<span id="L105" class="ln">   105  </span>
+<span id="L106" class="ln">   106  </span>	flags.IntVar(&amp;framework.TestContext.MinStartupPods, &#34;minStartupPods&#34;, 0, &#34;The number of pods which we need to see in &#39;Running&#39; state with a &#39;Ready&#39; condition of true, before we try running tests. This is useful in any cluster which needs some base pod-based services running before it can be used.&#34;)
+<span id="L107" class="ln">   107  </span>	flags.DurationVar(&amp;framework.TestContext.SystemPodsStartupTimeout, &#34;system-pods-startup-timeout&#34;, 10*time.Minute, &#34;Timeout for waiting for all system pods to be running before starting tests.&#34;)
+<span id="L108" class="ln">   108  </span>	flags.DurationVar(&amp;framework.TestContext.NodeSchedulableTimeout, &#34;node-schedulable-timeout&#34;, 30*time.Minute, &#34;Timeout for waiting for all nodes to be schedulable.&#34;)
+<span id="L109" class="ln">   109  </span>	flags.DurationVar(&amp;framework.TestContext.SystemDaemonsetStartupTimeout, &#34;system-daemonsets-startup-timeout&#34;, 5*time.Minute, &#34;Timeout for waiting for all system daemonsets to be ready.&#34;)
+<span id="L110" class="ln">   110  </span>	flags.StringVar(&amp;framework.TestContext.EtcdUpgradeStorage, &#34;etcd-upgrade-storage&#34;, &#34;&#34;, &#34;The storage version to upgrade to (either &#39;etcdv2&#39; or &#39;etcdv3&#39;) if doing an etcd upgrade test.&#34;)
+<span id="L111" class="ln">   111  </span>	flags.StringVar(&amp;framework.TestContext.EtcdUpgradeVersion, &#34;etcd-upgrade-version&#34;, &#34;&#34;, &#34;The etcd binary version to upgrade to (e.g., &#39;3.0.14&#39;, &#39;2.3.7&#39;) if doing an etcd upgrade test.&#34;)
+<span id="L112" class="ln">   112  </span>	flags.StringVar(&amp;framework.TestContext.GCEUpgradeScript, &#34;gce-upgrade-script&#34;, &#34;&#34;, &#34;Script to use to upgrade a GCE cluster.&#34;)
+<span id="L113" class="ln">   113  </span>	flags.BoolVar(&amp;framework.TestContext.CleanStart, &#34;clean-start&#34;, false, &#34;If true, purge all namespaces except default and system before running tests. This serves to Cleanup test namespaces from failed/interrupted e2e runs in a long-lived cluster.&#34;)
+<span id="L114" class="ln">   114  </span>
+<span id="L115" class="ln">   115  </span>	nodeKiller := &amp;framework.TestContext.NodeKiller
+<span id="L116" class="ln">   116  </span>	flags.BoolVar(&amp;nodeKiller.Enabled, &#34;node-killer&#34;, false, &#34;Whether NodeKiller should kill any nodes.&#34;)
+<span id="L117" class="ln">   117  </span>	flags.Float64Var(&amp;nodeKiller.FailureRatio, &#34;node-killer-failure-ratio&#34;, 0.01, &#34;Percentage of nodes to be killed&#34;)
+<span id="L118" class="ln">   118  </span>	flags.DurationVar(&amp;nodeKiller.Interval, &#34;node-killer-interval&#34;, 1*time.Minute, &#34;Time between node failures.&#34;)
+<span id="L119" class="ln">   119  </span>	flags.Float64Var(&amp;nodeKiller.JitterFactor, &#34;node-killer-jitter-factor&#34;, 60, &#34;Factor used to jitter node failures.&#34;)
+<span id="L120" class="ln">   120  </span>	flags.DurationVar(&amp;nodeKiller.SimulatedDowntime, &#34;node-killer-simulated-downtime&#34;, 10*time.Minute, &#34;A delay between node death and recreation&#34;)
+<span id="L121" class="ln">   121  </span>}
+<span id="L122" class="ln">   122  </span>
 </pre><p></p>
 
 <div id="footer">

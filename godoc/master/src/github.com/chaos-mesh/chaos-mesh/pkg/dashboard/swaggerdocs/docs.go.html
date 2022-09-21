@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 7e472f7. Generated at Wed Sep 21 10:01:37 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit a6620f7. Generated at Wed Sep 21 22:04:00 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -3081,19 +3081,19 @@
 <span id="L3016" class="ln">  3016  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3017" class="ln">  3017  </span>            &#34;properties&#34;: {
 <span id="L3018" class="ln">  3018  </span>                &#34;fsType&#34;: {
-<span id="L3019" class="ln">  3019  </span>                    &#34;description&#34;: &#34;Filesystem type of the volume that you want to mount.\nTip: Ensure that the filesystem type is supported by the host operating system.\nExamples: \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore\nTODO: how do we prevent errors in the filesystem from compromising the machine\n+optional&#34;,
+<span id="L3019" class="ln">  3019  </span>                    &#34;description&#34;: &#34;fsType is the filesystem type of the volume that you want to mount.\nTip: Ensure that the filesystem type is supported by the host operating system.\nExamples: \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore\nTODO: how do we prevent errors in the filesystem from compromising the machine\n+optional&#34;,
 <span id="L3020" class="ln">  3020  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3021" class="ln">  3021  </span>                },
 <span id="L3022" class="ln">  3022  </span>                &#34;partition&#34;: {
-<span id="L3023" class="ln">  3023  </span>                    &#34;description&#34;: &#34;The partition in the volume that you want to mount.\nIf omitted, the default is to mount by volume name.\nExamples: For volume /dev/sda1, you specify the partition as \&#34;1\&#34;.\nSimilarly, the volume partition for /dev/sda is \&#34;0\&#34; (or you can leave the property empty).\n+optional&#34;,
+<span id="L3023" class="ln">  3023  </span>                    &#34;description&#34;: &#34;partition is the partition in the volume that you want to mount.\nIf omitted, the default is to mount by volume name.\nExamples: For volume /dev/sda1, you specify the partition as \&#34;1\&#34;.\nSimilarly, the volume partition for /dev/sda is \&#34;0\&#34; (or you can leave the property empty).\n+optional&#34;,
 <span id="L3024" class="ln">  3024  </span>                    &#34;type&#34;: &#34;integer&#34;
 <span id="L3025" class="ln">  3025  </span>                },
 <span id="L3026" class="ln">  3026  </span>                &#34;readOnly&#34;: {
-<span id="L3027" class="ln">  3027  </span>                    &#34;description&#34;: &#34;Specify \&#34;true\&#34; to force and set the ReadOnly property in VolumeMounts to \&#34;true\&#34;.\nIf omitted, the default is \&#34;false\&#34;.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore\n+optional&#34;,
+<span id="L3027" class="ln">  3027  </span>                    &#34;description&#34;: &#34;readOnly value true will force the readOnly setting in VolumeMounts.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore\n+optional&#34;,
 <span id="L3028" class="ln">  3028  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3029" class="ln">  3029  </span>                },
 <span id="L3030" class="ln">  3030  </span>                &#34;volumeID&#34;: {
-<span id="L3031" class="ln">  3031  </span>                    &#34;description&#34;: &#34;Unique ID of the persistent disk resource in AWS (Amazon EBS volume).\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore&#34;,
+<span id="L3031" class="ln">  3031  </span>                    &#34;description&#34;: &#34;volumeID is unique ID of the persistent disk resource in AWS (Amazon EBS volume).\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore&#34;,
 <span id="L3032" class="ln">  3032  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3033" class="ln">  3033  </span>                }
 <span id="L3034" class="ln">  3034  </span>            }
@@ -3102,27 +3102,27 @@
 <span id="L3037" class="ln">  3037  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3038" class="ln">  3038  </span>            &#34;properties&#34;: {
 <span id="L3039" class="ln">  3039  </span>                &#34;cachingMode&#34;: {
-<span id="L3040" class="ln">  3040  </span>                    &#34;description&#34;: &#34;Host Caching mode: None, Read Only, Read Write.\n+optional&#34;,
+<span id="L3040" class="ln">  3040  </span>                    &#34;description&#34;: &#34;cachingMode is the Host Caching mode: None, Read Only, Read Write.\n+optional&#34;,
 <span id="L3041" class="ln">  3041  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3042" class="ln">  3042  </span>                },
 <span id="L3043" class="ln">  3043  </span>                &#34;diskName&#34;: {
-<span id="L3044" class="ln">  3044  </span>                    &#34;description&#34;: &#34;The Name of the data disk in the blob storage&#34;,
+<span id="L3044" class="ln">  3044  </span>                    &#34;description&#34;: &#34;diskName is the Name of the data disk in the blob storage&#34;,
 <span id="L3045" class="ln">  3045  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3046" class="ln">  3046  </span>                },
 <span id="L3047" class="ln">  3047  </span>                &#34;diskURI&#34;: {
-<span id="L3048" class="ln">  3048  </span>                    &#34;description&#34;: &#34;The URI the data disk in the blob storage&#34;,
+<span id="L3048" class="ln">  3048  </span>                    &#34;description&#34;: &#34;diskURI is the URI of data disk in the blob storage&#34;,
 <span id="L3049" class="ln">  3049  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3050" class="ln">  3050  </span>                },
 <span id="L3051" class="ln">  3051  </span>                &#34;fsType&#34;: {
-<span id="L3052" class="ln">  3052  </span>                    &#34;description&#34;: &#34;Filesystem type to mount.\nMust be a filesystem type supported by the host operating system.\nEx. \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\n+optional&#34;,
+<span id="L3052" class="ln">  3052  </span>                    &#34;description&#34;: &#34;fsType is Filesystem type to mount.\nMust be a filesystem type supported by the host operating system.\nEx. \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\n+optional&#34;,
 <span id="L3053" class="ln">  3053  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3054" class="ln">  3054  </span>                },
 <span id="L3055" class="ln">  3055  </span>                &#34;kind&#34;: {
-<span id="L3056" class="ln">  3056  </span>                    &#34;description&#34;: &#34;Expected values Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared&#34;,
+<span id="L3056" class="ln">  3056  </span>                    &#34;description&#34;: &#34;kind expected values are Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared&#34;,
 <span id="L3057" class="ln">  3057  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3058" class="ln">  3058  </span>                },
 <span id="L3059" class="ln">  3059  </span>                &#34;readOnly&#34;: {
-<span id="L3060" class="ln">  3060  </span>                    &#34;description&#34;: &#34;Defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\n+optional&#34;,
+<span id="L3060" class="ln">  3060  </span>                    &#34;description&#34;: &#34;readOnly Defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\n+optional&#34;,
 <span id="L3061" class="ln">  3061  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3062" class="ln">  3062  </span>                }
 <span id="L3063" class="ln">  3063  </span>            }
@@ -3131,15 +3131,15 @@
 <span id="L3066" class="ln">  3066  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3067" class="ln">  3067  </span>            &#34;properties&#34;: {
 <span id="L3068" class="ln">  3068  </span>                &#34;readOnly&#34;: {
-<span id="L3069" class="ln">  3069  </span>                    &#34;description&#34;: &#34;Defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\n+optional&#34;,
+<span id="L3069" class="ln">  3069  </span>                    &#34;description&#34;: &#34;readOnly defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\n+optional&#34;,
 <span id="L3070" class="ln">  3070  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3071" class="ln">  3071  </span>                },
 <span id="L3072" class="ln">  3072  </span>                &#34;secretName&#34;: {
-<span id="L3073" class="ln">  3073  </span>                    &#34;description&#34;: &#34;the name of secret that contains Azure Storage Account Name and Key&#34;,
+<span id="L3073" class="ln">  3073  </span>                    &#34;description&#34;: &#34;secretName is the  name of secret that contains Azure Storage Account Name and Key&#34;,
 <span id="L3074" class="ln">  3074  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3075" class="ln">  3075  </span>                },
 <span id="L3076" class="ln">  3076  </span>                &#34;shareName&#34;: {
-<span id="L3077" class="ln">  3077  </span>                    &#34;description&#34;: &#34;Share Name&#34;,
+<span id="L3077" class="ln">  3077  </span>                    &#34;description&#34;: &#34;shareName is the azure share Name&#34;,
 <span id="L3078" class="ln">  3078  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3079" class="ln">  3079  </span>                }
 <span id="L3080" class="ln">  3080  </span>            }
@@ -3148,23 +3148,23 @@
 <span id="L3083" class="ln">  3083  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3084" class="ln">  3084  </span>            &#34;properties&#34;: {
 <span id="L3085" class="ln">  3085  </span>                &#34;driver&#34;: {
-<span id="L3086" class="ln">  3086  </span>                    &#34;description&#34;: &#34;Driver is the name of the CSI driver that handles this volume.\nConsult with your admin for the correct name as registered in the cluster.&#34;,
+<span id="L3086" class="ln">  3086  </span>                    &#34;description&#34;: &#34;driver is the name of the CSI driver that handles this volume.\nConsult with your admin for the correct name as registered in the cluster.&#34;,
 <span id="L3087" class="ln">  3087  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3088" class="ln">  3088  </span>                },
 <span id="L3089" class="ln">  3089  </span>                &#34;fsType&#34;: {
-<span id="L3090" class="ln">  3090  </span>                    &#34;description&#34;: &#34;Filesystem type to mount. Ex. \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;.\nIf not provided, the empty value is passed to the associated CSI driver\nwhich will determine the default filesystem to apply.\n+optional&#34;,
+<span id="L3090" class="ln">  3090  </span>                    &#34;description&#34;: &#34;fsType to mount. Ex. \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;.\nIf not provided, the empty value is passed to the associated CSI driver\nwhich will determine the default filesystem to apply.\n+optional&#34;,
 <span id="L3091" class="ln">  3091  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3092" class="ln">  3092  </span>                },
 <span id="L3093" class="ln">  3093  </span>                &#34;nodePublishSecretRef&#34;: {
-<span id="L3094" class="ln">  3094  </span>                    &#34;description&#34;: &#34;NodePublishSecretRef is a reference to the secret object containing\nsensitive information to pass to the CSI driver to complete the CSI\nNodePublishVolume and NodeUnpublishVolume calls.\nThis field is optional, and  may be empty if no secret is required. If the\nsecret object contains more than one secret, all secret references are passed.\n+optional&#34;,
+<span id="L3094" class="ln">  3094  </span>                    &#34;description&#34;: &#34;nodePublishSecretRef is a reference to the secret object containing\nsensitive information to pass to the CSI driver to complete the CSI\nNodePublishVolume and NodeUnpublishVolume calls.\nThis field is optional, and  may be empty if no secret is required. If the\nsecret object contains more than one secret, all secret references are passed.\n+optional&#34;,
 <span id="L3095" class="ln">  3095  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.LocalObjectReference&#34;
 <span id="L3096" class="ln">  3096  </span>                },
 <span id="L3097" class="ln">  3097  </span>                &#34;readOnly&#34;: {
-<span id="L3098" class="ln">  3098  </span>                    &#34;description&#34;: &#34;Specifies a read-only configuration for the volume.\nDefaults to false (read/write).\n+optional&#34;,
+<span id="L3098" class="ln">  3098  </span>                    &#34;description&#34;: &#34;readOnly specifies a read-only configuration for the volume.\nDefaults to false (read/write).\n+optional&#34;,
 <span id="L3099" class="ln">  3099  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3100" class="ln">  3100  </span>                },
 <span id="L3101" class="ln">  3101  </span>                &#34;volumeAttributes&#34;: {
-<span id="L3102" class="ln">  3102  </span>                    &#34;description&#34;: &#34;VolumeAttributes stores driver-specific properties that are passed to the CSI\ndriver. Consult your driver&#39;s documentation for supported values.\n+optional&#34;,
+<span id="L3102" class="ln">  3102  </span>                    &#34;description&#34;: &#34;volumeAttributes stores driver-specific properties that are passed to the CSI\ndriver. Consult your driver&#39;s documentation for supported values.\n+optional&#34;,
 <span id="L3103" class="ln">  3103  </span>                    &#34;type&#34;: &#34;object&#34;,
 <span id="L3104" class="ln">  3104  </span>                    &#34;additionalProperties&#34;: {
 <span id="L3105" class="ln">  3105  </span>                        &#34;type&#34;: &#34;string&#34;
@@ -3195,30 +3195,30 @@
 <span id="L3130" class="ln">  3130  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3131" class="ln">  3131  </span>            &#34;properties&#34;: {
 <span id="L3132" class="ln">  3132  </span>                &#34;monitors&#34;: {
-<span id="L3133" class="ln">  3133  </span>                    &#34;description&#34;: &#34;Required: Monitors is a collection of Ceph monitors\nMore info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it&#34;,
+<span id="L3133" class="ln">  3133  </span>                    &#34;description&#34;: &#34;monitors is Required: Monitors is a collection of Ceph monitors\nMore info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it&#34;,
 <span id="L3134" class="ln">  3134  </span>                    &#34;type&#34;: &#34;array&#34;,
 <span id="L3135" class="ln">  3135  </span>                    &#34;items&#34;: {
 <span id="L3136" class="ln">  3136  </span>                        &#34;type&#34;: &#34;string&#34;
 <span id="L3137" class="ln">  3137  </span>                    }
 <span id="L3138" class="ln">  3138  </span>                },
 <span id="L3139" class="ln">  3139  </span>                &#34;path&#34;: {
-<span id="L3140" class="ln">  3140  </span>                    &#34;description&#34;: &#34;Optional: Used as the mounted root, rather than the full Ceph tree, default is /\n+optional&#34;,
+<span id="L3140" class="ln">  3140  </span>                    &#34;description&#34;: &#34;path is Optional: Used as the mounted root, rather than the full Ceph tree, default is /\n+optional&#34;,
 <span id="L3141" class="ln">  3141  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3142" class="ln">  3142  </span>                },
 <span id="L3143" class="ln">  3143  </span>                &#34;readOnly&#34;: {
-<span id="L3144" class="ln">  3144  </span>                    &#34;description&#34;: &#34;Optional: Defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\nMore info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it\n+optional&#34;,
+<span id="L3144" class="ln">  3144  </span>                    &#34;description&#34;: &#34;readOnly is Optional: Defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\nMore info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it\n+optional&#34;,
 <span id="L3145" class="ln">  3145  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3146" class="ln">  3146  </span>                },
 <span id="L3147" class="ln">  3147  </span>                &#34;secretFile&#34;: {
-<span id="L3148" class="ln">  3148  </span>                    &#34;description&#34;: &#34;Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret\nMore info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it\n+optional&#34;,
+<span id="L3148" class="ln">  3148  </span>                    &#34;description&#34;: &#34;secretFile is Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret\nMore info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it\n+optional&#34;,
 <span id="L3149" class="ln">  3149  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3150" class="ln">  3150  </span>                },
 <span id="L3151" class="ln">  3151  </span>                &#34;secretRef&#34;: {
-<span id="L3152" class="ln">  3152  </span>                    &#34;description&#34;: &#34;Optional: SecretRef is reference to the authentication secret for User, default is empty.\nMore info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it\n+optional&#34;,
+<span id="L3152" class="ln">  3152  </span>                    &#34;description&#34;: &#34;secretRef is Optional: SecretRef is reference to the authentication secret for User, default is empty.\nMore info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it\n+optional&#34;,
 <span id="L3153" class="ln">  3153  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.LocalObjectReference&#34;
 <span id="L3154" class="ln">  3154  </span>                },
 <span id="L3155" class="ln">  3155  </span>                &#34;user&#34;: {
-<span id="L3156" class="ln">  3156  </span>                    &#34;description&#34;: &#34;Optional: User is the rados user name, default is admin\nMore info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it\n+optional&#34;,
+<span id="L3156" class="ln">  3156  </span>                    &#34;description&#34;: &#34;user is optional: User is the rados user name, default is admin\nMore info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it\n+optional&#34;,
 <span id="L3157" class="ln">  3157  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3158" class="ln">  3158  </span>                }
 <span id="L3159" class="ln">  3159  </span>            }
@@ -3227,19 +3227,19 @@
 <span id="L3162" class="ln">  3162  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3163" class="ln">  3163  </span>            &#34;properties&#34;: {
 <span id="L3164" class="ln">  3164  </span>                &#34;fsType&#34;: {
-<span id="L3165" class="ln">  3165  </span>                    &#34;description&#34;: &#34;Filesystem type to mount.\nMust be a filesystem type supported by the host operating system.\nExamples: \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\nMore info: https://examples.k8s.io/mysql-cinder-pd/README.md\n+optional&#34;,
+<span id="L3165" class="ln">  3165  </span>                    &#34;description&#34;: &#34;fsType is the filesystem type to mount.\nMust be a filesystem type supported by the host operating system.\nExamples: \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\nMore info: https://examples.k8s.io/mysql-cinder-pd/README.md\n+optional&#34;,
 <span id="L3166" class="ln">  3166  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3167" class="ln">  3167  </span>                },
 <span id="L3168" class="ln">  3168  </span>                &#34;readOnly&#34;: {
-<span id="L3169" class="ln">  3169  </span>                    &#34;description&#34;: &#34;Optional: Defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\nMore info: https://examples.k8s.io/mysql-cinder-pd/README.md\n+optional&#34;,
+<span id="L3169" class="ln">  3169  </span>                    &#34;description&#34;: &#34;readOnly defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\nMore info: https://examples.k8s.io/mysql-cinder-pd/README.md\n+optional&#34;,
 <span id="L3170" class="ln">  3170  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3171" class="ln">  3171  </span>                },
 <span id="L3172" class="ln">  3172  </span>                &#34;secretRef&#34;: {
-<span id="L3173" class="ln">  3173  </span>                    &#34;description&#34;: &#34;Optional: points to a secret object containing parameters used to connect\nto OpenStack.\n+optional&#34;,
+<span id="L3173" class="ln">  3173  </span>                    &#34;description&#34;: &#34;secretRef is optional: points to a secret object containing parameters used to connect\nto OpenStack.\n+optional&#34;,
 <span id="L3174" class="ln">  3174  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.LocalObjectReference&#34;
 <span id="L3175" class="ln">  3175  </span>                },
 <span id="L3176" class="ln">  3176  </span>                &#34;volumeID&#34;: {
-<span id="L3177" class="ln">  3177  </span>                    &#34;description&#34;: &#34;volume id used to identify the volume in cinder.\nMore info: https://examples.k8s.io/mysql-cinder-pd/README.md&#34;,
+<span id="L3177" class="ln">  3177  </span>                    &#34;description&#34;: &#34;volumeID used to identify the volume in cinder.\nMore info: https://examples.k8s.io/mysql-cinder-pd/README.md&#34;,
 <span id="L3178" class="ln">  3178  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3179" class="ln">  3179  </span>                }
 <span id="L3180" class="ln">  3180  </span>            }
@@ -3278,7 +3278,7 @@
 <span id="L3213" class="ln">  3213  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3214" class="ln">  3214  </span>            &#34;properties&#34;: {
 <span id="L3215" class="ln">  3215  </span>                &#34;items&#34;: {
-<span id="L3216" class="ln">  3216  </span>                    &#34;description&#34;: &#34;If unspecified, each key-value pair in the Data field of the referenced\nConfigMap will be projected into the volume as a file whose name is the\nkey and content is the value. If specified, the listed keys will be\nprojected into the specified paths, and unlisted keys will not be\npresent. If a key is specified which is not present in the ConfigMap,\nthe volume setup will error unless it is marked optional. Paths must be\nrelative and may not contain the &#39;..&#39; path or start with &#39;..&#39;.\n+optional&#34;,
+<span id="L3216" class="ln">  3216  </span>                    &#34;description&#34;: &#34;items if unspecified, each key-value pair in the Data field of the referenced\nConfigMap will be projected into the volume as a file whose name is the\nkey and content is the value. If specified, the listed keys will be\nprojected into the specified paths, and unlisted keys will not be\npresent. If a key is specified which is not present in the ConfigMap,\nthe volume setup will error unless it is marked optional. Paths must be\nrelative and may not contain the &#39;..&#39; path or start with &#39;..&#39;.\n+optional&#34;,
 <span id="L3217" class="ln">  3217  </span>                    &#34;type&#34;: &#34;array&#34;,
 <span id="L3218" class="ln">  3218  </span>                    &#34;items&#34;: {
 <span id="L3219" class="ln">  3219  </span>                        &#34;$ref&#34;: &#34;#/definitions/v1.KeyToPath&#34;
@@ -3289,7 +3289,7 @@
 <span id="L3224" class="ln">  3224  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3225" class="ln">  3225  </span>                },
 <span id="L3226" class="ln">  3226  </span>                &#34;optional&#34;: {
-<span id="L3227" class="ln">  3227  </span>                    &#34;description&#34;: &#34;Specify whether the ConfigMap or its keys must be defined\n+optional&#34;,
+<span id="L3227" class="ln">  3227  </span>                    &#34;description&#34;: &#34;optional specify whether the ConfigMap or its keys must be defined\n+optional&#34;,
 <span id="L3228" class="ln">  3228  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3229" class="ln">  3229  </span>                }
 <span id="L3230" class="ln">  3230  </span>            }
@@ -3298,11 +3298,11 @@
 <span id="L3233" class="ln">  3233  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3234" class="ln">  3234  </span>            &#34;properties&#34;: {
 <span id="L3235" class="ln">  3235  </span>                &#34;defaultMode&#34;: {
-<span id="L3236" class="ln">  3236  </span>                    &#34;description&#34;: &#34;Optional: mode bits used to set permissions on created files by default.\nMust be an octal value between 0000 and 0777 or a decimal value between 0 and 511.\nYAML accepts both octal and decimal values, JSON requires decimal values for mode bits.\nDefaults to 0644.\nDirectories within the path are not affected by this setting.\nThis might be in conflict with other options that affect the file\nmode, like fsGroup, and the result can be other mode bits set.\n+optional&#34;,
+<span id="L3236" class="ln">  3236  </span>                    &#34;description&#34;: &#34;defaultMode is optional: mode bits used to set permissions on created files by default.\nMust be an octal value between 0000 and 0777 or a decimal value between 0 and 511.\nYAML accepts both octal and decimal values, JSON requires decimal values for mode bits.\nDefaults to 0644.\nDirectories within the path are not affected by this setting.\nThis might be in conflict with other options that affect the file\nmode, like fsGroup, and the result can be other mode bits set.\n+optional&#34;,
 <span id="L3237" class="ln">  3237  </span>                    &#34;type&#34;: &#34;integer&#34;
 <span id="L3238" class="ln">  3238  </span>                },
 <span id="L3239" class="ln">  3239  </span>                &#34;items&#34;: {
-<span id="L3240" class="ln">  3240  </span>                    &#34;description&#34;: &#34;If unspecified, each key-value pair in the Data field of the referenced\nConfigMap will be projected into the volume as a file whose name is the\nkey and content is the value. If specified, the listed keys will be\nprojected into the specified paths, and unlisted keys will not be\npresent. If a key is specified which is not present in the ConfigMap,\nthe volume setup will error unless it is marked optional. Paths must be\nrelative and may not contain the &#39;..&#39; path or start with &#39;..&#39;.\n+optional&#34;,
+<span id="L3240" class="ln">  3240  </span>                    &#34;description&#34;: &#34;items if unspecified, each key-value pair in the Data field of the referenced\nConfigMap will be projected into the volume as a file whose name is the\nkey and content is the value. If specified, the listed keys will be\nprojected into the specified paths, and unlisted keys will not be\npresent. If a key is specified which is not present in the ConfigMap,\nthe volume setup will error unless it is marked optional. Paths must be\nrelative and may not contain the &#39;..&#39; path or start with &#39;..&#39;.\n+optional&#34;,
 <span id="L3241" class="ln">  3241  </span>                    &#34;type&#34;: &#34;array&#34;,
 <span id="L3242" class="ln">  3242  </span>                    &#34;items&#34;: {
 <span id="L3243" class="ln">  3243  </span>                        &#34;$ref&#34;: &#34;#/definitions/v1.KeyToPath&#34;
@@ -3313,7 +3313,7 @@
 <span id="L3248" class="ln">  3248  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3249" class="ln">  3249  </span>                },
 <span id="L3250" class="ln">  3250  </span>                &#34;optional&#34;: {
-<span id="L3251" class="ln">  3251  </span>                    &#34;description&#34;: &#34;Specify whether the ConfigMap or its keys must be defined\n+optional&#34;,
+<span id="L3251" class="ln">  3251  </span>                    &#34;description&#34;: &#34;optional specify whether the ConfigMap or its keys must be defined\n+optional&#34;,
 <span id="L3252" class="ln">  3252  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3253" class="ln">  3253  </span>                }
 <span id="L3254" class="ln">  3254  </span>            }
@@ -3322,14 +3322,14 @@
 <span id="L3257" class="ln">  3257  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3258" class="ln">  3258  </span>            &#34;properties&#34;: {
 <span id="L3259" class="ln">  3259  </span>                &#34;args&#34;: {
-<span id="L3260" class="ln">  3260  </span>                    &#34;description&#34;: &#34;Arguments to the entrypoint.\nThe docker image&#39;s CMD is used if this is not provided.\nVariable references $(VAR_NAME) are expanded using the container&#39;s environment. If a variable\ncannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced\nto a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \&#34;$$(VAR_NAME)\&#34; will\nproduce the string literal \&#34;$(VAR_NAME)\&#34;. Escaped references will never be expanded, regardless\nof whether the variable exists or not. Cannot be updated.\nMore info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell\n+optional&#34;,
+<span id="L3260" class="ln">  3260  </span>                    &#34;description&#34;: &#34;Arguments to the entrypoint.\nThe container image&#39;s CMD is used if this is not provided.\nVariable references $(VAR_NAME) are expanded using the container&#39;s environment. If a variable\ncannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced\nto a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \&#34;$$(VAR_NAME)\&#34; will\nproduce the string literal \&#34;$(VAR_NAME)\&#34;. Escaped references will never be expanded, regardless\nof whether the variable exists or not. Cannot be updated.\nMore info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell\n+optional&#34;,
 <span id="L3261" class="ln">  3261  </span>                    &#34;type&#34;: &#34;array&#34;,
 <span id="L3262" class="ln">  3262  </span>                    &#34;items&#34;: {
 <span id="L3263" class="ln">  3263  </span>                        &#34;type&#34;: &#34;string&#34;
 <span id="L3264" class="ln">  3264  </span>                    }
 <span id="L3265" class="ln">  3265  </span>                },
 <span id="L3266" class="ln">  3266  </span>                &#34;command&#34;: {
-<span id="L3267" class="ln">  3267  </span>                    &#34;description&#34;: &#34;Entrypoint array. Not executed within a shell.\nThe docker image&#39;s ENTRYPOINT is used if this is not provided.\nVariable references $(VAR_NAME) are expanded using the container&#39;s environment. If a variable\ncannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced\nto a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \&#34;$$(VAR_NAME)\&#34; will\nproduce the string literal \&#34;$(VAR_NAME)\&#34;. Escaped references will never be expanded, regardless\nof whether the variable exists or not. Cannot be updated.\nMore info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell\n+optional&#34;,
+<span id="L3267" class="ln">  3267  </span>                    &#34;description&#34;: &#34;Entrypoint array. Not executed within a shell.\nThe container image&#39;s ENTRYPOINT is used if this is not provided.\nVariable references $(VAR_NAME) are expanded using the container&#39;s environment. If a variable\ncannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced\nto a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \&#34;$$(VAR_NAME)\&#34; will\nproduce the string literal \&#34;$(VAR_NAME)\&#34;. Escaped references will never be expanded, regardless\nof whether the variable exists or not. Cannot be updated.\nMore info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell\n+optional&#34;,
 <span id="L3268" class="ln">  3268  </span>                    &#34;type&#34;: &#34;array&#34;,
 <span id="L3269" class="ln">  3269  </span>                    &#34;items&#34;: {
 <span id="L3270" class="ln">  3270  </span>                        &#34;type&#34;: &#34;string&#34;
@@ -3350,7 +3350,7 @@
 <span id="L3285" class="ln">  3285  </span>                    }
 <span id="L3286" class="ln">  3286  </span>                },
 <span id="L3287" class="ln">  3287  </span>                &#34;image&#34;: {
-<span id="L3288" class="ln">  3288  </span>                    &#34;description&#34;: &#34;Docker image name.\nMore info: https://kubernetes.io/docs/concepts/containers/images\nThis field is optional to allow higher level config management to default or override\ncontainer images in workload controllers like Deployments and StatefulSets.\n+optional&#34;,
+<span id="L3288" class="ln">  3288  </span>                    &#34;description&#34;: &#34;Container image name.\nMore info: https://kubernetes.io/docs/concepts/containers/images\nThis field is optional to allow higher level config management to default or override\ncontainer images in workload controllers like Deployments and StatefulSets.\n+optional&#34;,
 <span id="L3289" class="ln">  3289  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3290" class="ln">  3290  </span>                },
 <span id="L3291" class="ln">  3291  </span>                &#34;imagePullPolicy&#34;: {
@@ -3510,11 +3510,11 @@
 <span id="L3445" class="ln">  3445  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3446" class="ln">  3446  </span>            &#34;properties&#34;: {
 <span id="L3447" class="ln">  3447  </span>                &#34;medium&#34;: {
-<span id="L3448" class="ln">  3448  </span>                    &#34;description&#34;: &#34;What type of storage medium should back this directory.\nThe default is \&#34;\&#34; which means to use the node&#39;s default medium.\nMust be an empty string (default) or Memory.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir\n+optional&#34;,
+<span id="L3448" class="ln">  3448  </span>                    &#34;description&#34;: &#34;medium represents what type of storage medium should back this directory.\nThe default is \&#34;\&#34; which means to use the node&#39;s default medium.\nMust be an empty string (default) or Memory.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir\n+optional&#34;,
 <span id="L3449" class="ln">  3449  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3450" class="ln">  3450  </span>                },
 <span id="L3451" class="ln">  3451  </span>                &#34;sizeLimit&#34;: {
-<span id="L3452" class="ln">  3452  </span>                    &#34;description&#34;: &#34;Total amount of local storage required for this EmptyDir volume.\nThe size limit is also applicable for memory medium.\nThe maximum usage on memory medium EmptyDir would be the minimum value between\nthe SizeLimit specified here and the sum of memory limits of all containers in a pod.\nThe default is nil which means that the limit is undefined.\nMore info: http://kubernetes.io/docs/user-guide/volumes#emptydir\n+optional&#34;,
+<span id="L3452" class="ln">  3452  </span>                    &#34;description&#34;: &#34;sizeLimit is the total amount of local storage required for this EmptyDir volume.\nThe size limit is also applicable for memory medium.\nThe maximum usage on memory medium EmptyDir would be the minimum value between\nthe SizeLimit specified here and the sum of memory limits of all containers in a pod.\nThe default is nil which means that the limit is undefined.\nMore info: http://kubernetes.io/docs/user-guide/volumes#emptydir\n+optional&#34;,
 <span id="L3453" class="ln">  3453  </span>                    &#34;$ref&#34;: &#34;#/definitions/resource.Quantity&#34;
 <span id="L3454" class="ln">  3454  </span>                }
 <span id="L3455" class="ln">  3455  </span>            }
@@ -3599,26 +3599,26 @@
 <span id="L3534" class="ln">  3534  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3535" class="ln">  3535  </span>            &#34;properties&#34;: {
 <span id="L3536" class="ln">  3536  </span>                &#34;fsType&#34;: {
-<span id="L3537" class="ln">  3537  </span>                    &#34;description&#34;: &#34;Filesystem type to mount.\nMust be a filesystem type supported by the host operating system.\nEx. \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\nTODO: how do we prevent errors in the filesystem from compromising the machine\n+optional&#34;,
+<span id="L3537" class="ln">  3537  </span>                    &#34;description&#34;: &#34;fsType is the filesystem type to mount.\nMust be a filesystem type supported by the host operating system.\nEx. \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\nTODO: how do we prevent errors in the filesystem from compromising the machine\n+optional&#34;,
 <span id="L3538" class="ln">  3538  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3539" class="ln">  3539  </span>                },
 <span id="L3540" class="ln">  3540  </span>                &#34;lun&#34;: {
-<span id="L3541" class="ln">  3541  </span>                    &#34;description&#34;: &#34;Optional: FC target lun number\n+optional&#34;,
+<span id="L3541" class="ln">  3541  </span>                    &#34;description&#34;: &#34;lun is Optional: FC target lun number\n+optional&#34;,
 <span id="L3542" class="ln">  3542  </span>                    &#34;type&#34;: &#34;integer&#34;
 <span id="L3543" class="ln">  3543  </span>                },
 <span id="L3544" class="ln">  3544  </span>                &#34;readOnly&#34;: {
-<span id="L3545" class="ln">  3545  </span>                    &#34;description&#34;: &#34;Optional: Defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\n+optional&#34;,
+<span id="L3545" class="ln">  3545  </span>                    &#34;description&#34;: &#34;readOnly is Optional: Defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\n+optional&#34;,
 <span id="L3546" class="ln">  3546  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3547" class="ln">  3547  </span>                },
 <span id="L3548" class="ln">  3548  </span>                &#34;targetWWNs&#34;: {
-<span id="L3549" class="ln">  3549  </span>                    &#34;description&#34;: &#34;Optional: FC target worldwide names (WWNs)\n+optional&#34;,
+<span id="L3549" class="ln">  3549  </span>                    &#34;description&#34;: &#34;targetWWNs is Optional: FC target worldwide names (WWNs)\n+optional&#34;,
 <span id="L3550" class="ln">  3550  </span>                    &#34;type&#34;: &#34;array&#34;,
 <span id="L3551" class="ln">  3551  </span>                    &#34;items&#34;: {
 <span id="L3552" class="ln">  3552  </span>                        &#34;type&#34;: &#34;string&#34;
 <span id="L3553" class="ln">  3553  </span>                    }
 <span id="L3554" class="ln">  3554  </span>                },
 <span id="L3555" class="ln">  3555  </span>                &#34;wwids&#34;: {
-<span id="L3556" class="ln">  3556  </span>                    &#34;description&#34;: &#34;Optional: FC volume world wide identifiers (wwids)\nEither wwids or combination of targetWWNs and lun must be set, but not both simultaneously.\n+optional&#34;,
+<span id="L3556" class="ln">  3556  </span>                    &#34;description&#34;: &#34;wwids Optional: FC volume world wide identifiers (wwids)\nEither wwids or combination of targetWWNs and lun must be set, but not both simultaneously.\n+optional&#34;,
 <span id="L3557" class="ln">  3557  </span>                    &#34;type&#34;: &#34;array&#34;,
 <span id="L3558" class="ln">  3558  </span>                    &#34;items&#34;: {
 <span id="L3559" class="ln">  3559  </span>                        &#34;type&#34;: &#34;string&#34;
@@ -3633,26 +3633,26 @@
 <span id="L3568" class="ln">  3568  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3569" class="ln">  3569  </span>            &#34;properties&#34;: {
 <span id="L3570" class="ln">  3570  </span>                &#34;driver&#34;: {
-<span id="L3571" class="ln">  3571  </span>                    &#34;description&#34;: &#34;Driver is the name of the driver to use for this volume.&#34;,
+<span id="L3571" class="ln">  3571  </span>                    &#34;description&#34;: &#34;driver is the name of the driver to use for this volume.&#34;,
 <span id="L3572" class="ln">  3572  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3573" class="ln">  3573  </span>                },
 <span id="L3574" class="ln">  3574  </span>                &#34;fsType&#34;: {
-<span id="L3575" class="ln">  3575  </span>                    &#34;description&#34;: &#34;Filesystem type to mount.\nMust be a filesystem type supported by the host operating system.\nEx. \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. The default filesystem depends on FlexVolume script.\n+optional&#34;,
+<span id="L3575" class="ln">  3575  </span>                    &#34;description&#34;: &#34;fsType is the filesystem type to mount.\nMust be a filesystem type supported by the host operating system.\nEx. \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. The default filesystem depends on FlexVolume script.\n+optional&#34;,
 <span id="L3576" class="ln">  3576  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3577" class="ln">  3577  </span>                },
 <span id="L3578" class="ln">  3578  </span>                &#34;options&#34;: {
-<span id="L3579" class="ln">  3579  </span>                    &#34;description&#34;: &#34;Optional: Extra command options if any.\n+optional&#34;,
+<span id="L3579" class="ln">  3579  </span>                    &#34;description&#34;: &#34;options is Optional: this field holds extra command options if any.\n+optional&#34;,
 <span id="L3580" class="ln">  3580  </span>                    &#34;type&#34;: &#34;object&#34;,
 <span id="L3581" class="ln">  3581  </span>                    &#34;additionalProperties&#34;: {
 <span id="L3582" class="ln">  3582  </span>                        &#34;type&#34;: &#34;string&#34;
 <span id="L3583" class="ln">  3583  </span>                    }
 <span id="L3584" class="ln">  3584  </span>                },
 <span id="L3585" class="ln">  3585  </span>                &#34;readOnly&#34;: {
-<span id="L3586" class="ln">  3586  </span>                    &#34;description&#34;: &#34;Optional: Defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\n+optional&#34;,
+<span id="L3586" class="ln">  3586  </span>                    &#34;description&#34;: &#34;readOnly is Optional: defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\n+optional&#34;,
 <span id="L3587" class="ln">  3587  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3588" class="ln">  3588  </span>                },
 <span id="L3589" class="ln">  3589  </span>                &#34;secretRef&#34;: {
-<span id="L3590" class="ln">  3590  </span>                    &#34;description&#34;: &#34;Optional: SecretRef is reference to the secret object containing\nsensitive information to pass to the plugin scripts. This may be\nempty if no secret object is specified. If the secret object\ncontains more than one secret, all secrets are passed to the plugin\nscripts.\n+optional&#34;,
+<span id="L3590" class="ln">  3590  </span>                    &#34;description&#34;: &#34;secretRef is Optional: secretRef is reference to the secret object containing\nsensitive information to pass to the plugin scripts. This may be\nempty if no secret object is specified. If the secret object\ncontains more than one secret, all secrets are passed to the plugin\nscripts.\n+optional&#34;,
 <span id="L3591" class="ln">  3591  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.LocalObjectReference&#34;
 <span id="L3592" class="ln">  3592  </span>                }
 <span id="L3593" class="ln">  3593  </span>            }
@@ -3661,11 +3661,11 @@
 <span id="L3596" class="ln">  3596  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3597" class="ln">  3597  </span>            &#34;properties&#34;: {
 <span id="L3598" class="ln">  3598  </span>                &#34;datasetName&#34;: {
-<span id="L3599" class="ln">  3599  </span>                    &#34;description&#34;: &#34;Name of the dataset stored as metadata -\u003e name on the dataset for Flocker\nshould be considered as deprecated\n+optional&#34;,
+<span id="L3599" class="ln">  3599  </span>                    &#34;description&#34;: &#34;datasetName is Name of the dataset stored as metadata -\u003e name on the dataset for Flocker\nshould be considered as deprecated\n+optional&#34;,
 <span id="L3600" class="ln">  3600  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3601" class="ln">  3601  </span>                },
 <span id="L3602" class="ln">  3602  </span>                &#34;datasetUUID&#34;: {
-<span id="L3603" class="ln">  3603  </span>                    &#34;description&#34;: &#34;UUID of the dataset. This is unique identifier of a Flocker dataset\n+optional&#34;,
+<span id="L3603" class="ln">  3603  </span>                    &#34;description&#34;: &#34;datasetUUID is the UUID of the dataset. This is unique identifier of a Flocker dataset\n+optional&#34;,
 <span id="L3604" class="ln">  3604  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3605" class="ln">  3605  </span>                }
 <span id="L3606" class="ln">  3606  </span>            }
@@ -3674,19 +3674,19 @@
 <span id="L3609" class="ln">  3609  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3610" class="ln">  3610  </span>            &#34;properties&#34;: {
 <span id="L3611" class="ln">  3611  </span>                &#34;fsType&#34;: {
-<span id="L3612" class="ln">  3612  </span>                    &#34;description&#34;: &#34;Filesystem type of the volume that you want to mount.\nTip: Ensure that the filesystem type is supported by the host operating system.\nExamples: \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk\nTODO: how do we prevent errors in the filesystem from compromising the machine\n+optional&#34;,
+<span id="L3612" class="ln">  3612  </span>                    &#34;description&#34;: &#34;fsType is filesystem type of the volume that you want to mount.\nTip: Ensure that the filesystem type is supported by the host operating system.\nExamples: \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk\nTODO: how do we prevent errors in the filesystem from compromising the machine\n+optional&#34;,
 <span id="L3613" class="ln">  3613  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3614" class="ln">  3614  </span>                },
 <span id="L3615" class="ln">  3615  </span>                &#34;partition&#34;: {
-<span id="L3616" class="ln">  3616  </span>                    &#34;description&#34;: &#34;The partition in the volume that you want to mount.\nIf omitted, the default is to mount by volume name.\nExamples: For volume /dev/sda1, you specify the partition as \&#34;1\&#34;.\nSimilarly, the volume partition for /dev/sda is \&#34;0\&#34; (or you can leave the property empty).\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk\n+optional&#34;,
+<span id="L3616" class="ln">  3616  </span>                    &#34;description&#34;: &#34;partition is the partition in the volume that you want to mount.\nIf omitted, the default is to mount by volume name.\nExamples: For volume /dev/sda1, you specify the partition as \&#34;1\&#34;.\nSimilarly, the volume partition for /dev/sda is \&#34;0\&#34; (or you can leave the property empty).\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk\n+optional&#34;,
 <span id="L3617" class="ln">  3617  </span>                    &#34;type&#34;: &#34;integer&#34;
 <span id="L3618" class="ln">  3618  </span>                },
 <span id="L3619" class="ln">  3619  </span>                &#34;pdName&#34;: {
-<span id="L3620" class="ln">  3620  </span>                    &#34;description&#34;: &#34;Unique name of the PD resource in GCE. Used to identify the disk in GCE.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk&#34;,
+<span id="L3620" class="ln">  3620  </span>                    &#34;description&#34;: &#34;pdName is unique name of the PD resource in GCE. Used to identify the disk in GCE.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk&#34;,
 <span id="L3621" class="ln">  3621  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3622" class="ln">  3622  </span>                },
 <span id="L3623" class="ln">  3623  </span>                &#34;readOnly&#34;: {
-<span id="L3624" class="ln">  3624  </span>                    &#34;description&#34;: &#34;ReadOnly here will force the ReadOnly setting in VolumeMounts.\nDefaults to false.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk\n+optional&#34;,
+<span id="L3624" class="ln">  3624  </span>                    &#34;description&#34;: &#34;readOnly here will force the ReadOnly setting in VolumeMounts.\nDefaults to false.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk\n+optional&#34;,
 <span id="L3625" class="ln">  3625  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3626" class="ln">  3626  </span>                }
 <span id="L3627" class="ln">  3627  </span>            }
@@ -3708,15 +3708,15 @@
 <span id="L3643" class="ln">  3643  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3644" class="ln">  3644  </span>            &#34;properties&#34;: {
 <span id="L3645" class="ln">  3645  </span>                &#34;directory&#34;: {
-<span id="L3646" class="ln">  3646  </span>                    &#34;description&#34;: &#34;Target directory name.\nMust not contain or start with &#39;..&#39;.  If &#39;.&#39; is supplied, the volume directory will be the\ngit repository.  Otherwise, if specified, the volume will contain the git repository in\nthe subdirectory with the given name.\n+optional&#34;,
+<span id="L3646" class="ln">  3646  </span>                    &#34;description&#34;: &#34;directory is the target directory name.\nMust not contain or start with &#39;..&#39;.  If &#39;.&#39; is supplied, the volume directory will be the\ngit repository.  Otherwise, if specified, the volume will contain the git repository in\nthe subdirectory with the given name.\n+optional&#34;,
 <span id="L3647" class="ln">  3647  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3648" class="ln">  3648  </span>                },
 <span id="L3649" class="ln">  3649  </span>                &#34;repository&#34;: {
-<span id="L3650" class="ln">  3650  </span>                    &#34;description&#34;: &#34;Repository URL&#34;,
+<span id="L3650" class="ln">  3650  </span>                    &#34;description&#34;: &#34;repository is the URL&#34;,
 <span id="L3651" class="ln">  3651  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3652" class="ln">  3652  </span>                },
 <span id="L3653" class="ln">  3653  </span>                &#34;revision&#34;: {
-<span id="L3654" class="ln">  3654  </span>                    &#34;description&#34;: &#34;Commit hash for the specified revision.\n+optional&#34;,
+<span id="L3654" class="ln">  3654  </span>                    &#34;description&#34;: &#34;revision is the commit hash for the specified revision.\n+optional&#34;,
 <span id="L3655" class="ln">  3655  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3656" class="ln">  3656  </span>                }
 <span id="L3657" class="ln">  3657  </span>            }
@@ -3725,15 +3725,15 @@
 <span id="L3660" class="ln">  3660  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3661" class="ln">  3661  </span>            &#34;properties&#34;: {
 <span id="L3662" class="ln">  3662  </span>                &#34;endpoints&#34;: {
-<span id="L3663" class="ln">  3663  </span>                    &#34;description&#34;: &#34;EndpointsName is the endpoint name that details Glusterfs topology.\nMore info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod&#34;,
+<span id="L3663" class="ln">  3663  </span>                    &#34;description&#34;: &#34;endpoints is the endpoint name that details Glusterfs topology.\nMore info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod&#34;,
 <span id="L3664" class="ln">  3664  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3665" class="ln">  3665  </span>                },
 <span id="L3666" class="ln">  3666  </span>                &#34;path&#34;: {
-<span id="L3667" class="ln">  3667  </span>                    &#34;description&#34;: &#34;Path is the Glusterfs volume path.\nMore info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod&#34;,
+<span id="L3667" class="ln">  3667  </span>                    &#34;description&#34;: &#34;path is the Glusterfs volume path.\nMore info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod&#34;,
 <span id="L3668" class="ln">  3668  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3669" class="ln">  3669  </span>                },
 <span id="L3670" class="ln">  3670  </span>                &#34;readOnly&#34;: {
-<span id="L3671" class="ln">  3671  </span>                    &#34;description&#34;: &#34;ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions.\nDefaults to false.\nMore info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod\n+optional&#34;,
+<span id="L3671" class="ln">  3671  </span>                    &#34;description&#34;: &#34;readOnly here will force the Glusterfs volume to be mounted with read-only permissions.\nDefaults to false.\nMore info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod\n+optional&#34;,
 <span id="L3672" class="ln">  3672  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3673" class="ln">  3673  </span>                }
 <span id="L3674" class="ln">  3674  </span>            }
@@ -3783,11 +3783,11 @@
 <span id="L3718" class="ln">  3718  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3719" class="ln">  3719  </span>            &#34;properties&#34;: {
 <span id="L3720" class="ln">  3720  </span>                &#34;path&#34;: {
-<span id="L3721" class="ln">  3721  </span>                    &#34;description&#34;: &#34;Path of the directory on the host.\nIf the path is a symlink, it will follow the link to the real path.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath&#34;,
+<span id="L3721" class="ln">  3721  </span>                    &#34;description&#34;: &#34;path of the directory on the host.\nIf the path is a symlink, it will follow the link to the real path.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath&#34;,
 <span id="L3722" class="ln">  3722  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3723" class="ln">  3723  </span>                },
 <span id="L3724" class="ln">  3724  </span>                &#34;type&#34;: {
-<span id="L3725" class="ln">  3725  </span>                    &#34;description&#34;: &#34;Type for HostPath Volume\nDefaults to \&#34;\&#34;\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath\n+optional&#34;,
+<span id="L3725" class="ln">  3725  </span>                    &#34;description&#34;: &#34;type for HostPath Volume\nDefaults to \&#34;\&#34;\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath\n+optional&#34;,
 <span id="L3726" class="ln">  3726  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3727" class="ln">  3727  </span>                }
 <span id="L3728" class="ln">  3728  </span>            }
@@ -3796,50 +3796,50 @@
 <span id="L3731" class="ln">  3731  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3732" class="ln">  3732  </span>            &#34;properties&#34;: {
 <span id="L3733" class="ln">  3733  </span>                &#34;chapAuthDiscovery&#34;: {
-<span id="L3734" class="ln">  3734  </span>                    &#34;description&#34;: &#34;whether support iSCSI Discovery CHAP authentication\n+optional&#34;,
+<span id="L3734" class="ln">  3734  </span>                    &#34;description&#34;: &#34;chapAuthDiscovery defines whether support iSCSI Discovery CHAP authentication\n+optional&#34;,
 <span id="L3735" class="ln">  3735  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3736" class="ln">  3736  </span>                },
 <span id="L3737" class="ln">  3737  </span>                &#34;chapAuthSession&#34;: {
-<span id="L3738" class="ln">  3738  </span>                    &#34;description&#34;: &#34;whether support iSCSI Session CHAP authentication\n+optional&#34;,
+<span id="L3738" class="ln">  3738  </span>                    &#34;description&#34;: &#34;chapAuthSession defines whether support iSCSI Session CHAP authentication\n+optional&#34;,
 <span id="L3739" class="ln">  3739  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3740" class="ln">  3740  </span>                },
 <span id="L3741" class="ln">  3741  </span>                &#34;fsType&#34;: {
-<span id="L3742" class="ln">  3742  </span>                    &#34;description&#34;: &#34;Filesystem type of the volume that you want to mount.\nTip: Ensure that the filesystem type is supported by the host operating system.\nExamples: \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi\nTODO: how do we prevent errors in the filesystem from compromising the machine\n+optional&#34;,
+<span id="L3742" class="ln">  3742  </span>                    &#34;description&#34;: &#34;fsType is the filesystem type of the volume that you want to mount.\nTip: Ensure that the filesystem type is supported by the host operating system.\nExamples: \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi\nTODO: how do we prevent errors in the filesystem from compromising the machine\n+optional&#34;,
 <span id="L3743" class="ln">  3743  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3744" class="ln">  3744  </span>                },
 <span id="L3745" class="ln">  3745  </span>                &#34;initiatorName&#34;: {
-<span id="L3746" class="ln">  3746  </span>                    &#34;description&#34;: &#34;Custom iSCSI Initiator Name.\nIf initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface\n\u003ctarget portal\u003e:\u003cvolume name\u003e will be created for the connection.\n+optional&#34;,
+<span id="L3746" class="ln">  3746  </span>                    &#34;description&#34;: &#34;initiatorName is the custom iSCSI Initiator Name.\nIf initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface\n\u003ctarget portal\u003e:\u003cvolume name\u003e will be created for the connection.\n+optional&#34;,
 <span id="L3747" class="ln">  3747  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3748" class="ln">  3748  </span>                },
 <span id="L3749" class="ln">  3749  </span>                &#34;iqn&#34;: {
-<span id="L3750" class="ln">  3750  </span>                    &#34;description&#34;: &#34;Target iSCSI Qualified Name.&#34;,
+<span id="L3750" class="ln">  3750  </span>                    &#34;description&#34;: &#34;iqn is the target iSCSI Qualified Name.&#34;,
 <span id="L3751" class="ln">  3751  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3752" class="ln">  3752  </span>                },
 <span id="L3753" class="ln">  3753  </span>                &#34;iscsiInterface&#34;: {
-<span id="L3754" class="ln">  3754  </span>                    &#34;description&#34;: &#34;iSCSI Interface Name that uses an iSCSI transport.\nDefaults to &#39;default&#39; (tcp).\n+optional&#34;,
+<span id="L3754" class="ln">  3754  </span>                    &#34;description&#34;: &#34;iscsiInterface is the interface Name that uses an iSCSI transport.\nDefaults to &#39;default&#39; (tcp).\n+optional&#34;,
 <span id="L3755" class="ln">  3755  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3756" class="ln">  3756  </span>                },
 <span id="L3757" class="ln">  3757  </span>                &#34;lun&#34;: {
-<span id="L3758" class="ln">  3758  </span>                    &#34;description&#34;: &#34;iSCSI Target Lun number.&#34;,
+<span id="L3758" class="ln">  3758  </span>                    &#34;description&#34;: &#34;lun represents iSCSI Target Lun number.&#34;,
 <span id="L3759" class="ln">  3759  </span>                    &#34;type&#34;: &#34;integer&#34;
 <span id="L3760" class="ln">  3760  </span>                },
 <span id="L3761" class="ln">  3761  </span>                &#34;portals&#34;: {
-<span id="L3762" class="ln">  3762  </span>                    &#34;description&#34;: &#34;iSCSI Target Portal List. The portal is either an IP or ip_addr:port if the port\nis other than default (typically TCP ports 860 and 3260).\n+optional&#34;,
+<span id="L3762" class="ln">  3762  </span>                    &#34;description&#34;: &#34;portals is the iSCSI Target Portal List. The portal is either an IP or ip_addr:port if the port\nis other than default (typically TCP ports 860 and 3260).\n+optional&#34;,
 <span id="L3763" class="ln">  3763  </span>                    &#34;type&#34;: &#34;array&#34;,
 <span id="L3764" class="ln">  3764  </span>                    &#34;items&#34;: {
 <span id="L3765" class="ln">  3765  </span>                        &#34;type&#34;: &#34;string&#34;
 <span id="L3766" class="ln">  3766  </span>                    }
 <span id="L3767" class="ln">  3767  </span>                },
 <span id="L3768" class="ln">  3768  </span>                &#34;readOnly&#34;: {
-<span id="L3769" class="ln">  3769  </span>                    &#34;description&#34;: &#34;ReadOnly here will force the ReadOnly setting in VolumeMounts.\nDefaults to false.\n+optional&#34;,
+<span id="L3769" class="ln">  3769  </span>                    &#34;description&#34;: &#34;readOnly here will force the ReadOnly setting in VolumeMounts.\nDefaults to false.\n+optional&#34;,
 <span id="L3770" class="ln">  3770  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3771" class="ln">  3771  </span>                },
 <span id="L3772" class="ln">  3772  </span>                &#34;secretRef&#34;: {
-<span id="L3773" class="ln">  3773  </span>                    &#34;description&#34;: &#34;CHAP Secret for iSCSI target and initiator authentication\n+optional&#34;,
+<span id="L3773" class="ln">  3773  </span>                    &#34;description&#34;: &#34;secretRef is the CHAP Secret for iSCSI target and initiator authentication\n+optional&#34;,
 <span id="L3774" class="ln">  3774  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.LocalObjectReference&#34;
 <span id="L3775" class="ln">  3775  </span>                },
 <span id="L3776" class="ln">  3776  </span>                &#34;targetPortal&#34;: {
-<span id="L3777" class="ln">  3777  </span>                    &#34;description&#34;: &#34;iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port\nis other than default (typically TCP ports 860 and 3260).&#34;,
+<span id="L3777" class="ln">  3777  </span>                    &#34;description&#34;: &#34;targetPortal is iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port\nis other than default (typically TCP ports 860 and 3260).&#34;,
 <span id="L3778" class="ln">  3778  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3779" class="ln">  3779  </span>                }
 <span id="L3780" class="ln">  3780  </span>            }
@@ -3848,15 +3848,15 @@
 <span id="L3783" class="ln">  3783  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3784" class="ln">  3784  </span>            &#34;properties&#34;: {
 <span id="L3785" class="ln">  3785  </span>                &#34;key&#34;: {
-<span id="L3786" class="ln">  3786  </span>                    &#34;description&#34;: &#34;The key to project.&#34;,
+<span id="L3786" class="ln">  3786  </span>                    &#34;description&#34;: &#34;key is the key to project.&#34;,
 <span id="L3787" class="ln">  3787  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3788" class="ln">  3788  </span>                },
 <span id="L3789" class="ln">  3789  </span>                &#34;mode&#34;: {
-<span id="L3790" class="ln">  3790  </span>                    &#34;description&#34;: &#34;Optional: mode bits used to set permissions on this file.\nMust be an octal value between 0000 and 0777 or a decimal value between 0 and 511.\nYAML accepts both octal and decimal values, JSON requires decimal values for mode bits.\nIf not specified, the volume defaultMode will be used.\nThis might be in conflict with other options that affect the file\nmode, like fsGroup, and the result can be other mode bits set.\n+optional&#34;,
+<span id="L3790" class="ln">  3790  </span>                    &#34;description&#34;: &#34;mode is Optional: mode bits used to set permissions on this file.\nMust be an octal value between 0000 and 0777 or a decimal value between 0 and 511.\nYAML accepts both octal and decimal values, JSON requires decimal values for mode bits.\nIf not specified, the volume defaultMode will be used.\nThis might be in conflict with other options that affect the file\nmode, like fsGroup, and the result can be other mode bits set.\n+optional&#34;,
 <span id="L3791" class="ln">  3791  </span>                    &#34;type&#34;: &#34;integer&#34;
 <span id="L3792" class="ln">  3792  </span>                },
 <span id="L3793" class="ln">  3793  </span>                &#34;path&#34;: {
-<span id="L3794" class="ln">  3794  </span>                    &#34;description&#34;: &#34;The relative path of the file to map the key to.\nMay not be an absolute path.\nMay not contain the path element &#39;..&#39;.\nMay not start with the string &#39;..&#39;.&#34;,
+<span id="L3794" class="ln">  3794  </span>                    &#34;description&#34;: &#34;path is the relative path of the file to map the key to.\nMay not be an absolute path.\nMay not contain the path element &#39;..&#39;.\nMay not start with the string &#39;..&#39;.&#34;,
 <span id="L3795" class="ln">  3795  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3796" class="ln">  3796  </span>                }
 <span id="L3797" class="ln">  3797  </span>            }
@@ -3967,7 +3967,7 @@
 <span id="L3902" class="ln">  3902  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3903" class="ln">  3903  </span>                },
 <span id="L3904" class="ln">  3904  </span>                &#34;time&#34;: {
-<span id="L3905" class="ln">  3905  </span>                    &#34;description&#34;: &#34;Time is timestamp of when these fields were set. It should always be empty if Operation is &#39;Apply&#39;\n+optional&#34;,
+<span id="L3905" class="ln">  3905  </span>                    &#34;description&#34;: &#34;Time is the timestamp of when the ManagedFields entry was added. The\ntimestamp will also be updated if a field is added, the manager\nchanges any of the owned fields value or removes a field. The\ntimestamp does not update when a field is removed from the entry\nbecause another manager took it over.\n+optional&#34;,
 <span id="L3906" class="ln">  3906  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3907" class="ln">  3907  </span>                }
 <span id="L3908" class="ln">  3908  </span>            }
@@ -3976,15 +3976,15 @@
 <span id="L3911" class="ln">  3911  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3912" class="ln">  3912  </span>            &#34;properties&#34;: {
 <span id="L3913" class="ln">  3913  </span>                &#34;path&#34;: {
-<span id="L3914" class="ln">  3914  </span>                    &#34;description&#34;: &#34;Path that is exported by the NFS server.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#nfs&#34;,
+<span id="L3914" class="ln">  3914  </span>                    &#34;description&#34;: &#34;path that is exported by the NFS server.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#nfs&#34;,
 <span id="L3915" class="ln">  3915  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3916" class="ln">  3916  </span>                },
 <span id="L3917" class="ln">  3917  </span>                &#34;readOnly&#34;: {
-<span id="L3918" class="ln">  3918  </span>                    &#34;description&#34;: &#34;ReadOnly here will force\nthe NFS export to be mounted with read-only permissions.\nDefaults to false.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#nfs\n+optional&#34;,
+<span id="L3918" class="ln">  3918  </span>                    &#34;description&#34;: &#34;readOnly here will force the NFS export to be mounted with read-only permissions.\nDefaults to false.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#nfs\n+optional&#34;,
 <span id="L3919" class="ln">  3919  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3920" class="ln">  3920  </span>                },
 <span id="L3921" class="ln">  3921  </span>                &#34;server&#34;: {
-<span id="L3922" class="ln">  3922  </span>                    &#34;description&#34;: &#34;Server is the hostname or IP address of the NFS server.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#nfs&#34;,
+<span id="L3922" class="ln">  3922  </span>                    &#34;description&#34;: &#34;server is the hostname or IP address of the NFS server.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#nfs&#34;,
 <span id="L3923" class="ln">  3923  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3924" class="ln">  3924  </span>                }
 <span id="L3925" class="ln">  3925  </span>            }
@@ -4043,7 +4043,7 @@
 <span id="L3978" class="ln">  3978  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3979" class="ln">  3979  </span>                },
 <span id="L3980" class="ln">  3980  </span>                &#34;blockOwnerDeletion&#34;: {
-<span id="L3981" class="ln">  3981  </span>                    &#34;description&#34;: &#34;If true, AND if the owner has the \&#34;foregroundDeletion\&#34; finalizer, then\nthe owner cannot be deleted from the key-value store until this\nreference is removed.\nDefaults to false.\nTo set this field, a user needs \&#34;delete\&#34; permission of the owner,\notherwise 422 (Unprocessable Entity) will be returned.\n+optional&#34;,
+<span id="L3981" class="ln">  3981  </span>                    &#34;description&#34;: &#34;If true, AND if the owner has the \&#34;foregroundDeletion\&#34; finalizer, then\nthe owner cannot be deleted from the key-value store until this\nreference is removed.\nSee https://kubernetes.io/docs/concepts/architecture/garbage-collection/#foreground-deletion\nfor how the garbage collector interacts with this field and enforces the foreground deletion.\nDefaults to false.\nTo set this field, a user needs \&#34;delete\&#34; permission of the owner,\notherwise 422 (Unprocessable Entity) will be returned.\n+optional&#34;,
 <span id="L3982" class="ln">  3982  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L3983" class="ln">  3983  </span>                },
 <span id="L3984" class="ln">  3984  </span>                &#34;controller&#34;: {
@@ -4068,30 +4068,30 @@
 <span id="L4003" class="ln">  4003  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L4004" class="ln">  4004  </span>            &#34;properties&#34;: {
 <span id="L4005" class="ln">  4005  </span>                &#34;accessModes&#34;: {
-<span id="L4006" class="ln">  4006  </span>                    &#34;description&#34;: &#34;AccessModes contains the desired access modes the volume should have.\nMore info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1\n+optional&#34;,
+<span id="L4006" class="ln">  4006  </span>                    &#34;description&#34;: &#34;accessModes contains the desired access modes the volume should have.\nMore info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1\n+optional&#34;,
 <span id="L4007" class="ln">  4007  </span>                    &#34;type&#34;: &#34;array&#34;,
 <span id="L4008" class="ln">  4008  </span>                    &#34;items&#34;: {
 <span id="L4009" class="ln">  4009  </span>                        &#34;type&#34;: &#34;string&#34;
 <span id="L4010" class="ln">  4010  </span>                    }
 <span id="L4011" class="ln">  4011  </span>                },
 <span id="L4012" class="ln">  4012  </span>                &#34;dataSource&#34;: {
-<span id="L4013" class="ln">  4013  </span>                    &#34;description&#34;: &#34;This field can be used to specify either:\n* An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot)\n* An existing PVC (PersistentVolumeClaim)\nIf the provisioner or an external controller can support the specified data source,\nit will create a new volume based on the contents of the specified data source.\nIf the AnyVolumeDataSource feature gate is enabled, this field will always have\nthe same contents as the DataSourceRef field.\n+optional&#34;,
+<span id="L4013" class="ln">  4013  </span>                    &#34;description&#34;: &#34;dataSource field can be used to specify either:\n* An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot)\n* An existing PVC (PersistentVolumeClaim)\nIf the provisioner or an external controller can support the specified data source,\nit will create a new volume based on the contents of the specified data source.\nIf the AnyVolumeDataSource feature gate is enabled, this field will always have\nthe same contents as the DataSourceRef field.\n+optional&#34;,
 <span id="L4014" class="ln">  4014  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.TypedLocalObjectReference&#34;
 <span id="L4015" class="ln">  4015  </span>                },
 <span id="L4016" class="ln">  4016  </span>                &#34;dataSourceRef&#34;: {
-<span id="L4017" class="ln">  4017  </span>                    &#34;description&#34;: &#34;Specifies the object from which to populate the volume with data, if a non-empty\nvolume is desired. This may be any local object from a non-empty API group (non\ncore object) or a PersistentVolumeClaim object.\nWhen this field is specified, volume binding will only succeed if the type of\nthe specified object matches some installed volume populator or dynamic\nprovisioner.\nThis field will replace the functionality of the DataSource field and as such\nif both fields are non-empty, they must have the same value. For backwards\ncompatibility, both fields (DataSource and DataSourceRef) will be set to the same\nvalue automatically if one of them is empty and the other is non-empty.\nThere are two important differences between DataSource and DataSourceRef:\n* While DataSource only allows two specific types of objects, DataSourceRef\n  allows any non-core object, as well as PersistentVolumeClaim objects.\n* While DataSource ignores disallowed values (dropping them), DataSourceRef\n  preserves all values, and generates an error if a disallowed value is\n  specified.\n(Alpha) Using this field requires the AnyVolumeDataSource feature gate to be enabled.\n+optional&#34;,
+<span id="L4017" class="ln">  4017  </span>                    &#34;description&#34;: &#34;dataSourceRef specifies the object from which to populate the volume with data, if a non-empty\nvolume is desired. This may be any local object from a non-empty API group (non\ncore object) or a PersistentVolumeClaim object.\nWhen this field is specified, volume binding will only succeed if the type of\nthe specified object matches some installed volume populator or dynamic\nprovisioner.\nThis field will replace the functionality of the DataSource field and as such\nif both fields are non-empty, they must have the same value. For backwards\ncompatibility, both fields (DataSource and DataSourceRef) will be set to the same\nvalue automatically if one of them is empty and the other is non-empty.\nThere are two important differences between DataSource and DataSourceRef:\n* While DataSource only allows two specific types of objects, DataSourceRef\n  allows any non-core object, as well as PersistentVolumeClaim objects.\n* While DataSource ignores disallowed values (dropping them), DataSourceRef\n  preserves all values, and generates an error if a disallowed value is\n  specified.\n(Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled.\n+optional&#34;,
 <span id="L4018" class="ln">  4018  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.TypedLocalObjectReference&#34;
 <span id="L4019" class="ln">  4019  </span>                },
 <span id="L4020" class="ln">  4020  </span>                &#34;resources&#34;: {
-<span id="L4021" class="ln">  4021  </span>                    &#34;description&#34;: &#34;Resources represents the minimum resources the volume should have.\nIf RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements\nthat are lower than previous value but must still be higher than capacity recorded in the\nstatus field of the claim.\nMore info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources\n+optional&#34;,
+<span id="L4021" class="ln">  4021  </span>                    &#34;description&#34;: &#34;resources represents the minimum resources the volume should have.\nIf RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements\nthat are lower than previous value but must still be higher than capacity recorded in the\nstatus field of the claim.\nMore info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources\n+optional&#34;,
 <span id="L4022" class="ln">  4022  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.ResourceRequirements&#34;
 <span id="L4023" class="ln">  4023  </span>                },
 <span id="L4024" class="ln">  4024  </span>                &#34;selector&#34;: {
-<span id="L4025" class="ln">  4025  </span>                    &#34;description&#34;: &#34;A label query over volumes to consider for binding.\n+optional&#34;,
+<span id="L4025" class="ln">  4025  </span>                    &#34;description&#34;: &#34;selector is a label query over volumes to consider for binding.\n+optional&#34;,
 <span id="L4026" class="ln">  4026  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.LabelSelector&#34;
 <span id="L4027" class="ln">  4027  </span>                },
 <span id="L4028" class="ln">  4028  </span>                &#34;storageClassName&#34;: {
-<span id="L4029" class="ln">  4029  </span>                    &#34;description&#34;: &#34;Name of the StorageClass required by the claim.\nMore info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1\n+optional&#34;,
+<span id="L4029" class="ln">  4029  </span>                    &#34;description&#34;: &#34;storageClassName is the name of the StorageClass required by the claim.\nMore info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1\n+optional&#34;,
 <span id="L4030" class="ln">  4030  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4031" class="ln">  4031  </span>                },
 <span id="L4032" class="ln">  4032  </span>                &#34;volumeMode&#34;: {
@@ -4099,7 +4099,7 @@
 <span id="L4034" class="ln">  4034  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4035" class="ln">  4035  </span>                },
 <span id="L4036" class="ln">  4036  </span>                &#34;volumeName&#34;: {
-<span id="L4037" class="ln">  4037  </span>                    &#34;description&#34;: &#34;VolumeName is the binding reference to the PersistentVolume backing this claim.\n+optional&#34;,
+<span id="L4037" class="ln">  4037  </span>                    &#34;description&#34;: &#34;volumeName is the binding reference to the PersistentVolume backing this claim.\n+optional&#34;,
 <span id="L4038" class="ln">  4038  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4039" class="ln">  4039  </span>                }
 <span id="L4040" class="ln">  4040  </span>            }
@@ -4115,7 +4115,7 @@
 <span id="L4050" class="ln">  4050  </span>                    }
 <span id="L4051" class="ln">  4051  </span>                },
 <span id="L4052" class="ln">  4052  </span>                &#34;clusterName&#34;: {
-<span id="L4053" class="ln">  4053  </span>                    &#34;description&#34;: &#34;The name of the cluster which the object belongs to.\nThis is used to distinguish resources with same name and namespace in different clusters.\nThis field is not set anywhere right now and apiserver is going to ignore it if set in create or update request.\n+optional&#34;,
+<span id="L4053" class="ln">  4053  </span>                    &#34;description&#34;: &#34;Deprecated: ClusterName is a legacy field that was always cleared by\nthe system and never used; it will be removed completely in 1.25.\n\nThe name in the go struct is changed to help clients detect\naccidental use.\n\n+optional&#34;,
 <span id="L4054" class="ln">  4054  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4055" class="ln">  4055  </span>                },
 <span id="L4056" class="ln">  4056  </span>                &#34;creationTimestamp&#34;: {
@@ -4138,7 +4138,7 @@
 <span id="L4073" class="ln">  4073  </span>                    }
 <span id="L4074" class="ln">  4074  </span>                },
 <span id="L4075" class="ln">  4075  </span>                &#34;generateName&#34;: {
-<span id="L4076" class="ln">  4076  </span>                    &#34;description&#34;: &#34;GenerateName is an optional prefix, used by the server, to generate a unique\nname ONLY IF the Name field has not been provided.\nIf this field is used, the name returned to the client will be different\nthan the name passed. This value will also be combined with a unique suffix.\nThe provided value has the same validation rules as the Name field,\nand may be truncated by the length of the suffix required to make the value\nunique on the server.\n\nIf this field is specified and the generated name exists, the server will\nNOT return a 409 - instead, it will either return 201 Created or 500 with Reason\nServerTimeout indicating a unique name could not be found in the time allotted, and the client\nshould retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency\n+optional&#34;,
+<span id="L4076" class="ln">  4076  </span>                    &#34;description&#34;: &#34;GenerateName is an optional prefix, used by the server, to generate a unique\nname ONLY IF the Name field has not been provided.\nIf this field is used, the name returned to the client will be different\nthan the name passed. This value will also be combined with a unique suffix.\nThe provided value has the same validation rules as the Name field,\nand may be truncated by the length of the suffix required to make the value\nunique on the server.\n\nIf this field is specified and the generated name exists, the server will return a 409.\n\nApplied only if Name is not specified.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency\n+optional&#34;,
 <span id="L4077" class="ln">  4077  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4078" class="ln">  4078  </span>                },
 <span id="L4079" class="ln">  4079  </span>                &#34;generation&#34;: {
@@ -4179,7 +4179,7 @@
 <span id="L4114" class="ln">  4114  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4115" class="ln">  4115  </span>                },
 <span id="L4116" class="ln">  4116  </span>                &#34;selfLink&#34;: {
-<span id="L4117" class="ln">  4117  </span>                    &#34;description&#34;: &#34;SelfLink is a URL representing this object.\nPopulated by the system.\nRead-only.\n\nDEPRECATED\nKubernetes will stop propagating this field in 1.20 release and the field is planned\nto be removed in 1.21 release.\n+optional&#34;,
+<span id="L4117" class="ln">  4117  </span>                    &#34;description&#34;: &#34;Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.\n+optional&#34;,
 <span id="L4118" class="ln">  4118  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4119" class="ln">  4119  </span>                },
 <span id="L4120" class="ln">  4120  </span>                &#34;spec&#34;: {
@@ -4196,11 +4196,11 @@
 <span id="L4131" class="ln">  4131  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L4132" class="ln">  4132  </span>            &#34;properties&#34;: {
 <span id="L4133" class="ln">  4133  </span>                &#34;claimName&#34;: {
-<span id="L4134" class="ln">  4134  </span>                    &#34;description&#34;: &#34;ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume.\nMore info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims&#34;,
+<span id="L4134" class="ln">  4134  </span>                    &#34;description&#34;: &#34;claimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume.\nMore info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims&#34;,
 <span id="L4135" class="ln">  4135  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4136" class="ln">  4136  </span>                },
 <span id="L4137" class="ln">  4137  </span>                &#34;readOnly&#34;: {
-<span id="L4138" class="ln">  4138  </span>                    &#34;description&#34;: &#34;Will force the ReadOnly setting in VolumeMounts.\nDefault false.\n+optional&#34;,
+<span id="L4138" class="ln">  4138  </span>                    &#34;description&#34;: &#34;readOnly Will force the ReadOnly setting in VolumeMounts.\nDefault false.\n+optional&#34;,
 <span id="L4139" class="ln">  4139  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L4140" class="ln">  4140  </span>                }
 <span id="L4141" class="ln">  4141  </span>            }
@@ -4209,11 +4209,11 @@
 <span id="L4144" class="ln">  4144  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L4145" class="ln">  4145  </span>            &#34;properties&#34;: {
 <span id="L4146" class="ln">  4146  </span>                &#34;fsType&#34;: {
-<span id="L4147" class="ln">  4147  </span>                    &#34;description&#34;: &#34;Filesystem type to mount.\nMust be a filesystem type supported by the host operating system.\nEx. \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.&#34;,
+<span id="L4147" class="ln">  4147  </span>                    &#34;description&#34;: &#34;fsType is the filesystem type to mount.\nMust be a filesystem type supported by the host operating system.\nEx. \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.&#34;,
 <span id="L4148" class="ln">  4148  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4149" class="ln">  4149  </span>                },
 <span id="L4150" class="ln">  4150  </span>                &#34;pdID&#34;: {
-<span id="L4151" class="ln">  4151  </span>                    &#34;description&#34;: &#34;ID that identifies Photon Controller persistent disk&#34;,
+<span id="L4151" class="ln">  4151  </span>                    &#34;description&#34;: &#34;pdID is the ID that identifies Photon Controller persistent disk&#34;,
 <span id="L4152" class="ln">  4152  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4153" class="ln">  4153  </span>                }
 <span id="L4154" class="ln">  4154  </span>            }
@@ -4222,15 +4222,15 @@
 <span id="L4157" class="ln">  4157  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L4158" class="ln">  4158  </span>            &#34;properties&#34;: {
 <span id="L4159" class="ln">  4159  </span>                &#34;fsType&#34;: {
-<span id="L4160" class="ln">  4160  </span>                    &#34;description&#34;: &#34;FSType represents the filesystem type to mount\nMust be a filesystem type supported by the host operating system.\nEx. \&#34;ext4\&#34;, \&#34;xfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.&#34;,
+<span id="L4160" class="ln">  4160  </span>                    &#34;description&#34;: &#34;fSType represents the filesystem type to mount\nMust be a filesystem type supported by the host operating system.\nEx. \&#34;ext4\&#34;, \&#34;xfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.&#34;,
 <span id="L4161" class="ln">  4161  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4162" class="ln">  4162  </span>                },
 <span id="L4163" class="ln">  4163  </span>                &#34;readOnly&#34;: {
-<span id="L4164" class="ln">  4164  </span>                    &#34;description&#34;: &#34;Defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\n+optional&#34;,
+<span id="L4164" class="ln">  4164  </span>                    &#34;description&#34;: &#34;readOnly defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\n+optional&#34;,
 <span id="L4165" class="ln">  4165  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L4166" class="ln">  4166  </span>                },
 <span id="L4167" class="ln">  4167  </span>                &#34;volumeID&#34;: {
-<span id="L4168" class="ln">  4168  </span>                    &#34;description&#34;: &#34;VolumeID uniquely identifies a Portworx volume&#34;,
+<span id="L4168" class="ln">  4168  </span>                    &#34;description&#34;: &#34;volumeID uniquely identifies a Portworx volume&#34;,
 <span id="L4169" class="ln">  4169  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4170" class="ln">  4170  </span>                }
 <span id="L4171" class="ln">  4171  </span>            }
@@ -4247,7 +4247,7 @@
 <span id="L4182" class="ln">  4182  </span>                    &#34;type&#34;: &#34;integer&#34;
 <span id="L4183" class="ln">  4183  </span>                },
 <span id="L4184" class="ln">  4184  </span>                &#34;grpc&#34;: {
-<span id="L4185" class="ln">  4185  </span>                    &#34;description&#34;: &#34;GRPC specifies an action involving a GRPC port.\nThis is an alpha field and requires enabling GRPCContainerProbe feature gate.\n+featureGate=GRPCContainerProbe\n+optional&#34;,
+<span id="L4185" class="ln">  4185  </span>                    &#34;description&#34;: &#34;GRPC specifies an action involving a GRPC port.\nThis is a beta field and requires enabling GRPCContainerProbe feature gate.\n+featureGate=GRPCContainerProbe\n+optional&#34;,
 <span id="L4186" class="ln">  4186  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.GRPCAction&#34;
 <span id="L4187" class="ln">  4187  </span>                },
 <span id="L4188" class="ln">  4188  </span>                &#34;httpGet&#34;: {
@@ -4284,11 +4284,11 @@
 <span id="L4219" class="ln">  4219  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L4220" class="ln">  4220  </span>            &#34;properties&#34;: {
 <span id="L4221" class="ln">  4221  </span>                &#34;defaultMode&#34;: {
-<span id="L4222" class="ln">  4222  </span>                    &#34;description&#34;: &#34;Mode bits used to set permissions on created files by default.\nMust be an octal value between 0000 and 0777 or a decimal value between 0 and 511.\nYAML accepts both octal and decimal values, JSON requires decimal values for mode bits.\nDirectories within the path are not affected by this setting.\nThis might be in conflict with other options that affect the file\nmode, like fsGroup, and the result can be other mode bits set.\n+optional&#34;,
+<span id="L4222" class="ln">  4222  </span>                    &#34;description&#34;: &#34;defaultMode are the mode bits used to set permissions on created files by default.\nMust be an octal value between 0000 and 0777 or a decimal value between 0 and 511.\nYAML accepts both octal and decimal values, JSON requires decimal values for mode bits.\nDirectories within the path are not affected by this setting.\nThis might be in conflict with other options that affect the file\nmode, like fsGroup, and the result can be other mode bits set.\n+optional&#34;,
 <span id="L4223" class="ln">  4223  </span>                    &#34;type&#34;: &#34;integer&#34;
 <span id="L4224" class="ln">  4224  </span>                },
 <span id="L4225" class="ln">  4225  </span>                &#34;sources&#34;: {
-<span id="L4226" class="ln">  4226  </span>                    &#34;description&#34;: &#34;list of volume projections\n+optional&#34;,
+<span id="L4226" class="ln">  4226  </span>                    &#34;description&#34;: &#34;sources is the list of volume projections\n+optional&#34;,
 <span id="L4227" class="ln">  4227  </span>                    &#34;type&#34;: &#34;array&#34;,
 <span id="L4228" class="ln">  4228  </span>                    &#34;items&#34;: {
 <span id="L4229" class="ln">  4229  </span>                        &#34;$ref&#34;: &#34;#/definitions/v1.VolumeProjection&#34;
@@ -4300,27 +4300,27 @@
 <span id="L4235" class="ln">  4235  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L4236" class="ln">  4236  </span>            &#34;properties&#34;: {
 <span id="L4237" class="ln">  4237  </span>                &#34;group&#34;: {
-<span id="L4238" class="ln">  4238  </span>                    &#34;description&#34;: &#34;Group to map volume access to\nDefault is no group\n+optional&#34;,
+<span id="L4238" class="ln">  4238  </span>                    &#34;description&#34;: &#34;group to map volume access to\nDefault is no group\n+optional&#34;,
 <span id="L4239" class="ln">  4239  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4240" class="ln">  4240  </span>                },
 <span id="L4241" class="ln">  4241  </span>                &#34;readOnly&#34;: {
-<span id="L4242" class="ln">  4242  </span>                    &#34;description&#34;: &#34;ReadOnly here will force the Quobyte volume to be mounted with read-only permissions.\nDefaults to false.\n+optional&#34;,
+<span id="L4242" class="ln">  4242  </span>                    &#34;description&#34;: &#34;readOnly here will force the Quobyte volume to be mounted with read-only permissions.\nDefaults to false.\n+optional&#34;,
 <span id="L4243" class="ln">  4243  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L4244" class="ln">  4244  </span>                },
 <span id="L4245" class="ln">  4245  </span>                &#34;registry&#34;: {
-<span id="L4246" class="ln">  4246  </span>                    &#34;description&#34;: &#34;Registry represents a single or multiple Quobyte Registry services\nspecified as a string as host:port pair (multiple entries are separated with commas)\nwhich acts as the central registry for volumes&#34;,
+<span id="L4246" class="ln">  4246  </span>                    &#34;description&#34;: &#34;registry represents a single or multiple Quobyte Registry services\nspecified as a string as host:port pair (multiple entries are separated with commas)\nwhich acts as the central registry for volumes&#34;,
 <span id="L4247" class="ln">  4247  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4248" class="ln">  4248  </span>                },
 <span id="L4249" class="ln">  4249  </span>                &#34;tenant&#34;: {
-<span id="L4250" class="ln">  4250  </span>                    &#34;description&#34;: &#34;Tenant owning the given Quobyte volume in the Backend\nUsed with dynamically provisioned Quobyte volumes, value is set by the plugin\n+optional&#34;,
+<span id="L4250" class="ln">  4250  </span>                    &#34;description&#34;: &#34;tenant owning the given Quobyte volume in the Backend\nUsed with dynamically provisioned Quobyte volumes, value is set by the plugin\n+optional&#34;,
 <span id="L4251" class="ln">  4251  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4252" class="ln">  4252  </span>                },
 <span id="L4253" class="ln">  4253  </span>                &#34;user&#34;: {
-<span id="L4254" class="ln">  4254  </span>                    &#34;description&#34;: &#34;User to map volume access to\nDefaults to serivceaccount user\n+optional&#34;,
+<span id="L4254" class="ln">  4254  </span>                    &#34;description&#34;: &#34;user to map volume access to\nDefaults to serivceaccount user\n+optional&#34;,
 <span id="L4255" class="ln">  4255  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4256" class="ln">  4256  </span>                },
 <span id="L4257" class="ln">  4257  </span>                &#34;volume&#34;: {
-<span id="L4258" class="ln">  4258  </span>                    &#34;description&#34;: &#34;Volume is a string that references an already created Quobyte volume by name.&#34;,
+<span id="L4258" class="ln">  4258  </span>                    &#34;description&#34;: &#34;volume is a string that references an already created Quobyte volume by name.&#34;,
 <span id="L4259" class="ln">  4259  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4260" class="ln">  4260  </span>                }
 <span id="L4261" class="ln">  4261  </span>            }
@@ -4329,38 +4329,38 @@
 <span id="L4264" class="ln">  4264  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L4265" class="ln">  4265  </span>            &#34;properties&#34;: {
 <span id="L4266" class="ln">  4266  </span>                &#34;fsType&#34;: {
-<span id="L4267" class="ln">  4267  </span>                    &#34;description&#34;: &#34;Filesystem type of the volume that you want to mount.\nTip: Ensure that the filesystem type is supported by the host operating system.\nExamples: \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#rbd\nTODO: how do we prevent errors in the filesystem from compromising the machine\n+optional&#34;,
+<span id="L4267" class="ln">  4267  </span>                    &#34;description&#34;: &#34;fsType is the filesystem type of the volume that you want to mount.\nTip: Ensure that the filesystem type is supported by the host operating system.\nExamples: \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#rbd\nTODO: how do we prevent errors in the filesystem from compromising the machine\n+optional&#34;,
 <span id="L4268" class="ln">  4268  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4269" class="ln">  4269  </span>                },
 <span id="L4270" class="ln">  4270  </span>                &#34;image&#34;: {
-<span id="L4271" class="ln">  4271  </span>                    &#34;description&#34;: &#34;The rados image name.\nMore info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it&#34;,
+<span id="L4271" class="ln">  4271  </span>                    &#34;description&#34;: &#34;image is the rados image name.\nMore info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it&#34;,
 <span id="L4272" class="ln">  4272  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4273" class="ln">  4273  </span>                },
 <span id="L4274" class="ln">  4274  </span>                &#34;keyring&#34;: {
-<span id="L4275" class="ln">  4275  </span>                    &#34;description&#34;: &#34;Keyring is the path to key ring for RBDUser.\nDefault is /etc/ceph/keyring.\nMore info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it\n+optional&#34;,
+<span id="L4275" class="ln">  4275  </span>                    &#34;description&#34;: &#34;keyring is the path to key ring for RBDUser.\nDefault is /etc/ceph/keyring.\nMore info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it\n+optional&#34;,
 <span id="L4276" class="ln">  4276  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4277" class="ln">  4277  </span>                },
 <span id="L4278" class="ln">  4278  </span>                &#34;monitors&#34;: {
-<span id="L4279" class="ln">  4279  </span>                    &#34;description&#34;: &#34;A collection of Ceph monitors.\nMore info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it&#34;,
+<span id="L4279" class="ln">  4279  </span>                    &#34;description&#34;: &#34;monitors is a collection of Ceph monitors.\nMore info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it&#34;,
 <span id="L4280" class="ln">  4280  </span>                    &#34;type&#34;: &#34;array&#34;,
 <span id="L4281" class="ln">  4281  </span>                    &#34;items&#34;: {
 <span id="L4282" class="ln">  4282  </span>                        &#34;type&#34;: &#34;string&#34;
 <span id="L4283" class="ln">  4283  </span>                    }
 <span id="L4284" class="ln">  4284  </span>                },
 <span id="L4285" class="ln">  4285  </span>                &#34;pool&#34;: {
-<span id="L4286" class="ln">  4286  </span>                    &#34;description&#34;: &#34;The rados pool name.\nDefault is rbd.\nMore info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it\n+optional&#34;,
+<span id="L4286" class="ln">  4286  </span>                    &#34;description&#34;: &#34;pool is the rados pool name.\nDefault is rbd.\nMore info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it\n+optional&#34;,
 <span id="L4287" class="ln">  4287  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4288" class="ln">  4288  </span>                },
 <span id="L4289" class="ln">  4289  </span>                &#34;readOnly&#34;: {
-<span id="L4290" class="ln">  4290  </span>                    &#34;description&#34;: &#34;ReadOnly here will force the ReadOnly setting in VolumeMounts.\nDefaults to false.\nMore info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it\n+optional&#34;,
+<span id="L4290" class="ln">  4290  </span>                    &#34;description&#34;: &#34;readOnly here will force the ReadOnly setting in VolumeMounts.\nDefaults to false.\nMore info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it\n+optional&#34;,
 <span id="L4291" class="ln">  4291  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L4292" class="ln">  4292  </span>                },
 <span id="L4293" class="ln">  4293  </span>                &#34;secretRef&#34;: {
-<span id="L4294" class="ln">  4294  </span>                    &#34;description&#34;: &#34;SecretRef is name of the authentication secret for RBDUser. If provided\noverrides keyring.\nDefault is nil.\nMore info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it\n+optional&#34;,
+<span id="L4294" class="ln">  4294  </span>                    &#34;description&#34;: &#34;secretRef is name of the authentication secret for RBDUser. If provided\noverrides keyring.\nDefault is nil.\nMore info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it\n+optional&#34;,
 <span id="L4295" class="ln">  4295  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.LocalObjectReference&#34;
 <span id="L4296" class="ln">  4296  </span>                },
 <span id="L4297" class="ln">  4297  </span>                &#34;user&#34;: {
-<span id="L4298" class="ln">  4298  </span>                    &#34;description&#34;: &#34;The rados user name.\nDefault is admin.\nMore info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it\n+optional&#34;,
+<span id="L4298" class="ln">  4298  </span>                    &#34;description&#34;: &#34;user is the rados user name.\nDefault is admin.\nMore info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it\n+optional&#34;,
 <span id="L4299" class="ln">  4299  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4300" class="ln">  4300  </span>                }
 <span id="L4301" class="ln">  4301  </span>            }
@@ -4426,43 +4426,43 @@
 <span id="L4361" class="ln">  4361  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L4362" class="ln">  4362  </span>            &#34;properties&#34;: {
 <span id="L4363" class="ln">  4363  </span>                &#34;fsType&#34;: {
-<span id="L4364" class="ln">  4364  </span>                    &#34;description&#34;: &#34;Filesystem type to mount.\nMust be a filesystem type supported by the host operating system.\nEx. \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;.\nDefault is \&#34;xfs\&#34;.\n+optional&#34;,
+<span id="L4364" class="ln">  4364  </span>                    &#34;description&#34;: &#34;fsType is the filesystem type to mount.\nMust be a filesystem type supported by the host operating system.\nEx. \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;.\nDefault is \&#34;xfs\&#34;.\n+optional&#34;,
 <span id="L4365" class="ln">  4365  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4366" class="ln">  4366  </span>                },
 <span id="L4367" class="ln">  4367  </span>                &#34;gateway&#34;: {
-<span id="L4368" class="ln">  4368  </span>                    &#34;description&#34;: &#34;The host address of the ScaleIO API Gateway.&#34;,
+<span id="L4368" class="ln">  4368  </span>                    &#34;description&#34;: &#34;gateway is the host address of the ScaleIO API Gateway.&#34;,
 <span id="L4369" class="ln">  4369  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4370" class="ln">  4370  </span>                },
 <span id="L4371" class="ln">  4371  </span>                &#34;protectionDomain&#34;: {
-<span id="L4372" class="ln">  4372  </span>                    &#34;description&#34;: &#34;The name of the ScaleIO Protection Domain for the configured storage.\n+optional&#34;,
+<span id="L4372" class="ln">  4372  </span>                    &#34;description&#34;: &#34;protectionDomain is the name of the ScaleIO Protection Domain for the configured storage.\n+optional&#34;,
 <span id="L4373" class="ln">  4373  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4374" class="ln">  4374  </span>                },
 <span id="L4375" class="ln">  4375  </span>                &#34;readOnly&#34;: {
-<span id="L4376" class="ln">  4376  </span>                    &#34;description&#34;: &#34;Defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\n+optional&#34;,
+<span id="L4376" class="ln">  4376  </span>                    &#34;description&#34;: &#34;readOnly Defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\n+optional&#34;,
 <span id="L4377" class="ln">  4377  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L4378" class="ln">  4378  </span>                },
 <span id="L4379" class="ln">  4379  </span>                &#34;secretRef&#34;: {
-<span id="L4380" class="ln">  4380  </span>                    &#34;description&#34;: &#34;SecretRef references to the secret for ScaleIO user and other\nsensitive information. If this is not provided, Login operation will fail.&#34;,
+<span id="L4380" class="ln">  4380  </span>                    &#34;description&#34;: &#34;secretRef references to the secret for ScaleIO user and other\nsensitive information. If this is not provided, Login operation will fail.&#34;,
 <span id="L4381" class="ln">  4381  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.LocalObjectReference&#34;
 <span id="L4382" class="ln">  4382  </span>                },
 <span id="L4383" class="ln">  4383  </span>                &#34;sslEnabled&#34;: {
-<span id="L4384" class="ln">  4384  </span>                    &#34;description&#34;: &#34;Flag to enable/disable SSL communication with Gateway, default false\n+optional&#34;,
+<span id="L4384" class="ln">  4384  </span>                    &#34;description&#34;: &#34;sslEnabled Flag enable/disable SSL communication with Gateway, default false\n+optional&#34;,
 <span id="L4385" class="ln">  4385  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L4386" class="ln">  4386  </span>                },
 <span id="L4387" class="ln">  4387  </span>                &#34;storageMode&#34;: {
-<span id="L4388" class="ln">  4388  </span>                    &#34;description&#34;: &#34;Indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned.\nDefault is ThinProvisioned.\n+optional&#34;,
+<span id="L4388" class="ln">  4388  </span>                    &#34;description&#34;: &#34;storageMode indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned.\nDefault is ThinProvisioned.\n+optional&#34;,
 <span id="L4389" class="ln">  4389  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4390" class="ln">  4390  </span>                },
 <span id="L4391" class="ln">  4391  </span>                &#34;storagePool&#34;: {
-<span id="L4392" class="ln">  4392  </span>                    &#34;description&#34;: &#34;The ScaleIO Storage Pool associated with the protection domain.\n+optional&#34;,
+<span id="L4392" class="ln">  4392  </span>                    &#34;description&#34;: &#34;storagePool is the ScaleIO Storage Pool associated with the protection domain.\n+optional&#34;,
 <span id="L4393" class="ln">  4393  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4394" class="ln">  4394  </span>                },
 <span id="L4395" class="ln">  4395  </span>                &#34;system&#34;: {
-<span id="L4396" class="ln">  4396  </span>                    &#34;description&#34;: &#34;The name of the storage system as configured in ScaleIO.&#34;,
+<span id="L4396" class="ln">  4396  </span>                    &#34;description&#34;: &#34;system is the name of the storage system as configured in ScaleIO.&#34;,
 <span id="L4397" class="ln">  4397  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4398" class="ln">  4398  </span>                },
 <span id="L4399" class="ln">  4399  </span>                &#34;volumeName&#34;: {
-<span id="L4400" class="ln">  4400  </span>                    &#34;description&#34;: &#34;The name of a volume already created in the ScaleIO system\nthat is associated with this volume source.&#34;,
+<span id="L4400" class="ln">  4400  </span>                    &#34;description&#34;: &#34;volumeName is the name of a volume already created in the ScaleIO system\nthat is associated with this volume source.&#34;,
 <span id="L4401" class="ln">  4401  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4402" class="ln">  4402  </span>                }
 <span id="L4403" class="ln">  4403  </span>            }
@@ -4514,7 +4514,7 @@
 <span id="L4449" class="ln">  4449  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L4450" class="ln">  4450  </span>            &#34;properties&#34;: {
 <span id="L4451" class="ln">  4451  </span>                &#34;items&#34;: {
-<span id="L4452" class="ln">  4452  </span>                    &#34;description&#34;: &#34;If unspecified, each key-value pair in the Data field of the referenced\nSecret will be projected into the volume as a file whose name is the\nkey and content is the value. If specified, the listed keys will be\nprojected into the specified paths, and unlisted keys will not be\npresent. If a key is specified which is not present in the Secret,\nthe volume setup will error unless it is marked optional. Paths must be\nrelative and may not contain the &#39;..&#39; path or start with &#39;..&#39;.\n+optional&#34;,
+<span id="L4452" class="ln">  4452  </span>                    &#34;description&#34;: &#34;items if unspecified, each key-value pair in the Data field of the referenced\nSecret will be projected into the volume as a file whose name is the\nkey and content is the value. If specified, the listed keys will be\nprojected into the specified paths, and unlisted keys will not be\npresent. If a key is specified which is not present in the Secret,\nthe volume setup will error unless it is marked optional. Paths must be\nrelative and may not contain the &#39;..&#39; path or start with &#39;..&#39;.\n+optional&#34;,
 <span id="L4453" class="ln">  4453  </span>                    &#34;type&#34;: &#34;array&#34;,
 <span id="L4454" class="ln">  4454  </span>                    &#34;items&#34;: {
 <span id="L4455" class="ln">  4455  </span>                        &#34;$ref&#34;: &#34;#/definitions/v1.KeyToPath&#34;
@@ -4525,7 +4525,7 @@
 <span id="L4460" class="ln">  4460  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4461" class="ln">  4461  </span>                },
 <span id="L4462" class="ln">  4462  </span>                &#34;optional&#34;: {
-<span id="L4463" class="ln">  4463  </span>                    &#34;description&#34;: &#34;Specify whether the Secret or its key must be defined\n+optional&#34;,
+<span id="L4463" class="ln">  4463  </span>                    &#34;description&#34;: &#34;optional field specify whether the Secret or its key must be defined\n+optional&#34;,
 <span id="L4464" class="ln">  4464  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L4465" class="ln">  4465  </span>                }
 <span id="L4466" class="ln">  4466  </span>            }
@@ -4534,22 +4534,22 @@
 <span id="L4469" class="ln">  4469  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L4470" class="ln">  4470  </span>            &#34;properties&#34;: {
 <span id="L4471" class="ln">  4471  </span>                &#34;defaultMode&#34;: {
-<span id="L4472" class="ln">  4472  </span>                    &#34;description&#34;: &#34;Optional: mode bits used to set permissions on created files by default.\nMust be an octal value between 0000 and 0777 or a decimal value between 0 and 511.\nYAML accepts both octal and decimal values, JSON requires decimal values\nfor mode bits. Defaults to 0644.\nDirectories within the path are not affected by this setting.\nThis might be in conflict with other options that affect the file\nmode, like fsGroup, and the result can be other mode bits set.\n+optional&#34;,
+<span id="L4472" class="ln">  4472  </span>                    &#34;description&#34;: &#34;defaultMode is Optional: mode bits used to set permissions on created files by default.\nMust be an octal value between 0000 and 0777 or a decimal value between 0 and 511.\nYAML accepts both octal and decimal values, JSON requires decimal values\nfor mode bits. Defaults to 0644.\nDirectories within the path are not affected by this setting.\nThis might be in conflict with other options that affect the file\nmode, like fsGroup, and the result can be other mode bits set.\n+optional&#34;,
 <span id="L4473" class="ln">  4473  </span>                    &#34;type&#34;: &#34;integer&#34;
 <span id="L4474" class="ln">  4474  </span>                },
 <span id="L4475" class="ln">  4475  </span>                &#34;items&#34;: {
-<span id="L4476" class="ln">  4476  </span>                    &#34;description&#34;: &#34;If unspecified, each key-value pair in the Data field of the referenced\nSecret will be projected into the volume as a file whose name is the\nkey and content is the value. If specified, the listed keys will be\nprojected into the specified paths, and unlisted keys will not be\npresent. If a key is specified which is not present in the Secret,\nthe volume setup will error unless it is marked optional. Paths must be\nrelative and may not contain the &#39;..&#39; path or start with &#39;..&#39;.\n+optional&#34;,
+<span id="L4476" class="ln">  4476  </span>                    &#34;description&#34;: &#34;items If unspecified, each key-value pair in the Data field of the referenced\nSecret will be projected into the volume as a file whose name is the\nkey and content is the value. If specified, the listed keys will be\nprojected into the specified paths, and unlisted keys will not be\npresent. If a key is specified which is not present in the Secret,\nthe volume setup will error unless it is marked optional. Paths must be\nrelative and may not contain the &#39;..&#39; path or start with &#39;..&#39;.\n+optional&#34;,
 <span id="L4477" class="ln">  4477  </span>                    &#34;type&#34;: &#34;array&#34;,
 <span id="L4478" class="ln">  4478  </span>                    &#34;items&#34;: {
 <span id="L4479" class="ln">  4479  </span>                        &#34;$ref&#34;: &#34;#/definitions/v1.KeyToPath&#34;
 <span id="L4480" class="ln">  4480  </span>                    }
 <span id="L4481" class="ln">  4481  </span>                },
 <span id="L4482" class="ln">  4482  </span>                &#34;optional&#34;: {
-<span id="L4483" class="ln">  4483  </span>                    &#34;description&#34;: &#34;Specify whether the Secret or its keys must be defined\n+optional&#34;,
+<span id="L4483" class="ln">  4483  </span>                    &#34;description&#34;: &#34;optional field specify whether the Secret or its keys must be defined\n+optional&#34;,
 <span id="L4484" class="ln">  4484  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L4485" class="ln">  4485  </span>                },
 <span id="L4486" class="ln">  4486  </span>                &#34;secretName&#34;: {
-<span id="L4487" class="ln">  4487  </span>                    &#34;description&#34;: &#34;Name of the secret in the pod&#39;s namespace to use.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#secret\n+optional&#34;,
+<span id="L4487" class="ln">  4487  </span>                    &#34;description&#34;: &#34;secretName is the name of the secret in the pod&#39;s namespace to use.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#secret\n+optional&#34;,
 <span id="L4488" class="ln">  4488  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4489" class="ln">  4489  </span>                }
 <span id="L4490" class="ln">  4490  </span>            }
@@ -4607,15 +4607,15 @@
 <span id="L4542" class="ln">  4542  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L4543" class="ln">  4543  </span>            &#34;properties&#34;: {
 <span id="L4544" class="ln">  4544  </span>                &#34;audience&#34;: {
-<span id="L4545" class="ln">  4545  </span>                    &#34;description&#34;: &#34;Audience is the intended audience of the token. A recipient of a token\nmust identify itself with an identifier specified in the audience of the\ntoken, and otherwise should reject the token. The audience defaults to the\nidentifier of the apiserver.\n+optional&#34;,
+<span id="L4545" class="ln">  4545  </span>                    &#34;description&#34;: &#34;audience is the intended audience of the token. A recipient of a token\nmust identify itself with an identifier specified in the audience of the\ntoken, and otherwise should reject the token. The audience defaults to the\nidentifier of the apiserver.\n+optional&#34;,
 <span id="L4546" class="ln">  4546  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4547" class="ln">  4547  </span>                },
 <span id="L4548" class="ln">  4548  </span>                &#34;expirationSeconds&#34;: {
-<span id="L4549" class="ln">  4549  </span>                    &#34;description&#34;: &#34;ExpirationSeconds is the requested duration of validity of the service\naccount token. As the token approaches expiration, the kubelet volume\nplugin will proactively rotate the service account token. The kubelet will\nstart trying to rotate the token if the token is older than 80 percent of\nits time to live or if the token is older than 24 hours.Defaults to 1 hour\nand must be at least 10 minutes.\n+optional&#34;,
+<span id="L4549" class="ln">  4549  </span>                    &#34;description&#34;: &#34;expirationSeconds is the requested duration of validity of the service\naccount token. As the token approaches expiration, the kubelet volume\nplugin will proactively rotate the service account token. The kubelet will\nstart trying to rotate the token if the token is older than 80 percent of\nits time to live or if the token is older than 24 hours.Defaults to 1 hour\nand must be at least 10 minutes.\n+optional&#34;,
 <span id="L4550" class="ln">  4550  </span>                    &#34;type&#34;: &#34;integer&#34;
 <span id="L4551" class="ln">  4551  </span>                },
 <span id="L4552" class="ln">  4552  </span>                &#34;path&#34;: {
-<span id="L4553" class="ln">  4553  </span>                    &#34;description&#34;: &#34;Path is the path relative to the mount point of the file to project the\ntoken into.&#34;,
+<span id="L4553" class="ln">  4553  </span>                    &#34;description&#34;: &#34;path is the path relative to the mount point of the file to project the\ntoken into.&#34;,
 <span id="L4554" class="ln">  4554  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4555" class="ln">  4555  </span>                }
 <span id="L4556" class="ln">  4556  </span>            }
@@ -4624,23 +4624,23 @@
 <span id="L4559" class="ln">  4559  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L4560" class="ln">  4560  </span>            &#34;properties&#34;: {
 <span id="L4561" class="ln">  4561  </span>                &#34;fsType&#34;: {
-<span id="L4562" class="ln">  4562  </span>                    &#34;description&#34;: &#34;Filesystem type to mount.\nMust be a filesystem type supported by the host operating system.\nEx. \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\n+optional&#34;,
+<span id="L4562" class="ln">  4562  </span>                    &#34;description&#34;: &#34;fsType is the filesystem type to mount.\nMust be a filesystem type supported by the host operating system.\nEx. \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\n+optional&#34;,
 <span id="L4563" class="ln">  4563  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4564" class="ln">  4564  </span>                },
 <span id="L4565" class="ln">  4565  </span>                &#34;readOnly&#34;: {
-<span id="L4566" class="ln">  4566  </span>                    &#34;description&#34;: &#34;Defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\n+optional&#34;,
+<span id="L4566" class="ln">  4566  </span>                    &#34;description&#34;: &#34;readOnly defaults to false (read/write). ReadOnly here will force\nthe ReadOnly setting in VolumeMounts.\n+optional&#34;,
 <span id="L4567" class="ln">  4567  </span>                    &#34;type&#34;: &#34;boolean&#34;
 <span id="L4568" class="ln">  4568  </span>                },
 <span id="L4569" class="ln">  4569  </span>                &#34;secretRef&#34;: {
-<span id="L4570" class="ln">  4570  </span>                    &#34;description&#34;: &#34;SecretRef specifies the secret to use for obtaining the StorageOS API\ncredentials.  If not specified, default values will be attempted.\n+optional&#34;,
+<span id="L4570" class="ln">  4570  </span>                    &#34;description&#34;: &#34;secretRef specifies the secret to use for obtaining the StorageOS API\ncredentials.  If not specified, default values will be attempted.\n+optional&#34;,
 <span id="L4571" class="ln">  4571  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.LocalObjectReference&#34;
 <span id="L4572" class="ln">  4572  </span>                },
 <span id="L4573" class="ln">  4573  </span>                &#34;volumeName&#34;: {
-<span id="L4574" class="ln">  4574  </span>                    &#34;description&#34;: &#34;VolumeName is the human-readable name of the StorageOS volume.  Volume\nnames are only unique within a namespace.&#34;,
+<span id="L4574" class="ln">  4574  </span>                    &#34;description&#34;: &#34;volumeName is the human-readable name of the StorageOS volume.  Volume\nnames are only unique within a namespace.&#34;,
 <span id="L4575" class="ln">  4575  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4576" class="ln">  4576  </span>                },
 <span id="L4577" class="ln">  4577  </span>                &#34;volumeNamespace&#34;: {
-<span id="L4578" class="ln">  4578  </span>                    &#34;description&#34;: &#34;VolumeNamespace specifies the scope of the volume within StorageOS.  If no\nnamespace is specified then the Pod&#39;s namespace will be used.  This allows the\nKubernetes name scoping to be mirrored within StorageOS for tighter integration.\nSet VolumeName to any name to override the default behaviour.\nSet to \&#34;default\&#34; if you are not using namespaces within StorageOS.\nNamespaces that do not pre-exist within StorageOS will be created.\n+optional&#34;,
+<span id="L4578" class="ln">  4578  </span>                    &#34;description&#34;: &#34;volumeNamespace specifies the scope of the volume within StorageOS.  If no\nnamespace is specified then the Pod&#39;s namespace will be used.  This allows the\nKubernetes name scoping to be mirrored within StorageOS for tighter integration.\nSet VolumeName to any name to override the default behaviour.\nSet to \&#34;default\&#34; if you are not using namespaces within StorageOS.\nNamespaces that do not pre-exist within StorageOS will be created.\n+optional&#34;,
 <span id="L4579" class="ln">  4579  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4580" class="ln">  4580  </span>                }
 <span id="L4581" class="ln">  4581  </span>            }
@@ -4679,123 +4679,123 @@
 <span id="L4614" class="ln">  4614  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L4615" class="ln">  4615  </span>            &#34;properties&#34;: {
 <span id="L4616" class="ln">  4616  </span>                &#34;awsElasticBlockStore&#34;: {
-<span id="L4617" class="ln">  4617  </span>                    &#34;description&#34;: &#34;AWSElasticBlockStore represents an AWS Disk resource that is attached to a\nkubelet&#39;s host machine and then exposed to the pod.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore\n+optional&#34;,
+<span id="L4617" class="ln">  4617  </span>                    &#34;description&#34;: &#34;awsElasticBlockStore represents an AWS Disk resource that is attached to a\nkubelet&#39;s host machine and then exposed to the pod.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore\n+optional&#34;,
 <span id="L4618" class="ln">  4618  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.AWSElasticBlockStoreVolumeSource&#34;
 <span id="L4619" class="ln">  4619  </span>                },
 <span id="L4620" class="ln">  4620  </span>                &#34;azureDisk&#34;: {
-<span id="L4621" class="ln">  4621  </span>                    &#34;description&#34;: &#34;AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.\n+optional&#34;,
+<span id="L4621" class="ln">  4621  </span>                    &#34;description&#34;: &#34;azureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.\n+optional&#34;,
 <span id="L4622" class="ln">  4622  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.AzureDiskVolumeSource&#34;
 <span id="L4623" class="ln">  4623  </span>                },
 <span id="L4624" class="ln">  4624  </span>                &#34;azureFile&#34;: {
-<span id="L4625" class="ln">  4625  </span>                    &#34;description&#34;: &#34;AzureFile represents an Azure File Service mount on the host and bind mount to the pod.\n+optional&#34;,
+<span id="L4625" class="ln">  4625  </span>                    &#34;description&#34;: &#34;azureFile represents an Azure File Service mount on the host and bind mount to the pod.\n+optional&#34;,
 <span id="L4626" class="ln">  4626  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.AzureFileVolumeSource&#34;
 <span id="L4627" class="ln">  4627  </span>                },
 <span id="L4628" class="ln">  4628  </span>                &#34;cephfs&#34;: {
-<span id="L4629" class="ln">  4629  </span>                    &#34;description&#34;: &#34;CephFS represents a Ceph FS mount on the host that shares a pod&#39;s lifetime\n+optional&#34;,
+<span id="L4629" class="ln">  4629  </span>                    &#34;description&#34;: &#34;cephFS represents a Ceph FS mount on the host that shares a pod&#39;s lifetime\n+optional&#34;,
 <span id="L4630" class="ln">  4630  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.CephFSVolumeSource&#34;
 <span id="L4631" class="ln">  4631  </span>                },
 <span id="L4632" class="ln">  4632  </span>                &#34;cinder&#34;: {
-<span id="L4633" class="ln">  4633  </span>                    &#34;description&#34;: &#34;Cinder represents a cinder volume attached and mounted on kubelets host machine.\nMore info: https://examples.k8s.io/mysql-cinder-pd/README.md\n+optional&#34;,
+<span id="L4633" class="ln">  4633  </span>                    &#34;description&#34;: &#34;cinder represents a cinder volume attached and mounted on kubelets host machine.\nMore info: https://examples.k8s.io/mysql-cinder-pd/README.md\n+optional&#34;,
 <span id="L4634" class="ln">  4634  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.CinderVolumeSource&#34;
 <span id="L4635" class="ln">  4635  </span>                },
 <span id="L4636" class="ln">  4636  </span>                &#34;configMap&#34;: {
-<span id="L4637" class="ln">  4637  </span>                    &#34;description&#34;: &#34;ConfigMap represents a configMap that should populate this volume\n+optional&#34;,
+<span id="L4637" class="ln">  4637  </span>                    &#34;description&#34;: &#34;configMap represents a configMap that should populate this volume\n+optional&#34;,
 <span id="L4638" class="ln">  4638  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.ConfigMapVolumeSource&#34;
 <span id="L4639" class="ln">  4639  </span>                },
 <span id="L4640" class="ln">  4640  </span>                &#34;csi&#34;: {
-<span id="L4641" class="ln">  4641  </span>                    &#34;description&#34;: &#34;CSI (Container Storage Interface) represents ephemeral storage that is handled by certain external CSI drivers (Beta feature).\n+optional&#34;,
+<span id="L4641" class="ln">  4641  </span>                    &#34;description&#34;: &#34;csi (Container Storage Interface) represents ephemeral storage that is handled by certain external CSI drivers (Beta feature).\n+optional&#34;,
 <span id="L4642" class="ln">  4642  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.CSIVolumeSource&#34;
 <span id="L4643" class="ln">  4643  </span>                },
 <span id="L4644" class="ln">  4644  </span>                &#34;downwardAPI&#34;: {
-<span id="L4645" class="ln">  4645  </span>                    &#34;description&#34;: &#34;DownwardAPI represents downward API about the pod that should populate this volume\n+optional&#34;,
+<span id="L4645" class="ln">  4645  </span>                    &#34;description&#34;: &#34;downwardAPI represents downward API about the pod that should populate this volume\n+optional&#34;,
 <span id="L4646" class="ln">  4646  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.DownwardAPIVolumeSource&#34;
 <span id="L4647" class="ln">  4647  </span>                },
 <span id="L4648" class="ln">  4648  </span>                &#34;emptyDir&#34;: {
-<span id="L4649" class="ln">  4649  </span>                    &#34;description&#34;: &#34;EmptyDir represents a temporary directory that shares a pod&#39;s lifetime.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir\n+optional&#34;,
+<span id="L4649" class="ln">  4649  </span>                    &#34;description&#34;: &#34;emptyDir represents a temporary directory that shares a pod&#39;s lifetime.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir\n+optional&#34;,
 <span id="L4650" class="ln">  4650  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.EmptyDirVolumeSource&#34;
 <span id="L4651" class="ln">  4651  </span>                },
 <span id="L4652" class="ln">  4652  </span>                &#34;ephemeral&#34;: {
-<span id="L4653" class="ln">  4653  </span>                    &#34;description&#34;: &#34;Ephemeral represents a volume that is handled by a cluster storage driver.\nThe volume&#39;s lifecycle is tied to the pod that defines it - it will be created before the pod starts,\nand deleted when the pod is removed.\n\nUse this if:\na) the volume is only needed while the pod runs,\nb) features of normal volumes like restoring from snapshot or capacity\n   tracking are needed,\nc) the storage driver is specified through a storage class, and\nd) the storage driver supports dynamic volume provisioning through\n   a PersistentVolumeClaim (see EphemeralVolumeSource for more\n   information on the connection between this volume type\n   and PersistentVolumeClaim).\n\nUse PersistentVolumeClaim or one of the vendor-specific\nAPIs for volumes that persist for longer than the lifecycle\nof an individual pod.\n\nUse CSI for light-weight local ephemeral volumes if the CSI driver is meant to\nbe used that way - see the documentation of the driver for\nmore information.\n\nA pod can use both types of ephemeral volumes and\npersistent volumes at the same time.\n\n+optional&#34;,
+<span id="L4653" class="ln">  4653  </span>                    &#34;description&#34;: &#34;ephemeral represents a volume that is handled by a cluster storage driver.\nThe volume&#39;s lifecycle is tied to the pod that defines it - it will be created before the pod starts,\nand deleted when the pod is removed.\n\nUse this if:\na) the volume is only needed while the pod runs,\nb) features of normal volumes like restoring from snapshot or capacity\n   tracking are needed,\nc) the storage driver is specified through a storage class, and\nd) the storage driver supports dynamic volume provisioning through\n   a PersistentVolumeClaim (see EphemeralVolumeSource for more\n   information on the connection between this volume type\n   and PersistentVolumeClaim).\n\nUse PersistentVolumeClaim or one of the vendor-specific\nAPIs for volumes that persist for longer than the lifecycle\nof an individual pod.\n\nUse CSI for light-weight local ephemeral volumes if the CSI driver is meant to\nbe used that way - see the documentation of the driver for\nmore information.\n\nA pod can use both types of ephemeral volumes and\npersistent volumes at the same time.\n\n+optional&#34;,
 <span id="L4654" class="ln">  4654  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.EphemeralVolumeSource&#34;
 <span id="L4655" class="ln">  4655  </span>                },
 <span id="L4656" class="ln">  4656  </span>                &#34;fc&#34;: {
-<span id="L4657" class="ln">  4657  </span>                    &#34;description&#34;: &#34;FC represents a Fibre Channel resource that is attached to a kubelet&#39;s host machine and then exposed to the pod.\n+optional&#34;,
+<span id="L4657" class="ln">  4657  </span>                    &#34;description&#34;: &#34;fc represents a Fibre Channel resource that is attached to a kubelet&#39;s host machine and then exposed to the pod.\n+optional&#34;,
 <span id="L4658" class="ln">  4658  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.FCVolumeSource&#34;
 <span id="L4659" class="ln">  4659  </span>                },
 <span id="L4660" class="ln">  4660  </span>                &#34;flexVolume&#34;: {
-<span id="L4661" class="ln">  4661  </span>                    &#34;description&#34;: &#34;FlexVolume represents a generic volume resource that is\nprovisioned/attached using an exec based plugin.\n+optional&#34;,
+<span id="L4661" class="ln">  4661  </span>                    &#34;description&#34;: &#34;flexVolume represents a generic volume resource that is\nprovisioned/attached using an exec based plugin.\n+optional&#34;,
 <span id="L4662" class="ln">  4662  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.FlexVolumeSource&#34;
 <span id="L4663" class="ln">  4663  </span>                },
 <span id="L4664" class="ln">  4664  </span>                &#34;flocker&#34;: {
-<span id="L4665" class="ln">  4665  </span>                    &#34;description&#34;: &#34;Flocker represents a Flocker volume attached to a kubelet&#39;s host machine. This depends on the Flocker control service being running\n+optional&#34;,
+<span id="L4665" class="ln">  4665  </span>                    &#34;description&#34;: &#34;flocker represents a Flocker volume attached to a kubelet&#39;s host machine. This depends on the Flocker control service being running\n+optional&#34;,
 <span id="L4666" class="ln">  4666  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.FlockerVolumeSource&#34;
 <span id="L4667" class="ln">  4667  </span>                },
 <span id="L4668" class="ln">  4668  </span>                &#34;gcePersistentDisk&#34;: {
-<span id="L4669" class="ln">  4669  </span>                    &#34;description&#34;: &#34;GCEPersistentDisk represents a GCE Disk resource that is attached to a\nkubelet&#39;s host machine and then exposed to the pod.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk\n+optional&#34;,
+<span id="L4669" class="ln">  4669  </span>                    &#34;description&#34;: &#34;gcePersistentDisk represents a GCE Disk resource that is attached to a\nkubelet&#39;s host machine and then exposed to the pod.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk\n+optional&#34;,
 <span id="L4670" class="ln">  4670  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.GCEPersistentDiskVolumeSource&#34;
 <span id="L4671" class="ln">  4671  </span>                },
 <span id="L4672" class="ln">  4672  </span>                &#34;gitRepo&#34;: {
-<span id="L4673" class="ln">  4673  </span>                    &#34;description&#34;: &#34;GitRepo represents a git repository at a particular revision.\nDEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an\nEmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir\ninto the Pod&#39;s container.\n+optional&#34;,
+<span id="L4673" class="ln">  4673  </span>                    &#34;description&#34;: &#34;gitRepo represents a git repository at a particular revision.\nDEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an\nEmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir\ninto the Pod&#39;s container.\n+optional&#34;,
 <span id="L4674" class="ln">  4674  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.GitRepoVolumeSource&#34;
 <span id="L4675" class="ln">  4675  </span>                },
 <span id="L4676" class="ln">  4676  </span>                &#34;glusterfs&#34;: {
-<span id="L4677" class="ln">  4677  </span>                    &#34;description&#34;: &#34;Glusterfs represents a Glusterfs mount on the host that shares a pod&#39;s lifetime.\nMore info: https://examples.k8s.io/volumes/glusterfs/README.md\n+optional&#34;,
+<span id="L4677" class="ln">  4677  </span>                    &#34;description&#34;: &#34;glusterfs represents a Glusterfs mount on the host that shares a pod&#39;s lifetime.\nMore info: https://examples.k8s.io/volumes/glusterfs/README.md\n+optional&#34;,
 <span id="L4678" class="ln">  4678  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.GlusterfsVolumeSource&#34;
 <span id="L4679" class="ln">  4679  </span>                },
 <span id="L4680" class="ln">  4680  </span>                &#34;hostPath&#34;: {
-<span id="L4681" class="ln">  4681  </span>                    &#34;description&#34;: &#34;HostPath represents a pre-existing file or directory on the host\nmachine that is directly exposed to the container. This is generally\nused for system agents or other privileged things that are allowed\nto see the host machine. Most containers will NOT need this.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath\n---\nTODO(jonesdl) We need to restrict who can use host directory mounts and who can/can not\nmount host directories as read/write.\n+optional&#34;,
+<span id="L4681" class="ln">  4681  </span>                    &#34;description&#34;: &#34;hostPath represents a pre-existing file or directory on the host\nmachine that is directly exposed to the container. This is generally\nused for system agents or other privileged things that are allowed\nto see the host machine. Most containers will NOT need this.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath\n---\nTODO(jonesdl) We need to restrict who can use host directory mounts and who can/can not\nmount host directories as read/write.\n+optional&#34;,
 <span id="L4682" class="ln">  4682  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.HostPathVolumeSource&#34;
 <span id="L4683" class="ln">  4683  </span>                },
 <span id="L4684" class="ln">  4684  </span>                &#34;iscsi&#34;: {
-<span id="L4685" class="ln">  4685  </span>                    &#34;description&#34;: &#34;ISCSI represents an ISCSI Disk resource that is attached to a\nkubelet&#39;s host machine and then exposed to the pod.\nMore info: https://examples.k8s.io/volumes/iscsi/README.md\n+optional&#34;,
+<span id="L4685" class="ln">  4685  </span>                    &#34;description&#34;: &#34;iscsi represents an ISCSI Disk resource that is attached to a\nkubelet&#39;s host machine and then exposed to the pod.\nMore info: https://examples.k8s.io/volumes/iscsi/README.md\n+optional&#34;,
 <span id="L4686" class="ln">  4686  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.ISCSIVolumeSource&#34;
 <span id="L4687" class="ln">  4687  </span>                },
 <span id="L4688" class="ln">  4688  </span>                &#34;name&#34;: {
-<span id="L4689" class="ln">  4689  </span>                    &#34;description&#34;: &#34;Volume&#39;s name.\nMust be a DNS_LABEL and unique within the pod.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names&#34;,
+<span id="L4689" class="ln">  4689  </span>                    &#34;description&#34;: &#34;name of the volume.\nMust be a DNS_LABEL and unique within the pod.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names&#34;,
 <span id="L4690" class="ln">  4690  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4691" class="ln">  4691  </span>                },
 <span id="L4692" class="ln">  4692  </span>                &#34;nfs&#34;: {
-<span id="L4693" class="ln">  4693  </span>                    &#34;description&#34;: &#34;NFS represents an NFS mount on the host that shares a pod&#39;s lifetime\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#nfs\n+optional&#34;,
+<span id="L4693" class="ln">  4693  </span>                    &#34;description&#34;: &#34;nfs represents an NFS mount on the host that shares a pod&#39;s lifetime\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#nfs\n+optional&#34;,
 <span id="L4694" class="ln">  4694  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.NFSVolumeSource&#34;
 <span id="L4695" class="ln">  4695  </span>                },
 <span id="L4696" class="ln">  4696  </span>                &#34;persistentVolumeClaim&#34;: {
-<span id="L4697" class="ln">  4697  </span>                    &#34;description&#34;: &#34;PersistentVolumeClaimVolumeSource represents a reference to a\nPersistentVolumeClaim in the same namespace.\nMore info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims\n+optional&#34;,
+<span id="L4697" class="ln">  4697  </span>                    &#34;description&#34;: &#34;persistentVolumeClaimVolumeSource represents a reference to a\nPersistentVolumeClaim in the same namespace.\nMore info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims\n+optional&#34;,
 <span id="L4698" class="ln">  4698  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.PersistentVolumeClaimVolumeSource&#34;
 <span id="L4699" class="ln">  4699  </span>                },
 <span id="L4700" class="ln">  4700  </span>                &#34;photonPersistentDisk&#34;: {
-<span id="L4701" class="ln">  4701  </span>                    &#34;description&#34;: &#34;PhotonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine&#34;,
+<span id="L4701" class="ln">  4701  </span>                    &#34;description&#34;: &#34;photonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine&#34;,
 <span id="L4702" class="ln">  4702  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.PhotonPersistentDiskVolumeSource&#34;
 <span id="L4703" class="ln">  4703  </span>                },
 <span id="L4704" class="ln">  4704  </span>                &#34;portworxVolume&#34;: {
-<span id="L4705" class="ln">  4705  </span>                    &#34;description&#34;: &#34;PortworxVolume represents a portworx volume attached and mounted on kubelets host machine\n+optional&#34;,
+<span id="L4705" class="ln">  4705  </span>                    &#34;description&#34;: &#34;portworxVolume represents a portworx volume attached and mounted on kubelets host machine\n+optional&#34;,
 <span id="L4706" class="ln">  4706  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.PortworxVolumeSource&#34;
 <span id="L4707" class="ln">  4707  </span>                },
 <span id="L4708" class="ln">  4708  </span>                &#34;projected&#34;: {
-<span id="L4709" class="ln">  4709  </span>                    &#34;description&#34;: &#34;Items for all in one resources secrets, configmaps, and downward API&#34;,
+<span id="L4709" class="ln">  4709  </span>                    &#34;description&#34;: &#34;projected items for all in one resources secrets, configmaps, and downward API&#34;,
 <span id="L4710" class="ln">  4710  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.ProjectedVolumeSource&#34;
 <span id="L4711" class="ln">  4711  </span>                },
 <span id="L4712" class="ln">  4712  </span>                &#34;quobyte&#34;: {
-<span id="L4713" class="ln">  4713  </span>                    &#34;description&#34;: &#34;Quobyte represents a Quobyte mount on the host that shares a pod&#39;s lifetime\n+optional&#34;,
+<span id="L4713" class="ln">  4713  </span>                    &#34;description&#34;: &#34;quobyte represents a Quobyte mount on the host that shares a pod&#39;s lifetime\n+optional&#34;,
 <span id="L4714" class="ln">  4714  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.QuobyteVolumeSource&#34;
 <span id="L4715" class="ln">  4715  </span>                },
 <span id="L4716" class="ln">  4716  </span>                &#34;rbd&#34;: {
-<span id="L4717" class="ln">  4717  </span>                    &#34;description&#34;: &#34;RBD represents a Rados Block Device mount on the host that shares a pod&#39;s lifetime.\nMore info: https://examples.k8s.io/volumes/rbd/README.md\n+optional&#34;,
+<span id="L4717" class="ln">  4717  </span>                    &#34;description&#34;: &#34;rbd represents a Rados Block Device mount on the host that shares a pod&#39;s lifetime.\nMore info: https://examples.k8s.io/volumes/rbd/README.md\n+optional&#34;,
 <span id="L4718" class="ln">  4718  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.RBDVolumeSource&#34;
 <span id="L4719" class="ln">  4719  </span>                },
 <span id="L4720" class="ln">  4720  </span>                &#34;scaleIO&#34;: {
-<span id="L4721" class="ln">  4721  </span>                    &#34;description&#34;: &#34;ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.\n+optional&#34;,
+<span id="L4721" class="ln">  4721  </span>                    &#34;description&#34;: &#34;scaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.\n+optional&#34;,
 <span id="L4722" class="ln">  4722  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.ScaleIOVolumeSource&#34;
 <span id="L4723" class="ln">  4723  </span>                },
 <span id="L4724" class="ln">  4724  </span>                &#34;secret&#34;: {
-<span id="L4725" class="ln">  4725  </span>                    &#34;description&#34;: &#34;Secret represents a secret that should populate this volume.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#secret\n+optional&#34;,
+<span id="L4725" class="ln">  4725  </span>                    &#34;description&#34;: &#34;secret represents a secret that should populate this volume.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#secret\n+optional&#34;,
 <span id="L4726" class="ln">  4726  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.SecretVolumeSource&#34;
 <span id="L4727" class="ln">  4727  </span>                },
 <span id="L4728" class="ln">  4728  </span>                &#34;storageos&#34;: {
-<span id="L4729" class="ln">  4729  </span>                    &#34;description&#34;: &#34;StorageOS represents a StorageOS volume attached and mounted on Kubernetes nodes.\n+optional&#34;,
+<span id="L4729" class="ln">  4729  </span>                    &#34;description&#34;: &#34;storageOS represents a StorageOS volume attached and mounted on Kubernetes nodes.\n+optional&#34;,
 <span id="L4730" class="ln">  4730  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.StorageOSVolumeSource&#34;
 <span id="L4731" class="ln">  4731  </span>                },
 <span id="L4732" class="ln">  4732  </span>                &#34;vsphereVolume&#34;: {
-<span id="L4733" class="ln">  4733  </span>                    &#34;description&#34;: &#34;VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine\n+optional&#34;,
+<span id="L4733" class="ln">  4733  </span>                    &#34;description&#34;: &#34;vsphereVolume represents a vSphere volume attached and mounted on kubelets host machine\n+optional&#34;,
 <span id="L4734" class="ln">  4734  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.VsphereVirtualDiskVolumeSource&#34;
 <span id="L4735" class="ln">  4735  </span>                }
 <span id="L4736" class="ln">  4736  </span>            }
@@ -4846,19 +4846,19 @@
 <span id="L4781" class="ln">  4781  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L4782" class="ln">  4782  </span>            &#34;properties&#34;: {
 <span id="L4783" class="ln">  4783  </span>                &#34;configMap&#34;: {
-<span id="L4784" class="ln">  4784  </span>                    &#34;description&#34;: &#34;information about the configMap data to project\n+optional&#34;,
+<span id="L4784" class="ln">  4784  </span>                    &#34;description&#34;: &#34;configMap information about the configMap data to project\n+optional&#34;,
 <span id="L4785" class="ln">  4785  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.ConfigMapProjection&#34;
 <span id="L4786" class="ln">  4786  </span>                },
 <span id="L4787" class="ln">  4787  </span>                &#34;downwardAPI&#34;: {
-<span id="L4788" class="ln">  4788  </span>                    &#34;description&#34;: &#34;information about the downwardAPI data to project\n+optional&#34;,
+<span id="L4788" class="ln">  4788  </span>                    &#34;description&#34;: &#34;downwardAPI information about the downwardAPI data to project\n+optional&#34;,
 <span id="L4789" class="ln">  4789  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.DownwardAPIProjection&#34;
 <span id="L4790" class="ln">  4790  </span>                },
 <span id="L4791" class="ln">  4791  </span>                &#34;secret&#34;: {
-<span id="L4792" class="ln">  4792  </span>                    &#34;description&#34;: &#34;information about the secret data to project\n+optional&#34;,
+<span id="L4792" class="ln">  4792  </span>                    &#34;description&#34;: &#34;secret information about the secret data to project\n+optional&#34;,
 <span id="L4793" class="ln">  4793  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.SecretProjection&#34;
 <span id="L4794" class="ln">  4794  </span>                },
 <span id="L4795" class="ln">  4795  </span>                &#34;serviceAccountToken&#34;: {
-<span id="L4796" class="ln">  4796  </span>                    &#34;description&#34;: &#34;information about the serviceAccountToken data to project\n+optional&#34;,
+<span id="L4796" class="ln">  4796  </span>                    &#34;description&#34;: &#34;serviceAccountToken is information about the serviceAccountToken data to project\n+optional&#34;,
 <span id="L4797" class="ln">  4797  </span>                    &#34;$ref&#34;: &#34;#/definitions/v1.ServiceAccountTokenProjection&#34;
 <span id="L4798" class="ln">  4798  </span>                }
 <span id="L4799" class="ln">  4799  </span>            }
@@ -4867,19 +4867,19 @@
 <span id="L4802" class="ln">  4802  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L4803" class="ln">  4803  </span>            &#34;properties&#34;: {
 <span id="L4804" class="ln">  4804  </span>                &#34;fsType&#34;: {
-<span id="L4805" class="ln">  4805  </span>                    &#34;description&#34;: &#34;Filesystem type to mount.\nMust be a filesystem type supported by the host operating system.\nEx. \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\n+optional&#34;,
+<span id="L4805" class="ln">  4805  </span>                    &#34;description&#34;: &#34;fsType is filesystem type to mount.\nMust be a filesystem type supported by the host operating system.\nEx. \&#34;ext4\&#34;, \&#34;xfs\&#34;, \&#34;ntfs\&#34;. Implicitly inferred to be \&#34;ext4\&#34; if unspecified.\n+optional&#34;,
 <span id="L4806" class="ln">  4806  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4807" class="ln">  4807  </span>                },
 <span id="L4808" class="ln">  4808  </span>                &#34;storagePolicyID&#34;: {
-<span id="L4809" class="ln">  4809  </span>                    &#34;description&#34;: &#34;Storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName.\n+optional&#34;,
+<span id="L4809" class="ln">  4809  </span>                    &#34;description&#34;: &#34;storagePolicyID is the storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName.\n+optional&#34;,
 <span id="L4810" class="ln">  4810  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4811" class="ln">  4811  </span>                },
 <span id="L4812" class="ln">  4812  </span>                &#34;storagePolicyName&#34;: {
-<span id="L4813" class="ln">  4813  </span>                    &#34;description&#34;: &#34;Storage Policy Based Management (SPBM) profile name.\n+optional&#34;,
+<span id="L4813" class="ln">  4813  </span>                    &#34;description&#34;: &#34;storagePolicyName is the storage Policy Based Management (SPBM) profile name.\n+optional&#34;,
 <span id="L4814" class="ln">  4814  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4815" class="ln">  4815  </span>                },
 <span id="L4816" class="ln">  4816  </span>                &#34;volumePath&#34;: {
-<span id="L4817" class="ln">  4817  </span>                    &#34;description&#34;: &#34;Path that identifies vSphere volume vmdk&#34;,
+<span id="L4817" class="ln">  4817  </span>                    &#34;description&#34;: &#34;volumePath is the path that identifies vSphere volume vmdk&#34;,
 <span id="L4818" class="ln">  4818  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L4819" class="ln">  4819  </span>                }
 <span id="L4820" class="ln">  4820  </span>            }
@@ -6576,7 +6576,7 @@
 <span id="L6511" class="ln">  6511  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L6512" class="ln">  6512  </span>            &#34;properties&#34;: {
 <span id="L6513" class="ln">  6513  </span>                &#34;action&#34;: {
-<span id="L6514" class="ln">  6514  </span>                    &#34;description&#34;: &#34;+kubebuilder:validation:Enum=stress-cpu;stress-mem;disk-read-payload;disk-write-payload;disk-fill;network-corrupt;network-duplicate;network-loss;network-delay;network-partition;network-dns;network-bandwidth;network-flood;network-down;process;jvm-exception;jvm-gc;jvm-latency;jvm-return;jvm-stress;jvm-rule-data;jvm-mysql;clock;redis-expiration;redis-penetration;redis-cacheLimit;redis-restart;redis-stop;kafka-fill;kafka-flood;kafka-io;file-create;file-modify;file-delete;file-rename;file-append;file-replace;vm;user_defined;&#34;,
+<span id="L6514" class="ln">  6514  </span>                    &#34;description&#34;: &#34;+kubebuilder:validation:Enum=stress-cpu;stress-mem;disk-read-payload;disk-write-payload;disk-fill;network-corrupt;network-duplicate;network-loss;network-delay;network-partition;network-dns;network-bandwidth;network-flood;network-down;process;jvm-exception;jvm-gc;jvm-latency;jvm-return;jvm-stress;jvm-rule-data;jvm-mysql;clock;redis-expiration;redis-penetration;redis-cacheLimit;redis-restart;redis-stop;kafka-fill;kafka-flood;kafka-io;file-create;file-modify;file-delete;file-rename;file-append;file-replace;vm;user_defined&#34;,
 <span id="L6515" class="ln">  6515  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L6516" class="ln">  6516  </span>                },
 <span id="L6517" class="ln">  6517  </span>                &#34;address&#34;: {
@@ -7177,7 +7177,7 @@
 <span id="L7112" class="ln">  7112  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L7113" class="ln">  7113  </span>                },
 <span id="L7114" class="ln">  7114  </span>                &#34;clusterName&#34;: {
-<span id="L7115" class="ln">  7115  </span>                    &#34;description&#34;: &#34;The name of the cluster which the object belongs to.\nThis is used to distinguish resources with same name and namespace in different clusters.\nThis field is not set anywhere right now and apiserver is going to ignore it if set in create or update request.\n+optional&#34;,
+<span id="L7115" class="ln">  7115  </span>                    &#34;description&#34;: &#34;Deprecated: ClusterName is a legacy field that was always cleared by\nthe system and never used; it will be removed completely in 1.25.\n\nThe name in the go struct is changed to help clients detect\naccidental use.\n\n+optional&#34;,
 <span id="L7116" class="ln">  7116  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L7117" class="ln">  7117  </span>                },
 <span id="L7118" class="ln">  7118  </span>                &#34;creationTimestamp&#34;: {
@@ -7200,7 +7200,7 @@
 <span id="L7135" class="ln">  7135  </span>                    }
 <span id="L7136" class="ln">  7136  </span>                },
 <span id="L7137" class="ln">  7137  </span>                &#34;generateName&#34;: {
-<span id="L7138" class="ln">  7138  </span>                    &#34;description&#34;: &#34;GenerateName is an optional prefix, used by the server, to generate a unique\nname ONLY IF the Name field has not been provided.\nIf this field is used, the name returned to the client will be different\nthan the name passed. This value will also be combined with a unique suffix.\nThe provided value has the same validation rules as the Name field,\nand may be truncated by the length of the suffix required to make the value\nunique on the server.\n\nIf this field is specified and the generated name exists, the server will\nNOT return a 409 - instead, it will either return 201 Created or 500 with Reason\nServerTimeout indicating a unique name could not be found in the time allotted, and the client\nshould retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency\n+optional&#34;,
+<span id="L7138" class="ln">  7138  </span>                    &#34;description&#34;: &#34;GenerateName is an optional prefix, used by the server, to generate a unique\nname ONLY IF the Name field has not been provided.\nIf this field is used, the name returned to the client will be different\nthan the name passed. This value will also be combined with a unique suffix.\nThe provided value has the same validation rules as the Name field,\nand may be truncated by the length of the suffix required to make the value\nunique on the server.\n\nIf this field is specified and the generated name exists, the server will return a 409.\n\nApplied only if Name is not specified.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency\n+optional&#34;,
 <span id="L7139" class="ln">  7139  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L7140" class="ln">  7140  </span>                },
 <span id="L7141" class="ln">  7141  </span>                &#34;generation&#34;: {
@@ -7245,7 +7245,7 @@
 <span id="L7180" class="ln">  7180  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L7181" class="ln">  7181  </span>                },
 <span id="L7182" class="ln">  7182  </span>                &#34;selfLink&#34;: {
-<span id="L7183" class="ln">  7183  </span>                    &#34;description&#34;: &#34;SelfLink is a URL representing this object.\nPopulated by the system.\nRead-only.\n\nDEPRECATED\nKubernetes will stop propagating this field in 1.20 release and the field is planned\nto be removed in 1.21 release.\n+optional&#34;,
+<span id="L7183" class="ln">  7183  </span>                    &#34;description&#34;: &#34;Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.\n+optional&#34;,
 <span id="L7184" class="ln">  7184  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L7185" class="ln">  7185  </span>                },
 <span id="L7186" class="ln">  7186  </span>                &#34;spec&#34;: {
@@ -7732,7 +7732,7 @@
 <span id="L7667" class="ln">  7667  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L7668" class="ln">  7668  </span>                },
 <span id="L7669" class="ln">  7669  </span>                &#34;clusterName&#34;: {
-<span id="L7670" class="ln">  7670  </span>                    &#34;description&#34;: &#34;The name of the cluster which the object belongs to.\nThis is used to distinguish resources with same name and namespace in different clusters.\nThis field is not set anywhere right now and apiserver is going to ignore it if set in create or update request.\n+optional&#34;,
+<span id="L7670" class="ln">  7670  </span>                    &#34;description&#34;: &#34;Deprecated: ClusterName is a legacy field that was always cleared by\nthe system and never used; it will be removed completely in 1.25.\n\nThe name in the go struct is changed to help clients detect\naccidental use.\n\n+optional&#34;,
 <span id="L7671" class="ln">  7671  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L7672" class="ln">  7672  </span>                },
 <span id="L7673" class="ln">  7673  </span>                &#34;creationTimestamp&#34;: {
@@ -7755,7 +7755,7 @@
 <span id="L7690" class="ln">  7690  </span>                    }
 <span id="L7691" class="ln">  7691  </span>                },
 <span id="L7692" class="ln">  7692  </span>                &#34;generateName&#34;: {
-<span id="L7693" class="ln">  7693  </span>                    &#34;description&#34;: &#34;GenerateName is an optional prefix, used by the server, to generate a unique\nname ONLY IF the Name field has not been provided.\nIf this field is used, the name returned to the client will be different\nthan the name passed. This value will also be combined with a unique suffix.\nThe provided value has the same validation rules as the Name field,\nand may be truncated by the length of the suffix required to make the value\nunique on the server.\n\nIf this field is specified and the generated name exists, the server will\nNOT return a 409 - instead, it will either return 201 Created or 500 with Reason\nServerTimeout indicating a unique name could not be found in the time allotted, and the client\nshould retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency\n+optional&#34;,
+<span id="L7693" class="ln">  7693  </span>                    &#34;description&#34;: &#34;GenerateName is an optional prefix, used by the server, to generate a unique\nname ONLY IF the Name field has not been provided.\nIf this field is used, the name returned to the client will be different\nthan the name passed. This value will also be combined with a unique suffix.\nThe provided value has the same validation rules as the Name field,\nand may be truncated by the length of the suffix required to make the value\nunique on the server.\n\nIf this field is specified and the generated name exists, the server will return a 409.\n\nApplied only if Name is not specified.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency\n+optional&#34;,
 <span id="L7694" class="ln">  7694  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L7695" class="ln">  7695  </span>                },
 <span id="L7696" class="ln">  7696  </span>                &#34;generation&#34;: {
@@ -7800,7 +7800,7 @@
 <span id="L7735" class="ln">  7735  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L7736" class="ln">  7736  </span>                },
 <span id="L7737" class="ln">  7737  </span>                &#34;selfLink&#34;: {
-<span id="L7738" class="ln">  7738  </span>                    &#34;description&#34;: &#34;SelfLink is a URL representing this object.\nPopulated by the system.\nRead-only.\n\nDEPRECATED\nKubernetes will stop propagating this field in 1.20 release and the field is planned\nto be removed in 1.21 release.\n+optional&#34;,
+<span id="L7738" class="ln">  7738  </span>                    &#34;description&#34;: &#34;Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.\n+optional&#34;,
 <span id="L7739" class="ln">  7739  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L7740" class="ln">  7740  </span>                },
 <span id="L7741" class="ln">  7741  </span>                &#34;spec&#34;: {
