@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 9128fe9. Generated at Fri Oct 14 22:03:57 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 54d9a8a. Generated at Sat Oct 15 10:01:56 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -121,9 +121,6 @@
 				<dd><a href="#CreateClient">func CreateClient(ctx context.Context, managerNamespace, managerSvc string) (*ctrlclient.CtrlClient, context.CancelFunc, error)</a></dd>
 			
 				
-				<dd><a href="#L">func L() logr.Logger</a></dd>
-			
-				
 				<dd><a href="#MarshalChaos">func MarshalChaos(s interface{}) (string, error)</a></dd>
 			
 				
@@ -131,9 +128,6 @@
 			
 				
 				<dd><a href="#PrintResult">func PrintResult(result []*ChaosResult)</a></dd>
-			
-				
-				<dd><a href="#SetupGlobalLogger">func SetupGlobalLogger(logger logr.Logger)</a></dd>
 			
 			
 				
@@ -160,14 +154,6 @@
 				
 			
 				
-				<dd><a href="#LoggerFlushFunc">type LoggerFlushFunc</a></dd>
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#NewStderrLogger">func NewStderrLogger() (logr.Logger, LoggerFlushFunc, error)</a></dd>
-				
-				
-			
-				
 				<dd><a href="#PodResult">type PodResult</a></dd>
 				
 				
@@ -186,8 +172,6 @@
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/client.go">client.go</a>
 			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/common.go">common.go</a>
-			
-				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/logger.go">logger.go</a>
 			
 			</span>
 			</p>
@@ -217,19 +201,6 @@
 				
 			</h2>
 			<pre>func CreateClient(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, managerNamespace, managerSvc <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#CancelFunc">CancelFunc</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
-			
-			
-			
-
-		
-			
-			
-			<h2 id="L">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/logger.go#L37">L</a>
-				<a class="permalink" href="#L">&#xb6;</a>
-				
-				
-			</h2>
-			<pre>func L() <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a></pre>
 			
 			
 			
@@ -279,19 +250,6 @@ PrettyPrint print with tab number and color
 PrintResult prints result to users in prettier format
 </p>
 
-			
-			
-
-		
-			
-			
-			<h2 id="SetupGlobalLogger">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/logger.go#L33">SetupGlobalLogger</a>
-				<a class="permalink" href="#SetupGlobalLogger">&#xb6;</a>
-				
-				
-			</h2>
-			<pre>func SetupGlobalLogger(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>)</pre>
-			
 			
 			
 
@@ -422,39 +380,6 @@ InitClientSet inits two different clients that would be used
 			
 			
 
-			
-
-			
-		
-			
-			
-			<h2 id="LoggerFlushFunc">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/logger.go#L24">LoggerFlushFunc</a>
-				<a class="permalink" href="#LoggerFlushFunc">&#xb6;</a>
-				
-				
-			</h2>
-			
-			<pre>type LoggerFlushFunc func()</pre>
-
-			
-
-			
-
-			
-			
-			
-
-			
-				
-				<h3 id="NewStderrLogger">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/common/logger.go#L26">NewStderrLogger</a>
-					<a class="permalink" href="#NewStderrLogger">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func NewStderrLogger() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>, <a href="#LoggerFlushFunc">LoggerFlushFunc</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
-				
-				
-				
 			
 
 			
