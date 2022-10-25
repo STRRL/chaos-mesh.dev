@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>helm - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 99c6581. Generated at Tue Oct 25 10:04:02 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package helm
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/helm"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+				<dd><a href="#pkg-examples" class="examplesLink">Examples</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>
+Package helm introduces the integration with helm, for example:
+install / upgrade Chaos Mesh on remote cluster
+</p>
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+			
+				
+				<dd><a href="#DownloadChaosMeshChartTgz">func DownloadChaosMeshChartTgz(ctx context.Context, version string) (string, error)</a></dd>
+			
+				
+				<dd><a href="#FetchChaosMeshChart">func FetchChaosMeshChart(ctx context.Context, version string) (*chart.Chart, error)</a></dd>
+			
+			
+				
+				<dd><a href="#HelmClient">type HelmClient</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewHelmClient">func NewHelmClient(restClientGetter genericclioptions.RESTClientGetter, logger logr.Logger) (*HelmClient, error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#HelmClient.GetRelease">func (h *HelmClient) GetRelease(namespace string, releaseName string) (*release.Release, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#HelmClient.UninstallRelease">func (h *HelmClient) UninstallRelease(namespace string, releaseName string) (*release.UninstallReleaseResponse, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#HelmClient.UpgradeOrInstall">func (h *HelmClient) UpgradeOrInstall(namespace string, releaseName string, chart *chart.Chart, values map[string]interface{}) (*release.Release, error)</a></dd>
+				
+			
+				
+				<dd><a href="#ReleaseService">type ReleaseService</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+		<div id="pkg-examples">
+			<h3>Examples</h3>
+			<div class="js-expandAll expandAll collapsed">(Expand All)</div>
+			<dl>
+			
+			<dd><a class="exampleLink" href="#example_DownloadChaosMeshChartTgz">DownloadChaosMeshChartTgz</a></dd>
+			
+			<dd><a class="exampleLink" href="#example_FetchChaosMeshChart">FetchChaosMeshChart</a></dd>
+			
+			</dl>
+		</div>
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/chart.go">chart.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/doc.go">doc.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/helm_client.go">helm_client.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/interfaces.go">interfaces.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				
+				<pre>const <span id="ChaosMeshHelmRepo">ChaosMeshHelmRepo</span> = &#34;https://charts.chaos-mesh.org&#34;</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="DownloadChaosMeshChartTgz">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/chart.go#L44">DownloadChaosMeshChartTgz</a>
+				<a class="permalink" href="#DownloadChaosMeshChartTgz">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func DownloadChaosMeshChartTgz(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, version <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			<div id="example_DownloadChaosMeshChartTgz" class="toggle">
+	<div class="collapsed">
+		<p class="exampleHeading toggleButton">▹ <span class="text">Example</span></p>
+	</div>
+	<div class="expanded">
+		<p class="exampleHeading toggleButton">▾ <span class="text">Example</span></p>
+		
+		
+		
+			<p>Code:</p>
+			<pre class="code">path, err := DownloadChaosMeshChartTgz(context.Background(), &#34;2.2.0&#34;)
+if err != nil {
+    panic(err)
+}
+fmt.Fprintln(os.Stderr, path)
+<span class="comment"></pre>
+			
+		
+	</div>
+</div>
+
+			
+
+		
+			
+			
+			<h2 id="FetchChaosMeshChart">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/chart.go#L32">FetchChaosMeshChart</a>
+				<a class="permalink" href="#FetchChaosMeshChart">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func FetchChaosMeshChart(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, version <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/chart/">chart</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/chart/#Chart">Chart</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			<div id="example_FetchChaosMeshChart" class="toggle">
+	<div class="collapsed">
+		<p class="exampleHeading toggleButton">▹ <span class="text">Example</span></p>
+	</div>
+	<div class="expanded">
+		<p class="exampleHeading toggleButton">▾ <span class="text">Example</span></p>
+		
+		
+		
+			<p>Code:</p>
+			<pre class="code">chart, err := FetchChaosMeshChart(context.Background(), &#34;2.2.0&#34;)
+if err != nil {
+    panic(err)
+}
+fmt.Fprintln(os.Stderr, chart.Name())
+fmt.Fprintln(os.Stderr, chart.Metadata.Version)
+fmt.Fprintln(os.Stderr, chart.AppVersion())
+<span class="comment"></pre>
+			
+		
+	</div>
+</div>
+
+			
+
+		
+		
+			
+			
+			<h2 id="HelmClient">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/helm_client.go#L34">HelmClient</a>
+				<a class="permalink" href="#HelmClient">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type HelmClient struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewHelmClient">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/helm_client.go#L39">NewHelmClient</a>
+					<a class="permalink" href="#NewHelmClient">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewHelmClient(restClientGetter <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/cli-runtime/pkg/genericclioptions/">genericclioptions</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/cli-runtime/pkg/genericclioptions/#RESTClientGetter">RESTClientGetter</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (*<a href="#HelmClient">HelmClient</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="HelmClient.GetRelease">func (*HelmClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/helm_client.go#L70">GetRelease</a>
+					<a class="permalink" href="#HelmClient.GetRelease">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#HelmClient">HelmClient</a>) GetRelease(namespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, releaseName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/">release</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/#Release">Release</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="HelmClient.UninstallRelease">func (*HelmClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/helm_client.go#L99">UninstallRelease</a>
+					<a class="permalink" href="#HelmClient.UninstallRelease">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#HelmClient">HelmClient</a>) UninstallRelease(namespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, releaseName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/">release</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/#UninstallReleaseResponse">UninstallReleaseResponse</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="HelmClient.UpgradeOrInstall">func (*HelmClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/helm_client.go#L83">UpgradeOrInstall</a>
+					<a class="permalink" href="#HelmClient.UpgradeOrInstall">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#HelmClient">HelmClient</a>) UpgradeOrInstall(namespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, releaseName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, chart *<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/chart/">chart</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/chart/#Chart">Chart</a>, values map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]interface{}) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/">release</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/#Release">Release</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ReleaseService">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/interfaces.go#L24">ReleaseService</a>
+				<a class="permalink" href="#ReleaseService">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ReleaseService introduces all the operations about Helm Release
+</p>
+
+			<pre>type ReleaseService interface {
+    <span class="comment">/*GetRelease would fetch the installed release.
+     */</span>
+    GetRelease(namespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, releaseName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/">release</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/#Release">Release</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)
+
+    <span class="comment">/*UpgradeOrInstall would upgrade the existed release or install a new one.
+    namespace is the namespace of the release, it should be an existed namespace.
+    releaseName introduces the name of the release.
+    chart is the chart with certain version to be installed.
+    values is the values to be used in the chart, it is also so-called Config in helm&#39;s codes.
+    It will return the installed/upgraded release and error if any.
+    */</span>
+    UpgradeOrInstall(namespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, releaseName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, chart *<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/chart/">chart</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/chart/#Chart">Chart</a>, values map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]interface{}) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/">release</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/#Release">Release</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)
+
+    UninstallRelease(namespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, releaseName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/">release</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/#UninstallReleaseResponse">UninstallReleaseResponse</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.18.1.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
