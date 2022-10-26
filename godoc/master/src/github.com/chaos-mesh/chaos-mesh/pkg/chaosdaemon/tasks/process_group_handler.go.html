@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 99c6581. Generated at Tue Oct 25 22:03:53 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f45d612. Generated at Wed Oct 26 10:01:38 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -160,7 +160,7 @@
 <span id="L95" class="ln">    95  </span>				gp.Logger.Error(err, &#34;failed to create child process&#34;)
 <span id="L96" class="ln">    96  </span>				continue
 <span id="L97" class="ln">    97  </span>			}
-<span id="L98" class="ln">    98  </span>			err = childProcessChaos.Inject(pid)
+<span id="L98" class="ln">    98  </span>			err = childProcessChaos.Inject(childSysPID)
 <span id="L99" class="ln">    99  </span>			if err != nil {
 <span id="L100" class="ln">   100  </span>				gp.Logger.Error(err, &#34;failed to inject new child process&#34;)
 <span id="L101" class="ln">   101  </span>				continue

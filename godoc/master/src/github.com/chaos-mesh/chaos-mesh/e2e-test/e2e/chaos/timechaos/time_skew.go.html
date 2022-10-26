@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 99c6581. Generated at Tue Oct 25 22:03:53 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f45d612. Generated at Wed Oct 26 10:01:38 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -289,6 +289,79 @@
 <span id="L224" class="ln">   224  </span>	cli.Delete(ctx, timeChaos)
 <span id="L225" class="ln">   225  </span>}
 <span id="L226" class="ln">   226  </span>
+<span id="L227" class="ln">   227  </span>func TestcaseTimeSkewShouldAlsoAffectChildProces(
+<span id="L228" class="ln">   228  </span>	ns string,
+<span id="L229" class="ln">   229  </span>	cli client.Client,
+<span id="L230" class="ln">   230  </span>	c http.Client,
+<span id="L231" class="ln">   231  </span>	port uint16,
+<span id="L232" class="ln">   232  </span>) {
+<span id="L233" class="ln">   233  </span>
+<span id="L234" class="ln">   234  </span>	ctx, cancel := context.WithCancel(context.Background())
+<span id="L235" class="ln">   235  </span>	defer cancel()
+<span id="L236" class="ln">   236  </span>
+<span id="L237" class="ln">   237  </span>	By(&#34;wait e2e helper ready&#34;)
+<span id="L238" class="ln">   238  </span>	err := util.WaitE2EHelperReady(c, port)
+<span id="L239" class="ln">   239  </span>	framework.ExpectNoError(err, &#34;wait e2e helper ready error&#34;)
+<span id="L240" class="ln">   240  </span>
+<span id="L241" class="ln">   241  </span>	By(&#34;create chaos CRD objects&#34;)
+<span id="L242" class="ln">   242  </span>	initTime, err := getPodChildProcessTimeNS(c, port)
+<span id="L243" class="ln">   243  </span>	framework.ExpectNoError(err, &#34;failed to get pod time&#34;)
+<span id="L244" class="ln">   244  </span>
+<span id="L245" class="ln">   245  </span>	timeChaos := &amp;v1alpha1.TimeChaos{
+<span id="L246" class="ln">   246  </span>		ObjectMeta: metav1.ObjectMeta{
+<span id="L247" class="ln">   247  </span>			Name:      &#34;timer-time-chaos&#34;,
+<span id="L248" class="ln">   248  </span>			Namespace: ns,
+<span id="L249" class="ln">   249  </span>		},
+<span id="L250" class="ln">   250  </span>		Spec: v1alpha1.TimeChaosSpec{
+<span id="L251" class="ln">   251  </span>			Duration:   pointer.StringPtr(&#34;9m&#34;),
+<span id="L252" class="ln">   252  </span>			TimeOffset: &#34;-1h&#34;,
+<span id="L253" class="ln">   253  </span>			ContainerSelector: v1alpha1.ContainerSelector{
+<span id="L254" class="ln">   254  </span>				PodSelector: v1alpha1.PodSelector{
+<span id="L255" class="ln">   255  </span>					Selector: v1alpha1.PodSelectorSpec{
+<span id="L256" class="ln">   256  </span>						GenericSelectorSpec: v1alpha1.GenericSelectorSpec{
+<span id="L257" class="ln">   257  </span>							Namespaces:     []string{ns},
+<span id="L258" class="ln">   258  </span>							LabelSelectors: map[string]string{&#34;app&#34;: &#34;timer&#34;},
+<span id="L259" class="ln">   259  </span>						},
+<span id="L260" class="ln">   260  </span>					},
+<span id="L261" class="ln">   261  </span>					Mode: v1alpha1.OneMode,
+<span id="L262" class="ln">   262  </span>				},
+<span id="L263" class="ln">   263  </span>			},
+<span id="L264" class="ln">   264  </span>		},
+<span id="L265" class="ln">   265  </span>	}
+<span id="L266" class="ln">   266  </span>	err = cli.Create(ctx, timeChaos)
+<span id="L267" class="ln">   267  </span>	framework.ExpectNoError(err, &#34;create time chaos error&#34;)
+<span id="L268" class="ln">   268  </span>
+<span id="L269" class="ln">   269  </span>	By(&#34;waiting for assertion&#34;)
+<span id="L270" class="ln">   270  </span>	err = wait.PollImmediate(5*time.Second, 5*time.Minute, func() (done bool, err error) {
+<span id="L271" class="ln">   271  </span>		podTime, err := getPodChildProcessTimeNS(c, port)
+<span id="L272" class="ln">   272  </span>		framework.ExpectNoError(err, &#34;failed to get pod time&#34;)
+<span id="L273" class="ln">   273  </span>		if podTime.Before(*initTime) {
+<span id="L274" class="ln">   274  </span>			return true, nil
+<span id="L275" class="ln">   275  </span>		}
+<span id="L276" class="ln">   276  </span>		return false, nil
+<span id="L277" class="ln">   277  </span>	})
+<span id="L278" class="ln">   278  </span>	framework.ExpectNoError(err, &#34;time chaos doesn&#39;t work as expected&#34;)
+<span id="L279" class="ln">   279  </span>
+<span id="L280" class="ln">   280  </span>	By(&#34;delete chaos CRD objects&#34;)
+<span id="L281" class="ln">   281  </span>	err = cli.Delete(ctx, timeChaos)
+<span id="L282" class="ln">   282  </span>	framework.ExpectNoError(err, &#34;failed to delete time chaos&#34;)
+<span id="L283" class="ln">   283  </span>
+<span id="L284" class="ln">   284  </span>	By(&#34;waiting for assertion recovering&#34;)
+<span id="L285" class="ln">   285  </span>	err = wait.Poll(5*time.Second, 1*time.Minute, func() (done bool, err error) {
+<span id="L286" class="ln">   286  </span>		podTime, err := getPodChildProcessTimeNS(c, port)
+<span id="L287" class="ln">   287  </span>		framework.ExpectNoError(err, &#34;failed to get pod time&#34;)
+<span id="L288" class="ln">   288  </span>		<span class="comment">// since there is no timechaos now, current pod time should not be earlier</span>
+<span id="L289" class="ln">   289  </span>		<span class="comment">// than the init time</span>
+<span id="L290" class="ln">   290  </span>		if podTime.Before(*initTime) {
+<span id="L291" class="ln">   291  </span>			return true, nil
+<span id="L292" class="ln">   292  </span>		}
+<span id="L293" class="ln">   293  </span>		return false, nil
+<span id="L294" class="ln">   294  </span>	})
+<span id="L295" class="ln">   295  </span>	framework.ExpectError(err, &#34;wait no timechaos error&#34;)
+<span id="L296" class="ln">   296  </span>	framework.ExpectEqual(err.Error(), wait.ErrWaitTimeout.Error())
+<span id="L297" class="ln">   297  </span>	By(&#34;success to perform time chaos&#34;)
+<span id="L298" class="ln">   298  </span>}
+<span id="L299" class="ln">   299  </span>
 </pre><p></p>
 
 <div id="footer">

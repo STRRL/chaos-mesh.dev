@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 99c6581. Generated at Tue Oct 25 22:03:53 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f45d612. Generated at Wed Oct 26 10:01:38 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -107,6 +107,26 @@
 <span id="L42" class="ln">    42  </span>	return &amp;t, nil
 <span id="L43" class="ln">    43  </span>}
 <span id="L44" class="ln">    44  </span>
+<span id="L45" class="ln">    45  </span><span class="comment">// get pod current time in nanosecond</span>
+<span id="L46" class="ln">    46  </span>func getPodChildProcessTimeNS(c http.Client, port uint16) (*time.Time, error) {
+<span id="L47" class="ln">    47  </span>	resp, err := c.Get(fmt.Sprintf(&#34;http://localhost:%d/child-process-time&#34;, port))
+<span id="L48" class="ln">    48  </span>	if err != nil {
+<span id="L49" class="ln">    49  </span>		return nil, err
+<span id="L50" class="ln">    50  </span>	}
+<span id="L51" class="ln">    51  </span>
+<span id="L52" class="ln">    52  </span>	out, err := io.ReadAll(resp.Body)
+<span id="L53" class="ln">    53  </span>	defer resp.Body.Close()
+<span id="L54" class="ln">    54  </span>	if err != nil {
+<span id="L55" class="ln">    55  </span>		return nil, err
+<span id="L56" class="ln">    56  </span>	}
+<span id="L57" class="ln">    57  </span>
+<span id="L58" class="ln">    58  </span>	t, err := time.Parse(time.RFC3339Nano, string(out))
+<span id="L59" class="ln">    59  </span>	if err != nil {
+<span id="L60" class="ln">    60  </span>		return nil, err
+<span id="L61" class="ln">    61  </span>	}
+<span id="L62" class="ln">    62  </span>	return &amp;t, nil
+<span id="L63" class="ln">    63  </span>}
+<span id="L64" class="ln">    64  </span>
 </pre><p></p>
 
 <div id="footer">
