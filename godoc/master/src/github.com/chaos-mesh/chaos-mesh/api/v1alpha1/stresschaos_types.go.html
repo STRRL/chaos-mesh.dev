@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 40080be. Generated at Mon Nov 14 10:01:42 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 191c9ae. Generated at Mon Nov 14 22:04:39 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -169,97 +169,102 @@
 <span id="L104" class="ln">   104  </span>}
 <span id="L105" class="ln">   105  </span>
 <span id="L106" class="ln">   106  </span><span class="comment">// Normalize the stressors to comply with stress-ng</span>
-<span id="L107" class="ln">   107  </span>func (in *Stressors) Normalize() (string, string, error) {
-<span id="L108" class="ln">   108  </span>	cpuStressors := &#34;&#34;
-<span id="L109" class="ln">   109  </span>	memoryStressors := &#34;&#34;
-<span id="L110" class="ln">   110  </span>	if in.MemoryStressor != nil &amp;&amp; in.MemoryStressor.Workers != 0 {
-<span id="L111" class="ln">   111  </span>		memoryStressors += fmt.Sprintf(&#34; --workers %d&#34;, in.MemoryStressor.Workers)
-<span id="L112" class="ln">   112  </span>		if len(in.MemoryStressor.Size) != 0 {
-<span id="L113" class="ln">   113  </span>			memoryStressors += fmt.Sprintf(&#34; --size %s&#34;, in.MemoryStressor.Size)
-<span id="L114" class="ln">   114  </span>		}
-<span id="L115" class="ln">   115  </span>
-<span id="L116" class="ln">   116  </span>		if in.MemoryStressor.Options != nil {
-<span id="L117" class="ln">   117  </span>			for _, v := range in.MemoryStressor.Options {
-<span id="L118" class="ln">   118  </span>				memoryStressors += fmt.Sprintf(&#34; %v &#34;, v)
-<span id="L119" class="ln">   119  </span>			}
-<span id="L120" class="ln">   120  </span>		}
-<span id="L121" class="ln">   121  </span>	}
-<span id="L122" class="ln">   122  </span>	if in.CPUStressor != nil &amp;&amp; in.CPUStressor.Workers != 0 {
-<span id="L123" class="ln">   123  </span>		<span class="comment">// Without these two args, we may not reach the resource limit of pod,</span>
-<span id="L124" class="ln">   124  </span>		<span class="comment">// especially when we set cpu workers &gt; 1</span>
-<span id="L125" class="ln">   125  </span>		<span class="comment">// More details see: https://github.com/chaos-mesh/chaos-mesh/issues/3100</span>
-<span id="L126" class="ln">   126  </span>		cpuStressors += &#34; --cpu-load-slice 10 --cpu-method sqrt&#34;
-<span id="L127" class="ln">   127  </span>		cpuStressors += fmt.Sprintf(&#34; --cpu %d&#34;, in.CPUStressor.Workers)
-<span id="L128" class="ln">   128  </span>		if in.CPUStressor.Load != nil {
-<span id="L129" class="ln">   129  </span>			cpuStressors += fmt.Sprintf(&#34; --cpu-load %d&#34;,
-<span id="L130" class="ln">   130  </span>				*in.CPUStressor.Load)
-<span id="L131" class="ln">   131  </span>		}
-<span id="L132" class="ln">   132  </span>
-<span id="L133" class="ln">   133  </span>		if in.CPUStressor.Options != nil {
-<span id="L134" class="ln">   134  </span>			for _, v := range in.CPUStressor.Options {
-<span id="L135" class="ln">   135  </span>				cpuStressors += fmt.Sprintf(&#34; %v &#34;, v)
-<span id="L136" class="ln">   136  </span>			}
-<span id="L137" class="ln">   137  </span>		}
-<span id="L138" class="ln">   138  </span>	}
-<span id="L139" class="ln">   139  </span>	return cpuStressors, memoryStressors, nil
-<span id="L140" class="ln">   140  </span>}
-<span id="L141" class="ln">   141  </span>
-<span id="L142" class="ln">   142  </span><span class="comment">// Stressor defines common configurations of a stressor</span>
-<span id="L143" class="ln">   143  </span>type Stressor struct {
-<span id="L144" class="ln">   144  </span>	<span class="comment">// Workers specifies N workers to apply the stressor.</span>
-<span id="L145" class="ln">   145  </span>	<span class="comment">// Maximum 8192 workers can run by stress-ng</span>
-<span id="L146" class="ln">   146  </span>	<span class="comment">// +kubebuilder:validation:Maximum=8192</span>
-<span id="L147" class="ln">   147  </span>	Workers int `json:&#34;workers&#34;`
-<span id="L148" class="ln">   148  </span>}
-<span id="L149" class="ln">   149  </span>
-<span id="L150" class="ln">   150  </span><span class="comment">// MemoryStressor defines how to stress memory out</span>
-<span id="L151" class="ln">   151  </span>type MemoryStressor struct {
-<span id="L152" class="ln">   152  </span>	Stressor `json:&#34;,inline&#34;`
-<span id="L153" class="ln">   153  </span>
-<span id="L154" class="ln">   154  </span>	<span class="comment">// Size specifies N bytes consumed per vm worker, default is the total available memory.</span>
-<span id="L155" class="ln">   155  </span>	<span class="comment">// One can specify the size as % of total available memory or in units of B, KB/KiB,</span>
-<span id="L156" class="ln">   156  </span>	<span class="comment">// MB/MiB, GB/GiB, TB/TiB.</span>
-<span id="L157" class="ln">   157  </span>	<span class="comment">// +optional</span>
-<span id="L158" class="ln">   158  </span>	Size string `json:&#34;size,omitempty&#34; webhook:&#34;Bytes&#34;`
-<span id="L159" class="ln">   159  </span>
-<span id="L160" class="ln">   160  </span>	<span class="comment">// OOMScoreAdj sets the oom_score_adj of the stress process. See `man 5 proc` to know more</span>
-<span id="L161" class="ln">   161  </span>	<span class="comment">// about this option.</span>
-<span id="L162" class="ln">   162  </span>	<span class="comment">// +kubebuilder:validation:Minimum=-1000</span>
-<span id="L163" class="ln">   163  </span>	<span class="comment">// +kubebuilder:validation:Maximum=1000</span>
-<span id="L164" class="ln">   164  </span>	<span class="comment">// +kubebuilder:default=0</span>
-<span id="L165" class="ln">   165  </span>	<span class="comment">// +optional</span>
-<span id="L166" class="ln">   166  </span>	OOMScoreAdj int `json:&#34;oomScoreAdj,omitempty&#34;`
-<span id="L167" class="ln">   167  </span>
-<span id="L168" class="ln">   168  </span>	<span class="comment">// extend stress-ng options</span>
-<span id="L169" class="ln">   169  </span>	<span class="comment">// +optional</span>
-<span id="L170" class="ln">   170  </span>	Options []string `json:&#34;options,omitempty&#34;`
-<span id="L171" class="ln">   171  </span>}
+<span id="L107" class="ln">   107  </span>func (in *Stressors) Normalize() (cpuStressors string, memoryStressors string, err error) {
+<span id="L108" class="ln">   108  </span>	cpuStressors = &#34;&#34;
+<span id="L109" class="ln">   109  </span>	memoryStressors = &#34;&#34;
+<span id="L110" class="ln">   110  </span>	err = nil
+<span id="L111" class="ln">   111  </span>
+<span id="L112" class="ln">   112  </span>	if in.MemoryStressor != nil &amp;&amp; in.MemoryStressor.Workers != 0 {
+<span id="L113" class="ln">   113  </span>		memoryStressors += fmt.Sprintf(&#34; --workers %d&#34;, in.MemoryStressor.Workers)
+<span id="L114" class="ln">   114  </span>
+<span id="L115" class="ln">   115  </span>		if len(in.MemoryStressor.Size) != 0 {
+<span id="L116" class="ln">   116  </span>			memoryStressors += fmt.Sprintf(&#34; --size %s&#34;, in.MemoryStressor.Size)
+<span id="L117" class="ln">   117  </span>		}
+<span id="L118" class="ln">   118  </span>
+<span id="L119" class="ln">   119  </span>		if in.MemoryStressor.Options != nil {
+<span id="L120" class="ln">   120  </span>			for _, v := range in.MemoryStressor.Options {
+<span id="L121" class="ln">   121  </span>				memoryStressors += fmt.Sprintf(&#34; %v &#34;, v)
+<span id="L122" class="ln">   122  </span>			}
+<span id="L123" class="ln">   123  </span>		}
+<span id="L124" class="ln">   124  </span>	}
+<span id="L125" class="ln">   125  </span>	if in.CPUStressor != nil &amp;&amp; in.CPUStressor.Workers != 0 {
+<span id="L126" class="ln">   126  </span>		<span class="comment">// Without these two args, we may not reach the resource limit of pod,</span>
+<span id="L127" class="ln">   127  </span>		<span class="comment">// especially when we set cpu workers &gt; 1</span>
+<span id="L128" class="ln">   128  </span>		<span class="comment">// More details see: https://github.com/chaos-mesh/chaos-mesh/issues/3100</span>
+<span id="L129" class="ln">   129  </span>		cpuStressors += &#34; --cpu-load-slice 10 --cpu-method sqrt&#34;
+<span id="L130" class="ln">   130  </span>		cpuStressors += fmt.Sprintf(&#34; --cpu %d&#34;, in.CPUStressor.Workers)
+<span id="L131" class="ln">   131  </span>
+<span id="L132" class="ln">   132  </span>		if in.CPUStressor.Load != nil {
+<span id="L133" class="ln">   133  </span>			cpuStressors += fmt.Sprintf(&#34; --cpu-load %d&#34;,
+<span id="L134" class="ln">   134  </span>				*in.CPUStressor.Load)
+<span id="L135" class="ln">   135  </span>		}
+<span id="L136" class="ln">   136  </span>
+<span id="L137" class="ln">   137  </span>		if in.CPUStressor.Options != nil {
+<span id="L138" class="ln">   138  </span>			for _, v := range in.CPUStressor.Options {
+<span id="L139" class="ln">   139  </span>				cpuStressors += fmt.Sprintf(&#34; %v &#34;, v)
+<span id="L140" class="ln">   140  </span>			}
+<span id="L141" class="ln">   141  </span>		}
+<span id="L142" class="ln">   142  </span>	}
+<span id="L143" class="ln">   143  </span>
+<span id="L144" class="ln">   144  </span>	return
+<span id="L145" class="ln">   145  </span>}
+<span id="L146" class="ln">   146  </span>
+<span id="L147" class="ln">   147  </span><span class="comment">// Stressor defines common configurations of a stressor</span>
+<span id="L148" class="ln">   148  </span>type Stressor struct {
+<span id="L149" class="ln">   149  </span>	<span class="comment">// Workers specifies N workers to apply the stressor.</span>
+<span id="L150" class="ln">   150  </span>	<span class="comment">// Maximum 8192 workers can run by stress-ng</span>
+<span id="L151" class="ln">   151  </span>	<span class="comment">// +kubebuilder:validation:Maximum=8192</span>
+<span id="L152" class="ln">   152  </span>	Workers int `json:&#34;workers&#34;`
+<span id="L153" class="ln">   153  </span>}
+<span id="L154" class="ln">   154  </span>
+<span id="L155" class="ln">   155  </span><span class="comment">// MemoryStressor defines how to stress memory out</span>
+<span id="L156" class="ln">   156  </span>type MemoryStressor struct {
+<span id="L157" class="ln">   157  </span>	Stressor `json:&#34;,inline&#34;`
+<span id="L158" class="ln">   158  </span>
+<span id="L159" class="ln">   159  </span>	<span class="comment">// Size specifies N bytes consumed per vm worker, default is the total available memory.</span>
+<span id="L160" class="ln">   160  </span>	<span class="comment">// One can specify the size as % of total available memory or in units of B, KB/KiB,</span>
+<span id="L161" class="ln">   161  </span>	<span class="comment">// MB/MiB, GB/GiB, TB/TiB.</span>
+<span id="L162" class="ln">   162  </span>	<span class="comment">// +optional</span>
+<span id="L163" class="ln">   163  </span>	Size string `json:&#34;size,omitempty&#34; webhook:&#34;Bytes&#34;`
+<span id="L164" class="ln">   164  </span>
+<span id="L165" class="ln">   165  </span>	<span class="comment">// OOMScoreAdj sets the oom_score_adj of the stress process. See `man 5 proc` to know more</span>
+<span id="L166" class="ln">   166  </span>	<span class="comment">// about this option.</span>
+<span id="L167" class="ln">   167  </span>	<span class="comment">// +kubebuilder:validation:Minimum=-1000</span>
+<span id="L168" class="ln">   168  </span>	<span class="comment">// +kubebuilder:validation:Maximum=1000</span>
+<span id="L169" class="ln">   169  </span>	<span class="comment">// +kubebuilder:default=0</span>
+<span id="L170" class="ln">   170  </span>	<span class="comment">// +optional</span>
+<span id="L171" class="ln">   171  </span>	OOMScoreAdj int `json:&#34;oomScoreAdj,omitempty&#34;`
 <span id="L172" class="ln">   172  </span>
-<span id="L173" class="ln">   173  </span><span class="comment">// CPUStressor defines how to stress CPU out</span>
-<span id="L174" class="ln">   174  </span>type CPUStressor struct {
-<span id="L175" class="ln">   175  </span>	Stressor `json:&#34;,inline&#34;`
-<span id="L176" class="ln">   176  </span>	<span class="comment">// Load specifies P percent loading per CPU worker. 0 is effectively a sleep (no load) and 100</span>
-<span id="L177" class="ln">   177  </span>	<span class="comment">// is full loading.</span>
-<span id="L178" class="ln">   178  </span>	<span class="comment">// +kubebuilder:validation:Minimum=0</span>
-<span id="L179" class="ln">   179  </span>	<span class="comment">// +kubebuilder:validation:Maximum=100</span>
-<span id="L180" class="ln">   180  </span>	<span class="comment">// +optional</span>
-<span id="L181" class="ln">   181  </span>	Load *int `json:&#34;load,omitempty&#34;`
-<span id="L182" class="ln">   182  </span>
-<span id="L183" class="ln">   183  </span>	<span class="comment">// extend stress-ng options</span>
-<span id="L184" class="ln">   184  </span>	<span class="comment">// +optional</span>
-<span id="L185" class="ln">   185  </span>	Options []string `json:&#34;options,omitempty&#34;`
-<span id="L186" class="ln">   186  </span>}
+<span id="L173" class="ln">   173  </span>	<span class="comment">// extend stress-ng options</span>
+<span id="L174" class="ln">   174  </span>	<span class="comment">// +optional</span>
+<span id="L175" class="ln">   175  </span>	Options []string `json:&#34;options,omitempty&#34;`
+<span id="L176" class="ln">   176  </span>}
+<span id="L177" class="ln">   177  </span>
+<span id="L178" class="ln">   178  </span><span class="comment">// CPUStressor defines how to stress CPU out</span>
+<span id="L179" class="ln">   179  </span>type CPUStressor struct {
+<span id="L180" class="ln">   180  </span>	Stressor `json:&#34;,inline&#34;`
+<span id="L181" class="ln">   181  </span>	<span class="comment">// Load specifies P percent loading per CPU worker. 0 is effectively a sleep (no load) and 100</span>
+<span id="L182" class="ln">   182  </span>	<span class="comment">// is full loading.</span>
+<span id="L183" class="ln">   183  </span>	<span class="comment">// +kubebuilder:validation:Minimum=0</span>
+<span id="L184" class="ln">   184  </span>	<span class="comment">// +kubebuilder:validation:Maximum=100</span>
+<span id="L185" class="ln">   185  </span>	<span class="comment">// +optional</span>
+<span id="L186" class="ln">   186  </span>	Load *int `json:&#34;load,omitempty&#34;`
 <span id="L187" class="ln">   187  </span>
-<span id="L188" class="ln">   188  </span>func (obj *StressChaos) GetSelectorSpecs() map[string]interface{} {
-<span id="L189" class="ln">   189  </span>	return map[string]interface{}{
-<span id="L190" class="ln">   190  </span>		&#34;.&#34;: &amp;obj.Spec.ContainerSelector,
-<span id="L191" class="ln">   191  </span>	}
-<span id="L192" class="ln">   192  </span>}
-<span id="L193" class="ln">   193  </span>
-<span id="L194" class="ln">   194  </span>func (obj *StressChaos) GetCustomStatus() interface{} {
-<span id="L195" class="ln">   195  </span>	return &amp;obj.Status.Instances
-<span id="L196" class="ln">   196  </span>}
-<span id="L197" class="ln">   197  </span>
+<span id="L188" class="ln">   188  </span>	<span class="comment">// extend stress-ng options</span>
+<span id="L189" class="ln">   189  </span>	<span class="comment">// +optional</span>
+<span id="L190" class="ln">   190  </span>	Options []string `json:&#34;options,omitempty&#34;`
+<span id="L191" class="ln">   191  </span>}
+<span id="L192" class="ln">   192  </span>
+<span id="L193" class="ln">   193  </span>func (obj *StressChaos) GetSelectorSpecs() map[string]interface{} {
+<span id="L194" class="ln">   194  </span>	return map[string]interface{}{
+<span id="L195" class="ln">   195  </span>		&#34;.&#34;: &amp;obj.Spec.ContainerSelector,
+<span id="L196" class="ln">   196  </span>	}
+<span id="L197" class="ln">   197  </span>}
+<span id="L198" class="ln">   198  </span>
+<span id="L199" class="ln">   199  </span>func (obj *StressChaos) GetCustomStatus() interface{} {
+<span id="L200" class="ln">   200  </span>	return &amp;obj.Status.Instances
+<span id="L201" class="ln">   201  </span>}
+<span id="L202" class="ln">   202  </span>
 </pre><p></p>
 
 <div id="footer">

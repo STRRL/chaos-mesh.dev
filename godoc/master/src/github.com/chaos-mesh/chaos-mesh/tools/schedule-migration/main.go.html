@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 40080be. Generated at Mon Nov 14 10:01:42 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 191c9ae. Generated at Mon Nov 14 22:04:39 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -88,7 +88,7 @@
 <span id="L23" class="ln">    23  </span>	&#34;gopkg.in/yaml.v2&#34;
 <span id="L24" class="ln">    24  </span>)
 <span id="L25" class="ln">    25  </span>
-<span id="L26" class="ln">    26  </span>type Item struct {
+<span id="L26" class="ln">    26  </span>type Object struct {
 <span id="L27" class="ln">    27  </span>	ApiVersion string        `yaml:&#34;apiVersion&#34;`
 <span id="L28" class="ln">    28  </span>	Kind       string        `yaml:&#34;kind&#34;`
 <span id="L29" class="ln">    29  </span>	Metadata   yaml.MapSlice `yaml:&#34;metadata&#34;`
@@ -106,10 +106,10 @@
 <span id="L41" class="ln">    41  </span>		os.Exit(1)
 <span id="L42" class="ln">    42  </span>	}
 <span id="L43" class="ln">    43  </span>	var (
-<span id="L44" class="ln">    44  </span>		old Item
-<span id="L45" class="ln">    45  </span>		new Item
+<span id="L44" class="ln">    44  </span>		oldObj Object
+<span id="L45" class="ln">    45  </span>		newObj Object
 <span id="L46" class="ln">    46  </span>	)
-<span id="L47" class="ln">    47  </span>	err = yaml.Unmarshal(data, &amp;old)
+<span id="L47" class="ln">    47  </span>	err = yaml.Unmarshal(data, &amp;oldObj)
 <span id="L48" class="ln">    48  </span>	if err != nil {
 <span id="L49" class="ln">    49  </span>		fmt.Println(err)
 <span id="L50" class="ln">    50  </span>		os.Exit(1)
@@ -120,12 +120,12 @@
 <span id="L55" class="ln">    55  </span>			findSchedule bool
 <span id="L56" class="ln">    56  </span>		)
 <span id="L57" class="ln">    57  </span>
-<span id="L58" class="ln">    58  </span>		if isIncompatibleChaos(old) {
-<span id="L59" class="ln">    59  </span>			fmt.Printf(&#34;the define of %s is changed in v2.0, please modify it according to the document, refer to https://chaos-mesh.org/docs/\n&#34;, old.Kind)
+<span id="L58" class="ln">    58  </span>		if isIncompatibleChaos(oldObj) {
+<span id="L59" class="ln">    59  </span>			fmt.Printf(&#34;the define of %s is changed in v2.0, please modify it according to the document, refer to https://chaos-mesh.org/docs/\n&#34;, oldObj.Kind)
 <span id="L60" class="ln">    60  </span>			os.Exit(1)
 <span id="L61" class="ln">    61  </span>		}
 <span id="L62" class="ln">    62  </span>
-<span id="L63" class="ln">    63  </span>		for _, item := range old.Spec {
+<span id="L63" class="ln">    63  </span>		for _, item := range oldObj.Spec {
 <span id="L64" class="ln">    64  </span>			if item.Key == &#34;scheduler&#34; {
 <span id="L65" class="ln">    65  </span>				schedule = item.Value.(yaml.MapSlice)
 <span id="L66" class="ln">    66  </span>				findSchedule = true
@@ -133,13 +133,13 @@
 <span id="L68" class="ln">    68  </span>		}
 <span id="L69" class="ln">    69  </span>
 <span id="L70" class="ln">    70  </span>		if findSchedule {
-<span id="L71" class="ln">    71  </span>			new = toScheduleObject(old, schedule)
+<span id="L71" class="ln">    71  </span>			newObj = toScheduleObject(oldObj, schedule)
 <span id="L72" class="ln">    72  </span>		} else {
-<span id="L73" class="ln">    73  </span>			new = old
-<span id="L74" class="ln">    74  </span>			new.Spec = transformChaosSpec(old)
+<span id="L73" class="ln">    73  </span>			newObj = oldObj
+<span id="L74" class="ln">    74  </span>			newObj.Spec = transformChaosSpec(oldObj)
 <span id="L75" class="ln">    75  </span>		}
 <span id="L76" class="ln">    76  </span>	}
-<span id="L77" class="ln">    77  </span>	data, err = yaml.Marshal(new)
+<span id="L77" class="ln">    77  </span>	data, err = yaml.Marshal(newObj)
 <span id="L78" class="ln">    78  </span>	if err != nil {
 <span id="L79" class="ln">    79  </span>		fmt.Println(err)
 <span id="L80" class="ln">    80  </span>		os.Exit(1)
@@ -163,33 +163,33 @@
 <span id="L98" class="ln">    98  </span>	return kind
 <span id="L99" class="ln">    99  </span>}
 <span id="L100" class="ln">   100  </span>
-<span id="L101" class="ln">   101  </span>func toScheduleObject(old Item, schedule yaml.MapSlice) Item {
-<span id="L102" class="ln">   102  </span>	var new Item
+<span id="L101" class="ln">   101  </span>func toScheduleObject(oldObj Object, schedule yaml.MapSlice) Object {
+<span id="L102" class="ln">   102  </span>	var newObj Object
 <span id="L103" class="ln">   103  </span>	var cron string
 <span id="L104" class="ln">   104  </span>	for _, item := range schedule {
 <span id="L105" class="ln">   105  </span>		if item.Key == &#34;cron&#34; {
 <span id="L106" class="ln">   106  </span>			cron = item.Value.(string)
 <span id="L107" class="ln">   107  </span>		}
 <span id="L108" class="ln">   108  </span>	}
-<span id="L109" class="ln">   109  </span>	new.ApiVersion = old.ApiVersion
-<span id="L110" class="ln">   110  </span>	new.Metadata = old.Metadata
-<span id="L111" class="ln">   111  </span>	new.Kind = &#34;Schedule&#34;
-<span id="L112" class="ln">   112  </span>	new.Spec = append(new.Spec, yaml.MapItem{Key: &#34;schedule&#34;, Value: cron})
-<span id="L113" class="ln">   113  </span>	new.Spec = append(new.Spec, yaml.MapItem{Key: &#34;type&#34;, Value: toNewKind(old.Kind)})
-<span id="L114" class="ln">   114  </span>	new.Spec = append(new.Spec, yaml.MapItem{Key: &#34;historyLimit&#34;, Value: 5})
-<span id="L115" class="ln">   115  </span>	new.Spec = append(new.Spec, yaml.MapItem{Key: &#34;concurrencyPolicy&#34;, Value: &#34;Forbid&#34;})
+<span id="L109" class="ln">   109  </span>	newObj.ApiVersion = oldObj.ApiVersion
+<span id="L110" class="ln">   110  </span>	newObj.Metadata = oldObj.Metadata
+<span id="L111" class="ln">   111  </span>	newObj.Kind = &#34;Schedule&#34;
+<span id="L112" class="ln">   112  </span>	newObj.Spec = append(newObj.Spec, yaml.MapItem{Key: &#34;schedule&#34;, Value: cron})
+<span id="L113" class="ln">   113  </span>	newObj.Spec = append(newObj.Spec, yaml.MapItem{Key: &#34;type&#34;, Value: toNewKind(oldObj.Kind)})
+<span id="L114" class="ln">   114  </span>	newObj.Spec = append(newObj.Spec, yaml.MapItem{Key: &#34;historyLimit&#34;, Value: 5})
+<span id="L115" class="ln">   115  </span>	newObj.Spec = append(newObj.Spec, yaml.MapItem{Key: &#34;concurrencyPolicy&#34;, Value: &#34;Forbid&#34;})
 <span id="L116" class="ln">   116  </span>
-<span id="L117" class="ln">   117  </span>	newSpec := transformChaosSpec(old)
-<span id="L118" class="ln">   118  </span>	new.Spec = append(new.Spec, yaml.MapItem{Key: getKeyName(old.Kind), Value: newSpec})
-<span id="L119" class="ln">   119  </span>	return new
+<span id="L117" class="ln">   117  </span>	newSpec := transformChaosSpec(oldObj)
+<span id="L118" class="ln">   118  </span>	newObj.Spec = append(newObj.Spec, yaml.MapItem{Key: getKeyName(oldObj.Kind), Value: newSpec})
+<span id="L119" class="ln">   119  </span>	return newObj
 <span id="L120" class="ln">   120  </span>}
 <span id="L121" class="ln">   121  </span>
-<span id="L122" class="ln">   122  </span>func transformChaosSpec(item Item) yaml.MapSlice {
+<span id="L122" class="ln">   122  </span>func transformChaosSpec(obj Object) yaml.MapSlice {
 <span id="L123" class="ln">   123  </span>	var (
 <span id="L124" class="ln">   124  </span>		newSpec        yaml.MapSlice
 <span id="L125" class="ln">   125  </span>		containerNames []string
 <span id="L126" class="ln">   126  </span>	)
-<span id="L127" class="ln">   127  </span>	for _, kv := range item.Spec {
+<span id="L127" class="ln">   127  </span>	for _, kv := range obj.Spec {
 <span id="L128" class="ln">   128  </span>		if kv.Key == &#34;scheduler&#34; {
 <span id="L129" class="ln">   129  </span>			continue
 <span id="L130" class="ln">   130  </span>		}
@@ -199,7 +199,7 @@
 <span id="L134" class="ln">   134  </span>			continue
 <span id="L135" class="ln">   135  </span>		}
 <span id="L136" class="ln">   136  </span>
-<span id="L137" class="ln">   137  </span>		if item.Kind == &#34;DNSChaos&#34; {
+<span id="L137" class="ln">   137  </span>		if obj.Kind == &#34;DNSChaos&#34; {
 <span id="L138" class="ln">   138  </span>			<span class="comment">// &#39;scope&#39; is obsolete in v2.0, and instead with &#39;patterns&#39;</span>
 <span id="L139" class="ln">   139  </span>			<span class="comment">// if &#39;scope&#39; is &#39;all&#39;, means chaos applies to all the host</span>
 <span id="L140" class="ln">   140  </span>			<span class="comment">// so it equal to pattern &#34;*&#34;. otherwise, can&#39;t transform.</span>
@@ -219,11 +219,11 @@
 <span id="L154" class="ln">   154  </span>	return newSpec
 <span id="L155" class="ln">   155  </span>}
 <span id="L156" class="ln">   156  </span>
-<span id="L157" class="ln">   157  </span>func isIncompatibleChaos(item Item) bool {
+<span id="L157" class="ln">   157  </span>func isIncompatibleChaos(obj Object) bool {
 <span id="L158" class="ln">   158  </span>	incompatible := false
-<span id="L159" class="ln">   159  </span>	switch item.Kind {
+<span id="L159" class="ln">   159  </span>	switch obj.Kind {
 <span id="L160" class="ln">   160  </span>	case &#34;DNSChaos&#34;:
-<span id="L161" class="ln">   161  </span>		for _, kv := range item.Spec {
+<span id="L161" class="ln">   161  </span>		for _, kv := range obj.Spec {
 <span id="L162" class="ln">   162  </span>			<span class="comment">// &#39;scope&#39; is obsolete in v2.0, and instead with &#39;patterns&#39;</span>
 <span id="L163" class="ln">   163  </span>			<span class="comment">// if &#39;scope&#39; is &#39;all&#39;, means chaos applies to all the host</span>
 <span id="L164" class="ln">   164  </span>			<span class="comment">// so it equal to pattern &#34;*&#34;. otherwise, can&#39;t transform.</span>

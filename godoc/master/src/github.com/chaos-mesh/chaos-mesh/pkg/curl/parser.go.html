@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 40080be. Generated at Mon Nov 14 10:01:42 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 191c9ae. Generated at Mon Nov 14 22:04:39 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -155,11 +155,14 @@
 <span id="L90" class="ln">    90  </span>	return template.Type == v1alpha1.TypeTask &amp;&amp; strings.HasSuffix(template.Task.Container.Name, nameSuffix)
 <span id="L91" class="ln">    91  </span>}
 <span id="L92" class="ln">    92  </span>
-<span id="L93" class="ln">    93  </span>func parseHeader(headerKV string) (string, string) {
-<span id="L94" class="ln">    94  </span>	substring := strings.SplitN(headerKV, &#34;:&#34;, 2)
-<span id="L95" class="ln">    95  </span>	return strings.TrimSpace(substring[0]), strings.TrimSpace(substring[1])
-<span id="L96" class="ln">    96  </span>}
-<span id="L97" class="ln">    97  </span>
+<span id="L93" class="ln">    93  </span>func parseHeader(headerKV string) (key, value string) {
+<span id="L94" class="ln">    94  </span>	kv := strings.SplitN(headerKV, &#34;:&#34;, 2)
+<span id="L95" class="ln">    95  </span>
+<span id="L96" class="ln">    96  </span>	key = strings.TrimSpace(kv[0])
+<span id="L97" class="ln">    97  </span>	value = strings.TrimSpace(kv[1])
+<span id="L98" class="ln">    98  </span>	return
+<span id="L99" class="ln">    99  </span>}
+<span id="L100" class="ln">   100  </span>
 </pre><p></p>
 
 <div id="footer">
