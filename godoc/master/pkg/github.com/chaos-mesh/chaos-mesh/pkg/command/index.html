@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 191c9ae. Generated at Mon Nov 14 22:04:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 8dc83ab. Generated at Tue Nov 15 10:01:54 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -172,13 +172,13 @@ because the default way to initialize Exec means None in code.
 ParaTag stands for parameters in command.
 We can use it in struct fields as a tag.
 Just like Port below
-type Iptables Struct {
 </p>
-<pre>Exec
-Port string `para:&#34;-p&#34;`
+<pre>type Iptables Struct {
+	Exec
+	Port string `para:&#34;-p&#34;`
+}
 </pre>
 <p>
-}
 If the field is not string type or []string type , it will bring an error.
 If the tag value like &#34;-p&#34; is empty string ,
 the para will just add the field value into the command just as some single value parameter in command.
@@ -191,22 +191,18 @@ If the value of field is empty string or empty string slice or empty slice, the 
 SubCommandTag stands for the sub command in common command.
 We can use it in struct fields as a tag.
 Just like MatchExtension below
-type Iptables Struct {
 </p>
-<pre>Exec
-MatchExtension Match `sub_command:&#34;&#34;`
-</pre>
-<p>
+<pre>type Iptables Struct {
+	Exec
+	MatchExtension Match `sub_command:&#34;&#34;`
 }
-</p>
-<p>
+
 type Match Struct {
-</p>
-<pre>Exec
-Port string `para:&#34;-p&#34;`
+	Exec
+	Port string `para:&#34;-p&#34;`
+}
 </pre>
 <p>
-}
 Field with SubcommandTag needs to be a struct with Exec.
 </p>
 
@@ -217,7 +213,7 @@ Field with SubcommandTag needs to be a struct with Exec.
 		
 			
 			
-			<h2 id="Marshal">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/command/command.go#L84">Marshal</a>
+			<h2 id="Marshal">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/command/command.go#L89">Marshal</a>
 				<a class="permalink" href="#Marshal">&#xb6;</a>
 				
 				
@@ -230,7 +226,7 @@ Field with SubcommandTag needs to be a struct with Exec.
 		
 			
 			
-			<h2 id="SearchKey">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/command/command.go#L138">SearchKey</a>
+			<h2 id="SearchKey">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/command/command.go#L143">SearchKey</a>
 				<a class="permalink" href="#SearchKey">&#xb6;</a>
 				
 				
@@ -243,7 +239,7 @@ Field with SubcommandTag needs to be a struct with Exec.
 		
 			
 			
-			<h2 id="ToCommand">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/command/command.go#L76">ToCommand</a>
+			<h2 id="ToCommand">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/command/command.go#L81">ToCommand</a>
 				<a class="permalink" href="#ToCommand">&#xb6;</a>
 				
 				
@@ -257,7 +253,7 @@ Field with SubcommandTag needs to be a struct with Exec.
 		
 			
 			
-			<h2 id="Exec">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/command/command.go#L68">Exec</a>
+			<h2 id="Exec">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/command/command.go#L73">Exec</a>
 				<a class="permalink" href="#Exec">&#xb6;</a>
 				
 				
@@ -267,14 +263,12 @@ Exec is the interface of a command.
 We need to inherit it in the struct of command.
 User must add ExecTag as the tag of Exec field.
 Example:
-type Iptables struct {
 </p>
-<pre>Exec           `exec:&#34;iptables&#34;`
-Tables         string `para:&#34;-t&#34;`
-</pre>
-<p>
+<pre>type Iptables struct {
+	Exec           `exec:&#34;iptables&#34;`
+	Tables         string `para:&#34;-t&#34;`
 }
-</p>
+</pre>
 
 			<pre>type Exec struct {
     <span class="comment">// contains filtered or unexported fields</span>
@@ -291,7 +285,7 @@ Tables         string `para:&#34;-t&#34;`
 
 			
 				
-				<h3 id="NewExec">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/command/command.go#L72">NewExec</a>
+				<h3 id="NewExec">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/command/command.go#L77">NewExec</a>
 					<a class="permalink" href="#NewExec">&#xb6;</a>
 					
 					

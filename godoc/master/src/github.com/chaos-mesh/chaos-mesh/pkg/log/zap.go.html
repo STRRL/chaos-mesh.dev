@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 191c9ae. Generated at Mon Nov 14 22:04:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 8dc83ab. Generated at Tue Nov 15 10:01:54 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -101,9 +101,9 @@
 <span id="L36" class="ln">    36  </span>	return logger, nil
 <span id="L37" class="ln">    37  </span>}
 <span id="L38" class="ln">    38  </span>
-<span id="L39" class="ln">    39  </span><span class="comment">//NewZapLoggerWithWriter creates a new logger with io.writer</span>
-<span id="L40" class="ln">    40  </span><span class="comment">//The provided encoder presets NewDevelopmentEncoderConfig used by NewDevelopmentConfig do not enable function name logging.</span>
-<span id="L41" class="ln">    41  </span><span class="comment">//To enable function name, a non-empty value for config.EncoderConfig.FunctionKey.</span>
+<span id="L39" class="ln">    39  </span><span class="comment">// NewZapLoggerWithWriter creates a new logger with io.writer</span>
+<span id="L40" class="ln">    40  </span><span class="comment">// The provided encoder presets NewDevelopmentEncoderConfig used by NewDevelopmentConfig do not enable function name logging.</span>
+<span id="L41" class="ln">    41  </span><span class="comment">// To enable function name, a non-empty value for config.EncoderConfig.FunctionKey.</span>
 <span id="L42" class="ln">    42  </span>func NewZapLoggerWithWriter(out io.Writer) logr.Logger {
 <span id="L43" class="ln">    43  </span>	bWriter := out
 <span id="L44" class="ln">    44  </span>	config := zap.NewDevelopmentConfig()

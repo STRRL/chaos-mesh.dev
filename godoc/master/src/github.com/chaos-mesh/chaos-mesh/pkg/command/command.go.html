@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 191c9ae. Generated at Mon Nov 14 22:04:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 8dc83ab. Generated at Tue Nov 15 10:01:54 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -97,120 +97,125 @@
 <span id="L32" class="ln">    32  </span><span class="comment">// SubCommandTag stands for the sub command in common command.</span>
 <span id="L33" class="ln">    33  </span><span class="comment">// We can use it in struct fields as a tag.</span>
 <span id="L34" class="ln">    34  </span><span class="comment">// Just like MatchExtension below</span>
-<span id="L35" class="ln">    35  </span><span class="comment">// type Iptables Struct {</span>
-<span id="L36" class="ln">    36  </span><span class="comment">// 	Exec</span>
-<span id="L37" class="ln">    37  </span><span class="comment">//	MatchExtension Match `sub_command:&#34;&#34;`</span>
-<span id="L38" class="ln">    38  </span><span class="comment">// }</span>
-<span id="L39" class="ln">    39  </span><span class="comment">//</span>
-<span id="L40" class="ln">    40  </span><span class="comment">// type Match Struct {</span>
-<span id="L41" class="ln">    41  </span><span class="comment">// 	Exec</span>
-<span id="L42" class="ln">    42  </span><span class="comment">//	Port string `para:&#34;-p&#34;`</span>
-<span id="L43" class="ln">    43  </span><span class="comment">// }</span>
-<span id="L44" class="ln">    44  </span><span class="comment">// Field with SubcommandTag needs to be a struct with Exec.</span>
-<span id="L45" class="ln">    45  </span>const SubCommandTag = &#34;sub_command&#34;
-<span id="L46" class="ln">    46  </span>
-<span id="L47" class="ln">    47  </span><span class="comment">// ParaTag stands for parameters in command.</span>
-<span id="L48" class="ln">    48  </span><span class="comment">// We can use it in struct fields as a tag.</span>
-<span id="L49" class="ln">    49  </span><span class="comment">// Just like Port below</span>
-<span id="L50" class="ln">    50  </span><span class="comment">// type Iptables Struct {</span>
-<span id="L51" class="ln">    51  </span><span class="comment">// 	Exec</span>
-<span id="L52" class="ln">    52  </span><span class="comment">//	Port string `para:&#34;-p&#34;`</span>
-<span id="L53" class="ln">    53  </span><span class="comment">// }</span>
-<span id="L54" class="ln">    54  </span><span class="comment">// If the field is not string type or []string type , it will bring an error.</span>
-<span id="L55" class="ln">    55  </span><span class="comment">// If the tag value like &#34;-p&#34; is empty string ,</span>
-<span id="L56" class="ln">    56  </span><span class="comment">// the para will just add the field value into the command just as some single value parameter in command.</span>
-<span id="L57" class="ln">    57  </span><span class="comment">// If the value of field is empty string or empty string slice or empty slice, the field and tag will all be skipped.</span>
-<span id="L58" class="ln">    58  </span>const ParaTag = &#34;para&#34;
-<span id="L59" class="ln">    59  </span>
-<span id="L60" class="ln">    60  </span><span class="comment">// Exec is the interface of a command.</span>
-<span id="L61" class="ln">    61  </span><span class="comment">// We need to inherit it in the struct of command.</span>
-<span id="L62" class="ln">    62  </span><span class="comment">// User must add ExecTag as the tag of Exec field.</span>
-<span id="L63" class="ln">    63  </span><span class="comment">// Example:</span>
-<span id="L64" class="ln">    64  </span><span class="comment">// type Iptables struct {</span>
-<span id="L65" class="ln">    65  </span><span class="comment">//	Exec           `exec:&#34;iptables&#34;`</span>
-<span id="L66" class="ln">    66  </span><span class="comment">//	Tables         string `para:&#34;-t&#34;`</span>
-<span id="L67" class="ln">    67  </span><span class="comment">// }</span>
-<span id="L68" class="ln">    68  </span>type Exec struct {
-<span id="L69" class="ln">    69  </span>	active bool
-<span id="L70" class="ln">    70  </span>}
-<span id="L71" class="ln">    71  </span>
-<span id="L72" class="ln">    72  </span>func NewExec() Exec {
-<span id="L73" class="ln">    73  </span>	return Exec{active: true}
-<span id="L74" class="ln">    74  </span>}
-<span id="L75" class="ln">    75  </span>
-<span id="L76" class="ln">    76  </span>func ToCommand(i interface{}) (*exec.Cmd, error) {
-<span id="L77" class="ln">    77  </span>	path, args, err := Marshal(i)
-<span id="L78" class="ln">    78  </span>	if err != nil {
-<span id="L79" class="ln">    79  </span>		return nil, err
-<span id="L80" class="ln">    80  </span>	}
-<span id="L81" class="ln">    81  </span>	return exec.Command(path, args...), nil
-<span id="L82" class="ln">    82  </span>}
-<span id="L83" class="ln">    83  </span>
-<span id="L84" class="ln">    84  </span>func Marshal(i interface{}) (string, []string, error) {
-<span id="L85" class="ln">    85  </span>	value := reflect.ValueOf(i)
-<span id="L86" class="ln">    86  </span>	return marshal(value)
+<span id="L35" class="ln">    35  </span><span class="comment">//</span>
+<span id="L36" class="ln">    36  </span><span class="comment">//	type Iptables Struct {</span>
+<span id="L37" class="ln">    37  </span><span class="comment">//		Exec</span>
+<span id="L38" class="ln">    38  </span><span class="comment">//		MatchExtension Match `sub_command:&#34;&#34;`</span>
+<span id="L39" class="ln">    39  </span><span class="comment">//	}</span>
+<span id="L40" class="ln">    40  </span><span class="comment">//</span>
+<span id="L41" class="ln">    41  </span><span class="comment">//	type Match Struct {</span>
+<span id="L42" class="ln">    42  </span><span class="comment">//		Exec</span>
+<span id="L43" class="ln">    43  </span><span class="comment">//		Port string `para:&#34;-p&#34;`</span>
+<span id="L44" class="ln">    44  </span><span class="comment">//	}</span>
+<span id="L45" class="ln">    45  </span><span class="comment">//</span>
+<span id="L46" class="ln">    46  </span><span class="comment">// Field with SubcommandTag needs to be a struct with Exec.</span>
+<span id="L47" class="ln">    47  </span>const SubCommandTag = &#34;sub_command&#34;
+<span id="L48" class="ln">    48  </span>
+<span id="L49" class="ln">    49  </span><span class="comment">// ParaTag stands for parameters in command.</span>
+<span id="L50" class="ln">    50  </span><span class="comment">// We can use it in struct fields as a tag.</span>
+<span id="L51" class="ln">    51  </span><span class="comment">// Just like Port below</span>
+<span id="L52" class="ln">    52  </span><span class="comment">//</span>
+<span id="L53" class="ln">    53  </span><span class="comment">//	type Iptables Struct {</span>
+<span id="L54" class="ln">    54  </span><span class="comment">//		Exec</span>
+<span id="L55" class="ln">    55  </span><span class="comment">//		Port string `para:&#34;-p&#34;`</span>
+<span id="L56" class="ln">    56  </span><span class="comment">//	}</span>
+<span id="L57" class="ln">    57  </span><span class="comment">//</span>
+<span id="L58" class="ln">    58  </span><span class="comment">// If the field is not string type or []string type , it will bring an error.</span>
+<span id="L59" class="ln">    59  </span><span class="comment">// If the tag value like &#34;-p&#34; is empty string ,</span>
+<span id="L60" class="ln">    60  </span><span class="comment">// the para will just add the field value into the command just as some single value parameter in command.</span>
+<span id="L61" class="ln">    61  </span><span class="comment">// If the value of field is empty string or empty string slice or empty slice, the field and tag will all be skipped.</span>
+<span id="L62" class="ln">    62  </span>const ParaTag = &#34;para&#34;
+<span id="L63" class="ln">    63  </span>
+<span id="L64" class="ln">    64  </span><span class="comment">// Exec is the interface of a command.</span>
+<span id="L65" class="ln">    65  </span><span class="comment">// We need to inherit it in the struct of command.</span>
+<span id="L66" class="ln">    66  </span><span class="comment">// User must add ExecTag as the tag of Exec field.</span>
+<span id="L67" class="ln">    67  </span><span class="comment">// Example:</span>
+<span id="L68" class="ln">    68  </span><span class="comment">//</span>
+<span id="L69" class="ln">    69  </span><span class="comment">//	type Iptables struct {</span>
+<span id="L70" class="ln">    70  </span><span class="comment">//		Exec           `exec:&#34;iptables&#34;`</span>
+<span id="L71" class="ln">    71  </span><span class="comment">//		Tables         string `para:&#34;-t&#34;`</span>
+<span id="L72" class="ln">    72  </span><span class="comment">//	}</span>
+<span id="L73" class="ln">    73  </span>type Exec struct {
+<span id="L74" class="ln">    74  </span>	active bool
+<span id="L75" class="ln">    75  </span>}
+<span id="L76" class="ln">    76  </span>
+<span id="L77" class="ln">    77  </span>func NewExec() Exec {
+<span id="L78" class="ln">    78  </span>	return Exec{active: true}
+<span id="L79" class="ln">    79  </span>}
+<span id="L80" class="ln">    80  </span>
+<span id="L81" class="ln">    81  </span>func ToCommand(i interface{}) (*exec.Cmd, error) {
+<span id="L82" class="ln">    82  </span>	path, args, err := Marshal(i)
+<span id="L83" class="ln">    83  </span>	if err != nil {
+<span id="L84" class="ln">    84  </span>		return nil, err
+<span id="L85" class="ln">    85  </span>	}
+<span id="L86" class="ln">    86  </span>	return exec.Command(path, args...), nil
 <span id="L87" class="ln">    87  </span>}
 <span id="L88" class="ln">    88  </span>
-<span id="L89" class="ln">    89  </span>func marshal(value reflect.Value) (string, []string, error) {
-<span id="L90" class="ln">    90  </span>	<span class="comment">//var options []string</span>
-<span id="L91" class="ln">    91  </span>	if path, ok := SearchKey(value); ok {
-<span id="L92" class="ln">    92  </span>		<span class="comment">// Field(0).String is Exec.Path</span>
+<span id="L89" class="ln">    89  </span>func Marshal(i interface{}) (string, []string, error) {
+<span id="L90" class="ln">    90  </span>	value := reflect.ValueOf(i)
+<span id="L91" class="ln">    91  </span>	return marshal(value)
+<span id="L92" class="ln">    92  </span>}
 <span id="L93" class="ln">    93  </span>
-<span id="L94" class="ln">    94  </span>		if path == &#34;&#34; {
-<span id="L95" class="ln">    95  </span>			return &#34;&#34;, nil, nil
-<span id="L96" class="ln">    96  </span>		}
-<span id="L97" class="ln">    97  </span>		args := make([]string, 0)
-<span id="L98" class="ln">    98  </span>		for i := 0; i &lt; value.NumField(); i++ {
-<span id="L99" class="ln">    99  </span>			if _, ok := value.Type().Field(i).Tag.Lookup(SubCommandTag); ok {
-<span id="L100" class="ln">   100  </span>				subPath, subArgs, err := marshal(value.Field(i))
-<span id="L101" class="ln">   101  </span>				if err != nil {
-<span id="L102" class="ln">   102  </span>					return &#34;&#34;, nil, err
-<span id="L103" class="ln">   103  </span>				}
-<span id="L104" class="ln">   104  </span>				if subPath != &#34;&#34; {
-<span id="L105" class="ln">   105  </span>					args = append(args, subPath)
-<span id="L106" class="ln">   106  </span>				}
-<span id="L107" class="ln">   107  </span>				args = append(args, subArgs...)
-<span id="L108" class="ln">   108  </span>			}
-<span id="L109" class="ln">   109  </span>			if paraName, ok := value.Type().Field(i).Tag.Lookup(ParaTag); ok {
-<span id="L110" class="ln">   110  </span>				if value.Type().Field(i).Type.Name() == &#34;string&#34; {
-<span id="L111" class="ln">   111  </span>					if value.Field(i).String() != &#34;&#34; {
-<span id="L112" class="ln">   112  </span>						if paraName != &#34;&#34; {
-<span id="L113" class="ln">   113  </span>							args = append(args, paraName)
-<span id="L114" class="ln">   114  </span>						}
-<span id="L115" class="ln">   115  </span>						args = append(args, value.Field(i).String())
-<span id="L116" class="ln">   116  </span>					}
-<span id="L117" class="ln">   117  </span>				} else if value.Field(i).Kind() == reflect.Slice {
-<span id="L118" class="ln">   118  </span>					if slicePara, ok := value.Field(i).Interface().([]string); ok {
-<span id="L119" class="ln">   119  </span>						if strings.Join(slicePara, &#34;&#34;) != &#34;&#34; {
-<span id="L120" class="ln">   120  </span>							if paraName != &#34;&#34; {
-<span id="L121" class="ln">   121  </span>								args = append(args, paraName)
-<span id="L122" class="ln">   122  </span>							}
-<span id="L123" class="ln">   123  </span>							args = append(args, slicePara...)
-<span id="L124" class="ln">   124  </span>						}
-<span id="L125" class="ln">   125  </span>					} else {
-<span id="L126" class="ln">   126  </span>						return &#34;&#34;, nil, errors.Errorf(&#34;invalid parameter slice type %s :parameter slice must be string slice&#34;, value.Field(i).String())
-<span id="L127" class="ln">   127  </span>					}
-<span id="L128" class="ln">   128  </span>				} else {
-<span id="L129" class="ln">   129  </span>					return &#34;&#34;, nil, errors.Errorf(&#34;invalid parameter type %s : parameter must be string or string slice&#34;, value.Type().Field(i).Type.Name())
-<span id="L130" class="ln">   130  </span>				}
-<span id="L131" class="ln">   131  </span>			}
-<span id="L132" class="ln">   132  </span>		}
-<span id="L133" class="ln">   133  </span>		return path, args, nil
-<span id="L134" class="ln">   134  </span>	}
-<span id="L135" class="ln">   135  </span>	return &#34;&#34;, nil, nil
-<span id="L136" class="ln">   136  </span>}
-<span id="L137" class="ln">   137  </span>
-<span id="L138" class="ln">   138  </span>func SearchKey(value reflect.Value) (string, bool) {
-<span id="L139" class="ln">   139  </span>	for i := 0; i &lt; value.NumField(); i++ {
-<span id="L140" class="ln">   140  </span>		if path, ok := value.Type().Field(i).Tag.Lookup(ExecTag); ok {
-<span id="L141" class="ln">   141  </span>			if value.Field(i).Field(0).Bool() {
-<span id="L142" class="ln">   142  </span>				return path, ok
-<span id="L143" class="ln">   143  </span>			}
-<span id="L144" class="ln">   144  </span>		}
-<span id="L145" class="ln">   145  </span>	}
-<span id="L146" class="ln">   146  </span>	return &#34;&#34;, false
-<span id="L147" class="ln">   147  </span>}
-<span id="L148" class="ln">   148  </span>
+<span id="L94" class="ln">    94  </span>func marshal(value reflect.Value) (string, []string, error) {
+<span id="L95" class="ln">    95  </span>	<span class="comment">//var options []string</span>
+<span id="L96" class="ln">    96  </span>	if path, ok := SearchKey(value); ok {
+<span id="L97" class="ln">    97  </span>		<span class="comment">// Field(0).String is Exec.Path</span>
+<span id="L98" class="ln">    98  </span>
+<span id="L99" class="ln">    99  </span>		if path == &#34;&#34; {
+<span id="L100" class="ln">   100  </span>			return &#34;&#34;, nil, nil
+<span id="L101" class="ln">   101  </span>		}
+<span id="L102" class="ln">   102  </span>		args := make([]string, 0)
+<span id="L103" class="ln">   103  </span>		for i := 0; i &lt; value.NumField(); i++ {
+<span id="L104" class="ln">   104  </span>			if _, ok := value.Type().Field(i).Tag.Lookup(SubCommandTag); ok {
+<span id="L105" class="ln">   105  </span>				subPath, subArgs, err := marshal(value.Field(i))
+<span id="L106" class="ln">   106  </span>				if err != nil {
+<span id="L107" class="ln">   107  </span>					return &#34;&#34;, nil, err
+<span id="L108" class="ln">   108  </span>				}
+<span id="L109" class="ln">   109  </span>				if subPath != &#34;&#34; {
+<span id="L110" class="ln">   110  </span>					args = append(args, subPath)
+<span id="L111" class="ln">   111  </span>				}
+<span id="L112" class="ln">   112  </span>				args = append(args, subArgs...)
+<span id="L113" class="ln">   113  </span>			}
+<span id="L114" class="ln">   114  </span>			if paraName, ok := value.Type().Field(i).Tag.Lookup(ParaTag); ok {
+<span id="L115" class="ln">   115  </span>				if value.Type().Field(i).Type.Name() == &#34;string&#34; {
+<span id="L116" class="ln">   116  </span>					if value.Field(i).String() != &#34;&#34; {
+<span id="L117" class="ln">   117  </span>						if paraName != &#34;&#34; {
+<span id="L118" class="ln">   118  </span>							args = append(args, paraName)
+<span id="L119" class="ln">   119  </span>						}
+<span id="L120" class="ln">   120  </span>						args = append(args, value.Field(i).String())
+<span id="L121" class="ln">   121  </span>					}
+<span id="L122" class="ln">   122  </span>				} else if value.Field(i).Kind() == reflect.Slice {
+<span id="L123" class="ln">   123  </span>					if slicePara, ok := value.Field(i).Interface().([]string); ok {
+<span id="L124" class="ln">   124  </span>						if strings.Join(slicePara, &#34;&#34;) != &#34;&#34; {
+<span id="L125" class="ln">   125  </span>							if paraName != &#34;&#34; {
+<span id="L126" class="ln">   126  </span>								args = append(args, paraName)
+<span id="L127" class="ln">   127  </span>							}
+<span id="L128" class="ln">   128  </span>							args = append(args, slicePara...)
+<span id="L129" class="ln">   129  </span>						}
+<span id="L130" class="ln">   130  </span>					} else {
+<span id="L131" class="ln">   131  </span>						return &#34;&#34;, nil, errors.Errorf(&#34;invalid parameter slice type %s :parameter slice must be string slice&#34;, value.Field(i).String())
+<span id="L132" class="ln">   132  </span>					}
+<span id="L133" class="ln">   133  </span>				} else {
+<span id="L134" class="ln">   134  </span>					return &#34;&#34;, nil, errors.Errorf(&#34;invalid parameter type %s : parameter must be string or string slice&#34;, value.Type().Field(i).Type.Name())
+<span id="L135" class="ln">   135  </span>				}
+<span id="L136" class="ln">   136  </span>			}
+<span id="L137" class="ln">   137  </span>		}
+<span id="L138" class="ln">   138  </span>		return path, args, nil
+<span id="L139" class="ln">   139  </span>	}
+<span id="L140" class="ln">   140  </span>	return &#34;&#34;, nil, nil
+<span id="L141" class="ln">   141  </span>}
+<span id="L142" class="ln">   142  </span>
+<span id="L143" class="ln">   143  </span>func SearchKey(value reflect.Value) (string, bool) {
+<span id="L144" class="ln">   144  </span>	for i := 0; i &lt; value.NumField(); i++ {
+<span id="L145" class="ln">   145  </span>		if path, ok := value.Type().Field(i).Tag.Lookup(ExecTag); ok {
+<span id="L146" class="ln">   146  </span>			if value.Field(i).Field(0).Bool() {
+<span id="L147" class="ln">   147  </span>				return path, ok
+<span id="L148" class="ln">   148  </span>			}
+<span id="L149" class="ln">   149  </span>		}
+<span id="L150" class="ln">   150  </span>	}
+<span id="L151" class="ln">   151  </span>	return &#34;&#34;, false
+<span id="L152" class="ln">   152  </span>}
+<span id="L153" class="ln">   153  </span>
 </pre><p></p>
 
 <div id="footer">

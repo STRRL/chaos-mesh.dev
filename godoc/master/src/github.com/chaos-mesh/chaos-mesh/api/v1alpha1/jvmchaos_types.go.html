@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 191c9ae. Generated at Mon Nov 14 22:04:39 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 8dc83ab. Generated at Tue Nov 15 10:01:54 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -197,58 +197,59 @@
 <span id="L132" class="ln">   132  </span><span class="comment">// JVMMySQLSpec is the specification of MySQL fault injection in JVM</span>
 <span id="L133" class="ln">   133  </span><span class="comment">// only when SQL match the Database, Table and SQLType, JVMChaos mesh will inject fault</span>
 <span id="L134" class="ln">   134  </span><span class="comment">// for examle:</span>
-<span id="L135" class="ln">   135  </span><span class="comment">//   SQL is &#34;select * from test.t1&#34;,</span>
-<span id="L136" class="ln">   136  </span><span class="comment">//   only when ((Database == &#34;test&#34; || Database == &#34;&#34;) &amp;&amp; (Table == &#34;t1&#34; || Table == &#34;&#34;) &amp;&amp; (SQLType == &#34;select&#34; || SQLType == &#34;&#34;)) is true, JVMChaos will inject fault</span>
-<span id="L137" class="ln">   137  </span>type JVMMySQLSpec struct {
-<span id="L138" class="ln">   138  </span>	<span class="comment">// the version of mysql-connector-java, only support 5.X.X(set to &#34;5&#34;) and 8.X.X(set to &#34;8&#34;) now</span>
-<span id="L139" class="ln">   139  </span>	MySQLConnectorVersion string `json:&#34;mysqlConnectorVersion,omitempty&#34;`
-<span id="L140" class="ln">   140  </span>
-<span id="L141" class="ln">   141  </span>	<span class="comment">// the match database</span>
-<span id="L142" class="ln">   142  </span>	<span class="comment">// default value is &#34;&#34;, means match all database</span>
-<span id="L143" class="ln">   143  </span>	Database string `json:&#34;database,omitempty&#34;`
-<span id="L144" class="ln">   144  </span>
-<span id="L145" class="ln">   145  </span>	<span class="comment">// the match table</span>
-<span id="L146" class="ln">   146  </span>	<span class="comment">// default value is &#34;&#34;, means match all table</span>
-<span id="L147" class="ln">   147  </span>	Table string `json:&#34;table,omitempty&#34;`
-<span id="L148" class="ln">   148  </span>
-<span id="L149" class="ln">   149  </span>	<span class="comment">// the match sql type</span>
-<span id="L150" class="ln">   150  </span>	<span class="comment">// default value is &#34;&#34;, means match all SQL type.</span>
-<span id="L151" class="ln">   151  </span>	<span class="comment">// The value can be &#39;select&#39;, &#39;insert&#39;, &#39;update&#39;, &#39;delete&#39;, &#39;replace&#39;.</span>
-<span id="L152" class="ln">   152  </span>	SQLType string `json:&#34;sqlType,omitempty&#34;`
-<span id="L153" class="ln">   153  </span>}
-<span id="L154" class="ln">   154  </span>
-<span id="L155" class="ln">   155  </span><span class="comment">// JVMChaosStatus defines the observed state of JVMChaos</span>
-<span id="L156" class="ln">   156  </span>type JVMChaosStatus struct {
-<span id="L157" class="ln">   157  </span>	ChaosStatus `json:&#34;,inline&#34;`
-<span id="L158" class="ln">   158  </span>}
-<span id="L159" class="ln">   159  </span>
-<span id="L160" class="ln">   160  </span><span class="comment">// +kubebuilder:object:root=true</span>
-<span id="L161" class="ln">   161  </span><span class="comment">// +kubebuilder:printcolumn:name=&#34;action&#34;,type=string,JSONPath=`.spec.action`</span>
-<span id="L162" class="ln">   162  </span><span class="comment">// +kubebuilder:printcolumn:name=&#34;duration&#34;,type=string,JSONPath=`.spec.duration`</span>
-<span id="L163" class="ln">   163  </span><span class="comment">// +chaos-mesh:experiment</span>
-<span id="L164" class="ln">   164  </span>
-<span id="L165" class="ln">   165  </span><span class="comment">// JVMChaos is the Schema for the jvmchaos API</span>
-<span id="L166" class="ln">   166  </span>type JVMChaos struct {
-<span id="L167" class="ln">   167  </span>	metav1.TypeMeta   `json:&#34;,inline&#34;`
-<span id="L168" class="ln">   168  </span>	metav1.ObjectMeta `json:&#34;metadata,omitempty&#34;`
-<span id="L169" class="ln">   169  </span>
-<span id="L170" class="ln">   170  </span>	Spec   JVMChaosSpec   `json:&#34;spec,omitempty&#34;`
-<span id="L171" class="ln">   171  </span>	Status JVMChaosStatus `json:&#34;status,omitempty&#34;`
-<span id="L172" class="ln">   172  </span>}
-<span id="L173" class="ln">   173  </span>
-<span id="L174" class="ln">   174  </span>var _ InnerObjectWithSelector = (*JVMChaos)(nil)
-<span id="L175" class="ln">   175  </span>var _ InnerObject = (*JVMChaos)(nil)
-<span id="L176" class="ln">   176  </span>
-<span id="L177" class="ln">   177  </span>func init() {
-<span id="L178" class="ln">   178  </span>	SchemeBuilder.Register(&amp;JVMChaos{}, &amp;JVMChaosList{})
-<span id="L179" class="ln">   179  </span>}
-<span id="L180" class="ln">   180  </span>
-<span id="L181" class="ln">   181  </span>func (obj *JVMChaos) GetSelectorSpecs() map[string]interface{} {
-<span id="L182" class="ln">   182  </span>	return map[string]interface{}{
-<span id="L183" class="ln">   183  </span>		&#34;.&#34;: &amp;obj.Spec.ContainerSelector,
-<span id="L184" class="ln">   184  </span>	}
-<span id="L185" class="ln">   185  </span>}
-<span id="L186" class="ln">   186  </span>
+<span id="L135" class="ln">   135  </span><span class="comment">//</span>
+<span id="L136" class="ln">   136  </span><span class="comment">//	SQL is &#34;select * from test.t1&#34;,</span>
+<span id="L137" class="ln">   137  </span><span class="comment">//	only when ((Database == &#34;test&#34; || Database == &#34;&#34;) &amp;&amp; (Table == &#34;t1&#34; || Table == &#34;&#34;) &amp;&amp; (SQLType == &#34;select&#34; || SQLType == &#34;&#34;)) is true, JVMChaos will inject fault</span>
+<span id="L138" class="ln">   138  </span>type JVMMySQLSpec struct {
+<span id="L139" class="ln">   139  </span>	<span class="comment">// the version of mysql-connector-java, only support 5.X.X(set to &#34;5&#34;) and 8.X.X(set to &#34;8&#34;) now</span>
+<span id="L140" class="ln">   140  </span>	MySQLConnectorVersion string `json:&#34;mysqlConnectorVersion,omitempty&#34;`
+<span id="L141" class="ln">   141  </span>
+<span id="L142" class="ln">   142  </span>	<span class="comment">// the match database</span>
+<span id="L143" class="ln">   143  </span>	<span class="comment">// default value is &#34;&#34;, means match all database</span>
+<span id="L144" class="ln">   144  </span>	Database string `json:&#34;database,omitempty&#34;`
+<span id="L145" class="ln">   145  </span>
+<span id="L146" class="ln">   146  </span>	<span class="comment">// the match table</span>
+<span id="L147" class="ln">   147  </span>	<span class="comment">// default value is &#34;&#34;, means match all table</span>
+<span id="L148" class="ln">   148  </span>	Table string `json:&#34;table,omitempty&#34;`
+<span id="L149" class="ln">   149  </span>
+<span id="L150" class="ln">   150  </span>	<span class="comment">// the match sql type</span>
+<span id="L151" class="ln">   151  </span>	<span class="comment">// default value is &#34;&#34;, means match all SQL type.</span>
+<span id="L152" class="ln">   152  </span>	<span class="comment">// The value can be &#39;select&#39;, &#39;insert&#39;, &#39;update&#39;, &#39;delete&#39;, &#39;replace&#39;.</span>
+<span id="L153" class="ln">   153  </span>	SQLType string `json:&#34;sqlType,omitempty&#34;`
+<span id="L154" class="ln">   154  </span>}
+<span id="L155" class="ln">   155  </span>
+<span id="L156" class="ln">   156  </span><span class="comment">// JVMChaosStatus defines the observed state of JVMChaos</span>
+<span id="L157" class="ln">   157  </span>type JVMChaosStatus struct {
+<span id="L158" class="ln">   158  </span>	ChaosStatus `json:&#34;,inline&#34;`
+<span id="L159" class="ln">   159  </span>}
+<span id="L160" class="ln">   160  </span>
+<span id="L161" class="ln">   161  </span><span class="comment">// +kubebuilder:object:root=true</span>
+<span id="L162" class="ln">   162  </span><span class="comment">// +kubebuilder:printcolumn:name=&#34;action&#34;,type=string,JSONPath=`.spec.action`</span>
+<span id="L163" class="ln">   163  </span><span class="comment">// +kubebuilder:printcolumn:name=&#34;duration&#34;,type=string,JSONPath=`.spec.duration`</span>
+<span id="L164" class="ln">   164  </span><span class="comment">// +chaos-mesh:experiment</span>
+<span id="L165" class="ln">   165  </span>
+<span id="L166" class="ln">   166  </span><span class="comment">// JVMChaos is the Schema for the jvmchaos API</span>
+<span id="L167" class="ln">   167  </span>type JVMChaos struct {
+<span id="L168" class="ln">   168  </span>	metav1.TypeMeta   `json:&#34;,inline&#34;`
+<span id="L169" class="ln">   169  </span>	metav1.ObjectMeta `json:&#34;metadata,omitempty&#34;`
+<span id="L170" class="ln">   170  </span>
+<span id="L171" class="ln">   171  </span>	Spec   JVMChaosSpec   `json:&#34;spec,omitempty&#34;`
+<span id="L172" class="ln">   172  </span>	Status JVMChaosStatus `json:&#34;status,omitempty&#34;`
+<span id="L173" class="ln">   173  </span>}
+<span id="L174" class="ln">   174  </span>
+<span id="L175" class="ln">   175  </span>var _ InnerObjectWithSelector = (*JVMChaos)(nil)
+<span id="L176" class="ln">   176  </span>var _ InnerObject = (*JVMChaos)(nil)
+<span id="L177" class="ln">   177  </span>
+<span id="L178" class="ln">   178  </span>func init() {
+<span id="L179" class="ln">   179  </span>	SchemeBuilder.Register(&amp;JVMChaos{}, &amp;JVMChaosList{})
+<span id="L180" class="ln">   180  </span>}
+<span id="L181" class="ln">   181  </span>
+<span id="L182" class="ln">   182  </span>func (obj *JVMChaos) GetSelectorSpecs() map[string]interface{} {
+<span id="L183" class="ln">   183  </span>	return map[string]interface{}{
+<span id="L184" class="ln">   184  </span>		&#34;.&#34;: &amp;obj.Spec.ContainerSelector,
+<span id="L185" class="ln">   185  </span>	}
+<span id="L186" class="ln">   186  </span>}
+<span id="L187" class="ln">   187  </span>
 </pre><p></p>
 
 <div id="footer">
