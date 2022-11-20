@@ -1,0 +1,190 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#375EAB"/>
+
+  <title>src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/attach_cgroup.go - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css"/>
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer=""></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer=""></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id="lowframe" style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e26351d. Generated at Sun Nov 20 10:01:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Source file
+    <a href="https:/chaos-mesh.dev/godoc/master/src">src</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com">github.com</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg">pkg</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon">chaosdaemon</a>/<a href="https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups">cgroups</a>/<span class="text-muted">attach_cgroup.go</span>
+  </h1>
+
+
+
+
+
+  <h2>
+    Documentation: <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups">github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups</a>
+  </h2>
+
+
+
+<div id="nav"></div>
+
+
+<script type="text/javascript">document.ANALYSIS_DATA = null;</script>
+<pre><span id="L1" class="ln">     1  </span><span class="comment">// Copyright 2022 Chaos Mesh Authors.</span>
+<span id="L2" class="ln">     2  </span><span class="comment">//</span>
+<span id="L3" class="ln">     3  </span><span class="comment">// Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span>
+<span id="L4" class="ln">     4  </span><span class="comment">// you may not use this file except in compliance with the License.</span>
+<span id="L5" class="ln">     5  </span><span class="comment">// You may obtain a copy of the License at</span>
+<span id="L6" class="ln">     6  </span><span class="comment">//</span>
+<span id="L7" class="ln">     7  </span><span class="comment">// http://www.apache.org/licenses/LICENSE-2.0</span>
+<span id="L8" class="ln">     8  </span><span class="comment">//</span>
+<span id="L9" class="ln">     9  </span><span class="comment">// Unless required by applicable law or agreed to in writing, software</span>
+<span id="L10" class="ln">    10  </span><span class="comment">// distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span>
+<span id="L11" class="ln">    11  </span><span class="comment">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span id="L12" class="ln">    12  </span><span class="comment">// See the License for the specific language governing permissions and</span>
+<span id="L13" class="ln">    13  </span><span class="comment">// limitations under the License.</span>
+<span id="L14" class="ln">    14  </span><span class="comment">//</span>
+<span id="L15" class="ln">    15  </span>
+<span id="L16" class="ln">    16  </span>package cgroups
+<span id="L17" class="ln">    17  </span>
+<span id="L18" class="ln">    18  </span>import (
+<span id="L19" class="ln">    19  </span>	&#34;fmt&#34;
+<span id="L20" class="ln">    20  </span>	&#34;os/exec&#34;
+<span id="L21" class="ln">    21  </span>
+<span id="L22" class="ln">    22  </span>	&#34;github.com/containerd/cgroups&#34;
+<span id="L23" class="ln">    23  </span>	&#34;github.com/pkg/errors&#34;
+<span id="L24" class="ln">    24  </span>)
+<span id="L25" class="ln">    25  </span>
+<span id="L26" class="ln">    26  </span>type CGroupInfo struct {
+<span id="L27" class="ln">    27  </span>	CGMode       cgroups.CGMode
+<span id="L28" class="ln">    28  </span>	V1Path       cgroups.Path
+<span id="L29" class="ln">    29  </span>	V2CGroupPath string
+<span id="L30" class="ln">    30  </span>}
+<span id="L31" class="ln">    31  </span>
+<span id="L32" class="ln">    32  </span>type AttachCGroup interface {
+<span id="L33" class="ln">    33  </span>	TargetCGroup() CGroupInfo
+<span id="L34" class="ln">    34  </span>	AttachProcess(pid int) error
+<span id="L35" class="ln">    35  </span>}
+<span id="L36" class="ln">    36  </span>
+<span id="L37" class="ln">    37  </span>var _ AttachCGroup = (*AttachCGroupV1)(nil)
+<span id="L38" class="ln">    38  </span>
+<span id="L39" class="ln">    39  </span>type AttachCGroupV1 struct {
+<span id="L40" class="ln">    40  </span>	mode cgroups.CGMode
+<span id="L41" class="ln">    41  </span>	path cgroups.Path
+<span id="L42" class="ln">    42  </span>}
+<span id="L43" class="ln">    43  </span>
+<span id="L44" class="ln">    44  </span>func (a *AttachCGroupV1) TargetCGroup() CGroupInfo {
+<span id="L45" class="ln">    45  </span>	return CGroupInfo{
+<span id="L46" class="ln">    46  </span>		CGMode:       a.mode,
+<span id="L47" class="ln">    47  </span>		V1Path:       a.path,
+<span id="L48" class="ln">    48  </span>		V2CGroupPath: &#34;&#34;,
+<span id="L49" class="ln">    49  </span>	}
+<span id="L50" class="ln">    50  </span>}
+<span id="L51" class="ln">    51  </span>
+<span id="L52" class="ln">    52  </span>func (a *AttachCGroupV1) AttachProcess(pid int) error {
+<span id="L53" class="ln">    53  </span>	cgroupv1, err := cgroups.Load(V1, a.path)
+<span id="L54" class="ln">    54  </span>	if err != nil {
+<span id="L55" class="ln">    55  </span>		cpuCGroupPath, _ := a.path(&#34;cpu&#34;)
+<span id="L56" class="ln">    56  </span>		memoryCGroupPath, _ := a.path(&#34;memory&#34;)
+<span id="L57" class="ln">    57  </span>		return errors.Wrapf(err, &#34;load cgroup v1 manager, pid %d, cpu path %s, memory path %s&#34;, pid, cpuCGroupPath, memoryCGroupPath)
+<span id="L58" class="ln">    58  </span>	}
+<span id="L59" class="ln">    59  </span>	err = cgroupv1.Add(cgroups.Process{Pid: pid})
+<span id="L60" class="ln">    60  </span>	if err != nil {
+<span id="L61" class="ln">    61  </span>		cpuCGroupPath, _ := a.path(&#34;cpu&#34;)
+<span id="L62" class="ln">    62  </span>		memoryCGroupPath, _ := a.path(&#34;memory&#34;)
+<span id="L63" class="ln">    63  </span>		return errors.Wrapf(err, &#34;add process to cgroup, pid %d, cpu path %s, memory path %s&#34;, pid, cpuCGroupPath, memoryCGroupPath)
+<span id="L64" class="ln">    64  </span>	}
+<span id="L65" class="ln">    65  </span>	return nil
+<span id="L66" class="ln">    66  </span>}
+<span id="L67" class="ln">    67  </span>
+<span id="L68" class="ln">    68  </span>var _ AttachCGroup = (*AttachCGroupV2)(nil)
+<span id="L69" class="ln">    69  </span>
+<span id="L70" class="ln">    70  </span>type AttachCGroupV2 struct {
+<span id="L71" class="ln">    71  </span>	mode cgroups.CGMode
+<span id="L72" class="ln">    72  </span>	path string
+<span id="L73" class="ln">    73  </span>}
+<span id="L74" class="ln">    74  </span>
+<span id="L75" class="ln">    75  </span>func (a *AttachCGroupV2) TargetCGroup() CGroupInfo {
+<span id="L76" class="ln">    76  </span>	return CGroupInfo{
+<span id="L77" class="ln">    77  </span>		CGMode:       a.mode,
+<span id="L78" class="ln">    78  </span>		V1Path:       nil,
+<span id="L79" class="ln">    79  </span>		V2CGroupPath: a.path,
+<span id="L80" class="ln">    80  </span>	}
+<span id="L81" class="ln">    81  </span>}
+<span id="L82" class="ln">    82  </span>
+<span id="L83" class="ln">    83  </span>func (a *AttachCGroupV2) AttachProcess(pid int) error {
+<span id="L84" class="ln">    84  </span>	<span class="comment">// escape the CGroup Namespace, we could not modify cgroups across different cgroups namespace,</span>
+<span id="L85" class="ln">    85  </span>	<span class="comment">// resolve https://github.com/chaos-mesh/chaos-mesh/pull/2928#issuecomment-1049465242</span>
+<span id="L86" class="ln">    86  </span>	targetFile := fmt.Sprintf(&#34;/host-sys/fs/cgroup%s/cgroup.procs&#34;, a.path)
+<span id="L87" class="ln">    87  </span>	command := exec.Command(&#34;nsenter&#34;, &#34;-C&#34;, &#34;-t&#34;, &#34;1&#34;, &#34;--&#34;, &#34;sh&#34;, &#34;-c&#34;, fmt.Sprintf(&#34;echo %d &gt;&gt; %s&#34;, pid, targetFile))
+<span id="L88" class="ln">    88  </span>	output, err := command.CombinedOutput()
+<span id="L89" class="ln">    89  </span>	if err != nil {
+<span id="L90" class="ln">    90  </span>		return errors.Wrapf(err, &#34;attach process to cgroup, pid %d, target cgourp file %s, output %s&#34;, pid, targetFile, string(output))
+<span id="L91" class="ln">    91  </span>	}
+<span id="L92" class="ln">    92  </span>	return nil
+<span id="L93" class="ln">    93  </span>}
+<span id="L94" class="ln">    94  </span>
+<span id="L95" class="ln">    95  </span><span class="comment">// GetAttacherForPID return a AttachCGroup, which could attach a process to the same cgroup of the target pid</span>
+<span id="L96" class="ln">    96  </span>func GetAttacherForPID(targetPID int) (AttachCGroup, error) {
+<span id="L97" class="ln">    97  </span>	if cgroups.Mode() == cgroups.Unified {
+<span id="L98" class="ln">    98  </span>		groupPath, err := V2PidGroupPath(targetPID)
+<span id="L99" class="ln">    99  </span>		if err != nil {
+<span id="L100" class="ln">   100  </span>			return nil, err
+<span id="L101" class="ln">   101  </span>		}
+<span id="L102" class="ln">   102  </span>		return &amp;AttachCGroupV2{
+<span id="L103" class="ln">   103  </span>			mode: cgroups.Unified,
+<span id="L104" class="ln">   104  </span>			path: groupPath,
+<span id="L105" class="ln">   105  </span>		}, nil
+<span id="L106" class="ln">   106  </span>	}
+<span id="L107" class="ln">   107  </span>
+<span id="L108" class="ln">   108  </span>	<span class="comment">// By default it&#39;s cgroup v1</span>
+<span id="L109" class="ln">   109  </span>	return &amp;AttachCGroupV1{
+<span id="L110" class="ln">   110  </span>		mode: cgroups.Mode(),
+<span id="L111" class="ln">   111  </span>		path: PidPath(targetPID),
+<span id="L112" class="ln">   112  </span>	}, nil
+<span id="L113" class="ln">   113  </span>}
+<span id="L114" class="ln">   114  </span>
+</pre><p></p>
+
+<div id="footer">
+Build version go1.18.1.<br/>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+
+
+</body></html>

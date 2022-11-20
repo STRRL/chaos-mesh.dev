@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d62eeb4. Generated at Sat Nov 19 22:03:30 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e26351d. Generated at Sun Nov 20 10:01:40 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -87,249 +87,216 @@
 <span id="L22" class="ln">    22  </span>	&#34;syscall&#34;
 <span id="L23" class="ln">    23  </span>	&#34;time&#34;
 <span id="L24" class="ln">    24  </span>
-<span id="L25" class="ln">    25  </span>	&#34;github.com/containerd/cgroups&#34;
-<span id="L26" class="ln">    26  </span>	cgroupsv2 &#34;github.com/containerd/cgroups/v2&#34;
-<span id="L27" class="ln">    27  </span>	&#34;github.com/golang/protobuf/ptypes/empty&#34;
-<span id="L28" class="ln">    28  </span>	&#34;github.com/pkg/errors&#34;
-<span id="L29" class="ln">    29  </span>
-<span id="L30" class="ln">    30  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/bpm&#34;
-<span id="L31" class="ln">    31  </span>	daemonCgroups &#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups&#34;
-<span id="L32" class="ln">    32  </span>	pb &#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb&#34;
-<span id="L33" class="ln">    33  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/util&#34;
-<span id="L34" class="ln">    34  </span>)
-<span id="L35" class="ln">    35  </span>
-<span id="L36" class="ln">    36  </span>func (s *DaemonServer) ExecStressors(ctx context.Context,
-<span id="L37" class="ln">    37  </span>	req *pb.ExecStressRequest) (*pb.ExecStressResponse, error) {
-<span id="L38" class="ln">    38  </span>	log := s.getLoggerFromContext(ctx)
-<span id="L39" class="ln">    39  </span>	log.Info(&#34;Executing stressors&#34;, &#34;request&#34;, req)
-<span id="L40" class="ln">    40  </span>
-<span id="L41" class="ln">    41  </span>	<span class="comment">// cpuStressors</span>
-<span id="L42" class="ln">    42  </span>	cpuProc, err := s.ExecCPUStressors(ctx, req)
-<span id="L43" class="ln">    43  </span>	if err != nil {
-<span id="L44" class="ln">    44  </span>		return nil, err
-<span id="L45" class="ln">    45  </span>	}
-<span id="L46" class="ln">    46  </span>
-<span id="L47" class="ln">    47  </span>	<span class="comment">// memoryStressor</span>
-<span id="L48" class="ln">    48  </span>	memoryProc, err := s.ExecMemoryStressors(ctx, req)
-<span id="L49" class="ln">    49  </span>	if err != nil {
-<span id="L50" class="ln">    50  </span>		return nil, err
-<span id="L51" class="ln">    51  </span>	}
-<span id="L52" class="ln">    52  </span>
-<span id="L53" class="ln">    53  </span>	resp := new(pb.ExecStressResponse)
-<span id="L54" class="ln">    54  </span>	if cpuProc != nil {
-<span id="L55" class="ln">    55  </span>		resp.CpuInstance = strconv.Itoa(cpuProc.Pair.Pid)
-<span id="L56" class="ln">    56  </span>		resp.CpuStartTime = cpuProc.Pair.CreateTime
-<span id="L57" class="ln">    57  </span>		resp.CpuInstanceUid = cpuProc.Uid
-<span id="L58" class="ln">    58  </span>	}
-<span id="L59" class="ln">    59  </span>	if memoryProc != nil {
-<span id="L60" class="ln">    60  </span>		resp.MemoryInstance = strconv.Itoa(memoryProc.Pair.Pid)
-<span id="L61" class="ln">    61  </span>		resp.MemoryStartTime = memoryProc.Pair.CreateTime
-<span id="L62" class="ln">    62  </span>		resp.MemoryInstanceUid = memoryProc.Uid
-<span id="L63" class="ln">    63  </span>	}
-<span id="L64" class="ln">    64  </span>
-<span id="L65" class="ln">    65  </span>	return resp, nil
-<span id="L66" class="ln">    66  </span>}
-<span id="L67" class="ln">    67  </span>
-<span id="L68" class="ln">    68  </span>func (s *DaemonServer) CancelStressors(ctx context.Context,
-<span id="L69" class="ln">    69  </span>	req *pb.CancelStressRequest) (*empty.Empty, error) {
-<span id="L70" class="ln">    70  </span>	log := s.getLoggerFromContext(ctx)
-<span id="L71" class="ln">    71  </span>	CpuPid, err := strconv.Atoi(req.CpuInstance)
-<span id="L72" class="ln">    72  </span>	if req.CpuInstance != &#34;&#34; &amp;&amp; err != nil {
-<span id="L73" class="ln">    73  </span>		return nil, err
-<span id="L74" class="ln">    74  </span>	}
-<span id="L75" class="ln">    75  </span>
-<span id="L76" class="ln">    76  </span>	MemoryPid, err := strconv.Atoi(req.MemoryInstance)
-<span id="L77" class="ln">    77  </span>	if req.MemoryInstance != &#34;&#34; &amp;&amp; err != nil {
-<span id="L78" class="ln">    78  </span>		return nil, err
-<span id="L79" class="ln">    79  </span>	}
-<span id="L80" class="ln">    80  </span>
-<span id="L81" class="ln">    81  </span>	if req.CpuInstanceUid == &#34;&#34; &amp;&amp; CpuPid != 0 {
-<span id="L82" class="ln">    82  </span>		if uid, ok := s.backgroundProcessManager.GetUID(bpm.ProcessPair{Pid: CpuPid, CreateTime: req.CpuStartTime}); ok {
-<span id="L83" class="ln">    83  </span>			req.CpuInstanceUid = uid
-<span id="L84" class="ln">    84  </span>		}
-<span id="L85" class="ln">    85  </span>	}
-<span id="L86" class="ln">    86  </span>
-<span id="L87" class="ln">    87  </span>	if req.MemoryInstanceUid == &#34;&#34; &amp;&amp; MemoryPid != 0 {
-<span id="L88" class="ln">    88  </span>		if uid, ok := s.backgroundProcessManager.GetUID(bpm.ProcessPair{Pid: MemoryPid, CreateTime: req.MemoryStartTime}); ok {
-<span id="L89" class="ln">    89  </span>			req.MemoryInstanceUid = uid
-<span id="L90" class="ln">    90  </span>		}
-<span id="L91" class="ln">    91  </span>	}
-<span id="L92" class="ln">    92  </span>
-<span id="L93" class="ln">    93  </span>	log.Info(&#34;Canceling stressors&#34;, &#34;request&#34;, req)
-<span id="L94" class="ln">    94  </span>
-<span id="L95" class="ln">    95  </span>	if req.CpuInstanceUid != &#34;&#34; {
-<span id="L96" class="ln">    96  </span>		err = s.backgroundProcessManager.KillBackgroundProcess(ctx, req.CpuInstanceUid)
-<span id="L97" class="ln">    97  </span>		if err != nil {
-<span id="L98" class="ln">    98  </span>			return nil, err
-<span id="L99" class="ln">    99  </span>		}
-<span id="L100" class="ln">   100  </span>	}
-<span id="L101" class="ln">   101  </span>
-<span id="L102" class="ln">   102  </span>	if req.MemoryInstanceUid != &#34;&#34; {
-<span id="L103" class="ln">   103  </span>		err = s.backgroundProcessManager.KillBackgroundProcess(ctx, req.MemoryInstanceUid)
-<span id="L104" class="ln">   104  </span>		if err != nil {
-<span id="L105" class="ln">   105  </span>			return nil, err
-<span id="L106" class="ln">   106  </span>		}
-<span id="L107" class="ln">   107  </span>	}
-<span id="L108" class="ln">   108  </span>
-<span id="L109" class="ln">   109  </span>	log.Info(&#34;killing stressor successfully&#34;)
-<span id="L110" class="ln">   110  </span>	return &amp;empty.Empty{}, nil
-<span id="L111" class="ln">   111  </span>}
-<span id="L112" class="ln">   112  </span>
-<span id="L113" class="ln">   113  </span>func GetCGroupManagerForPID(pid int) (interface{}, error) {
-<span id="L114" class="ln">   114  </span>	if cgroups.Mode() == cgroups.Unified {
-<span id="L115" class="ln">   115  </span>		groupPath, err := cgroupsv2.PidGroupPath(pid)
-<span id="L116" class="ln">   116  </span>		if err != nil {
-<span id="L117" class="ln">   117  </span>			return nil, errors.Wrap(err, &#34;Error detecting groupPath&#34;)
-<span id="L118" class="ln">   118  </span>		}
-<span id="L119" class="ln">   119  </span>
-<span id="L120" class="ln">   120  </span>		cgroup2, err := cgroupsv2.LoadManager(&#34;/host-sys/fs/cgroup&#34;, groupPath)
-<span id="L121" class="ln">   121  </span>		if err != nil {
-<span id="L122" class="ln">   122  </span>			return nil, errors.Wrap(err, &#34;Error loading cgroup v2 manager&#34;)
-<span id="L123" class="ln">   123  </span>		}
-<span id="L124" class="ln">   124  </span>		return cgroup2, nil
-<span id="L125" class="ln">   125  </span>
+<span id="L25" class="ln">    25  </span>	&#34;github.com/golang/protobuf/ptypes/empty&#34;
+<span id="L26" class="ln">    26  </span>
+<span id="L27" class="ln">    27  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/bpm&#34;
+<span id="L28" class="ln">    28  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups&#34;
+<span id="L29" class="ln">    29  </span>	pb &#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb&#34;
+<span id="L30" class="ln">    30  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/util&#34;
+<span id="L31" class="ln">    31  </span>)
+<span id="L32" class="ln">    32  </span>
+<span id="L33" class="ln">    33  </span>func (s *DaemonServer) ExecStressors(ctx context.Context,
+<span id="L34" class="ln">    34  </span>	req *pb.ExecStressRequest) (*pb.ExecStressResponse, error) {
+<span id="L35" class="ln">    35  </span>	log := s.getLoggerFromContext(ctx)
+<span id="L36" class="ln">    36  </span>	log.Info(&#34;Executing stressors&#34;, &#34;request&#34;, req)
+<span id="L37" class="ln">    37  </span>
+<span id="L38" class="ln">    38  </span>	<span class="comment">// cpuStressors</span>
+<span id="L39" class="ln">    39  </span>	cpuProc, err := s.ExecCPUStressors(ctx, req)
+<span id="L40" class="ln">    40  </span>	if err != nil {
+<span id="L41" class="ln">    41  </span>		<span class="comment">// this error would be resolved by grpc server framework, it&#39;s the top level to print it.</span>
+<span id="L42" class="ln">    42  </span>		s.rootLogger.Error(err, &#34;exec cpu stressors&#34;, &#34;containerID&#34;, req.Target, &#34;cpuStressors&#34;, req.CpuStressors)
+<span id="L43" class="ln">    43  </span>		return nil, err
+<span id="L44" class="ln">    44  </span>	}
+<span id="L45" class="ln">    45  </span>
+<span id="L46" class="ln">    46  </span>	<span class="comment">// memoryStressor</span>
+<span id="L47" class="ln">    47  </span>	memoryProc, err := s.ExecMemoryStressors(ctx, req)
+<span id="L48" class="ln">    48  </span>	if err != nil {
+<span id="L49" class="ln">    49  </span>		return nil, err
+<span id="L50" class="ln">    50  </span>	}
+<span id="L51" class="ln">    51  </span>
+<span id="L52" class="ln">    52  </span>	resp := new(pb.ExecStressResponse)
+<span id="L53" class="ln">    53  </span>	if cpuProc != nil {
+<span id="L54" class="ln">    54  </span>		resp.CpuInstance = strconv.Itoa(cpuProc.Pair.Pid)
+<span id="L55" class="ln">    55  </span>		resp.CpuStartTime = cpuProc.Pair.CreateTime
+<span id="L56" class="ln">    56  </span>		resp.CpuInstanceUid = cpuProc.Uid
+<span id="L57" class="ln">    57  </span>	}
+<span id="L58" class="ln">    58  </span>	if memoryProc != nil {
+<span id="L59" class="ln">    59  </span>		resp.MemoryInstance = strconv.Itoa(memoryProc.Pair.Pid)
+<span id="L60" class="ln">    60  </span>		resp.MemoryStartTime = memoryProc.Pair.CreateTime
+<span id="L61" class="ln">    61  </span>		resp.MemoryInstanceUid = memoryProc.Uid
+<span id="L62" class="ln">    62  </span>	}
+<span id="L63" class="ln">    63  </span>
+<span id="L64" class="ln">    64  </span>	return resp, nil
+<span id="L65" class="ln">    65  </span>}
+<span id="L66" class="ln">    66  </span>
+<span id="L67" class="ln">    67  </span>func (s *DaemonServer) CancelStressors(ctx context.Context,
+<span id="L68" class="ln">    68  </span>	req *pb.CancelStressRequest) (*empty.Empty, error) {
+<span id="L69" class="ln">    69  </span>	log := s.getLoggerFromContext(ctx)
+<span id="L70" class="ln">    70  </span>	CpuPid, err := strconv.Atoi(req.CpuInstance)
+<span id="L71" class="ln">    71  </span>	if req.CpuInstance != &#34;&#34; &amp;&amp; err != nil {
+<span id="L72" class="ln">    72  </span>		return nil, err
+<span id="L73" class="ln">    73  </span>	}
+<span id="L74" class="ln">    74  </span>
+<span id="L75" class="ln">    75  </span>	MemoryPid, err := strconv.Atoi(req.MemoryInstance)
+<span id="L76" class="ln">    76  </span>	if req.MemoryInstance != &#34;&#34; &amp;&amp; err != nil {
+<span id="L77" class="ln">    77  </span>		return nil, err
+<span id="L78" class="ln">    78  </span>	}
+<span id="L79" class="ln">    79  </span>
+<span id="L80" class="ln">    80  </span>	if req.CpuInstanceUid == &#34;&#34; &amp;&amp; CpuPid != 0 {
+<span id="L81" class="ln">    81  </span>		if uid, ok := s.backgroundProcessManager.GetUID(bpm.ProcessPair{Pid: CpuPid, CreateTime: req.CpuStartTime}); ok {
+<span id="L82" class="ln">    82  </span>			req.CpuInstanceUid = uid
+<span id="L83" class="ln">    83  </span>		}
+<span id="L84" class="ln">    84  </span>	}
+<span id="L85" class="ln">    85  </span>
+<span id="L86" class="ln">    86  </span>	if req.MemoryInstanceUid == &#34;&#34; &amp;&amp; MemoryPid != 0 {
+<span id="L87" class="ln">    87  </span>		if uid, ok := s.backgroundProcessManager.GetUID(bpm.ProcessPair{Pid: MemoryPid, CreateTime: req.MemoryStartTime}); ok {
+<span id="L88" class="ln">    88  </span>			req.MemoryInstanceUid = uid
+<span id="L89" class="ln">    89  </span>		}
+<span id="L90" class="ln">    90  </span>	}
+<span id="L91" class="ln">    91  </span>
+<span id="L92" class="ln">    92  </span>	log.Info(&#34;Canceling stressors&#34;, &#34;request&#34;, req)
+<span id="L93" class="ln">    93  </span>
+<span id="L94" class="ln">    94  </span>	if req.CpuInstanceUid != &#34;&#34; {
+<span id="L95" class="ln">    95  </span>		err = s.backgroundProcessManager.KillBackgroundProcess(ctx, req.CpuInstanceUid)
+<span id="L96" class="ln">    96  </span>		if err != nil {
+<span id="L97" class="ln">    97  </span>			return nil, err
+<span id="L98" class="ln">    98  </span>		}
+<span id="L99" class="ln">    99  </span>	}
+<span id="L100" class="ln">   100  </span>
+<span id="L101" class="ln">   101  </span>	if req.MemoryInstanceUid != &#34;&#34; {
+<span id="L102" class="ln">   102  </span>		err = s.backgroundProcessManager.KillBackgroundProcess(ctx, req.MemoryInstanceUid)
+<span id="L103" class="ln">   103  </span>		if err != nil {
+<span id="L104" class="ln">   104  </span>			return nil, err
+<span id="L105" class="ln">   105  </span>		}
+<span id="L106" class="ln">   106  </span>	}
+<span id="L107" class="ln">   107  </span>
+<span id="L108" class="ln">   108  </span>	log.Info(&#34;killing stressor successfully&#34;)
+<span id="L109" class="ln">   109  </span>	return &amp;empty.Empty{}, nil
+<span id="L110" class="ln">   110  </span>}
+<span id="L111" class="ln">   111  </span>
+<span id="L112" class="ln">   112  </span>func (s *DaemonServer) ExecCPUStressors(ctx context.Context,
+<span id="L113" class="ln">   113  </span>	req *pb.ExecStressRequest) (*bpm.Process, error) {
+<span id="L114" class="ln">   114  </span>	log := s.getLoggerFromContext(ctx)
+<span id="L115" class="ln">   115  </span>	if req.CpuStressors == &#34;&#34; {
+<span id="L116" class="ln">   116  </span>		return nil, nil
+<span id="L117" class="ln">   117  </span>	}
+<span id="L118" class="ln">   118  </span>	pid, err := s.crClient.GetPidFromContainerID(ctx, req.Target)
+<span id="L119" class="ln">   119  </span>	if err != nil {
+<span id="L120" class="ln">   120  </span>		return nil, err
+<span id="L121" class="ln">   121  </span>	}
+<span id="L122" class="ln">   122  </span>
+<span id="L123" class="ln">   123  </span>	attachCGroup, err := cgroups.GetAttacherForPID(int(pid))
+<span id="L124" class="ln">   124  </span>	if err != nil {
+<span id="L125" class="ln">   125  </span>		return nil, err
 <span id="L126" class="ln">   126  </span>	}
-<span id="L127" class="ln">   127  </span>	<span class="comment">// By default it&#39;s cgroup v1</span>
-<span id="L128" class="ln">   128  </span>	cgroup1, err := cgroups.Load(daemonCgroups.V1, daemonCgroups.PidPath(pid))
-<span id="L129" class="ln">   129  </span>	if err != nil {
-<span id="L130" class="ln">   130  </span>		return nil, errors.Wrap(err, &#34;Error loading cgroup v1 manager&#34;)
-<span id="L131" class="ln">   131  </span>	}
-<span id="L132" class="ln">   132  </span>	return cgroup1, nil
-<span id="L133" class="ln">   133  </span>}
+<span id="L127" class="ln">   127  </span>
+<span id="L128" class="ln">   128  </span>	processBuilder := bpm.DefaultProcessBuilder(&#34;stress-ng&#34;, strings.Fields(req.CpuStressors)...).
+<span id="L129" class="ln">   129  </span>		EnablePause()
+<span id="L130" class="ln">   130  </span>	if req.EnterNS {
+<span id="L131" class="ln">   131  </span>		processBuilder = processBuilder.SetNS(pid, bpm.PidNS)
+<span id="L132" class="ln">   132  </span>	}
+<span id="L133" class="ln">   133  </span>	cmd := processBuilder.Build(ctx)
 <span id="L134" class="ln">   134  </span>
-<span id="L135" class="ln">   135  </span>func AttachProcessToCGroup(pid int, control interface{}) error {
-<span id="L136" class="ln">   136  </span>	if cgroups.Mode() == cgroups.Unified {
-<span id="L137" class="ln">   137  </span>		var cgroup2 = control.(*cgroupsv2.Manager)
-<span id="L138" class="ln">   138  </span>		return cgroup2.AddProc(uint64(pid))
-<span id="L139" class="ln">   139  </span>	}
-<span id="L140" class="ln">   140  </span>	<span class="comment">// By default it&#39;s cgroup v1</span>
-<span id="L141" class="ln">   141  </span>	var cgroup1 = control.(cgroups.Cgroup)
-<span id="L142" class="ln">   142  </span>	return cgroup1.Add(cgroups.Process{Pid: pid})
-<span id="L143" class="ln">   143  </span>}
-<span id="L144" class="ln">   144  </span>
-<span id="L145" class="ln">   145  </span>func (s *DaemonServer) ExecCPUStressors(ctx context.Context,
-<span id="L146" class="ln">   146  </span>	req *pb.ExecStressRequest) (*bpm.Process, error) {
-<span id="L147" class="ln">   147  </span>	log := s.getLoggerFromContext(ctx)
-<span id="L148" class="ln">   148  </span>	if req.CpuStressors == &#34;&#34; {
-<span id="L149" class="ln">   149  </span>		return nil, nil
-<span id="L150" class="ln">   150  </span>	}
-<span id="L151" class="ln">   151  </span>	pid, err := s.crClient.GetPidFromContainerID(ctx, req.Target)
-<span id="L152" class="ln">   152  </span>	if err != nil {
-<span id="L153" class="ln">   153  </span>		return nil, err
-<span id="L154" class="ln">   154  </span>	}
-<span id="L155" class="ln">   155  </span>
-<span id="L156" class="ln">   156  </span>	cgroupManager, err := GetCGroupManagerForPID(int(pid))
-<span id="L157" class="ln">   157  </span>	if err != nil {
-<span id="L158" class="ln">   158  </span>		return nil, err
-<span id="L159" class="ln">   159  </span>	}
-<span id="L160" class="ln">   160  </span>
-<span id="L161" class="ln">   161  </span>	processBuilder := bpm.DefaultProcessBuilder(&#34;stress-ng&#34;, strings.Fields(req.CpuStressors)...).
-<span id="L162" class="ln">   162  </span>		EnablePause()
-<span id="L163" class="ln">   163  </span>	if req.EnterNS {
-<span id="L164" class="ln">   164  </span>		processBuilder = processBuilder.SetNS(pid, bpm.PidNS)
-<span id="L165" class="ln">   165  </span>	}
-<span id="L166" class="ln">   166  </span>	cmd := processBuilder.Build(ctx)
-<span id="L167" class="ln">   167  </span>
-<span id="L168" class="ln">   168  </span>	proc, err := s.backgroundProcessManager.StartProcess(ctx, cmd)
-<span id="L169" class="ln">   169  </span>	if err != nil {
-<span id="L170" class="ln">   170  </span>		return nil, err
-<span id="L171" class="ln">   171  </span>	}
-<span id="L172" class="ln">   172  </span>	log.Info(&#34;Start stress-ng successfully&#34;, &#34;command&#34;, cmd, &#34;pid&#34;, proc.Pair.Pid, &#34;uid&#34;, proc.Uid)
-<span id="L173" class="ln">   173  </span>
-<span id="L174" class="ln">   174  </span>	if err = AttachProcessToCGroup(proc.Pair.Pid, cgroupManager); err != nil {
-<span id="L175" class="ln">   175  </span>		if kerr := cmd.Process.Kill(); kerr != nil {
-<span id="L176" class="ln">   176  </span>			log.Error(kerr, &#34;kill stress-ng failed&#34;, &#34;request&#34;, req)
-<span id="L177" class="ln">   177  </span>		}
-<span id="L178" class="ln">   178  </span>		return nil, err
-<span id="L179" class="ln">   179  </span>	}
-<span id="L180" class="ln">   180  </span>
-<span id="L181" class="ln">   181  </span>	for {
-<span id="L182" class="ln">   182  </span>		<span class="comment">// TODO: find a better way to resume pause process</span>
-<span id="L183" class="ln">   183  </span>		if err := cmd.Process.Signal(syscall.SIGCONT); err != nil {
-<span id="L184" class="ln">   184  </span>			return nil, err
-<span id="L185" class="ln">   185  </span>		}
-<span id="L186" class="ln">   186  </span>
-<span id="L187" class="ln">   187  </span>		log.Info(&#34;send signal to resume process&#34;)
-<span id="L188" class="ln">   188  </span>		time.Sleep(time.Millisecond)
-<span id="L189" class="ln">   189  </span>
-<span id="L190" class="ln">   190  </span>		<span class="comment">// TODO: integrate the resume process into the bpm</span>
-<span id="L191" class="ln">   191  </span>		comm, err := util.ReadCommName(cmd.Process.Pid)
-<span id="L192" class="ln">   192  </span>		if err != nil {
-<span id="L193" class="ln">   193  </span>			return nil, err
-<span id="L194" class="ln">   194  </span>		}
-<span id="L195" class="ln">   195  </span>		if comm != &#34;pause\n&#34; {
-<span id="L196" class="ln">   196  </span>			log.Info(&#34;pause has been resumed&#34;, &#34;comm&#34;, comm)
-<span id="L197" class="ln">   197  </span>			break
-<span id="L198" class="ln">   198  </span>		}
-<span id="L199" class="ln">   199  </span>		log.Info(&#34;the process hasn&#39;t resumed, step into the following loop&#34;, &#34;comm&#34;, comm)
-<span id="L200" class="ln">   200  </span>	}
-<span id="L201" class="ln">   201  </span>
-<span id="L202" class="ln">   202  </span>	return proc, nil
-<span id="L203" class="ln">   203  </span>}
+<span id="L135" class="ln">   135  </span>	proc, err := s.backgroundProcessManager.StartProcess(ctx, cmd)
+<span id="L136" class="ln">   136  </span>	if err != nil {
+<span id="L137" class="ln">   137  </span>		return nil, err
+<span id="L138" class="ln">   138  </span>	}
+<span id="L139" class="ln">   139  </span>	log.Info(&#34;Start stress-ng successfully&#34;, &#34;command&#34;, cmd, &#34;pid&#34;, proc.Pair.Pid, &#34;uid&#34;, proc.Uid)
+<span id="L140" class="ln">   140  </span>
+<span id="L141" class="ln">   141  </span>	if err = attachCGroup.AttachProcess(proc.Pair.Pid); err != nil {
+<span id="L142" class="ln">   142  </span>		if kerr := cmd.Process.Kill(); kerr != nil {
+<span id="L143" class="ln">   143  </span>			log.Error(kerr, &#34;kill stress-ng failed&#34;, &#34;request&#34;, req)
+<span id="L144" class="ln">   144  </span>		}
+<span id="L145" class="ln">   145  </span>		return nil, err
+<span id="L146" class="ln">   146  </span>	}
+<span id="L147" class="ln">   147  </span>
+<span id="L148" class="ln">   148  </span>	for {
+<span id="L149" class="ln">   149  </span>		<span class="comment">// TODO: find a better way to resume pause process</span>
+<span id="L150" class="ln">   150  </span>		if err := cmd.Process.Signal(syscall.SIGCONT); err != nil {
+<span id="L151" class="ln">   151  </span>			return nil, err
+<span id="L152" class="ln">   152  </span>		}
+<span id="L153" class="ln">   153  </span>
+<span id="L154" class="ln">   154  </span>		log.Info(&#34;send signal to resume process&#34;)
+<span id="L155" class="ln">   155  </span>		time.Sleep(time.Millisecond)
+<span id="L156" class="ln">   156  </span>
+<span id="L157" class="ln">   157  </span>		<span class="comment">// TODO: integrate the resume process into the bpm</span>
+<span id="L158" class="ln">   158  </span>		comm, err := util.ReadCommName(cmd.Process.Pid)
+<span id="L159" class="ln">   159  </span>		if err != nil {
+<span id="L160" class="ln">   160  </span>			return nil, err
+<span id="L161" class="ln">   161  </span>		}
+<span id="L162" class="ln">   162  </span>		if comm != &#34;pause\n&#34; {
+<span id="L163" class="ln">   163  </span>			log.Info(&#34;pause has been resumed&#34;, &#34;comm&#34;, comm)
+<span id="L164" class="ln">   164  </span>			break
+<span id="L165" class="ln">   165  </span>		}
+<span id="L166" class="ln">   166  </span>		log.Info(&#34;the process hasn&#39;t resumed, step into the following loop&#34;, &#34;comm&#34;, comm)
+<span id="L167" class="ln">   167  </span>	}
+<span id="L168" class="ln">   168  </span>
+<span id="L169" class="ln">   169  </span>	return proc, nil
+<span id="L170" class="ln">   170  </span>}
+<span id="L171" class="ln">   171  </span>
+<span id="L172" class="ln">   172  </span>func (s *DaemonServer) ExecMemoryStressors(ctx context.Context,
+<span id="L173" class="ln">   173  </span>	req *pb.ExecStressRequest) (*bpm.Process, error) {
+<span id="L174" class="ln">   174  </span>	log := s.getLoggerFromContext(ctx)
+<span id="L175" class="ln">   175  </span>	if req.MemoryStressors == &#34;&#34; {
+<span id="L176" class="ln">   176  </span>		return nil, nil
+<span id="L177" class="ln">   177  </span>	}
+<span id="L178" class="ln">   178  </span>	pid, err := s.crClient.GetPidFromContainerID(ctx, req.Target)
+<span id="L179" class="ln">   179  </span>	if err != nil {
+<span id="L180" class="ln">   180  </span>		return nil, err
+<span id="L181" class="ln">   181  </span>	}
+<span id="L182" class="ln">   182  </span>
+<span id="L183" class="ln">   183  </span>	attachCGroup, err := cgroups.GetAttacherForPID(int(pid))
+<span id="L184" class="ln">   184  </span>	if err != nil {
+<span id="L185" class="ln">   185  </span>		return nil, err
+<span id="L186" class="ln">   186  </span>	}
+<span id="L187" class="ln">   187  </span>
+<span id="L188" class="ln">   188  </span>	processBuilder := bpm.DefaultProcessBuilder(&#34;memStress&#34;, strings.Fields(req.MemoryStressors)...).
+<span id="L189" class="ln">   189  </span>		EnablePause()
+<span id="L190" class="ln">   190  </span>
+<span id="L191" class="ln">   191  </span>	if req.OomScoreAdj != 0 {
+<span id="L192" class="ln">   192  </span>		processBuilder = processBuilder.SetOOMScoreAdj(int(req.OomScoreAdj))
+<span id="L193" class="ln">   193  </span>	}
+<span id="L194" class="ln">   194  </span>	if req.EnterNS {
+<span id="L195" class="ln">   195  </span>		processBuilder = processBuilder.SetNS(pid, bpm.PidNS)
+<span id="L196" class="ln">   196  </span>	}
+<span id="L197" class="ln">   197  </span>	cmd := processBuilder.Build(ctx)
+<span id="L198" class="ln">   198  </span>
+<span id="L199" class="ln">   199  </span>	proc, err := s.backgroundProcessManager.StartProcess(ctx, cmd)
+<span id="L200" class="ln">   200  </span>	if err != nil {
+<span id="L201" class="ln">   201  </span>		return nil, err
+<span id="L202" class="ln">   202  </span>	}
+<span id="L203" class="ln">   203  </span>	log.Info(&#34;Start memStress successfully&#34;, &#34;command&#34;, cmd, &#34;pid&#34;, proc.Pair.Pid, &#34;uid&#34;, proc.Uid)
 <span id="L204" class="ln">   204  </span>
-<span id="L205" class="ln">   205  </span>func (s *DaemonServer) ExecMemoryStressors(ctx context.Context,
-<span id="L206" class="ln">   206  </span>	req *pb.ExecStressRequest) (*bpm.Process, error) {
-<span id="L207" class="ln">   207  </span>	log := s.getLoggerFromContext(ctx)
-<span id="L208" class="ln">   208  </span>	if req.MemoryStressors == &#34;&#34; {
-<span id="L209" class="ln">   209  </span>		return nil, nil
+<span id="L205" class="ln">   205  </span>	if err = attachCGroup.AttachProcess(proc.Pair.Pid); err != nil {
+<span id="L206" class="ln">   206  </span>		if kerr := cmd.Process.Kill(); kerr != nil {
+<span id="L207" class="ln">   207  </span>			log.Error(kerr, &#34;kill memStress failed&#34;, &#34;request&#34;, req)
+<span id="L208" class="ln">   208  </span>		}
+<span id="L209" class="ln">   209  </span>		return nil, err
 <span id="L210" class="ln">   210  </span>	}
-<span id="L211" class="ln">   211  </span>	pid, err := s.crClient.GetPidFromContainerID(ctx, req.Target)
-<span id="L212" class="ln">   212  </span>	if err != nil {
-<span id="L213" class="ln">   213  </span>		return nil, err
-<span id="L214" class="ln">   214  </span>	}
-<span id="L215" class="ln">   215  </span>
-<span id="L216" class="ln">   216  </span>	cgroupManager, err := GetCGroupManagerForPID(int(pid))
-<span id="L217" class="ln">   217  </span>	if err != nil {
-<span id="L218" class="ln">   218  </span>		return nil, err
-<span id="L219" class="ln">   219  </span>	}
-<span id="L220" class="ln">   220  </span>
-<span id="L221" class="ln">   221  </span>	processBuilder := bpm.DefaultProcessBuilder(&#34;memStress&#34;, strings.Fields(req.MemoryStressors)...).
-<span id="L222" class="ln">   222  </span>		EnablePause()
-<span id="L223" class="ln">   223  </span>
-<span id="L224" class="ln">   224  </span>	if req.OomScoreAdj != 0 {
-<span id="L225" class="ln">   225  </span>		processBuilder = processBuilder.SetOOMScoreAdj(int(req.OomScoreAdj))
-<span id="L226" class="ln">   226  </span>	}
-<span id="L227" class="ln">   227  </span>	if req.EnterNS {
-<span id="L228" class="ln">   228  </span>		processBuilder = processBuilder.SetNS(pid, bpm.PidNS)
-<span id="L229" class="ln">   229  </span>	}
-<span id="L230" class="ln">   230  </span>	cmd := processBuilder.Build(ctx)
+<span id="L211" class="ln">   211  </span>
+<span id="L212" class="ln">   212  </span>	for {
+<span id="L213" class="ln">   213  </span>		<span class="comment">// TODO: find a better way to resume pause process</span>
+<span id="L214" class="ln">   214  </span>		if err := cmd.Process.Signal(syscall.SIGCONT); err != nil {
+<span id="L215" class="ln">   215  </span>			return nil, err
+<span id="L216" class="ln">   216  </span>		}
+<span id="L217" class="ln">   217  </span>
+<span id="L218" class="ln">   218  </span>		log.Info(&#34;send signal to resume process&#34;)
+<span id="L219" class="ln">   219  </span>		time.Sleep(time.Millisecond)
+<span id="L220" class="ln">   220  </span>		comm, err := util.ReadCommName(proc.Pair.Pid)
+<span id="L221" class="ln">   221  </span>
+<span id="L222" class="ln">   222  </span>		if err != nil {
+<span id="L223" class="ln">   223  </span>			return nil, err
+<span id="L224" class="ln">   224  </span>		}
+<span id="L225" class="ln">   225  </span>		if comm != &#34;pause\n&#34; {
+<span id="L226" class="ln">   226  </span>			log.Info(&#34;pause has been resumed&#34;, &#34;comm&#34;, comm)
+<span id="L227" class="ln">   227  </span>			break
+<span id="L228" class="ln">   228  </span>		}
+<span id="L229" class="ln">   229  </span>		log.Info(&#34;the process hasn&#39;t resumed, step into the following loop&#34;, &#34;comm&#34;, comm)
+<span id="L230" class="ln">   230  </span>	}
 <span id="L231" class="ln">   231  </span>
-<span id="L232" class="ln">   232  </span>	proc, err := s.backgroundProcessManager.StartProcess(ctx, cmd)
-<span id="L233" class="ln">   233  </span>	if err != nil {
-<span id="L234" class="ln">   234  </span>		return nil, err
-<span id="L235" class="ln">   235  </span>	}
-<span id="L236" class="ln">   236  </span>	log.Info(&#34;Start memStress successfully&#34;, &#34;command&#34;, cmd, &#34;pid&#34;, proc.Pair.Pid, &#34;uid&#34;, proc.Uid)
-<span id="L237" class="ln">   237  </span>
-<span id="L238" class="ln">   238  </span>	if err = AttachProcessToCGroup(proc.Pair.Pid, cgroupManager); err != nil {
-<span id="L239" class="ln">   239  </span>		if kerr := cmd.Process.Kill(); kerr != nil {
-<span id="L240" class="ln">   240  </span>			log.Error(kerr, &#34;kill memStress failed&#34;, &#34;request&#34;, req)
-<span id="L241" class="ln">   241  </span>		}
-<span id="L242" class="ln">   242  </span>		return nil, err
-<span id="L243" class="ln">   243  </span>	}
-<span id="L244" class="ln">   244  </span>
-<span id="L245" class="ln">   245  </span>	for {
-<span id="L246" class="ln">   246  </span>		<span class="comment">// TODO: find a better way to resume pause process</span>
-<span id="L247" class="ln">   247  </span>		if err := cmd.Process.Signal(syscall.SIGCONT); err != nil {
-<span id="L248" class="ln">   248  </span>			return nil, err
-<span id="L249" class="ln">   249  </span>		}
-<span id="L250" class="ln">   250  </span>
-<span id="L251" class="ln">   251  </span>		log.Info(&#34;send signal to resume process&#34;)
-<span id="L252" class="ln">   252  </span>		time.Sleep(time.Millisecond)
-<span id="L253" class="ln">   253  </span>		comm, err := util.ReadCommName(proc.Pair.Pid)
-<span id="L254" class="ln">   254  </span>
-<span id="L255" class="ln">   255  </span>		if err != nil {
-<span id="L256" class="ln">   256  </span>			return nil, err
-<span id="L257" class="ln">   257  </span>		}
-<span id="L258" class="ln">   258  </span>		if comm != &#34;pause\n&#34; {
-<span id="L259" class="ln">   259  </span>			log.Info(&#34;pause has been resumed&#34;, &#34;comm&#34;, comm)
-<span id="L260" class="ln">   260  </span>			break
-<span id="L261" class="ln">   261  </span>		}
-<span id="L262" class="ln">   262  </span>		log.Info(&#34;the process hasn&#39;t resumed, step into the following loop&#34;, &#34;comm&#34;, comm)
-<span id="L263" class="ln">   263  </span>	}
-<span id="L264" class="ln">   264  </span>
-<span id="L265" class="ln">   265  </span>	return proc, nil
-<span id="L266" class="ln">   266  </span>}
-<span id="L267" class="ln">   267  </span>
+<span id="L232" class="ln">   232  </span>	return proc, nil
+<span id="L233" class="ln">   233  </span>}
+<span id="L234" class="ln">   234  </span>
 </pre><p></p>
 
 <div id="footer">
