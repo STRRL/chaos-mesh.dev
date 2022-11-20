@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e26351d. Generated at Sun Nov 20 10:01:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 80a288f. Generated at Sun Nov 20 22:03:39 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -179,122 +179,127 @@
 <span id="L114" class="ln">   114  </span>			Actions: httpchaos.Spec.PodHttpChaosActions,
 <span id="L115" class="ln">   115  </span>		},
 <span id="L116" class="ln">   116  </span>	})
-<span id="L117" class="ln">   117  </span>	generationNumber, err := m.Commit(ctx)
-<span id="L118" class="ln">   118  </span>	if err != nil {
-<span id="L119" class="ln">   119  </span>		return v1alpha1.NotInjected, err
+<span id="L117" class="ln">   117  </span>
+<span id="L118" class="ln">   118  </span>	if httpchaos.Spec.TLS != nil {
+<span id="L119" class="ln">   119  </span>		m.T.Append(httpchaos.Spec.TLS)
 <span id="L120" class="ln">   120  </span>	}
 <span id="L121" class="ln">   121  </span>
-<span id="L122" class="ln">   122  </span>	<span class="comment">// modify the custom status</span>
-<span id="L123" class="ln">   123  </span>	httpchaos.Status.Instances[record.Id] = generationNumber
-<span id="L124" class="ln">   124  </span>	return waitForApplySync, nil
-<span id="L125" class="ln">   125  </span>}
+<span id="L122" class="ln">   122  </span>	generationNumber, err := m.Commit(ctx)
+<span id="L123" class="ln">   123  </span>	if err != nil {
+<span id="L124" class="ln">   124  </span>		return v1alpha1.NotInjected, err
+<span id="L125" class="ln">   125  </span>	}
 <span id="L126" class="ln">   126  </span>
-<span id="L127" class="ln">   127  </span>func (impl *Impl) Recover(ctx context.Context, index int, records []*v1alpha1.Record, obj v1alpha1.InnerObject) (v1alpha1.Phase, error) {
-<span id="L128" class="ln">   128  </span>	<span class="comment">// The only possible phase to get in here is &#34;Injected&#34; or &#34;Injected/Wait&#34;</span>
-<span id="L129" class="ln">   129  </span>
-<span id="L130" class="ln">   130  </span>	httpchaos := obj.(*v1alpha1.HTTPChaos)
-<span id="L131" class="ln">   131  </span>	if httpchaos.Status.Instances == nil {
-<span id="L132" class="ln">   132  </span>		httpchaos.Status.Instances = make(map[string]int64)
-<span id="L133" class="ln">   133  </span>	}
+<span id="L127" class="ln">   127  </span>	<span class="comment">// modify the custom status</span>
+<span id="L128" class="ln">   128  </span>	httpchaos.Status.Instances[record.Id] = generationNumber
+<span id="L129" class="ln">   129  </span>	return waitForApplySync, nil
+<span id="L130" class="ln">   130  </span>}
+<span id="L131" class="ln">   131  </span>
+<span id="L132" class="ln">   132  </span>func (impl *Impl) Recover(ctx context.Context, index int, records []*v1alpha1.Record, obj v1alpha1.InnerObject) (v1alpha1.Phase, error) {
+<span id="L133" class="ln">   133  </span>	<span class="comment">// The only possible phase to get in here is &#34;Injected&#34; or &#34;Injected/Wait&#34;</span>
 <span id="L134" class="ln">   134  </span>
-<span id="L135" class="ln">   135  </span>	record := records[index]
-<span id="L136" class="ln">   136  </span>	phase := record.Phase
-<span id="L137" class="ln">   137  </span>	if phase == waitForRecoverSync {
-<span id="L138" class="ln">   138  </span>		podhttpchaos := &amp;v1alpha1.PodHttpChaos{}
-<span id="L139" class="ln">   139  </span>		namespacedName, err := controller.ParseNamespacedName(record.Id)
-<span id="L140" class="ln">   140  </span>		if err != nil {
-<span id="L141" class="ln">   141  </span>			<span class="comment">// This error is not expected to exist</span>
-<span id="L142" class="ln">   142  </span>			return waitForRecoverSync, err
-<span id="L143" class="ln">   143  </span>		}
-<span id="L144" class="ln">   144  </span>		err = impl.Client.Get(ctx, namespacedName, podhttpchaos)
+<span id="L135" class="ln">   135  </span>	httpchaos := obj.(*v1alpha1.HTTPChaos)
+<span id="L136" class="ln">   136  </span>	if httpchaos.Status.Instances == nil {
+<span id="L137" class="ln">   137  </span>		httpchaos.Status.Instances = make(map[string]int64)
+<span id="L138" class="ln">   138  </span>	}
+<span id="L139" class="ln">   139  </span>
+<span id="L140" class="ln">   140  </span>	record := records[index]
+<span id="L141" class="ln">   141  </span>	phase := record.Phase
+<span id="L142" class="ln">   142  </span>	if phase == waitForRecoverSync {
+<span id="L143" class="ln">   143  </span>		podhttpchaos := &amp;v1alpha1.PodHttpChaos{}
+<span id="L144" class="ln">   144  </span>		namespacedName, err := controller.ParseNamespacedName(record.Id)
 <span id="L145" class="ln">   145  </span>		if err != nil {
-<span id="L146" class="ln">   146  </span>			<span class="comment">// TODO: handle this error</span>
-<span id="L147" class="ln">   147  </span>			if k8sError.IsNotFound(err) {
-<span id="L148" class="ln">   148  </span>				return v1alpha1.NotInjected, nil
-<span id="L149" class="ln">   149  </span>			}
-<span id="L150" class="ln">   150  </span>
-<span id="L151" class="ln">   151  </span>			if k8sError.IsForbidden(err) {
-<span id="L152" class="ln">   152  </span>				if strings.Contains(err.Error(), &#34;because it is being terminated&#34;) {
-<span id="L153" class="ln">   153  </span>					return v1alpha1.NotInjected, nil
-<span id="L154" class="ln">   154  </span>				}
-<span id="L155" class="ln">   155  </span>			}
-<span id="L156" class="ln">   156  </span>
-<span id="L157" class="ln">   157  </span>			return waitForRecoverSync, err
-<span id="L158" class="ln">   158  </span>		}
-<span id="L159" class="ln">   159  </span>
-<span id="L160" class="ln">   160  </span>		if podhttpchaos.Status.FailedMessage != &#34;&#34; {
-<span id="L161" class="ln">   161  </span>			return waitForRecoverSync, errors.New(podhttpchaos.Status.FailedMessage)
-<span id="L162" class="ln">   162  </span>		}
-<span id="L163" class="ln">   163  </span>
-<span id="L164" class="ln">   164  </span>		if podhttpchaos.Status.ObservedGeneration &gt;= httpchaos.Status.Instances[record.Id] {
-<span id="L165" class="ln">   165  </span>			return v1alpha1.NotInjected, nil
-<span id="L166" class="ln">   166  </span>		}
-<span id="L167" class="ln">   167  </span>
-<span id="L168" class="ln">   168  </span>		return waitForRecoverSync, nil
-<span id="L169" class="ln">   169  </span>	}
-<span id="L170" class="ln">   170  </span>
-<span id="L171" class="ln">   171  </span>	podId, err := controller.ParseNamespacedName(records[index].Id)
-<span id="L172" class="ln">   172  </span>	if err != nil {
-<span id="L173" class="ln">   173  </span>		<span class="comment">// This error is not expected to exist</span>
-<span id="L174" class="ln">   174  </span>		return v1alpha1.NotInjected, err
-<span id="L175" class="ln">   175  </span>	}
-<span id="L176" class="ln">   176  </span>	var pod v1.Pod
-<span id="L177" class="ln">   177  </span>	err = impl.Client.Get(ctx, podId, &amp;pod)
-<span id="L178" class="ln">   178  </span>	if err != nil {
-<span id="L179" class="ln">   179  </span>		<span class="comment">// TODO: handle this error</span>
-<span id="L180" class="ln">   180  </span>		if k8sError.IsNotFound(err) {
-<span id="L181" class="ln">   181  </span>			return v1alpha1.NotInjected, nil
-<span id="L182" class="ln">   182  </span>		}
-<span id="L183" class="ln">   183  </span>		return v1alpha1.Injected, err
-<span id="L184" class="ln">   184  </span>	}
-<span id="L185" class="ln">   185  </span>
-<span id="L186" class="ln">   186  </span>	source := httpchaos.Namespace + &#34;/&#34; + httpchaos.Name
-<span id="L187" class="ln">   187  </span>	m := impl.builder.WithInit(source, types.NamespacedName{
-<span id="L188" class="ln">   188  </span>		Namespace: pod.Namespace,
-<span id="L189" class="ln">   189  </span>		Name:      pod.Name,
-<span id="L190" class="ln">   190  </span>	})
-<span id="L191" class="ln">   191  </span>
-<span id="L192" class="ln">   192  </span>	generationNumber, err := m.Commit(ctx)
-<span id="L193" class="ln">   193  </span>	if err != nil {
-<span id="L194" class="ln">   194  </span>		if err == podiochaosmanager.ErrPodNotFound || err == podiochaosmanager.ErrPodNotRunning {
-<span id="L195" class="ln">   195  </span>			return v1alpha1.NotInjected, nil
-<span id="L196" class="ln">   196  </span>		}
-<span id="L197" class="ln">   197  </span>
-<span id="L198" class="ln">   198  </span>		if k8sError.IsForbidden(err) {
-<span id="L199" class="ln">   199  </span>			if strings.Contains(err.Error(), &#34;because it is being terminated&#34;) {
-<span id="L200" class="ln">   200  </span>				return v1alpha1.NotInjected, nil
-<span id="L201" class="ln">   201  </span>			}
-<span id="L202" class="ln">   202  </span>		}
-<span id="L203" class="ln">   203  </span>		return v1alpha1.Injected, err
-<span id="L204" class="ln">   204  </span>	}
-<span id="L205" class="ln">   205  </span>
-<span id="L206" class="ln">   206  </span>	<span class="comment">// Now modify the custom status and phase</span>
-<span id="L207" class="ln">   207  </span>	httpchaos.Status.Instances[record.Id] = generationNumber
-<span id="L208" class="ln">   208  </span>	return waitForRecoverSync, nil
-<span id="L209" class="ln">   209  </span>}
+<span id="L146" class="ln">   146  </span>			<span class="comment">// This error is not expected to exist</span>
+<span id="L147" class="ln">   147  </span>			return waitForRecoverSync, err
+<span id="L148" class="ln">   148  </span>		}
+<span id="L149" class="ln">   149  </span>		err = impl.Client.Get(ctx, namespacedName, podhttpchaos)
+<span id="L150" class="ln">   150  </span>		if err != nil {
+<span id="L151" class="ln">   151  </span>			<span class="comment">// TODO: handle this error</span>
+<span id="L152" class="ln">   152  </span>			if k8sError.IsNotFound(err) {
+<span id="L153" class="ln">   153  </span>				return v1alpha1.NotInjected, nil
+<span id="L154" class="ln">   154  </span>			}
+<span id="L155" class="ln">   155  </span>
+<span id="L156" class="ln">   156  </span>			if k8sError.IsForbidden(err) {
+<span id="L157" class="ln">   157  </span>				if strings.Contains(err.Error(), &#34;because it is being terminated&#34;) {
+<span id="L158" class="ln">   158  </span>					return v1alpha1.NotInjected, nil
+<span id="L159" class="ln">   159  </span>				}
+<span id="L160" class="ln">   160  </span>			}
+<span id="L161" class="ln">   161  </span>
+<span id="L162" class="ln">   162  </span>			return waitForRecoverSync, err
+<span id="L163" class="ln">   163  </span>		}
+<span id="L164" class="ln">   164  </span>
+<span id="L165" class="ln">   165  </span>		if podhttpchaos.Status.FailedMessage != &#34;&#34; {
+<span id="L166" class="ln">   166  </span>			return waitForRecoverSync, errors.New(podhttpchaos.Status.FailedMessage)
+<span id="L167" class="ln">   167  </span>		}
+<span id="L168" class="ln">   168  </span>
+<span id="L169" class="ln">   169  </span>		if podhttpchaos.Status.ObservedGeneration &gt;= httpchaos.Status.Instances[record.Id] {
+<span id="L170" class="ln">   170  </span>			return v1alpha1.NotInjected, nil
+<span id="L171" class="ln">   171  </span>		}
+<span id="L172" class="ln">   172  </span>
+<span id="L173" class="ln">   173  </span>		return waitForRecoverSync, nil
+<span id="L174" class="ln">   174  </span>	}
+<span id="L175" class="ln">   175  </span>
+<span id="L176" class="ln">   176  </span>	podId, err := controller.ParseNamespacedName(records[index].Id)
+<span id="L177" class="ln">   177  </span>	if err != nil {
+<span id="L178" class="ln">   178  </span>		<span class="comment">// This error is not expected to exist</span>
+<span id="L179" class="ln">   179  </span>		return v1alpha1.NotInjected, err
+<span id="L180" class="ln">   180  </span>	}
+<span id="L181" class="ln">   181  </span>	var pod v1.Pod
+<span id="L182" class="ln">   182  </span>	err = impl.Client.Get(ctx, podId, &amp;pod)
+<span id="L183" class="ln">   183  </span>	if err != nil {
+<span id="L184" class="ln">   184  </span>		<span class="comment">// TODO: handle this error</span>
+<span id="L185" class="ln">   185  </span>		if k8sError.IsNotFound(err) {
+<span id="L186" class="ln">   186  </span>			return v1alpha1.NotInjected, nil
+<span id="L187" class="ln">   187  </span>		}
+<span id="L188" class="ln">   188  </span>		return v1alpha1.Injected, err
+<span id="L189" class="ln">   189  </span>	}
+<span id="L190" class="ln">   190  </span>
+<span id="L191" class="ln">   191  </span>	source := httpchaos.Namespace + &#34;/&#34; + httpchaos.Name
+<span id="L192" class="ln">   192  </span>	m := impl.builder.WithInit(source, types.NamespacedName{
+<span id="L193" class="ln">   193  </span>		Namespace: pod.Namespace,
+<span id="L194" class="ln">   194  </span>		Name:      pod.Name,
+<span id="L195" class="ln">   195  </span>	})
+<span id="L196" class="ln">   196  </span>
+<span id="L197" class="ln">   197  </span>	generationNumber, err := m.Commit(ctx)
+<span id="L198" class="ln">   198  </span>	if err != nil {
+<span id="L199" class="ln">   199  </span>		if err == podiochaosmanager.ErrPodNotFound || err == podiochaosmanager.ErrPodNotRunning {
+<span id="L200" class="ln">   200  </span>			return v1alpha1.NotInjected, nil
+<span id="L201" class="ln">   201  </span>		}
+<span id="L202" class="ln">   202  </span>
+<span id="L203" class="ln">   203  </span>		if k8sError.IsForbidden(err) {
+<span id="L204" class="ln">   204  </span>			if strings.Contains(err.Error(), &#34;because it is being terminated&#34;) {
+<span id="L205" class="ln">   205  </span>				return v1alpha1.NotInjected, nil
+<span id="L206" class="ln">   206  </span>			}
+<span id="L207" class="ln">   207  </span>		}
+<span id="L208" class="ln">   208  </span>		return v1alpha1.Injected, err
+<span id="L209" class="ln">   209  </span>	}
 <span id="L210" class="ln">   210  </span>
-<span id="L211" class="ln">   211  </span>func NewImpl(c client.Client, b *podhttpchaosmanager.Builder, log logr.Logger) *impltypes.ChaosImplPair {
-<span id="L212" class="ln">   212  </span>	return &amp;impltypes.ChaosImplPair{
-<span id="L213" class="ln">   213  </span>		Name:   &#34;httpchaos&#34;,
-<span id="L214" class="ln">   214  </span>		Object: &amp;v1alpha1.HTTPChaos{},
-<span id="L215" class="ln">   215  </span>		Impl: &amp;Impl{
-<span id="L216" class="ln">   216  </span>			Client:  c,
-<span id="L217" class="ln">   217  </span>			Log:     log.WithName(&#34;httpchaos&#34;),
-<span id="L218" class="ln">   218  </span>			builder: b,
-<span id="L219" class="ln">   219  </span>		},
-<span id="L220" class="ln">   220  </span>		ObjectList: &amp;v1alpha1.HTTPChaosList{},
-<span id="L221" class="ln">   221  </span>		Controlls:  []client.Object{&amp;v1alpha1.PodHttpChaos{}},
-<span id="L222" class="ln">   222  </span>	}
-<span id="L223" class="ln">   223  </span>}
-<span id="L224" class="ln">   224  </span>
-<span id="L225" class="ln">   225  </span>var Module = fx.Provide(
-<span id="L226" class="ln">   226  </span>	fx.Annotated{
-<span id="L227" class="ln">   227  </span>		Group:  &#34;impl&#34;,
-<span id="L228" class="ln">   228  </span>		Target: NewImpl,
-<span id="L229" class="ln">   229  </span>	},
-<span id="L230" class="ln">   230  </span>	podhttpchaosmanager.NewBuilder,
-<span id="L231" class="ln">   231  </span>)
-<span id="L232" class="ln">   232  </span>
+<span id="L211" class="ln">   211  </span>	<span class="comment">// Now modify the custom status and phase</span>
+<span id="L212" class="ln">   212  </span>	httpchaos.Status.Instances[record.Id] = generationNumber
+<span id="L213" class="ln">   213  </span>	return waitForRecoverSync, nil
+<span id="L214" class="ln">   214  </span>}
+<span id="L215" class="ln">   215  </span>
+<span id="L216" class="ln">   216  </span>func NewImpl(c client.Client, b *podhttpchaosmanager.Builder, log logr.Logger) *impltypes.ChaosImplPair {
+<span id="L217" class="ln">   217  </span>	return &amp;impltypes.ChaosImplPair{
+<span id="L218" class="ln">   218  </span>		Name:   &#34;httpchaos&#34;,
+<span id="L219" class="ln">   219  </span>		Object: &amp;v1alpha1.HTTPChaos{},
+<span id="L220" class="ln">   220  </span>		Impl: &amp;Impl{
+<span id="L221" class="ln">   221  </span>			Client:  c,
+<span id="L222" class="ln">   222  </span>			Log:     log.WithName(&#34;httpchaos&#34;),
+<span id="L223" class="ln">   223  </span>			builder: b,
+<span id="L224" class="ln">   224  </span>		},
+<span id="L225" class="ln">   225  </span>		ObjectList: &amp;v1alpha1.HTTPChaosList{},
+<span id="L226" class="ln">   226  </span>		Controlls:  []client.Object{&amp;v1alpha1.PodHttpChaos{}},
+<span id="L227" class="ln">   227  </span>	}
+<span id="L228" class="ln">   228  </span>}
+<span id="L229" class="ln">   229  </span>
+<span id="L230" class="ln">   230  </span>var Module = fx.Provide(
+<span id="L231" class="ln">   231  </span>	fx.Annotated{
+<span id="L232" class="ln">   232  </span>		Group:  &#34;impl&#34;,
+<span id="L233" class="ln">   233  </span>		Target: NewImpl,
+<span id="L234" class="ln">   234  </span>	},
+<span id="L235" class="ln">   235  </span>	podhttpchaosmanager.NewBuilder,
+<span id="L236" class="ln">   236  </span>)
+<span id="L237" class="ln">   237  </span>
 </pre><p></p>
 
 <div id="footer">

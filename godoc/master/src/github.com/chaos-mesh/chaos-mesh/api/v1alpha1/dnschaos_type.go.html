@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e26351d. Generated at Sun Nov 20 10:01:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 80a288f. Generated at Sun Nov 20 22:03:39 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -144,19 +144,23 @@
 <span id="L79" class="ln">    79  </span>	<span class="comment">// 		will take effect on &#34;google.com&#34;, &#34;github.com&#34; and &#34;chaos-mesh.org&#34;</span>
 <span id="L80" class="ln">    80  </span>	<span class="comment">// +optional</span>
 <span id="L81" class="ln">    81  </span>	DomainNamePatterns []string `json:&#34;patterns,omitempty&#34;`
-<span id="L82" class="ln">    82  </span>}
-<span id="L83" class="ln">    83  </span>
-<span id="L84" class="ln">    84  </span><span class="comment">// DNSChaosStatus defines the observed state of DNSChaos</span>
-<span id="L85" class="ln">    85  </span>type DNSChaosStatus struct {
-<span id="L86" class="ln">    86  </span>	ChaosStatus `json:&#34;,inline&#34;`
-<span id="L87" class="ln">    87  </span>}
-<span id="L88" class="ln">    88  </span>
-<span id="L89" class="ln">    89  </span>func (obj *DNSChaos) GetSelectorSpecs() map[string]interface{} {
-<span id="L90" class="ln">    90  </span>	return map[string]interface{}{
-<span id="L91" class="ln">    91  </span>		&#34;.&#34;: &amp;obj.Spec.ContainerSelector,
-<span id="L92" class="ln">    92  </span>	}
-<span id="L93" class="ln">    93  </span>}
-<span id="L94" class="ln">    94  </span>
+<span id="L82" class="ln">    82  </span>
+<span id="L83" class="ln">    83  </span>	<span class="comment">// RemoteCluster represents the remote cluster where the chaos will be deployed</span>
+<span id="L84" class="ln">    84  </span>	<span class="comment">// +optional</span>
+<span id="L85" class="ln">    85  </span>	RemoteCluster string `json:&#34;remoteCluster,omitempty&#34;`
+<span id="L86" class="ln">    86  </span>}
+<span id="L87" class="ln">    87  </span>
+<span id="L88" class="ln">    88  </span><span class="comment">// DNSChaosStatus defines the observed state of DNSChaos</span>
+<span id="L89" class="ln">    89  </span>type DNSChaosStatus struct {
+<span id="L90" class="ln">    90  </span>	ChaosStatus `json:&#34;,inline&#34;`
+<span id="L91" class="ln">    91  </span>}
+<span id="L92" class="ln">    92  </span>
+<span id="L93" class="ln">    93  </span>func (obj *DNSChaos) GetSelectorSpecs() map[string]interface{} {
+<span id="L94" class="ln">    94  </span>	return map[string]interface{}{
+<span id="L95" class="ln">    95  </span>		&#34;.&#34;: &amp;obj.Spec.ContainerSelector,
+<span id="L96" class="ln">    96  </span>	}
+<span id="L97" class="ln">    97  </span>}
+<span id="L98" class="ln">    98  </span>
 </pre><p></p>
 
 <div id="footer">

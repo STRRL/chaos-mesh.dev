@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e26351d. Generated at Sun Nov 20 10:01:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 80a288f. Generated at Sun Nov 20 22:03:39 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -165,27 +165,31 @@
 <span id="L100" class="ln">   100  </span>	<span class="comment">// Valid time units are &#34;ns&#34;, &#34;us&#34; (or &#34;µs&#34;), &#34;ms&#34;, &#34;s&#34;, &#34;m&#34;, &#34;h&#34;.</span>
 <span id="L101" class="ln">   101  </span>	<span class="comment">// +optional</span>
 <span id="L102" class="ln">   102  </span>	Duration *string `json:&#34;duration,omitempty&#34; webhook:&#34;Duration&#34;`
-<span id="L103" class="ln">   103  </span>}
-<span id="L104" class="ln">   104  </span>
-<span id="L105" class="ln">   105  </span><span class="comment">// IOChaosStatus defines the observed state of IOChaos</span>
-<span id="L106" class="ln">   106  </span>type IOChaosStatus struct {
-<span id="L107" class="ln">   107  </span>	ChaosStatus `json:&#34;,inline&#34;`
+<span id="L103" class="ln">   103  </span>
+<span id="L104" class="ln">   104  </span>	<span class="comment">// RemoteCluster represents the remote cluster where the chaos will be deployed</span>
+<span id="L105" class="ln">   105  </span>	<span class="comment">// +optional</span>
+<span id="L106" class="ln">   106  </span>	RemoteCluster string `json:&#34;remoteCluster,omitempty&#34;`
+<span id="L107" class="ln">   107  </span>}
 <span id="L108" class="ln">   108  </span>
-<span id="L109" class="ln">   109  </span>	<span class="comment">// Instances always specifies podiochaos generation or empty</span>
-<span id="L110" class="ln">   110  </span>	<span class="comment">// +optional</span>
-<span id="L111" class="ln">   111  </span>	Instances map[string]int64 `json:&#34;instances,omitempty&#34;`
-<span id="L112" class="ln">   112  </span>}
-<span id="L113" class="ln">   113  </span>
-<span id="L114" class="ln">   114  </span>func (obj *IOChaos) GetSelectorSpecs() map[string]interface{} {
-<span id="L115" class="ln">   115  </span>	return map[string]interface{}{
-<span id="L116" class="ln">   116  </span>		&#34;.&#34;: &amp;obj.Spec.ContainerSelector,
-<span id="L117" class="ln">   117  </span>	}
-<span id="L118" class="ln">   118  </span>}
-<span id="L119" class="ln">   119  </span>
-<span id="L120" class="ln">   120  </span>func (obj *IOChaos) GetCustomStatus() interface{} {
-<span id="L121" class="ln">   121  </span>	return &amp;obj.Status.Instances
+<span id="L109" class="ln">   109  </span><span class="comment">// IOChaosStatus defines the observed state of IOChaos</span>
+<span id="L110" class="ln">   110  </span>type IOChaosStatus struct {
+<span id="L111" class="ln">   111  </span>	ChaosStatus `json:&#34;,inline&#34;`
+<span id="L112" class="ln">   112  </span>
+<span id="L113" class="ln">   113  </span>	<span class="comment">// Instances always specifies podiochaos generation or empty</span>
+<span id="L114" class="ln">   114  </span>	<span class="comment">// +optional</span>
+<span id="L115" class="ln">   115  </span>	Instances map[string]int64 `json:&#34;instances,omitempty&#34;`
+<span id="L116" class="ln">   116  </span>}
+<span id="L117" class="ln">   117  </span>
+<span id="L118" class="ln">   118  </span>func (obj *IOChaos) GetSelectorSpecs() map[string]interface{} {
+<span id="L119" class="ln">   119  </span>	return map[string]interface{}{
+<span id="L120" class="ln">   120  </span>		&#34;.&#34;: &amp;obj.Spec.ContainerSelector,
+<span id="L121" class="ln">   121  </span>	}
 <span id="L122" class="ln">   122  </span>}
 <span id="L123" class="ln">   123  </span>
+<span id="L124" class="ln">   124  </span>func (obj *IOChaos) GetCustomStatus() interface{} {
+<span id="L125" class="ln">   125  </span>	return &amp;obj.Status.Instances
+<span id="L126" class="ln">   126  </span>}
+<span id="L127" class="ln">   127  </span>
 </pre><p></p>
 
 <div id="footer">

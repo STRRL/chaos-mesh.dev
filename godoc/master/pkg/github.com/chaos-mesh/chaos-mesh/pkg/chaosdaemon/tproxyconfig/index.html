@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e26351d. Generated at Sun Nov 20 10:01:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 80a288f. Generated at Sun Nov 20 22:03:39 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -177,6 +177,16 @@
 				
 				
 			
+				
+				<dd><a href="#TLSConfig">type TLSConfig</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TLSConfigItem">type TLSConfigItem</a></dd>
+				
+				
+			
 			
 			</dl>
 			</div><!-- #manual-nav -->
@@ -213,6 +223,7 @@
 			<pre>type Config struct {
 <span id="Config.ProxyPorts"></span>    ProxyPorts []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint32">uint32</a>               `json:&#34;proxy_ports,omitempty&#34;`
 <span id="Config.Rules"></span>    Rules      []<a href="#PodHttpChaosBaseRule">PodHttpChaosBaseRule</a> `json:&#34;rules&#34;`
+<span id="Config.TLS"></span>    TLS        *<a href="#TLSConfig">TLSConfig</a>             `json:&#34;tls,omitempty&#34;`
 }
 </pre>
 
@@ -230,7 +241,7 @@
 		
 			
 			
-			<h2 id="PodHttpChaosActions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L68">PodHttpChaosActions</a>
+			<h2 id="PodHttpChaosActions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L80">PodHttpChaosActions</a>
 				<a class="permalink" href="#PodHttpChaosActions">&#xb6;</a>
 				
 				
@@ -276,7 +287,7 @@ PodHttpChaosActions defines possible actions of HttpChaos.
 		
 			
 			
-			<h2 id="PodHttpChaosBaseRule">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L28">PodHttpChaosBaseRule</a>
+			<h2 id="PodHttpChaosBaseRule">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L40">PodHttpChaosBaseRule</a>
 				<a class="permalink" href="#PodHttpChaosBaseRule">&#xb6;</a>
 				
 				
@@ -311,7 +322,7 @@ PodHttpChaosBaseRule defines the injection rule without source and port.
 		
 			
 			
-			<h2 id="PodHttpChaosBodyPatchContent">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L95">PodHttpChaosBodyPatchContent</a>
+			<h2 id="PodHttpChaosBodyPatchContent">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L107">PodHttpChaosBodyPatchContent</a>
 				<a class="permalink" href="#PodHttpChaosBodyPatchContent">&#xb6;</a>
 				
 				
@@ -340,7 +351,7 @@ PodHttpChaosBaseRule defines the injection rule without source and port.
 		
 			
 			
-			<h2 id="PodHttpChaosBodyReplaceContent">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L135">PodHttpChaosBodyReplaceContent</a>
+			<h2 id="PodHttpChaosBodyReplaceContent">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L147">PodHttpChaosBodyReplaceContent</a>
 				<a class="permalink" href="#PodHttpChaosBodyReplaceContent">&#xb6;</a>
 				
 				
@@ -369,7 +380,7 @@ PodHttpChaosBaseRule defines the injection rule without source and port.
 		
 			
 			
-			<h2 id="PodHttpChaosPatchActions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L114">PodHttpChaosPatchActions</a>
+			<h2 id="PodHttpChaosPatchActions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L126">PodHttpChaosPatchActions</a>
 				<a class="permalink" href="#PodHttpChaosPatchActions">&#xb6;</a>
 				
 				
@@ -409,7 +420,7 @@ PodHttpChaosPatchActions defines possible patch-actions of HttpChaos.
 		
 			
 			
-			<h2 id="PodHttpChaosPatchBody">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L91">PodHttpChaosPatchBody</a>
+			<h2 id="PodHttpChaosPatchBody">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L103">PodHttpChaosPatchBody</a>
 				<a class="permalink" href="#PodHttpChaosPatchBody">&#xb6;</a>
 				
 				
@@ -435,7 +446,7 @@ PodHttpChaosPatchBody defines the patch-body action of HttpChaos.
 
 			
 				
-				<h3 id="PodHttpChaosPatchBody.UnmarshalJSON">func (*PodHttpChaosPatchBody) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L103">UnmarshalJSON</a>
+				<h3 id="PodHttpChaosPatchBody.UnmarshalJSON">func (*PodHttpChaosPatchBody) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L115">UnmarshalJSON</a>
 					<a class="permalink" href="#PodHttpChaosPatchBody.UnmarshalJSON">&#xb6;</a>
 					
 					
@@ -449,7 +460,7 @@ PodHttpChaosPatchBody defines the patch-body action of HttpChaos.
 		
 			
 			
-			<h2 id="PodHttpChaosReplaceActions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L164">PodHttpChaosReplaceActions</a>
+			<h2 id="PodHttpChaosReplaceActions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L176">PodHttpChaosReplaceActions</a>
 				<a class="permalink" href="#PodHttpChaosReplaceActions">&#xb6;</a>
 				
 				
@@ -501,7 +512,7 @@ PodHttpChaosReplaceActions defines possible replace-actions of HttpChaos.
 		
 			
 			
-			<h2 id="PodHttpChaosReplaceBody">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L131">PodHttpChaosReplaceBody</a>
+			<h2 id="PodHttpChaosReplaceBody">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L143">PodHttpChaosReplaceBody</a>
 				<a class="permalink" href="#PodHttpChaosReplaceBody">&#xb6;</a>
 				
 				
@@ -527,7 +538,7 @@ PodHttpChaosReplaceBody defines the replace-body of HttpChaos.
 
 			
 				
-				<h3 id="PodHttpChaosReplaceBody.UnmarshalJSON">func (*PodHttpChaosReplaceBody) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L143">UnmarshalJSON</a>
+				<h3 id="PodHttpChaosReplaceBody.UnmarshalJSON">func (*PodHttpChaosReplaceBody) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L155">UnmarshalJSON</a>
 					<a class="permalink" href="#PodHttpChaosReplaceBody.UnmarshalJSON">&#xb6;</a>
 					
 					
@@ -541,7 +552,7 @@ PodHttpChaosReplaceBody defines the replace-body of HttpChaos.
 		
 			
 			
-			<h2 id="PodHttpChaosSelector">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L39">PodHttpChaosSelector</a>
+			<h2 id="PodHttpChaosSelector">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L51">PodHttpChaosSelector</a>
 				<a class="permalink" href="#PodHttpChaosSelector">&#xb6;</a>
 				
 				
@@ -590,7 +601,7 @@ PodHttpChaosReplaceBody defines the replace-body of HttpChaos.
 		
 			
 			
-			<h2 id="PodHttpChaosTarget">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L193">PodHttpChaosTarget</a>
+			<h2 id="PodHttpChaosTarget">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L205">PodHttpChaosTarget</a>
 				<a class="permalink" href="#PodHttpChaosTarget">&#xb6;</a>
 				
 				
@@ -600,6 +611,59 @@ PodHttpChaosTarget represents the type of an HttpChaos Action
 </p>
 
 			<pre>type PodHttpChaosTarget <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TLSConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L28">TLSConfig</a>
+				<a class="permalink" href="#TLSConfig">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type TLSConfig struct {
+<span id="TLSConfig.CertFile"></span>    CertFile <a href="#TLSConfigItem">TLSConfigItem</a>  `json:&#34;cert_file,omitempty&#34;`
+<span id="TLSConfig.KeyFile"></span>    KeyFile  <a href="#TLSConfigItem">TLSConfigItem</a>  `json:&#34;key_file,omitempty&#34;`
+<span id="TLSConfig.CAFile"></span>    CAFile   *<a href="#TLSConfigItem">TLSConfigItem</a> `json:&#34;ca_file,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TLSConfigItem">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tproxyconfig/config.go#L34">TLSConfigItem</a>
+				<a class="permalink" href="#TLSConfigItem">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type TLSConfigItem struct {
+<span id="TLSConfigItem.Type"></span>    Type  <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;type&#34;`
+<span id="TLSConfigItem.Value"></span>    Value []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#byte">byte</a> `json:&#34;value&#34;`
+}
+</pre>
 
 			
 

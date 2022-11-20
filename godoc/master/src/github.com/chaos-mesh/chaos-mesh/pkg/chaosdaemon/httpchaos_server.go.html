@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e26351d. Generated at Sun Nov 20 10:01:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 80a288f. Generated at Sun Nov 20 22:03:39 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -197,67 +197,75 @@
 <span id="L132" class="ln">   132  </span>		Rules:      rules,
 <span id="L133" class="ln">   133  </span>	}
 <span id="L134" class="ln">   134  </span>
-<span id="L135" class="ln">   135  </span>	config, err := json.Marshal(&amp;httpChaosSpec)
-<span id="L136" class="ln">   136  </span>	if err != nil {
-<span id="L137" class="ln">   137  </span>		return nil, err
-<span id="L138" class="ln">   138  </span>	}
-<span id="L139" class="ln">   139  </span>
-<span id="L140" class="ln">   140  </span>	log.Info(&#34;ready to apply&#34;, &#34;config&#34;, string(config))
-<span id="L141" class="ln">   141  </span>
-<span id="L142" class="ln">   142  </span>	req, err := http.NewRequest(http.MethodPut, &#34;/&#34;, bytes.NewReader(config))
-<span id="L143" class="ln">   143  </span>	if err != nil {
-<span id="L144" class="ln">   144  </span>		return nil, errors.Wrap(err, &#34;create http request&#34;)
-<span id="L145" class="ln">   145  </span>	}
-<span id="L146" class="ln">   146  </span>
-<span id="L147" class="ln">   147  </span>	resp, err := transport.RoundTrip(req)
-<span id="L148" class="ln">   148  </span>	if err != nil {
-<span id="L149" class="ln">   149  </span>		return nil, errors.Wrap(err, &#34;send http request&#34;)
-<span id="L150" class="ln">   150  </span>	}
-<span id="L151" class="ln">   151  </span>
-<span id="L152" class="ln">   152  </span>	log.Info(&#34;http chaos applied&#34;)
-<span id="L153" class="ln">   153  </span>
-<span id="L154" class="ln">   154  </span>	body, err := io.ReadAll(resp.Body)
-<span id="L155" class="ln">   155  </span>	if err != nil {
-<span id="L156" class="ln">   156  </span>		return nil, errors.Wrap(err, &#34;read response body&#34;)
-<span id="L157" class="ln">   157  </span>	}
-<span id="L158" class="ln">   158  </span>
-<span id="L159" class="ln">   159  </span>	return &amp;pb.ApplyHttpChaosResponse{
-<span id="L160" class="ln">   160  </span>		Instance:    int64(in.Instance),
-<span id="L161" class="ln">   161  </span>		InstanceUid: in.InstanceUid,
-<span id="L162" class="ln">   162  </span>		StartTime:   in.StartTime,
-<span id="L163" class="ln">   163  </span>		StatusCode:  int32(resp.StatusCode),
-<span id="L164" class="ln">   164  </span>		Error:       string(body),
-<span id="L165" class="ln">   165  </span>	}, nil
-<span id="L166" class="ln">   166  </span>}
-<span id="L167" class="ln">   167  </span>
-<span id="L168" class="ln">   168  </span>func (s *DaemonServer) createHttpChaos(ctx context.Context, in *pb.ApplyHttpChaosRequest) error {
-<span id="L169" class="ln">   169  </span>	pid, err := s.crClient.GetPidFromContainerID(ctx, in.ContainerId)
-<span id="L170" class="ln">   170  </span>	if err != nil {
-<span id="L171" class="ln">   171  </span>		return errors.Wrapf(err, &#34;get PID of container(%s)&#34;, in.ContainerId)
-<span id="L172" class="ln">   172  </span>	}
-<span id="L173" class="ln">   173  </span>	processBuilder := bpm.DefaultProcessBuilder(tproxyBin, &#34;-i&#34;, &#34;-vv&#34;).
-<span id="L174" class="ln">   174  </span>		EnableLocalMnt().
-<span id="L175" class="ln">   175  </span>		SetIdentifier(fmt.Sprintf(&#34;tproxy-%s&#34;, in.ContainerId)).
-<span id="L176" class="ln">   176  </span>		SetEnv(pathEnv, os.Getenv(pathEnv))
-<span id="L177" class="ln">   177  </span>
-<span id="L178" class="ln">   178  </span>	if in.EnterNS {
-<span id="L179" class="ln">   179  </span>		processBuilder = processBuilder.SetNS(pid, bpm.PidNS).SetNS(pid, bpm.NetNS)
+<span id="L135" class="ln">   135  </span>	if len(in.Tls) != 0 {
+<span id="L136" class="ln">   136  </span>		httpChaosSpec.TLS = new(tproxyconfig.TLSConfig)
+<span id="L137" class="ln">   137  </span>		err = json.Unmarshal([]byte(in.Tls), httpChaosSpec.TLS)
+<span id="L138" class="ln">   138  </span>		if err != nil {
+<span id="L139" class="ln">   139  </span>			return nil, errors.Wrap(err, &#34;unmarshal tls config&#34;)
+<span id="L140" class="ln">   140  </span>		}
+<span id="L141" class="ln">   141  </span>	}
+<span id="L142" class="ln">   142  </span>
+<span id="L143" class="ln">   143  </span>	config, err := json.Marshal(&amp;httpChaosSpec)
+<span id="L144" class="ln">   144  </span>	if err != nil {
+<span id="L145" class="ln">   145  </span>		return nil, err
+<span id="L146" class="ln">   146  </span>	}
+<span id="L147" class="ln">   147  </span>
+<span id="L148" class="ln">   148  </span>	log.Info(&#34;ready to apply&#34;, &#34;config&#34;, string(config))
+<span id="L149" class="ln">   149  </span>
+<span id="L150" class="ln">   150  </span>	req, err := http.NewRequest(http.MethodPut, &#34;/&#34;, bytes.NewReader(config))
+<span id="L151" class="ln">   151  </span>	if err != nil {
+<span id="L152" class="ln">   152  </span>		return nil, errors.Wrap(err, &#34;create http request&#34;)
+<span id="L153" class="ln">   153  </span>	}
+<span id="L154" class="ln">   154  </span>
+<span id="L155" class="ln">   155  </span>	resp, err := transport.RoundTrip(req)
+<span id="L156" class="ln">   156  </span>	if err != nil {
+<span id="L157" class="ln">   157  </span>		return nil, errors.Wrap(err, &#34;send http request&#34;)
+<span id="L158" class="ln">   158  </span>	}
+<span id="L159" class="ln">   159  </span>
+<span id="L160" class="ln">   160  </span>	log.Info(&#34;http chaos applied&#34;)
+<span id="L161" class="ln">   161  </span>
+<span id="L162" class="ln">   162  </span>	body, err := io.ReadAll(resp.Body)
+<span id="L163" class="ln">   163  </span>	if err != nil {
+<span id="L164" class="ln">   164  </span>		return nil, errors.Wrap(err, &#34;read response body&#34;)
+<span id="L165" class="ln">   165  </span>	}
+<span id="L166" class="ln">   166  </span>
+<span id="L167" class="ln">   167  </span>	return &amp;pb.ApplyHttpChaosResponse{
+<span id="L168" class="ln">   168  </span>		Instance:    int64(in.Instance),
+<span id="L169" class="ln">   169  </span>		InstanceUid: in.InstanceUid,
+<span id="L170" class="ln">   170  </span>		StartTime:   in.StartTime,
+<span id="L171" class="ln">   171  </span>		StatusCode:  int32(resp.StatusCode),
+<span id="L172" class="ln">   172  </span>		Error:       string(body),
+<span id="L173" class="ln">   173  </span>	}, nil
+<span id="L174" class="ln">   174  </span>}
+<span id="L175" class="ln">   175  </span>
+<span id="L176" class="ln">   176  </span>func (s *DaemonServer) createHttpChaos(ctx context.Context, in *pb.ApplyHttpChaosRequest) error {
+<span id="L177" class="ln">   177  </span>	pid, err := s.crClient.GetPidFromContainerID(ctx, in.ContainerId)
+<span id="L178" class="ln">   178  </span>	if err != nil {
+<span id="L179" class="ln">   179  </span>		return errors.Wrapf(err, &#34;get PID of container(%s)&#34;, in.ContainerId)
 <span id="L180" class="ln">   180  </span>	}
-<span id="L181" class="ln">   181  </span>
-<span id="L182" class="ln">   182  </span>	cmd := processBuilder.Build(ctx)
-<span id="L183" class="ln">   183  </span>	cmd.Stderr = os.Stderr
-<span id="L184" class="ln">   184  </span>
-<span id="L185" class="ln">   185  </span>	proc, err := s.backgroundProcessManager.StartProcess(ctx, cmd)
-<span id="L186" class="ln">   186  </span>	if err != nil {
-<span id="L187" class="ln">   187  </span>		return errors.Wrapf(err, &#34;execute command(%s)&#34;, cmd)
+<span id="L181" class="ln">   181  </span>	processBuilder := bpm.DefaultProcessBuilder(tproxyBin, &#34;-i&#34;, &#34;-vv&#34;).
+<span id="L182" class="ln">   182  </span>		EnableLocalMnt().
+<span id="L183" class="ln">   183  </span>		SetIdentifier(fmt.Sprintf(&#34;tproxy-%s&#34;, in.ContainerId)).
+<span id="L184" class="ln">   184  </span>		SetEnv(pathEnv, os.Getenv(pathEnv))
+<span id="L185" class="ln">   185  </span>
+<span id="L186" class="ln">   186  </span>	if in.EnterNS {
+<span id="L187" class="ln">   187  </span>		processBuilder = processBuilder.SetNS(pid, bpm.PidNS).SetNS(pid, bpm.NetNS)
 <span id="L188" class="ln">   188  </span>	}
 <span id="L189" class="ln">   189  </span>
-<span id="L190" class="ln">   190  </span>	in.Instance = int64(proc.Pair.Pid)
-<span id="L191" class="ln">   191  </span>	in.StartTime = proc.Pair.CreateTime
-<span id="L192" class="ln">   192  </span>	in.InstanceUid = proc.Uid
-<span id="L193" class="ln">   193  </span>	return nil
-<span id="L194" class="ln">   194  </span>}
-<span id="L195" class="ln">   195  </span>
+<span id="L190" class="ln">   190  </span>	cmd := processBuilder.Build(ctx)
+<span id="L191" class="ln">   191  </span>	cmd.Stderr = os.Stderr
+<span id="L192" class="ln">   192  </span>
+<span id="L193" class="ln">   193  </span>	proc, err := s.backgroundProcessManager.StartProcess(ctx, cmd)
+<span id="L194" class="ln">   194  </span>	if err != nil {
+<span id="L195" class="ln">   195  </span>		return errors.Wrapf(err, &#34;execute command(%s)&#34;, cmd)
+<span id="L196" class="ln">   196  </span>	}
+<span id="L197" class="ln">   197  </span>
+<span id="L198" class="ln">   198  </span>	in.Instance = int64(proc.Pair.Pid)
+<span id="L199" class="ln">   199  </span>	in.StartTime = proc.Pair.CreateTime
+<span id="L200" class="ln">   200  </span>	in.InstanceUid = proc.Uid
+<span id="L201" class="ln">   201  </span>	return nil
+<span id="L202" class="ln">   202  </span>}
+<span id="L203" class="ln">   203  </span>
 </pre><p></p>
 
 <div id="footer">

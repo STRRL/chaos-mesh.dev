@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e26351d. Generated at Sun Nov 20 10:01:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 80a288f. Generated at Sun Nov 20 22:03:39 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -135,6 +135,23 @@
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#PickChildCRDPredicate.Update">func (PickChildCRDPredicate) Update(e event.UpdateEvent) bool</a></dd>
+				
+			
+				
+				<dd><a href="#RemoteChaosPredicate">type RemoteChaosPredicate</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RemoteChaosPredicate.Create">func (RemoteChaosPredicate) Create(e event.CreateEvent) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RemoteChaosPredicate.Delete">func (RemoteChaosPredicate) Delete(e event.DeleteEvent) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RemoteChaosPredicate.Generic">func (RemoteChaosPredicate) Generic(e event.GenericEvent) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RemoteChaosPredicate.Update">func (RemoteChaosPredicate) Update(e event.UpdateEvent) bool</a></dd>
 				
 			
 				
@@ -273,6 +290,79 @@ For now, we have PodHttpChaos/PodIOChaos/PodNetworkChaos which require to follow
 Update implements UpdateEvent filter for child CRD.
 </p>
 
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="RemoteChaosPredicate">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go#L209">RemoteChaosPredicate</a>
+				<a class="permalink" href="#RemoteChaosPredicate">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type RemoteChaosPredicate struct {
+    <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/predicate/">predicate</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/predicate/#Funcs">Funcs</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="RemoteChaosPredicate.Create">func (RemoteChaosPredicate) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go#L213">Create</a>
+					<a class="permalink" href="#RemoteChaosPredicate.Create">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#RemoteChaosPredicate">RemoteChaosPredicate</a>) Create(e <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/event/">event</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/event/#CreateEvent">CreateEvent</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="RemoteChaosPredicate.Delete">func (RemoteChaosPredicate) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go#L239">Delete</a>
+					<a class="permalink" href="#RemoteChaosPredicate.Delete">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#RemoteChaosPredicate">RemoteChaosPredicate</a>) Delete(e <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/event/">event</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/event/#DeleteEvent">DeleteEvent</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="RemoteChaosPredicate.Generic">func (RemoteChaosPredicate) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go#L252">Generic</a>
+					<a class="permalink" href="#RemoteChaosPredicate.Generic">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#RemoteChaosPredicate">RemoteChaosPredicate</a>) Generic(e <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/event/">event</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/event/#GenericEvent">GenericEvent</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="RemoteChaosPredicate.Update">func (RemoteChaosPredicate) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/common/fx.go#L226">Update</a>
+					<a class="permalink" href="#RemoteChaosPredicate.Update">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#RemoteChaosPredicate">RemoteChaosPredicate</a>) Update(e <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/event/">event</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/event/#UpdateEvent">UpdateEvent</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a></pre>
+				
 				
 				
 				

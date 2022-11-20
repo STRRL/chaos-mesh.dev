@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e26351d. Generated at Sun Nov 20 10:01:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 80a288f. Generated at Sun Nov 20 22:03:39 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -159,22 +159,26 @@
 <span id="L94" class="ln">    94  </span>	<span class="comment">// SecretName defines the name of kubernetes secret. It is used for Azure credentials.</span>
 <span id="L95" class="ln">    95  </span>	<span class="comment">// +optional</span>
 <span id="L96" class="ln">    96  </span>	SecretName *string `json:&#34;secretName,omitempty&#34;`
-<span id="L97" class="ln">    97  </span>}
-<span id="L98" class="ln">    98  </span>
-<span id="L99" class="ln">    99  </span>func (obj *AzureChaos) GetSelectorSpecs() map[string]interface{} {
-<span id="L100" class="ln">   100  </span>	return map[string]interface{}{
-<span id="L101" class="ln">   101  </span>		&#34;.&#34;: &amp;obj.Spec.AzureSelector,
-<span id="L102" class="ln">   102  </span>	}
-<span id="L103" class="ln">   103  </span>}
-<span id="L104" class="ln">   104  </span>
-<span id="L105" class="ln">   105  </span>func (selector *AzureSelector) Id() string {
-<span id="L106" class="ln">   106  </span>	<span class="comment">// TODO: handle the error here</span>
-<span id="L107" class="ln">   107  </span>	<span class="comment">// or ignore it is enough ?</span>
-<span id="L108" class="ln">   108  </span>	json, _ := json.Marshal(selector)
-<span id="L109" class="ln">   109  </span>
-<span id="L110" class="ln">   110  </span>	return string(json)
-<span id="L111" class="ln">   111  </span>}
-<span id="L112" class="ln">   112  </span>
+<span id="L97" class="ln">    97  </span>
+<span id="L98" class="ln">    98  </span>	<span class="comment">// RemoteCluster represents the remote cluster where the chaos will be deployed</span>
+<span id="L99" class="ln">    99  </span>	<span class="comment">// +optional</span>
+<span id="L100" class="ln">   100  </span>	RemoteCluster string `json:&#34;remoteCluster,omitempty&#34;`
+<span id="L101" class="ln">   101  </span>}
+<span id="L102" class="ln">   102  </span>
+<span id="L103" class="ln">   103  </span>func (obj *AzureChaos) GetSelectorSpecs() map[string]interface{} {
+<span id="L104" class="ln">   104  </span>	return map[string]interface{}{
+<span id="L105" class="ln">   105  </span>		&#34;.&#34;: &amp;obj.Spec.AzureSelector,
+<span id="L106" class="ln">   106  </span>	}
+<span id="L107" class="ln">   107  </span>}
+<span id="L108" class="ln">   108  </span>
+<span id="L109" class="ln">   109  </span>func (selector *AzureSelector) Id() string {
+<span id="L110" class="ln">   110  </span>	<span class="comment">// TODO: handle the error here</span>
+<span id="L111" class="ln">   111  </span>	<span class="comment">// or ignore it is enough ?</span>
+<span id="L112" class="ln">   112  </span>	json, _ := json.Marshal(selector)
+<span id="L113" class="ln">   113  </span>
+<span id="L114" class="ln">   114  </span>	return string(json)
+<span id="L115" class="ln">   115  </span>}
+<span id="L116" class="ln">   116  </span>
 </pre><p></p>
 
 <div id="footer">

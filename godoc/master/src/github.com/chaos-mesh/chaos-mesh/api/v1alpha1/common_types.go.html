@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e26351d. Generated at Sun Nov 20 10:01:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 80a288f. Generated at Sun Nov 20 22:03:39 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -243,6 +243,12 @@
 <span id="L178" class="ln">   178  </span>	webhook.Defaulter
 <span id="L179" class="ln">   179  </span>}
 <span id="L180" class="ln">   180  </span>
+<span id="L181" class="ln">   181  </span><span class="comment">// +kubebuilder:object:generate=false</span>
+<span id="L182" class="ln">   182  </span>type RemoteObject interface {
+<span id="L183" class="ln">   183  </span>	StatefulObject
+<span id="L184" class="ln">   184  </span>	GetRemoteCluster() string
+<span id="L185" class="ln">   185  </span>}
+<span id="L186" class="ln">   186  </span>
 </pre><p></p>
 
 <div id="footer">

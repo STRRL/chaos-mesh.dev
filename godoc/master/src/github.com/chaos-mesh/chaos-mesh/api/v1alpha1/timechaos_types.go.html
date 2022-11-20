@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e26351d. Generated at Sun Nov 20 10:01:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 80a288f. Generated at Sun Nov 20 22:03:39 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -121,19 +121,23 @@
 <span id="L56" class="ln">    56  </span>
 <span id="L57" class="ln">    57  </span>	<span class="comment">// Duration represents the duration of the chaos action</span>
 <span id="L58" class="ln">    58  </span>	Duration *string `json:&#34;duration,omitempty&#34;`
-<span id="L59" class="ln">    59  </span>}
-<span id="L60" class="ln">    60  </span>
-<span id="L61" class="ln">    61  </span><span class="comment">// TimeChaosStatus defines the observed state of TimeChaos</span>
-<span id="L62" class="ln">    62  </span>type TimeChaosStatus struct {
-<span id="L63" class="ln">    63  </span>	ChaosStatus `json:&#34;,inline&#34;`
-<span id="L64" class="ln">    64  </span>}
-<span id="L65" class="ln">    65  </span>
-<span id="L66" class="ln">    66  </span>func (in *TimeChaos) GetSelectorSpecs() map[string]interface{} {
-<span id="L67" class="ln">    67  </span>	return map[string]interface{}{
-<span id="L68" class="ln">    68  </span>		&#34;.&#34;: &amp;in.Spec.ContainerSelector,
-<span id="L69" class="ln">    69  </span>	}
-<span id="L70" class="ln">    70  </span>}
-<span id="L71" class="ln">    71  </span>
+<span id="L59" class="ln">    59  </span>
+<span id="L60" class="ln">    60  </span>	<span class="comment">// RemoteCluster represents the remote cluster where the chaos will be deployed</span>
+<span id="L61" class="ln">    61  </span>	<span class="comment">// +optional</span>
+<span id="L62" class="ln">    62  </span>	RemoteCluster string `json:&#34;remoteCluster,omitempty&#34;`
+<span id="L63" class="ln">    63  </span>}
+<span id="L64" class="ln">    64  </span>
+<span id="L65" class="ln">    65  </span><span class="comment">// TimeChaosStatus defines the observed state of TimeChaos</span>
+<span id="L66" class="ln">    66  </span>type TimeChaosStatus struct {
+<span id="L67" class="ln">    67  </span>	ChaosStatus `json:&#34;,inline&#34;`
+<span id="L68" class="ln">    68  </span>}
+<span id="L69" class="ln">    69  </span>
+<span id="L70" class="ln">    70  </span>func (in *TimeChaos) GetSelectorSpecs() map[string]interface{} {
+<span id="L71" class="ln">    71  </span>	return map[string]interface{}{
+<span id="L72" class="ln">    72  </span>		&#34;.&#34;: &amp;in.Spec.ContainerSelector,
+<span id="L73" class="ln">    73  </span>	}
+<span id="L74" class="ln">    74  </span>}
+<span id="L75" class="ln">    75  </span>
 </pre><p></p>
 
 <div id="footer">

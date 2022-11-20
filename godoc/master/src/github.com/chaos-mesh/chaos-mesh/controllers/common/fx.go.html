@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e26351d. Generated at Sun Nov 20 10:01:40 UTC 2022.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 80a288f. Generated at Sun Nov 20 22:03:39 UTC 2022.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -208,7 +208,7 @@
 <span id="L143" class="ln">   143  </span>		})
 <span id="L144" class="ln">   144  </span>
 <span id="L145" class="ln">   145  </span>		pipe.AddSteps(params.Steps...)
-<span id="L146" class="ln">   146  </span>		builder = builder.WithEventFilter(predicate.Or(predicaters...))
+<span id="L146" class="ln">   146  </span>		builder = builder.WithEventFilter(predicate.And(predicate.Or(predicaters...), RemoteChaosPredicate{}))
 <span id="L147" class="ln">   147  </span>		err := builder.Complete(pipe)
 <span id="L148" class="ln">   148  </span>		if err != nil {
 <span id="L149" class="ln">   149  </span>			return err
@@ -271,6 +271,62 @@
 <span id="L206" class="ln">   206  </span>	return !reflect.DeepEqual(objNew, objOld)
 <span id="L207" class="ln">   207  </span>}
 <span id="L208" class="ln">   208  </span>
+<span id="L209" class="ln">   209  </span>type RemoteChaosPredicate struct {
+<span id="L210" class="ln">   210  </span>	predicate.Funcs
+<span id="L211" class="ln">   211  </span>}
+<span id="L212" class="ln">   212  </span>
+<span id="L213" class="ln">   213  </span>func (RemoteChaosPredicate) Create(e event.CreateEvent) bool {
+<span id="L214" class="ln">   214  </span>	obj, ok := e.Object.DeepCopyObject().(v1alpha1.RemoteObject)
+<span id="L215" class="ln">   215  </span>	if !ok {
+<span id="L216" class="ln">   216  </span>		return true
+<span id="L217" class="ln">   217  </span>	}
+<span id="L218" class="ln">   218  </span>
+<span id="L219" class="ln">   219  </span>	if obj.GetRemoteCluster() == &#34;&#34; {
+<span id="L220" class="ln">   220  </span>		return true
+<span id="L221" class="ln">   221  </span>	}
+<span id="L222" class="ln">   222  </span>
+<span id="L223" class="ln">   223  </span>	return false
+<span id="L224" class="ln">   224  </span>}
+<span id="L225" class="ln">   225  </span>
+<span id="L226" class="ln">   226  </span>func (RemoteChaosPredicate) Update(e event.UpdateEvent) bool {
+<span id="L227" class="ln">   227  </span>	obj, ok := e.ObjectNew.DeepCopyObject().(v1alpha1.RemoteObject)
+<span id="L228" class="ln">   228  </span>	if !ok {
+<span id="L229" class="ln">   229  </span>		return true
+<span id="L230" class="ln">   230  </span>	}
+<span id="L231" class="ln">   231  </span>
+<span id="L232" class="ln">   232  </span>	if obj.GetRemoteCluster() == &#34;&#34; {
+<span id="L233" class="ln">   233  </span>		return true
+<span id="L234" class="ln">   234  </span>	}
+<span id="L235" class="ln">   235  </span>
+<span id="L236" class="ln">   236  </span>	return false
+<span id="L237" class="ln">   237  </span>}
+<span id="L238" class="ln">   238  </span>
+<span id="L239" class="ln">   239  </span>func (RemoteChaosPredicate) Delete(e event.DeleteEvent) bool {
+<span id="L240" class="ln">   240  </span>	obj, ok := e.Object.DeepCopyObject().(v1alpha1.RemoteObject)
+<span id="L241" class="ln">   241  </span>	if !ok {
+<span id="L242" class="ln">   242  </span>		return true
+<span id="L243" class="ln">   243  </span>	}
+<span id="L244" class="ln">   244  </span>
+<span id="L245" class="ln">   245  </span>	if obj.GetRemoteCluster() == &#34;&#34; {
+<span id="L246" class="ln">   246  </span>		return true
+<span id="L247" class="ln">   247  </span>	}
+<span id="L248" class="ln">   248  </span>
+<span id="L249" class="ln">   249  </span>	return false
+<span id="L250" class="ln">   250  </span>}
+<span id="L251" class="ln">   251  </span>
+<span id="L252" class="ln">   252  </span>func (RemoteChaosPredicate) Generic(e event.GenericEvent) bool {
+<span id="L253" class="ln">   253  </span>	obj, ok := e.Object.DeepCopyObject().(v1alpha1.RemoteObject)
+<span id="L254" class="ln">   254  </span>	if !ok {
+<span id="L255" class="ln">   255  </span>		return true
+<span id="L256" class="ln">   256  </span>	}
+<span id="L257" class="ln">   257  </span>
+<span id="L258" class="ln">   258  </span>	if obj.GetRemoteCluster() == &#34;&#34; {
+<span id="L259" class="ln">   259  </span>		return true
+<span id="L260" class="ln">   260  </span>	}
+<span id="L261" class="ln">   261  </span>
+<span id="L262" class="ln">   262  </span>	return false
+<span id="L263" class="ln">   263  </span>}
+<span id="L264" class="ln">   264  </span>
 </pre><p></p>
 
 <div id="footer">
