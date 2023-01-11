@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit fffed7e. Generated at Wed Jan 11 10:01:56 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 70aad4c. Generated at Wed Jan 11 22:03:37 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -158,7 +158,7 @@
 		
 			
 			
-			<h2 id="ChaosControllerConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/controller.go#L44">ChaosControllerConfig</a>
+			<h2 id="ChaosControllerConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/controller.go#L42">ChaosControllerConfig</a>
 				<a class="permalink" href="#ChaosControllerConfig">&#xb6;</a>
 				
 				
@@ -212,8 +212,7 @@ ChaosControllerConfig defines the configuration for Chaos Controller
 <span id="ChaosControllerConfig.CertsDir"></span>    <span class="comment">// CertsDir is the directory for storing certs key file and cert file</span>
     CertsDir <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;CERTS_DIR&#34; default:&#34;/etc/webhook/certs&#34;`
 <span id="ChaosControllerConfig.RPCTimeout"></span>    <span class="comment">// RPCTimeout is timeout of RPC between controllers and chaos-operator</span>
-    RPCTimeout    <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Duration">Duration</a> `envconfig:&#34;RPC_TIMEOUT&#34; default:&#34;1m&#34;`
-<span id="ChaosControllerConfig.WatcherConfig"></span>    WatcherConfig *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/">watcher</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/#Config">Config</a>
+    RPCTimeout <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Duration">Duration</a> `envconfig:&#34;RPC_TIMEOUT&#34; default:&#34;1m&#34;`
 <span id="ChaosControllerConfig.ClusterScoped"></span>    <span class="comment">// ClusterScoped means control Chaos Object in cluster level(all namespace),</span>
     ClusterScoped <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a> `envconfig:&#34;CLUSTER_SCOPED&#34; default:&#34;true&#34;`
 <span id="ChaosControllerConfig.TargetNamespace"></span>    <span class="comment">// TargetNamespace is the target namespace to injecting chaos.</span>
@@ -254,7 +253,7 @@ ChaosControllerConfig defines the configuration for Chaos Controller
 
 			
 				
-				<h3 id="EnvironChaosController">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/controller.go#L121">EnvironChaosController</a>
+				<h3 id="EnvironChaosController">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/controller.go#L118">EnvironChaosController</a>
 					<a class="permalink" href="#EnvironChaosController">&#xb6;</a>
 					
 					
@@ -272,7 +271,7 @@ EnvironChaosController returns the settings from the environment.
 		
 			
 			
-			<h2 id="TLSConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/controller.go#L27">TLSConfig</a>
+			<h2 id="TLSConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/controller.go#L25">TLSConfig</a>
 				<a class="permalink" href="#TLSConfig">&#xb6;</a>
 				
 				

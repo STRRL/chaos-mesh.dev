@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit fffed7e. Generated at Wed Jan 11 10:01:56 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 70aad4c. Generated at Wed Jan 11 22:03:37 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -116,27 +116,15 @@
 <span id="L51" class="ln">    51  </span>
 <span id="L52" class="ln">    52  </span>func validate(config *config.ChaosControllerConfig) error {
 <span id="L53" class="ln">    53  </span>
-<span id="L54" class="ln">    54  </span>	if config.WatcherConfig == nil {
-<span id="L55" class="ln">    55  </span>		return errors.New(&#34;required WatcherConfig is missing&#34;)
-<span id="L56" class="ln">    56  </span>	}
-<span id="L57" class="ln">    57  </span>
-<span id="L58" class="ln">    58  </span>	if config.ClusterScoped != config.WatcherConfig.ClusterScoped {
-<span id="L59" class="ln">    59  </span>		return errors.Errorf(&#34;K8sConfigMapWatcher config ClusterScoped is not same with controller-manager ClusterScoped. k8s configmap watcher: %t, controller manager: %t&#34;, config.WatcherConfig.ClusterScoped, config.ClusterScoped)
-<span id="L60" class="ln">    60  </span>	}
-<span id="L61" class="ln">    61  </span>
-<span id="L62" class="ln">    62  </span>	if !config.ClusterScoped {
-<span id="L63" class="ln">    63  </span>		if strings.TrimSpace(config.TargetNamespace) == &#34;&#34; {
-<span id="L64" class="ln">    64  </span>			return errors.New(&#34;no target namespace specified with namespace scoped mode&#34;)
-<span id="L65" class="ln">    65  </span>		}
-<span id="L66" class="ln">    66  </span>
-<span id="L67" class="ln">    67  </span>		if config.TargetNamespace != config.WatcherConfig.TargetNamespace {
-<span id="L68" class="ln">    68  </span>			return errors.Errorf(&#34;K8sConfigMapWatcher config TargertNamespace is not same with controller-manager TargetNamespace. k8s configmap watcher: %s, controller manager: %s&#34;, config.WatcherConfig.TargetNamespace, config.TargetNamespace)
-<span id="L69" class="ln">    69  </span>		}
-<span id="L70" class="ln">    70  </span>	}
-<span id="L71" class="ln">    71  </span>
-<span id="L72" class="ln">    72  </span>	return nil
-<span id="L73" class="ln">    73  </span>}
-<span id="L74" class="ln">    74  </span>
+<span id="L54" class="ln">    54  </span>	if !config.ClusterScoped {
+<span id="L55" class="ln">    55  </span>		if strings.TrimSpace(config.TargetNamespace) == &#34;&#34; {
+<span id="L56" class="ln">    56  </span>			return errors.New(&#34;no target namespace specified with namespace scoped mode&#34;)
+<span id="L57" class="ln">    57  </span>		}
+<span id="L58" class="ln">    58  </span>	}
+<span id="L59" class="ln">    59  </span>
+<span id="L60" class="ln">    60  </span>	return nil
+<span id="L61" class="ln">    61  </span>}
+<span id="L62" class="ln">    62  </span>
 </pre><p></p>
 
 <div id="footer">

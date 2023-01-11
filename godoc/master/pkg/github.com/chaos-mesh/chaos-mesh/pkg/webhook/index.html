@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit fffed7e. Generated at Wed Jan 11 10:01:56 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 70aad4c. Generated at Wed Jan 11 22:03:37 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -88,8 +88,6 @@
 			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
 			
 			
-				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
-			
 			</dl>
 		</div>
 		<!-- The package's Name is printed as title by the top-level template -->
@@ -132,20 +130,6 @@
 					<dd>&nbsp; &nbsp; <a href="#AuthValidator.InjectDecoder">func (v *AuthValidator) InjectDecoder(d *admission.Decoder) error</a></dd>
 				
 			
-				
-				<dd><a href="#PodInjector">type PodInjector</a></dd>
-				
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#PodInjector.Handle">func (v *PodInjector) Handle(ctx context.Context, req admission.Request) admission.Response</a></dd>
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#PodInjector.InjectClient">func (v *PodInjector) InjectClient(c client.Client) error</a></dd>
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#PodInjector.InjectDecoder">func (v *PodInjector) InjectDecoder(d *admission.Decoder) error</a></dd>
-				
-			
 			
 			</dl>
 			</div><!-- #manual-nav -->
@@ -160,8 +144,6 @@
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/affected_namespaces.go">affected_namespaces.go</a>
 			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/errors.go">errors.go</a>
-			
-				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/inject.go">inject.go</a>
 			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/validate_auth.go">validate_auth.go</a>
 			
@@ -250,83 +232,6 @@ InjectDecoder injects the decoder.
 				
 			
 		
-			
-			
-			<h2 id="PodInjector">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/inject.go#L36">PodInjector</a>
-				<a class="permalink" href="#PodInjector">&#xb6;</a>
-				
-				
-			</h2>
-			<p>
-PodInjector is pod template config injector
-</p>
-
-			<pre>type PodInjector struct {
-<span id="PodInjector.Config"></span>    Config        *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/">config</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/#Config">Config</a>
-<span id="PodInjector.ControllerCfg"></span>    ControllerCfg *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/">controllerCfg</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/#ChaosControllerConfig">ChaosControllerConfig</a>
-<span id="PodInjector.Metrics"></span>    Metrics       *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/metrics/">metrics</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/metrics/#ChaosControllerManagerMetricsCollector">ChaosControllerManagerMetricsCollector</a>
-<span id="PodInjector.Logger"></span>    Logger        <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>
-    <span class="comment">// contains filtered or unexported fields</span>
-}
-</pre>
-
-			
-
-			
-
-			
-			
-			
-
-			
-
-			
-				
-				<h3 id="PodInjector.Handle">func (*PodInjector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/inject.go#L46">Handle</a>
-					<a class="permalink" href="#PodInjector.Handle">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func (v *<a href="#PodInjector">PodInjector</a>) Handle(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, req <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Request">Request</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Response">Response</a></pre>
-				<p>
-Handle is pod injector handler
-</p>
-
-				
-				
-				
-			
-				
-				<h3 id="PodInjector.InjectClient">func (*PodInjector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/inject.go#L62">InjectClient</a>
-					<a class="permalink" href="#PodInjector.InjectClient">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func (v *<a href="#PodInjector">PodInjector</a>) InjectClient(c <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
-				<p>
-InjectClient is pod injector client
-</p>
-
-				
-				
-				
-			
-				
-				<h3 id="PodInjector.InjectDecoder">func (*PodInjector) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/inject.go#L68">InjectDecoder</a>
-					<a class="permalink" href="#PodInjector.InjectDecoder">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func (v *<a href="#PodInjector">PodInjector</a>) InjectDecoder(d *<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Decoder">Decoder</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
-				<p>
-InjectDecoder is pod injector decoder
-</p>
-
-				
-				
-				
-			
-		
 	
 
 	
@@ -334,60 +239,6 @@ InjectDecoder is pod injector decoder
 
 
 
-
-	
-	
-		<h2 id="pkg-subdirectories">Subdirectories</h2>
-	
-	<div class="pkg-dir">
-		<table>
-			<tr>
-				<th class="pkg-name">Name</th>
-				<th class="pkg-synopsis">Synopsis</th>
-			</tr>
-
-			
-			<tr>
-				<td colspan="2"><a href="..">..</a></td>
-			</tr>
-			
-
-			
-				<tr>
-				
-					<td class="pkg-name" style="padding-left: 0px;">
-						<a href="config/">config</a>
-					</td>
-				
-					<td class="pkg-synopsis">
-						
-					</td>
-				</tr>
-			
-				<tr>
-				
-					<td class="pkg-name" style="padding-left: 20px;">
-						<a href="config/watcher/">watcher</a>
-					</td>
-				
-					<td class="pkg-synopsis">
-						
-					</td>
-				</tr>
-			
-				<tr>
-				
-					<td class="pkg-name" style="padding-left: 0px;">
-						<a href="inject/">inject</a>
-					</td>
-				
-					<td class="pkg-synopsis">
-						
-					</td>
-				</tr>
-			
-		</table>
-	</div>
 
 
 
