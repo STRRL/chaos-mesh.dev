@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 6f9ab51. Generated at Tue Feb  7 22:03:44 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 373785d. Generated at Wed Feb  8 10:01:45 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -162,7 +162,7 @@ Package provider provides several required components for bootstrapping chaos-co
 					<dd>&nbsp; &nbsp; <a href="#UpdatedClient.DeleteAllOf">func (c *UpdatedClient) DeleteAllOf(ctx context.Context, obj client.Object, opts ...client.DeleteAllOfOption) error</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#UpdatedClient.Get">func (c *UpdatedClient) Get(ctx context.Context, key client.ObjectKey, obj client.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#UpdatedClient.Get">func (c *UpdatedClient) Get(ctx context.Context, key client.ObjectKey, obj client.Object, opts ...client.GetOption) error</a></dd>
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#UpdatedClient.List">func (c *UpdatedClient) List(ctx context.Context, list client.ObjectList, opts ...client.ListOption) error</a></dd>
@@ -180,6 +180,9 @@ Package provider provides several required components for bootstrapping chaos-co
 					<dd>&nbsp; &nbsp; <a href="#UpdatedClient.Status">func (c *UpdatedClient) Status() client.StatusWriter</a></dd>
 				
 					
+					<dd>&nbsp; &nbsp; <a href="#UpdatedClient.SubResource">func (c *UpdatedClient) SubResource(subResource string) client.SubResourceClient</a></dd>
+				
+					
 					<dd>&nbsp; &nbsp; <a href="#UpdatedClient.Update">func (c *UpdatedClient) Update(ctx context.Context, obj client.Object, opts ...client.UpdateOption) error</a></dd>
 				
 			
@@ -188,10 +191,13 @@ Package provider provides several required components for bootstrapping chaos-co
 				
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#UpdatedStatusWriter.Patch">func (c *UpdatedStatusWriter) Patch(ctx context.Context, obj client.Object, patch client.Patch, opts ...client.PatchOption) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#UpdatedStatusWriter.Create">func (c *UpdatedStatusWriter) Create(ctx context.Context, obj client.Object, subResource client.Object, opts ...client.SubResourceCreateOption) error</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#UpdatedStatusWriter.Update">func (c *UpdatedStatusWriter) Update(ctx context.Context, obj client.Object, opts ...client.UpdateOption) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#UpdatedStatusWriter.Patch">func (c *UpdatedStatusWriter) Patch(ctx context.Context, obj client.Object, patch client.Patch, opts ...client.SubResourcePatchOption) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UpdatedStatusWriter.Update">func (c *UpdatedStatusWriter) Update(ctx context.Context, obj client.Object, opts ...client.SubResourceUpdateOption) error</a></dd>
 				
 			
 			
@@ -450,7 +456,7 @@ NewScheme returns the runtime.Scheme used by controller-runtime
 					
 					
 				</h3>
-				<pre>func (c *<a href="#UpdatedClient">UpdatedClient</a>) Get(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, key <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#ObjectKey">ObjectKey</a>, obj <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (c *<a href="#UpdatedClient">UpdatedClient</a>) Get(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, key <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#ObjectKey">ObjectKey</a>, obj <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Object">Object</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#GetOption">GetOption</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
 				
 				
 				
@@ -505,12 +511,24 @@ NewScheme returns the runtime.Scheme used by controller-runtime
 				
 			
 				
-				<h3 id="UpdatedClient.Status">func (*UpdatedClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L151">Status</a>
+				<h3 id="UpdatedClient.Status">func (*UpdatedClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L155">Status</a>
 					<a class="permalink" href="#UpdatedClient.Status">&#xb6;</a>
 					
 					
 				</h3>
 				<pre>func (c *<a href="#UpdatedClient">UpdatedClient</a>) Status() <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#StatusWriter">StatusWriter</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UpdatedClient.SubResource">func (*UpdatedClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L151">SubResource</a>
+					<a class="permalink" href="#UpdatedClient.SubResource">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#UpdatedClient">UpdatedClient</a>) SubResource(subResource <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#SubResourceClient">SubResourceClient</a></pre>
 				
 				
 				
@@ -531,7 +549,7 @@ NewScheme returns the runtime.Scheme used by controller-runtime
 		
 			
 			
-			<h2 id="UpdatedStatusWriter">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L158">UpdatedStatusWriter</a>
+			<h2 id="UpdatedStatusWriter">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L162">UpdatedStatusWriter</a>
 				<a class="permalink" href="#UpdatedStatusWriter">&#xb6;</a>
 				
 				
@@ -554,24 +572,36 @@ NewScheme returns the runtime.Scheme used by controller-runtime
 
 			
 				
-				<h3 id="UpdatedStatusWriter.Patch">func (*UpdatedStatusWriter) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L177">Patch</a>
-					<a class="permalink" href="#UpdatedStatusWriter.Patch">&#xb6;</a>
+				<h3 id="UpdatedStatusWriter.Create">func (*UpdatedStatusWriter) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L167">Create</a>
+					<a class="permalink" href="#UpdatedStatusWriter.Create">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (c *<a href="#UpdatedStatusWriter">UpdatedStatusWriter</a>) Patch(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, obj <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Object">Object</a>, patch <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Patch">Patch</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#PatchOption">PatchOption</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (c *<a href="#UpdatedStatusWriter">UpdatedStatusWriter</a>) Create(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, obj <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Object">Object</a>, subResource <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Object">Object</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#SubResourceCreateOption">SubResourceCreateOption</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
 				
 				
 				
 				
 			
 				
-				<h3 id="UpdatedStatusWriter.Update">func (*UpdatedStatusWriter) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L163">Update</a>
+				<h3 id="UpdatedStatusWriter.Patch">func (*UpdatedStatusWriter) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L185">Patch</a>
+					<a class="permalink" href="#UpdatedStatusWriter.Patch">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#UpdatedStatusWriter">UpdatedStatusWriter</a>) Patch(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, obj <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Object">Object</a>, patch <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Patch">Patch</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#SubResourcePatchOption">SubResourcePatchOption</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UpdatedStatusWriter.Update">func (*UpdatedStatusWriter) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider/updated_client.go#L171">Update</a>
 					<a class="permalink" href="#UpdatedStatusWriter.Update">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (c *<a href="#UpdatedStatusWriter">UpdatedStatusWriter</a>) Update(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, obj <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Object">Object</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#UpdateOption">UpdateOption</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (c *<a href="#UpdatedStatusWriter">UpdatedStatusWriter</a>) Update(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, obj <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Object">Object</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#SubResourceUpdateOption">SubResourceUpdateOption</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
 				
 				
 				

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 6f9ab51. Generated at Tue Feb  7 22:03:44 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 373785d. Generated at Wed Feb  8 10:01:45 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -89,60 +89,60 @@
 <span id="L24" class="ln">    24  </span>	&#34;testing&#34;
 <span id="L25" class="ln">    25  </span>	&#34;time&#34;
 <span id="L26" class="ln">    26  </span>
-<span id="L27" class="ln">    27  </span>	&#34;github.com/onsi/ginkgo&#34;
-<span id="L28" class="ln">    28  </span>	ginkgoconfig &#34;github.com/onsi/ginkgo/config&#34;
-<span id="L29" class="ln">    29  </span>	&#34;github.com/onsi/ginkgo/reporters&#34;
-<span id="L30" class="ln">    30  </span>	&#34;github.com/onsi/gomega&#34;
-<span id="L31" class="ln">    31  </span>	runtimeutils &#34;k8s.io/apimachinery/pkg/util/runtime&#34;
-<span id="L32" class="ln">    32  </span>	&#34;k8s.io/client-go/tools/clientcmd&#34;
-<span id="L33" class="ln">    33  </span>	&#34;k8s.io/component-base/logs&#34;
-<span id="L34" class="ln">    34  </span>	&#34;k8s.io/klog/v2&#34;
-<span id="L35" class="ln">    35  </span>	&#34;k8s.io/kubernetes/test/e2e/framework&#34;
-<span id="L36" class="ln">    36  </span>	&#34;k8s.io/kubernetes/test/e2e/framework/config&#34;
-<span id="L37" class="ln">    37  </span>	&#34;k8s.io/kubernetes/test/e2e/framework/testfiles&#34;
-<span id="L38" class="ln">    38  </span>
-<span id="L39" class="ln">    39  </span>	_ &#34;github.com/chaos-mesh/chaos-mesh/e2e-test/e2e/chaos&#34;
-<span id="L40" class="ln">    40  </span>	e2econfig &#34;github.com/chaos-mesh/chaos-mesh/e2e-test/e2e/config&#34; <span class="comment">// test sources</span>
-<span id="L41" class="ln">    41  </span>)
-<span id="L42" class="ln">    42  </span>
-<span id="L43" class="ln">    43  </span><span class="comment">// handleFlags sets up all flags and parses the command line.</span>
-<span id="L44" class="ln">    44  </span>func handleFlags() {
-<span id="L45" class="ln">    45  </span>	config.CopyFlags(config.Flags, flag.CommandLine)
-<span id="L46" class="ln">    46  </span>	framework.RegisterCommonFlags(flag.CommandLine)
-<span id="L47" class="ln">    47  </span>	hackRegisterClusterFlags(flag.CommandLine)
-<span id="L48" class="ln">    48  </span>	e2econfig.RegisterOperatorFlags(flag.CommandLine)
-<span id="L49" class="ln">    49  </span>	flag.Parse()
-<span id="L50" class="ln">    50  </span>}
-<span id="L51" class="ln">    51  </span>
-<span id="L52" class="ln">    52  </span>func TestMain(m *testing.M) {
-<span id="L53" class="ln">    53  </span>	<span class="comment">// Register test flags, then parse flags.</span>
-<span id="L54" class="ln">    54  </span>	handleFlags()
-<span id="L55" class="ln">    55  </span>
-<span id="L56" class="ln">    56  </span>	framework.AfterReadingAllFlags(&amp;framework.TestContext)
-<span id="L57" class="ln">    57  </span>
-<span id="L58" class="ln">    58  </span>	if framework.TestContext.RepoRoot != &#34;&#34; {
-<span id="L59" class="ln">    59  </span>		testfiles.AddFileSource(testfiles.RootFileSource{Root: framework.TestContext.RepoRoot})
-<span id="L60" class="ln">    60  </span>	}
-<span id="L61" class="ln">    61  </span>
-<span id="L62" class="ln">    62  </span>	rand.Seed(time.Now().UnixNano())
-<span id="L63" class="ln">    63  </span>	os.Exit(m.Run())
-<span id="L64" class="ln">    64  </span>}
-<span id="L65" class="ln">    65  </span>
-<span id="L66" class="ln">    66  </span>func TestE2E(t *testing.T) {
-<span id="L67" class="ln">    67  </span>	RunE2ETests(t)
-<span id="L68" class="ln">    68  </span>}
-<span id="L69" class="ln">    69  </span>
-<span id="L70" class="ln">    70  </span>func RunE2ETests(t *testing.T) {
-<span id="L71" class="ln">    71  </span>	runtimeutils.ReallyCrash = true
-<span id="L72" class="ln">    72  </span>	logs.InitLogs()
-<span id="L73" class="ln">    73  </span>	defer logs.FlushLogs()
-<span id="L74" class="ln">    74  </span>
-<span id="L75" class="ln">    75  </span>	gomega.RegisterFailHandler(framework.Fail)
-<span id="L76" class="ln">    76  </span>
-<span id="L77" class="ln">    77  </span>	<span class="comment">// Run tests through the Ginkgo runner with output to console + JUnit for Jenkins</span>
+<span id="L27" class="ln">    27  </span>	&#34;github.com/onsi/ginkgo/v2&#34;
+<span id="L28" class="ln">    28  </span>	&#34;github.com/onsi/ginkgo/v2/reporters&#34;
+<span id="L29" class="ln">    29  </span>	&#34;github.com/onsi/gomega&#34;
+<span id="L30" class="ln">    30  </span>	runtimeutils &#34;k8s.io/apimachinery/pkg/util/runtime&#34;
+<span id="L31" class="ln">    31  </span>	&#34;k8s.io/client-go/tools/clientcmd&#34;
+<span id="L32" class="ln">    32  </span>	&#34;k8s.io/component-base/logs&#34;
+<span id="L33" class="ln">    33  </span>	&#34;k8s.io/klog/v2&#34;
+<span id="L34" class="ln">    34  </span>	&#34;k8s.io/kubernetes/test/e2e/framework&#34;
+<span id="L35" class="ln">    35  </span>	&#34;k8s.io/kubernetes/test/e2e/framework/config&#34;
+<span id="L36" class="ln">    36  </span>	&#34;k8s.io/kubernetes/test/e2e/framework/testfiles&#34;
+<span id="L37" class="ln">    37  </span>
+<span id="L38" class="ln">    38  </span>	_ &#34;github.com/chaos-mesh/chaos-mesh/e2e-test/e2e/chaos&#34;
+<span id="L39" class="ln">    39  </span>	e2econfig &#34;github.com/chaos-mesh/chaos-mesh/e2e-test/e2e/config&#34; <span class="comment">// test sources</span>
+<span id="L40" class="ln">    40  </span>)
+<span id="L41" class="ln">    41  </span>
+<span id="L42" class="ln">    42  </span><span class="comment">// handleFlags sets up all flags and parses the command line.</span>
+<span id="L43" class="ln">    43  </span>func handleFlags() {
+<span id="L44" class="ln">    44  </span>	config.CopyFlags(config.Flags, flag.CommandLine)
+<span id="L45" class="ln">    45  </span>	framework.RegisterCommonFlags(flag.CommandLine)
+<span id="L46" class="ln">    46  </span>	hackRegisterClusterFlags(flag.CommandLine)
+<span id="L47" class="ln">    47  </span>	e2econfig.RegisterOperatorFlags(flag.CommandLine)
+<span id="L48" class="ln">    48  </span>	flag.Parse()
+<span id="L49" class="ln">    49  </span>}
+<span id="L50" class="ln">    50  </span>
+<span id="L51" class="ln">    51  </span>func TestMain(m *testing.M) {
+<span id="L52" class="ln">    52  </span>	<span class="comment">// Register test flags, then parse flags.</span>
+<span id="L53" class="ln">    53  </span>	handleFlags()
+<span id="L54" class="ln">    54  </span>
+<span id="L55" class="ln">    55  </span>	framework.AfterReadingAllFlags(&amp;framework.TestContext)
+<span id="L56" class="ln">    56  </span>
+<span id="L57" class="ln">    57  </span>	if framework.TestContext.RepoRoot != &#34;&#34; {
+<span id="L58" class="ln">    58  </span>		testfiles.AddFileSource(testfiles.RootFileSource{Root: framework.TestContext.RepoRoot})
+<span id="L59" class="ln">    59  </span>	}
+<span id="L60" class="ln">    60  </span>
+<span id="L61" class="ln">    61  </span>	rand.Seed(time.Now().UnixNano())
+<span id="L62" class="ln">    62  </span>	os.Exit(m.Run())
+<span id="L63" class="ln">    63  </span>}
+<span id="L64" class="ln">    64  </span>
+<span id="L65" class="ln">    65  </span>func TestE2E(t *testing.T) {
+<span id="L66" class="ln">    66  </span>	RunE2ETests(t)
+<span id="L67" class="ln">    67  </span>}
+<span id="L68" class="ln">    68  </span>
+<span id="L69" class="ln">    69  </span>func RunE2ETests(t *testing.T) {
+<span id="L70" class="ln">    70  </span>	runtimeutils.ReallyCrash = true
+<span id="L71" class="ln">    71  </span>	logs.InitLogs()
+<span id="L72" class="ln">    72  </span>	defer logs.FlushLogs()
+<span id="L73" class="ln">    73  </span>
+<span id="L74" class="ln">    74  </span>	gomega.RegisterFailHandler(framework.Fail)
+<span id="L75" class="ln">    75  </span>
+<span id="L76" class="ln">    76  </span>	<span class="comment">// Run tests through the Ginkgo runner with output to console + JUnit for Jenkins</span>
+<span id="L77" class="ln">    77  </span>	suite, _ := ginkgo.GinkgoConfiguration()
 <span id="L78" class="ln">    78  </span>	var r []ginkgo.Reporter
-<span id="L79" class="ln">    79  </span>	r = append(r, reporters.NewJUnitReporter(path.Join(framework.TestContext.ReportDir, fmt.Sprintf(&#34;junit_%v%02d.xml&#34;, framework.TestContext.ReportPrefix, ginkgoconfig.GinkgoConfig.ParallelNode))))
-<span id="L80" class="ln">    80  </span>	klog.Infof(&#34;Starting e2e run %q on Ginkgo node %d&#34;, framework.RunID, ginkgoconfig.GinkgoConfig.ParallelNode)
+<span id="L79" class="ln">    79  </span>	r = append(r, reporters.NewJUnitReporter(path.Join(framework.TestContext.ReportDir, fmt.Sprintf(&#34;junit_%v%02d.xml&#34;, framework.TestContext.ReportPrefix, suite.ParallelProcess))))
+<span id="L80" class="ln">    80  </span>	klog.Infof(&#34;Starting e2e run %q on Ginkgo node %d&#34;, framework.RunID, suite.ParallelProcess)
 <span id="L81" class="ln">    81  </span>
 <span id="L82" class="ln">    82  </span>	ginkgo.RunSpecsWithDefaultAndCustomReporters(t, &#34;chaosmesh e2e suit&#34;, r)
 <span id="L83" class="ln">    83  </span>}
