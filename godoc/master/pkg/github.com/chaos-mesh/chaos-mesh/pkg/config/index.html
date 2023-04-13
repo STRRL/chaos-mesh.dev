@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 25a841a. Generated at Thu Apr 13 10:01:57 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e5c03c2. Generated at Thu Apr 13 22:03:26 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -88,8 +88,6 @@
 			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
 			
 			
-				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
-			
 			</dl>
 		</div>
 		<!-- The package's Name is printed as title by the top-level template -->
@@ -127,8 +125,34 @@
 				
 			
 				
+				<dd><a href="#ChaosDashboardConfig">type ChaosDashboardConfig</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GetChaosDashboardEnv">func GetChaosDashboardEnv() (*ChaosDashboardConfig, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#DatabaseConfig">type DatabaseConfig</a></dd>
+				
+				
+			
+				
 				<dd><a href="#TLSConfig">type TLSConfig</a></dd>
 				
+				
+			
+				
+				<dd><a href="#TTLConfig">type TTLConfig</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TTLConfigWithStringTime">type TTLConfigWithStringTime</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TTLConfigWithStringTime.Parse">func (config *TTLConfigWithStringTime) Parse() (*TTLConfig, error)</a></dd>
 				
 			
 			
@@ -143,6 +167,8 @@
 			<span style="font-size:90%">
 			
 				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/controller.go">controller.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard.go">dashboard.go</a>
 			
 			</span>
 			</p>
@@ -271,6 +297,111 @@ EnvironChaosController returns the settings from the environment.
 		
 			
 			
+			<h2 id="ChaosDashboardConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard.go#L26">ChaosDashboardConfig</a>
+				<a class="permalink" href="#ChaosDashboardConfig">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ChaosDashboardConfig defines the configuration for Chaos Dashboard
+</p>
+
+			<pre>type ChaosDashboardConfig struct {
+<span id="ChaosDashboardConfig.ListenHost"></span>    ListenHost           <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>                   `envconfig:&#34;LISTEN_HOST&#34; default:&#34;0.0.0.0&#34; json:&#34;listen_host&#34;`
+<span id="ChaosDashboardConfig.ListenPort"></span>    ListenPort           <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>                      `envconfig:&#34;LISTEN_PORT&#34; default:&#34;2333&#34; json:&#34;listen_port&#34;`
+<span id="ChaosDashboardConfig.MetricHost"></span>    MetricHost           <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>                   `envconfig:&#34;METRIC_HOST&#34; default:&#34;0.0.0.0&#34; json:&#34;-&#34;`
+<span id="ChaosDashboardConfig.MetricPort"></span>    MetricPort           <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>                      `envconfig:&#34;METRIC_PORT&#34; default:&#34;2334&#34; json:&#34;-&#34;`
+<span id="ChaosDashboardConfig.EnableLeaderElection"></span>    EnableLeaderElection <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>                     `envconfig:&#34;ENABLE_LEADER_ELECTION&#34; json:&#34;-&#34;`
+<span id="ChaosDashboardConfig.Database"></span>    Database             *<a href="#DatabaseConfig">DatabaseConfig</a>          `json:&#34;-&#34;`
+<span id="ChaosDashboardConfig.PersistTTL"></span>    PersistTTL           *<a href="#TTLConfigWithStringTime">TTLConfigWithStringTime</a> `json:&#34;-&#34;`
+<span id="ChaosDashboardConfig.ClusterScoped"></span>    <span class="comment">// ClusterScoped means control Chaos Object in cluster level(all namespace).</span>
+    ClusterScoped <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a> `envconfig:&#34;CLUSTER_SCOPED&#34; default:&#34;true&#34; json:&#34;cluster_mode&#34;`
+<span id="ChaosDashboardConfig.TargetNamespace"></span>    <span class="comment">// TargetNamespace is the target namespace to injecting chaos.</span>
+    <span class="comment">// It only works with ClusterScoped is false.</span>
+    TargetNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;TARGET_NAMESPACE&#34; default:&#34;&#34; json:&#34;target_namespace&#34;`
+<span id="ChaosDashboardConfig.EnableFilterNamespace"></span>    <span class="comment">// EnableFilterNamespace will filter namespace with annotation. Only the pods/containers in namespace</span>
+    <span class="comment">// annotated with `chaos-mesh.org/inject=enabled` will be injected.</span>
+    EnableFilterNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a> `envconfig:&#34;ENABLE_FILTER_NAMESPACE&#34; default:&#34;false&#34;`
+<span id="ChaosDashboardConfig.SecurityMode"></span>    <span class="comment">// SecurityMode will use the token login by the user if set to true</span>
+    SecurityMode <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a> `envconfig:&#34;SECURITY_MODE&#34; default:&#34;true&#34; json:&#34;security_mode&#34;`
+<span id="ChaosDashboardConfig.GcpSecurityMode"></span>    <span class="comment">// GcpSecurityMode will use the gcloud authentication to login to GKE user</span>
+    GcpSecurityMode <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>   `envconfig:&#34;GCP_SECURITY_MODE&#34; default:&#34;false&#34; json:&#34;gcp_security_mode&#34;`
+<span id="ChaosDashboardConfig.GcpClientId"></span>    GcpClientId     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;GCP_CLIENT_ID&#34; default:&#34;&#34; json:&#34;-&#34;`
+<span id="ChaosDashboardConfig.GcpClientSecret"></span>    GcpClientSecret <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;GCP_CLIENT_SECRET&#34; default:&#34;&#34; json:&#34;-&#34;`
+
+<span id="ChaosDashboardConfig.RootUrl"></span>    RootUrl <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;ROOT_URL&#34; default:&#34;http://localhost:2333&#34; json:&#34;root_path&#34;`
+
+    <span class="comment">// enableProfiling is a flag to enable pprof in controller-manager and chaos-daemon</span>
+<span id="ChaosDashboardConfig.EnableProfiling"></span>    EnableProfiling <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a> `envconfig:&#34;ENABLE_PROFILING&#34; default:&#34;true&#34; json:&#34;-&#34;`
+
+    <span class="comment">// After v2.5, the DNS server is created by default.</span>
+<span id="ChaosDashboardConfig.DNSServerCreate"></span>    DNSServerCreate <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>   `envconfig:&#34;DNS_SERVER_CREATE&#34; default:&#34;true&#34; json:&#34;dns_server_create&#34;`
+<span id="ChaosDashboardConfig.Version"></span>    Version         <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;version&#34;`
+
+    <span class="comment">// The QPS config for kubernetes client</span>
+<span id="ChaosDashboardConfig.QPS"></span>    QPS <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#float32">float32</a> `envconfig:&#34;QPS&#34; default:&#34;200&#34; json:&#34;-&#34;`
+    <span class="comment">// The Burst config for kubernetes client</span>
+<span id="ChaosDashboardConfig.Burst"></span>    Burst <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a> `envconfig:&#34;BURST&#34; default:&#34;300&#34; json:&#34;-&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="GetChaosDashboardEnv">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard.go#L131">GetChaosDashboardEnv</a>
+					<a class="permalink" href="#GetChaosDashboardEnv">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func GetChaosDashboardEnv() (*<a href="#ChaosDashboardConfig">ChaosDashboardConfig</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<p>
+GetChaosDashboardEnv gets all env variables related to dashboard.
+</p>
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="DatabaseConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard.go#L65">DatabaseConfig</a>
+				<a class="permalink" href="#DatabaseConfig">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+DatabaseConfig defines the configuration for databases
+</p>
+
+			<pre>type DatabaseConfig struct {
+<span id="DatabaseConfig.Driver"></span>    Driver     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;DATABASE_DRIVER&#34;     default:&#34;sqlite3&#34;`
+<span id="DatabaseConfig.Datasource"></span>    Datasource <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;DATABASE_DATASOURCE&#34; default:&#34;core.sqlite&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
 			<h2 id="TLSConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/controller.go#L25">TLSConfig</a>
 				<a class="permalink" href="#TLSConfig">&#xb6;</a>
 				
@@ -309,45 +440,96 @@ TLSConfig defines the configuration for chaos-daemon and chaosd tls client
 
 			
 		
-	
-
-	
-
-
-
-
-
-	
-	
-		<h2 id="pkg-subdirectories">Subdirectories</h2>
-	
-	<div class="pkg-dir">
-		<table>
-			<tr>
-				<th class="pkg-name">Name</th>
-				<th class="pkg-synopsis">Synopsis</th>
-			</tr>
-
 			
-			<tr>
-				<td colspan="2"><a href="..">..</a></td>
-			</tr>
 			
-
-			
-				<tr>
+			<h2 id="TTLConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard.go#L71">TTLConfig</a>
+				<a class="permalink" href="#TTLConfig">&#xb6;</a>
 				
-					<td class="pkg-name" style="padding-left: 0px;">
-						<a href="dashboard/">dashboard</a>
-					</td>
 				
-					<td class="pkg-synopsis">
-						
-					</td>
-				</tr>
+			</h2>
+			<p>
+TTLConfig defines all the TTL-related configurations.
+</p>
+
+			<pre>type TTLConfig struct {
+<span id="TTLConfig.ResyncPeriod"></span>    <span class="comment">// ResyncPeriod defines the period of cleaning data.</span>
+    ResyncPeriod <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Duration">Duration</a>
+
+    <span class="comment">// TTL of events.</span>
+<span id="TTLConfig.EventTTL"></span>    EventTTL <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Duration">Duration</a>
+    <span class="comment">// TTL of experiments.</span>
+<span id="TTLConfig.ExperimentTTL"></span>    ExperimentTTL <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Duration">Duration</a>
+    <span class="comment">// TTL of schedules.</span>
+<span id="TTLConfig.ScheduleTTL"></span>    ScheduleTTL <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Duration">Duration</a>
+    <span class="comment">// TTL of workflows.</span>
+<span id="TTLConfig.WorkflowTTL"></span>    WorkflowTTL <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Duration">Duration</a>
+}
+</pre>
+
 			
-		</table>
-	</div>
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TTLConfigWithStringTime">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard.go#L86">TTLConfigWithStringTime</a>
+				<a class="permalink" href="#TTLConfigWithStringTime">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+TTLConfigWithStringTime defines all the TTL-related configurations with string type time.
+</p>
+
+			<pre>type TTLConfigWithStringTime struct {
+<span id="TTLConfigWithStringTime.ResyncPeriod"></span>    ResyncPeriod <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;CLEAN_SYNC_PERIOD&#34; default:&#34;12h&#34;`
+
+<span id="TTLConfigWithStringTime.EventTTL"></span>    EventTTL      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;TTL_EVENT&#34;         default:&#34;168h&#34;` <span class="comment">// one week</span>
+<span id="TTLConfigWithStringTime.ExperimentTTL"></span>    ExperimentTTL <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;TTL_EXPERIMENT&#34;    default:&#34;336h&#34;` <span class="comment">// two weeks</span>
+<span id="TTLConfigWithStringTime.ScheduleTTL"></span>    ScheduleTTL   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;TTL_EXPERIMENT&#34;    default:&#34;336h&#34;`
+<span id="TTLConfigWithStringTime.WorkflowTTL"></span>    WorkflowTTL   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `envconfig:&#34;TTL_EXPERIMENT&#34;    default:&#34;336h&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="TTLConfigWithStringTime.Parse">func (*TTLConfigWithStringTime) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard.go#L95">Parse</a>
+					<a class="permalink" href="#TTLConfigWithStringTime.Parse">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (config *<a href="#TTLConfigWithStringTime">TTLConfigWithStringTime</a>) Parse() (*<a href="#TTLConfig">TTLConfig</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
 
 
 

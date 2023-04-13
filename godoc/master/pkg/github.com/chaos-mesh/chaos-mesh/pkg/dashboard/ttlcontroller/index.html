@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 25a841a. Generated at Thu Apr 13 10:01:57 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e5c03c2. Generated at Thu Apr 13 22:03:26 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -97,7 +97,11 @@
 			</div>
 			<div class="expanded">
 				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
-				
+				<p>
+Package ttlcontroller provides a TTL (time to live) mechanism to clear old objects
+in the database.
+</p>
+
 				
 			</div>
 		</div>
@@ -123,15 +127,10 @@
 				<dd><a href="#Controller">type Controller</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#Bootstrap">func Bootstrap(experiment core.ExperimentStore, event core.EventStore, schedule core.ScheduleStore, workflow core.WorkflowStore, ttlc *TTLConfig, logger logr.Logger) *Controller</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#Bootstrap">func Bootstrap(event core.EventStore, experiment core.ExperimentStore, schedule core.ScheduleStore, workflow core.WorkflowStore, ttlc *config.TTLConfig, logger logr.Logger) *Controller</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewController">func NewController(experiment core.ExperimentStore, event core.EventStore, schedule core.ScheduleStore, workflow core.WorkflowStore, ttlc *TTLConfig, logger logr.Logger) *Controller</a></dd>
-				
-				
-			
-				
-				<dd><a href="#TTLConfig">type TTLConfig</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NewController">func NewController(event core.EventStore, experiment core.ExperimentStore, schedule core.ScheduleStore, workflow core.WorkflowStore, ttlconfig *config.TTLConfig, logger logr.Logger) *Controller</a></dd>
 				
 				
 			
@@ -163,7 +162,7 @@
 		
 			
 			
-			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/ttlcontroller/ttlcontroller.go#L73">Register</a>
+			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/ttlcontroller/ttlcontroller.go#L60">Register</a>
 				<a class="permalink" href="#Register">&#xb6;</a>
 				
 				
@@ -180,15 +179,12 @@ Register periodically calls function runWorker to delete the data.
 		
 			
 			
-			<h2 id="Controller">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/ttlcontroller/ttlcontroller.go#L30">Controller</a>
+			<h2 id="Controller">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/ttlcontroller/ttlcontroller.go#L31">Controller</a>
 				<a class="permalink" href="#Controller">&#xb6;</a>
 				
 				
 			</h2>
-			<p>
-Controller defines the database ttl controller
-</p>
-
+			
 			<pre>type Controller struct {
     <span class="comment">// contains filtered or unexported fields</span>
 }
@@ -204,28 +200,28 @@ Controller defines the database ttl controller
 
 			
 				
-				<h3 id="Bootstrap">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/ttlcontroller/fx.go#L23">Bootstrap</a>
+				<h3 id="Bootstrap">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/ttlcontroller/fx.go#L24">Bootstrap</a>
 					<a class="permalink" href="#Bootstrap">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func Bootstrap(experiment <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ExperimentStore">ExperimentStore</a>, event <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#EventStore">EventStore</a>, schedule <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ScheduleStore">ScheduleStore</a>, workflow <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#WorkflowStore">WorkflowStore</a>, ttlc *<a href="#TTLConfig">TTLConfig</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#Controller">Controller</a></pre>
+				<pre>func Bootstrap(event <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#EventStore">EventStore</a>, experiment <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ExperimentStore">ExperimentStore</a>, schedule <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ScheduleStore">ScheduleStore</a>, workflow <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#WorkflowStore">WorkflowStore</a>, ttlc *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/">config</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/#TTLConfig">TTLConfig</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#Controller">Controller</a></pre>
 				
 				
 				
 			
 				
-				<h3 id="NewController">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/ttlcontroller/ttlcontroller.go#L54">NewController</a>
+				<h3 id="NewController">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/ttlcontroller/ttlcontroller.go#L41">NewController</a>
 					<a class="permalink" href="#NewController">&#xb6;</a>
 					
 					
 				</h3>
 				<pre>func NewController(
-    experiment <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ExperimentStore">ExperimentStore</a>,
     event <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#EventStore">EventStore</a>,
+    experiment <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ExperimentStore">ExperimentStore</a>,
     schedule <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#ScheduleStore">ScheduleStore</a>,
     workflow <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/">core</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/core/#WorkflowStore">WorkflowStore</a>,
-    ttlc *<a href="#TTLConfig">TTLConfig</a>,
+    ttlconfig *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/">config</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/#TTLConfig">TTLConfig</a>,
     logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>,
 ) *<a href="#Controller">Controller</a></pre>
 				<p>
@@ -234,43 +230,6 @@ NewController returns a new database ttl controller
 
 				
 				
-			
-
-			
-		
-			
-			
-			<h2 id="TTLConfig">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/ttlcontroller/ttlcontroller.go#L40">TTLConfig</a>
-				<a class="permalink" href="#TTLConfig">&#xb6;</a>
-				
-				
-			</h2>
-			<p>
-TTLConfig defines the ttl
-</p>
-
-			<pre>type TTLConfig struct {
-    <span class="comment">// databaseTTLResyncPeriod defines the time interval to cleanup data in the database</span>
-<span id="TTLConfig.DatabaseTTLResyncPeriod"></span>    DatabaseTTLResyncPeriod <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Duration">Duration</a>
-<span id="TTLConfig.EventTTL"></span>    <span class="comment">// EventTTL defines the ttl of events</span>
-    EventTTL <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Duration">Duration</a>
-<span id="TTLConfig.ArchiveTTL"></span>    <span class="comment">// ArchiveTTL defines the ttl of archives</span>
-    ArchiveTTL <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Duration">Duration</a>
-<span id="TTLConfig.ScheduleTTL"></span>    <span class="comment">// ScheduleTTL defines the ttl of schedule</span>
-    ScheduleTTL <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Duration">Duration</a>
-<span id="TTLConfig.WorkflowTTL"></span>    <span class="comment">// WorkflowTTL defines the ttl of workflow</span>
-    WorkflowTTL <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Duration">Duration</a>
-}
-</pre>
-
-			
-
-			
-
-			
-			
-			
-
 			
 
 			

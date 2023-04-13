@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 25a841a. Generated at Thu Apr 13 10:01:57 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e5c03c2. Generated at Thu Apr 13 22:03:26 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -94,7 +94,7 @@
 <span id="L29" class="ln">    29  </span>	_ &#34;k8s.io/client-go/plugin/pkg/client/auth/gcp&#34;
 <span id="L30" class="ln">    30  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
 <span id="L31" class="ln">    31  </span>
-<span id="L32" class="ln">    32  </span>	config &#34;github.com/chaos-mesh/chaos-mesh/pkg/config/dashboard&#34;
+<span id="L32" class="ln">    32  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/config&#34;
 <span id="L33" class="ln">    33  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver&#34;
 <span id="L34" class="ln">    34  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/dashboard/collector&#34;
 <span id="L35" class="ln">    35  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/dashboard/store&#34;
@@ -104,7 +104,7 @@
 <span id="L39" class="ln">    39  </span>)
 <span id="L40" class="ln">    40  </span>
 <span id="L41" class="ln">    41  </span><span class="comment">// @title Chaos Mesh Dashboard API</span>
-<span id="L42" class="ln">    42  </span><span class="comment">// @version 2.2</span>
+<span id="L42" class="ln">    42  </span><span class="comment">// @version 2.5</span>
 <span id="L43" class="ln">    43  </span><span class="comment">// @description Swagger for Chaos Mesh Dashboard. If you encounter any problems with API, please click on the issues link below to report.</span>
 <span id="L44" class="ln">    44  </span>
 <span id="L45" class="ln">    45  </span><span class="comment">// @contact.name GitHub Issues</span>
@@ -140,7 +140,7 @@
 <span id="L75" class="ln">    75  </span>	}
 <span id="L76" class="ln">    76  </span>	dashboardConfig.Version = version.Get().GitVersion
 <span id="L77" class="ln">    77  </span>
-<span id="L78" class="ln">    78  </span>	persistTTLConfigParsed, err := config.ParsePersistTTLConfig(dashboardConfig.PersistTTL)
+<span id="L78" class="ln">    78  </span>	persistTTLConfigParsed, err := dashboardConfig.PersistTTL.Parse()
 <span id="L79" class="ln">    79  </span>	if err != nil {
 <span id="L80" class="ln">    80  </span>		mainLog.Error(err, &#34;invalid PersistTTLConfig&#34;)
 <span id="L81" class="ln">    81  </span>		os.Exit(1)
@@ -151,7 +151,7 @@
 <span id="L86" class="ln">    86  </span>		fx.Logger(log.NewLogrPrinter(rootLogger.WithName(&#34;fx&#34;))),
 <span id="L87" class="ln">    87  </span>		fx.Supply(rootLogger),
 <span id="L88" class="ln">    88  </span>		fx.Provide(
-<span id="L89" class="ln">    89  </span>			func() (context.Context, *config.ChaosDashboardConfig, *ttlcontroller.TTLConfig) {
+<span id="L89" class="ln">    89  </span>			func() (context.Context, *config.ChaosDashboardConfig, *config.TTLConfig) {
 <span id="L90" class="ln">    90  </span>				return controllerRuntimeSignalHandlerContext, dashboardConfig, persistTTLConfigParsed
 <span id="L91" class="ln">    91  </span>			},
 <span id="L92" class="ln">    92  </span>			store.Bootstrap,
