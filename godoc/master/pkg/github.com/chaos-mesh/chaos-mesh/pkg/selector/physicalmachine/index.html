@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 29335e8. Generated at Tue May  9 22:03:42 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ca5b22e. Generated at Wed May 10 10:01:42 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -116,7 +116,7 @@
 			
 			
 				
-				<dd><a href="#SelectPhysicalMachines">func SelectPhysicalMachines(ctx context.Context, c client.Client, r client.Reader, selector v1alpha1.PhysicalMachineSelectorSpec, clusterScoped bool, targetNamespace string, enableFilterNamespace bool) ([]v1alpha1.PhysicalMachine, error)</a></dd>
+				<dd><a href="#SelectPhysicalMachines">func SelectPhysicalMachines(ctx context.Context, c client.Client, r client.Reader, selector v1alpha1.PhysicalMachineSelectorSpec, clusterScoped bool, targetNamespace string, enableFilterNamespace bool, logger logr.Logger) ([]v1alpha1.PhysicalMachine, error)</a></dd>
 			
 			
 				
@@ -128,7 +128,7 @@
 				<dd><a href="#PhysicalMachine">type PhysicalMachine</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#SelectAndFilterPhysicalMachines">func SelectAndFilterPhysicalMachines(ctx context.Context, c client.Client, r client.Reader, spec *v1alpha1.PhysicalMachineSelector, clusterScoped bool, targetNamespace string, enableFilterNamespace bool) ([]*PhysicalMachine, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#SelectAndFilterPhysicalMachines">func SelectAndFilterPhysicalMachines(ctx context.Context, c client.Client, r client.Reader, spec *v1alpha1.PhysicalMachineSelector, clusterScoped bool, targetNamespace string, enableFilterNamespace bool, logger logr.Logger) ([]*PhysicalMachine, error)</a></dd>
 				
 				
 					
@@ -139,7 +139,7 @@
 				<dd><a href="#SelectImpl">type SelectImpl</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#New">func New(params Params) *SelectImpl</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#New">func New(params Params, logger logr.Logger) *SelectImpl</a></dd>
 				
 				
 					
@@ -172,14 +172,14 @@
 		
 			
 			
-			<h2 id="SelectPhysicalMachines">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/physicalmachine/selector.go#L130">SelectPhysicalMachines</a>
+			<h2 id="SelectPhysicalMachines">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/physicalmachine/selector.go#L129">SelectPhysicalMachines</a>
 				<a class="permalink" href="#SelectPhysicalMachines">&#xb6;</a>
 				
 				
 			</h2>
 			<pre>func SelectPhysicalMachines(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, c <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, r <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>,
     selector <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PhysicalMachineSelectorSpec">PhysicalMachineSelectorSpec</a>,
-    clusterScoped <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, targetNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, enableFilterNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PhysicalMachine">PhysicalMachine</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+    clusterScoped <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, targetNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, enableFilterNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PhysicalMachine">PhysicalMachine</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 			
 			
 			
@@ -188,7 +188,7 @@
 		
 			
 			
-			<h2 id="Params">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/physicalmachine/selector.go#L48">Params</a>
+			<h2 id="Params">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/physicalmachine/selector.go#L46">Params</a>
 				<a class="permalink" href="#Params">&#xb6;</a>
 				
 				
@@ -216,7 +216,7 @@
 		
 			
 			
-			<h2 id="PhysicalMachine">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/physicalmachine/selector.go#L55">PhysicalMachine</a>
+			<h2 id="PhysicalMachine">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/physicalmachine/selector.go#L53">PhysicalMachine</a>
 				<a class="permalink" href="#PhysicalMachine">&#xb6;</a>
 				
 				
@@ -238,12 +238,12 @@
 
 			
 				
-				<h3 id="SelectAndFilterPhysicalMachines">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/physicalmachine/selector.go#L100">SelectAndFilterPhysicalMachines</a>
+				<h3 id="SelectAndFilterPhysicalMachines">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/physicalmachine/selector.go#L99">SelectAndFilterPhysicalMachines</a>
 					<a class="permalink" href="#SelectAndFilterPhysicalMachines">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func SelectAndFilterPhysicalMachines(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, c <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, r <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>, spec *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PhysicalMachineSelector">PhysicalMachineSelector</a>, clusterScoped <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, targetNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, enableFilterNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>) ([]*<a href="#PhysicalMachine">PhysicalMachine</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<pre>func SelectAndFilterPhysicalMachines(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, c <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, r <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>, spec *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PhysicalMachineSelector">PhysicalMachineSelector</a>, clusterScoped <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, targetNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, enableFilterNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) ([]*<a href="#PhysicalMachine">PhysicalMachine</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 SelectAndFilterPhysicalMachines returns the list of physical machines that filtered by selector and SelectorMode
 </p>
@@ -254,7 +254,7 @@ SelectAndFilterPhysicalMachines returns the list of physical machines that filte
 
 			
 				
-				<h3 id="PhysicalMachine.Id">func (*PhysicalMachine) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/physicalmachine/selector.go#L60">Id</a>
+				<h3 id="PhysicalMachine.Id">func (*PhysicalMachine) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/physicalmachine/selector.go#L58">Id</a>
 					<a class="permalink" href="#PhysicalMachine.Id">&#xb6;</a>
 					
 					
@@ -268,7 +268,7 @@ SelectAndFilterPhysicalMachines returns the list of physical machines that filte
 		
 			
 			
-			<h2 id="SelectImpl">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/physicalmachine/selector.go#L41">SelectImpl</a>
+			<h2 id="SelectImpl">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/physicalmachine/selector.go#L38">SelectImpl</a>
 				<a class="permalink" href="#SelectImpl">&#xb6;</a>
 				
 				
@@ -290,12 +290,12 @@ SelectAndFilterPhysicalMachines returns the list of physical machines that filte
 
 			
 				
-				<h3 id="New">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/physicalmachine/selector.go#L87">New</a>
+				<h3 id="New">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/physicalmachine/selector.go#L85">New</a>
 					<a class="permalink" href="#New">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func New(params <a href="#Params">Params</a>) *<a href="#SelectImpl">SelectImpl</a></pre>
+				<pre>func New(params <a href="#Params">Params</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#SelectImpl">SelectImpl</a></pre>
 				
 				
 				
@@ -303,7 +303,7 @@ SelectAndFilterPhysicalMachines returns the list of physical machines that filte
 
 			
 				
-				<h3 id="SelectImpl.Select">func (*SelectImpl) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/physicalmachine/selector.go#L70">Select</a>
+				<h3 id="SelectImpl.Select">func (*SelectImpl) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/selector/physicalmachine/selector.go#L68">Select</a>
 					<a class="permalink" href="#SelectImpl.Select">&#xb6;</a>
 					
 					

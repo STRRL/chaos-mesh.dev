@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 29335e8. Generated at Tue May  9 22:03:42 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ca5b22e. Generated at Wed May 10 10:01:42 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -89,193 +89,195 @@
 <span id="L24" class="ln">    24  </span>
 <span id="L25" class="ln">    25  </span>	&#34;github.com/99designs/gqlgen/graphql/handler&#34;
 <span id="L26" class="ln">    26  </span>	&#34;github.com/99designs/gqlgen/graphql/playground&#34;
-<span id="L27" class="ln">    27  </span>	&#34;github.com/go-logr/logr&#34;
-<span id="L28" class="ln">    28  </span>	&#34;go.uber.org/fx&#34;
-<span id="L29" class="ln">    29  </span>	authorizationv1 &#34;k8s.io/client-go/kubernetes/typed/authorization/v1&#34;
-<span id="L30" class="ln">    30  </span>	_ &#34;k8s.io/client-go/plugin/pkg/client/auth/gcp&#34;
-<span id="L31" class="ln">    31  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
-<span id="L32" class="ln">    32  </span>	controllermetrics &#34;sigs.k8s.io/controller-runtime/pkg/metrics&#34;
-<span id="L33" class="ln">    33  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/webhook&#34;
-<span id="L34" class="ln">    34  </span>
-<span id="L35" class="ln">    35  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
-<span id="L36" class="ln">    36  </span>	&#34;github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider&#34;
-<span id="L37" class="ln">    37  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers&#34;
-<span id="L38" class="ln">    38  </span>	ccfg &#34;github.com/chaos-mesh/chaos-mesh/controllers/config&#34;
-<span id="L39" class="ln">    39  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/types&#34;
-<span id="L40" class="ln">    40  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon&#34;
-<span id="L41" class="ln">    41  </span>	ctrlserver &#34;github.com/chaos-mesh/chaos-mesh/pkg/ctrl&#34;
-<span id="L42" class="ln">    42  </span>	grpcUtils &#34;github.com/chaos-mesh/chaos-mesh/pkg/grpc&#34;
-<span id="L43" class="ln">    43  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/log&#34;
-<span id="L44" class="ln">    44  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/metrics&#34;
-<span id="L45" class="ln">    45  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/selector&#34;
-<span id="L46" class="ln">    46  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/version&#34;
-<span id="L47" class="ln">    47  </span>	apiWebhook &#34;github.com/chaos-mesh/chaos-mesh/pkg/webhook&#34;
-<span id="L48" class="ln">    48  </span>)
-<span id="L49" class="ln">    49  </span>
-<span id="L50" class="ln">    50  </span>var (
-<span id="L51" class="ln">    51  </span>	printVersion bool
-<span id="L52" class="ln">    52  </span>
-<span id="L53" class="ln">    53  </span>	<span class="comment">// TODO: create the logger through dependency injection</span>
-<span id="L54" class="ln">    54  </span>	setupLog = ctrl.Log.WithName(&#34;setup&#34;)
-<span id="L55" class="ln">    55  </span>)
-<span id="L56" class="ln">    56  </span>
-<span id="L57" class="ln">    57  </span>func parseFlags() {
-<span id="L58" class="ln">    58  </span>	flag.BoolVar(&amp;printVersion, &#34;version&#34;, false, &#34;print version information and exit&#34;)
-<span id="L59" class="ln">    59  </span>	flag.Parse()
-<span id="L60" class="ln">    60  </span>}
-<span id="L61" class="ln">    61  </span>
-<span id="L62" class="ln">    62  </span>func main() {
-<span id="L63" class="ln">    63  </span>	parseFlags()
-<span id="L64" class="ln">    64  </span>	version.PrintVersionInfo(&#34;Controller manager&#34;)
-<span id="L65" class="ln">    65  </span>	if printVersion {
-<span id="L66" class="ln">    66  </span>		os.Exit(0)
-<span id="L67" class="ln">    67  </span>	}
-<span id="L68" class="ln">    68  </span>
-<span id="L69" class="ln">    69  </span>	rootLogger, err := log.NewDefaultZapLogger()
-<span id="L70" class="ln">    70  </span>	if err != nil {
-<span id="L71" class="ln">    71  </span>		stdlog.Fatal(&#34;failed to create root logger&#34;, err)
-<span id="L72" class="ln">    72  </span>	}
-<span id="L73" class="ln">    73  </span>	log.ReplaceGlobals(rootLogger)
-<span id="L74" class="ln">    74  </span>	ctrl.SetLogger(rootLogger)
-<span id="L75" class="ln">    75  </span>
-<span id="L76" class="ln">    76  </span>	<span class="comment">// set RPCTimeout config</span>
-<span id="L77" class="ln">    77  </span>	grpcUtils.RPCTimeout = ccfg.ControllerCfg.RPCTimeout
-<span id="L78" class="ln">    78  </span>	app := fx.New(
-<span id="L79" class="ln">    79  </span>		fx.Logger(log.NewLogrPrinter(rootLogger.WithName(&#34;fx&#34;))),
-<span id="L80" class="ln">    80  </span>		fx.Supply(controllermetrics.Registry),
-<span id="L81" class="ln">    81  </span>		fx.Supply(rootLogger),
-<span id="L82" class="ln">    82  </span>		fx.Provide(metrics.NewChaosControllerManagerMetricsCollector),
-<span id="L83" class="ln">    83  </span>		fx.Provide(ctrlserver.New),
-<span id="L84" class="ln">    84  </span>		fx.Options(
-<span id="L85" class="ln">    85  </span>			provider.Module,
-<span id="L86" class="ln">    86  </span>			controllers.Module,
-<span id="L87" class="ln">    87  </span>			selector.Module,
-<span id="L88" class="ln">    88  </span>			types.ChaosObjects,
-<span id="L89" class="ln">    89  </span>			types.WebhookObjects,
-<span id="L90" class="ln">    90  </span>		),
-<span id="L91" class="ln">    91  </span>		fx.Invoke(Run),
-<span id="L92" class="ln">    92  </span>	)
-<span id="L93" class="ln">    93  </span>
-<span id="L94" class="ln">    94  </span>	app.Run()
-<span id="L95" class="ln">    95  </span>}
-<span id="L96" class="ln">    96  </span>
-<span id="L97" class="ln">    97  </span><span class="comment">// RunParams contains all the parameters needed to run the chaos-controller-manager</span>
-<span id="L98" class="ln">    98  </span>type RunParams struct {
-<span id="L99" class="ln">    99  </span>	fx.In
-<span id="L100" class="ln">   100  </span>	<span class="comment">// Mgr is the controller-runtime Manager to register controllers and webhooks to.</span>
-<span id="L101" class="ln">   101  </span>	Mgr ctrl.Manager
-<span id="L102" class="ln">   102  </span>	<span class="comment">// Logger is the root logger used in the application.</span>
-<span id="L103" class="ln">   103  </span>	Logger logr.Logger
-<span id="L104" class="ln">   104  </span>	<span class="comment">// AuthCli is the typed kubernetes authorization client. Required for the authentication webhooks.</span>
-<span id="L105" class="ln">   105  </span>	AuthCli *authorizationv1.AuthorizationV1Client
-<span id="L106" class="ln">   106  </span>	<span class="comment">// DaemonClientBuilder is the builder/factory for creating chaos daemon clients.</span>
-<span id="L107" class="ln">   107  </span>	DaemonClientBuilder *chaosdaemon.ChaosDaemonClientBuilder
-<span id="L108" class="ln">   108  </span>	<span class="comment">// MetricsCollector collects metrics for observability.</span>
-<span id="L109" class="ln">   109  </span>	MetricsCollector *metrics.ChaosControllerManagerMetricsCollector
-<span id="L110" class="ln">   110  </span>	<span class="comment">// CtrlServer is the graphql server for chaosctl.</span>
-<span id="L111" class="ln">   111  </span>	CtrlServer *handler.Server
-<span id="L112" class="ln">   112  </span>
-<span id="L113" class="ln">   113  </span>	<span class="comment">// Objs collects all the kinds of chaos custom resource objects that would be handled by the controller/reconciler.</span>
-<span id="L114" class="ln">   114  </span>	Objs []types.Object `group:&#34;objs&#34;`
-<span id="L115" class="ln">   115  </span>	<span class="comment">// WebhookObjs collects all the kinds of chaos custom resource objects that would be handled by the validation and mutation webhooks.</span>
-<span id="L116" class="ln">   116  </span>	WebhookObjs []types.WebhookObject `group:&#34;webhookObjs&#34;`
-<span id="L117" class="ln">   117  </span>}
-<span id="L118" class="ln">   118  </span>
-<span id="L119" class="ln">   119  </span><span class="comment">// Run is the one of the entrypoints for fx application of chaos-controller-manager. It would bootstrap the</span>
-<span id="L120" class="ln">   120  </span><span class="comment">// controller-runtime manager and register all the controllers and webhooks.</span>
-<span id="L121" class="ln">   121  </span><span class="comment">// Please notice that Run is NOT the only one entrypoint, every other functions called by fx.Invoke are also entrypoint.</span>
-<span id="L122" class="ln">   122  </span>func Run(params RunParams) error {
-<span id="L123" class="ln">   123  </span>	mgr := params.Mgr
-<span id="L124" class="ln">   124  </span>	authCli := params.AuthCli
-<span id="L125" class="ln">   125  </span>
-<span id="L126" class="ln">   126  </span>	var err error
-<span id="L127" class="ln">   127  </span>	for _, obj := range params.Objs {
-<span id="L128" class="ln">   128  </span>		if !ccfg.ShouldStartWebhook(obj.Name) {
-<span id="L129" class="ln">   129  </span>			continue
-<span id="L130" class="ln">   130  </span>		}
-<span id="L131" class="ln">   131  </span>
-<span id="L132" class="ln">   132  </span>		err = ctrl.NewWebhookManagedBy(mgr).
-<span id="L133" class="ln">   133  </span>			For(obj.Object).
-<span id="L134" class="ln">   134  </span>			Complete()
-<span id="L135" class="ln">   135  </span>		if err != nil {
-<span id="L136" class="ln">   136  </span>			return err
-<span id="L137" class="ln">   137  </span>		}
-<span id="L138" class="ln">   138  </span>	}
-<span id="L139" class="ln">   139  </span>
-<span id="L140" class="ln">   140  </span>	for _, obj := range params.WebhookObjs {
-<span id="L141" class="ln">   141  </span>		if !ccfg.ShouldStartWebhook(obj.Name) {
-<span id="L142" class="ln">   142  </span>			continue
-<span id="L143" class="ln">   143  </span>		}
-<span id="L144" class="ln">   144  </span>
-<span id="L145" class="ln">   145  </span>		err = ctrl.NewWebhookManagedBy(mgr).
-<span id="L146" class="ln">   146  </span>			For(obj.Object).
-<span id="L147" class="ln">   147  </span>			Complete()
-<span id="L148" class="ln">   148  </span>		if err != nil {
-<span id="L149" class="ln">   149  </span>			return err
-<span id="L150" class="ln">   150  </span>		}
-<span id="L151" class="ln">   151  </span>	}
-<span id="L152" class="ln">   152  </span>
-<span id="L153" class="ln">   153  </span>	if ccfg.ShouldStartWebhook(&#34;schedule&#34;) {
-<span id="L154" class="ln">   154  </span>		<span class="comment">// setup schedule webhook</span>
-<span id="L155" class="ln">   155  </span>		err = ctrl.NewWebhookManagedBy(mgr).
-<span id="L156" class="ln">   156  </span>			For(&amp;v1alpha1.Schedule{}).
-<span id="L157" class="ln">   157  </span>			Complete()
-<span id="L158" class="ln">   158  </span>		if err != nil {
-<span id="L159" class="ln">   159  </span>			return err
-<span id="L160" class="ln">   160  </span>		}
-<span id="L161" class="ln">   161  </span>	}
-<span id="L162" class="ln">   162  </span>
-<span id="L163" class="ln">   163  </span>	if ccfg.ShouldStartWebhook(&#34;workflow&#34;) {
-<span id="L164" class="ln">   164  </span>		err = ctrl.NewWebhookManagedBy(mgr).
-<span id="L165" class="ln">   165  </span>			For(&amp;v1alpha1.Workflow{}).
-<span id="L166" class="ln">   166  </span>			Complete()
-<span id="L167" class="ln">   167  </span>		if err != nil {
-<span id="L168" class="ln">   168  </span>			return err
-<span id="L169" class="ln">   169  </span>		}
-<span id="L170" class="ln">   170  </span>	}
-<span id="L171" class="ln">   171  </span>
-<span id="L172" class="ln">   172  </span>	setupLog.Info(&#34;Setting up webhook server&#34;)
-<span id="L173" class="ln">   173  </span>	hookServer := mgr.GetWebhookServer()
-<span id="L174" class="ln">   174  </span>	hookServer.CertDir = ccfg.ControllerCfg.CertsDir
-<span id="L175" class="ln">   175  </span>
-<span id="L176" class="ln">   176  </span>	controllerRuntimeSignalHandler := ctrl.SetupSignalHandler()
+<span id="L27" class="ln">    27  </span>	fxlogr &#34;github.com/chaos-mesh/fx-logr&#34;
+<span id="L28" class="ln">    28  </span>	&#34;github.com/go-logr/logr&#34;
+<span id="L29" class="ln">    29  </span>	&#34;go.uber.org/fx&#34;
+<span id="L30" class="ln">    30  </span>	authorizationv1 &#34;k8s.io/client-go/kubernetes/typed/authorization/v1&#34;
+<span id="L31" class="ln">    31  </span>	_ &#34;k8s.io/client-go/plugin/pkg/client/auth/gcp&#34;
+<span id="L32" class="ln">    32  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
+<span id="L33" class="ln">    33  </span>	controllermetrics &#34;sigs.k8s.io/controller-runtime/pkg/metrics&#34;
+<span id="L34" class="ln">    34  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/webhook&#34;
+<span id="L35" class="ln">    35  </span>
+<span id="L36" class="ln">    36  </span>	&#34;github.com/chaos-mesh/chaos-mesh/api/v1alpha1&#34;
+<span id="L37" class="ln">    37  </span>	&#34;github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider&#34;
+<span id="L38" class="ln">    38  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers&#34;
+<span id="L39" class="ln">    39  </span>	ccfg &#34;github.com/chaos-mesh/chaos-mesh/controllers/config&#34;
+<span id="L40" class="ln">    40  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/types&#34;
+<span id="L41" class="ln">    41  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/utils/chaosdaemon&#34;
+<span id="L42" class="ln">    42  </span>	ctrlserver &#34;github.com/chaos-mesh/chaos-mesh/pkg/ctrl&#34;
+<span id="L43" class="ln">    43  </span>	grpcUtils &#34;github.com/chaos-mesh/chaos-mesh/pkg/grpc&#34;
+<span id="L44" class="ln">    44  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/log&#34;
+<span id="L45" class="ln">    45  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/metrics&#34;
+<span id="L46" class="ln">    46  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/selector&#34;
+<span id="L47" class="ln">    47  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/version&#34;
+<span id="L48" class="ln">    48  </span>	apiWebhook &#34;github.com/chaos-mesh/chaos-mesh/pkg/webhook&#34;
+<span id="L49" class="ln">    49  </span>)
+<span id="L50" class="ln">    50  </span>
+<span id="L51" class="ln">    51  </span>var (
+<span id="L52" class="ln">    52  </span>	printVersion bool
+<span id="L53" class="ln">    53  </span>
+<span id="L54" class="ln">    54  </span>	<span class="comment">// TODO: create the logger through dependency injection</span>
+<span id="L55" class="ln">    55  </span>	setupLog = ctrl.Log.WithName(&#34;setup&#34;)
+<span id="L56" class="ln">    56  </span>)
+<span id="L57" class="ln">    57  </span>
+<span id="L58" class="ln">    58  </span>func parseFlags() {
+<span id="L59" class="ln">    59  </span>	flag.BoolVar(&amp;printVersion, &#34;version&#34;, false, &#34;print version information and exit&#34;)
+<span id="L60" class="ln">    60  </span>	flag.Parse()
+<span id="L61" class="ln">    61  </span>}
+<span id="L62" class="ln">    62  </span>
+<span id="L63" class="ln">    63  </span>func main() {
+<span id="L64" class="ln">    64  </span>	parseFlags()
+<span id="L65" class="ln">    65  </span>	version.PrintVersionInfo(&#34;Controller manager&#34;)
+<span id="L66" class="ln">    66  </span>	if printVersion {
+<span id="L67" class="ln">    67  </span>		os.Exit(0)
+<span id="L68" class="ln">    68  </span>	}
+<span id="L69" class="ln">    69  </span>
+<span id="L70" class="ln">    70  </span>	rootLogger, err := log.NewDefaultZapLogger()
+<span id="L71" class="ln">    71  </span>	if err != nil {
+<span id="L72" class="ln">    72  </span>		stdlog.Fatal(&#34;failed to create root logger&#34;, err)
+<span id="L73" class="ln">    73  </span>	}
+<span id="L74" class="ln">    74  </span>	log.ReplaceGlobals(rootLogger)
+<span id="L75" class="ln">    75  </span>	ctrl.SetLogger(rootLogger)
+<span id="L76" class="ln">    76  </span>	fxLogger := rootLogger.WithName(&#34;fx&#34;)
+<span id="L77" class="ln">    77  </span>
+<span id="L78" class="ln">    78  </span>	<span class="comment">// set RPCTimeout config</span>
+<span id="L79" class="ln">    79  </span>	grpcUtils.RPCTimeout = ccfg.ControllerCfg.RPCTimeout
+<span id="L80" class="ln">    80  </span>	app := fx.New(
+<span id="L81" class="ln">    81  </span>		fx.WithLogger(fxlogr.WithLogr(&amp;fxLogger)),
+<span id="L82" class="ln">    82  </span>		fx.Supply(controllermetrics.Registry),
+<span id="L83" class="ln">    83  </span>		fx.Supply(rootLogger),
+<span id="L84" class="ln">    84  </span>		fx.Provide(metrics.NewChaosControllerManagerMetricsCollector),
+<span id="L85" class="ln">    85  </span>		fx.Provide(ctrlserver.New),
+<span id="L86" class="ln">    86  </span>		fx.Options(
+<span id="L87" class="ln">    87  </span>			provider.Module,
+<span id="L88" class="ln">    88  </span>			controllers.Module,
+<span id="L89" class="ln">    89  </span>			selector.Module,
+<span id="L90" class="ln">    90  </span>			types.ChaosObjects,
+<span id="L91" class="ln">    91  </span>			types.WebhookObjects,
+<span id="L92" class="ln">    92  </span>		),
+<span id="L93" class="ln">    93  </span>		fx.Invoke(Run),
+<span id="L94" class="ln">    94  </span>	)
+<span id="L95" class="ln">    95  </span>
+<span id="L96" class="ln">    96  </span>	app.Run()
+<span id="L97" class="ln">    97  </span>}
+<span id="L98" class="ln">    98  </span>
+<span id="L99" class="ln">    99  </span><span class="comment">// RunParams contains all the parameters needed to run the chaos-controller-manager</span>
+<span id="L100" class="ln">   100  </span>type RunParams struct {
+<span id="L101" class="ln">   101  </span>	fx.In
+<span id="L102" class="ln">   102  </span>	<span class="comment">// Mgr is the controller-runtime Manager to register controllers and webhooks to.</span>
+<span id="L103" class="ln">   103  </span>	Mgr ctrl.Manager
+<span id="L104" class="ln">   104  </span>	<span class="comment">// Logger is the root logger used in the application.</span>
+<span id="L105" class="ln">   105  </span>	Logger logr.Logger
+<span id="L106" class="ln">   106  </span>	<span class="comment">// AuthCli is the typed kubernetes authorization client. Required for the authentication webhooks.</span>
+<span id="L107" class="ln">   107  </span>	AuthCli *authorizationv1.AuthorizationV1Client
+<span id="L108" class="ln">   108  </span>	<span class="comment">// DaemonClientBuilder is the builder/factory for creating chaos daemon clients.</span>
+<span id="L109" class="ln">   109  </span>	DaemonClientBuilder *chaosdaemon.ChaosDaemonClientBuilder
+<span id="L110" class="ln">   110  </span>	<span class="comment">// MetricsCollector collects metrics for observability.</span>
+<span id="L111" class="ln">   111  </span>	MetricsCollector *metrics.ChaosControllerManagerMetricsCollector
+<span id="L112" class="ln">   112  </span>	<span class="comment">// CtrlServer is the graphql server for chaosctl.</span>
+<span id="L113" class="ln">   113  </span>	CtrlServer *handler.Server
+<span id="L114" class="ln">   114  </span>
+<span id="L115" class="ln">   115  </span>	<span class="comment">// Objs collects all the kinds of chaos custom resource objects that would be handled by the controller/reconciler.</span>
+<span id="L116" class="ln">   116  </span>	Objs []types.Object `group:&#34;objs&#34;`
+<span id="L117" class="ln">   117  </span>	<span class="comment">// WebhookObjs collects all the kinds of chaos custom resource objects that would be handled by the validation and mutation webhooks.</span>
+<span id="L118" class="ln">   118  </span>	WebhookObjs []types.WebhookObject `group:&#34;webhookObjs&#34;`
+<span id="L119" class="ln">   119  </span>}
+<span id="L120" class="ln">   120  </span>
+<span id="L121" class="ln">   121  </span><span class="comment">// Run is the one of the entrypoints for fx application of chaos-controller-manager. It would bootstrap the</span>
+<span id="L122" class="ln">   122  </span><span class="comment">// controller-runtime manager and register all the controllers and webhooks.</span>
+<span id="L123" class="ln">   123  </span><span class="comment">// Please notice that Run is NOT the only one entrypoint, every other functions called by fx.Invoke are also entrypoint.</span>
+<span id="L124" class="ln">   124  </span>func Run(params RunParams) error {
+<span id="L125" class="ln">   125  </span>	mgr := params.Mgr
+<span id="L126" class="ln">   126  </span>	authCli := params.AuthCli
+<span id="L127" class="ln">   127  </span>
+<span id="L128" class="ln">   128  </span>	var err error
+<span id="L129" class="ln">   129  </span>	for _, obj := range params.Objs {
+<span id="L130" class="ln">   130  </span>		if !ccfg.ShouldStartWebhook(obj.Name) {
+<span id="L131" class="ln">   131  </span>			continue
+<span id="L132" class="ln">   132  </span>		}
+<span id="L133" class="ln">   133  </span>
+<span id="L134" class="ln">   134  </span>		err = ctrl.NewWebhookManagedBy(mgr).
+<span id="L135" class="ln">   135  </span>			For(obj.Object).
+<span id="L136" class="ln">   136  </span>			Complete()
+<span id="L137" class="ln">   137  </span>		if err != nil {
+<span id="L138" class="ln">   138  </span>			return err
+<span id="L139" class="ln">   139  </span>		}
+<span id="L140" class="ln">   140  </span>	}
+<span id="L141" class="ln">   141  </span>
+<span id="L142" class="ln">   142  </span>	for _, obj := range params.WebhookObjs {
+<span id="L143" class="ln">   143  </span>		if !ccfg.ShouldStartWebhook(obj.Name) {
+<span id="L144" class="ln">   144  </span>			continue
+<span id="L145" class="ln">   145  </span>		}
+<span id="L146" class="ln">   146  </span>
+<span id="L147" class="ln">   147  </span>		err = ctrl.NewWebhookManagedBy(mgr).
+<span id="L148" class="ln">   148  </span>			For(obj.Object).
+<span id="L149" class="ln">   149  </span>			Complete()
+<span id="L150" class="ln">   150  </span>		if err != nil {
+<span id="L151" class="ln">   151  </span>			return err
+<span id="L152" class="ln">   152  </span>		}
+<span id="L153" class="ln">   153  </span>	}
+<span id="L154" class="ln">   154  </span>
+<span id="L155" class="ln">   155  </span>	if ccfg.ShouldStartWebhook(&#34;schedule&#34;) {
+<span id="L156" class="ln">   156  </span>		<span class="comment">// setup schedule webhook</span>
+<span id="L157" class="ln">   157  </span>		err = ctrl.NewWebhookManagedBy(mgr).
+<span id="L158" class="ln">   158  </span>			For(&amp;v1alpha1.Schedule{}).
+<span id="L159" class="ln">   159  </span>			Complete()
+<span id="L160" class="ln">   160  </span>		if err != nil {
+<span id="L161" class="ln">   161  </span>			return err
+<span id="L162" class="ln">   162  </span>		}
+<span id="L163" class="ln">   163  </span>	}
+<span id="L164" class="ln">   164  </span>
+<span id="L165" class="ln">   165  </span>	if ccfg.ShouldStartWebhook(&#34;workflow&#34;) {
+<span id="L166" class="ln">   166  </span>		err = ctrl.NewWebhookManagedBy(mgr).
+<span id="L167" class="ln">   167  </span>			For(&amp;v1alpha1.Workflow{}).
+<span id="L168" class="ln">   168  </span>			Complete()
+<span id="L169" class="ln">   169  </span>		if err != nil {
+<span id="L170" class="ln">   170  </span>			return err
+<span id="L171" class="ln">   171  </span>		}
+<span id="L172" class="ln">   172  </span>	}
+<span id="L173" class="ln">   173  </span>
+<span id="L174" class="ln">   174  </span>	setupLog.Info(&#34;Setting up webhook server&#34;)
+<span id="L175" class="ln">   175  </span>	hookServer := mgr.GetWebhookServer()
+<span id="L176" class="ln">   176  </span>	hookServer.CertDir = ccfg.ControllerCfg.CertsDir
 <span id="L177" class="ln">   177  </span>
-<span id="L178" class="ln">   178  </span>	if ccfg.ControllerCfg.PprofAddr != &#34;0&#34; {
-<span id="L179" class="ln">   179  </span>		go func() {
-<span id="L180" class="ln">   180  </span>			if err := http.ListenAndServe(ccfg.ControllerCfg.PprofAddr, nil); err != nil {
-<span id="L181" class="ln">   181  </span>				setupLog.Error(err, &#34;unable to start pprof server&#34;)
-<span id="L182" class="ln">   182  </span>				os.Exit(1)
-<span id="L183" class="ln">   183  </span>			}
-<span id="L184" class="ln">   184  </span>		}()
-<span id="L185" class="ln">   185  </span>	}
-<span id="L186" class="ln">   186  </span>
-<span id="L187" class="ln">   187  </span>	if ccfg.ControllerCfg.CtrlAddr != &#34;&#34; {
-<span id="L188" class="ln">   188  </span>		go func() {
-<span id="L189" class="ln">   189  </span>			mutex := http.NewServeMux()
-<span id="L190" class="ln">   190  </span>			mutex.Handle(&#34;/&#34;, playground.Handler(&#34;GraphQL playground&#34;, &#34;/query&#34;))
-<span id="L191" class="ln">   191  </span>			mutex.Handle(&#34;/query&#34;, params.CtrlServer)
-<span id="L192" class="ln">   192  </span>			setupLog.Info(&#34;setup ctrlserver&#34;, &#34;addr&#34;, ccfg.ControllerCfg.CtrlAddr)
-<span id="L193" class="ln">   193  </span>			setupLog.Error(http.ListenAndServe(ccfg.ControllerCfg.CtrlAddr, mutex), &#34;unable to start ctrlserver&#34;)
-<span id="L194" class="ln">   194  </span>		}()
-<span id="L195" class="ln">   195  </span>	}
-<span id="L196" class="ln">   196  </span>
-<span id="L197" class="ln">   197  </span>	hookServer.Register(&#34;/validate-auth&#34;, &amp;webhook.Admission{
-<span id="L198" class="ln">   198  </span>		Handler: apiWebhook.NewAuthValidator(ccfg.ControllerCfg.SecurityMode, authCli,
-<span id="L199" class="ln">   199  </span>			ccfg.ControllerCfg.ClusterScoped, ccfg.ControllerCfg.TargetNamespace, ccfg.ControllerCfg.EnableFilterNamespace,
-<span id="L200" class="ln">   200  </span>			params.Logger.WithName(&#34;validate-auth&#34;)),
-<span id="L201" class="ln">   201  </span>	},
-<span id="L202" class="ln">   202  </span>	)
-<span id="L203" class="ln">   203  </span>
-<span id="L204" class="ln">   204  </span>	setupLog.Info(&#34;Starting manager&#34;)
-<span id="L205" class="ln">   205  </span>	if err := mgr.Start(controllerRuntimeSignalHandler); err != nil {
-<span id="L206" class="ln">   206  </span>		setupLog.Error(err, &#34;unable to start manager&#34;)
-<span id="L207" class="ln">   207  </span>		<span class="comment">// TODO: return the error instead of exit</span>
-<span id="L208" class="ln">   208  </span>		os.Exit(1)
-<span id="L209" class="ln">   209  </span>	}
-<span id="L210" class="ln">   210  </span>
-<span id="L211" class="ln">   211  </span>	return nil
-<span id="L212" class="ln">   212  </span>}
-<span id="L213" class="ln">   213  </span>
+<span id="L178" class="ln">   178  </span>	controllerRuntimeSignalHandler := ctrl.SetupSignalHandler()
+<span id="L179" class="ln">   179  </span>
+<span id="L180" class="ln">   180  </span>	if ccfg.ControllerCfg.PprofAddr != &#34;0&#34; {
+<span id="L181" class="ln">   181  </span>		go func() {
+<span id="L182" class="ln">   182  </span>			if err := http.ListenAndServe(ccfg.ControllerCfg.PprofAddr, nil); err != nil {
+<span id="L183" class="ln">   183  </span>				setupLog.Error(err, &#34;unable to start pprof server&#34;)
+<span id="L184" class="ln">   184  </span>				os.Exit(1)
+<span id="L185" class="ln">   185  </span>			}
+<span id="L186" class="ln">   186  </span>		}()
+<span id="L187" class="ln">   187  </span>	}
+<span id="L188" class="ln">   188  </span>
+<span id="L189" class="ln">   189  </span>	if ccfg.ControllerCfg.CtrlAddr != &#34;&#34; {
+<span id="L190" class="ln">   190  </span>		go func() {
+<span id="L191" class="ln">   191  </span>			mutex := http.NewServeMux()
+<span id="L192" class="ln">   192  </span>			mutex.Handle(&#34;/&#34;, playground.Handler(&#34;GraphQL playground&#34;, &#34;/query&#34;))
+<span id="L193" class="ln">   193  </span>			mutex.Handle(&#34;/query&#34;, params.CtrlServer)
+<span id="L194" class="ln">   194  </span>			setupLog.Info(&#34;setup ctrlserver&#34;, &#34;addr&#34;, ccfg.ControllerCfg.CtrlAddr)
+<span id="L195" class="ln">   195  </span>			setupLog.Error(http.ListenAndServe(ccfg.ControllerCfg.CtrlAddr, mutex), &#34;unable to start ctrlserver&#34;)
+<span id="L196" class="ln">   196  </span>		}()
+<span id="L197" class="ln">   197  </span>	}
+<span id="L198" class="ln">   198  </span>
+<span id="L199" class="ln">   199  </span>	hookServer.Register(&#34;/validate-auth&#34;, &amp;webhook.Admission{
+<span id="L200" class="ln">   200  </span>		Handler: apiWebhook.NewAuthValidator(ccfg.ControllerCfg.SecurityMode, authCli,
+<span id="L201" class="ln">   201  </span>			ccfg.ControllerCfg.ClusterScoped, ccfg.ControllerCfg.TargetNamespace, ccfg.ControllerCfg.EnableFilterNamespace,
+<span id="L202" class="ln">   202  </span>			params.Logger.WithName(&#34;validate-auth&#34;)),
+<span id="L203" class="ln">   203  </span>	},
+<span id="L204" class="ln">   204  </span>	)
+<span id="L205" class="ln">   205  </span>
+<span id="L206" class="ln">   206  </span>	setupLog.Info(&#34;Starting manager&#34;)
+<span id="L207" class="ln">   207  </span>	if err := mgr.Start(controllerRuntimeSignalHandler); err != nil {
+<span id="L208" class="ln">   208  </span>		setupLog.Error(err, &#34;unable to start manager&#34;)
+<span id="L209" class="ln">   209  </span>		<span class="comment">// TODO: return the error instead of exit</span>
+<span id="L210" class="ln">   210  </span>		os.Exit(1)
+<span id="L211" class="ln">   211  </span>	}
+<span id="L212" class="ln">   212  </span>
+<span id="L213" class="ln">   213  </span>	return nil
+<span id="L214" class="ln">   214  </span>}
+<span id="L215" class="ln">   215  </span>
 </pre><p></p>
 
 <div id="footer">

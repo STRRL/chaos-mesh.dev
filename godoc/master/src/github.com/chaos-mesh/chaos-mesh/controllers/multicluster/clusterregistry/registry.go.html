@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 29335e8. Generated at Tue May  9 22:03:42 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ca5b22e. Generated at Wed May 10 10:01:42 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -85,20 +85,20 @@
 <span id="L20" class="ln">    20  </span>	&#34;os&#34;
 <span id="L21" class="ln">    21  </span>	&#34;sync&#34;
 <span id="L22" class="ln">    22  </span>
-<span id="L23" class="ln">    23  </span>	&#34;github.com/go-logr/logr&#34;
-<span id="L24" class="ln">    24  </span>	&#34;github.com/pkg/errors&#34;
-<span id="L25" class="ln">    25  </span>	&#34;go.uber.org/fx&#34;
-<span id="L26" class="ln">    26  </span>	&#34;k8s.io/apimachinery/pkg/runtime&#34;
-<span id="L27" class="ln">    27  </span>	&#34;k8s.io/client-go/rest&#34;
-<span id="L28" class="ln">    28  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
-<span id="L29" class="ln">    29  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/client&#34;
-<span id="L30" class="ln">    30  </span>	controllermetrics &#34;sigs.k8s.io/controller-runtime/pkg/metrics&#34;
-<span id="L31" class="ln">    31  </span>
-<span id="L32" class="ln">    32  </span>	&#34;github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider&#34;
-<span id="L33" class="ln">    33  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/config&#34;
-<span id="L34" class="ln">    34  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/multicluster/remotechaosmonitor&#34;
-<span id="L35" class="ln">    35  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/types&#34;
-<span id="L36" class="ln">    36  </span>	&#34;github.com/chaos-mesh/chaos-mesh/pkg/log&#34;
+<span id="L23" class="ln">    23  </span>	fxlogr &#34;github.com/chaos-mesh/fx-logr&#34;
+<span id="L24" class="ln">    24  </span>	&#34;github.com/go-logr/logr&#34;
+<span id="L25" class="ln">    25  </span>	&#34;github.com/pkg/errors&#34;
+<span id="L26" class="ln">    26  </span>	&#34;go.uber.org/fx&#34;
+<span id="L27" class="ln">    27  </span>	&#34;k8s.io/apimachinery/pkg/runtime&#34;
+<span id="L28" class="ln">    28  </span>	&#34;k8s.io/client-go/rest&#34;
+<span id="L29" class="ln">    29  </span>	ctrl &#34;sigs.k8s.io/controller-runtime&#34;
+<span id="L30" class="ln">    30  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/client&#34;
+<span id="L31" class="ln">    31  </span>	controllermetrics &#34;sigs.k8s.io/controller-runtime/pkg/metrics&#34;
+<span id="L32" class="ln">    32  </span>
+<span id="L33" class="ln">    33  </span>	&#34;github.com/chaos-mesh/chaos-mesh/cmd/chaos-controller-manager/provider&#34;
+<span id="L34" class="ln">    34  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/config&#34;
+<span id="L35" class="ln">    35  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/multicluster/remotechaosmonitor&#34;
+<span id="L36" class="ln">    36  </span>	&#34;github.com/chaos-mesh/chaos-mesh/controllers/types&#34;
 <span id="L37" class="ln">    37  </span>)
 <span id="L38" class="ln">    38  </span>
 <span id="L39" class="ln">    39  </span>type remoteCluster struct {
@@ -223,49 +223,51 @@
 <span id="L158" class="ln">   158  </span>		return errors.Wrapf(ErrAlreadyExist, &#34;spawn cluster: %s&#34;, name)
 <span id="L159" class="ln">   159  </span>	}
 <span id="L160" class="ln">   160  </span>
-<span id="L161" class="ln">   161  </span>	localClient := r.client
-<span id="L162" class="ln">   162  </span>	var remoteClient client.Client
-<span id="L163" class="ln">   163  </span>	app := fx.New(
-<span id="L164" class="ln">   164  </span>		fx.Logger(log.NewLogrPrinter(r.logger.WithName(&#34;remotecluster-fx-&#34;+name))),
-<span id="L165" class="ln">   165  </span>		fx.Supply(controllermetrics.Registry),
-<span id="L166" class="ln">   166  </span>		fx.Supply(r.logger.WithName(&#34;remotecluster-&#34;+name)),
-<span id="L167" class="ln">   167  </span>		fx.Supply(config),
-<span id="L168" class="ln">   168  </span>		fx.Supply(fx.Annotated{
-<span id="L169" class="ln">   169  </span>			Name:   &#34;cluster-name&#34;,
-<span id="L170" class="ln">   170  </span>			Target: name,
-<span id="L171" class="ln">   171  </span>		}),
-<span id="L172" class="ln">   172  </span>		fx.Provide(
-<span id="L173" class="ln">   173  </span>			fx.Annotate(func() client.Client {
-<span id="L174" class="ln">   174  </span>				return localClient
-<span id="L175" class="ln">   175  </span>			}, fx.ResultTags(`name:&#34;manage-client&#34;`)),
-<span id="L176" class="ln">   176  </span>		),
-<span id="L177" class="ln">   177  </span>		fx.Provide(
-<span id="L178" class="ln">   178  </span>			controllerManagerOption,
-<span id="L179" class="ln">   179  </span>			provider.NewClient,
-<span id="L180" class="ln">   180  </span>			provider.NewManager,
-<span id="L181" class="ln">   181  </span>			provider.NewScheme,
-<span id="L182" class="ln">   182  </span>		),
-<span id="L183" class="ln">   183  </span>		fx.Option(types.ChaosObjects),
-<span id="L184" class="ln">   184  </span>		<span class="comment">// more reconcilers can be listed here to add themselves to the</span>
-<span id="L185" class="ln">   185  </span>		<span class="comment">// controller manager</span>
-<span id="L186" class="ln">   186  </span>		remotechaosmonitor.Module,
-<span id="L187" class="ln">   187  </span>		fx.Populate(&amp;remoteClient),
-<span id="L188" class="ln">   188  </span>		fx.Invoke(run),
-<span id="L189" class="ln">   189  </span>	)
-<span id="L190" class="ln">   190  </span>
-<span id="L191" class="ln">   191  </span>	err := app.Start(context.TODO())
-<span id="L192" class="ln">   192  </span>	if err != nil {
-<span id="L193" class="ln">   193  </span>		return errors.Wrapf(err, &#34;start controller-manager of remote cluster %s&#34;, name)
-<span id="L194" class="ln">   194  </span>	}
-<span id="L195" class="ln">   195  </span>
-<span id="L196" class="ln">   196  </span>	r.clusters[name] = &amp;remoteCluster{
-<span id="L197" class="ln">   197  </span>		app:    app,
-<span id="L198" class="ln">   198  </span>		Client: remoteClient,
-<span id="L199" class="ln">   199  </span>	}
-<span id="L200" class="ln">   200  </span>
-<span id="L201" class="ln">   201  </span>	return nil
-<span id="L202" class="ln">   202  </span>}
-<span id="L203" class="ln">   203  </span>
+<span id="L161" class="ln">   161  </span>	remoteFxLogger := r.logger.WithName(&#34;remotecluster-fx-&#34; + name)
+<span id="L162" class="ln">   162  </span>
+<span id="L163" class="ln">   163  </span>	localClient := r.client
+<span id="L164" class="ln">   164  </span>	var remoteClient client.Client
+<span id="L165" class="ln">   165  </span>	app := fx.New(
+<span id="L166" class="ln">   166  </span>		fx.WithLogger(fxlogr.WithLogr(&amp;remoteFxLogger)),
+<span id="L167" class="ln">   167  </span>		fx.Supply(controllermetrics.Registry),
+<span id="L168" class="ln">   168  </span>		fx.Supply(r.logger.WithName(&#34;remotecluster-&#34;+name)),
+<span id="L169" class="ln">   169  </span>		fx.Supply(config),
+<span id="L170" class="ln">   170  </span>		fx.Supply(fx.Annotated{
+<span id="L171" class="ln">   171  </span>			Name:   &#34;cluster-name&#34;,
+<span id="L172" class="ln">   172  </span>			Target: name,
+<span id="L173" class="ln">   173  </span>		}),
+<span id="L174" class="ln">   174  </span>		fx.Provide(
+<span id="L175" class="ln">   175  </span>			fx.Annotate(func() client.Client {
+<span id="L176" class="ln">   176  </span>				return localClient
+<span id="L177" class="ln">   177  </span>			}, fx.ResultTags(`name:&#34;manage-client&#34;`)),
+<span id="L178" class="ln">   178  </span>		),
+<span id="L179" class="ln">   179  </span>		fx.Provide(
+<span id="L180" class="ln">   180  </span>			controllerManagerOption,
+<span id="L181" class="ln">   181  </span>			provider.NewClient,
+<span id="L182" class="ln">   182  </span>			provider.NewManager,
+<span id="L183" class="ln">   183  </span>			provider.NewScheme,
+<span id="L184" class="ln">   184  </span>		),
+<span id="L185" class="ln">   185  </span>		fx.Option(types.ChaosObjects),
+<span id="L186" class="ln">   186  </span>		<span class="comment">// more reconcilers can be listed here to add themselves to the</span>
+<span id="L187" class="ln">   187  </span>		<span class="comment">// controller manager</span>
+<span id="L188" class="ln">   188  </span>		remotechaosmonitor.Module,
+<span id="L189" class="ln">   189  </span>		fx.Populate(&amp;remoteClient),
+<span id="L190" class="ln">   190  </span>		fx.Invoke(run),
+<span id="L191" class="ln">   191  </span>	)
+<span id="L192" class="ln">   192  </span>
+<span id="L193" class="ln">   193  </span>	err := app.Start(context.TODO())
+<span id="L194" class="ln">   194  </span>	if err != nil {
+<span id="L195" class="ln">   195  </span>		return errors.Wrapf(err, &#34;start controller-manager of remote cluster %s&#34;, name)
+<span id="L196" class="ln">   196  </span>	}
+<span id="L197" class="ln">   197  </span>
+<span id="L198" class="ln">   198  </span>	r.clusters[name] = &amp;remoteCluster{
+<span id="L199" class="ln">   199  </span>		app:    app,
+<span id="L200" class="ln">   200  </span>		Client: remoteClient,
+<span id="L201" class="ln">   201  </span>	}
+<span id="L202" class="ln">   202  </span>
+<span id="L203" class="ln">   203  </span>	return nil
+<span id="L204" class="ln">   204  </span>}
+<span id="L205" class="ln">   205  </span>
 </pre><p></p>
 
 <div id="footer">

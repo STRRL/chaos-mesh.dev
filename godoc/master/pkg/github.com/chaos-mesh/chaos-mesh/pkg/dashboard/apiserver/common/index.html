@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 29335e8. Generated at Tue May  9 22:03:42 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ca5b22e. Generated at Wed May 10 10:01:42 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -123,7 +123,7 @@
 				<dd><a href="#Service">type Service</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewService">func NewService(conf *config.ChaosDashboardConfig, kubeCli client.Client) *Service</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NewService">func NewService(conf *config.ChaosDashboardConfig, kubeCli client.Client, logger logr.Logger) *Service</a></dd>
 				
 				
 			
@@ -153,7 +153,7 @@
 		
 			
 			
-			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/common/common.go#L125">Register</a>
+			<h2 id="Register">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/common/common.go#L129">Register</a>
 				<a class="permalink" href="#Register">&#xb6;</a>
 				
 				
@@ -170,7 +170,7 @@ Register mounts our HTTP handler on the mux.
 		
 			
 			
-			<h2 id="Service">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/common/common.go#L107">Service</a>
+			<h2 id="Service">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/common/common.go#L108">Service</a>
 				<a class="permalink" href="#Service">&#xb6;</a>
 				
 				
@@ -194,7 +194,7 @@ Service defines a handler service for cluster common objects.
 
 			
 				
-				<h3 id="NewService">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/common/common.go#L114">NewService</a>
+				<h3 id="NewService">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/dashboard/apiserver/common/common.go#L116">NewService</a>
 					<a class="permalink" href="#NewService">&#xb6;</a>
 					
 					
@@ -202,6 +202,7 @@ Service defines a handler service for cluster common objects.
 				<pre>func NewService(
     conf *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/">config</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/config/#ChaosDashboardConfig">ChaosDashboardConfig</a>,
     kubeCli <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>,
+    logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>,
 ) *<a href="#Service">Service</a></pre>
 				<p>
 NewService returns an experiment service instance.
