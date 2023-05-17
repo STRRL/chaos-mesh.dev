@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 73117dc. Generated at Wed May 17 10:02:02 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit afab5b4. Generated at Wed May 17 22:03:44 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -177,15 +177,17 @@
 <span id="L112" class="ln">   112  </span>
 <span id="L113" class="ln">   113  </span>	EnabledControllers []string `envconfig:&#34;ENABLED_CONTROLLERS&#34; default:&#34;*&#34;`
 <span id="L114" class="ln">   114  </span>	EnabledWebhooks    []string `envconfig:&#34;ENABLED_WEBHOOKS&#34; default:&#34;*&#34;`
-<span id="L115" class="ln">   115  </span>}
-<span id="L116" class="ln">   116  </span>
-<span id="L117" class="ln">   117  </span><span class="comment">// EnvironChaosController returns the settings from the environment.</span>
-<span id="L118" class="ln">   118  </span>func EnvironChaosController() (ChaosControllerConfig, error) {
-<span id="L119" class="ln">   119  </span>	cfg := ChaosControllerConfig{}
-<span id="L120" class="ln">   120  </span>	err := envconfig.Process(&#34;&#34;, &amp;cfg)
-<span id="L121" class="ln">   121  </span>	return cfg, err
-<span id="L122" class="ln">   122  </span>}
-<span id="L123" class="ln">   123  </span>
+<span id="L115" class="ln">   115  </span>
+<span id="L116" class="ln">   116  </span>	LocalHelmChartPath string `envconfig:&#34;LOCAL_HELM_CHART_PATH&#34; default:&#34;&#34;`
+<span id="L117" class="ln">   117  </span>}
+<span id="L118" class="ln">   118  </span>
+<span id="L119" class="ln">   119  </span><span class="comment">// EnvironChaosController returns the settings from the environment.</span>
+<span id="L120" class="ln">   120  </span>func EnvironChaosController() (ChaosControllerConfig, error) {
+<span id="L121" class="ln">   121  </span>	cfg := ChaosControllerConfig{}
+<span id="L122" class="ln">   122  </span>	err := envconfig.Process(&#34;&#34;, &amp;cfg)
+<span id="L123" class="ln">   123  </span>	return cfg, err
+<span id="L124" class="ln">   124  </span>}
+<span id="L125" class="ln">   125  </span>
 </pre><p></p>
 
 <div id="footer">

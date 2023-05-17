@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 73117dc. Generated at Wed May 17 10:02:02 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit afab5b4. Generated at Wed May 17 22:03:44 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -127,7 +127,10 @@ install / upgrade Chaos Mesh on remote cluster
 				<dd><a href="#DownloadChaosMeshChartTgz">func DownloadChaosMeshChartTgz(ctx context.Context, version string) (string, error)</a></dd>
 			
 				
-				<dd><a href="#FetchChaosMeshChart">func FetchChaosMeshChart(ctx context.Context, version string) (*chart.Chart, error)</a></dd>
+				<dd><a href="#FetchChaosMeshChart">func FetchChaosMeshChart(ctx context.Context, version, local string) (*chart.Chart, error)</a></dd>
+			
+				
+				<dd><a href="#GetChaosMeshChartTgzPath">func GetChaosMeshChartTgzPath(ctx context.Context, version, local string) (string, error)</a></dd>
 			
 				
 				<dd><a href="#NewRESTClientGetter">func NewRESTClientGetter(clientConfig clientcmd.ClientConfig) genericclioptions.RESTClientGetter</a></dd>
@@ -207,7 +210,7 @@ install / upgrade Chaos Mesh on remote cluster
 		
 			
 			
-			<h2 id="DownloadChaosMeshChartTgz">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/chart.go#L44">DownloadChaosMeshChartTgz</a>
+			<h2 id="DownloadChaosMeshChartTgz">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/chart.go#L67">DownloadChaosMeshChartTgz</a>
 				<a class="permalink" href="#DownloadChaosMeshChartTgz">&#xb6;</a>
 				
 				
@@ -245,7 +248,7 @@ fmt.Fprintln(os.Stderr, path)
 				
 				
 			</h2>
-			<pre>func FetchChaosMeshChart(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, version <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/chart/">chart</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/chart/#Chart">Chart</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			<pre>func FetchChaosMeshChart(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, version, local <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/chart/">chart</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/chart/#Chart">Chart</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 			
 			<div id="example_FetchChaosMeshChart" class="toggle">
 	<div class="collapsed">
@@ -257,7 +260,7 @@ fmt.Fprintln(os.Stderr, path)
 		
 		
 			<p>Code:</p>
-			<pre class="code">chart, err := FetchChaosMeshChart(context.Background(), &#34;2.2.0&#34;)
+			<pre class="code">chart, err := FetchChaosMeshChart(context.Background(), &#34;2.2.0&#34;, &#34;&#34;)
 if err != nil {
     panic(err)
 }
@@ -270,6 +273,19 @@ fmt.Fprintln(os.Stderr, chart.AppVersion())
 	</div>
 </div>
 
+			
+
+		
+			
+			
+			<h2 id="GetChaosMeshChartTgzPath">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/chart.go#L54">GetChaosMeshChartTgzPath</a>
+				<a class="permalink" href="#GetChaosMeshChartTgzPath">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GetChaosMeshChartTgzPath(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, version, local <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
 			
 
 		
