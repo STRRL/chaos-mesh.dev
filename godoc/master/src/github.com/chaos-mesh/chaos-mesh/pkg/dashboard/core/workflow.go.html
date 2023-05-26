@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit afab5b4. Generated at Thu May 25 22:03:59 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2dc55a2. Generated at Fri May 26 10:01:33 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -123,7 +123,7 @@
 <span id="L58" class="ln">    58  </span>	Entry     string    `json:&#34;entry&#34;` <span class="comment">// the entry node name</span>
 <span id="L59" class="ln">    59  </span>	CreatedAt time.Time `json:&#34;created_at&#34;`
 <span id="L60" class="ln">    60  </span>	<span class="comment">// FinishTime represents the time when the workflow was deleted from Kubernetes.</span>
-<span id="L61" class="ln">    61  </span>	FinishTime time.Time `json:&#34;finish_time&#34;`
+<span id="L61" class="ln">    61  </span>	FinishTime *time.Time `json:&#34;finish_time&#34;`
 <span id="L62" class="ln">    62  </span>	<span class="comment">// EndTime represents the time when the workflow completed all steps.</span>
 <span id="L63" class="ln">    63  </span>	EndTime  string         `json:&#34;end_time&#34;`
 <span id="L64" class="ln">    64  </span>	Status   WorkflowStatus `json:&#34;status,omitempty&#34;`
@@ -326,7 +326,7 @@
 <span id="L261" class="ln">   261  </span>	}
 <span id="L262" class="ln">   262  </span>
 <span id="L263" class="ln">   263  </span>	if kubeWorkflow.GetDeletionTimestamp() != nil {
-<span id="L264" class="ln">   264  </span>		result.FinishTime = kubeWorkflow.GetDeletionTimestamp().Time
+<span id="L264" class="ln">   264  </span>		result.FinishTime = &amp;kubeWorkflow.GetDeletionTimestamp().Time
 <span id="L265" class="ln">   265  </span>	}
 <span id="L266" class="ln">   266  </span>
 <span id="L267" class="ln">   267  </span>	if wfcontrollers.WorkflowConditionEqualsTo(kubeWorkflow.Status, v1alpha1.WorkflowConditionAccomplished, corev1.ConditionTrue) {

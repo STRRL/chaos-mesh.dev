@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit afab5b4. Generated at Thu May 25 22:03:59 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2dc55a2. Generated at Fri May 26 10:01:33 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -177,7 +177,7 @@
 <span id="L112" class="ln">   112  </span>
 <span id="L113" class="ln">   113  </span>	archive.StartTime = schedule.GetCreationTimestamp().Time
 <span id="L114" class="ln">   114  </span>	if schedule.GetDeletionTimestamp() != nil {
-<span id="L115" class="ln">   115  </span>		archive.FinishTime = schedule.GetDeletionTimestamp().Time
+<span id="L115" class="ln">   115  </span>		archive.FinishTime = &amp;schedule.GetDeletionTimestamp().Time
 <span id="L116" class="ln">   116  </span>	}
 <span id="L117" class="ln">   117  </span>
 <span id="L118" class="ln">   118  </span>	data, err := json.Marshal(schedule)

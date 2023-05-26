@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit afab5b4. Generated at Thu May 25 22:03:59 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2dc55a2. Generated at Fri May 26 10:01:33 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -259,7 +259,7 @@
 <span id="L194" class="ln">   194  </span>
 <span id="L195" class="ln">   195  </span>	archive.StartTime = chaosMeta.GetCreationTimestamp().Time
 <span id="L196" class="ln">   196  </span>	if chaosMeta.GetDeletionTimestamp() != nil {
-<span id="L197" class="ln">   197  </span>		archive.FinishTime = chaosMeta.GetDeletionTimestamp().Time
+<span id="L197" class="ln">   197  </span>		archive.FinishTime = &amp;chaosMeta.GetDeletionTimestamp().Time
 <span id="L198" class="ln">   198  </span>	}
 <span id="L199" class="ln">   199  </span>
 <span id="L200" class="ln">   200  </span>	data, err := json.Marshal(chaosMeta)

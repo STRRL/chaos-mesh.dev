@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit afab5b4. Generated at Thu May 25 22:03:59 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2dc55a2. Generated at Fri May 26 10:01:33 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -129,14 +129,14 @@
 <span id="L64" class="ln">    64  </span><span class="comment">// ScheduleMeta defines the metadata of a schedule instance. Use in db.</span>
 <span id="L65" class="ln">    65  </span>type ScheduleMeta struct {
 <span id="L66" class="ln">    66  </span>	gorm.Model
-<span id="L67" class="ln">    67  </span>	UID        string    `gorm:&#34;index:schedule_uid&#34; json:&#34;uid&#34;`
-<span id="L68" class="ln">    68  </span>	Kind       string    `json:&#34;kind&#34;`
-<span id="L69" class="ln">    69  </span>	Name       string    `json:&#34;name&#34;`
-<span id="L70" class="ln">    70  </span>	Namespace  string    `json:&#34;namespace&#34;`
-<span id="L71" class="ln">    71  </span>	Action     string    `json:&#34;action&#34;`
-<span id="L72" class="ln">    72  </span>	StartTime  time.Time `json:&#34;start_time&#34;`
-<span id="L73" class="ln">    73  </span>	FinishTime time.Time `json:&#34;finish_time&#34;`
-<span id="L74" class="ln">    74  </span>	Archived   bool      `json:&#34;archived&#34;`
+<span id="L67" class="ln">    67  </span>	UID        string     `gorm:&#34;index:schedule_uid&#34; json:&#34;uid&#34;`
+<span id="L68" class="ln">    68  </span>	Kind       string     `json:&#34;kind&#34;`
+<span id="L69" class="ln">    69  </span>	Name       string     `json:&#34;name&#34;`
+<span id="L70" class="ln">    70  </span>	Namespace  string     `json:&#34;namespace&#34;`
+<span id="L71" class="ln">    71  </span>	Action     string     `json:&#34;action&#34;`
+<span id="L72" class="ln">    72  </span>	StartTime  time.Time  `json:&#34;start_time&#34;`
+<span id="L73" class="ln">    73  </span>	FinishTime *time.Time `json:&#34;finish_time&#34;`
+<span id="L74" class="ln">    74  </span>	Archived   bool       `json:&#34;archived&#34;`
 <span id="L75" class="ln">    75  </span>}
 <span id="L76" class="ln">    76  </span>
 </pre><p></p>

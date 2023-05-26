@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit afab5b4. Generated at Thu May 25 22:03:59 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2dc55a2. Generated at Fri May 26 10:01:33 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -478,14 +478,14 @@ ExperimentMeta defines the metadata of an experiment. Use in db.
 
 			<pre>type ExperimentMeta struct {
     <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/jinzhu/gorm/">gorm</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/jinzhu/gorm/#Model">Model</a>
-<span id="ExperimentMeta.UID"></span>    UID        <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>    `gorm:&#34;index:uid&#34; json:&#34;uid&#34;`
-<span id="ExperimentMeta.Kind"></span>    Kind       <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>    `json:&#34;kind&#34;`
-<span id="ExperimentMeta.Name"></span>    Name       <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>    `json:&#34;name&#34;`
-<span id="ExperimentMeta.Namespace"></span>    Namespace  <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>    `json:&#34;namespace&#34;`
-<span id="ExperimentMeta.Action"></span>    Action     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>    `json:&#34;action&#34;`
-<span id="ExperimentMeta.StartTime"></span>    StartTime  <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Time">Time</a> `json:&#34;start_time&#34;`
-<span id="ExperimentMeta.FinishTime"></span>    FinishTime <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Time">Time</a> `json:&#34;finish_time&#34;`
-<span id="ExperimentMeta.Archived"></span>    Archived   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>      `json:&#34;archived&#34;`
+<span id="ExperimentMeta.UID"></span>    UID        <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>     `gorm:&#34;index:uid&#34; json:&#34;uid&#34;`
+<span id="ExperimentMeta.Kind"></span>    Kind       <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>     `json:&#34;kind&#34;`
+<span id="ExperimentMeta.Name"></span>    Name       <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>     `json:&#34;name&#34;`
+<span id="ExperimentMeta.Namespace"></span>    Namespace  <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>     `json:&#34;namespace&#34;`
+<span id="ExperimentMeta.Action"></span>    Action     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>     `json:&#34;action&#34;`
+<span id="ExperimentMeta.StartTime"></span>    StartTime  <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Time">Time</a>  `json:&#34;start_time&#34;`
+<span id="ExperimentMeta.FinishTime"></span>    FinishTime *<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Time">Time</a> `json:&#34;finish_time&#34;`
+<span id="ExperimentMeta.Archived"></span>    Archived   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>       `json:&#34;archived&#34;`
 }
 </pre>
 
@@ -982,14 +982,14 @@ ScheduleMeta defines the metadata of a schedule instance. Use in db.
 
 			<pre>type ScheduleMeta struct {
     <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/jinzhu/gorm/">gorm</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/jinzhu/gorm/#Model">Model</a>
-<span id="ScheduleMeta.UID"></span>    UID        <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>    `gorm:&#34;index:schedule_uid&#34; json:&#34;uid&#34;`
-<span id="ScheduleMeta.Kind"></span>    Kind       <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>    `json:&#34;kind&#34;`
-<span id="ScheduleMeta.Name"></span>    Name       <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>    `json:&#34;name&#34;`
-<span id="ScheduleMeta.Namespace"></span>    Namespace  <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>    `json:&#34;namespace&#34;`
-<span id="ScheduleMeta.Action"></span>    Action     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>    `json:&#34;action&#34;`
-<span id="ScheduleMeta.StartTime"></span>    StartTime  <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Time">Time</a> `json:&#34;start_time&#34;`
-<span id="ScheduleMeta.FinishTime"></span>    FinishTime <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Time">Time</a> `json:&#34;finish_time&#34;`
-<span id="ScheduleMeta.Archived"></span>    Archived   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>      `json:&#34;archived&#34;`
+<span id="ScheduleMeta.UID"></span>    UID        <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>     `gorm:&#34;index:schedule_uid&#34; json:&#34;uid&#34;`
+<span id="ScheduleMeta.Kind"></span>    Kind       <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>     `json:&#34;kind&#34;`
+<span id="ScheduleMeta.Name"></span>    Name       <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>     `json:&#34;name&#34;`
+<span id="ScheduleMeta.Namespace"></span>    Namespace  <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>     `json:&#34;namespace&#34;`
+<span id="ScheduleMeta.Action"></span>    Action     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>     `json:&#34;action&#34;`
+<span id="ScheduleMeta.StartTime"></span>    StartTime  <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Time">Time</a>  `json:&#34;start_time&#34;`
+<span id="ScheduleMeta.FinishTime"></span>    FinishTime *<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Time">Time</a> `json:&#34;finish_time&#34;`
+<span id="ScheduleMeta.Archived"></span>    Archived   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>       `json:&#34;archived&#34;`
 }
 </pre>
 
@@ -1185,7 +1185,7 @@ WorkflowMeta defines the root structure of a workflow.
 <span id="WorkflowMeta.Entry"></span>    Entry     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>    `json:&#34;entry&#34;` <span class="comment">// the entry node name</span>
 <span id="WorkflowMeta.CreatedAt"></span>    CreatedAt <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Time">Time</a> `json:&#34;created_at&#34;`
 <span id="WorkflowMeta.FinishTime"></span>    <span class="comment">// FinishTime represents the time when the workflow was deleted from Kubernetes.</span>
-    FinishTime <a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Time">Time</a> `json:&#34;finish_time&#34;`
+    FinishTime *<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/time/#Time">Time</a> `json:&#34;finish_time&#34;`
 <span id="WorkflowMeta.EndTime"></span>    <span class="comment">// EndTime represents the time when the workflow completed all steps.</span>
     EndTime  <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>         `json:&#34;end_time&#34;`
 <span id="WorkflowMeta.Status"></span>    Status   <a href="#WorkflowStatus">WorkflowStatus</a> `json:&#34;status,omitempty&#34;`
