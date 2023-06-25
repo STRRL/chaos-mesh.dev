@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 8fab548. Generated at Sat Jun 24 22:03:25 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 8d42e0c. Generated at Sun Jun 25 10:01:46 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -131,7 +131,7 @@
 <span id="L66" class="ln">    66  </span>		opts = append(opts, awscfg.WithCredentialsProvider(credentials.NewStaticCredentialsProvider(
 <span id="L67" class="ln">    67  </span>			string(secret.Data[&#34;aws_access_key_id&#34;]),
 <span id="L68" class="ln">    68  </span>			string(secret.Data[&#34;aws_secret_access_key&#34;]),
-<span id="L69" class="ln">    69  </span>			&#34;&#34;,
+<span id="L69" class="ln">    69  </span>			string(secret.Data[&#34;aws_session_token&#34;]),
 <span id="L70" class="ln">    70  </span>		)))
 <span id="L71" class="ln">    71  </span>	}
 <span id="L72" class="ln">    72  </span>	cfg, err := awscfg.LoadDefaultConfig(ctx, opts...)
