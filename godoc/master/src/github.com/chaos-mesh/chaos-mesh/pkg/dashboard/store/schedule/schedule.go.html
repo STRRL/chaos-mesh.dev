@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 4208262. Generated at Tue Jun 27 22:03:42 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 11a6ea9. Generated at Wed Jun 28 10:01:57 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -177,65 +177,69 @@
 <span id="L112" class="ln">   112  </span>
 <span id="L113" class="ln">   113  </span>	nowTime := time.Now()
 <span id="L114" class="ln">   114  </span>	for _, sch := range sches {
-<span id="L115" class="ln">   115  </span>		if sch.FinishTime.Add(ttl).Before(nowTime) {
-<span id="L116" class="ln">   116  </span>			if err := e.db.Table(&#34;schedules&#34;).Unscoped().Delete(*sch).Error; err != nil {
-<span id="L117" class="ln">   117  </span>				return err
-<span id="L118" class="ln">   118  </span>			}
-<span id="L119" class="ln">   119  </span>		}
-<span id="L120" class="ln">   120  </span>	}
-<span id="L121" class="ln">   121  </span>
-<span id="L122" class="ln">   122  </span>	return nil
-<span id="L123" class="ln">   123  </span>}
-<span id="L124" class="ln">   124  </span>
-<span id="L125" class="ln">   125  </span><span class="comment">// DeleteByUIDs deletes schedules by the uid list.</span>
-<span id="L126" class="ln">   126  </span>func (e *ScheduleStore) DeleteByUIDs(_ context.Context, uids []string) error {
-<span id="L127" class="ln">   127  </span>	return e.db.Table(&#34;schedules&#34;).Where(&#34;uid IN (?)&#34;, uids).Unscoped().Delete(core.Schedule{}).Error
-<span id="L128" class="ln">   128  </span>}
-<span id="L129" class="ln">   129  </span>
-<span id="L130" class="ln">   130  </span><span class="comment">// DeleteIncompleteSchedules implements the core.ScheduleStore.DeleteIncompleteSchedules method.</span>
-<span id="L131" class="ln">   131  </span>func (e *ScheduleStore) DeleteIncompleteSchedules(_ context.Context) error {
-<span id="L132" class="ln">   132  </span>	return e.db.Where(&#34;finish_time IS NULL&#34;).Unscoped().Delete(core.Schedule{}).Error
-<span id="L133" class="ln">   133  </span>}
-<span id="L134" class="ln">   134  </span>
-<span id="L135" class="ln">   135  </span>func constructQueryArgs(kind, ns, name, uid string) (string, []string) {
-<span id="L136" class="ln">   136  </span>	query := &#34;&#34;
-<span id="L137" class="ln">   137  </span>	args := make([]string, 0)
+<span id="L115" class="ln">   115  </span>		if sch.FinishTime == nil {
+<span id="L116" class="ln">   116  </span>			log.Error(nil, &#34;finish time is nil when deleting archived schedule records, skip it&#34;, &#34;schedule&#34;, sch)
+<span id="L117" class="ln">   117  </span>			continue
+<span id="L118" class="ln">   118  </span>		}
+<span id="L119" class="ln">   119  </span>		if sch.FinishTime.Add(ttl).Before(nowTime) {
+<span id="L120" class="ln">   120  </span>			if err := e.db.Table(&#34;schedules&#34;).Unscoped().Delete(*sch).Error; err != nil {
+<span id="L121" class="ln">   121  </span>				return err
+<span id="L122" class="ln">   122  </span>			}
+<span id="L123" class="ln">   123  </span>		}
+<span id="L124" class="ln">   124  </span>	}
+<span id="L125" class="ln">   125  </span>
+<span id="L126" class="ln">   126  </span>	return nil
+<span id="L127" class="ln">   127  </span>}
+<span id="L128" class="ln">   128  </span>
+<span id="L129" class="ln">   129  </span><span class="comment">// DeleteByUIDs deletes schedules by the uid list.</span>
+<span id="L130" class="ln">   130  </span>func (e *ScheduleStore) DeleteByUIDs(_ context.Context, uids []string) error {
+<span id="L131" class="ln">   131  </span>	return e.db.Table(&#34;schedules&#34;).Where(&#34;uid IN (?)&#34;, uids).Unscoped().Delete(core.Schedule{}).Error
+<span id="L132" class="ln">   132  </span>}
+<span id="L133" class="ln">   133  </span>
+<span id="L134" class="ln">   134  </span><span class="comment">// DeleteIncompleteSchedules implements the core.ScheduleStore.DeleteIncompleteSchedules method.</span>
+<span id="L135" class="ln">   135  </span>func (e *ScheduleStore) DeleteIncompleteSchedules(_ context.Context) error {
+<span id="L136" class="ln">   136  </span>	return e.db.Where(&#34;finish_time IS NULL&#34;).Unscoped().Delete(core.Schedule{}).Error
+<span id="L137" class="ln">   137  </span>}
 <span id="L138" class="ln">   138  </span>
-<span id="L139" class="ln">   139  </span>	if kind != &#34;&#34; {
-<span id="L140" class="ln">   140  </span>		query += &#34;kind = ?&#34;
-<span id="L141" class="ln">   141  </span>		args = append(args, kind)
-<span id="L142" class="ln">   142  </span>	}
-<span id="L143" class="ln">   143  </span>
-<span id="L144" class="ln">   144  </span>	if ns != &#34;&#34; {
-<span id="L145" class="ln">   145  </span>		if len(args) &gt; 0 {
-<span id="L146" class="ln">   146  </span>			query += &#34; AND namespace = ?&#34;
-<span id="L147" class="ln">   147  </span>		} else {
-<span id="L148" class="ln">   148  </span>			query += &#34;namespace = ?&#34;
-<span id="L149" class="ln">   149  </span>		}
-<span id="L150" class="ln">   150  </span>		args = append(args, ns)
-<span id="L151" class="ln">   151  </span>	}
-<span id="L152" class="ln">   152  </span>
-<span id="L153" class="ln">   153  </span>	if name != &#34;&#34; {
-<span id="L154" class="ln">   154  </span>		if len(args) &gt; 0 {
-<span id="L155" class="ln">   155  </span>			query += &#34; AND name = ?&#34;
-<span id="L156" class="ln">   156  </span>		} else {
-<span id="L157" class="ln">   157  </span>			query += &#34;name = ?&#34;
-<span id="L158" class="ln">   158  </span>		}
-<span id="L159" class="ln">   159  </span>		args = append(args, name)
-<span id="L160" class="ln">   160  </span>	}
-<span id="L161" class="ln">   161  </span>
-<span id="L162" class="ln">   162  </span>	if uid != &#34;&#34; {
-<span id="L163" class="ln">   163  </span>		if len(args) &gt; 0 {
-<span id="L164" class="ln">   164  </span>			query += &#34; AND uid = ?&#34;
-<span id="L165" class="ln">   165  </span>		} else {
-<span id="L166" class="ln">   166  </span>			query += &#34;uid = ?&#34;
-<span id="L167" class="ln">   167  </span>		}
-<span id="L168" class="ln">   168  </span>		args = append(args, uid)
-<span id="L169" class="ln">   169  </span>	}
-<span id="L170" class="ln">   170  </span>
-<span id="L171" class="ln">   171  </span>	return query, args
-<span id="L172" class="ln">   172  </span>}
-<span id="L173" class="ln">   173  </span>
+<span id="L139" class="ln">   139  </span>func constructQueryArgs(kind, ns, name, uid string) (string, []string) {
+<span id="L140" class="ln">   140  </span>	query := &#34;&#34;
+<span id="L141" class="ln">   141  </span>	args := make([]string, 0)
+<span id="L142" class="ln">   142  </span>
+<span id="L143" class="ln">   143  </span>	if kind != &#34;&#34; {
+<span id="L144" class="ln">   144  </span>		query += &#34;kind = ?&#34;
+<span id="L145" class="ln">   145  </span>		args = append(args, kind)
+<span id="L146" class="ln">   146  </span>	}
+<span id="L147" class="ln">   147  </span>
+<span id="L148" class="ln">   148  </span>	if ns != &#34;&#34; {
+<span id="L149" class="ln">   149  </span>		if len(args) &gt; 0 {
+<span id="L150" class="ln">   150  </span>			query += &#34; AND namespace = ?&#34;
+<span id="L151" class="ln">   151  </span>		} else {
+<span id="L152" class="ln">   152  </span>			query += &#34;namespace = ?&#34;
+<span id="L153" class="ln">   153  </span>		}
+<span id="L154" class="ln">   154  </span>		args = append(args, ns)
+<span id="L155" class="ln">   155  </span>	}
+<span id="L156" class="ln">   156  </span>
+<span id="L157" class="ln">   157  </span>	if name != &#34;&#34; {
+<span id="L158" class="ln">   158  </span>		if len(args) &gt; 0 {
+<span id="L159" class="ln">   159  </span>			query += &#34; AND name = ?&#34;
+<span id="L160" class="ln">   160  </span>		} else {
+<span id="L161" class="ln">   161  </span>			query += &#34;name = ?&#34;
+<span id="L162" class="ln">   162  </span>		}
+<span id="L163" class="ln">   163  </span>		args = append(args, name)
+<span id="L164" class="ln">   164  </span>	}
+<span id="L165" class="ln">   165  </span>
+<span id="L166" class="ln">   166  </span>	if uid != &#34;&#34; {
+<span id="L167" class="ln">   167  </span>		if len(args) &gt; 0 {
+<span id="L168" class="ln">   168  </span>			query += &#34; AND uid = ?&#34;
+<span id="L169" class="ln">   169  </span>		} else {
+<span id="L170" class="ln">   170  </span>			query += &#34;uid = ?&#34;
+<span id="L171" class="ln">   171  </span>		}
+<span id="L172" class="ln">   172  </span>		args = append(args, uid)
+<span id="L173" class="ln">   173  </span>	}
+<span id="L174" class="ln">   174  </span>
+<span id="L175" class="ln">   175  </span>	return query, args
+<span id="L176" class="ln">   176  </span>}
+<span id="L177" class="ln">   177  </span>
 </pre><p></p>
 
 <div id="footer">
