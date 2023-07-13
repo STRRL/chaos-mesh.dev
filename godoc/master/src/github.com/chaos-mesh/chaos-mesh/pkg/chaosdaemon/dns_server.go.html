@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit fc43351. Generated at Wed Jul 12 22:03:37 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 4378436. Generated at Thu Jul 13 10:01:34 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -132,8 +132,8 @@
 <span id="L67" class="ln">    67  </span>		}
 <span id="L68" class="ln">    68  </span>
 <span id="L69" class="ln">    69  </span>		<span class="comment">// add chaos dns server to the first line of /etc/resolv.conf</span>
-<span id="L70" class="ln">    70  </span>		<span class="comment">// Note: can not replace the /etc/resolv.conf like `mv temp resolv.conf`, will execute with error `Device or resource busy`</span>
-<span id="L71" class="ln">    71  </span>		processBuilder = bpm.DefaultProcessBuilder(&#34;sh&#34;, &#34;-c&#34;, fmt.Sprintf(&#34;cp %s temp &amp;&amp; sed -i &#39;s/.*nameserver.*/nameserver %s/&#39; temp &amp;&amp; cat temp &gt; %s&#34;, DNSServerConfFile, req.DnsServer, DNSServerConfFile)).SetContext(ctx)
+<span id="L70" class="ln">    70  </span>		<span class="comment">// Note: can not replace the /etc/resolv.conf like `mv resolv_conf_dnschaos_temp resolv.conf`, will execute with error `Device or resource busy`</span>
+<span id="L71" class="ln">    71  </span>		processBuilder = bpm.DefaultProcessBuilder(&#34;sh&#34;, &#34;-c&#34;, fmt.Sprintf(&#34;cp %s /etc/resolv_conf_dnschaos_temp &amp;&amp; sed -i &#39;s/.*nameserver.*/nameserver %s/&#39; /etc/resolv_conf_dnschaos_temp &amp;&amp; cat /etc/resolv_conf_dnschaos_temp &gt; %s &amp;&amp; rm /etc/resolv_conf_dnschaos_temp&#34;, DNSServerConfFile, req.DnsServer, DNSServerConfFile)).SetContext(ctx)
 <span id="L72" class="ln">    72  </span>		if req.EnterNS {
 <span id="L73" class="ln">    73  </span>			processBuilder = processBuilder.SetNS(pid, bpm.MountNS)
 <span id="L74" class="ln">    74  </span>		}
