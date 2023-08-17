@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 09e7c61. Generated at Wed Aug 16 22:03:28 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit ebcf2ad. Generated at Thu Aug 17 10:01:39 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -363,7 +363,7 @@
 <span id="Event.Kind"></span>    Kind      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>    `json:&#34;kind&#34;`
 <span id="Event.Type"></span>    Type      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>    `json:&#34;type&#34;`
 <span id="Event.Reason"></span>    Reason    <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>    `json:&#34;reason&#34;`
-<span id="Event.Message"></span>    Message   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>    `json:&#34;message&#34;`
+<span id="Event.Message"></span>    Message   <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>    `gorm:&#34;type:text;size:32768&#34; json:&#34;message&#34;`
 }
 </pre>
 
@@ -449,7 +449,7 @@ Experiment represents an experiment instance. Use in db.
 
 			<pre>type Experiment struct {
     <a href="#ExperimentMeta">ExperimentMeta</a>
-<span id="Experiment.Experiment"></span>    Experiment <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `gorm:&#34;size:4096&#34;` <span class="comment">// JSON string</span>
+<span id="Experiment.Experiment"></span>    Experiment <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `gorm:&#34;type:text;size:32768&#34;` <span class="comment">// JSON string</span>
 }
 </pre>
 
@@ -953,7 +953,7 @@ Schedule represents a schedule instance. Use in db.
 
 			<pre>type Schedule struct {
     <a href="#ScheduleMeta">ScheduleMeta</a>
-<span id="Schedule.Schedule"></span>    Schedule <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `gorm:&#34;size:4096&#34;` <span class="comment">// JSON string</span>
+<span id="Schedule.Schedule"></span>    Schedule <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `gorm:&#34;type:text;size:32768&#34;` <span class="comment">// JSON string</span>
 }
 </pre>
 
