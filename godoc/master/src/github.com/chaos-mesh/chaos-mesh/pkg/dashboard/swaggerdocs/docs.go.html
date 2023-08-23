@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d6694c5. Generated at Tue Aug 22 22:03:32 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 854c52f. Generated at Wed Aug 23 10:02:00 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -3757,7 +3757,7 @@
 <span id="L3692" class="ln">  3692  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L3693" class="ln">  3693  </span>            &#34;properties&#34;: {
 <span id="L3694" class="ln">  3694  </span>                &#34;name&#34;: {
-<span id="L3695" class="ln">  3695  </span>                    &#34;description&#34;: &#34;The header field name&#34;,
+<span id="L3695" class="ln">  3695  </span>                    &#34;description&#34;: &#34;The header field name.\nThis will be canonicalized upon output, so case-variant names will be understood as the same header.&#34;,
 <span id="L3696" class="ln">  3696  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L3697" class="ln">  3697  </span>                },
 <span id="L3698" class="ln">  3698  </span>                &#34;value&#34;: {
@@ -4384,7 +4384,7 @@
 <span id="L4319" class="ln">  4319  </span>            &#34;type&#34;: &#34;object&#34;,
 <span id="L4320" class="ln">  4320  </span>            &#34;properties&#34;: {
 <span id="L4321" class="ln">  4321  </span>                &#34;claims&#34;: {
-<span id="L4322" class="ln">  4322  </span>                    &#34;description&#34;: &#34;Claims lists the names of resources, defined in spec.resourceClaims,\nthat are used by this container.\n\nThis is an alpha field and requires enabling the\nDynamicResourceAllocation feature gate.\n\nThis field is immutable.\n\n+listType=map\n+listMapKey=name\n+featureGate=DynamicResourceAllocation\n+optional&#34;,
+<span id="L4322" class="ln">  4322  </span>                    &#34;description&#34;: &#34;Claims lists the names of resources, defined in spec.resourceClaims,\nthat are used by this container.\n\nThis is an alpha field and requires enabling the\nDynamicResourceAllocation feature gate.\n\nThis field is immutable. It can only be set for containers.\n\n+listType=map\n+listMapKey=name\n+featureGate=DynamicResourceAllocation\n+optional&#34;,
 <span id="L4323" class="ln">  4323  </span>                    &#34;type&#34;: &#34;array&#34;,
 <span id="L4324" class="ln">  4324  </span>                    &#34;items&#34;: {
 <span id="L4325" class="ln">  4325  </span>                        &#34;$ref&#34;: &#34;#/definitions/v1.ResourceClaim&#34;
@@ -5080,7 +5080,7 @@
 <span id="L5015" class="ln">  5015  </span>                    &#34;type&#34;: &#34;integer&#34;
 <span id="L5016" class="ln">  5016  </span>                },
 <span id="L5017" class="ln">  5017  </span>                &#34;rate&#34;: {
-<span id="L5018" class="ln">  5018  </span>                    &#34;description&#34;: &#34;Rate is the speed knob. Allows bps, kbps, mbps, gbps, tbps unit. bps means bytes per second.&#34;,
+<span id="L5018" class="ln">  5018  </span>                    &#34;description&#34;: &#34;Rate is the speed knob. Allows bit, kbit, mbit, gbit, tbit, bps, kbps, mbps, gbps, tbps unit. bps means bytes per second.&#34;,
 <span id="L5019" class="ln">  5019  </span>                    &#34;type&#34;: &#34;string&#34;
 <span id="L5020" class="ln">  5020  </span>                }
 <span id="L5021" class="ln">  5021  </span>            }

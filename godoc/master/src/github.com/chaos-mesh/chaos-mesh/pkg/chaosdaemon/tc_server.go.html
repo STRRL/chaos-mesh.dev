@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d6694c5. Generated at Tue Aug 22 22:03:32 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 854c52f. Generated at Wed Aug 23 10:02:00 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -545,7 +545,7 @@
 <span id="L480" class="ln">   480  </span>}
 <span id="L481" class="ln">   481  </span>
 <span id="L482" class="ln">   482  </span>func convertTbfToArgs(tbf *pb.Tbf) string {
-<span id="L483" class="ln">   483  </span>	args := fmt.Sprintf(&#34;rate %d burst %d&#34;, tbf.Rate, tbf.Buffer)
+<span id="L483" class="ln">   483  </span>	args := fmt.Sprintf(&#34;rate %s burst %d&#34;, tbf.Rate, tbf.Buffer)
 <span id="L484" class="ln">   484  </span>	if tbf.Limit &gt; 0 {
 <span id="L485" class="ln">   485  </span>		args = fmt.Sprintf(&#34;%s limit %d&#34;, args, tbf.Limit)
 <span id="L486" class="ln">   486  </span>	}

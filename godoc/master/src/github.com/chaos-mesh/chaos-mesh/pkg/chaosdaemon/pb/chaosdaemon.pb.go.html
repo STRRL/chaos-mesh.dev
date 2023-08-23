@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d6694c5. Generated at Tue Aug 22 22:03:32 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 854c52f. Generated at Wed Aug 23 10:02:00 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -770,7 +770,7 @@
 <span id="L705" class="ln">   705  </span>	sizeCache     protoimpl.SizeCache
 <span id="L706" class="ln">   706  </span>	unknownFields protoimpl.UnknownFields
 <span id="L707" class="ln">   707  </span>
-<span id="L708" class="ln">   708  </span>	Rate     uint64 `protobuf:&#34;varint,1,opt,name=rate,proto3&#34; json:&#34;rate,omitempty&#34;`
+<span id="L708" class="ln">   708  </span>	Rate     string `protobuf:&#34;bytes,1,opt,name=rate,proto3&#34; json:&#34;rate,omitempty&#34;`
 <span id="L709" class="ln">   709  </span>	Limit    uint32 `protobuf:&#34;varint,2,opt,name=limit,proto3&#34; json:&#34;limit,omitempty&#34;`
 <span id="L710" class="ln">   710  </span>	Buffer   uint32 `protobuf:&#34;varint,3,opt,name=buffer,proto3&#34; json:&#34;buffer,omitempty&#34;`
 <span id="L711" class="ln">   711  </span>	PeakRate uint64 `protobuf:&#34;varint,4,opt,name=peak_rate,json=peakRate,proto3&#34; json:&#34;peak_rate,omitempty&#34;`
@@ -809,11 +809,11 @@
 <span id="L744" class="ln">   744  </span>	return file_chaosdaemon_proto_rawDescGZIP(), []int{6}
 <span id="L745" class="ln">   745  </span>}
 <span id="L746" class="ln">   746  </span>
-<span id="L747" class="ln">   747  </span>func (x *Tbf) GetRate() uint64 {
+<span id="L747" class="ln">   747  </span>func (x *Tbf) GetRate() string {
 <span id="L748" class="ln">   748  </span>	if x != nil {
 <span id="L749" class="ln">   749  </span>		return x.Rate
 <span id="L750" class="ln">   750  </span>	}
-<span id="L751" class="ln">   751  </span>	return 0
+<span id="L751" class="ln">   751  </span>	return &#34;&#34;
 <span id="L752" class="ln">   752  </span>}
 <span id="L753" class="ln">   753  </span>
 <span id="L754" class="ln">   754  </span>func (x *Tbf) GetLimit() uint32 {
@@ -3028,7 +3028,7 @@
 <span id="L2963" class="ln">  2963  </span>	0x6e, 0x74, 0x61, 0x69, 0x6e, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
 <span id="L2964" class="ln">  2964  </span>	0x52, 0x0b, 0x63, 0x6f, 0x6e, 0x74, 0x61, 0x69, 0x6e, 0x65, 0x72, 0x49, 0x64, 0x22, 0x81, 0x01,
 <span id="L2965" class="ln">  2965  </span>	0x0a, 0x03, 0x54, 0x62, 0x66, 0x12, 0x12, 0x0a, 0x04, 0x72, 0x61, 0x74, 0x65, 0x18, 0x01, 0x20,
-<span id="L2966" class="ln">  2966  </span>	0x01, 0x28, 0x04, 0x52, 0x04, 0x72, 0x61, 0x74, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x6c, 0x69, 0x6d,
+<span id="L2966" class="ln">  2966  </span>	0x01, 0x28, 0x09, 0x52, 0x04, 0x72, 0x61, 0x74, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x6c, 0x69, 0x6d,
 <span id="L2967" class="ln">  2967  </span>	0x69, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x12,
 <span id="L2968" class="ln">  2968  </span>	0x16, 0x0a, 0x06, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0d, 0x52,
 <span id="L2969" class="ln">  2969  </span>	0x06, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x12, 0x1b, 0x0a, 0x09, 0x70, 0x65, 0x61, 0x6b, 0x5f,

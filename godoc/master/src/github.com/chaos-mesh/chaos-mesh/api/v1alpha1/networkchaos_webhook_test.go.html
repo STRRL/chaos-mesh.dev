@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d6694c5. Generated at Tue Aug 22 22:03:32 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 854c52f. Generated at Wed Aug 23 10:02:00 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -337,21 +337,27 @@
 <span id="L272" class="ln">   272  </span>			}
 <span id="L273" class="ln">   273  </span>		})
 <span id="L274" class="ln">   274  </span>	})
-<span id="L275" class="ln">   275  </span>	Context(&#34;convertUnitToBytes&#34;, func() {
-<span id="L276" class="ln">   276  </span>		It(&#34;should convert number with unit successfully&#34;, func() {
-<span id="L277" class="ln">   277  </span>			n, err := ConvertUnitToBytes(&#34;  10   mbPs  &#34;)
+<span id="L275" class="ln">   275  </span>	Context(&#34;isValidRateUnit&#34;, func() {
+<span id="L276" class="ln">   276  </span>		It(&#34;mbps unit, should convert number with unit successfully&#34;, func() {
+<span id="L277" class="ln">   277  </span>			isValid, err := isValidRateUnit(&#34;  10   mbPs  &#34;)
 <span id="L278" class="ln">   278  </span>			Expect(err).Should(Succeed())
-<span id="L279" class="ln">   279  </span>			Expect(n).To(Equal(uint64(10 * 1024 * 1024)))
+<span id="L279" class="ln">   279  </span>			Expect(isValid).To(Equal(true))
 <span id="L280" class="ln">   280  </span>		})
 <span id="L281" class="ln">   281  </span>
-<span id="L282" class="ln">   282  </span>		It(&#34;should return error with invalid unit&#34;, func() {
-<span id="L283" class="ln">   283  </span>			n, err := ConvertUnitToBytes(&#34; 10 cpbs&#34;)
-<span id="L284" class="ln">   284  </span>			Expect(err).Should(HaveOccurred())
-<span id="L285" class="ln">   285  </span>			Expect(n).To(Equal(uint64(0)))
+<span id="L282" class="ln">   282  </span>		It(&#34;kbit unit, should convert number with unit successfully&#34;, func() {
+<span id="L283" class="ln">   283  </span>			isValid, err := isValidRateUnit(&#34;  10   kbit  &#34;)
+<span id="L284" class="ln">   284  </span>			Expect(err).Should(Succeed())
+<span id="L285" class="ln">   285  </span>			Expect(isValid).To(Equal(true))
 <span id="L286" class="ln">   286  </span>		})
-<span id="L287" class="ln">   287  </span>	})
-<span id="L288" class="ln">   288  </span>})
-<span id="L289" class="ln">   289  </span>
+<span id="L287" class="ln">   287  </span>
+<span id="L288" class="ln">   288  </span>		It(&#34;should return error with invalid unit&#34;, func() {
+<span id="L289" class="ln">   289  </span>			isValid, err := isValidRateUnit(&#34; 10 cpbs&#34;)
+<span id="L290" class="ln">   290  </span>			Expect(err).Should(HaveOccurred())
+<span id="L291" class="ln">   291  </span>			Expect(isValid).To(Equal(false))
+<span id="L292" class="ln">   292  </span>		})
+<span id="L293" class="ln">   293  </span>	})
+<span id="L294" class="ln">   294  </span>})
+<span id="L295" class="ln">   295  </span>
 </pre><p></p>
 
 <div id="footer">

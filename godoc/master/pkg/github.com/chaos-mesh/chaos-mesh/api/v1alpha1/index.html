@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d6694c5. Generated at Tue Aug 22 22:03:32 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 854c52f. Generated at Wed Aug 23 10:02:00 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -138,9 +138,6 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 			
 				
 				<dd><a href="#CheckPid">func CheckPid(pid int) error</a></dd>
-			
-				
-				<dd><a href="#ConvertUnitToBytes">func ConvertUnitToBytes(nu string) (uint64, error)</a></dd>
 			
 				
 				<dd><a href="#FetchChaosByTemplateType">func FetchChaosByTemplateType(templateType TemplateType) (runtime.Object, error)</a></dd>
@@ -4534,19 +4531,6 @@ AllKinds returns all chaos kinds.
 		
 			
 			
-			<h2 id="ConvertUnitToBytes">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/networkchaos_webhook.go#L67">ConvertUnitToBytes</a>
-				<a class="permalink" href="#ConvertUnitToBytes">&#xb6;</a>
-				
-				
-			</h2>
-			<pre>func ConvertUnitToBytes(nu <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint64">uint64</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
-			
-			
-			
-
-		
-			
-			
 			<h2 id="FetchChaosByTemplateType">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_types.go#L194">FetchChaosByTemplateType</a>
 				<a class="permalink" href="#FetchChaosByTemplateType">&#xb6;</a>
 				
@@ -6106,7 +6090,7 @@ BandwidthSpec defines detail of bandwidth limit.
 </p>
 
 			<pre>type BandwidthSpec struct {
-<span id="BandwidthSpec.Rate"></span>    <span class="comment">// Rate is the speed knob. Allows bps, kbps, mbps, gbps, tbps unit. bps means bytes per second.</span>
+<span id="BandwidthSpec.Rate"></span>    <span class="comment">// Rate is the speed knob. Allows bit, kbit, mbit, gbit, tbit, bps, kbps, mbps, gbps, tbps unit. bps means bytes per second.</span>
     Rate <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a> `json:&#34;rate&#34; webhook:&#34;Rate&#34;`
 <span id="BandwidthSpec.Limit"></span>    <span class="comment">// Limit is the number of bytes that can be queued waiting for tokens to become available.</span>
     <span class="comment">// +kubebuilder:validation:Minimum=1</span>
@@ -16116,7 +16100,7 @@ GetDuration would return the duration for chaos
 				
 			
 				
-				<h3 id="NetworkChaosSpec.Validate">func (*NetworkChaosSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/networkchaos_webhook.go#L95">Validate</a>
+				<h3 id="NetworkChaosSpec.Validate">func (*NetworkChaosSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/networkchaos_webhook.go#L89">Validate</a>
 					<a class="permalink" href="#NetworkChaosSpec.Validate">&#xb6;</a>
 					
 					

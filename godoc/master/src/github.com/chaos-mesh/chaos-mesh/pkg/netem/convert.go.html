@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit d6694c5. Generated at Tue Aug 22 22:03:32 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 854c52f. Generated at Wed Aug 23 10:02:00 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -189,26 +189,20 @@
 <span id="L124" class="ln">   124  </span><span class="comment">// for traffic control with the tc command.</span>
 <span id="L125" class="ln">   125  </span><span class="comment">// http://man7.org/linux/man-pages/man8/tc-tbf.8.html</span>
 <span id="L126" class="ln">   126  </span>func FromBandwidth(in *v1alpha1.BandwidthSpec) (*chaosdaemonpb.Tbf, error) {
-<span id="L127" class="ln">   127  </span>	rate, err := v1alpha1.ConvertUnitToBytes(in.Rate)
-<span id="L128" class="ln">   128  </span>
-<span id="L129" class="ln">   129  </span>	if err != nil {
-<span id="L130" class="ln">   130  </span>		return nil, err
+<span id="L127" class="ln">   127  </span>	tbf := &amp;chaosdaemonpb.Tbf{
+<span id="L128" class="ln">   128  </span>		Rate:   in.Rate,
+<span id="L129" class="ln">   129  </span>		Limit:  in.Limit,
+<span id="L130" class="ln">   130  </span>		Buffer: in.Buffer,
 <span id="L131" class="ln">   131  </span>	}
 <span id="L132" class="ln">   132  </span>
-<span id="L133" class="ln">   133  </span>	tbf := &amp;chaosdaemonpb.Tbf{
-<span id="L134" class="ln">   134  </span>		Rate:   rate,
-<span id="L135" class="ln">   135  </span>		Limit:  in.Limit,
-<span id="L136" class="ln">   136  </span>		Buffer: in.Buffer,
-<span id="L137" class="ln">   137  </span>	}
-<span id="L138" class="ln">   138  </span>
-<span id="L139" class="ln">   139  </span>	if in.Peakrate != nil &amp;&amp; in.Minburst != nil {
-<span id="L140" class="ln">   140  </span>		tbf.PeakRate = *in.Peakrate
-<span id="L141" class="ln">   141  </span>		tbf.MinBurst = *in.Minburst
-<span id="L142" class="ln">   142  </span>	}
-<span id="L143" class="ln">   143  </span>
-<span id="L144" class="ln">   144  </span>	return tbf, nil
-<span id="L145" class="ln">   145  </span>}
-<span id="L146" class="ln">   146  </span>
+<span id="L133" class="ln">   133  </span>	if in.Peakrate != nil &amp;&amp; in.Minburst != nil {
+<span id="L134" class="ln">   134  </span>		tbf.PeakRate = *in.Peakrate
+<span id="L135" class="ln">   135  </span>		tbf.MinBurst = *in.Minburst
+<span id="L136" class="ln">   136  </span>	}
+<span id="L137" class="ln">   137  </span>
+<span id="L138" class="ln">   138  </span>	return tbf, nil
+<span id="L139" class="ln">   139  </span>}
+<span id="L140" class="ln">   140  </span>
 </pre><p></p>
 
 <div id="footer">
