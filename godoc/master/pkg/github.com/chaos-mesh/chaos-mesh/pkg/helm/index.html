@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 854c52f. Generated at Wed Aug 23 22:03:27 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 45fdbae. Generated at Thu Aug 24 10:01:38 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -147,10 +147,13 @@ install / upgrade Chaos Mesh on remote cluster
 					<dd>&nbsp; &nbsp; <a href="#HelmClient.GetRelease">func (h *HelmClient) GetRelease(namespace string, releaseName string) (*release.Release, error)</a></dd>
 				
 					
+					<dd>&nbsp; &nbsp; <a href="#HelmClient.InstallRelease">func (h *HelmClient) InstallRelease(namespace string, releaseName string, chart *chart.Chart, values map[string]interface{}) (*release.Release, error)</a></dd>
+				
+					
 					<dd>&nbsp; &nbsp; <a href="#HelmClient.UninstallRelease">func (h *HelmClient) UninstallRelease(namespace string, releaseName string) (*release.UninstallReleaseResponse, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#HelmClient.UpgradeOrInstall">func (h *HelmClient) UpgradeOrInstall(namespace string, releaseName string, chart *chart.Chart, values map[string]interface{}) (*release.Release, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#HelmClient.UpgradeRelease">func (h *HelmClient) UpgradeRelease(namespace string, releaseName string, chart *chart.Chart, values map[string]interface{}) (*release.Release, error)</a></dd>
 				
 			
 				
@@ -351,7 +354,19 @@ fmt.Fprintln(os.Stderr, chart.AppVersion())
 				
 			
 				
-				<h3 id="HelmClient.UninstallRelease">func (*HelmClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/helm_client.go#L99">UninstallRelease</a>
+				<h3 id="HelmClient.InstallRelease">func (*HelmClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/helm_client.go#L83">InstallRelease</a>
+					<a class="permalink" href="#HelmClient.InstallRelease">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (h *<a href="#HelmClient">HelmClient</a>) InstallRelease(namespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, releaseName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, chart *<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/chart/">chart</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/chart/#Chart">Chart</a>, values map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]interface{}) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/">release</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/#Release">Release</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="HelmClient.UninstallRelease">func (*HelmClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/helm_client.go#L113">UninstallRelease</a>
 					<a class="permalink" href="#HelmClient.UninstallRelease">&#xb6;</a>
 					
 					
@@ -363,12 +378,12 @@ fmt.Fprintln(os.Stderr, chart.AppVersion())
 				
 			
 				
-				<h3 id="HelmClient.UpgradeOrInstall">func (*HelmClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/helm_client.go#L83">UpgradeOrInstall</a>
-					<a class="permalink" href="#HelmClient.UpgradeOrInstall">&#xb6;</a>
+				<h3 id="HelmClient.UpgradeRelease">func (*HelmClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/helm/helm_client.go#L99">UpgradeRelease</a>
+					<a class="permalink" href="#HelmClient.UpgradeRelease">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (h *<a href="#HelmClient">HelmClient</a>) UpgradeOrInstall(namespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, releaseName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, chart *<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/chart/">chart</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/chart/#Chart">Chart</a>, values map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]interface{}) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/">release</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/#Release">Release</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<pre>func (h *<a href="#HelmClient">HelmClient</a>) UpgradeRelease(namespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, releaseName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, chart *<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/chart/">chart</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/chart/#Chart">Chart</a>, values map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]interface{}) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/">release</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/helm.sh/helm/v3/pkg/release/#Release">Release</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
