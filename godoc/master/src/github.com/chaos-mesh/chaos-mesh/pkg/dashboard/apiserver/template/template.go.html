@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 4203632. Generated at Mon Sep 11 22:03:34 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 30d9600. Generated at Tue Sep 12 10:01:49 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -206,7 +206,7 @@
 <span id="L141" class="ln">   141  </span>		return
 <span id="L142" class="ln">   142  </span>	}
 <span id="L143" class="ln">   143  </span>	template.Spec.Default()
-<span id="L144" class="ln">   144  </span>	if err := template.Spec.Validate(); err != nil {
+<span id="L144" class="ln">   144  </span>	if _, err := template.Spec.Validate(); err != nil {
 <span id="L145" class="ln">   145  </span>		u.SetAPIError(c, u.ErrInternalServer.WrapWithNoMessage(err))
 <span id="L146" class="ln">   146  </span>		return
 <span id="L147" class="ln">   147  </span>	}
@@ -321,7 +321,7 @@
 <span id="L256" class="ln">   256  </span>		return
 <span id="L257" class="ln">   257  </span>	}
 <span id="L258" class="ln">   258  </span>	template.Spec.Default()
-<span id="L259" class="ln">   259  </span>	if err := template.Spec.Validate(); err != nil {
+<span id="L259" class="ln">   259  </span>	if _, err := template.Spec.Validate(); err != nil {
 <span id="L260" class="ln">   260  </span>		u.SetAPIError(c, u.ErrInternalServer.WrapWithNoMessage(err))
 <span id="L261" class="ln">   261  </span>		return
 <span id="L262" class="ln">   262  </span>	}

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 4203632. Generated at Mon Sep 11 22:03:34 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 30d9600. Generated at Tue Sep 12 10:01:49 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -92,11 +92,11 @@
 <span id="L27" class="ln">    27  </span>	&#34;time&#34;
 <span id="L28" class="ln">    28  </span>
 <span id="L29" class="ln">    29  </span>	&#34;github.com/pkg/errors&#34;
-<span id="L30" class="ln">    30  </span>
-<span id="L31" class="ln">    31  </span>	metav1 &#34;k8s.io/apimachinery/pkg/apis/meta/v1&#34;
-<span id="L32" class="ln">    32  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/webhook&#34;
-<span id="L33" class="ln">    33  </span>	logf &#34;sigs.k8s.io/controller-runtime/pkg/log&#34;
-<span id="L34" class="ln">    34  </span>	&#34;k8s.io/apimachinery/pkg/runtime&#34;
+<span id="L30" class="ln">    30  </span>	metav1 &#34;k8s.io/apimachinery/pkg/apis/meta/v1&#34;
+<span id="L31" class="ln">    31  </span>	&#34;k8s.io/apimachinery/pkg/runtime&#34;
+<span id="L32" class="ln">    32  </span>	logf &#34;sigs.k8s.io/controller-runtime/pkg/log&#34;
+<span id="L33" class="ln">    33  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/webhook&#34;
+<span id="L34" class="ln">    34  </span>	&#34;sigs.k8s.io/controller-runtime/pkg/webhook/admission&#34;
 <span id="L35" class="ln">    35  </span>
 <span id="L36" class="ln">    36  </span>	gw &#34;github.com/chaos-mesh/chaos-mesh/api/genericwebhook&#34;
 <span id="L37" class="ln">    37  </span>)
@@ -217,35 +217,35 @@
 <span id="L152" class="ln">   152  </span>{{end}}
 <span id="L153" class="ln">   153  </span>var {{.Type}}WebhookLog = logf.Log.WithName(&#34;{{.Type}}-resource&#34;)
 <span id="L154" class="ln">   154  </span>
-<span id="L155" class="ln">   155  </span>func (in *{{.Type}}) ValidateCreate() error {
+<span id="L155" class="ln">   155  </span>func (in *{{.Type}}) ValidateCreate() (admission.Warnings, error) {
 <span id="L156" class="ln">   156  </span>	{{.Type}}WebhookLog.Info(&#34;validate create&#34;, &#34;name&#34;, in.Name)
 <span id="L157" class="ln">   157  </span>	return in.Validate()
 <span id="L158" class="ln">   158  </span>}
 <span id="L159" class="ln">   159  </span>
 <span id="L160" class="ln">   160  </span>// ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
-<span id="L161" class="ln">   161  </span>func (in *{{.Type}}) ValidateUpdate(old runtime.Object) error {
+<span id="L161" class="ln">   161  </span>func (in *{{.Type}}) ValidateUpdate(old runtime.Object) (admission.Warnings, error) {
 <span id="L162" class="ln">   162  </span>	{{.Type}}WebhookLog.Info(&#34;validate update&#34;, &#34;name&#34;, in.Name)
 <span id="L163" class="ln">   163  </span>	{{- if not .EnableUpdate}}
 <span id="L164" class="ln">   164  </span>	if !reflect.DeepEqual(in.Spec, old.(*{{.Type}}).Spec) {
-<span id="L165" class="ln">   165  </span>		return ErrCanNotUpdateChaos
+<span id="L165" class="ln">   165  </span>		return nil, ErrCanNotUpdateChaos
 <span id="L166" class="ln">   166  </span>	}
 <span id="L167" class="ln">   167  </span>	{{- end}}
 <span id="L168" class="ln">   168  </span>	return in.Validate()
 <span id="L169" class="ln">   169  </span>}
 <span id="L170" class="ln">   170  </span>
 <span id="L171" class="ln">   171  </span>// ValidateDelete implements webhook.Validator so a webhook will be registered for the type
-<span id="L172" class="ln">   172  </span>func (in *{{.Type}}) ValidateDelete() error {
+<span id="L172" class="ln">   172  </span>func (in *{{.Type}}) ValidateDelete() (admission.Warnings, error) {
 <span id="L173" class="ln">   173  </span>	{{.Type}}WebhookLog.Info(&#34;validate delete&#34;, &#34;name&#34;, in.Name)
 <span id="L174" class="ln">   174  </span>
 <span id="L175" class="ln">   175  </span>	// Nothing to do?
-<span id="L176" class="ln">   176  </span>	return nil
+<span id="L176" class="ln">   176  </span>	return nil, nil
 <span id="L177" class="ln">   177  </span>}
 <span id="L178" class="ln">   178  </span>
 <span id="L179" class="ln">   179  </span>var _ webhook.Validator = &amp;{{.Type}}{}
 <span id="L180" class="ln">   180  </span>
-<span id="L181" class="ln">   181  </span>func (in *{{.Type}}) Validate() error {
+<span id="L181" class="ln">   181  </span>func (in *{{.Type}}) Validate() ([]string, error) {
 <span id="L182" class="ln">   182  </span>	errs := gw.Validate(in)
-<span id="L183" class="ln">   183  </span>	return gw.Aggregate(errs)
+<span id="L183" class="ln">   183  </span>	return nil, gw.Aggregate(errs)
 <span id="L184" class="ln">   184  </span>}
 <span id="L185" class="ln">   185  </span>
 <span id="L186" class="ln">   186  </span>var _ webhook.Defaulter = &amp;{{.Type}}{}

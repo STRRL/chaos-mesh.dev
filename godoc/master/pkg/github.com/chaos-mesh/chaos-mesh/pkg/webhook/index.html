@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 4203632. Generated at Mon Sep 11 22:03:34 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 30d9600. Generated at Tue Sep 12 10:01:49 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -120,14 +120,11 @@
 				<dd><a href="#AuthValidator">type AuthValidator</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewAuthValidator">func NewAuthValidator(enabled bool, authCli *authorizationv1.AuthorizationV1Client, clusterScoped bool, targetNamespace string, enableFilterNamespace bool, logger logr.Logger) *AuthValidator</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NewAuthValidator">func NewAuthValidator(enabled bool, authCli *authorizationv1.AuthorizationV1Client, decoderScheme *runtime.Scheme, clusterScoped bool, targetNamespace string, enableFilterNamespace bool, logger logr.Logger) *AuthValidator</a></dd>
 				
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#AuthValidator.Handle">func (v *AuthValidator) Handle(ctx context.Context, req admission.Request) admission.Response</a></dd>
-				
-					
-					<dd>&nbsp; &nbsp; <a href="#AuthValidator.InjectDecoder">func (v *AuthValidator) InjectDecoder(d *admission.Decoder) error</a></dd>
 				
 			
 			
@@ -161,7 +158,7 @@
 		
 			
 			
-			<h2 id="AuthValidator">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/validate_auth.go#L50">AuthValidator</a>
+			<h2 id="AuthValidator">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/validate_auth.go#L51">AuthValidator</a>
 				<a class="permalink" href="#AuthValidator">&#xb6;</a>
 				
 				
@@ -185,12 +182,12 @@ AuthValidator validates the authority
 
 			
 				
-				<h3 id="NewAuthValidator">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/validate_auth.go#L63">NewAuthValidator</a>
+				<h3 id="NewAuthValidator">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/validate_auth.go#L64">NewAuthValidator</a>
 					<a class="permalink" href="#NewAuthValidator">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func NewAuthValidator(enabled <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, authCli *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/">authorizationv1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/#AuthorizationV1Client">AuthorizationV1Client</a>,
+				<pre>func NewAuthValidator(enabled <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, authCli *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/">authorizationv1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/client-go/kubernetes/typed/authorization/v1/#AuthorizationV1Client">AuthorizationV1Client</a>, decoderScheme *<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Scheme">Scheme</a>,
     clusterScoped <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, targetNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, enableFilterNamespace <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#bool">bool</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#AuthValidator">AuthValidator</a></pre>
 				<p>
 NewAuthValidator returns a new AuthValidator
@@ -202,7 +199,7 @@ NewAuthValidator returns a new AuthValidator
 
 			
 				
-				<h3 id="AuthValidator.Handle">func (*AuthValidator) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/validate_auth.go#L76">Handle</a>
+				<h3 id="AuthValidator.Handle">func (*AuthValidator) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/validate_auth.go#L78">Handle</a>
 					<a class="permalink" href="#AuthValidator.Handle">&#xb6;</a>
 					
 					
@@ -210,21 +207,6 @@ NewAuthValidator returns a new AuthValidator
 				<pre>func (v *<a href="#AuthValidator">AuthValidator</a>) Handle(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, req <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Request">Request</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Response">Response</a></pre>
 				<p>
 AuthValidator admits a pod iff a specific annotation exists.
-</p>
-
-				
-				
-				
-			
-				
-				<h3 id="AuthValidator.InjectDecoder">func (*AuthValidator) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/validate_auth.go#L137">InjectDecoder</a>
-					<a class="permalink" href="#AuthValidator.InjectDecoder">&#xb6;</a>
-					
-					
-				</h3>
-				<pre>func (v *<a href="#AuthValidator">AuthValidator</a>) InjectDecoder(d *<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Decoder">Decoder</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
-				<p>
-InjectDecoder injects the decoder.
 </p>
 
 				

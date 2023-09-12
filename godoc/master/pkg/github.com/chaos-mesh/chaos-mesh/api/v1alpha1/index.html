@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 4203632. Generated at Mon Sep 11 22:03:34 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 30d9600. Generated at Tue Sep 12 10:01:49 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -205,16 +205,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#AWSChaos.IsPaused">func (in *AWSChaos) IsPaused() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#AWSChaos.Validate">func (in *AWSChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#AWSChaos.Validate">func (in *AWSChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#AWSChaos.ValidateCreate">func (in *AWSChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#AWSChaos.ValidateCreate">func (in *AWSChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#AWSChaos.ValidateDelete">func (in *AWSChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#AWSChaos.ValidateDelete">func (in *AWSChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#AWSChaos.ValidateUpdate">func (in *AWSChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#AWSChaos.ValidateUpdate">func (in *AWSChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -350,16 +350,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#AzureChaos.IsPaused">func (in *AzureChaos) IsPaused() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#AzureChaos.Validate">func (in *AzureChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#AzureChaos.Validate">func (in *AzureChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#AzureChaos.ValidateCreate">func (in *AzureChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#AzureChaos.ValidateCreate">func (in *AzureChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#AzureChaos.ValidateDelete">func (in *AzureChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#AzureChaos.ValidateDelete">func (in *AzureChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#AzureChaos.ValidateUpdate">func (in *AzureChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#AzureChaos.ValidateUpdate">func (in *AzureChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -490,16 +490,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#BlockChaos.IsPaused">func (in *BlockChaos) IsPaused() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#BlockChaos.Validate">func (in *BlockChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#BlockChaos.Validate">func (in *BlockChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#BlockChaos.ValidateCreate">func (in *BlockChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#BlockChaos.ValidateCreate">func (in *BlockChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#BlockChaos.ValidateDelete">func (in *BlockChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#BlockChaos.ValidateDelete">func (in *BlockChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#BlockChaos.ValidateUpdate">func (in *BlockChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#BlockChaos.ValidateUpdate">func (in *BlockChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -807,16 +807,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#DNSChaos.IsPaused">func (in *DNSChaos) IsPaused() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#DNSChaos.Validate">func (in *DNSChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#DNSChaos.Validate">func (in *DNSChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#DNSChaos.ValidateCreate">func (in *DNSChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#DNSChaos.ValidateCreate">func (in *DNSChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#DNSChaos.ValidateDelete">func (in *DNSChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#DNSChaos.ValidateDelete">func (in *DNSChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#DNSChaos.ValidateUpdate">func (in *DNSChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#DNSChaos.ValidateUpdate">func (in *DNSChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -1198,16 +1198,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#GCPChaos.IsPaused">func (in *GCPChaos) IsPaused() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#GCPChaos.Validate">func (in *GCPChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#GCPChaos.Validate">func (in *GCPChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#GCPChaos.ValidateCreate">func (in *GCPChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#GCPChaos.ValidateCreate">func (in *GCPChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#GCPChaos.ValidateDelete">func (in *GCPChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#GCPChaos.ValidateDelete">func (in *GCPChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#GCPChaos.ValidateUpdate">func (in *GCPChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#GCPChaos.ValidateUpdate">func (in *GCPChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -1373,16 +1373,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#HTTPChaos.IsPaused">func (in *HTTPChaos) IsPaused() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#HTTPChaos.Validate">func (in *HTTPChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#HTTPChaos.Validate">func (in *HTTPChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#HTTPChaos.ValidateCreate">func (in *HTTPChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#HTTPChaos.ValidateCreate">func (in *HTTPChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#HTTPChaos.ValidateDelete">func (in *HTTPChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#HTTPChaos.ValidateDelete">func (in *HTTPChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#HTTPChaos.ValidateUpdate">func (in *HTTPChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#HTTPChaos.ValidateUpdate">func (in *HTTPChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -1562,16 +1562,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#IOChaos.IsPaused">func (in *IOChaos) IsPaused() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#IOChaos.Validate">func (in *IOChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#IOChaos.Validate">func (in *IOChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#IOChaos.ValidateCreate">func (in *IOChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#IOChaos.ValidateCreate">func (in *IOChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#IOChaos.ValidateDelete">func (in *IOChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#IOChaos.ValidateDelete">func (in *IOChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#IOChaos.ValidateUpdate">func (in *IOChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#IOChaos.ValidateUpdate">func (in *IOChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -1726,16 +1726,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#JVMChaos.IsPaused">func (in *JVMChaos) IsPaused() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#JVMChaos.Validate">func (in *JVMChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#JVMChaos.Validate">func (in *JVMChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#JVMChaos.ValidateCreate">func (in *JVMChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#JVMChaos.ValidateCreate">func (in *JVMChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#JVMChaos.ValidateDelete">func (in *JVMChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#JVMChaos.ValidateDelete">func (in *JVMChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#JVMChaos.ValidateUpdate">func (in *JVMChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#JVMChaos.ValidateUpdate">func (in *JVMChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -2006,16 +2006,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#KernelChaos.IsPaused">func (in *KernelChaos) IsPaused() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#KernelChaos.Validate">func (in *KernelChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#KernelChaos.Validate">func (in *KernelChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#KernelChaos.ValidateCreate">func (in *KernelChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#KernelChaos.ValidateCreate">func (in *KernelChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#KernelChaos.ValidateDelete">func (in *KernelChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#KernelChaos.ValidateDelete">func (in *KernelChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#KernelChaos.ValidateUpdate">func (in *KernelChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#KernelChaos.ValidateUpdate">func (in *KernelChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -2179,16 +2179,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#NetworkChaos.IsPaused">func (in *NetworkChaos) IsPaused() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NetworkChaos.Validate">func (in *NetworkChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NetworkChaos.Validate">func (in *NetworkChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NetworkChaos.ValidateCreate">func (in *NetworkChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NetworkChaos.ValidateCreate">func (in *NetworkChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NetworkChaos.ValidateDelete">func (in *NetworkChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NetworkChaos.ValidateDelete">func (in *NetworkChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NetworkChaos.ValidateUpdate">func (in *NetworkChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NetworkChaos.ValidateUpdate">func (in *NetworkChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -2390,16 +2390,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#PhysicalMachine.Default">func (in *PhysicalMachine) Default()</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PhysicalMachine.Validate">func (in *PhysicalMachine) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PhysicalMachine.Validate">func (in *PhysicalMachine) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PhysicalMachine.ValidateCreate">func (in *PhysicalMachine) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PhysicalMachine.ValidateCreate">func (in *PhysicalMachine) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PhysicalMachine.ValidateDelete">func (in *PhysicalMachine) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PhysicalMachine.ValidateDelete">func (in *PhysicalMachine) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PhysicalMachine.ValidateUpdate">func (in *PhysicalMachine) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PhysicalMachine.ValidateUpdate">func (in *PhysicalMachine) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -2446,16 +2446,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#PhysicalMachineChaos.IsPaused">func (in *PhysicalMachineChaos) IsPaused() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PhysicalMachineChaos.Validate">func (in *PhysicalMachineChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PhysicalMachineChaos.Validate">func (in *PhysicalMachineChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PhysicalMachineChaos.ValidateCreate">func (in *PhysicalMachineChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PhysicalMachineChaos.ValidateCreate">func (in *PhysicalMachineChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PhysicalMachineChaos.ValidateDelete">func (in *PhysicalMachineChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PhysicalMachineChaos.ValidateDelete">func (in *PhysicalMachineChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PhysicalMachineChaos.ValidateUpdate">func (in *PhysicalMachineChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PhysicalMachineChaos.ValidateUpdate">func (in *PhysicalMachineChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -2617,16 +2617,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#PodChaos.IsPaused">func (in *PodChaos) IsPaused() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PodChaos.Validate">func (in *PodChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PodChaos.Validate">func (in *PodChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PodChaos.ValidateCreate">func (in *PodChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PodChaos.ValidateCreate">func (in *PodChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PodChaos.ValidateDelete">func (in *PodChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PodChaos.ValidateDelete">func (in *PodChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PodChaos.ValidateUpdate">func (in *PodChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PodChaos.ValidateUpdate">func (in *PodChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -2702,16 +2702,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#PodHttpChaos.Default">func (in *PodHttpChaos) Default()</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PodHttpChaos.Validate">func (in *PodHttpChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PodHttpChaos.Validate">func (in *PodHttpChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PodHttpChaos.ValidateCreate">func (in *PodHttpChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PodHttpChaos.ValidateCreate">func (in *PodHttpChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PodHttpChaos.ValidateDelete">func (in *PodHttpChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PodHttpChaos.ValidateDelete">func (in *PodHttpChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PodHttpChaos.ValidateUpdate">func (in *PodHttpChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PodHttpChaos.ValidateUpdate">func (in *PodHttpChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -2863,16 +2863,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#PodIOChaos.Default">func (in *PodIOChaos) Default()</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PodIOChaos.Validate">func (in *PodIOChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PodIOChaos.Validate">func (in *PodIOChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PodIOChaos.ValidateCreate">func (in *PodIOChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PodIOChaos.ValidateCreate">func (in *PodIOChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PodIOChaos.ValidateDelete">func (in *PodIOChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PodIOChaos.ValidateDelete">func (in *PodIOChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PodIOChaos.ValidateUpdate">func (in *PodIOChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PodIOChaos.ValidateUpdate">func (in *PodIOChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -2928,16 +2928,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#PodNetworkChaos.Default">func (in *PodNetworkChaos) Default()</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PodNetworkChaos.Validate">func (in *PodNetworkChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PodNetworkChaos.Validate">func (in *PodNetworkChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PodNetworkChaos.ValidateCreate">func (in *PodNetworkChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PodNetworkChaos.ValidateCreate">func (in *PodNetworkChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PodNetworkChaos.ValidateDelete">func (in *PodNetworkChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PodNetworkChaos.ValidateDelete">func (in *PodNetworkChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#PodNetworkChaos.ValidateUpdate">func (in *PodNetworkChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#PodNetworkChaos.ValidateUpdate">func (in *PodNetworkChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -3199,16 +3199,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#RemoteCluster.Default">func (in *RemoteCluster) Default()</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#RemoteCluster.Validate">func (in *RemoteCluster) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#RemoteCluster.Validate">func (in *RemoteCluster) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#RemoteCluster.ValidateCreate">func (in *RemoteCluster) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#RemoteCluster.ValidateCreate">func (in *RemoteCluster) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#RemoteCluster.ValidateDelete">func (in *RemoteCluster) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#RemoteCluster.ValidateDelete">func (in *RemoteCluster) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#RemoteCluster.ValidateUpdate">func (in *RemoteCluster) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#RemoteCluster.ValidateUpdate">func (in *RemoteCluster) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -3321,16 +3321,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#Schedule.IsPaused">func (in *Schedule) IsPaused() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#Schedule.Validate">func (in *Schedule) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#Schedule.Validate">func (in *Schedule) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#Schedule.ValidateCreate">func (in *Schedule) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#Schedule.ValidateCreate">func (in *Schedule) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#Schedule.ValidateDelete">func (in *Schedule) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#Schedule.ValidateDelete">func (in *Schedule) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#Schedule.ValidateUpdate">func (in *Schedule) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#Schedule.ValidateUpdate">func (in *Schedule) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -3433,16 +3433,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#StatusCheck.IsCompleted">func (in *StatusCheck) IsCompleted() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#StatusCheck.Validate">func (in *StatusCheck) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#StatusCheck.Validate">func (in *StatusCheck) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#StatusCheck.ValidateCreate">func (in *StatusCheck) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#StatusCheck.ValidateCreate">func (in *StatusCheck) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#StatusCheck.ValidateDelete">func (in *StatusCheck) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#StatusCheck.ValidateDelete">func (in *StatusCheck) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#StatusCheck.ValidateUpdate">func (in *StatusCheck) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#StatusCheck.ValidateUpdate">func (in *StatusCheck) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -3540,7 +3540,7 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#StatusCheckTemplate.Default">func (in *StatusCheckTemplate) Default()</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#StatusCheckTemplate.Validate">func (in *StatusCheckTemplate) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#StatusCheckTemplate.Validate">func (in *StatusCheckTemplate) Validate() (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -3614,16 +3614,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#StressChaos.IsPaused">func (in *StressChaos) IsPaused() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#StressChaos.Validate">func (in *StressChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#StressChaos.Validate">func (in *StressChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#StressChaos.ValidateCreate">func (in *StressChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#StressChaos.ValidateCreate">func (in *StressChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#StressChaos.ValidateDelete">func (in *StressChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#StressChaos.ValidateDelete">func (in *StressChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#StressChaos.ValidateUpdate">func (in *StressChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#StressChaos.ValidateUpdate">func (in *StressChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -3817,16 +3817,16 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#TimeChaos.IsPaused">func (in *TimeChaos) IsPaused() bool</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#TimeChaos.Validate">func (in *TimeChaos) Validate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#TimeChaos.Validate">func (in *TimeChaos) Validate() ([]string, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#TimeChaos.ValidateCreate">func (in *TimeChaos) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#TimeChaos.ValidateCreate">func (in *TimeChaos) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#TimeChaos.ValidateDelete">func (in *TimeChaos) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#TimeChaos.ValidateDelete">func (in *TimeChaos) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#TimeChaos.ValidateUpdate">func (in *TimeChaos) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#TimeChaos.ValidateUpdate">func (in *TimeChaos) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -3943,13 +3943,13 @@ Package v1alpha1 contains API Schema definitions for the chaosmesh v1alpha1 API 
 					<dd>&nbsp; &nbsp; <a href="#Workflow.GetObjectMeta">func (in *Workflow) GetObjectMeta() *metav1.ObjectMeta</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#Workflow.ValidateCreate">func (in *Workflow) ValidateCreate() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#Workflow.ValidateCreate">func (in *Workflow) ValidateCreate() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#Workflow.ValidateDelete">func (in *Workflow) ValidateDelete() error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#Workflow.ValidateDelete">func (in *Workflow) ValidateDelete() (admission.Warnings, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#Workflow.ValidateUpdate">func (in *Workflow) ValidateUpdate(old runtime.Object) error</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#Workflow.ValidateUpdate">func (in *Workflow) ValidateUpdate(old runtime.Object) (admission.Warnings, error)</a></dd>
 				
 			
 				
@@ -4544,7 +4544,7 @@ AllKinds returns all chaos kinds.
 		
 			
 			
-			<h2 id="GenerateTemplateName">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L63">GenerateTemplateName</a>
+			<h2 id="GenerateTemplateName">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L64">GenerateTemplateName</a>
 				<a class="permalink" href="#GenerateTemplateName">&#xb6;</a>
 				
 				
@@ -4557,7 +4557,7 @@ AllKinds returns all chaos kinds.
 		
 			
 			
-			<h2 id="GetTemplateDescription">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L59">GetTemplateDescription</a>
+			<h2 id="GetTemplateDescription">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L60">GetTemplateDescription</a>
 				<a class="permalink" href="#GetTemplateDescription">&#xb6;</a>
 				
 				
@@ -4570,7 +4570,7 @@ AllKinds returns all chaos kinds.
 		
 			
 			
-			<h2 id="GetTemplateName">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L55">GetTemplateName</a>
+			<h2 id="GetTemplateName">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L56">GetTemplateName</a>
 				<a class="permalink" href="#GetTemplateName">&#xb6;</a>
 				
 				
@@ -4596,7 +4596,7 @@ AllKinds returns all chaos kinds.
 		
 			
 			
-			<h2 id="IsStatusCheckTemplate">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L67">IsStatusCheckTemplate</a>
+			<h2 id="IsStatusCheckTemplate">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L68">IsStatusCheckTemplate</a>
 				<a class="permalink" href="#IsStatusCheckTemplate">&#xb6;</a>
 				
 				
@@ -4846,7 +4846,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#AWSChaos">AWSChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#AWSChaos">AWSChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -4858,7 +4858,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#AWSChaos">AWSChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#AWSChaos">AWSChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -4870,7 +4870,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#AWSChaos">AWSChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#AWSChaos">AWSChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -4885,7 +4885,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#AWSChaos">AWSChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#AWSChaos">AWSChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -5632,7 +5632,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#AzureChaos">AzureChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#AzureChaos">AzureChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -5644,7 +5644,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#AzureChaos">AzureChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#AzureChaos">AzureChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -5656,7 +5656,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#AzureChaos">AzureChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#AzureChaos">AzureChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -5671,7 +5671,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#AzureChaos">AzureChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#AzureChaos">AzureChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -6389,7 +6389,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#BlockChaos">BlockChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#BlockChaos">BlockChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -6401,7 +6401,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#BlockChaos">BlockChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#BlockChaos">BlockChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -6413,7 +6413,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#BlockChaos">BlockChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#BlockChaos">BlockChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -6428,7 +6428,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#BlockChaos">BlockChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#BlockChaos">BlockChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -7446,7 +7446,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 
 			
 				
-				<h3 id="ConcurrencyPolicy.Default">func (*ConcurrencyPolicy) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/schedule_webhook.go#L39">Default</a>
+				<h3 id="ConcurrencyPolicy.Default">func (*ConcurrencyPolicy) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/schedule_webhook.go#L40">Default</a>
 					<a class="permalink" href="#ConcurrencyPolicy.Default">&#xb6;</a>
 					
 					
@@ -8086,7 +8086,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#DNSChaos">DNSChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#DNSChaos">DNSChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -8098,7 +8098,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#DNSChaos">DNSChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#DNSChaos">DNSChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -8110,7 +8110,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#DNSChaos">DNSChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#DNSChaos">DNSChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -8125,7 +8125,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#DNSChaos">DNSChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#DNSChaos">DNSChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -10378,7 +10378,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#GCPChaos">GCPChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#GCPChaos">GCPChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -10390,7 +10390,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#GCPChaos">GCPChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#GCPChaos">GCPChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -10402,7 +10402,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#GCPChaos">GCPChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#GCPChaos">GCPChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -10417,7 +10417,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#GCPChaos">GCPChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#GCPChaos">GCPChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -11318,7 +11318,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#HTTPChaos">HTTPChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#HTTPChaos">HTTPChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -11330,7 +11330,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#HTTPChaos">HTTPChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#HTTPChaos">HTTPChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -11342,7 +11342,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#HTTPChaos">HTTPChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#HTTPChaos">HTTPChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -11357,7 +11357,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#HTTPChaos">HTTPChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#HTTPChaos">HTTPChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -12320,7 +12320,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#IOChaos">IOChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#IOChaos">IOChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -12332,7 +12332,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#IOChaos">IOChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#IOChaos">IOChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -12344,7 +12344,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#IOChaos">IOChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#IOChaos">IOChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -12359,7 +12359,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#IOChaos">IOChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#IOChaos">IOChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -13290,7 +13290,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#JVMChaos">JVMChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#JVMChaos">JVMChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -13302,7 +13302,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#JVMChaos">JVMChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#JVMChaos">JVMChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -13314,7 +13314,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#JVMChaos">JVMChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#JVMChaos">JVMChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -13329,7 +13329,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#JVMChaos">JVMChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#JVMChaos">JVMChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -14850,7 +14850,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#KernelChaos">KernelChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#KernelChaos">KernelChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -14862,7 +14862,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#KernelChaos">KernelChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#KernelChaos">KernelChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -14874,7 +14874,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#KernelChaos">KernelChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#KernelChaos">KernelChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -14889,7 +14889,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#KernelChaos">KernelChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#KernelChaos">KernelChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -15764,7 +15764,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#NetworkChaos">NetworkChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#NetworkChaos">NetworkChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -15776,7 +15776,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#NetworkChaos">NetworkChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#NetworkChaos">NetworkChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -15788,7 +15788,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#NetworkChaos">NetworkChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#NetworkChaos">NetworkChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -15803,7 +15803,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#NetworkChaos">NetworkChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#NetworkChaos">NetworkChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -16957,7 +16957,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PhysicalMachine">PhysicalMachine</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PhysicalMachine">PhysicalMachine</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -16969,7 +16969,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PhysicalMachine">PhysicalMachine</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PhysicalMachine">PhysicalMachine</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -16981,7 +16981,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PhysicalMachine">PhysicalMachine</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PhysicalMachine">PhysicalMachine</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -16996,7 +16996,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PhysicalMachine">PhysicalMachine</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PhysicalMachine">PhysicalMachine</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -17230,7 +17230,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PhysicalMachineChaos">PhysicalMachineChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PhysicalMachineChaos">PhysicalMachineChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -17242,7 +17242,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PhysicalMachineChaos">PhysicalMachineChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PhysicalMachineChaos">PhysicalMachineChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -17254,7 +17254,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PhysicalMachineChaos">PhysicalMachineChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PhysicalMachineChaos">PhysicalMachineChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -17269,7 +17269,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PhysicalMachineChaos">PhysicalMachineChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PhysicalMachineChaos">PhysicalMachineChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -18168,7 +18168,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PodChaos">PodChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PodChaos">PodChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -18180,7 +18180,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PodChaos">PodChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PodChaos">PodChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -18192,7 +18192,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PodChaos">PodChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PodChaos">PodChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -18207,7 +18207,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PodChaos">PodChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PodChaos">PodChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -18635,7 +18635,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PodHttpChaos">PodHttpChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PodHttpChaos">PodHttpChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -18647,7 +18647,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PodHttpChaos">PodHttpChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PodHttpChaos">PodHttpChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -18659,7 +18659,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PodHttpChaos">PodHttpChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PodHttpChaos">PodHttpChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -18674,7 +18674,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PodHttpChaos">PodHttpChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PodHttpChaos">PodHttpChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -19610,7 +19610,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PodIOChaos">PodIOChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PodIOChaos">PodIOChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -19622,7 +19622,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PodIOChaos">PodIOChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PodIOChaos">PodIOChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -19634,7 +19634,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PodIOChaos">PodIOChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PodIOChaos">PodIOChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -19649,7 +19649,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PodIOChaos">PodIOChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PodIOChaos">PodIOChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -19970,7 +19970,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PodNetworkChaos">PodNetworkChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PodNetworkChaos">PodNetworkChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -19982,7 +19982,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PodNetworkChaos">PodNetworkChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PodNetworkChaos">PodNetworkChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -19994,7 +19994,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PodNetworkChaos">PodNetworkChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PodNetworkChaos">PodNetworkChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -20009,7 +20009,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#PodNetworkChaos">PodNetworkChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#PodNetworkChaos">PodNetworkChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -21494,7 +21494,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 					
 					
 				</h3>
-				<pre>func (in *<a href="#RemoteCluster">RemoteCluster</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#RemoteCluster">RemoteCluster</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -21506,7 +21506,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 					
 					
 				</h3>
-				<pre>func (in *<a href="#RemoteCluster">RemoteCluster</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#RemoteCluster">RemoteCluster</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -21518,7 +21518,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 					
 					
 				</h3>
-				<pre>func (in *<a href="#RemoteCluster">RemoteCluster</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#RemoteCluster">RemoteCluster</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -21533,7 +21533,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#RemoteCluster">RemoteCluster</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#RemoteCluster">RemoteCluster</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -22119,7 +22119,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 				
 			
 				
-				<h3 id="Schedule.Default">func (*Schedule) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/schedule_webhook.go#L34">Default</a>
+				<h3 id="Schedule.Default">func (*Schedule) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/schedule_webhook.go#L35">Default</a>
 					<a class="permalink" href="#Schedule.Default">&#xb6;</a>
 					
 					
@@ -22146,12 +22146,12 @@ Default implements webhook.Defaulter so a webhook will be registered for the typ
 				
 			
 				
-				<h3 id="Schedule.Validate">func (*Schedule) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/schedule_webhook.go#L66">Validate</a>
+				<h3 id="Schedule.Validate">func (*Schedule) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/schedule_webhook.go#L67">Validate</a>
 					<a class="permalink" href="#Schedule.Validate">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (in *<a href="#Schedule">Schedule</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#Schedule">Schedule</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 Validate validates chaos object
 </p>
@@ -22161,12 +22161,12 @@ Validate validates chaos object
 				
 			
 				
-				<h3 id="Schedule.ValidateCreate">func (*Schedule) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/schedule_webhook.go#L48">ValidateCreate</a>
+				<h3 id="Schedule.ValidateCreate">func (*Schedule) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/schedule_webhook.go#L49">ValidateCreate</a>
 					<a class="permalink" href="#Schedule.ValidateCreate">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (in *<a href="#Schedule">Schedule</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#Schedule">Schedule</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateCreate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -22176,12 +22176,12 @@ ValidateCreate implements webhook.Validator so a webhook will be registered for 
 				
 			
 				
-				<h3 id="Schedule.ValidateDelete">func (*Schedule) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/schedule_webhook.go#L60">ValidateDelete</a>
+				<h3 id="Schedule.ValidateDelete">func (*Schedule) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/schedule_webhook.go#L61">ValidateDelete</a>
 					<a class="permalink" href="#Schedule.ValidateDelete">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (in *<a href="#Schedule">Schedule</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#Schedule">Schedule</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -22191,12 +22191,12 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 				
 			
 				
-				<h3 id="Schedule.ValidateUpdate">func (*Schedule) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/schedule_webhook.go#L54">ValidateUpdate</a>
+				<h3 id="Schedule.ValidateUpdate">func (*Schedule) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/schedule_webhook.go#L55">ValidateUpdate</a>
 					<a class="permalink" href="#Schedule.ValidateUpdate">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (in *<a href="#Schedule">Schedule</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#Schedule">Schedule</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -22464,7 +22464,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 				
 			
 				
-				<h3 id="ScheduleSpec.Validate">func (*ScheduleSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/schedule_webhook.go#L74">Validate</a>
+				<h3 id="ScheduleSpec.Validate">func (*ScheduleSpec) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/schedule_webhook.go#L75">Validate</a>
 					<a class="permalink" href="#ScheduleSpec.Validate">&#xb6;</a>
 					
 					
@@ -22776,7 +22776,7 @@ IsCompleted checks if the status check is completed, according to the StatusChec
 					
 					
 				</h3>
-				<pre>func (in *<a href="#StatusCheck">StatusCheck</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#StatusCheck">StatusCheck</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -22788,7 +22788,7 @@ IsCompleted checks if the status check is completed, according to the StatusChec
 					
 					
 				</h3>
-				<pre>func (in *<a href="#StatusCheck">StatusCheck</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#StatusCheck">StatusCheck</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -22800,7 +22800,7 @@ IsCompleted checks if the status check is completed, according to the StatusChec
 					
 					
 				</h3>
-				<pre>func (in *<a href="#StatusCheck">StatusCheck</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#StatusCheck">StatusCheck</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -22815,7 +22815,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#StatusCheck">StatusCheck</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#StatusCheck">StatusCheck</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -23372,7 +23372,7 @@ DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writin
 		
 			
 			
-			<h2 id="StatusCheckTemplate">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L51">StatusCheckTemplate</a>
+			<h2 id="StatusCheckTemplate">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L52">StatusCheckTemplate</a>
 				<a class="permalink" href="#StatusCheckTemplate">&#xb6;</a>
 				
 				
@@ -23400,7 +23400,7 @@ A statusCheckTemplate would save in the ConfigMap named `template-status-check-&
 
 			
 				
-				<h3 id="StatusCheckTemplate.Default">func (*StatusCheckTemplate) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L80">Default</a>
+				<h3 id="StatusCheckTemplate.Default">func (*StatusCheckTemplate) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L81">Default</a>
 					<a class="permalink" href="#StatusCheckTemplate.Default">&#xb6;</a>
 					
 					
@@ -23412,12 +23412,12 @@ A statusCheckTemplate would save in the ConfigMap named `template-status-check-&
 				
 			
 				
-				<h3 id="StatusCheckTemplate.Validate">func (*StatusCheckTemplate) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L73">Validate</a>
+				<h3 id="StatusCheckTemplate.Validate">func (*StatusCheckTemplate) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/statuschecktemplate_types.go#L74">Validate</a>
 					<a class="permalink" href="#StatusCheckTemplate.Validate">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (in *<a href="#StatusCheckTemplate">StatusCheckTemplate</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#StatusCheckTemplate">StatusCheckTemplate</a>) Validate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -23781,7 +23781,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#StressChaos">StressChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#StressChaos">StressChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -23793,7 +23793,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#StressChaos">StressChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#StressChaos">StressChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -23805,7 +23805,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#StressChaos">StressChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#StressChaos">StressChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -23820,7 +23820,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#StressChaos">StressChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#StressChaos">StressChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -24944,7 +24944,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#TimeChaos">TimeChaos</a>) Validate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#TimeChaos">TimeChaos</a>) Validate() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -24956,7 +24956,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#TimeChaos">TimeChaos</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#TimeChaos">TimeChaos</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
@@ -24968,7 +24968,7 @@ IsPaused returns whether this resource has been paused
 					
 					
 				</h3>
-				<pre>func (in *<a href="#TimeChaos">TimeChaos</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#TimeChaos">TimeChaos</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateDelete implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -24983,7 +24983,7 @@ ValidateDelete implements webhook.Validator so a webhook will be registered for 
 					
 					
 				</h3>
-				<pre>func (in *<a href="#TimeChaos">TimeChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#TimeChaos">TimeChaos</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				<p>
 ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 </p>
@@ -25575,7 +25575,7 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 				
 			
 				
-				<h3 id="Workflow.Default">func (*Workflow) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_webhook.go#L277">Default</a>
+				<h3 id="Workflow.Default">func (*Workflow) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_webhook.go#L278">Default</a>
 					<a class="permalink" href="#Workflow.Default">&#xb6;</a>
 					
 					
@@ -25599,36 +25599,36 @@ DeepCopyObject is an autogenerated deepcopy function, copying the receiver, crea
 				
 			
 				
-				<h3 id="Workflow.ValidateCreate">func (*Workflow) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_webhook.go#L38">ValidateCreate</a>
+				<h3 id="Workflow.ValidateCreate">func (*Workflow) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_webhook.go#L39">ValidateCreate</a>
 					<a class="permalink" href="#Workflow.ValidateCreate">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (in *<a href="#Workflow">Workflow</a>) ValidateCreate() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#Workflow">Workflow</a>) ValidateCreate() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
 				
 			
 				
-				<h3 id="Workflow.ValidateDelete">func (*Workflow) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_webhook.go#L53">ValidateDelete</a>
+				<h3 id="Workflow.ValidateDelete">func (*Workflow) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_webhook.go#L54">ValidateDelete</a>
 					<a class="permalink" href="#Workflow.ValidateDelete">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (in *<a href="#Workflow">Workflow</a>) ValidateDelete() <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#Workflow">Workflow</a>) ValidateDelete() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
 				
 			
 				
-				<h3 id="Workflow.ValidateUpdate">func (*Workflow) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_webhook.go#L49">ValidateUpdate</a>
+				<h3 id="Workflow.ValidateUpdate">func (*Workflow) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/workflow_webhook.go#L50">ValidateUpdate</a>
 					<a class="permalink" href="#Workflow.ValidateUpdate">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (in *<a href="#Workflow">Workflow</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<pre>func (in *<a href="#Workflow">Workflow</a>) ValidateUpdate(old <a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/k8s.io/apimachinery/pkg/runtime/#Object">Object</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/">admission</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/webhook/admission/#Warnings">Warnings</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				

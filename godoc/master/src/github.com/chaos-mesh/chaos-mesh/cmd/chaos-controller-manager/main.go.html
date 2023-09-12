@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 4203632. Generated at Mon Sep 11 22:03:34 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 30d9600. Generated at Tue Sep 12 10:01:49 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -238,33 +238,33 @@
 <span id="L173" class="ln">   173  </span>
 <span id="L174" class="ln">   174  </span>	setupLog.Info(&#34;Setting up webhook server&#34;)
 <span id="L175" class="ln">   175  </span>	hookServer := mgr.GetWebhookServer()
-<span id="L176" class="ln">   176  </span>	hookServer.CertDir = ccfg.ControllerCfg.CertsDir
-<span id="L177" class="ln">   177  </span>
-<span id="L178" class="ln">   178  </span>	controllerRuntimeSignalHandler := ctrl.SetupSignalHandler()
-<span id="L179" class="ln">   179  </span>
-<span id="L180" class="ln">   180  </span>	if ccfg.ControllerCfg.PprofAddr != &#34;0&#34; {
-<span id="L181" class="ln">   181  </span>		go func() {
-<span id="L182" class="ln">   182  </span>			if err := http.ListenAndServe(ccfg.ControllerCfg.PprofAddr, nil); err != nil {
-<span id="L183" class="ln">   183  </span>				setupLog.Error(err, &#34;unable to start pprof server&#34;)
-<span id="L184" class="ln">   184  </span>				os.Exit(1)
-<span id="L185" class="ln">   185  </span>			}
-<span id="L186" class="ln">   186  </span>		}()
-<span id="L187" class="ln">   187  </span>	}
-<span id="L188" class="ln">   188  </span>
-<span id="L189" class="ln">   189  </span>	if ccfg.ControllerCfg.CtrlAddr != &#34;&#34; {
-<span id="L190" class="ln">   190  </span>		go func() {
-<span id="L191" class="ln">   191  </span>			mutex := http.NewServeMux()
-<span id="L192" class="ln">   192  </span>			mutex.Handle(&#34;/&#34;, playground.Handler(&#34;GraphQL playground&#34;, &#34;/query&#34;))
-<span id="L193" class="ln">   193  </span>			mutex.Handle(&#34;/query&#34;, params.CtrlServer)
-<span id="L194" class="ln">   194  </span>			setupLog.Info(&#34;setup ctrlserver&#34;, &#34;addr&#34;, ccfg.ControllerCfg.CtrlAddr)
-<span id="L195" class="ln">   195  </span>			setupLog.Error(http.ListenAndServe(ccfg.ControllerCfg.CtrlAddr, mutex), &#34;unable to start ctrlserver&#34;)
-<span id="L196" class="ln">   196  </span>		}()
-<span id="L197" class="ln">   197  </span>	}
-<span id="L198" class="ln">   198  </span>
-<span id="L199" class="ln">   199  </span>	hookServer.Register(&#34;/validate-auth&#34;, &amp;webhook.Admission{
-<span id="L200" class="ln">   200  </span>		Handler: apiWebhook.NewAuthValidator(ccfg.ControllerCfg.SecurityMode, authCli,
-<span id="L201" class="ln">   201  </span>			ccfg.ControllerCfg.ClusterScoped, ccfg.ControllerCfg.TargetNamespace, ccfg.ControllerCfg.EnableFilterNamespace,
-<span id="L202" class="ln">   202  </span>			params.Logger.WithName(&#34;validate-auth&#34;)),
+<span id="L176" class="ln">   176  </span>
+<span id="L177" class="ln">   177  </span>	controllerRuntimeSignalHandler := ctrl.SetupSignalHandler()
+<span id="L178" class="ln">   178  </span>
+<span id="L179" class="ln">   179  </span>	if ccfg.ControllerCfg.PprofAddr != &#34;0&#34; {
+<span id="L180" class="ln">   180  </span>		go func() {
+<span id="L181" class="ln">   181  </span>			if err := http.ListenAndServe(ccfg.ControllerCfg.PprofAddr, nil); err != nil {
+<span id="L182" class="ln">   182  </span>				setupLog.Error(err, &#34;unable to start pprof server&#34;)
+<span id="L183" class="ln">   183  </span>				os.Exit(1)
+<span id="L184" class="ln">   184  </span>			}
+<span id="L185" class="ln">   185  </span>		}()
+<span id="L186" class="ln">   186  </span>	}
+<span id="L187" class="ln">   187  </span>
+<span id="L188" class="ln">   188  </span>	if ccfg.ControllerCfg.CtrlAddr != &#34;&#34; {
+<span id="L189" class="ln">   189  </span>		go func() {
+<span id="L190" class="ln">   190  </span>			mutex := http.NewServeMux()
+<span id="L191" class="ln">   191  </span>			mutex.Handle(&#34;/&#34;, playground.Handler(&#34;GraphQL playground&#34;, &#34;/query&#34;))
+<span id="L192" class="ln">   192  </span>			mutex.Handle(&#34;/query&#34;, params.CtrlServer)
+<span id="L193" class="ln">   193  </span>			setupLog.Info(&#34;setup ctrlserver&#34;, &#34;addr&#34;, ccfg.ControllerCfg.CtrlAddr)
+<span id="L194" class="ln">   194  </span>			setupLog.Error(http.ListenAndServe(ccfg.ControllerCfg.CtrlAddr, mutex), &#34;unable to start ctrlserver&#34;)
+<span id="L195" class="ln">   195  </span>		}()
+<span id="L196" class="ln">   196  </span>	}
+<span id="L197" class="ln">   197  </span>
+<span id="L198" class="ln">   198  </span>	hookServer.Register(&#34;/validate-auth&#34;, &amp;webhook.Admission{
+<span id="L199" class="ln">   199  </span>		Handler: apiWebhook.NewAuthValidator(ccfg.ControllerCfg.SecurityMode, authCli, mgr.GetScheme(),
+<span id="L200" class="ln">   200  </span>			ccfg.ControllerCfg.ClusterScoped, ccfg.ControllerCfg.TargetNamespace, ccfg.ControllerCfg.EnableFilterNamespace,
+<span id="L201" class="ln">   201  </span>			params.Logger.WithName(&#34;validate-auth&#34;),
+<span id="L202" class="ln">   202  </span>		),
 <span id="L203" class="ln">   203  </span>	},
 <span id="L204" class="ln">   204  </span>	)
 <span id="L205" class="ln">   205  </span>
