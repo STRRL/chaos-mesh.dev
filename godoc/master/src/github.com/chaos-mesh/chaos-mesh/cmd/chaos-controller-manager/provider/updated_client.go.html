@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 30d9600. Generated at Tue Sep 12 22:03:46 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 6d1246f. Generated at Wed Sep 13 10:01:41 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -85,7 +85,7 @@
 <span id="L20" class="ln">    20  </span>	&#34;reflect&#34;
 <span id="L21" class="ln">    21  </span>	&#34;strconv&#34;
 <span id="L22" class="ln">    22  </span>
-<span id="L23" class="ln">    23  </span>	lru &#34;github.com/hashicorp/golang-lru&#34;
+<span id="L23" class="ln">    23  </span>	lru &#34;github.com/hashicorp/golang-lru/v2&#34;
 <span id="L24" class="ln">    24  </span>	&#34;k8s.io/apimachinery/pkg/api/meta&#34;
 <span id="L25" class="ln">    25  </span>	&#34;k8s.io/apimachinery/pkg/runtime&#34;
 <span id="L26" class="ln">    26  </span>	&#34;k8s.io/apimachinery/pkg/runtime/schema&#34;
@@ -100,7 +100,7 @@
 <span id="L35" class="ln">    35  </span>	client client.Client
 <span id="L36" class="ln">    36  </span>	scheme *runtime.Scheme
 <span id="L37" class="ln">    37  </span>
-<span id="L38" class="ln">    38  </span>	cache *lru.Cache
+<span id="L38" class="ln">    38  </span>	cache *lru.Cache[string, runtime.Object]
 <span id="L39" class="ln">    39  </span>}
 <span id="L40" class="ln">    40  </span>
 <span id="L41" class="ln">    41  </span>func (c *UpdatedClient) objectKey(key client.ObjectKey, obj client.Object) (string, error) {

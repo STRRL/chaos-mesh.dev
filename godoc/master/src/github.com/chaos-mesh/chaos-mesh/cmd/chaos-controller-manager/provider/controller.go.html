@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 30d9600. Generated at Tue Sep 12 22:03:46 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 6d1246f. Generated at Wed Sep 13 10:01:41 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -87,7 +87,7 @@
 <span id="L22" class="ln">    22  </span>	&#34;strconv&#34;
 <span id="L23" class="ln">    23  </span>
 <span id="L24" class="ln">    24  </span>	&#34;github.com/go-logr/logr&#34;
-<span id="L25" class="ln">    25  </span>	lru &#34;github.com/hashicorp/golang-lru&#34;
+<span id="L25" class="ln">    25  </span>	lru &#34;github.com/hashicorp/golang-lru/v2&#34;
 <span id="L26" class="ln">    26  </span>	&#34;go.uber.org/fx&#34;
 <span id="L27" class="ln">    27  </span>	&#34;k8s.io/apimachinery/pkg/runtime&#34;
 <span id="L28" class="ln">    28  </span>	&#34;k8s.io/client-go/kubernetes&#34;
@@ -193,7 +193,7 @@
 <span id="L128" class="ln">   128  </span><span class="comment">// NewClient would build the controller-runtime client.Client with given parameters.</span>
 <span id="L129" class="ln">   129  </span>func NewClient(mgr ctrl.Manager, scheme *runtime.Scheme) (client.Client, error) {
 <span id="L130" class="ln">   130  </span>	<span class="comment">// TODO: make this size configurable</span>
-<span id="L131" class="ln">   131  </span>	cache, err := lru.New(100)
+<span id="L131" class="ln">   131  </span>	cache, err := lru.New[string, runtime.Object](100)
 <span id="L132" class="ln">   132  </span>	if err != nil {
 <span id="L133" class="ln">   133  </span>		return nil, err
 <span id="L134" class="ln">   134  </span>	}
