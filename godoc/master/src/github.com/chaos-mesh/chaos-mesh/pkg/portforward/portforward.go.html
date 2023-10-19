@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 13ea12f. Generated at Wed Oct 18 22:03:42 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 466578e. Generated at Thu Oct 19 10:01:39 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -156,7 +156,7 @@
 <span id="L91" class="ln">    91  </span>	}()
 <span id="L92" class="ln">    92  </span>
 <span id="L93" class="ln">    93  </span>	<span class="comment">// run port forwarding</span>
-<span id="L94" class="ln">    94  </span>	errChan := make(chan error)
+<span id="L94" class="ln">    94  </span>	errChan := make(chan error, 1)
 <span id="L95" class="ln">    95  </span>	go func() {
 <span id="L96" class="ln">    96  </span>		errChan &lt;- fw.ForwardPorts()
 <span id="L97" class="ln">    97  </span>	}()
