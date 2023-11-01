@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 5f30799. Generated at Tue Oct 31 22:03:39 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit c2d7fa5. Generated at Wed Nov  1 10:01:48 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -89,9 +89,15 @@
 <span id="L24" class="ln">    24  </span>)
 <span id="L25" class="ln">    25  </span>
 <span id="L26" class="ln">    26  </span>func AllSteps() []pipeline.PipelineStep {
-<span id="L27" class="ln">    27  </span>	return []pipeline.PipelineStep{finalizers.InitStep, desiredphase.Step, condition.Step, records.Step, finalizers.CleanStep}
-<span id="L28" class="ln">    28  </span>}
-<span id="L29" class="ln">    29  </span>
+<span id="L27" class="ln">    27  </span>	return []pipeline.PipelineStep{
+<span id="L28" class="ln">    28  </span>		finalizers.InitStep,
+<span id="L29" class="ln">    29  </span>		desiredphase.Step,
+<span id="L30" class="ln">    30  </span>		condition.Step,
+<span id="L31" class="ln">    31  </span>		records.Step,
+<span id="L32" class="ln">    32  </span>		finalizers.CleanStep,
+<span id="L33" class="ln">    33  </span>	}
+<span id="L34" class="ln">    34  </span>}
+<span id="L35" class="ln">    35  </span>
 </pre><p></p>
 
 <div id="footer">
