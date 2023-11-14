@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 4a14670. Generated at Tue Nov 14 10:01:37 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2a473b6. Generated at Tue Nov 14 22:03:23 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -121,7 +121,7 @@
 				
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.ApplyBlockChaos">func (c *MockChaosDaemonClient) ApplyBlockChaos(ctx context.Context, req *pb.ApplyBlockChaosRequest, opts ...grpc.CallOption) (*pb.ApplyBlockChaosResponse, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.ApplyBlockChaos">func (c *MockChaosDaemonClient) ApplyBlockChaos(ctx context.Context, req *chaosdaemon.ApplyBlockChaosRequest, opts ...grpc.CallOption) (*chaosdaemon.ApplyBlockChaosResponse, error)</a></dd>
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.ApplyHttpChaos">func (c *MockChaosDaemonClient) ApplyHttpChaos(ctx context.Context, in *chaosdaemon.ApplyHttpChaosRequest, opts ...grpc.CallOption) (*chaosdaemon.ApplyHttpChaosResponse, error)</a></dd>
@@ -151,7 +151,7 @@
 					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.InstallJVMRules">func (c *MockChaosDaemonClient) InstallJVMRules(ctx context.Context, in *chaosdaemon.InstallJVMRulesRequest, opts ...grpc.CallOption) (*empty.Empty, error)</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.RecoverBlockChaos">func (c *MockChaosDaemonClient) RecoverBlockChaos(ctx context.Context, req *pb.RecoverBlockChaosRequest, opts ...grpc.CallOption) (*empty.Empty, error)</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.RecoverBlockChaos">func (c *MockChaosDaemonClient) RecoverBlockChaos(ctx context.Context, req *chaosdaemon.RecoverBlockChaosRequest, opts ...grpc.CallOption) (*empty.Empty, error)</a></dd>
 				
 					
 					<dd>&nbsp; &nbsp; <a href="#MockChaosDaemonClient.RecoverTimeOffset">func (c *MockChaosDaemonClient) RecoverTimeOffset(ctx context.Context, in *chaosdaemon.TimeRequest, opts ...grpc.CallOption) (*empty.Empty, error)</a></dd>
@@ -199,7 +199,7 @@
 		
 			
 			
-			<h2 id="MockChaosDaemonClient">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L35">MockChaosDaemonClient</a>
+			<h2 id="MockChaosDaemonClient">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L34">MockChaosDaemonClient</a>
 				<a class="permalink" href="#MockChaosDaemonClient">&#xb6;</a>
 				
 				
@@ -223,19 +223,19 @@ MockChaosDaemonClient implements ChaosDaemonClientInterface for unit testing
 
 			
 				
-				<h3 id="MockChaosDaemonClient.ApplyBlockChaos">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L109">ApplyBlockChaos</a>
+				<h3 id="MockChaosDaemonClient.ApplyBlockChaos">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L108">ApplyBlockChaos</a>
 					<a class="permalink" href="#MockChaosDaemonClient.ApplyBlockChaos">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) ApplyBlockChaos(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, req *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">pb</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ApplyBlockChaosRequest">ApplyBlockChaosRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/master/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">pb</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ApplyBlockChaosResponse">ApplyBlockChaosResponse</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) ApplyBlockChaos(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, req *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ApplyBlockChaosRequest">ApplyBlockChaosRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/master/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#ApplyBlockChaosResponse">ApplyBlockChaosResponse</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
 				
 			
 				
-				<h3 id="MockChaosDaemonClient.ApplyHttpChaos">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L85">ApplyHttpChaos</a>
+				<h3 id="MockChaosDaemonClient.ApplyHttpChaos">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L84">ApplyHttpChaos</a>
 					<a class="permalink" href="#MockChaosDaemonClient.ApplyHttpChaos">&#xb6;</a>
 					
 					
@@ -247,7 +247,7 @@ MockChaosDaemonClient implements ChaosDaemonClientInterface for unit testing
 				
 			
 				
-				<h3 id="MockChaosDaemonClient.ApplyIOChaos">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L81">ApplyIOChaos</a>
+				<h3 id="MockChaosDaemonClient.ApplyIOChaos">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L80">ApplyIOChaos</a>
 					<a class="permalink" href="#MockChaosDaemonClient.ApplyIOChaos">&#xb6;</a>
 					
 					
@@ -259,7 +259,7 @@ MockChaosDaemonClient implements ChaosDaemonClientInterface for unit testing
 				
 			
 				
-				<h3 id="MockChaosDaemonClient.CancelStressors">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L43">CancelStressors</a>
+				<h3 id="MockChaosDaemonClient.CancelStressors">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L42">CancelStressors</a>
 					<a class="permalink" href="#MockChaosDaemonClient.CancelStressors">&#xb6;</a>
 					
 					
@@ -274,7 +274,7 @@ CancelStressors mocks canceling pod stressors on chaos-daemon
 				
 			
 				
-				<h3 id="MockChaosDaemonClient.Close">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L97">Close</a>
+				<h3 id="MockChaosDaemonClient.Close">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L96">Close</a>
 					<a class="permalink" href="#MockChaosDaemonClient.Close">&#xb6;</a>
 					
 					
@@ -286,7 +286,7 @@ CancelStressors mocks canceling pod stressors on chaos-daemon
 				
 			
 				
-				<h3 id="MockChaosDaemonClient.ContainerGetPid">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L47">ContainerGetPid</a>
+				<h3 id="MockChaosDaemonClient.ContainerGetPid">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L46">ContainerGetPid</a>
 					<a class="permalink" href="#MockChaosDaemonClient.ContainerGetPid">&#xb6;</a>
 					
 					
@@ -298,7 +298,7 @@ CancelStressors mocks canceling pod stressors on chaos-daemon
 				
 			
 				
-				<h3 id="MockChaosDaemonClient.ContainerKill">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L77">ContainerKill</a>
+				<h3 id="MockChaosDaemonClient.ContainerKill">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L76">ContainerKill</a>
 					<a class="permalink" href="#MockChaosDaemonClient.ContainerKill">&#xb6;</a>
 					
 					
@@ -310,7 +310,7 @@ CancelStressors mocks canceling pod stressors on chaos-daemon
 				
 			
 				
-				<h3 id="MockChaosDaemonClient.ExecStressors">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L38">ExecStressors</a>
+				<h3 id="MockChaosDaemonClient.ExecStressors">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L37">ExecStressors</a>
 					<a class="permalink" href="#MockChaosDaemonClient.ExecStressors">&#xb6;</a>
 					
 					
@@ -325,7 +325,7 @@ ExecStressors mocks executing pod stressors on chaos-daemon
 				
 			
 				
-				<h3 id="MockChaosDaemonClient.FlushIPSets">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L61">FlushIPSets</a>
+				<h3 id="MockChaosDaemonClient.FlushIPSets">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L60">FlushIPSets</a>
 					<a class="permalink" href="#MockChaosDaemonClient.FlushIPSets">&#xb6;</a>
 					
 					
@@ -337,7 +337,7 @@ ExecStressors mocks executing pod stressors on chaos-daemon
 				
 			
 				
-				<h3 id="MockChaosDaemonClient.InstallJVMRules">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L101">InstallJVMRules</a>
+				<h3 id="MockChaosDaemonClient.InstallJVMRules">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L100">InstallJVMRules</a>
 					<a class="permalink" href="#MockChaosDaemonClient.InstallJVMRules">&#xb6;</a>
 					
 					
@@ -349,19 +349,19 @@ ExecStressors mocks executing pod stressors on chaos-daemon
 				
 			
 				
-				<h3 id="MockChaosDaemonClient.RecoverBlockChaos">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L113">RecoverBlockChaos</a>
+				<h3 id="MockChaosDaemonClient.RecoverBlockChaos">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L112">RecoverBlockChaos</a>
 					<a class="permalink" href="#MockChaosDaemonClient.RecoverBlockChaos">&#xb6;</a>
 					
 					
 				</h3>
-				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) RecoverBlockChaos(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, req *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">pb</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#RecoverBlockChaosRequest">RecoverBlockChaosRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/master/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<pre>func (c *<a href="#MockChaosDaemonClient">MockChaosDaemonClient</a>) RecoverBlockChaos(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, req *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemon</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#RecoverBlockChaosRequest">RecoverBlockChaosRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/master/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/golang/protobuf/ptypes/empty/">empty</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/golang/protobuf/ptypes/empty/#Empty">Empty</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 				
 				
 				
 				
 			
 				
-				<h3 id="MockChaosDaemonClient.RecoverTimeOffset">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L73">RecoverTimeOffset</a>
+				<h3 id="MockChaosDaemonClient.RecoverTimeOffset">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L72">RecoverTimeOffset</a>
 					<a class="permalink" href="#MockChaosDaemonClient.RecoverTimeOffset">&#xb6;</a>
 					
 					
@@ -373,7 +373,7 @@ ExecStressors mocks executing pod stressors on chaos-daemon
 				
 			
 				
-				<h3 id="MockChaosDaemonClient.SetDNSServer">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L89">SetDNSServer</a>
+				<h3 id="MockChaosDaemonClient.SetDNSServer">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L88">SetDNSServer</a>
 					<a class="permalink" href="#MockChaosDaemonClient.SetDNSServer">&#xb6;</a>
 					
 					
@@ -385,7 +385,7 @@ ExecStressors mocks executing pod stressors on chaos-daemon
 				
 			
 				
-				<h3 id="MockChaosDaemonClient.SetIptablesChains">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L65">SetIptablesChains</a>
+				<h3 id="MockChaosDaemonClient.SetIptablesChains">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L64">SetIptablesChains</a>
 					<a class="permalink" href="#MockChaosDaemonClient.SetIptablesChains">&#xb6;</a>
 					
 					
@@ -397,7 +397,7 @@ ExecStressors mocks executing pod stressors on chaos-daemon
 				
 			
 				
-				<h3 id="MockChaosDaemonClient.SetTcs">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L93">SetTcs</a>
+				<h3 id="MockChaosDaemonClient.SetTcs">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L92">SetTcs</a>
 					<a class="permalink" href="#MockChaosDaemonClient.SetTcs">&#xb6;</a>
 					
 					
@@ -409,7 +409,7 @@ ExecStressors mocks executing pod stressors on chaos-daemon
 				
 			
 				
-				<h3 id="MockChaosDaemonClient.SetTimeOffset">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L69">SetTimeOffset</a>
+				<h3 id="MockChaosDaemonClient.SetTimeOffset">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L68">SetTimeOffset</a>
 					<a class="permalink" href="#MockChaosDaemonClient.SetTimeOffset">&#xb6;</a>
 					
 					
@@ -421,7 +421,7 @@ ExecStressors mocks executing pod stressors on chaos-daemon
 				
 			
 				
-				<h3 id="MockChaosDaemonClient.UninstallJVMRules">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L105">UninstallJVMRules</a>
+				<h3 id="MockChaosDaemonClient.UninstallJVMRules">func (*MockChaosDaemonClient) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/test/types.go#L104">UninstallJVMRules</a>
 					<a class="permalink" href="#MockChaosDaemonClient.UninstallJVMRules">&#xb6;</a>
 					
 					
