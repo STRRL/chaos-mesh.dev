@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 7a55558. Generated at Fri Dec 15 10:01:39 UTC 2023.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 374536a. Generated at Fri Dec 15 22:03:35 UTC 2023.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -182,25 +182,30 @@
 <span id="L117" class="ln">   117  </span>
 <span id="L118" class="ln">   118  </span>		shouldUpdate = true
 <span id="L119" class="ln">   119  </span>	}
-<span id="L120" class="ln">   120  </span>	<span class="comment">// TODO: set the status</span>
-<span id="L121" class="ln">   121  </span>
-<span id="L122" class="ln">   122  </span>	if shouldUpdate {
-<span id="L123" class="ln">   123  </span>		retry.RetryOnConflict(retry.DefaultRetry, func() error {
-<span id="L124" class="ln">   124  </span>			localObj := r.obj.DeepCopyObject().(v1alpha1.RemoteObject)
-<span id="L125" class="ln">   125  </span>			err = r.localClient.Get(ctx, req.NamespacedName, localObj)
-<span id="L126" class="ln">   126  </span>			if err != nil {
-<span id="L127" class="ln">   127  </span>				return err
-<span id="L128" class="ln">   128  </span>			}
-<span id="L129" class="ln">   129  </span>
-<span id="L130" class="ln">   130  </span>			<span class="comment">// TODO: also refresh the remote chaos object</span>
-<span id="L131" class="ln">   131  </span>			localObj.SetFinalizers(remoteObj.GetFinalizers())
-<span id="L132" class="ln">   132  </span>
-<span id="L133" class="ln">   133  </span>			return r.localClient.Update(ctx, localObj)
-<span id="L134" class="ln">   134  </span>		})
-<span id="L135" class="ln">   135  </span>	}
-<span id="L136" class="ln">   136  </span>	return ctrl.Result{}, nil
-<span id="L137" class="ln">   137  </span>}
-<span id="L138" class="ln">   138  </span>
+<span id="L120" class="ln">   120  </span>
+<span id="L121" class="ln">   121  </span>	<span class="comment">// TODO: set the status</span>
+<span id="L122" class="ln">   122  </span>	if !reflect.DeepEqual(localObj.GetStatus(), remoteObj.GetStatus()) {
+<span id="L123" class="ln">   123  </span>		r.logger.Info(&#34;setting new status&#34;, &#34;local:&#34;, localObj.GetStatus(), &#34;remote:&#34;, remoteObj.GetStatus())
+<span id="L124" class="ln">   124  </span>		shouldUpdate = true
+<span id="L125" class="ln">   125  </span>	}
+<span id="L126" class="ln">   126  </span>
+<span id="L127" class="ln">   127  </span>	if shouldUpdate {
+<span id="L128" class="ln">   128  </span>		retry.RetryOnConflict(retry.DefaultRetry, func() error {
+<span id="L129" class="ln">   129  </span>			localObj := r.obj.DeepCopyObject().(v1alpha1.RemoteObject)
+<span id="L130" class="ln">   130  </span>			err = r.localClient.Get(ctx, req.NamespacedName, localObj)
+<span id="L131" class="ln">   131  </span>			if err != nil {
+<span id="L132" class="ln">   132  </span>				return err
+<span id="L133" class="ln">   133  </span>			}
+<span id="L134" class="ln">   134  </span>
+<span id="L135" class="ln">   135  </span>			<span class="comment">// TODO: also refresh the remote chaos object</span>
+<span id="L136" class="ln">   136  </span>			localObj.SetFinalizers(remoteObj.GetFinalizers())
+<span id="L137" class="ln">   137  </span>			remoteObj.GetStatus().DeepCopyInto(localObj.GetStatus())
+<span id="L138" class="ln">   138  </span>			return r.localClient.Update(ctx, localObj)
+<span id="L139" class="ln">   139  </span>		})
+<span id="L140" class="ln">   140  </span>	}
+<span id="L141" class="ln">   141  </span>	return ctrl.Result{}, nil
+<span id="L142" class="ln">   142  </span>}
+<span id="L143" class="ln">   143  </span>
 </pre><p></p>
 
 <div id="footer">
