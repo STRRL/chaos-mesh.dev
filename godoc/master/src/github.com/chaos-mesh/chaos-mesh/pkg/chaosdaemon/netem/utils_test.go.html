@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2e912fb. Generated at Fri Jan 26 22:03:26 UTC 2024.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4dcfa3. Generated at Sat Jan 27 10:01:18 UTC 2024.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -109,14 +109,19 @@
 <span id="L44" class="ln">    44  </span>			&amp;chaosdaemonpb.Netem{DelayCorr: 90},
 <span id="L45" class="ln">    45  </span>			&amp;chaosdaemonpb.Netem{Loss: 25, DelayCorr: 100.2},
 <span id="L46" class="ln">    46  </span>		},
-<span id="L47" class="ln">    47  </span>	}
-<span id="L48" class="ln">    48  </span>
-<span id="L49" class="ln">    49  </span>	for _, tc := range cases {
-<span id="L50" class="ln">    50  </span>		m := MergeNetem(tc.a, tc.b)
-<span id="L51" class="ln">    51  </span>		g.Expect(tc.merged).Should(Equal(m))
+<span id="L47" class="ln">    47  </span>		{
+<span id="L48" class="ln">    48  </span>			&amp;chaosdaemonpb.Netem{Time: 100},
+<span id="L49" class="ln">    49  </span>			&amp;chaosdaemonpb.Netem{Rate: &#34;800kbit&#34;},
+<span id="L50" class="ln">    50  </span>			&amp;chaosdaemonpb.Netem{Time: 100, Rate: &#34;800kbit&#34;},
+<span id="L51" class="ln">    51  </span>		},
 <span id="L52" class="ln">    52  </span>	}
-<span id="L53" class="ln">    53  </span>}
-<span id="L54" class="ln">    54  </span>
+<span id="L53" class="ln">    53  </span>
+<span id="L54" class="ln">    54  </span>	for _, tc := range cases {
+<span id="L55" class="ln">    55  </span>		m := MergeNetem(tc.a, tc.b)
+<span id="L56" class="ln">    56  </span>		g.Expect(tc.merged).Should(Equal(m))
+<span id="L57" class="ln">    57  </span>	}
+<span id="L58" class="ln">    58  </span>}
+<span id="L59" class="ln">    59  </span>
 </pre><p></p>
 
 <div id="footer">

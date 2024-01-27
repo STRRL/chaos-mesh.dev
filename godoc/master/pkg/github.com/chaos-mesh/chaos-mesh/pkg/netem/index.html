@@ -34,7 +34,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2e912fb. Generated at Fri Jan 26 22:03:26 UTC 2024.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4dcfa3. Generated at Sat Jan 27 10:01:18 UTC 2024.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
 
@@ -130,6 +130,9 @@
 				
 				<dd><a href="#FromLoss">func FromLoss(in *v1alpha1.LossSpec) (*chaosdaemonpb.Netem, error)</a></dd>
 			
+				
+				<dd><a href="#FromRate">func FromRate(in *v1alpha1.RateSpec) (*chaosdaemonpb.Netem, error)</a></dd>
+			
 			
 			
 			</dl>
@@ -157,7 +160,7 @@
 		
 			
 			
-			<h2 id="FromBandwidth">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/netem/convert.go#L126">FromBandwidth</a>
+			<h2 id="FromBandwidth">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/netem/convert.go#L133">FromBandwidth</a>
 				<a class="permalink" href="#FromBandwidth">&#xb6;</a>
 				
 				
@@ -233,6 +236,22 @@ FromDuplicate convert duplicate to netem
 			<pre>func FromLoss(in *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#LossSpec">LossSpec</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemonpb</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#Netem">Netem</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
 			<p>
 FromLoss convert loss to netem
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="FromRate">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/netem/convert.go#L122">FromRate</a>
+				<a class="permalink" href="#FromRate">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func FromRate(in *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#RateSpec">RateSpec</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/">chaosdaemonpb</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/pb/#Netem">Netem</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			<p>
+FromRate convert RateSpec to netem
 </p>
 
 			

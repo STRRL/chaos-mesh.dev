@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2e912fb. Generated at Fri Jan 26 22:03:26 UTC 2024.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4dcfa3. Generated at Sat Jan 27 10:01:18 UTC 2024.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -533,47 +533,51 @@
 <span id="L468" class="ln">   468  </span>		}
 <span id="L469" class="ln">   469  </span>	}
 <span id="L470" class="ln">   470  </span>
-<span id="L471" class="ln">   471  </span>	trimedArgs := []string{}
-<span id="L472" class="ln">   472  </span>
-<span id="L473" class="ln">   473  </span>	for _, part := range strings.Split(args, &#34; &#34;) {
-<span id="L474" class="ln">   474  </span>		if len(part) &gt; 0 {
-<span id="L475" class="ln">   475  </span>			trimedArgs = append(trimedArgs, part)
-<span id="L476" class="ln">   476  </span>		}
-<span id="L477" class="ln">   477  </span>	}
-<span id="L478" class="ln">   478  </span>
-<span id="L479" class="ln">   479  </span>	return strings.Join(trimedArgs, &#34; &#34;)
-<span id="L480" class="ln">   480  </span>}
-<span id="L481" class="ln">   481  </span>
-<span id="L482" class="ln">   482  </span>func convertTbfToArgs(tbf *pb.Tbf) string {
-<span id="L483" class="ln">   483  </span>	args := fmt.Sprintf(&#34;rate %s burst %d&#34;, tbf.Rate, tbf.Buffer)
-<span id="L484" class="ln">   484  </span>	if tbf.Limit &gt; 0 {
-<span id="L485" class="ln">   485  </span>		args = fmt.Sprintf(&#34;%s limit %d&#34;, args, tbf.Limit)
-<span id="L486" class="ln">   486  </span>	}
-<span id="L487" class="ln">   487  </span>	if tbf.PeakRate &gt; 0 {
-<span id="L488" class="ln">   488  </span>		args = fmt.Sprintf(&#34;%s peakrate %d mtu %d&#34;, args, tbf.PeakRate, tbf.MinBurst)
-<span id="L489" class="ln">   489  </span>	}
-<span id="L490" class="ln">   490  </span>
-<span id="L491" class="ln">   491  </span>	return args
-<span id="L492" class="ln">   492  </span>}
-<span id="L493" class="ln">   493  </span>
-<span id="L494" class="ln">   494  </span>func abstractTcFilter(tc *pb.Tc) string {
-<span id="L495" class="ln">   495  </span>	filter := tc.Ipset
-<span id="L496" class="ln">   496  </span>
-<span id="L497" class="ln">   497  </span>	if len(tc.Protocol) &gt; 0 {
-<span id="L498" class="ln">   498  </span>		filter += &#34;-&#34; + tc.Protocol
-<span id="L499" class="ln">   499  </span>	}
+<span id="L471" class="ln">   471  </span>	if len(netem.Rate) &gt; 0 {
+<span id="L472" class="ln">   472  </span>		args = fmt.Sprintf(&#34;%s rate %s&#34;, args, netem.Rate)
+<span id="L473" class="ln">   473  </span>	}
+<span id="L474" class="ln">   474  </span>
+<span id="L475" class="ln">   475  </span>	trimedArgs := []string{}
+<span id="L476" class="ln">   476  </span>
+<span id="L477" class="ln">   477  </span>	for _, part := range strings.Split(args, &#34; &#34;) {
+<span id="L478" class="ln">   478  </span>		if len(part) &gt; 0 {
+<span id="L479" class="ln">   479  </span>			trimedArgs = append(trimedArgs, part)
+<span id="L480" class="ln">   480  </span>		}
+<span id="L481" class="ln">   481  </span>	}
+<span id="L482" class="ln">   482  </span>
+<span id="L483" class="ln">   483  </span>	return strings.Join(trimedArgs, &#34; &#34;)
+<span id="L484" class="ln">   484  </span>}
+<span id="L485" class="ln">   485  </span>
+<span id="L486" class="ln">   486  </span>func convertTbfToArgs(tbf *pb.Tbf) string {
+<span id="L487" class="ln">   487  </span>	args := fmt.Sprintf(&#34;rate %s burst %d&#34;, tbf.Rate, tbf.Buffer)
+<span id="L488" class="ln">   488  </span>	if tbf.Limit &gt; 0 {
+<span id="L489" class="ln">   489  </span>		args = fmt.Sprintf(&#34;%s limit %d&#34;, args, tbf.Limit)
+<span id="L490" class="ln">   490  </span>	}
+<span id="L491" class="ln">   491  </span>	if tbf.PeakRate &gt; 0 {
+<span id="L492" class="ln">   492  </span>		args = fmt.Sprintf(&#34;%s peakrate %d mtu %d&#34;, args, tbf.PeakRate, tbf.MinBurst)
+<span id="L493" class="ln">   493  </span>	}
+<span id="L494" class="ln">   494  </span>
+<span id="L495" class="ln">   495  </span>	return args
+<span id="L496" class="ln">   496  </span>}
+<span id="L497" class="ln">   497  </span>
+<span id="L498" class="ln">   498  </span>func abstractTcFilter(tc *pb.Tc) string {
+<span id="L499" class="ln">   499  </span>	filter := tc.Ipset
 <span id="L500" class="ln">   500  </span>
-<span id="L501" class="ln">   501  </span>	if len(tc.EgressPort) &gt; 0 {
-<span id="L502" class="ln">   502  </span>		filter += &#34;-&#34; + tc.EgressPort
+<span id="L501" class="ln">   501  </span>	if len(tc.Protocol) &gt; 0 {
+<span id="L502" class="ln">   502  </span>		filter += &#34;-&#34; + tc.Protocol
 <span id="L503" class="ln">   503  </span>	}
 <span id="L504" class="ln">   504  </span>
-<span id="L505" class="ln">   505  </span>	if len(tc.SourcePort) &gt; 0 {
+<span id="L505" class="ln">   505  </span>	if len(tc.EgressPort) &gt; 0 {
 <span id="L506" class="ln">   506  </span>		filter += &#34;-&#34; + tc.EgressPort
 <span id="L507" class="ln">   507  </span>	}
 <span id="L508" class="ln">   508  </span>
-<span id="L509" class="ln">   509  </span>	return filter
-<span id="L510" class="ln">   510  </span>}
-<span id="L511" class="ln">   511  </span>
+<span id="L509" class="ln">   509  </span>	if len(tc.SourcePort) &gt; 0 {
+<span id="L510" class="ln">   510  </span>		filter += &#34;-&#34; + tc.EgressPort
+<span id="L511" class="ln">   511  </span>	}
+<span id="L512" class="ln">   512  </span>
+<span id="L513" class="ln">   513  </span>	return filter
+<span id="L514" class="ln">   514  </span>}
+<span id="L515" class="ln">   515  </span>
 </pre><p></p>
 
 <div id="footer">

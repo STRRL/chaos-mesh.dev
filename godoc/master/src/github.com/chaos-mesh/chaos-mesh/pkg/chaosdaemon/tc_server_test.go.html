@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2e912fb. Generated at Fri Jan 26 22:03:26 UTC 2024.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4dcfa3. Generated at Sat Jan 27 10:01:18 UTC 2024.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -236,8 +236,17 @@
 <span id="L171" class="ln">   171  </span>		})
 <span id="L172" class="ln">   172  </span>		g.Expect(args).To(Equal(&#34;delay 1000 10000 reorder 5.000000 gap 10 corrupt 10.000000 50.000000&#34;))
 <span id="L173" class="ln">   173  </span>	})
-<span id="L174" class="ln">   174  </span>}
-<span id="L175" class="ln">   175  </span>
+<span id="L174" class="ln">   174  </span>
+<span id="L175" class="ln">   175  </span>	t.Run(&#34;delay with rate&#34;, func(t *testing.T) {
+<span id="L176" class="ln">   176  </span>		args := convertNetemToArgs(&amp;pb.Netem{
+<span id="L177" class="ln">   177  </span>			Time:   1000,
+<span id="L178" class="ln">   178  </span>			Jitter: 10000,
+<span id="L179" class="ln">   179  </span>			Rate:   &#34;8000bit&#34;,
+<span id="L180" class="ln">   180  </span>		})
+<span id="L181" class="ln">   181  </span>		g.Expect(args).To(Equal(&#34;delay 1000 10000 rate 8000bit&#34;))
+<span id="L182" class="ln">   182  </span>	})
+<span id="L183" class="ln">   183  </span>}
+<span id="L184" class="ln">   184  </span>
 </pre><p></p>
 
 <div id="footer">

@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2e912fb. Generated at Fri Jan 26 22:03:26 UTC 2024.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4dcfa3. Generated at Sat Jan 27 10:01:18 UTC 2024.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -269,20 +269,26 @@
 <span id="L204" class="ln">   204  </span>	Gap         int    `json:&#34;gap&#34;`
 <span id="L205" class="ln">   205  </span>}
 <span id="L206" class="ln">   206  </span>
-<span id="L207" class="ln">   207  </span>func (obj *NetworkChaos) GetSelectorSpecs() map[string]interface{} {
-<span id="L208" class="ln">   208  </span>	selectors := map[string]interface{}{
-<span id="L209" class="ln">   209  </span>		&#34;.&#34;: &amp;obj.Spec.PodSelector,
-<span id="L210" class="ln">   210  </span>	}
-<span id="L211" class="ln">   211  </span>	if obj.Spec.Target != nil {
-<span id="L212" class="ln">   212  </span>		selectors[&#34;.Target&#34;] = obj.Spec.Target
-<span id="L213" class="ln">   213  </span>	}
-<span id="L214" class="ln">   214  </span>	return selectors
-<span id="L215" class="ln">   215  </span>}
-<span id="L216" class="ln">   216  </span>
-<span id="L217" class="ln">   217  </span>func (obj *NetworkChaos) GetCustomStatus() interface{} {
-<span id="L218" class="ln">   218  </span>	return &amp;obj.Status.Instances
-<span id="L219" class="ln">   219  </span>}
-<span id="L220" class="ln">   220  </span>
+<span id="L207" class="ln">   207  </span><span class="comment">// RateSpec defines details of rate limit.</span>
+<span id="L208" class="ln">   208  </span>type RateSpec struct {
+<span id="L209" class="ln">   209  </span>	<span class="comment">// Rate is the speed knob. Allows bit, kbit, mbit, gbit, tbit, bps, kbps, mbps, gbps, tbps unit. bps means bytes per second.</span>
+<span id="L210" class="ln">   210  </span>	Rate string `json:&#34;rate&#34; webhook:&#34;Rate&#34;`
+<span id="L211" class="ln">   211  </span>}
+<span id="L212" class="ln">   212  </span>
+<span id="L213" class="ln">   213  </span>func (obj *NetworkChaos) GetSelectorSpecs() map[string]interface{} {
+<span id="L214" class="ln">   214  </span>	selectors := map[string]interface{}{
+<span id="L215" class="ln">   215  </span>		&#34;.&#34;: &amp;obj.Spec.PodSelector,
+<span id="L216" class="ln">   216  </span>	}
+<span id="L217" class="ln">   217  </span>	if obj.Spec.Target != nil {
+<span id="L218" class="ln">   218  </span>		selectors[&#34;.Target&#34;] = obj.Spec.Target
+<span id="L219" class="ln">   219  </span>	}
+<span id="L220" class="ln">   220  </span>	return selectors
+<span id="L221" class="ln">   221  </span>}
+<span id="L222" class="ln">   222  </span>
+<span id="L223" class="ln">   223  </span>func (obj *NetworkChaos) GetCustomStatus() interface{} {
+<span id="L224" class="ln">   224  </span>	return &amp;obj.Status.Instances
+<span id="L225" class="ln">   225  </span>}
+<span id="L226" class="ln">   226  </span>
 </pre><p></p>
 
 <div id="footer">

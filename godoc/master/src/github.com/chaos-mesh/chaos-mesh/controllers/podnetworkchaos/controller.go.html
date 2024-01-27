@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2e912fb. Generated at Fri Jan 26 22:03:26 UTC 2024.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4dcfa3. Generated at Sat Jan 27 10:01:18 UTC 2024.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -368,17 +368,24 @@
 <span id="L303" class="ln">   303  </span>		}
 <span id="L304" class="ln">   304  </span>		emSpecs = append(emSpecs, em)
 <span id="L305" class="ln">   305  </span>	}
-<span id="L306" class="ln">   306  </span>	if len(emSpecs) == 0 {
-<span id="L307" class="ln">   307  </span>		return nil, errors.New(invalidNetemSpecMsg)
-<span id="L308" class="ln">   308  </span>	}
-<span id="L309" class="ln">   309  </span>
-<span id="L310" class="ln">   310  </span>	merged := &amp;pb.Netem{}
-<span id="L311" class="ln">   311  </span>	for _, em := range emSpecs {
-<span id="L312" class="ln">   312  </span>		merged = pbutils.MergeNetem(merged, em)
-<span id="L313" class="ln">   313  </span>	}
-<span id="L314" class="ln">   314  </span>	return merged, nil
-<span id="L315" class="ln">   315  </span>}
+<span id="L306" class="ln">   306  </span>	if spec.Rate != nil {
+<span id="L307" class="ln">   307  </span>		em, err := netem.FromRate(spec.Rate)
+<span id="L308" class="ln">   308  </span>		if err != nil {
+<span id="L309" class="ln">   309  </span>			return nil, err
+<span id="L310" class="ln">   310  </span>		}
+<span id="L311" class="ln">   311  </span>		emSpecs = append(emSpecs, em)
+<span id="L312" class="ln">   312  </span>	}
+<span id="L313" class="ln">   313  </span>	if len(emSpecs) == 0 {
+<span id="L314" class="ln">   314  </span>		return nil, errors.New(invalidNetemSpecMsg)
+<span id="L315" class="ln">   315  </span>	}
 <span id="L316" class="ln">   316  </span>
+<span id="L317" class="ln">   317  </span>	merged := &amp;pb.Netem{}
+<span id="L318" class="ln">   318  </span>	for _, em := range emSpecs {
+<span id="L319" class="ln">   319  </span>		merged = pbutils.MergeNetem(merged, em)
+<span id="L320" class="ln">   320  </span>	}
+<span id="L321" class="ln">   321  </span>	return merged, nil
+<span id="L322" class="ln">   322  </span>}
+<span id="L323" class="ln">   323  </span>
 </pre><p></p>
 
 <div id="footer">

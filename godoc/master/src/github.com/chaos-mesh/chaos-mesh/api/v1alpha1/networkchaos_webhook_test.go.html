@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2e912fb. Generated at Fri Jan 26 22:03:26 UTC 2024.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4dcfa3. Generated at Sat Jan 27 10:01:18 UTC 2024.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -299,76 +299,97 @@
 <span id="L234" class="ln">   234  </span>					expect: &#34;error&#34;,
 <span id="L235" class="ln">   235  </span>				},
 <span id="L236" class="ln">   236  </span>				{
-<span id="L237" class="ln">   237  </span>					name: &#34;validate the target&#34;,
+<span id="L237" class="ln">   237  </span>					name: &#34;validate the rate&#34;,
 <span id="L238" class="ln">   238  </span>					chaos: NetworkChaos{
 <span id="L239" class="ln">   239  </span>						ObjectMeta: metav1.ObjectMeta{
 <span id="L240" class="ln">   240  </span>							Namespace: metav1.NamespaceDefault,
-<span id="L241" class="ln">   241  </span>							Name:      &#34;foo12&#34;,
+<span id="L241" class="ln">   241  </span>							Name:      &#34;foo11&#34;,
 <span id="L242" class="ln">   242  </span>						},
 <span id="L243" class="ln">   243  </span>						Spec: NetworkChaosSpec{
-<span id="L244" class="ln">   244  </span>							Target: &amp;PodSelector{
-<span id="L245" class="ln">   245  </span>								Mode:  FixedMode,
-<span id="L246" class="ln">   246  </span>								Value: &#34;0&#34;,
-<span id="L247" class="ln">   247  </span>							},
-<span id="L248" class="ln">   248  </span>						},
-<span id="L249" class="ln">   249  </span>					},
-<span id="L250" class="ln">   250  </span>					execute: func(chaos *NetworkChaos) error {
-<span id="L251" class="ln">   251  </span>						_, err := chaos.ValidateCreate()
-<span id="L252" class="ln">   252  </span>						return err
-<span id="L253" class="ln">   253  </span>					},
-<span id="L254" class="ln">   254  </span>					expect: &#34;error&#34;,
-<span id="L255" class="ln">   255  </span>				},
-<span id="L256" class="ln">   256  </span>				{
-<span id="L257" class="ln">   257  </span>					name: &#34;validate direction and externalTargets&#34;,
-<span id="L258" class="ln">   258  </span>					chaos: NetworkChaos{
-<span id="L259" class="ln">   259  </span>						ObjectMeta: metav1.ObjectMeta{
-<span id="L260" class="ln">   260  </span>							Namespace: metav1.NamespaceDefault,
-<span id="L261" class="ln">   261  </span>							Name:      &#34;foo12&#34;,
-<span id="L262" class="ln">   262  </span>						},
-<span id="L263" class="ln">   263  </span>						Spec: NetworkChaosSpec{
-<span id="L264" class="ln">   264  </span>							Direction:       From,
-<span id="L265" class="ln">   265  </span>							ExternalTargets: []string{&#34;8.8.8.8&#34;},
-<span id="L266" class="ln">   266  </span>						},
-<span id="L267" class="ln">   267  </span>					},
-<span id="L268" class="ln">   268  </span>					execute: func(chaos *NetworkChaos) error {
-<span id="L269" class="ln">   269  </span>						_, err := chaos.ValidateCreate()
-<span id="L270" class="ln">   270  </span>						return err
-<span id="L271" class="ln">   271  </span>					},
-<span id="L272" class="ln">   272  </span>					expect: &#34;error&#34;,
-<span id="L273" class="ln">   273  </span>				},
-<span id="L274" class="ln">   274  </span>			}
-<span id="L275" class="ln">   275  </span>
-<span id="L276" class="ln">   276  </span>			for _, tc := range tcs {
-<span id="L277" class="ln">   277  </span>				err := tc.execute(&amp;tc.chaos)
-<span id="L278" class="ln">   278  </span>				if tc.expect == &#34;error&#34; {
-<span id="L279" class="ln">   279  </span>					Expect(err).To(HaveOccurred())
-<span id="L280" class="ln">   280  </span>				} else {
-<span id="L281" class="ln">   281  </span>					Expect(err).NotTo(HaveOccurred())
-<span id="L282" class="ln">   282  </span>				}
-<span id="L283" class="ln">   283  </span>			}
-<span id="L284" class="ln">   284  </span>		})
-<span id="L285" class="ln">   285  </span>	})
-<span id="L286" class="ln">   286  </span>	Context(&#34;isValidRateUnit&#34;, func() {
-<span id="L287" class="ln">   287  </span>		It(&#34;mbps unit, should convert number with unit successfully&#34;, func() {
-<span id="L288" class="ln">   288  </span>			isValid, err := isValidRateUnit(&#34;  10   mbPs  &#34;)
-<span id="L289" class="ln">   289  </span>			Expect(err).Should(Succeed())
-<span id="L290" class="ln">   290  </span>			Expect(isValid).To(Equal(true))
-<span id="L291" class="ln">   291  </span>		})
-<span id="L292" class="ln">   292  </span>
-<span id="L293" class="ln">   293  </span>		It(&#34;kbit unit, should convert number with unit successfully&#34;, func() {
-<span id="L294" class="ln">   294  </span>			isValid, err := isValidRateUnit(&#34;  10   kbit  &#34;)
-<span id="L295" class="ln">   295  </span>			Expect(err).Should(Succeed())
-<span id="L296" class="ln">   296  </span>			Expect(isValid).To(Equal(true))
-<span id="L297" class="ln">   297  </span>		})
-<span id="L298" class="ln">   298  </span>
-<span id="L299" class="ln">   299  </span>		It(&#34;should return error with invalid unit&#34;, func() {
-<span id="L300" class="ln">   300  </span>			isValid, err := isValidRateUnit(&#34; 10 cpbs&#34;)
-<span id="L301" class="ln">   301  </span>			Expect(err).Should(HaveOccurred())
-<span id="L302" class="ln">   302  </span>			Expect(isValid).To(Equal(false))
-<span id="L303" class="ln">   303  </span>		})
-<span id="L304" class="ln">   304  </span>	})
-<span id="L305" class="ln">   305  </span>})
-<span id="L306" class="ln">   306  </span>
+<span id="L244" class="ln">   244  </span>							TcParameter: TcParameter{
+<span id="L245" class="ln">   245  </span>								Rate: &amp;RateSpec{
+<span id="L246" class="ln">   246  </span>									Rate: &#34;10&#34;,
+<span id="L247" class="ln">   247  </span>								},
+<span id="L248" class="ln">   248  </span>							},
+<span id="L249" class="ln">   249  </span>						},
+<span id="L250" class="ln">   250  </span>					},
+<span id="L251" class="ln">   251  </span>					execute: func(chaos *NetworkChaos) error {
+<span id="L252" class="ln">   252  </span>						_, err := chaos.ValidateCreate()
+<span id="L253" class="ln">   253  </span>						return err
+<span id="L254" class="ln">   254  </span>					},
+<span id="L255" class="ln">   255  </span>					expect: &#34;error&#34;,
+<span id="L256" class="ln">   256  </span>				},
+<span id="L257" class="ln">   257  </span>				{
+<span id="L258" class="ln">   258  </span>					name: &#34;validate the target&#34;,
+<span id="L259" class="ln">   259  </span>					chaos: NetworkChaos{
+<span id="L260" class="ln">   260  </span>						ObjectMeta: metav1.ObjectMeta{
+<span id="L261" class="ln">   261  </span>							Namespace: metav1.NamespaceDefault,
+<span id="L262" class="ln">   262  </span>							Name:      &#34;foo12&#34;,
+<span id="L263" class="ln">   263  </span>						},
+<span id="L264" class="ln">   264  </span>						Spec: NetworkChaosSpec{
+<span id="L265" class="ln">   265  </span>							Target: &amp;PodSelector{
+<span id="L266" class="ln">   266  </span>								Mode:  FixedMode,
+<span id="L267" class="ln">   267  </span>								Value: &#34;0&#34;,
+<span id="L268" class="ln">   268  </span>							},
+<span id="L269" class="ln">   269  </span>						},
+<span id="L270" class="ln">   270  </span>					},
+<span id="L271" class="ln">   271  </span>					execute: func(chaos *NetworkChaos) error {
+<span id="L272" class="ln">   272  </span>						_, err := chaos.ValidateCreate()
+<span id="L273" class="ln">   273  </span>						return err
+<span id="L274" class="ln">   274  </span>					},
+<span id="L275" class="ln">   275  </span>					expect: &#34;error&#34;,
+<span id="L276" class="ln">   276  </span>				},
+<span id="L277" class="ln">   277  </span>				{
+<span id="L278" class="ln">   278  </span>					name: &#34;validate direction and externalTargets&#34;,
+<span id="L279" class="ln">   279  </span>					chaos: NetworkChaos{
+<span id="L280" class="ln">   280  </span>						ObjectMeta: metav1.ObjectMeta{
+<span id="L281" class="ln">   281  </span>							Namespace: metav1.NamespaceDefault,
+<span id="L282" class="ln">   282  </span>							Name:      &#34;foo12&#34;,
+<span id="L283" class="ln">   283  </span>						},
+<span id="L284" class="ln">   284  </span>						Spec: NetworkChaosSpec{
+<span id="L285" class="ln">   285  </span>							Direction:       From,
+<span id="L286" class="ln">   286  </span>							ExternalTargets: []string{&#34;8.8.8.8&#34;},
+<span id="L287" class="ln">   287  </span>						},
+<span id="L288" class="ln">   288  </span>					},
+<span id="L289" class="ln">   289  </span>					execute: func(chaos *NetworkChaos) error {
+<span id="L290" class="ln">   290  </span>						_, err := chaos.ValidateCreate()
+<span id="L291" class="ln">   291  </span>						return err
+<span id="L292" class="ln">   292  </span>					},
+<span id="L293" class="ln">   293  </span>					expect: &#34;error&#34;,
+<span id="L294" class="ln">   294  </span>				},
+<span id="L295" class="ln">   295  </span>			}
+<span id="L296" class="ln">   296  </span>
+<span id="L297" class="ln">   297  </span>			for _, tc := range tcs {
+<span id="L298" class="ln">   298  </span>				err := tc.execute(&amp;tc.chaos)
+<span id="L299" class="ln">   299  </span>				if tc.expect == &#34;error&#34; {
+<span id="L300" class="ln">   300  </span>					Expect(err).To(HaveOccurred())
+<span id="L301" class="ln">   301  </span>				} else {
+<span id="L302" class="ln">   302  </span>					Expect(err).NotTo(HaveOccurred())
+<span id="L303" class="ln">   303  </span>				}
+<span id="L304" class="ln">   304  </span>			}
+<span id="L305" class="ln">   305  </span>		})
+<span id="L306" class="ln">   306  </span>	})
+<span id="L307" class="ln">   307  </span>	Context(&#34;isValidRateUnit&#34;, func() {
+<span id="L308" class="ln">   308  </span>		It(&#34;mbps unit, should convert number with unit successfully&#34;, func() {
+<span id="L309" class="ln">   309  </span>			isValid, err := isValidRateUnit(&#34;  10   mbPs  &#34;)
+<span id="L310" class="ln">   310  </span>			Expect(err).Should(Succeed())
+<span id="L311" class="ln">   311  </span>			Expect(isValid).To(Equal(true))
+<span id="L312" class="ln">   312  </span>		})
+<span id="L313" class="ln">   313  </span>
+<span id="L314" class="ln">   314  </span>		It(&#34;kbit unit, should convert number with unit successfully&#34;, func() {
+<span id="L315" class="ln">   315  </span>			isValid, err := isValidRateUnit(&#34;  10   kbit  &#34;)
+<span id="L316" class="ln">   316  </span>			Expect(err).Should(Succeed())
+<span id="L317" class="ln">   317  </span>			Expect(isValid).To(Equal(true))
+<span id="L318" class="ln">   318  </span>		})
+<span id="L319" class="ln">   319  </span>
+<span id="L320" class="ln">   320  </span>		It(&#34;should return error with invalid unit&#34;, func() {
+<span id="L321" class="ln">   321  </span>			isValid, err := isValidRateUnit(&#34; 10 cpbs&#34;)
+<span id="L322" class="ln">   322  </span>			Expect(err).Should(HaveOccurred())
+<span id="L323" class="ln">   323  </span>			Expect(isValid).To(Equal(false))
+<span id="L324" class="ln">   324  </span>		})
+<span id="L325" class="ln">   325  </span>	})
+<span id="L326" class="ln">   326  </span>})
+<span id="L327" class="ln">   327  </span>
 </pre><p></p>
 
 <div id="footer">

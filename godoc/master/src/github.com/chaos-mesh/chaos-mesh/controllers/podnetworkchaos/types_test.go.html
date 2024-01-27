@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 2e912fb. Generated at Fri Jan 26 22:03:26 UTC 2024.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit b4dcfa3. Generated at Sat Jan 27 10:01:18 UTC 2024.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -200,7 +200,7 @@
 <span id="L135" class="ln">   135  </span>		}
 <span id="L136" class="ln">   136  </span>	})
 <span id="L137" class="ln">   137  </span>
-<span id="L138" class="ln">   138  </span>	t.Run(&#34;delay loss&#34;, func(t *testing.T) {
+<span id="L138" class="ln">   138  </span>	t.Run(&#34;delay loss rate&#34;, func(t *testing.T) {
 <span id="L139" class="ln">   139  </span>		g := NewGomegaWithT(t)
 <span id="L140" class="ln">   140  </span>
 <span id="L141" class="ln">   141  </span>		spec := v1alpha1.TcParameter{
@@ -213,20 +213,24 @@
 <span id="L148" class="ln">   148  </span>				Loss:        &#34;25&#34;,
 <span id="L149" class="ln">   149  </span>				Correlation: &#34;25&#34;,
 <span id="L150" class="ln">   150  </span>			},
-<span id="L151" class="ln">   151  </span>		}
-<span id="L152" class="ln">   152  </span>		m, err := mergeNetem(spec)
-<span id="L153" class="ln">   153  </span>		g.Expect(err).ShouldNot(HaveOccurred())
-<span id="L154" class="ln">   154  </span>		em := &amp;pb.Netem{
-<span id="L155" class="ln">   155  </span>			Time:      90000,
-<span id="L156" class="ln">   156  </span>			Jitter:    90000,
-<span id="L157" class="ln">   157  </span>			DelayCorr: 25,
-<span id="L158" class="ln">   158  </span>			Loss:      25,
-<span id="L159" class="ln">   159  </span>			LossCorr:  25,
-<span id="L160" class="ln">   160  </span>		}
-<span id="L161" class="ln">   161  </span>		g.Expect(m).Should(Equal(em))
-<span id="L162" class="ln">   162  </span>	})
-<span id="L163" class="ln">   163  </span>}
-<span id="L164" class="ln">   164  </span>
+<span id="L151" class="ln">   151  </span>			Rate: &amp;v1alpha1.RateSpec{
+<span id="L152" class="ln">   152  </span>				Rate: &#34;25mbps&#34;,
+<span id="L153" class="ln">   153  </span>			},
+<span id="L154" class="ln">   154  </span>		}
+<span id="L155" class="ln">   155  </span>		m, err := mergeNetem(spec)
+<span id="L156" class="ln">   156  </span>		g.Expect(err).ShouldNot(HaveOccurred())
+<span id="L157" class="ln">   157  </span>		em := &amp;pb.Netem{
+<span id="L158" class="ln">   158  </span>			Time:      90000,
+<span id="L159" class="ln">   159  </span>			Jitter:    90000,
+<span id="L160" class="ln">   160  </span>			DelayCorr: 25,
+<span id="L161" class="ln">   161  </span>			Loss:      25,
+<span id="L162" class="ln">   162  </span>			LossCorr:  25,
+<span id="L163" class="ln">   163  </span>			Rate:      &#34;25mbps&#34;,
+<span id="L164" class="ln">   164  </span>		}
+<span id="L165" class="ln">   165  </span>		g.Expect(m).Should(Equal(em))
+<span id="L166" class="ln">   166  </span>	})
+<span id="L167" class="ln">   167  </span>}
+<span id="L168" class="ln">   168  </span>
 </pre><p></p>
 
 <div id="footer">
