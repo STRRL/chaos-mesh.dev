@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit a10c606. Generated at Mon Mar 18 22:03:30 UTC 2024.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 28d1370. Generated at Tue Mar 19 10:01:35 UTC 2024.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -111,11 +111,11 @@
 <span id="L46" class="ln">    46  </span>}
 <span id="L47" class="ln">    47  </span>
 <span id="L48" class="ln">    48  </span><span class="comment">// GetChildProcesses will return all child processes&#39;s pid. Include all generations.</span>
-<span id="L49" class="ln">    49  </span><span class="comment">// only return error when /proc/pid/tasks cannot be read</span>
+<span id="L49" class="ln">    49  </span><span class="comment">// Only return error when `/proc` cannot be read.</span>
 <span id="L50" class="ln">    50  </span>func GetChildProcesses(ppid uint32, logger logr.Logger) ([]uint32, error) {
 <span id="L51" class="ln">    51  </span>	procs, err := os.ReadDir(bpm.DefaultProcPrefix)
 <span id="L52" class="ln">    52  </span>	if err != nil {
-<span id="L53" class="ln">    53  </span>		return nil, errors.Wrapf(err, &#34;read /proc/pid/tasks , ppid : %d&#34;, ppid)
+<span id="L53" class="ln">    53  </span>		return nil, errors.Wrapf(err, &#34;read /proc&#34;)
 <span id="L54" class="ln">    54  </span>	}
 <span id="L55" class="ln">    55  </span>
 <span id="L56" class="ln">    56  </span>	type processPair struct {
