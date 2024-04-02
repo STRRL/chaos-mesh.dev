@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 12d4810. Generated at Mon Apr  1 22:03:29 UTC 2024.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e23120f. Generated at Tue Apr  2 10:01:36 UTC 2024.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -128,7 +128,7 @@
 <span id="L63" class="ln">    63  </span>	if err != nil {
 <span id="L64" class="ln">    64  </span>		return &#34;&#34;, errors.Wrapf(err, &#34;error in creating NewSPDYExecutor for pod %s/%s&#34;, pod.GetNamespace(), pod.GetName())
 <span id="L65" class="ln">    65  </span>	}
-<span id="L66" class="ln">    66  </span>	err = exec.Stream(remotecommand.StreamOptions{
+<span id="L66" class="ln">    66  </span>	err = exec.StreamWithContext(ctx, remotecommand.StreamOptions{
 <span id="L67" class="ln">    67  </span>		Stdin:  nil,
 <span id="L68" class="ln">    68  </span>		Stdout: &amp;stdout,
 <span id="L69" class="ln">    69  </span>		Stderr: &amp;stderr,
