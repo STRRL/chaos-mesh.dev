@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit e23120f. Generated at Tue Apr  2 22:04:31 UTC 2024.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 38e49da. Generated at Wed Apr  3 10:01:38 UTC 2024.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -171,9 +171,9 @@
 <span id="L106" class="ln">   106  </span>	if err != nil {
 <span id="L107" class="ln">   107  </span>		return nil, err
 <span id="L108" class="ln">   108  </span>	}
-<span id="L109" class="ln">   109  </span>
-<span id="L110" class="ln">   110  </span>	out, err := io.ReadAll(resp.Body)
-<span id="L111" class="ln">   111  </span>	defer resp.Body.Close()
+<span id="L109" class="ln">   109  </span>	defer resp.Body.Close()
+<span id="L110" class="ln">   110  </span>
+<span id="L111" class="ln">   111  </span>	out, err := io.ReadAll(resp.Body)
 <span id="L112" class="ln">   112  </span>	if err != nil {
 <span id="L113" class="ln">   113  </span>		return nil, err
 <span id="L114" class="ln">   114  </span>	}
