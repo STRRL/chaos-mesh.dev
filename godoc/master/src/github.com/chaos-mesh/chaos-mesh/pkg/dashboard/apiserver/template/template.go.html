@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 38e49da. Generated at Tue May 14 10:01:30 UTC 2024.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 6411f53. Generated at Tue May 14 22:04:25 UTC 2024.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -142,7 +142,7 @@
 <span id="L77" class="ln">    77  </span>	ns, name := c.Query(&#34;namespace&#34;), c.Query(&#34;name&#34;)
 <span id="L78" class="ln">    78  </span>	if ns == &#34;&#34; &amp;&amp; !s.conf.ClusterScoped &amp;&amp; s.conf.TargetNamespace != &#34;&#34; {
 <span id="L79" class="ln">    79  </span>		ns = s.conf.TargetNamespace
-<span id="L80" class="ln">    80  </span>		s.logger.Info(&#34;Replace query namespace with&#34;, ns)
+<span id="L80" class="ln">    80  </span>		s.logger.Info(&#34;Replace query namespace&#34;, &#34;ns&#34;, ns)
 <span id="L81" class="ln">    81  </span>	}
 <span id="L82" class="ln">    82  </span>
 <span id="L83" class="ln">    83  </span>	configMapList := v1.ConfigMapList{}
@@ -260,7 +260,7 @@
 <span id="L195" class="ln">   195  </span>	ns, name := c.Query(&#34;namespace&#34;), c.Query(&#34;name&#34;)
 <span id="L196" class="ln">   196  </span>	if ns == &#34;&#34; &amp;&amp; !s.conf.ClusterScoped &amp;&amp; s.conf.TargetNamespace != &#34;&#34; {
 <span id="L197" class="ln">   197  </span>		ns = s.conf.TargetNamespace
-<span id="L198" class="ln">   198  </span>		s.logger.Info(&#34;Replace query namespace with&#34;, ns)
+<span id="L198" class="ln">   198  </span>		s.logger.Info(&#34;Replace query namespace&#34;, &#34;ns&#34;, ns)
 <span id="L199" class="ln">   199  </span>	}
 <span id="L200" class="ln">   200  </span>	if name == &#34;&#34; {
 <span id="L201" class="ln">   201  </span>		u.SetAPIError(c, u.ErrBadRequest.New(&#34;name is required&#34;))
@@ -380,7 +380,7 @@
 <span id="L315" class="ln">   315  </span>	ns, name := c.Query(&#34;namespace&#34;), c.Query(&#34;name&#34;)
 <span id="L316" class="ln">   316  </span>	if ns == &#34;&#34; &amp;&amp; !s.conf.ClusterScoped &amp;&amp; s.conf.TargetNamespace != &#34;&#34; {
 <span id="L317" class="ln">   317  </span>		ns = s.conf.TargetNamespace
-<span id="L318" class="ln">   318  </span>		s.logger.Info(&#34;Replace query namespace with&#34;, ns)
+<span id="L318" class="ln">   318  </span>		s.logger.Info(&#34;Replace query namespace&#34;, &#34;ns&#34;, ns)
 <span id="L319" class="ln">   319  </span>	}
 <span id="L320" class="ln">   320  </span>	if name == &#34;&#34; {
 <span id="L321" class="ln">   321  </span>		u.SetAPIError(c, u.ErrBadRequest.New(&#34;name is required&#34;))

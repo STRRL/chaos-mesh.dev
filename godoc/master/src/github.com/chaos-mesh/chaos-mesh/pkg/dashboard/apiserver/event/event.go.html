@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 38e49da. Generated at Tue May 14 10:01:30 UTC 2024.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 6411f53. Generated at Tue May 14 22:04:25 UTC 2024.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -155,7 +155,7 @@
 <span id="L90" class="ln">    90  </span>	if ns == &#34;&#34; &amp;&amp; !s.conf.ClusterScoped &amp;&amp; s.conf.TargetNamespace != &#34;&#34; {
 <span id="L91" class="ln">    91  </span>		ns = s.conf.TargetNamespace
 <span id="L92" class="ln">    92  </span>
-<span id="L93" class="ln">    93  </span>		s.logger.V(1).Info(&#34;Replace query namespace with&#34;, ns)
+<span id="L93" class="ln">    93  </span>		s.logger.V(1).Info(&#34;Replace query namespace&#34;, &#34;ns&#34;, ns)
 <span id="L94" class="ln">    94  </span>	}
 <span id="L95" class="ln">    95  </span>
 <span id="L96" class="ln">    96  </span>	start, _ := time.Parse(time.RFC3339, c.Query(&#34;start&#34;))
@@ -211,7 +211,7 @@
 <span id="L146" class="ln">   146  </span>	if ns == &#34;&#34; &amp;&amp; !s.conf.ClusterScoped &amp;&amp; s.conf.TargetNamespace != &#34;&#34; {
 <span id="L147" class="ln">   147  </span>		ns = s.conf.TargetNamespace
 <span id="L148" class="ln">   148  </span>
-<span id="L149" class="ln">   149  </span>		s.logger.V(1).Info(&#34;Replace query namespace with&#34;, ns)
+<span id="L149" class="ln">   149  </span>		s.logger.V(1).Info(&#34;Replace query namespace&#34;, &#34;ns&#34;, ns)
 <span id="L150" class="ln">   150  </span>	}
 <span id="L151" class="ln">   151  </span>
 <span id="L152" class="ln">   152  </span>	<span class="comment">// we should fetch the events for Workflow and related WorkflowNode, so we need namespaced name at first</span>
@@ -326,7 +326,7 @@
 <span id="L261" class="ln">   261  </span>	if ns == &#34;&#34; &amp;&amp; !s.conf.ClusterScoped &amp;&amp; s.conf.TargetNamespace != &#34;&#34; {
 <span id="L262" class="ln">   262  </span>		ns = s.conf.TargetNamespace
 <span id="L263" class="ln">   263  </span>
-<span id="L264" class="ln">   264  </span>		s.logger.V(1).Info(&#34;Replace query namespace with&#34;, ns)
+<span id="L264" class="ln">   264  </span>		s.logger.V(1).Info(&#34;Replace query namespace&#34;, &#34;ns&#34;, ns)
 <span id="L265" class="ln">   265  </span>	}
 <span id="L266" class="ln">   266  </span>
 <span id="L267" class="ln">   267  </span>	event, err := s.event.Find(context.Background(), uint(intID))
