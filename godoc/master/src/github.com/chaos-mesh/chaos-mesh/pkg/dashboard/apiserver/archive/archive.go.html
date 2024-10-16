@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 47c77e2. Generated at Tue Oct 15 22:03:43 UTC 2024.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 4794eb7. Generated at Wed Oct 16 10:01:41 UTC 2024.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -374,7 +374,7 @@
 <span id="L309" class="ln">   309  </span>	if err != nil {
 <span id="L310" class="ln">   310  </span>		if gorm.IsRecordNotFoundError(err) {
 <span id="L311" class="ln">   311  </span>			c.Status(http.StatusInternalServerError)
-<span id="L312" class="ln">   312  </span>			_ = c.Error(u.ErrBadRequest.New(&#34;the archive schedule is not found&#34;))
+<span id="L312" class="ln">   312  </span>			_ = c.Error(u.ErrBadRequest.New(&#34;the archived schedule is not found&#34;))
 <span id="L313" class="ln">   313  </span>		} else {
 <span id="L314" class="ln">   314  </span>			c.Status(http.StatusInternalServerError)
 <span id="L315" class="ln">   315  </span>			_ = c.Error(u.ErrInternalServer.NewWithNoMessage())
@@ -551,7 +551,7 @@
 <span id="L486" class="ln">   486  </span>	if err != nil {
 <span id="L487" class="ln">   487  </span>		if gorm.IsRecordNotFoundError(err) {
 <span id="L488" class="ln">   488  </span>			c.Status(http.StatusInternalServerError)
-<span id="L489" class="ln">   489  </span>			_ = c.Error(u.ErrBadRequest.New(&#34;the archive schedule is not found&#34;))
+<span id="L489" class="ln">   489  </span>			_ = c.Error(u.ErrBadRequest.New(&#34;the archived workflow is not found&#34;))
 <span id="L490" class="ln">   490  </span>		} else {
 <span id="L491" class="ln">   491  </span>			c.Status(http.StatusInternalServerError)
 <span id="L492" class="ln">   492  </span>			_ = c.Error(u.ErrInternalServer.NewWithNoMessage())

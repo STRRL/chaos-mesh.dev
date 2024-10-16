@@ -32,7 +32,7 @@
 </div><!-- #lowframe -->
 
 <div id="topbar" class="wide"><div class="container">
-<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 47c77e2. Generated at Tue Oct 15 22:03:43 UTC 2024.</a></div>
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 4794eb7. Generated at Wed Oct 16 10:01:41 UTC 2024.</a></div>
 <div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
 <a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
 
@@ -184,7 +184,7 @@
 <span id="L119" class="ln">   119  </span>	nowTime := time.Now()
 <span id="L120" class="ln">   120  </span>	for _, wfl := range workflows {
 <span id="L121" class="ln">   121  </span>		if wfl.FinishTime == nil {
-<span id="L122" class="ln">   122  </span>			log.Error(nil, &#34;workflow finish time is nil when deleting archived workflow reocrds, skip it&#34;, &#34;workflow&#34;, wfl)
+<span id="L122" class="ln">   122  </span>			log.Error(nil, &#34;workflow finish time is nil when deleting archived workflow records, skip it&#34;, &#34;workflow&#34;, wfl)
 <span id="L123" class="ln">   123  </span>			continue
 <span id="L124" class="ln">   124  </span>		}
 <span id="L125" class="ln">   125  </span>		if wfl.FinishTime.Add(ttl).Before(nowTime) {
