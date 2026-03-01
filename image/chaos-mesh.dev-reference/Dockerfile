@@ -1,11 +1,11 @@
-FROM golang:1.18
+FROM golang:1.25
 LABEL org.opencontainers.image.source=https://github.com/STRRL/chaos-mesh.dev
 
 RUN apt-get update && \ 
     apt-get install asciidoctor -y && \
     rm -rf /var/lib/apt/lists/*
 
-RUN go install github.com/elastic/crd-ref-docs@v0.0.7
+RUN go install github.com/elastic/crd-ref-docs@v0.3.0
 
 RUN mkdir -p /playground
 WORKDIR /playground
