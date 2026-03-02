@@ -6,7 +6,8 @@ on:
   - cron: "0 22 * * *"
 
 jobs:
-  reference-for-branches:
+  generate-all:
+    runs-on: ubuntu-latest
     strategy:
       max-parallel: 1
       fail-fast: false
@@ -15,7 +16,6 @@ jobs:
           - master
           - release-2.1
           - release-2.0
-    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: setup git user as github-action
@@ -38,3 +38,4 @@ jobs:
         disable_nojekyll: true
         user_name: 'github-actions[bot]'
         user_email: 'github-actions[bot]@users.noreply.github.com'
+        force_orphan: true
