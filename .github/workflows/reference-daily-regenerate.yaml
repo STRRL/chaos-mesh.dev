@@ -13,10 +13,6 @@ jobs:
       with:
         ref: gh-pages
         path: gh-pages-current
-    - name: setup git user as github-action
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "<41898282+github-actions[bot]@users.noreply.github.com>"
     - name: generate API Reference for all branches
       run: |
         mkdir -p out/reference
@@ -27,11 +23,9 @@ jobs:
     - name: prepare publish directory
       run: |
         sudo chmod -R 755 out
-        # Copy existing gh-pages content (godoc, static files) and overlay new reference
         mkdir -p publish
         cp -r gh-pages-current/* publish/ 2>/dev/null || true
         rm -rf publish/.git
-        # Replace reference directory with freshly generated content
         rm -rf publish/reference
         cp -r out/reference publish/reference
     - name: publish to gh-pages
