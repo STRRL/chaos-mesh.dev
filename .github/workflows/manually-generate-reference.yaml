@@ -8,24 +8,34 @@ on:
         default: master
 
 jobs:
-  godoc: 
+  godoc:
     name: "Generate API Reference for: ${{ github.event.inputs.branchOrTag }}"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: gh-pages
+        path: gh-pages-current
     - name: generate API Reference
       run: |
         mkdir -p out/reference
         docker run -v $(pwd)/out/reference:/playground/out ghcr.io/strrl/chaos-mesh.dev-reference:latest ${{ github.event.inputs.branchOrTag }}
-    - name: change permission of these files
+    - name: prepare publish directory
       run: |
         sudo chmod -R 755 out
+        mkdir -p publish
+        cp -r gh-pages-current/* publish/ 2>/dev/null || true
+        rm -rf publish/.git
+        # Replace only the target branch reference
+        rm -rf "publish/reference/${{ github.event.inputs.branchOrTag }}"
+        mkdir -p publish/reference
+        cp -r "out/reference/${{ github.event.inputs.branchOrTag }}" "publish/reference/${{ github.event.inputs.branchOrTag }}"
     - name: publish to gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: out/reference/${{ github.event.inputs.branchOrTag }}
-        destination_dir: reference/${{ github.event.inputs.branchOrTag }}
+        publish_dir: ./publish
         disable_nojekyll: true
         user_name: 'github-actions[bot]'
         user_email: 'github-actions[bot]@users.noreply.github.com'
+        force_orphan: true
