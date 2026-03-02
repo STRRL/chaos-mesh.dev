@@ -6,31 +6,40 @@ on:
   - cron: "0 22 * * *"
 
 jobs:
-  godoc-for-branches:
-    strategy:
-      max-parallel: 1
-      fail-fast: false
-      matrix:
-        active-branches:
-          - master
-          - release-2.1
-          - release-2.0
+  godoc-regenerate:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: generate godoc
+      with:
+        ref: gh-pages
+        path: gh-pages-current
+    - name: setup git user as github-action
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "<41898282+github-actions[bot]@users.noreply.github.com>"
+    - name: generate godoc for all branches
       run: |
         mkdir -p out/godoc
-        docker run -v $(pwd)/out/godoc:/playground/out ghcr.io/strrl/chaos-mesh.dev-godoc:latest ${{ matrix.active-branches }}
-    - name: change permission of these files
+        for branch in master release-2.1 release-2.0; do
+          echo "Generating godoc for $branch..."
+          docker run -v $(pwd)/out/godoc:/playground/out ghcr.io/strrl/chaos-mesh.dev-godoc:latest "$branch"
+        done
+    - name: prepare publish directory
       run: |
         sudo chmod -R 755 out
+        # Copy existing gh-pages content (reference, static files) and overlay new godoc
+        mkdir -p publish
+        cp -r gh-pages-current/* publish/ 2>/dev/null || true
+        rm -rf publish/.git
+        # Replace godoc directory with freshly generated content
+        rm -rf publish/godoc
+        cp -r out/godoc publish/godoc
     - name: publish to gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: out/godoc/${{ matrix.active-branches }}
-        destination_dir: godoc/${{ matrix.active-branches }}
+        publish_dir: ./publish
         disable_nojekyll: true
         user_name: 'github-actions[bot]'
         user_email: 'github-actions[bot]@users.noreply.github.com'
+        force_orphan: true
