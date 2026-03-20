@@ -1,0 +1,160 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#375EAB"/>
+
+  <title>src/github.com/chaos-mesh/chaos-mesh/test/e2e/config/restclientgetter.go - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v1.2.4/lib/godoc/style.css"/>
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v1.2.4/lib/godoc/jquery.js" defer=""></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v1.2.4/lib/godoc/godocs.js" defer=""></script>
+</head>
+<body>
+
+<div id="lowframe" style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 04047c8. Generated at Sun Jan 16 10:55:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Source file
+    <a href="https:/chaos-mesh.dev/godoc/v1.2.4/src">src</a>/<a href="https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com">github.com</a>/<a href="https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh">chaos-mesh</a>/<a href="https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/test">test</a>/<a href="https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/test/e2e">e2e</a>/<a href="https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/test/e2e/config">config</a>/<span class="text-muted">restclientgetter.go</span>
+  </h1>
+
+
+
+
+
+  <h2>
+    Documentation: <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/chaos-mesh/chaos-mesh/test/e2e/config">github.com/chaos-mesh/chaos-mesh/test/e2e/config</a>
+  </h2>
+
+
+
+<div id="nav"></div>
+
+
+<script type="text/javascript">document.ANALYSIS_DATA = null;</script>
+<pre><span id="L1" class="ln">     1  </span><span class="comment">// Copyright 2020 Chaos Mesh Authors.</span>
+<span id="L2" class="ln">     2  </span><span class="comment">//</span>
+<span id="L3" class="ln">     3  </span><span class="comment">// Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span>
+<span id="L4" class="ln">     4  </span><span class="comment">// you may not use this file except in compliance with the License.</span>
+<span id="L5" class="ln">     5  </span><span class="comment">// You may obtain a copy of the License at</span>
+<span id="L6" class="ln">     6  </span><span class="comment">//</span>
+<span id="L7" class="ln">     7  </span><span class="comment">//     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span id="L8" class="ln">     8  </span><span class="comment">//</span>
+<span id="L9" class="ln">     9  </span><span class="comment">// Unless required by applicable law or agreed to in writing, software</span>
+<span id="L10" class="ln">    10  </span><span class="comment">// distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span>
+<span id="L11" class="ln">    11  </span><span class="comment">// See the License for the specific language governing permissions and</span>
+<span id="L12" class="ln">    12  </span><span class="comment">// limitations under the License.</span>
+<span id="L13" class="ln">    13  </span>
+<span id="L14" class="ln">    14  </span>package config
+<span id="L15" class="ln">    15  </span>
+<span id="L16" class="ln">    16  </span>import (
+<span id="L17" class="ln">    17  </span>	&#34;path/filepath&#34;
+<span id="L18" class="ln">    18  </span>	&#34;regexp&#34;
+<span id="L19" class="ln">    19  </span>	&#34;strings&#34;
+<span id="L20" class="ln">    20  </span>	&#34;time&#34;
+<span id="L21" class="ln">    21  </span>
+<span id="L22" class="ln">    22  </span>	&#34;k8s.io/apimachinery/pkg/api/meta&#34;
+<span id="L23" class="ln">    23  </span>	&#34;k8s.io/cli-runtime/pkg/genericclioptions&#34;
+<span id="L24" class="ln">    24  </span>	&#34;k8s.io/client-go/discovery&#34;
+<span id="L25" class="ln">    25  </span>	diskcached &#34;k8s.io/client-go/discovery/cached/disk&#34;
+<span id="L26" class="ln">    26  </span>	&#34;k8s.io/client-go/rest&#34;
+<span id="L27" class="ln">    27  </span>	&#34;k8s.io/client-go/restmapper&#34;
+<span id="L28" class="ln">    28  </span>	&#34;k8s.io/client-go/tools/clientcmd&#34;
+<span id="L29" class="ln">    29  </span>	clientcmdapi &#34;k8s.io/client-go/tools/clientcmd/api&#34;
+<span id="L30" class="ln">    30  </span>	&#34;k8s.io/client-go/util/homedir&#34;
+<span id="L31" class="ln">    31  </span>)
+<span id="L32" class="ln">    32  </span>
+<span id="L33" class="ln">    33  </span>var defaultCacheDir = filepath.Join(homedir.HomeDir(), &#34;.kube&#34;, &#34;http-cache&#34;)
+<span id="L34" class="ln">    34  </span>
+<span id="L35" class="ln">    35  </span><span class="comment">// simpleRestClientGetter implements genericclioptions.RESTClientGetter</span>
+<span id="L36" class="ln">    36  </span>type simpleRestClientGetter struct {
+<span id="L37" class="ln">    37  </span>	clientcmdapi.Config
+<span id="L38" class="ln">    38  </span>}
+<span id="L39" class="ln">    39  </span>
+<span id="L40" class="ln">    40  </span><span class="comment">// ToRESTConfig returns restconfig</span>
+<span id="L41" class="ln">    41  </span>func (getter *simpleRestClientGetter) ToRESTConfig() (*rest.Config, error) {
+<span id="L42" class="ln">    42  </span>	return getter.ToRawKubeConfigLoader().ClientConfig()
+<span id="L43" class="ln">    43  </span>}
+<span id="L44" class="ln">    44  </span>
+<span id="L45" class="ln">    45  </span><span class="comment">// ToDiscoveryClient returns discovery client</span>
+<span id="L46" class="ln">    46  </span>func (getter *simpleRestClientGetter) ToDiscoveryClient() (discovery.CachedDiscoveryInterface, error) {
+<span id="L47" class="ln">    47  </span>	config, err := getter.ToRESTConfig()
+<span id="L48" class="ln">    48  </span>	if err != nil {
+<span id="L49" class="ln">    49  </span>		return nil, err
+<span id="L50" class="ln">    50  </span>	}
+<span id="L51" class="ln">    51  </span>
+<span id="L52" class="ln">    52  </span>	config.Burst = 100
+<span id="L53" class="ln">    53  </span>
+<span id="L54" class="ln">    54  </span>	httpCacheDir := defaultCacheDir
+<span id="L55" class="ln">    55  </span>	discoveryCacheDir := computeDiscoverCacheDir(filepath.Join(homedir.HomeDir(), &#34;.kube&#34;, &#34;cache&#34;, &#34;discovery&#34;), config.Host)
+<span id="L56" class="ln">    56  </span>
+<span id="L57" class="ln">    57  </span>	return diskcached.NewCachedDiscoveryClientForConfig(config, discoveryCacheDir, httpCacheDir, time.Duration(10*time.Minute))
+<span id="L58" class="ln">    58  </span>}
+<span id="L59" class="ln">    59  </span>
+<span id="L60" class="ln">    60  </span><span class="comment">// ToRESTMapper returns a restmapper</span>
+<span id="L61" class="ln">    61  </span>func (getter *simpleRestClientGetter) ToRESTMapper() (meta.RESTMapper, error) {
+<span id="L62" class="ln">    62  </span>	discoveryClient, err := getter.ToDiscoveryClient()
+<span id="L63" class="ln">    63  </span>	if err != nil {
+<span id="L64" class="ln">    64  </span>		return nil, err
+<span id="L65" class="ln">    65  </span>	}
+<span id="L66" class="ln">    66  </span>
+<span id="L67" class="ln">    67  </span>	mapper := restmapper.NewDeferredDiscoveryRESTMapper(discoveryClient)
+<span id="L68" class="ln">    68  </span>	expander := restmapper.NewShortcutExpander(mapper, discoveryClient)
+<span id="L69" class="ln">    69  </span>	return expander, nil
+<span id="L70" class="ln">    70  </span>}
+<span id="L71" class="ln">    71  </span>
+<span id="L72" class="ln">    72  </span><span class="comment">// ToRawKubeConfigLoader return kubeconfig loader as-is</span>
+<span id="L73" class="ln">    73  </span>func (getter *simpleRestClientGetter) ToRawKubeConfigLoader() clientcmd.ClientConfig {
+<span id="L74" class="ln">    74  </span>	return clientcmd.NewDefaultClientConfig(getter.Config, &amp;clientcmd.ConfigOverrides{ClusterDefaults: clientcmd.ClusterDefaults})
+<span id="L75" class="ln">    75  </span>}
+<span id="L76" class="ln">    76  </span>
+<span id="L77" class="ln">    77  </span><span class="comment">// overlyCautiousIllegalFileCharacters matches characters that *might* not be supported.  Windows is really restrictive, so this is really restrictive</span>
+<span id="L78" class="ln">    78  </span>var overlyCautiousIllegalFileCharacters = regexp.MustCompile(`[^(\w/\.)]`)
+<span id="L79" class="ln">    79  </span>
+<span id="L80" class="ln">    80  </span><span class="comment">// computeDiscoverCacheDir takes the parentDir and the host and comes up with a &#34;usually non-colliding&#34; name.</span>
+<span id="L81" class="ln">    81  </span>func computeDiscoverCacheDir(parentDir, host string) string {
+<span id="L82" class="ln">    82  </span>	<span class="comment">// strip the optional scheme from host if its there:</span>
+<span id="L83" class="ln">    83  </span>	schemelessHost := strings.Replace(strings.Replace(host, &#34;https://&#34;, &#34;&#34;, 1), &#34;http://&#34;, &#34;&#34;, 1)
+<span id="L84" class="ln">    84  </span>	<span class="comment">// now do a simple collapse of non-AZ09 characters.  Collisions are possible but unlikely.  Even if we do collide the problem is short lived</span>
+<span id="L85" class="ln">    85  </span>	safeHost := overlyCautiousIllegalFileCharacters.ReplaceAllString(schemelessHost, &#34;_&#34;)
+<span id="L86" class="ln">    86  </span>	return filepath.Join(parentDir, safeHost)
+<span id="L87" class="ln">    87  </span>}
+<span id="L88" class="ln">    88  </span>
+<span id="L89" class="ln">    89  </span><span class="comment">// NewSimpleRESTClientGetter initializes a new genericclioptions.RESTClientGetter from clientcmdapi.Config.</span>
+<span id="L90" class="ln">    90  </span>func NewSimpleRESTClientGetter(config clientcmdapi.Config) genericclioptions.RESTClientGetter {
+<span id="L91" class="ln">    91  </span>	return &amp;simpleRestClientGetter{config}
+<span id="L92" class="ln">    92  </span>}
+<span id="L93" class="ln">    93  </span>
+</pre><p></p>
+
+<div id="footer">
+Build version go1.17.6.<br/>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+
+
+</body></html>

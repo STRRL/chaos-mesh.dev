@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>cmd - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f3d3540. Generated at Fri Feb  7 10:01:31 UTC 2025.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package cmd
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#Execute">func Execute()</a></dd>
+			
+				
+				<dd><a href="#NewDebugCommand">func NewDebugCommand(logger logr.Logger, debugs map[string]debug.Debug) (*cobra.Command, error)</a></dd>
+			
+				
+				<dd><a href="#NewLogsCmd">func NewLogsCmd() (*cobra.Command, error)</a></dd>
+			
+				
+				<dd><a href="#NewPhysicalMachineCommand">func NewPhysicalMachineCommand() (*cobra.Command, error)</a></dd>
+			
+				
+				<dd><a href="#NewRecoverCommand">func NewRecoverCommand(logger logr.Logger, builders map[string]recover.RecovererBuilder) (*cobra.Command, error)</a></dd>
+			
+			
+				
+				<dd><a href="#Component">type Component</a></dd>
+				
+				
+			
+				
+				<dd><a href="#DebugOptions">type DebugOptions</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DebugOptions.List">func (o *DebugOptions) List(debugger debug.Debugger) ([]string, cobra.ShellCompDirective)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DebugOptions.Run">func (o *DebugOptions) Run(debugger debug.Debugger, args []string) error</a></dd>
+				
+			
+				
+				<dd><a href="#RecoverOptions">type RecoverOptions</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RecoverOptions.List">func (o *RecoverOptions) List(client *ctrlclient.CtrlClient) ([]string, cobra.ShellCompDirective)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RecoverOptions.Run">func (o *RecoverOptions) Run(recover recover.Recoverer, client *ctrlclient.CtrlClient, args []string) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/completion.go">completion.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go">debug.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/forward.go">forward.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/logs.go">logs.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/physicalmachine.go">physicalmachine.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/recover.go">recover.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/root.go">root.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="Execute">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/root.go#L50">Execute</a>
+				<a class="permalink" href="#Execute">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Execute()</pre>
+			<p>
+Execute adds all child commands to the root command and sets flags appropriately.
+This is called by main.main(). It only needs to happen once to the rootCmd.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="NewDebugCommand">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go#L41">NewDebugCommand</a>
+				<a class="permalink" href="#NewDebugCommand">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewDebugCommand(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>, debugs map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/">debug</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/#Debug">Debug</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewLogsCmd">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/logs.go#L46">NewLogsCmd</a>
+				<a class="permalink" href="#NewLogsCmd">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewLogsCmd() (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewPhysicalMachineCommand">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/physicalmachine.go#L24">NewPhysicalMachineCommand</a>
+				<a class="permalink" href="#NewPhysicalMachineCommand">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewPhysicalMachineCommand() (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NewRecoverCommand">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/recover.go#L39">NewRecoverCommand</a>
+				<a class="permalink" href="#NewRecoverCommand">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewRecoverCommand(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>, builders map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/">recover</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/#RecovererBuilder">RecovererBuilder</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#Command">Command</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Component">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/logs.go#L37">Component</a>
+				<a class="permalink" href="#Component">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Component <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="Manager">Manager</span>   <a href="#Component">Component</a> = &#34;MANAGER&#34;
+    <span id="Daemon">Daemon</span>    <a href="#Component">Component</a> = &#34;DAEMON&#34;
+    <span id="Dashboard">Dashboard</span> <a href="#Component">Component</a> = &#34;DASHBOARD&#34;
+    <span id="DnsServer">DnsServer</span> <a href="#Component">Component</a> = &#34;DNSSERVER&#34;
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="DebugOptions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go#L30">DebugOptions</a>
+				<a class="permalink" href="#DebugOptions">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type DebugOptions struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="DebugOptions.List">func (*DebugOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go#L139">List</a>
+					<a class="permalink" href="#DebugOptions.List">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="#DebugOptions">DebugOptions</a>) List(debugger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/">debug</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/#Debugger">Debugger</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#ShellCompDirective">ShellCompDirective</a>)</pre>
+				<p>
+Run debug
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="DebugOptions.Run">func (*DebugOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/debug.go#L114">Run</a>
+					<a class="permalink" href="#DebugOptions.Run">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="#DebugOptions">DebugOptions</a>) Run(debugger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/">debug</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/debug/#Debugger">Debugger</a>, args []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<p>
+Run debug
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="RecoverOptions">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/recover.go#L34">RecoverOptions</a>
+				<a class="permalink" href="#RecoverOptions">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type RecoverOptions struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="RecoverOptions.List">func (*RecoverOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/recover.go#L143">List</a>
+					<a class="permalink" href="#RecoverOptions.List">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="#RecoverOptions">RecoverOptions</a>) List(client *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>) ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/">cobra</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/spf13/cobra/#ShellCompDirective">ShellCompDirective</a>)</pre>
+				<p>
+List pods to recover
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="RecoverOptions.Run">func (*RecoverOptions) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/cmd/recover.go#L125">Run</a>
+					<a class="permalink" href="#RecoverOptions.Run">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="#RecoverOptions">RecoverOptions</a>) Run(recover <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/">recover</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosctl/recover/#Recoverer">Recoverer</a>, client *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/">ctrlclient</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ctrl/client/#CtrlClient">CtrlClient</a>, args []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<p>
+Run recover
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.18.1.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

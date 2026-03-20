@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>podhttpchaosmanager - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.1.5/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.5/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.5/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 42e2aaa. Generated at Mon Apr 25 14:57:56 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package podhttpchaosmanager
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+			
+				
+				<dd><a href="#Append">type Append</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Append.Apply">func (a *Append) Apply(chaos *v1alpha1.PodHttpChaos) error</a></dd>
+				
+			
+				
+				<dd><a href="#Builder">type Builder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewBuilder">func NewBuilder(params Params) *Builder</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Builder.WithInit">func (b *Builder) WithInit(source string, key types.NamespacedName) *PodHttpManager</a></dd>
+				
+			
+				
+				<dd><a href="#Clear">type Clear</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Clear.Apply">func (s *Clear) Apply(chaos *v1alpha1.PodHttpChaos) error</a></dd>
+				
+			
+				
+				<dd><a href="#CommitResponse">type CommitResponse</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Params">type Params</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodHttpManager">type PodHttpManager</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PodHttpManager.Commit">func (m *PodHttpManager) Commit(ctx context.Context) (int64, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PodHttpManager.CreateNewPodHttpChaos">func (m *PodHttpManager) CreateNewPodHttpChaos(ctx context.Context) error</a></dd>
+				
+			
+				
+				<dd><a href="#PodHttpTransaction">type PodHttpTransaction</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PodHttpTransaction.Append">func (t *PodHttpTransaction) Append(item interface{}) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PodHttpTransaction.Apply">func (t *PodHttpTransaction) Apply(chaos *v1alpha1.PodHttpChaos) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PodHttpTransaction.Clear">func (t *PodHttpTransaction) Clear(source string)</a></dd>
+				
+			
+				
+				<dd><a href="#Step">type Step</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/builder.go">builder.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/manager.go">manager.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/transaction.go">transaction.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var (
+    <span class="comment">// ErrPodNotFound means operate pod may be deleted(almostly)</span>
+    <span id="ErrPodNotFound">ErrPodNotFound</span> = <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/errors/">errors</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/errors/#New">New</a>(&#34;pod not found&#34;)
+
+    <span class="comment">// ErrPodNotRunning means operate pod may be not working</span>
+    <span class="comment">// and it&#39;s non-sense to make changes on it.</span>
+    <span id="ErrPodNotRunning">ErrPodNotRunning</span> = <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/errors/">errors</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/errors/#New">New</a>(&#34;pod not running&#34;)
+)</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="Append">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/transaction.go#L53">Append</a>
+				<a class="permalink" href="#Append">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Append adds an item to corresponding list in podhttpchaos
+</p>
+
+			<pre>type Append struct {
+<span id="Append.Item"></span>    Item interface{}
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Append.Apply">func (*Append) <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/transaction.go#L58">Apply</a>
+					<a class="permalink" href="#Append.Apply">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (a *<a href="#Append">Append</a>) Apply(chaos *<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaos">PodHttpChaos</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#error">error</a></pre>
+				<p>
+Apply runs this action
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Builder">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/builder.go#L26">Builder</a>
+				<a class="permalink" href="#Builder">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Builder struct {
+<span id="Builder.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+    <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+    <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewBuilder">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/builder.go#L42">NewBuilder</a>
+					<a class="permalink" href="#NewBuilder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewBuilder(params <a href="#Params">Params</a>) *<a href="#Builder">Builder</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="Builder.WithInit">func (*Builder) <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/builder.go#L51">WithInit</a>
+					<a class="permalink" href="#Builder.WithInit">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#Builder">Builder</a>) WithInit(source <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#string">string</a>, key <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/k8s.io/apimachinery/pkg/types/">types</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/k8s.io/apimachinery/pkg/types/#NamespacedName">NamespacedName</a>) *<a href="#PodHttpManager">PodHttpManager</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Clear">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/transaction.go#L36">Clear</a>
+				<a class="permalink" href="#Clear">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Clear removes all resources with the same source
+</p>
+
+			<pre>type Clear struct {
+<span id="Clear.Source"></span>    Source <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Clear.Apply">func (*Clear) <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/transaction.go#L41">Apply</a>
+					<a class="permalink" href="#Clear.Apply">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#Clear">Clear</a>) Apply(chaos *<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaos">PodHttpChaos</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#error">error</a></pre>
+				<p>
+Apply runs this action
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="CommitResponse">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/manager.go#L57">CommitResponse</a>
+				<a class="permalink" href="#CommitResponse">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+CommitResponse is a tuple (Key, Err)
+</p>
+
+			<pre>type CommitResponse struct {
+<span id="CommitResponse.Key"></span>    Key <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/k8s.io/apimachinery/pkg/types/">types</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/k8s.io/apimachinery/pkg/types/#NamespacedName">NamespacedName</a>
+<span id="CommitResponse.Err"></span>    Err <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#error">error</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Params">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/builder.go#L33">Params</a>
+				<a class="permalink" href="#Params">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Params struct {
+    <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/go.uber.org/fx/#In">In</a>
+
+<span id="Params.Logger"></span>    Logger <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+<span id="Params.Client"></span>    Client <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+<span id="Params.Reader"></span>    Reader <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a> `name:&#34;no-cache&#34;`
+<span id="Params.Scheme"></span>    Scheme *<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/k8s.io/apimachinery/pkg/runtime/">runtime</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/k8s.io/apimachinery/pkg/runtime/#Scheme">Scheme</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodHttpManager">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/manager.go#L44">PodHttpManager</a>
+				<a class="permalink" href="#PodHttpManager">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+PodHttpManager will save all the related podhttpchaos
+</p>
+
+			<pre>type PodHttpManager struct {
+<span id="PodHttpManager.Source"></span>    Source <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#string">string</a>
+
+<span id="PodHttpManager.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+    <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+    <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Reader">Reader</a>
+
+<span id="PodHttpManager.Key"></span>    Key <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/k8s.io/apimachinery/pkg/types/">types</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/k8s.io/apimachinery/pkg/types/#NamespacedName">NamespacedName</a>
+<span id="PodHttpManager.T"></span>    T   *<a href="#PodHttpTransaction">PodHttpTransaction</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="PodHttpManager.Commit">func (*PodHttpManager) <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/manager.go#L63">Commit</a>
+					<a class="permalink" href="#PodHttpManager.Commit">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#PodHttpManager">PodHttpManager</a>) Commit(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/context/#Context">Context</a>) (<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#int64">int64</a>, <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Commit will update all modifications to the cluster
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="PodHttpManager.CreateNewPodHttpChaos">func (*PodHttpManager) <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/manager.go#L106">CreateNewPodHttpChaos</a>
+					<a class="permalink" href="#PodHttpManager.CreateNewPodHttpChaos">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#PodHttpManager">PodHttpManager</a>) CreateNewPodHttpChaos(ctx <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/context/#Context">Context</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="PodHttpTransaction">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/transaction.go#L25">PodHttpTransaction</a>
+				<a class="permalink" href="#PodHttpTransaction">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+PodHttpTransaction represents a modification on podhttpchaos
+</p>
+
+			<pre>type PodHttpTransaction struct {
+<span id="PodHttpTransaction.Steps"></span>    Steps []<a href="#Step">Step</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="PodHttpTransaction.Append">func (*PodHttpTransaction) <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/transaction.go#L77">Append</a>
+					<a class="permalink" href="#PodHttpTransaction.Append">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="#PodHttpTransaction">PodHttpTransaction</a>) Append(item interface{}) <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#error">error</a></pre>
+				<p>
+Append adds an item to corresponding list in podnetworkchaos
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="PodHttpTransaction.Apply">func (*PodHttpTransaction) <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/transaction.go#L90">Apply</a>
+					<a class="permalink" href="#PodHttpTransaction.Apply">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="#PodHttpTransaction">PodHttpTransaction</a>) Apply(chaos *<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaos">PodHttpChaos</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#error">error</a></pre>
+				<p>
+Apply runs every step on the chaos
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="PodHttpTransaction.Clear">func (*PodHttpTransaction) <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/transaction.go#L70">Clear</a>
+					<a class="permalink" href="#PodHttpTransaction.Clear">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="#PodHttpTransaction">PodHttpTransaction</a>) Clear(source <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#string">string</a>)</pre>
+				<p>
+Clear will clear all related items in podhttpchaos
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Step">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/httpchaos/podhttpchaosmanager/transaction.go#L30">Step</a>
+				<a class="permalink" href="#Step">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Step represents a step of PodHttpTransaction
+</p>
+
+			<pre>type Step interface {
+    <span class="comment">// Apply will apply an action on podnetworkchaos</span>
+    Apply(chaos *<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#PodHttpChaos">PodHttpChaos</a>) <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/builtin/#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.18.1.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

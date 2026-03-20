@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>watcher - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v1.2.4/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v1.2.4/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v1.2.4/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 04047c8. Generated at Sun Jan 16 10:55:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package watcher
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+			
+				
+				<dd><a href="#Config">type Config</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewConfig">func NewConfig() *Config</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Config.Verify">func (c *Config) Verify() error</a></dd>
+				
+			
+				
+				<dd><a href="#Event">type Event</a></dd>
+				
+				
+			
+				
+				<dd><a href="#K8sConfigMapWatcher">type K8sConfigMapWatcher</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#New">func New(cfg Config, metrics *metrics.ChaosCollector) (*K8sConfigMapWatcher, error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#K8sConfigMapWatcher.GetConfigs">func (c *K8sConfigMapWatcher) GetConfigs() ([]*config.TemplateArgs, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#K8sConfigMapWatcher.GetInjectionConfigs">func (c *K8sConfigMapWatcher) GetInjectionConfigs() (map[string][]*config.InjectionConfig, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#K8sConfigMapWatcher.GetTemplates">func (c *K8sConfigMapWatcher) GetTemplates() (map[string]string, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#K8sConfigMapWatcher.Watch">func (c *K8sConfigMapWatcher) Watch(notifyMe chan&lt;- interface{}, stopCh &lt;-chan struct{}) error</a></dd>
+				
+			
+				
+				<dd><a href="#Message">type Message</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/config.go">config.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/message.go">message.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/util.go">util.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/watcher.go">watcher.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				<p>
+ErrWatchChannelClosed should restart watcher
+</p>
+
+				<pre>var <span id="ErrWatchChannelClosed">ErrWatchChannelClosed</span> = <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/errors/">errors</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/errors/#New">New</a>(&#34;watcher channel has closed&#34;)</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="Config">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/config.go#L21">Config</a>
+				<a class="permalink" href="#Config">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Config is a configuration struct for the Watcher type
+</p>
+
+			<pre>type Config struct {
+<span id="Config.ClusterScoped"></span>    <span class="comment">// ClusterScoped means control Chaos Object in cluster level(all namespace);</span>
+    ClusterScoped <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#bool">bool</a> `envconfig:&#34;CLUSTER_SCOPED&#34; default:&#34;true&#34;`
+<span id="Config.TemplateNamespace"></span>    <span class="comment">// TemplateNamespace is the namespace which holds the template configmap.</span>
+    <span class="comment">// If controller-manager is running with in-cluster mode. If is set to empty string, it will be overwrite to namespace which the pod belongs.</span>
+    TemplateNamespace <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a> `envconfig:&#34;TEMPLATE_NAMESPACE&#34; default:&#34;&#34;`
+<span id="Config.TargetNamespace"></span>    <span class="comment">// TargetNamespace means configmaps in this namespace will be controlled by this controller.</span>
+    <span class="comment">// It SHOULD be the same with TargetNamespace in config.ChaosControllerConfig while clusterScoped is false.</span>
+    TargetNamespace <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a> `envconfig:&#34;TARGET_NAMESPACE&#34; default:&#34;&#34;`
+<span id="Config.TemplateLabels"></span>    <span class="comment">// TemplateLabels is label pairs used to discover common templates in Kubernetes. These should be key1:value[,key2:val2,...]</span>
+    TemplateLabels map[<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a> `envconfig:&#34;TEMPLATE_LABELS&#34;`
+<span id="Config.ConfigLabels"></span>    <span class="comment">// ConfigLabels is label pairs used to discover ConfigMaps in Kubernetes. These should be key1:value[,key2:val2,...]</span>
+    ConfigLabels map[<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a> `envconfig:&#34;CONFIGMAP_LABELS&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewConfig">func <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/config.go#L37">NewConfig</a>
+					<a class="permalink" href="#NewConfig">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewConfig() *<a href="#Config">Config</a></pre>
+				<p>
+NewConfig returns a new initialized Config
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="Config.Verify">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/config.go#L48">Verify</a>
+					<a class="permalink" href="#Config.Verify">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Config">Config</a>) Verify() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a></pre>
+				<p>
+Verify will verify the parameter configuration is correct
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Event">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/message.go#L27">Event</a>
+				<a class="permalink" href="#Event">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Event is what happened to the config (add/delete/update)
+</p>
+
+			<pre>type Event <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint8">uint8</a></pre>
+
+			
+				
+				<pre>const (
+    <span class="comment">// EventAdd is a new ConfigMap</span>
+    <span id="EventAdd">EventAdd</span> <a href="#Event">Event</a> = <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#iota">iota</a>
+    <span class="comment">// EventUpdate is an Updated ConfigMap</span>
+    <span id="EventUpdate">EventUpdate</span>
+    <span class="comment">// EventDelete is a deleted ConfigMap</span>
+    <span id="EventDelete">EventDelete</span>
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="K8sConfigMapWatcher">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/watcher.go#L53">K8sConfigMapWatcher</a>
+				<a class="permalink" href="#K8sConfigMapWatcher">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+K8sConfigMapWatcher is a struct that connects to the API and collects, parses, and emits sidecar configurations
+</p>
+
+			<pre>type K8sConfigMapWatcher struct {
+    <a href="#Config">Config</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="New">func <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/watcher.go#L60">New</a>
+					<a class="permalink" href="#New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func New(cfg <a href="#Config">Config</a>, metrics *<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/chaos-mesh/chaos-mesh/controllers/metrics/">metrics</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/chaos-mesh/chaos-mesh/controllers/metrics/#ChaosCollector">ChaosCollector</a>) (*<a href="#K8sConfigMapWatcher">K8sConfigMapWatcher</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				<p>
+New creates a new K8sConfigMapWatcher
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="K8sConfigMapWatcher.GetConfigs">func (*K8sConfigMapWatcher) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/watcher.go#L298">GetConfigs</a>
+					<a class="permalink" href="#K8sConfigMapWatcher.GetConfigs">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#K8sConfigMapWatcher">K8sConfigMapWatcher</a>) GetConfigs() ([]*<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/">config</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/#TemplateArgs">TemplateArgs</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				<p>
+GetConfigs returns the list of template args config
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="K8sConfigMapWatcher.GetInjectionConfigs">func (*K8sConfigMapWatcher) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/watcher.go#L213">GetInjectionConfigs</a>
+					<a class="permalink" href="#K8sConfigMapWatcher.GetInjectionConfigs">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#K8sConfigMapWatcher">K8sConfigMapWatcher</a>) GetInjectionConfigs() (map[<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a>][]*<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/">config</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/#InjectionConfig">InjectionConfig</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				<p>
+GetInjectionConfigs fetches all matching ConfigMaps
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="K8sConfigMapWatcher.GetTemplates">func (*K8sConfigMapWatcher) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/watcher.go#L277">GetTemplates</a>
+					<a class="permalink" href="#K8sConfigMapWatcher.GetTemplates">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#K8sConfigMapWatcher">K8sConfigMapWatcher</a>) GetTemplates() (map[<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				<p>
+GetTemplates returns a map of common templates
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="K8sConfigMapWatcher.Watch">func (*K8sConfigMapWatcher) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/watcher.go#L123">Watch</a>
+					<a class="permalink" href="#K8sConfigMapWatcher.Watch">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#K8sConfigMapWatcher">K8sConfigMapWatcher</a>) Watch(notifyMe chan&lt;- interface{}, stopCh &lt;-chan struct{}) <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a></pre>
+				<p>
+Watch watches for events impacting watched ConfigMaps and emits their events across a channel
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Message">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/watcher/message.go#L21">Message</a>
+				<a class="permalink" href="#Message">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Message is a message that describes a change and payload to a sidecar configuration
+</p>
+
+			<pre>type Message struct {
+<span id="Message.Event"></span>    Event           <a href="#Event">Event</a>
+<span id="Message.InjectionConfig"></span>    InjectionConfig <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/">config</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/chaos-mesh/chaos-mesh/pkg/webhook/config/#InjectionConfig">InjectionConfig</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

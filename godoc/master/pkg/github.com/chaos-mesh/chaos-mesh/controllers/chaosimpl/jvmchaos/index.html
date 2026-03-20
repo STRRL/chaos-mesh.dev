@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>jvmchaos - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f3d3540. Generated at Fri Feb  7 10:01:31 UTC 2025.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package jvmchaos
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#NewImpl">func NewImpl(c client.Client, decoder *utils.ContainerRecordDecoder, log logr.Logger) *impltypes.ChaosImplPair</a></dd>
+			
+			
+				
+				<dd><a href="#BytemanTemplateSpec">type BytemanTemplateSpec</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Impl">type Impl</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Impl.Apply">func (impl *Impl) Apply(ctx context.Context, index int, records []*v1alpha1.Record, obj v1alpha1.InnerObject) (v1alpha1.Phase, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Impl.Recover">func (impl *Impl) Recover(ctx context.Context, index int, records []*v1alpha1.Record, obj v1alpha1.InnerObject) (v1alpha1.Phase, error)</a></dd>
+				
+			
+				
+				<dd><a href="#JVMRuleParameter">type JVMRuleParameter</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go">impl.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				
+				<pre>const (
+    <span class="comment">// byteman rule template</span>
+    <span id="SimpleRuleTemplate">SimpleRuleTemplate</span> = `
+RULE {{.Name}}
+CLASS {{.Class}}
+METHOD {{.Method}}
+AT ENTRY
+IF true
+DO
+    {{.Do}};
+ENDRULE
+`
+
+    <span id="CompleteRuleTemplate">CompleteRuleTemplate</span> = `
+RULE {{.Name}}
+CLASS {{.Class}}
+METHOD {{.Method}}
+HELPER {{.Helper}}
+AT ENTRY
+BIND {{.Bind}};
+IF {{.Condition}}
+DO
+    {{.Do}};
+ENDRULE
+`
+
+    <span class="comment">// for action &#39;mysql&#39;, &#39;gc&#39; and &#39;stress&#39;</span>
+    <span id="SQLHelper">SQLHelper</span>    = &#34;org.chaos_mesh.byteman.helper.SQLHelper&#34;
+    <span id="GCHelper">GCHelper</span>     = &#34;org.chaos_mesh.byteman.helper.GCHelper&#34;
+    <span id="StressHelper">StressHelper</span> = &#34;org.chaos_mesh.byteman.helper.StressHelper&#34;
+
+    <span class="comment">// the trigger point for &#39;gc&#39; and &#39;stress&#39;</span>
+    <span id="TriggerClass">TriggerClass</span>  = &#34;org.chaos_mesh.chaos_agent.TriggerThread&#34;
+    <span id="TriggerMethod">TriggerMethod</span> = &#34;triggerFunc&#34;
+
+    <span id="MySQL5InjectClass">MySQL5InjectClass</span>  = &#34;com.mysql.jdbc.MysqlIO&#34;
+    <span id="MySQL5InjectMethod">MySQL5InjectMethod</span> = &#34;sqlQueryDirect&#34;
+    <span id="MySQL5Exception">MySQL5Exception</span>    = &#34;java.sql.SQLException(\&#34;%s\&#34;)&#34;
+
+    <span id="MySQL8InjectClass">MySQL8InjectClass</span>  = &#34;com.mysql.cj.NativeSession&#34;
+    <span id="MySQL8InjectMethod">MySQL8InjectMethod</span> = &#34;execSQL&#34;
+    <span id="MySQL8Exception">MySQL8Exception</span>    = &#34;com.mysql.cj.exceptions.CJException(\&#34;%s\&#34;)&#34;
+)</pre>
+			
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var <span id="Module">Module</span> = <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Provide">Provide</a>(
+    <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Annotated">Annotated</a>{
+        <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Annotated.Group">Group</a>:  &#34;impl&#34;,
+        <a href="https:/chaos-mesh.dev/godoc/master/pkg/go.uber.org/fx/#Annotated.Target">Target</a>: <a href="#NewImpl">NewImpl</a>,
+    },
+)</pre>
+			
+		
+		
+			
+			
+			<h2 id="NewImpl">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L299">NewImpl</a>
+				<a class="permalink" href="#NewImpl">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewImpl(c <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>, decoder *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/utils/">utils</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/utils/#ContainerRecordDecoder">ContainerRecordDecoder</a>, log <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/types/">impltypes</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/types/#ChaosImplPair">ChaosImplPair</a></pre>
+			<p>
+Object would return the instance of chaos
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="BytemanTemplateSpec">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L87">BytemanTemplateSpec</a>
+				<a class="permalink" href="#BytemanTemplateSpec">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+BytemanTemplateSpec is the template spec for byteman rule
+</p>
+
+			<pre>type BytemanTemplateSpec struct {
+<span id="BytemanTemplateSpec.Name"></span>    Name      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="BytemanTemplateSpec.Class"></span>    Class     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="BytemanTemplateSpec.Method"></span>    Method    <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="BytemanTemplateSpec.Helper"></span>    Helper    <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="BytemanTemplateSpec.Bind"></span>    Bind      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="BytemanTemplateSpec.Condition"></span>    Condition <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="BytemanTemplateSpec.Do"></span>    Do        <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+
+    <span class="comment">// below is only used for stress template</span>
+<span id="BytemanTemplateSpec.StressType"></span>    StressType      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="BytemanTemplateSpec.StressValueName"></span>    StressValueName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="BytemanTemplateSpec.StressValue"></span>    StressValue     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Impl">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L102">Impl</a>
+				<a class="permalink" href="#Impl">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Impl struct {
+    <a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>
+<span id="Impl.Log"></span>    Log <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Impl.Apply">func (*Impl) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L110">Apply</a>
+					<a class="permalink" href="#Impl.Apply">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (impl *<a href="#Impl">Impl</a>) Apply(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, index <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, records []*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Record">Record</a>, obj <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Phase">Phase</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Apply applies jvm-chaos
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Impl.Recover">func (*Impl) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L151">Recover</a>
+					<a class="permalink" href="#Impl.Recover">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (impl *<a href="#Impl">Impl</a>) Recover(ctx <a href="https:/chaos-mesh.dev/godoc/master/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/context/#Context">Context</a>, index <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, records []*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Record">Record</a>, obj <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#InnerObject">InnerObject</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Phase">Phase</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Recover means the reconciler recovers the chaos action
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="JVMRuleParameter">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/jvmchaos/impl.go#L201">JVMRuleParameter</a>
+				<a class="permalink" href="#JVMRuleParameter">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+JVMRuleParameter is only used to generate rule data
+</p>
+
+			<pre>type JVMRuleParameter struct {
+    <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#JVMParameter">JVMParameter</a>
+
+<span id="JVMRuleParameter.StressType"></span>    StressType      <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="JVMRuleParameter.StressValue"></span>    StressValue     <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="JVMRuleParameter.StressValueName"></span>    StressValueName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+<span id="JVMRuleParameter.Do"></span>    Do              <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.18.1.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

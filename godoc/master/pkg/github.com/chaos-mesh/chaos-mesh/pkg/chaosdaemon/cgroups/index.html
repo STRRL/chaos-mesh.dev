@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>cgroups - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f3d3540. Generated at Fri Feb  7 10:01:31 UTC 2025.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package cgroups
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#PidPath">func PidPath(pid int) cgroups.Path</a></dd>
+			
+				
+				<dd><a href="#V1">func V1() ([]cgroups.Subsystem, error)</a></dd>
+			
+				
+				<dd><a href="#V2PidGroupPath">func V2PidGroupPath(pid int) (string, error)</a></dd>
+			
+			
+				
+				<dd><a href="#AttachCGroup">type AttachCGroup</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GetAttacherForPID">func GetAttacherForPID(targetPID int) (AttachCGroup, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#AttachCGroupV1">type AttachCGroupV1</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AttachCGroupV1.AttachProcess">func (a *AttachCGroupV1) AttachProcess(pid int) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AttachCGroupV1.TargetCGroup">func (a *AttachCGroupV1) TargetCGroup() CGroupInfo</a></dd>
+				
+			
+				
+				<dd><a href="#AttachCGroupV2">type AttachCGroupV2</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AttachCGroupV2.AttachProcess">func (a *AttachCGroupV2) AttachProcess(pid int) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AttachCGroupV2.TargetCGroup">func (a *AttachCGroupV2) TargetCGroup() CGroupInfo</a></dd>
+				
+			
+				
+				<dd><a href="#CGroupInfo">type CGroupInfo</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/attach_cgroup.go">attach_cgroup.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/pidpath.go">pidpath.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/utils.go">utils.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="PidPath">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/pidpath.go#L46">PidPath</a>
+				<a class="permalink" href="#PidPath">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func PidPath(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/containerd/cgroups/">cgroups</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/containerd/cgroups/#Path">Path</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="V1">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/pidpath.go#L31">V1</a>
+				<a class="permalink" href="#V1">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func V1() ([]<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/containerd/cgroups/">cgroups</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/containerd/cgroups/#Subsystem">Subsystem</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="V2PidGroupPath">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/pidpath.go#L67">V2PidGroupPath</a>
+				<a class="permalink" href="#V2PidGroupPath">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func V2PidGroupPath(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="AttachCGroup">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/attach_cgroup.go#L32">AttachCGroup</a>
+				<a class="permalink" href="#AttachCGroup">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type AttachCGroup interface {
+    TargetCGroup() <a href="#CGroupInfo">CGroupInfo</a>
+    AttachProcess(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="GetAttacherForPID">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/attach_cgroup.go#L96">GetAttacherForPID</a>
+					<a class="permalink" href="#GetAttacherForPID">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func GetAttacherForPID(targetPID <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) (<a href="#AttachCGroup">AttachCGroup</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<p>
+GetAttacherForPID return a AttachCGroup, which could attach a process to the same cgroup of the target pid
+</p>
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="AttachCGroupV1">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/attach_cgroup.go#L39">AttachCGroupV1</a>
+				<a class="permalink" href="#AttachCGroupV1">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type AttachCGroupV1 struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="AttachCGroupV1.AttachProcess">func (*AttachCGroupV1) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/attach_cgroup.go#L52">AttachProcess</a>
+					<a class="permalink" href="#AttachCGroupV1.AttachProcess">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (a *<a href="#AttachCGroupV1">AttachCGroupV1</a>) AttachProcess(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="AttachCGroupV1.TargetCGroup">func (*AttachCGroupV1) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/attach_cgroup.go#L44">TargetCGroup</a>
+					<a class="permalink" href="#AttachCGroupV1.TargetCGroup">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (a *<a href="#AttachCGroupV1">AttachCGroupV1</a>) TargetCGroup() <a href="#CGroupInfo">CGroupInfo</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="AttachCGroupV2">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/attach_cgroup.go#L70">AttachCGroupV2</a>
+				<a class="permalink" href="#AttachCGroupV2">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type AttachCGroupV2 struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="AttachCGroupV2.AttachProcess">func (*AttachCGroupV2) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/attach_cgroup.go#L83">AttachProcess</a>
+					<a class="permalink" href="#AttachCGroupV2.AttachProcess">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (a *<a href="#AttachCGroupV2">AttachCGroupV2</a>) AttachProcess(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="AttachCGroupV2.TargetCGroup">func (*AttachCGroupV2) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/attach_cgroup.go#L75">TargetCGroup</a>
+					<a class="permalink" href="#AttachCGroupV2.TargetCGroup">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (a *<a href="#AttachCGroupV2">AttachCGroupV2</a>) TargetCGroup() <a href="#CGroupInfo">CGroupInfo</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="CGroupInfo">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/cgroups/attach_cgroup.go#L26">CGroupInfo</a>
+				<a class="permalink" href="#CGroupInfo">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type CGroupInfo struct {
+<span id="CGroupInfo.CGMode"></span>    CGMode       <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/containerd/cgroups/">cgroups</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/containerd/cgroups/#CGMode">CGMode</a>
+<span id="CGroupInfo.V1Path"></span>    V1Path       <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/containerd/cgroups/">cgroups</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/containerd/cgroups/#Path">Path</a>
+<span id="CGroupInfo.V2CGroupPath"></span>    V2CGroupPath <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.18.1.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

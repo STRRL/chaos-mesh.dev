@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>podchaos - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v1.2.3/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v1.2.3/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v1.2.3/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 92f5e71. Generated at Sun Jan 16 10:55:49 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package podchaos
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/test/e2e/chaos/podchaos"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#TestcaseContainerKillOnceThenDelete">func TestcaseContainerKillOnceThenDelete(ns string, kubeCli kubernetes.Interface, cli client.Client)</a></dd>
+			
+				
+				<dd><a href="#TestcaseContainerKillPauseThenUnPause">func TestcaseContainerKillPauseThenUnPause(ns string, kubeCli kubernetes.Interface, cli client.Client)</a></dd>
+			
+				
+				<dd><a href="#TestcasePodFailureOnceThenDelete">func TestcasePodFailureOnceThenDelete(ns string, kubeCli kubernetes.Interface, cli client.Client)</a></dd>
+			
+				
+				<dd><a href="#TestcasePodFailurePauseThenUnPause">func TestcasePodFailurePauseThenUnPause(ns string, kubeCli kubernetes.Interface, cli client.Client)</a></dd>
+			
+				
+				<dd><a href="#TestcasePodKillOnceThenDelete">func TestcasePodKillOnceThenDelete(ns string, kubeCli kubernetes.Interface, cli client.Client)</a></dd>
+			
+				
+				<dd><a href="#TestcasePodKillPauseThenUnPause">func TestcasePodKillPauseThenUnPause(ns string, kubeCli kubernetes.Interface, cli client.Client)</a></dd>
+			
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/test/e2e/chaos/podchaos/container_kill.go">container_kill.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/test/e2e/chaos/podchaos/misc.go">misc.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/test/e2e/chaos/podchaos/pod_failure.go">pod_failure.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/test/e2e/chaos/podchaos/pod_kill.go">pod_kill.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="TestcaseContainerKillOnceThenDelete">func <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/test/e2e/chaos/podchaos/container_kill.go#L36">TestcaseContainerKillOnceThenDelete</a>
+				<a class="permalink" href="#TestcaseContainerKillOnceThenDelete">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func TestcaseContainerKillOnceThenDelete(ns <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>, kubeCli <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/k8s.io/client-go/kubernetes/">kubernetes</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/k8s.io/client-go/kubernetes/#Interface">Interface</a>, cli <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="TestcaseContainerKillPauseThenUnPause">func <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/test/e2e/chaos/podchaos/container_kill.go#L123">TestcaseContainerKillPauseThenUnPause</a>
+				<a class="permalink" href="#TestcaseContainerKillPauseThenUnPause">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func TestcaseContainerKillPauseThenUnPause(ns <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>, kubeCli <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/k8s.io/client-go/kubernetes/">kubernetes</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/k8s.io/client-go/kubernetes/#Interface">Interface</a>, cli <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="TestcasePodFailureOnceThenDelete">func <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/test/e2e/chaos/podchaos/pod_failure.go#L37">TestcasePodFailureOnceThenDelete</a>
+				<a class="permalink" href="#TestcasePodFailureOnceThenDelete">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func TestcasePodFailureOnceThenDelete(ns <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>, kubeCli <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/k8s.io/client-go/kubernetes/">kubernetes</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/k8s.io/client-go/kubernetes/#Interface">Interface</a>, cli <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="TestcasePodFailurePauseThenUnPause">func <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/test/e2e/chaos/podchaos/pod_failure.go#L120">TestcasePodFailurePauseThenUnPause</a>
+				<a class="permalink" href="#TestcasePodFailurePauseThenUnPause">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func TestcasePodFailurePauseThenUnPause(ns <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>, kubeCli <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/k8s.io/client-go/kubernetes/">kubernetes</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/k8s.io/client-go/kubernetes/#Interface">Interface</a>, cli <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="TestcasePodKillOnceThenDelete">func <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/test/e2e/chaos/podchaos/pod_kill.go#L36">TestcasePodKillOnceThenDelete</a>
+				<a class="permalink" href="#TestcasePodKillOnceThenDelete">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func TestcasePodKillOnceThenDelete(ns <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>, kubeCli <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/k8s.io/client-go/kubernetes/">kubernetes</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/k8s.io/client-go/kubernetes/#Interface">Interface</a>, cli <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="TestcasePodKillPauseThenUnPause">func <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/test/e2e/chaos/podchaos/pod_kill.go#L80">TestcasePodKillPauseThenUnPause</a>
+				<a class="permalink" href="#TestcasePodKillPauseThenUnPause">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func TestcasePodKillPauseThenUnPause(ns <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>, kubeCli <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/k8s.io/client-go/kubernetes/">kubernetes</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/k8s.io/client-go/kubernetes/#Interface">Interface</a>, cli <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/">client</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/sigs.k8s.io/controller-runtime/pkg/client/#Client">Client</a>)</pre>
+			
+			
+			
+
+		
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

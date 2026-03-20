@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>gcpchaos - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.1.5/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.5/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.5/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 42e2aaa. Generated at Mon Apr 25 14:57:56 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package gcpchaos
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#NewImpl">func NewImpl(impl Impl) *impltypes.ChaosImplPair</a></dd>
+			
+			
+				
+				<dd><a href="#Impl">type Impl</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos/impl.go">impl.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var <span id="Module">Module</span> = <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/go.uber.org/fx/#Provide">Provide</a>(
+    <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/go.uber.org/fx/#Annotated">Annotated</a>{
+        <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/go.uber.org/fx/#Annotated.Group">Group</a>:  &#34;impl&#34;,
+        <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/go.uber.org/fx/#Annotated.Target">Target</a>: <a href="#NewImpl">NewImpl</a>,
+    },
+    <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos/diskloss/">diskloss</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos/diskloss/#NewImpl">NewImpl</a>,
+    <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos/nodereset/">nodereset</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos/nodereset/#NewImpl">NewImpl</a>,
+    <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos/nodestop/">nodestop</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos/nodestop/#NewImpl">NewImpl</a>)</pre>
+			
+		
+		
+			
+			
+			<h2 id="NewImpl">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos/impl.go#L37">NewImpl</a>
+				<a class="permalink" href="#NewImpl">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewImpl(impl <a href="#Impl">Impl</a>) *<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/types/">impltypes</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/types/#ChaosImplPair">ChaosImplPair</a></pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Impl">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.5/src/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos/impl.go#L29">Impl</a>
+				<a class="permalink" href="#Impl">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Impl struct {
+    <a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/go.uber.org/fx/">fx</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/go.uber.org/fx/#In">In</a>
+
+<span id="Impl.DiskLoss"></span>    DiskLoss  *<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos/diskloss/">diskloss</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos/diskloss/#Impl">Impl</a>  `action:&#34;disk-loss&#34;`
+<span id="Impl.NodeReset"></span>    NodeReset *<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos/nodereset/">nodereset</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos/nodereset/#Impl">Impl</a> `action:&#34;node-reset&#34;`
+<span id="Impl.NodeStop"></span>    NodeStop  *<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos/nodestop/">nodestop</a>.<a href="https:/chaos-mesh.dev/godoc/v2.1.5/pkg/github.com/chaos-mesh/chaos-mesh/controllers/chaosimpl/gcpchaos/nodestop/#Impl">Impl</a>  `action:&#34;node-stop&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="diskloss/">diskloss</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="nodereset/">nodereset</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="nodestop/">nodestop</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="utils/">utils</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.18.1.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

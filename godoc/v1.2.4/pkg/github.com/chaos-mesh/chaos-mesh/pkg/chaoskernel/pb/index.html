@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>bpfki - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v1.2.4/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v1.2.4/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v1.2.4/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 04047c8. Generated at Sun Jan 16 10:55:41 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package bpfki
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#RegisterBPFKIServiceServer">func RegisterBPFKIServiceServer(s *grpc.Server, srv BPFKIServiceServer)</a></dd>
+			
+			
+				
+				<dd><a href="#BPFKIServiceClient">type BPFKIServiceClient</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewBPFKIServiceClient">func NewBPFKIServiceClient(cc *grpc.ClientConn) BPFKIServiceClient</a></dd>
+				
+				
+			
+				
+				<dd><a href="#BPFKIServiceServer">type BPFKIServiceServer</a></dd>
+				
+				
+			
+				
+				<dd><a href="#BumpTimeRequest">type BumpTimeRequest</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BumpTimeRequest.Descriptor">func (*BumpTimeRequest) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BumpTimeRequest.GetPid">func (m *BumpTimeRequest) GetPid() uint32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BumpTimeRequest.GetProbability">func (m *BumpTimeRequest) GetProbability() float32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BumpTimeRequest.GetSecond">func (m *BumpTimeRequest) GetSecond() int32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BumpTimeRequest.GetSubsecond">func (m *BumpTimeRequest) GetSubsecond() int32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BumpTimeRequest.GetTid">func (m *BumpTimeRequest) GetTid() uint32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BumpTimeRequest.ProtoMessage">func (*BumpTimeRequest) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BumpTimeRequest.Reset">func (m *BumpTimeRequest) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BumpTimeRequest.String">func (m *BumpTimeRequest) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BumpTimeRequest.XXX_DiscardUnknown">func (m *BumpTimeRequest) XXX_DiscardUnknown()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BumpTimeRequest.XXX_Marshal">func (m *BumpTimeRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BumpTimeRequest.XXX_Merge">func (m *BumpTimeRequest) XXX_Merge(src proto.Message)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BumpTimeRequest.XXX_Size">func (m *BumpTimeRequest) XXX_Size() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BumpTimeRequest.XXX_Unmarshal">func (m *BumpTimeRequest) XXX_Unmarshal(b []byte) error</a></dd>
+				
+			
+				
+				<dd><a href="#FailKernRequest">type FailKernRequest</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest.Descriptor">func (*FailKernRequest) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest.GetCallchain">func (m *FailKernRequest) GetCallchain() []*FailKernRequestFrame</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest.GetFtype">func (m *FailKernRequest) GetFtype() FailKernRequest_FAILTYPE</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest.GetHeaders">func (m *FailKernRequest) GetHeaders() []string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest.GetPid">func (m *FailKernRequest) GetPid() uint32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest.GetProbability">func (m *FailKernRequest) GetProbability() float32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest.GetTid">func (m *FailKernRequest) GetTid() uint32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest.GetTimes">func (m *FailKernRequest) GetTimes() uint32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest.ProtoMessage">func (*FailKernRequest) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest.Reset">func (m *FailKernRequest) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest.String">func (m *FailKernRequest) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest.XXX_DiscardUnknown">func (m *FailKernRequest) XXX_DiscardUnknown()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest.XXX_Marshal">func (m *FailKernRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest.XXX_Merge">func (m *FailKernRequest) XXX_Merge(src proto.Message)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest.XXX_Size">func (m *FailKernRequest) XXX_Size() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest.XXX_Unmarshal">func (m *FailKernRequest) XXX_Unmarshal(b []byte) error</a></dd>
+				
+			
+				
+				<dd><a href="#FailKernRequestFrame">type FailKernRequestFrame</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequestFrame.Descriptor">func (*FailKernRequestFrame) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequestFrame.GetFuncname">func (m *FailKernRequestFrame) GetFuncname() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequestFrame.GetParameters">func (m *FailKernRequestFrame) GetParameters() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequestFrame.GetPredicate">func (m *FailKernRequestFrame) GetPredicate() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequestFrame.ProtoMessage">func (*FailKernRequestFrame) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequestFrame.Reset">func (m *FailKernRequestFrame) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequestFrame.String">func (m *FailKernRequestFrame) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequestFrame.XXX_DiscardUnknown">func (m *FailKernRequestFrame) XXX_DiscardUnknown()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequestFrame.XXX_Marshal">func (m *FailKernRequestFrame) XXX_Marshal(b []byte, deterministic bool) ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequestFrame.XXX_Merge">func (m *FailKernRequestFrame) XXX_Merge(src proto.Message)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequestFrame.XXX_Size">func (m *FailKernRequestFrame) XXX_Size() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequestFrame.XXX_Unmarshal">func (m *FailKernRequestFrame) XXX_Unmarshal(b []byte) error</a></dd>
+				
+			
+				
+				<dd><a href="#FailKernRequest_FAILTYPE">type FailKernRequest_FAILTYPE</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest_FAILTYPE.EnumDescriptor">func (FailKernRequest_FAILTYPE) EnumDescriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailKernRequest_FAILTYPE.String">func (x FailKernRequest_FAILTYPE) String() string</a></dd>
+				
+			
+				
+				<dd><a href="#FailSyscallRequest">type FailSyscallRequest</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailSyscallRequest.Descriptor">func (*FailSyscallRequest) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailSyscallRequest.GetErr">func (m *FailSyscallRequest) GetErr() uint32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailSyscallRequest.GetMethods">func (m *FailSyscallRequest) GetMethods() []string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailSyscallRequest.GetPid">func (m *FailSyscallRequest) GetPid() uint32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailSyscallRequest.GetProbability">func (m *FailSyscallRequest) GetProbability() float32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailSyscallRequest.GetTid">func (m *FailSyscallRequest) GetTid() uint32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailSyscallRequest.ProtoMessage">func (*FailSyscallRequest) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailSyscallRequest.Reset">func (m *FailSyscallRequest) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailSyscallRequest.String">func (m *FailSyscallRequest) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailSyscallRequest.XXX_DiscardUnknown">func (m *FailSyscallRequest) XXX_DiscardUnknown()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailSyscallRequest.XXX_Marshal">func (m *FailSyscallRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailSyscallRequest.XXX_Merge">func (m *FailSyscallRequest) XXX_Merge(src proto.Message)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailSyscallRequest.XXX_Size">func (m *FailSyscallRequest) XXX_Size() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FailSyscallRequest.XXX_Unmarshal">func (m *FailSyscallRequest) XXX_Unmarshal(b []byte) error</a></dd>
+				
+			
+				
+				<dd><a href="#StatusResponse">type StatusResponse</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StatusResponse.Descriptor">func (*StatusResponse) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StatusResponse.GetMsg">func (m *StatusResponse) GetMsg() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StatusResponse.GetRet">func (m *StatusResponse) GetRet() int32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StatusResponse.ProtoMessage">func (*StatusResponse) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StatusResponse.Reset">func (m *StatusResponse) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StatusResponse.String">func (m *StatusResponse) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StatusResponse.XXX_DiscardUnknown">func (m *StatusResponse) XXX_DiscardUnknown()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StatusResponse.XXX_Marshal">func (m *StatusResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StatusResponse.XXX_Merge">func (m *StatusResponse) XXX_Merge(src proto.Message)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StatusResponse.XXX_Size">func (m *StatusResponse) XXX_Size() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StatusResponse.XXX_Unmarshal">func (m *StatusResponse) XXX_Unmarshal(b []byte) error</a></dd>
+				
+			
+				
+				<dd><a href="#UnimplementedBPFKIServiceServer">type UnimplementedBPFKIServiceServer</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnimplementedBPFKIServiceServer.FailMMOrBIO">func (*UnimplementedBPFKIServiceServer) FailMMOrBIO(ctx context.Context, req *FailKernRequest) (*StatusResponse, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnimplementedBPFKIServiceServer.FailSyscall">func (*UnimplementedBPFKIServiceServer) FailSyscall(ctx context.Context, req *FailSyscallRequest) (*StatusResponse, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnimplementedBPFKIServiceServer.RecoverMMOrBIO">func (*UnimplementedBPFKIServiceServer) RecoverMMOrBIO(ctx context.Context, req *FailKernRequest) (*StatusResponse, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnimplementedBPFKIServiceServer.RecoverSyscall">func (*UnimplementedBPFKIServiceServer) RecoverSyscall(ctx context.Context, req *FailSyscallRequest) (*StatusResponse, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnimplementedBPFKIServiceServer.RecoverTimeSpec">func (*UnimplementedBPFKIServiceServer) RecoverTimeSpec(ctx context.Context, req *BumpTimeRequest) (*StatusResponse, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnimplementedBPFKIServiceServer.RecoverTimeVal">func (*UnimplementedBPFKIServiceServer) RecoverTimeVal(ctx context.Context, req *BumpTimeRequest) (*StatusResponse, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnimplementedBPFKIServiceServer.SetTimeSpec">func (*UnimplementedBPFKIServiceServer) SetTimeSpec(ctx context.Context, req *BumpTimeRequest) (*StatusResponse, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnimplementedBPFKIServiceServer.SetTimeVal">func (*UnimplementedBPFKIServiceServer) SetTimeVal(ctx context.Context, req *BumpTimeRequest) (*StatusResponse, error)</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go">bpfki.pb.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var <span id="FailKernRequest_FAILTYPE_name">FailKernRequest_FAILTYPE_name</span> = map[<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int32">int32</a>]<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a>{
+    0: &#34;SLAB&#34;,
+    1: &#34;PAGE&#34;,
+    2: &#34;BIO&#34;,
+}</pre>
+			
+				
+				<pre>var <span id="FailKernRequest_FAILTYPE_value">FailKernRequest_FAILTYPE_value</span> = map[<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int32">int32</a>{
+    &#34;SLAB&#34;: 0,
+    &#34;PAGE&#34;: 1,
+    &#34;BIO&#34;:  2,
+}</pre>
+			
+		
+		
+			
+			
+			<h2 id="RegisterBPFKIServiceServer">func <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L578">RegisterBPFKIServiceServer</a>
+				<a class="permalink" href="#RegisterBPFKIServiceServer">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RegisterBPFKIServiceServer(s *<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/#Server">Server</a>, srv <a href="#BPFKIServiceServer">BPFKIServiceServer</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="BPFKIServiceClient">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L446">BPFKIServiceClient</a>
+				<a class="permalink" href="#BPFKIServiceClient">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+BPFKIServiceClient is the client API for BPFKIService service.
+</p>
+<p>
+For semantics around ctx use and closing/ending streaming RPCs, please refer to <a href="https://godoc.org/google.golang.org/grpc#ClientConn.NewStream">https://godoc.org/google.golang.org/grpc#ClientConn.NewStream</a>.
+</p>
+
+			<pre>type BPFKIServiceClient interface {
+    SetTimeVal(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, in *<a href="#BumpTimeRequest">BumpTimeRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)
+    RecoverTimeVal(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, in *<a href="#BumpTimeRequest">BumpTimeRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)
+    SetTimeSpec(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, in *<a href="#BumpTimeRequest">BumpTimeRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)
+    RecoverTimeSpec(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, in *<a href="#BumpTimeRequest">BumpTimeRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)
+    FailMMOrBIO(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, in *<a href="#FailKernRequest">FailKernRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)
+    RecoverMMOrBIO(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, in *<a href="#FailKernRequest">FailKernRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)
+    FailSyscall(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, in *<a href="#FailSyscallRequest">FailSyscallRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)
+    RecoverSyscall(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, in *<a href="#FailSyscallRequest">FailSyscallRequest</a>, opts ...<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/#CallOption">CallOption</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewBPFKIServiceClient">func <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L461">NewBPFKIServiceClient</a>
+					<a class="permalink" href="#NewBPFKIServiceClient">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewBPFKIServiceClient(cc *<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/">grpc</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/google.golang.org/grpc/#ClientConn">ClientConn</a>) <a href="#BPFKIServiceClient">BPFKIServiceClient</a></pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="BPFKIServiceServer">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L538">BPFKIServiceServer</a>
+				<a class="permalink" href="#BPFKIServiceServer">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+BPFKIServiceServer is the server API for BPFKIService service.
+</p>
+
+			<pre>type BPFKIServiceServer interface {
+    SetTimeVal(<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, *<a href="#BumpTimeRequest">BumpTimeRequest</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)
+    RecoverTimeVal(<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, *<a href="#BumpTimeRequest">BumpTimeRequest</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)
+    SetTimeSpec(<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, *<a href="#BumpTimeRequest">BumpTimeRequest</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)
+    RecoverTimeSpec(<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, *<a href="#BumpTimeRequest">BumpTimeRequest</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)
+    FailMMOrBIO(<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, *<a href="#FailKernRequest">FailKernRequest</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)
+    RecoverMMOrBIO(<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, *<a href="#FailKernRequest">FailKernRequest</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)
+    FailSyscall(<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, *<a href="#FailSyscallRequest">FailSyscallRequest</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)
+    RecoverSyscall(<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, *<a href="#FailSyscallRequest">FailSyscallRequest</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="BumpTimeRequest">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L56">BumpTimeRequest</a>
+				<a class="permalink" href="#BumpTimeRequest">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type BumpTimeRequest struct {
+<span id="BumpTimeRequest.Pid"></span>    Pid                  <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint32">uint32</a>   `protobuf:&#34;varint,1,opt,name=pid,proto3&#34; json:&#34;pid,omitempty&#34;`
+<span id="BumpTimeRequest.Tid"></span>    Tid                  <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint32">uint32</a>   `protobuf:&#34;varint,2,opt,name=tid,proto3&#34; json:&#34;tid,omitempty&#34;`
+<span id="BumpTimeRequest.Second"></span>    Second               <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int32">int32</a>    `protobuf:&#34;varint,3,opt,name=second,proto3&#34; json:&#34;second,omitempty&#34;`
+<span id="BumpTimeRequest.Subsecond"></span>    Subsecond            <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int32">int32</a>    `protobuf:&#34;varint,4,opt,name=subsecond,proto3&#34; json:&#34;subsecond,omitempty&#34;`
+<span id="BumpTimeRequest.Probability"></span>    Probability          <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#float32">float32</a>  `protobuf:&#34;fixed32,5,opt,name=probability,proto3&#34; json:&#34;probability,omitempty&#34;`
+<span id="BumpTimeRequest.XXX_NoUnkeyedLiteral"></span>    XXX_NoUnkeyedLiteral struct{} `json:&#34;-&#34;`
+<span id="BumpTimeRequest.XXX_unrecognized"></span>    XXX_unrecognized     []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>   `json:&#34;-&#34;`
+<span id="BumpTimeRequest.XXX_sizecache"></span>    XXX_sizecache        <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int32">int32</a>    `json:&#34;-&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="BumpTimeRequest.Descriptor">func (*BumpTimeRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L70">Descriptor</a>
+					<a class="permalink" href="#BumpTimeRequest.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#BumpTimeRequest">BumpTimeRequest</a>) Descriptor() ([]<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>, []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int">int</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="BumpTimeRequest.GetPid">func (*BumpTimeRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L92">GetPid</a>
+					<a class="permalink" href="#BumpTimeRequest.GetPid">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#BumpTimeRequest">BumpTimeRequest</a>) GetPid() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint32">uint32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="BumpTimeRequest.GetProbability">func (*BumpTimeRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L120">GetProbability</a>
+					<a class="permalink" href="#BumpTimeRequest.GetProbability">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#BumpTimeRequest">BumpTimeRequest</a>) GetProbability() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#float32">float32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="BumpTimeRequest.GetSecond">func (*BumpTimeRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L106">GetSecond</a>
+					<a class="permalink" href="#BumpTimeRequest.GetSecond">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#BumpTimeRequest">BumpTimeRequest</a>) GetSecond() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int32">int32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="BumpTimeRequest.GetSubsecond">func (*BumpTimeRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L113">GetSubsecond</a>
+					<a class="permalink" href="#BumpTimeRequest.GetSubsecond">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#BumpTimeRequest">BumpTimeRequest</a>) GetSubsecond() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int32">int32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="BumpTimeRequest.GetTid">func (*BumpTimeRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L99">GetTid</a>
+					<a class="permalink" href="#BumpTimeRequest.GetTid">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#BumpTimeRequest">BumpTimeRequest</a>) GetTid() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint32">uint32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="BumpTimeRequest.ProtoMessage">func (*BumpTimeRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L69">ProtoMessage</a>
+					<a class="permalink" href="#BumpTimeRequest.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#BumpTimeRequest">BumpTimeRequest</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="BumpTimeRequest.Reset">func (*BumpTimeRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L67">Reset</a>
+					<a class="permalink" href="#BumpTimeRequest.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#BumpTimeRequest">BumpTimeRequest</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="BumpTimeRequest.String">func (*BumpTimeRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L68">String</a>
+					<a class="permalink" href="#BumpTimeRequest.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#BumpTimeRequest">BumpTimeRequest</a>) String() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="BumpTimeRequest.XXX_DiscardUnknown">func (*BumpTimeRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L86">XXX_DiscardUnknown</a>
+					<a class="permalink" href="#BumpTimeRequest.XXX_DiscardUnknown">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#BumpTimeRequest">BumpTimeRequest</a>) XXX_DiscardUnknown()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="BumpTimeRequest.XXX_Marshal">func (*BumpTimeRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L77">XXX_Marshal</a>
+					<a class="permalink" href="#BumpTimeRequest.XXX_Marshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#BumpTimeRequest">BumpTimeRequest</a>) XXX_Marshal(b []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>, deterministic <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#bool">bool</a>) ([]<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="BumpTimeRequest.XXX_Merge">func (*BumpTimeRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L80">XXX_Merge</a>
+					<a class="permalink" href="#BumpTimeRequest.XXX_Merge">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#BumpTimeRequest">BumpTimeRequest</a>) XXX_Merge(src <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/golang/protobuf/proto/">proto</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/golang/protobuf/proto/#Message">Message</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="BumpTimeRequest.XXX_Size">func (*BumpTimeRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L83">XXX_Size</a>
+					<a class="permalink" href="#BumpTimeRequest.XXX_Size">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#BumpTimeRequest">BumpTimeRequest</a>) XXX_Size() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="BumpTimeRequest.XXX_Unmarshal">func (*BumpTimeRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L74">XXX_Unmarshal</a>
+					<a class="permalink" href="#BumpTimeRequest.XXX_Unmarshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#BumpTimeRequest">BumpTimeRequest</a>) XXX_Unmarshal(b []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="FailKernRequest">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L127">FailKernRequest</a>
+				<a class="permalink" href="#FailKernRequest">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type FailKernRequest struct {
+<span id="FailKernRequest.Pid"></span>    Pid                  <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint32">uint32</a>                   `protobuf:&#34;varint,1,opt,name=pid,proto3&#34; json:&#34;pid,omitempty&#34;`
+<span id="FailKernRequest.Tid"></span>    Tid                  <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint32">uint32</a>                   `protobuf:&#34;varint,2,opt,name=tid,proto3&#34; json:&#34;tid,omitempty&#34;`
+<span id="FailKernRequest.Ftype"></span>    Ftype                <a href="#FailKernRequest_FAILTYPE">FailKernRequest_FAILTYPE</a> `protobuf:&#34;varint,3,opt,name=ftype,proto3,enum=bpfki.FailKernRequest_FAILTYPE&#34; json:&#34;ftype,omitempty&#34;`
+<span id="FailKernRequest.Headers"></span>    Headers              []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a>                 `protobuf:&#34;bytes,4,rep,name=headers,proto3&#34; json:&#34;headers,omitempty&#34;`
+<span id="FailKernRequest.Callchain"></span>    Callchain            []*<a href="#FailKernRequestFrame">FailKernRequestFrame</a>  `protobuf:&#34;bytes,5,rep,name=callchain,proto3&#34; json:&#34;callchain,omitempty&#34;`
+<span id="FailKernRequest.Probability"></span>    Probability          <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#float32">float32</a>                  `protobuf:&#34;fixed32,6,opt,name=probability,proto3&#34; json:&#34;probability,omitempty&#34;`
+<span id="FailKernRequest.Times"></span>    Times                <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint32">uint32</a>                   `protobuf:&#34;varint,7,opt,name=times,proto3&#34; json:&#34;times,omitempty&#34;`
+<span id="FailKernRequest.XXX_NoUnkeyedLiteral"></span>    XXX_NoUnkeyedLiteral struct{}                 `json:&#34;-&#34;`
+<span id="FailKernRequest.XXX_unrecognized"></span>    XXX_unrecognized     []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>                   `json:&#34;-&#34;`
+<span id="FailKernRequest.XXX_sizecache"></span>    XXX_sizecache        <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int32">int32</a>                    `json:&#34;-&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="FailKernRequest.Descriptor">func (*FailKernRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L143">Descriptor</a>
+					<a class="permalink" href="#FailKernRequest.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#FailKernRequest">FailKernRequest</a>) Descriptor() ([]<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>, []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int">int</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequest.GetCallchain">func (*FailKernRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L193">GetCallchain</a>
+					<a class="permalink" href="#FailKernRequest.GetCallchain">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequest">FailKernRequest</a>) GetCallchain() []*<a href="#FailKernRequestFrame">FailKernRequestFrame</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequest.GetFtype">func (*FailKernRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L179">GetFtype</a>
+					<a class="permalink" href="#FailKernRequest.GetFtype">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequest">FailKernRequest</a>) GetFtype() <a href="#FailKernRequest_FAILTYPE">FailKernRequest_FAILTYPE</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequest.GetHeaders">func (*FailKernRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L186">GetHeaders</a>
+					<a class="permalink" href="#FailKernRequest.GetHeaders">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequest">FailKernRequest</a>) GetHeaders() []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequest.GetPid">func (*FailKernRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L165">GetPid</a>
+					<a class="permalink" href="#FailKernRequest.GetPid">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequest">FailKernRequest</a>) GetPid() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint32">uint32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequest.GetProbability">func (*FailKernRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L200">GetProbability</a>
+					<a class="permalink" href="#FailKernRequest.GetProbability">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequest">FailKernRequest</a>) GetProbability() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#float32">float32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequest.GetTid">func (*FailKernRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L172">GetTid</a>
+					<a class="permalink" href="#FailKernRequest.GetTid">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequest">FailKernRequest</a>) GetTid() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint32">uint32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequest.GetTimes">func (*FailKernRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L207">GetTimes</a>
+					<a class="permalink" href="#FailKernRequest.GetTimes">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequest">FailKernRequest</a>) GetTimes() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint32">uint32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequest.ProtoMessage">func (*FailKernRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L142">ProtoMessage</a>
+					<a class="permalink" href="#FailKernRequest.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#FailKernRequest">FailKernRequest</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequest.Reset">func (*FailKernRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L140">Reset</a>
+					<a class="permalink" href="#FailKernRequest.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequest">FailKernRequest</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequest.String">func (*FailKernRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L141">String</a>
+					<a class="permalink" href="#FailKernRequest.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequest">FailKernRequest</a>) String() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequest.XXX_DiscardUnknown">func (*FailKernRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L159">XXX_DiscardUnknown</a>
+					<a class="permalink" href="#FailKernRequest.XXX_DiscardUnknown">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequest">FailKernRequest</a>) XXX_DiscardUnknown()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequest.XXX_Marshal">func (*FailKernRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L150">XXX_Marshal</a>
+					<a class="permalink" href="#FailKernRequest.XXX_Marshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequest">FailKernRequest</a>) XXX_Marshal(b []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>, deterministic <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#bool">bool</a>) ([]<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequest.XXX_Merge">func (*FailKernRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L153">XXX_Merge</a>
+					<a class="permalink" href="#FailKernRequest.XXX_Merge">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequest">FailKernRequest</a>) XXX_Merge(src <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/golang/protobuf/proto/">proto</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/golang/protobuf/proto/#Message">Message</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequest.XXX_Size">func (*FailKernRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L156">XXX_Size</a>
+					<a class="permalink" href="#FailKernRequest.XXX_Size">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequest">FailKernRequest</a>) XXX_Size() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequest.XXX_Unmarshal">func (*FailKernRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L147">XXX_Unmarshal</a>
+					<a class="permalink" href="#FailKernRequest.XXX_Unmarshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequest">FailKernRequest</a>) XXX_Unmarshal(b []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="FailKernRequestFrame">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L214">FailKernRequestFrame</a>
+				<a class="permalink" href="#FailKernRequestFrame">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type FailKernRequestFrame struct {
+<span id="FailKernRequestFrame.Funcname"></span>    Funcname             <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a>   `protobuf:&#34;bytes,1,opt,name=funcname,proto3&#34; json:&#34;funcname,omitempty&#34;`
+<span id="FailKernRequestFrame.Parameters"></span>    Parameters           <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a>   `protobuf:&#34;bytes,2,opt,name=parameters,proto3&#34; json:&#34;parameters,omitempty&#34;`
+<span id="FailKernRequestFrame.Predicate"></span>    Predicate            <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a>   `protobuf:&#34;bytes,3,opt,name=predicate,proto3&#34; json:&#34;predicate,omitempty&#34;`
+<span id="FailKernRequestFrame.XXX_NoUnkeyedLiteral"></span>    XXX_NoUnkeyedLiteral struct{} `json:&#34;-&#34;`
+<span id="FailKernRequestFrame.XXX_unrecognized"></span>    XXX_unrecognized     []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>   `json:&#34;-&#34;`
+<span id="FailKernRequestFrame.XXX_sizecache"></span>    XXX_sizecache        <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int32">int32</a>    `json:&#34;-&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="FailKernRequestFrame.Descriptor">func (*FailKernRequestFrame) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L226">Descriptor</a>
+					<a class="permalink" href="#FailKernRequestFrame.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#FailKernRequestFrame">FailKernRequestFrame</a>) Descriptor() ([]<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>, []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int">int</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequestFrame.GetFuncname">func (*FailKernRequestFrame) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L248">GetFuncname</a>
+					<a class="permalink" href="#FailKernRequestFrame.GetFuncname">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequestFrame">FailKernRequestFrame</a>) GetFuncname() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequestFrame.GetParameters">func (*FailKernRequestFrame) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L255">GetParameters</a>
+					<a class="permalink" href="#FailKernRequestFrame.GetParameters">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequestFrame">FailKernRequestFrame</a>) GetParameters() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequestFrame.GetPredicate">func (*FailKernRequestFrame) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L262">GetPredicate</a>
+					<a class="permalink" href="#FailKernRequestFrame.GetPredicate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequestFrame">FailKernRequestFrame</a>) GetPredicate() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequestFrame.ProtoMessage">func (*FailKernRequestFrame) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L225">ProtoMessage</a>
+					<a class="permalink" href="#FailKernRequestFrame.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#FailKernRequestFrame">FailKernRequestFrame</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequestFrame.Reset">func (*FailKernRequestFrame) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L223">Reset</a>
+					<a class="permalink" href="#FailKernRequestFrame.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequestFrame">FailKernRequestFrame</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequestFrame.String">func (*FailKernRequestFrame) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L224">String</a>
+					<a class="permalink" href="#FailKernRequestFrame.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequestFrame">FailKernRequestFrame</a>) String() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequestFrame.XXX_DiscardUnknown">func (*FailKernRequestFrame) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L242">XXX_DiscardUnknown</a>
+					<a class="permalink" href="#FailKernRequestFrame.XXX_DiscardUnknown">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequestFrame">FailKernRequestFrame</a>) XXX_DiscardUnknown()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequestFrame.XXX_Marshal">func (*FailKernRequestFrame) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L233">XXX_Marshal</a>
+					<a class="permalink" href="#FailKernRequestFrame.XXX_Marshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequestFrame">FailKernRequestFrame</a>) XXX_Marshal(b []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>, deterministic <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#bool">bool</a>) ([]<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequestFrame.XXX_Merge">func (*FailKernRequestFrame) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L236">XXX_Merge</a>
+					<a class="permalink" href="#FailKernRequestFrame.XXX_Merge">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequestFrame">FailKernRequestFrame</a>) XXX_Merge(src <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/golang/protobuf/proto/">proto</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/golang/protobuf/proto/#Message">Message</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequestFrame.XXX_Size">func (*FailKernRequestFrame) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L239">XXX_Size</a>
+					<a class="permalink" href="#FailKernRequestFrame.XXX_Size">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequestFrame">FailKernRequestFrame</a>) XXX_Size() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequestFrame.XXX_Unmarshal">func (*FailKernRequestFrame) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L230">XXX_Unmarshal</a>
+					<a class="permalink" href="#FailKernRequestFrame.XXX_Unmarshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailKernRequestFrame">FailKernRequestFrame</a>) XXX_Unmarshal(b []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="FailKernRequest_FAILTYPE">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L28">FailKernRequest_FAILTYPE</a>
+				<a class="permalink" href="#FailKernRequest_FAILTYPE">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type FailKernRequest_FAILTYPE <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int32">int32</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="FailKernRequest_SLAB">FailKernRequest_SLAB</span> <a href="#FailKernRequest_FAILTYPE">FailKernRequest_FAILTYPE</a> = 0
+    <span id="FailKernRequest_PAGE">FailKernRequest_PAGE</span> <a href="#FailKernRequest_FAILTYPE">FailKernRequest_FAILTYPE</a> = 1
+    <span id="FailKernRequest_BIO">FailKernRequest_BIO</span>  <a href="#FailKernRequest_FAILTYPE">FailKernRequest_FAILTYPE</a> = 2
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="FailKernRequest_FAILTYPE.EnumDescriptor">func (FailKernRequest_FAILTYPE) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L52">EnumDescriptor</a>
+					<a class="permalink" href="#FailKernRequest_FAILTYPE.EnumDescriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#FailKernRequest_FAILTYPE">FailKernRequest_FAILTYPE</a>) EnumDescriptor() ([]<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>, []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int">int</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailKernRequest_FAILTYPE.String">func (FailKernRequest_FAILTYPE) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L48">String</a>
+					<a class="permalink" href="#FailKernRequest_FAILTYPE.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x <a href="#FailKernRequest_FAILTYPE">FailKernRequest_FAILTYPE</a>) String() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="FailSyscallRequest">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L269">FailSyscallRequest</a>
+				<a class="permalink" href="#FailSyscallRequest">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type FailSyscallRequest struct {
+<span id="FailSyscallRequest.Pid"></span>    Pid                  <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint32">uint32</a>   `protobuf:&#34;varint,1,opt,name=pid,proto3&#34; json:&#34;pid,omitempty&#34;`
+<span id="FailSyscallRequest.Tid"></span>    Tid                  <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint32">uint32</a>   `protobuf:&#34;varint,2,opt,name=tid,proto3&#34; json:&#34;tid,omitempty&#34;`
+<span id="FailSyscallRequest.Methods"></span>    Methods              []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,3,rep,name=methods,proto3&#34; json:&#34;methods,omitempty&#34;`
+<span id="FailSyscallRequest.Err"></span>    Err                  <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint32">uint32</a>   `protobuf:&#34;varint,4,opt,name=err,proto3&#34; json:&#34;err,omitempty&#34;`
+<span id="FailSyscallRequest.Probability"></span>    Probability          <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#float32">float32</a>  `protobuf:&#34;fixed32,5,opt,name=probability,proto3&#34; json:&#34;probability,omitempty&#34;`
+<span id="FailSyscallRequest.XXX_NoUnkeyedLiteral"></span>    XXX_NoUnkeyedLiteral struct{} `json:&#34;-&#34;`
+<span id="FailSyscallRequest.XXX_unrecognized"></span>    XXX_unrecognized     []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>   `json:&#34;-&#34;`
+<span id="FailSyscallRequest.XXX_sizecache"></span>    XXX_sizecache        <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int32">int32</a>    `json:&#34;-&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="FailSyscallRequest.Descriptor">func (*FailSyscallRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L283">Descriptor</a>
+					<a class="permalink" href="#FailSyscallRequest.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#FailSyscallRequest">FailSyscallRequest</a>) Descriptor() ([]<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>, []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int">int</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailSyscallRequest.GetErr">func (*FailSyscallRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L326">GetErr</a>
+					<a class="permalink" href="#FailSyscallRequest.GetErr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailSyscallRequest">FailSyscallRequest</a>) GetErr() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint32">uint32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailSyscallRequest.GetMethods">func (*FailSyscallRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L319">GetMethods</a>
+					<a class="permalink" href="#FailSyscallRequest.GetMethods">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailSyscallRequest">FailSyscallRequest</a>) GetMethods() []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailSyscallRequest.GetPid">func (*FailSyscallRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L305">GetPid</a>
+					<a class="permalink" href="#FailSyscallRequest.GetPid">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailSyscallRequest">FailSyscallRequest</a>) GetPid() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint32">uint32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailSyscallRequest.GetProbability">func (*FailSyscallRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L333">GetProbability</a>
+					<a class="permalink" href="#FailSyscallRequest.GetProbability">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailSyscallRequest">FailSyscallRequest</a>) GetProbability() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#float32">float32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailSyscallRequest.GetTid">func (*FailSyscallRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L312">GetTid</a>
+					<a class="permalink" href="#FailSyscallRequest.GetTid">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailSyscallRequest">FailSyscallRequest</a>) GetTid() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#uint32">uint32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailSyscallRequest.ProtoMessage">func (*FailSyscallRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L282">ProtoMessage</a>
+					<a class="permalink" href="#FailSyscallRequest.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#FailSyscallRequest">FailSyscallRequest</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailSyscallRequest.Reset">func (*FailSyscallRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L280">Reset</a>
+					<a class="permalink" href="#FailSyscallRequest.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailSyscallRequest">FailSyscallRequest</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailSyscallRequest.String">func (*FailSyscallRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L281">String</a>
+					<a class="permalink" href="#FailSyscallRequest.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailSyscallRequest">FailSyscallRequest</a>) String() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailSyscallRequest.XXX_DiscardUnknown">func (*FailSyscallRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L299">XXX_DiscardUnknown</a>
+					<a class="permalink" href="#FailSyscallRequest.XXX_DiscardUnknown">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailSyscallRequest">FailSyscallRequest</a>) XXX_DiscardUnknown()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailSyscallRequest.XXX_Marshal">func (*FailSyscallRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L290">XXX_Marshal</a>
+					<a class="permalink" href="#FailSyscallRequest.XXX_Marshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailSyscallRequest">FailSyscallRequest</a>) XXX_Marshal(b []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>, deterministic <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#bool">bool</a>) ([]<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailSyscallRequest.XXX_Merge">func (*FailSyscallRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L293">XXX_Merge</a>
+					<a class="permalink" href="#FailSyscallRequest.XXX_Merge">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailSyscallRequest">FailSyscallRequest</a>) XXX_Merge(src <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/golang/protobuf/proto/">proto</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/golang/protobuf/proto/#Message">Message</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailSyscallRequest.XXX_Size">func (*FailSyscallRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L296">XXX_Size</a>
+					<a class="permalink" href="#FailSyscallRequest.XXX_Size">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailSyscallRequest">FailSyscallRequest</a>) XXX_Size() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FailSyscallRequest.XXX_Unmarshal">func (*FailSyscallRequest) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L287">XXX_Unmarshal</a>
+					<a class="permalink" href="#FailSyscallRequest.XXX_Unmarshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#FailSyscallRequest">FailSyscallRequest</a>) XXX_Unmarshal(b []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="StatusResponse">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L340">StatusResponse</a>
+				<a class="permalink" href="#StatusResponse">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type StatusResponse struct {
+<span id="StatusResponse.Ret"></span>    Ret                  <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int32">int32</a>    `protobuf:&#34;varint,1,opt,name=ret,proto3&#34; json:&#34;ret,omitempty&#34;`
+<span id="StatusResponse.Msg"></span>    Msg                  <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a>   `protobuf:&#34;bytes,2,opt,name=msg,proto3&#34; json:&#34;msg,omitempty&#34;`
+<span id="StatusResponse.XXX_NoUnkeyedLiteral"></span>    XXX_NoUnkeyedLiteral struct{} `json:&#34;-&#34;`
+<span id="StatusResponse.XXX_unrecognized"></span>    XXX_unrecognized     []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>   `json:&#34;-&#34;`
+<span id="StatusResponse.XXX_sizecache"></span>    XXX_sizecache        <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int32">int32</a>    `json:&#34;-&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="StatusResponse.Descriptor">func (*StatusResponse) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L351">Descriptor</a>
+					<a class="permalink" href="#StatusResponse.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#StatusResponse">StatusResponse</a>) Descriptor() ([]<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>, []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int">int</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="StatusResponse.GetMsg">func (*StatusResponse) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L380">GetMsg</a>
+					<a class="permalink" href="#StatusResponse.GetMsg">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#StatusResponse">StatusResponse</a>) GetMsg() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="StatusResponse.GetRet">func (*StatusResponse) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L373">GetRet</a>
+					<a class="permalink" href="#StatusResponse.GetRet">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#StatusResponse">StatusResponse</a>) GetRet() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int32">int32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="StatusResponse.ProtoMessage">func (*StatusResponse) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L350">ProtoMessage</a>
+					<a class="permalink" href="#StatusResponse.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#StatusResponse">StatusResponse</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="StatusResponse.Reset">func (*StatusResponse) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L348">Reset</a>
+					<a class="permalink" href="#StatusResponse.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#StatusResponse">StatusResponse</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="StatusResponse.String">func (*StatusResponse) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L349">String</a>
+					<a class="permalink" href="#StatusResponse.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#StatusResponse">StatusResponse</a>) String() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="StatusResponse.XXX_DiscardUnknown">func (*StatusResponse) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L367">XXX_DiscardUnknown</a>
+					<a class="permalink" href="#StatusResponse.XXX_DiscardUnknown">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#StatusResponse">StatusResponse</a>) XXX_DiscardUnknown()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="StatusResponse.XXX_Marshal">func (*StatusResponse) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L358">XXX_Marshal</a>
+					<a class="permalink" href="#StatusResponse.XXX_Marshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#StatusResponse">StatusResponse</a>) XXX_Marshal(b []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>, deterministic <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#bool">bool</a>) ([]<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="StatusResponse.XXX_Merge">func (*StatusResponse) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L361">XXX_Merge</a>
+					<a class="permalink" href="#StatusResponse.XXX_Merge">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#StatusResponse">StatusResponse</a>) XXX_Merge(src <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/golang/protobuf/proto/">proto</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/github.com/golang/protobuf/proto/#Message">Message</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="StatusResponse.XXX_Size">func (*StatusResponse) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L364">XXX_Size</a>
+					<a class="permalink" href="#StatusResponse.XXX_Size">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#StatusResponse">StatusResponse</a>) XXX_Size() <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="StatusResponse.XXX_Unmarshal">func (*StatusResponse) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L355">XXX_Unmarshal</a>
+					<a class="permalink" href="#StatusResponse.XXX_Unmarshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#StatusResponse">StatusResponse</a>) XXX_Unmarshal(b []<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#byte">byte</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="UnimplementedBPFKIServiceServer">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L550">UnimplementedBPFKIServiceServer</a>
+				<a class="permalink" href="#UnimplementedBPFKIServiceServer">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+UnimplementedBPFKIServiceServer can be embedded to have forward compatible implementations.
+</p>
+
+			<pre>type UnimplementedBPFKIServiceServer struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="UnimplementedBPFKIServiceServer.FailMMOrBIO">func (*UnimplementedBPFKIServiceServer) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L565">FailMMOrBIO</a>
+					<a class="permalink" href="#UnimplementedBPFKIServiceServer.FailMMOrBIO">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#UnimplementedBPFKIServiceServer">UnimplementedBPFKIServiceServer</a>) FailMMOrBIO(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, req *<a href="#FailKernRequest">FailKernRequest</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnimplementedBPFKIServiceServer.FailSyscall">func (*UnimplementedBPFKIServiceServer) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L571">FailSyscall</a>
+					<a class="permalink" href="#UnimplementedBPFKIServiceServer.FailSyscall">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#UnimplementedBPFKIServiceServer">UnimplementedBPFKIServiceServer</a>) FailSyscall(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, req *<a href="#FailSyscallRequest">FailSyscallRequest</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnimplementedBPFKIServiceServer.RecoverMMOrBIO">func (*UnimplementedBPFKIServiceServer) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L568">RecoverMMOrBIO</a>
+					<a class="permalink" href="#UnimplementedBPFKIServiceServer.RecoverMMOrBIO">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#UnimplementedBPFKIServiceServer">UnimplementedBPFKIServiceServer</a>) RecoverMMOrBIO(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, req *<a href="#FailKernRequest">FailKernRequest</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnimplementedBPFKIServiceServer.RecoverSyscall">func (*UnimplementedBPFKIServiceServer) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L574">RecoverSyscall</a>
+					<a class="permalink" href="#UnimplementedBPFKIServiceServer.RecoverSyscall">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#UnimplementedBPFKIServiceServer">UnimplementedBPFKIServiceServer</a>) RecoverSyscall(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, req *<a href="#FailSyscallRequest">FailSyscallRequest</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnimplementedBPFKIServiceServer.RecoverTimeSpec">func (*UnimplementedBPFKIServiceServer) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L562">RecoverTimeSpec</a>
+					<a class="permalink" href="#UnimplementedBPFKIServiceServer.RecoverTimeSpec">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#UnimplementedBPFKIServiceServer">UnimplementedBPFKIServiceServer</a>) RecoverTimeSpec(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, req *<a href="#BumpTimeRequest">BumpTimeRequest</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnimplementedBPFKIServiceServer.RecoverTimeVal">func (*UnimplementedBPFKIServiceServer) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L556">RecoverTimeVal</a>
+					<a class="permalink" href="#UnimplementedBPFKIServiceServer.RecoverTimeVal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#UnimplementedBPFKIServiceServer">UnimplementedBPFKIServiceServer</a>) RecoverTimeVal(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, req *<a href="#BumpTimeRequest">BumpTimeRequest</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnimplementedBPFKIServiceServer.SetTimeSpec">func (*UnimplementedBPFKIServiceServer) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L559">SetTimeSpec</a>
+					<a class="permalink" href="#UnimplementedBPFKIServiceServer.SetTimeSpec">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#UnimplementedBPFKIServiceServer">UnimplementedBPFKIServiceServer</a>) SetTimeSpec(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, req *<a href="#BumpTimeRequest">BumpTimeRequest</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnimplementedBPFKIServiceServer.SetTimeVal">func (*UnimplementedBPFKIServiceServer) <a href="./https:/chaos-mesh.dev/godoc/v1.2.4/src/github.com/chaos-mesh/chaos-mesh/pkg/chaoskernel/pb/bpfki.pb.go#L553">SetTimeVal</a>
+					<a class="permalink" href="#UnimplementedBPFKIServiceServer.SetTimeVal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#UnimplementedBPFKIServiceServer">UnimplementedBPFKIServiceServer</a>) SetTimeVal(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/context/#Context">Context</a>, req *<a href="#BumpTimeRequest">BumpTimeRequest</a>) (*<a href="#StatusResponse">StatusResponse</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.4/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

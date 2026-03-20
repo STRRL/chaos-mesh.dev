@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>core - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v1.2.3/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v1.2.3/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.17.6";</script>
+<script src="https://chaos-mesh.dev/godoc/v1.2.3/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 92f5e71. Generated at Sun Jan 16 10:55:49 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package core
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/core"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#AwsChaosInfo">type AwsChaosInfo</a></dd>
+				
+				
+			
+				
+				<dd><a href="#DNSChaosInfo">type DNSChaosInfo</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Event">type Event</a></dd>
+				
+				
+			
+				
+				<dd><a href="#EventStore">type EventStore</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Experiment">type Experiment</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Experiment.ParseAwsChaos">func (e *Experiment) ParseAwsChaos() (ExperimentYAMLDescription, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Experiment.ParseDNSChaos">func (e *Experiment) ParseDNSChaos() (ExperimentYAMLDescription, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Experiment.ParseIOChaos">func (e *Experiment) ParseIOChaos() (ExperimentYAMLDescription, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Experiment.ParseKernelChaos">func (e *Experiment) ParseKernelChaos() (ExperimentYAMLDescription, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Experiment.ParseNetworkChaos">func (e *Experiment) ParseNetworkChaos() (ExperimentYAMLDescription, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Experiment.ParsePodChaos">func (e *Experiment) ParsePodChaos() (ExperimentYAMLDescription, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Experiment.ParseStressChaos">func (e *Experiment) ParseStressChaos() (ExperimentYAMLDescription, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Experiment.ParseTimeChaos">func (e *Experiment) ParseTimeChaos() (ExperimentYAMLDescription, error)</a></dd>
+				
+			
+				
+				<dd><a href="#ExperimentInfo">type ExperimentInfo</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ExperimentMeta">type ExperimentMeta</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ExperimentStore">type ExperimentStore</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ExperimentYAMLDescription">type ExperimentYAMLDescription</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ExperimentYAMLMetadata">type ExperimentYAMLMetadata</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Filter">type Filter</a></dd>
+				
+				
+			
+				
+				<dd><a href="#IOChaosInfo">type IOChaosInfo</a></dd>
+				
+				
+			
+				
+				<dd><a href="#KernelChaosInfo">type KernelChaosInfo</a></dd>
+				
+				
+			
+				
+				<dd><a href="#NetworkChaosInfo">type NetworkChaosInfo</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodChaosInfo">type PodChaosInfo</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PodRecord">type PodRecord</a></dd>
+				
+				
+			
+				
+				<dd><a href="#SchedulerInfo">type SchedulerInfo</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ScopeInfo">type ScopeInfo</a></dd>
+				
+				
+			
+				
+				<dd><a href="#SelectorInfo">type SelectorInfo</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SelectorInfo.ParseSelector">func (s *SelectorInfo) ParseSelector() v1alpha1.SelectorSpec</a></dd>
+				
+			
+				
+				<dd><a href="#StressChaosInfo">type StressChaosInfo</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TargetInfo">type TargetInfo</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TimeChaosInfo">type TimeChaosInfo</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/event.go">event.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go">experiment.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="AwsChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L240">AwsChaosInfo</a>
+				<a class="permalink" href="#AwsChaosInfo">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+AwsChaosInfo defines the basic information of aws chaos for creating a new AwsChaos.
+</p>
+
+			<pre>type AwsChaosInfo struct {
+<span id="AwsChaosInfo.Action"></span>    Action      <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>  `json:&#34;action&#34; binding:&#34;oneof=&#39;ec2-stop&#39; &#39;ec2-restart&#39; &#39;detach-volume&#39;&#34;`
+<span id="AwsChaosInfo.SecretName"></span>    SecretName  *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;secretName,omitempty&#34;`
+<span id="AwsChaosInfo.AwsRegion"></span>    AwsRegion   <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>  `json:&#34;awsRegion&#34;`
+<span id="AwsChaosInfo.Ec2Instance"></span>    Ec2Instance <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>  `json:&#34;ec2Instance&#34;`
+<span id="AwsChaosInfo.EbsVolume"></span>    EbsVolume   *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;volumeID,omitempty&#34;`
+<span id="AwsChaosInfo.DeviceName"></span>    DeviceName  *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;deviceName,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="DNSChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L234">DNSChaosInfo</a>
+				<a class="permalink" href="#DNSChaosInfo">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+DNSChaosInfo defines the basic information of dns chaos for creating a new DNSChaos.
+</p>
+
+			<pre>type DNSChaosInfo struct {
+<span id="DNSChaosInfo.Action"></span>    Action             <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>   `json:&#34;action&#34; binding:&#34;oneof=&#39;error&#39; &#39;random&#39;&#34;`
+<span id="DNSChaosInfo.DomainNamePatterns"></span>    DomainNamePatterns []<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;patterns&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Event">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/event.go#L82">Event</a>
+				<a class="permalink" href="#Event">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Event represents an event instance.
+</p>
+
+			<pre>type Event struct {
+<span id="Event.ID"></span>    ID           <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#uint">uint</a>         `gorm:&#34;primary_key&#34; json:&#34;id&#34;`
+<span id="Event.CreatedAt"></span>    CreatedAt    <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/#Time">Time</a>    `json:&#34;created_at&#34;`
+<span id="Event.UpdatedAt"></span>    UpdatedAt    <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/#Time">Time</a>    `json:&#34;updated_at&#34;`
+<span id="Event.DeletedAt"></span>    DeletedAt    *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/#Time">Time</a>   `sql:&#34;index&#34; json:&#34;deleted_at&#34;`
+<span id="Event.Experiment"></span>    Experiment   <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>       `gorm:&#34;index:experiment&#34; json:&#34;experiment&#34;`
+<span id="Event.Namespace"></span>    Namespace    <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>       `json:&#34;namespace&#34;`
+<span id="Event.Kind"></span>    Kind         <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>       `json:&#34;kind&#34;`
+<span id="Event.Message"></span>    Message      <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>       `json:&#34;message&#34;`
+<span id="Event.StartTime"></span>    StartTime    *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/#Time">Time</a>   `gorm:&#34;index:start_time&#34; json:&#34;start_time&#34;`
+<span id="Event.FinishTime"></span>    FinishTime   *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/#Time">Time</a>   `json:&#34;finish_time&#34;`
+<span id="Event.Duration"></span>    Duration     <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>       `json:&#34;duration&#34;`
+<span id="Event.Pods"></span>    Pods         []*<a href="#PodRecord">PodRecord</a> `gorm:&#34;-&#34; json:&#34;pods&#34;`
+<span id="Event.ExperimentID"></span>    ExperimentID <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>       `gorm:&#34;index:experiment_id&#34; json:&#34;experiment_id&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="EventStore">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/event.go#L22">EventStore</a>
+				<a class="permalink" href="#EventStore">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+EventStore defines operations for working with event.
+</p>
+
+			<pre>type EventStore interface {
+    <span class="comment">// List returns an event list from the datastore.</span>
+    List(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>) ([]*<a href="#Event">Event</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// ListByFilter returns an event list by podName, podNamespace, experimentName, experimentNamespace, uid, kind, startTime and finishTime.</span>
+    ListByFilter(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, <a href="#Filter">Filter</a>) ([]*<a href="#Event">Event</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// ListByExperiment returns an event list by the name and namespace of the experiment.</span>
+    ListByExperiment(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>) ([]*<a href="#Event">Event</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// ListByNamespace returns an event list by the namespace of the pod.</span>
+    ListByNamespace(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>) ([]*<a href="#Event">Event</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// ListByPod returns an event list by the name and namespace of the pod.</span>
+    ListByPod(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>) ([]*<a href="#Event">Event</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// ListByUID returns an event list by the UID.</span>
+    ListByUID(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>) ([]*<a href="#Event">Event</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// ListByUIDs returns an event list by the UID list.</span>
+    ListByUIDs(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, []<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>) ([]*<a href="#Event">Event</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// DryListByFilter returns an event list by experimentName, experimentNamespace, uid, kind, startTime and finishTime.</span>
+    DryListByFilter(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, <a href="#Filter">Filter</a>) ([]*<a href="#Event">Event</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// Find returns an event from the datastore by ID.</span>
+    Find(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#uint">uint</a>) (*<a href="#Event">Event</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// FindByExperimentAndStartTime returns an event by the experiment and start time.</span>
+    FindByExperimentAndStartTime(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>, *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/#Time">Time</a>) (*<a href="#Event">Event</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// Create persists a new event to the datastore.</span>
+    Create(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, *<a href="#Event">Event</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>
+
+    <span class="comment">// Update persists an updated event to the datastore.</span>
+    Update(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, *<a href="#Event">Event</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteIncompleteEvent deletes all incomplete events.</span>
+    <span class="comment">// If the chaos-dashboard was restarted, some incomplete events would be stored in datastore,</span>
+    <span class="comment">// which means the event would never save the finish_time.</span>
+    <span class="comment">// DeleteIncompleteEvent can be used to delete all incomplete events to avoid this case.</span>
+    DeleteIncompleteEvents(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteByFinishTime deletes events and podrecords whose time difference is greater than the given time from FinishTime.</span>
+    DeleteByFinishTime(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/#Duration">Duration</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteByUID deletes events list by the UID.</span>
+    DeleteByUID(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteByUIDs deletes events list by the UID list.</span>
+    DeleteByUIDs(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, []<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>
+
+    <span class="comment">// UpdateIncompleteEvents updates the incomplete event by the namespace and name</span>
+    <span class="comment">// If chaos is deleted before an event is over, then the incomplete event would be stored in datastore,</span>
+    <span class="comment">// which means the event would never save the finish_time.</span>
+    <span class="comment">// UpdateIncompleteEvents can update the finish_time when the chaos is deleted.</span>
+    UpdateIncompleteEvents(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Experiment">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L60">Experiment</a>
+				<a class="permalink" href="#Experiment">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Experiment represents an experiment instance. Use in db.
+</p>
+
+			<pre>type Experiment struct {
+    <a href="#ExperimentMeta">ExperimentMeta</a>
+<span id="Experiment.Experiment"></span>    Experiment <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `gorm:&#34;size:2048&#34;` <span class="comment">// JSON string</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Experiment.ParseAwsChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L390">ParseAwsChaos</a>
+					<a class="permalink" href="#Experiment.ParseAwsChaos">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#Experiment">Experiment</a>) ParseAwsChaos() (<a href="#ExperimentYAMLDescription">ExperimentYAMLDescription</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)</pre>
+				<p>
+ParseDNSChaos Parse AwsChaos JSON string into ExperimentYAMLDescription.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Experiment.ParseDNSChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L370">ParseDNSChaos</a>
+					<a class="permalink" href="#Experiment.ParseDNSChaos">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#Experiment">Experiment</a>) ParseDNSChaos() (<a href="#ExperimentYAMLDescription">ExperimentYAMLDescription</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)</pre>
+				<p>
+ParseDNSChaos Parse DNSChaos JSON string into ExperimentYAMLDescription.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Experiment.ParseIOChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L290">ParseIOChaos</a>
+					<a class="permalink" href="#Experiment.ParseIOChaos">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#Experiment">Experiment</a>) ParseIOChaos() (<a href="#ExperimentYAMLDescription">ExperimentYAMLDescription</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)</pre>
+				<p>
+ParseIOChaos Parse IOChaos JSON string into ExperimentYAMLDescription.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Experiment.ParseKernelChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L330">ParseKernelChaos</a>
+					<a class="permalink" href="#Experiment.ParseKernelChaos">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#Experiment">Experiment</a>) ParseKernelChaos() (<a href="#ExperimentYAMLDescription">ExperimentYAMLDescription</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)</pre>
+				<p>
+ParseKernelChaos Parse KernelChaos JSON string into ExperimentYAMLDescription.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Experiment.ParseNetworkChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L270">ParseNetworkChaos</a>
+					<a class="permalink" href="#Experiment.ParseNetworkChaos">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#Experiment">Experiment</a>) ParseNetworkChaos() (<a href="#ExperimentYAMLDescription">ExperimentYAMLDescription</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)</pre>
+				<p>
+ParseNetworkChaos Parse NetworkChaos JSON string into ExperimentYAMLDescription.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Experiment.ParsePodChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L250">ParsePodChaos</a>
+					<a class="permalink" href="#Experiment.ParsePodChaos">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#Experiment">Experiment</a>) ParsePodChaos() (<a href="#ExperimentYAMLDescription">ExperimentYAMLDescription</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)</pre>
+				<p>
+ParsePodChaos Parse PodChaos JSON string into ExperimentYAMLDescription.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Experiment.ParseStressChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L350">ParseStressChaos</a>
+					<a class="permalink" href="#Experiment.ParseStressChaos">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#Experiment">Experiment</a>) ParseStressChaos() (<a href="#ExperimentYAMLDescription">ExperimentYAMLDescription</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)</pre>
+				<p>
+ParseStressChaos Parse StressChaos JSON string into ExperimentYAMLDescription.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Experiment.ParseTimeChaos">func (*Experiment) <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L310">ParseTimeChaos</a>
+					<a class="permalink" href="#Experiment.ParseTimeChaos">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#Experiment">Experiment</a>) ParseTimeChaos() (<a href="#ExperimentYAMLDescription">ExperimentYAMLDescription</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)</pre>
+				<p>
+ParseTimeChaos Parse TimeChaos JSON string into ExperimentYAMLDescription.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ExperimentInfo">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L98">ExperimentInfo</a>
+				<a class="permalink" href="#ExperimentInfo">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ExperimentInfo defines a form data of Experiment from API.
+</p>
+
+			<pre>type ExperimentInfo struct {
+<span id="ExperimentInfo.Name"></span>    Name        <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>            `json:&#34;name&#34; binding:&#34;required,NameValid&#34;`
+<span id="ExperimentInfo.Namespace"></span>    Namespace   <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>            `json:&#34;namespace&#34; binding:&#34;required,NameValid&#34;`
+<span id="ExperimentInfo.Labels"></span>    Labels      map[<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;labels&#34; binding:&#34;MapSelectorsValid&#34;`
+<span id="ExperimentInfo.Annotations"></span>    Annotations map[<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;annotations&#34; binding:&#34;MapSelectorsValid&#34;`
+<span id="ExperimentInfo.Scope"></span>    Scope       <a href="#ScopeInfo">ScopeInfo</a>         `json:&#34;scope&#34;`
+<span id="ExperimentInfo.Target"></span>    Target      <a href="#TargetInfo">TargetInfo</a>        `json:&#34;target&#34;`
+<span id="ExperimentInfo.Scheduler"></span>    Scheduler   <a href="#SchedulerInfo">SchedulerInfo</a>     `json:&#34;scheduler&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ExperimentMeta">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L66">ExperimentMeta</a>
+				<a class="permalink" href="#ExperimentMeta">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ExperimentMeta defines the metadata of an experiment. Use in db.
+</p>
+
+			<pre>type ExperimentMeta struct {
+<span id="ExperimentMeta.ID"></span>    ID         <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#uint">uint</a>       `gorm:&#34;primary_key&#34; json:&#34;id&#34;`
+<span id="ExperimentMeta.CreatedAt"></span>    CreatedAt  <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/#Time">Time</a>  `json:&#34;created_at&#34;`
+<span id="ExperimentMeta.UpdatedAt"></span>    UpdatedAt  <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/#Time">Time</a>  `json:&#34;updated_at&#34;`
+<span id="ExperimentMeta.DeletedAt"></span>    DeletedAt  *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/#Time">Time</a> `sql:&#34;index&#34; json:&#34;deleted_at&#34;`
+<span id="ExperimentMeta.UID"></span>    UID        <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>     `gorm:&#34;index:uid&#34; json:&#34;uid&#34;`
+<span id="ExperimentMeta.Kind"></span>    Kind       <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>     `json:&#34;kind&#34;`
+<span id="ExperimentMeta.Name"></span>    Name       <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>     `json:&#34;name&#34;`
+<span id="ExperimentMeta.Namespace"></span>    Namespace  <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>     `json:&#34;namespace&#34;`
+<span id="ExperimentMeta.Action"></span>    Action     <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>     `json:&#34;action&#34;`
+<span id="ExperimentMeta.StartTime"></span>    StartTime  <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/#Time">Time</a>  `json:&#34;start_time&#34;`
+<span id="ExperimentMeta.FinishTime"></span>    FinishTime <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/#Time">Time</a>  `json:&#34;finish_time&#34;`
+<span id="ExperimentMeta.Archived"></span>    Archived   <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#bool">bool</a>       `json:&#34;archived&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ExperimentStore">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L27">ExperimentStore</a>
+				<a class="permalink" href="#ExperimentStore">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ExperimentStore defines operations for working with experiments.
+</p>
+
+			<pre>type ExperimentStore interface {
+    <span class="comment">// ListMeta returns experiment metadata list from the datastore.</span>
+    ListMeta(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, kind, namespace, name <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>, archived <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#bool">bool</a>) ([]*<a href="#ExperimentMeta">ExperimentMeta</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// FindByUID returns an experiment by UID.</span>
+    FindByUID(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, UID <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>) (*<a href="#Experiment">Experiment</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// FindMetaByUID returns an experiment metadata by UID.</span>
+    FindMetaByUID(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>) (*<a href="#ExperimentMeta">ExperimentMeta</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// Set saves the experiment to datastore.</span>
+    Set(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, *<a href="#Experiment">Experiment</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>
+
+    <span class="comment">// Archive archives experiments which &#34;archived&#34; field is false.</span>
+    Archive(ctx <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, namespace, name <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>
+
+    <span class="comment">// Delete deletes the archive from the datastore.</span>
+    Delete(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, *<a href="#Experiment">Experiment</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteByFinishTime deletes archives which time difference is greater than the given time from FinishTime.</span>
+    DeleteByFinishTime(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/#Duration">Duration</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteByUIDs deletes archives by the uid list.</span>
+    DeleteByUIDs(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>, []<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>
+
+    <span class="comment">// DeleteIncompleteExperiments deletes all incomplete experiments.</span>
+    <span class="comment">// If the chaos-dashboard was restarted and the experiment is completed during the restart,</span>
+    <span class="comment">// which means the experiment would never save the finish_time.</span>
+    <span class="comment">// DeleteIncompleteExperiments can be used to delete all incomplete experiments to avoid this case.</span>
+    DeleteIncompleteExperiments(<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/">context</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/context/#Context">Context</a>) <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ExperimentYAMLDescription">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L82">ExperimentYAMLDescription</a>
+				<a class="permalink" href="#ExperimentYAMLDescription">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ExperimentYAMLDescription defines the YAML structure of an experiment.
+</p>
+
+			<pre>type ExperimentYAMLDescription struct {
+<span id="ExperimentYAMLDescription.APIVersion"></span>    APIVersion <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>                 `json:&#34;apiVersion&#34;`
+<span id="ExperimentYAMLDescription.Kind"></span>    Kind       <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>                 `json:&#34;kind&#34;`
+<span id="ExperimentYAMLDescription.Metadata"></span>    Metadata   <a href="#ExperimentYAMLMetadata">ExperimentYAMLMetadata</a> `json:&#34;metadata&#34;`
+<span id="ExperimentYAMLDescription.Spec"></span>    Spec       interface{}            `json:&#34;spec&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ExperimentYAMLMetadata">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L90">ExperimentYAMLMetadata</a>
+				<a class="permalink" href="#ExperimentYAMLMetadata">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ExperimentYAMLMetadata defines the metadata of YAMLDescription.
+</p>
+
+			<pre>type ExperimentYAMLMetadata struct {
+<span id="ExperimentYAMLMetadata.Name"></span>    Name        <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>            `json:&#34;name&#34;`
+<span id="ExperimentYAMLMetadata.Namespace"></span>    Namespace   <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>            `json:&#34;namespace&#34;`
+<span id="ExperimentYAMLMetadata.Labels"></span>    Labels      map[<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;labels&#34;`
+<span id="ExperimentYAMLMetadata.Annotations"></span>    Annotations map[<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;annotations&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Filter">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/event.go#L113">Filter</a>
+				<a class="permalink" href="#Filter">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Filter represents the filter to list events
+</p>
+
+			<pre>type Filter struct {
+<span id="Filter.PodName"></span>    PodName             <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>
+<span id="Filter.PodNamespace"></span>    PodNamespace        <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>
+<span id="Filter.StartTimeStr"></span>    StartTimeStr        <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>
+<span id="Filter.FinishTimeStr"></span>    FinishTimeStr       <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>
+<span id="Filter.ExperimentName"></span>    ExperimentName      <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>
+<span id="Filter.ExperimentNamespace"></span>    ExperimentNamespace <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>
+<span id="Filter.UID"></span>    UID                 <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>
+<span id="Filter.Kind"></span>    Kind                <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>
+<span id="Filter.LimitStr"></span>    LimitStr            <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="IOChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L201">IOChaosInfo</a>
+				<a class="permalink" href="#IOChaosInfo">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+IOChaosInfo defines the basic information of io chaos for creating a new IOChaos.
+</p>
+
+			<pre>type IOChaosInfo struct {
+<span id="IOChaosInfo.Action"></span>    Action        <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>                     `json:&#34;action&#34; binding:&#34;oneof=&#39;&#39; &#39;latency&#39; &#39;fault&#39; &#39;attrOverride&#39;&#34;`
+<span id="IOChaosInfo.Delay"></span>    Delay         <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>                     `json:&#34;delay&#34;`
+<span id="IOChaosInfo.Errno"></span>    Errno         <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#uint32">uint32</a>                     `json:&#34;errno&#34;`
+<span id="IOChaosInfo.Attr"></span>    Attr          *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#AttrOverrideSpec">AttrOverrideSpec</a> `json:&#34;attr&#34;`
+<span id="IOChaosInfo.Mistake"></span>    Mistake       *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#MistakeSpec">MistakeSpec</a>      `json:&#34;mistake&#34;`
+<span id="IOChaosInfo.Path"></span>    Path          <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>                     `json:&#34;path&#34;`
+<span id="IOChaosInfo.Percent"></span>    Percent       <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#int">int</a>                        `json:&#34;percent&#34;`
+<span id="IOChaosInfo.Methods"></span>    Methods       []<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#IoMethod">IoMethod</a>        `json:&#34;methods&#34;`
+<span id="IOChaosInfo.VolumePath"></span>    VolumePath    <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>                     `json:&#34;volume_path&#34;`
+<span id="IOChaosInfo.ContainerName"></span>    ContainerName <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>                     `json:&#34;container_name&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="KernelChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L215">KernelChaosInfo</a>
+				<a class="permalink" href="#KernelChaosInfo">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+KernelChaosInfo defines the basic information of kernel chaos for creating a new KernelChaos.
+</p>
+
+			<pre>type KernelChaosInfo struct {
+<span id="KernelChaosInfo.FailKernRequest"></span>    FailKernRequest <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#FailKernRequest">FailKernRequest</a> `json:&#34;fail_kern_request&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="NetworkChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L188">NetworkChaosInfo</a>
+				<a class="permalink" href="#NetworkChaosInfo">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+NetworkChaosInfo defines the basic information of network chaos for creating a new NetworkChaos.
+</p>
+
+			<pre>type NetworkChaosInfo struct {
+<span id="NetworkChaosInfo.Action"></span>    Action          <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>                  `json:&#34;action&#34; binding:&#34;oneof=&#39;&#39; &#39;netem&#39; &#39;delay&#39; &#39;loss&#39; &#39;duplicate&#39; &#39;corrupt&#39; &#39;partition&#39; &#39;bandwidth&#39;&#34;`
+<span id="NetworkChaosInfo.Delay"></span>    Delay           *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#DelaySpec">DelaySpec</a>     `json:&#34;delay&#34; binding:&#34;RequiredFieldEqual=Action:delay&#34;`
+<span id="NetworkChaosInfo.Loss"></span>    Loss            *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#LossSpec">LossSpec</a>      `json:&#34;loss&#34; binding:&#34;RequiredFieldEqual=Action:loss&#34;`
+<span id="NetworkChaosInfo.Duplicate"></span>    Duplicate       *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#DuplicateSpec">DuplicateSpec</a> `json:&#34;duplicate&#34; binding:&#34;RequiredFieldEqual=Action:duplicate&#34;`
+<span id="NetworkChaosInfo.Corrupt"></span>    Corrupt         *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#CorruptSpec">CorruptSpec</a>   `json:&#34;corrupt&#34; binding:&#34;RequiredFieldEqual=Action:corrupt&#34;`
+<span id="NetworkChaosInfo.Bandwidth"></span>    Bandwidth       *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#BandwidthSpec">BandwidthSpec</a> `json:&#34;bandwidth&#34; binding:&#34;RequiredFieldEqual=Action:bandwidth&#34;`
+<span id="NetworkChaosInfo.Direction"></span>    Direction       <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>                  `json:&#34;direction&#34; binding:&#34;oneof=&#39;&#39; &#39;to&#39; &#39;from&#39; &#39;both&#39;&#34;`
+<span id="NetworkChaosInfo.TargetScope"></span>    TargetScope     *<a href="#ScopeInfo">ScopeInfo</a>              `json:&#34;target_scope&#34;`
+<span id="NetworkChaosInfo.ExternalTargets"></span>    ExternalTargets []<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>                `json:&#34;external_targets&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L181">PodChaosInfo</a>
+				<a class="permalink" href="#PodChaosInfo">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+PodChaosInfo defines the basic information of pod chaos for creating a new PodChaos.
+</p>
+
+			<pre>type PodChaosInfo struct {
+<span id="PodChaosInfo.Action"></span>    Action        <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;action&#34; binding:&#34;oneof=&#39;&#39; &#39;pod-kill&#39; &#39;pod-failure&#39; &#39;container-kill&#39;&#34;`
+<span id="PodChaosInfo.ContainerName"></span>    ContainerName <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;container_name&#34;`
+<span id="PodChaosInfo.GracePeriod"></span>    GracePeriod   <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#int64">int64</a>  `json:&#34;grace_period&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PodRecord">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/event.go#L99">PodRecord</a>
+				<a class="permalink" href="#PodRecord">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+PodRecord represents a pod record with event ID.
+</p>
+
+			<pre>type PodRecord struct {
+<span id="PodRecord.ID"></span>    ID        <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#uint">uint</a>       `gorm:&#34;primary_key&#34; json:&#34;id&#34;`
+<span id="PodRecord.CreatedAt"></span>    CreatedAt <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/#Time">Time</a>  `json:&#34;created_at&#34;`
+<span id="PodRecord.UpdatedAt"></span>    UpdatedAt <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/#Time">Time</a>  `json:&#34;updated_at&#34;`
+<span id="PodRecord.DeletedAt"></span>    DeletedAt *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/">time</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/time/#Time">Time</a> `sql:&#34;index&#34; json:&#34;deleted_at&#34;`
+<span id="PodRecord.EventID"></span>    EventID   <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#uint">uint</a>       `gorm:&#34;index:event_id&#34; json:&#34;event_id&#34;`
+<span id="PodRecord.PodIP"></span>    PodIP     <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>     `gorm:&#34;index:pod_id&#34; json:&#34;pod_ip&#34;`
+<span id="PodRecord.PodName"></span>    PodName   <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>     `json:&#34;pod_name&#34;`
+<span id="PodRecord.Namespace"></span>    Namespace <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>     `json:&#34;namespace&#34;`
+<span id="PodRecord.Message"></span>    Message   <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>     `json:&#34;message&#34;`
+<span id="PodRecord.Action"></span>    Action    <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>     `json:&#34;action&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="SchedulerInfo">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L175">SchedulerInfo</a>
+				<a class="permalink" href="#SchedulerInfo">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+SchedulerInfo defines the scheduler information.
+</p>
+
+			<pre>type SchedulerInfo struct {
+<span id="SchedulerInfo.Cron"></span>    Cron     <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;cron&#34; binding:&#34;CronValid&#34;`
+<span id="SchedulerInfo.Duration"></span>    Duration <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;duration&#34; binding:&#34;DurationValid&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ScopeInfo">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L109">ScopeInfo</a>
+				<a class="permalink" href="#ScopeInfo">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ScopeInfo defines the scope of the Experiment.
+</p>
+
+			<pre>type ScopeInfo struct {
+    <a href="#SelectorInfo">SelectorInfo</a>
+<span id="ScopeInfo.Mode"></span>    Mode  <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;mode&#34; binding:&#34;oneof=&#39;&#39; &#39;one&#39; &#39;all&#39; &#39;fixed&#39; &#39;fixed-percent&#39; &#39;random-max-percent&#39;&#34;`
+<span id="ScopeInfo.Value"></span>    Value <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;value&#34; binding:&#34;ValueValid&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="SelectorInfo">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L116">SelectorInfo</a>
+				<a class="permalink" href="#SelectorInfo">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+SelectorInfo defines the selector options of the Experiment.
+</p>
+
+			<pre>type SelectorInfo struct {
+<span id="SelectorInfo.NamespaceSelectors"></span>    NamespaceSelectors  []<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>                          `json:&#34;namespace_selectors&#34; binding:&#34;NamespaceSelectorsValid&#34;`
+<span id="SelectorInfo.LabelSelectors"></span>    LabelSelectors      map[<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>                 `json:&#34;label_selectors&#34; binding:&#34;MapSelectorsValid&#34;`
+<span id="SelectorInfo.ExpressionSelectors"></span>    ExpressionSelectors []<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/k8s.io/apimachinery/pkg/apis/meta/v1/">metav1</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/k8s.io/apimachinery/pkg/apis/meta/v1/#LabelSelectorRequirement">LabelSelectorRequirement</a> `json:&#34;expression_selectors&#34; binding:&#34;RequirementSelectorsValid&#34;`
+<span id="SelectorInfo.AnnotationSelectors"></span>    AnnotationSelectors map[<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>                 `json:&#34;annotation_selectors&#34; binding:&#34;MapSelectorsValid&#34;`
+<span id="SelectorInfo.FieldSelectors"></span>    FieldSelectors      map[<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>                 `json:&#34;field_selectors&#34; binding:&#34;MapSelectorsValid&#34;`
+<span id="SelectorInfo.PhaseSelector"></span>    PhaseSelector       []<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>                          `json:&#34;phase_selectors&#34; binding:&#34;PhaseSelectorsValid&#34;`
+
+<span id="SelectorInfo.Pods"></span>    <span class="comment">// Pods is a map of string keys and a set values that used to select pods.</span>
+    <span class="comment">// The key defines the namespace which pods belong,</span>
+    <span class="comment">// and the each values is a set of pod names.</span>
+    Pods map[<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>][]<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;pods&#34; binding:&#34;PodsValid&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="SelectorInfo.ParseSelector">func (*SelectorInfo) <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L131">ParseSelector</a>
+					<a class="permalink" href="#SelectorInfo.ParseSelector">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#SelectorInfo">SelectorInfo</a>) ParseSelector() <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#SelectorSpec">SelectorSpec</a></pre>
+				<p>
+ParseSelector parses SelectorInfo to v1alpha1.SelectorSpec
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="StressChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L227">StressChaosInfo</a>
+				<a class="permalink" href="#StressChaosInfo">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+StressChaosInfo defines the basic information of stress chaos for creating a new StressChaos.
+</p>
+
+			<pre>type StressChaosInfo struct {
+<span id="StressChaosInfo.Stressors"></span>    Stressors         *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/">v1alpha1</a>.<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/github.com/chaos-mesh/chaos-mesh/api/v1alpha1/#Stressors">Stressors</a> `json:&#34;stressors&#34;`
+<span id="StressChaosInfo.StressngStressors"></span>    StressngStressors <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>              `json:&#34;stressng_stressors,omitempty&#34;`
+<span id="StressChaosInfo.ContainerName"></span>    ContainerName     *<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>             `json:&#34;container_name,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TargetInfo">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L162">TargetInfo</a>
+				<a class="permalink" href="#TargetInfo">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+TargetInfo defines the information of target objects.
+</p>
+
+			<pre>type TargetInfo struct {
+<span id="TargetInfo.Kind"></span>    Kind         <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>            `json:&#34;kind&#34; binding:&#34;required,oneof=PodChaos NetworkChaos IoChaos KernelChaos TimeChaos StressChaos DNSChaos AwsChaos&#34;`
+<span id="TargetInfo.PodChaos"></span>    PodChaos     *<a href="#PodChaosInfo">PodChaosInfo</a>     `json:&#34;pod_chaos,omitempty&#34; binding:&#34;RequiredFieldEqual=Kind:PodChaos&#34;`
+<span id="TargetInfo.NetworkChaos"></span>    NetworkChaos *<a href="#NetworkChaosInfo">NetworkChaosInfo</a> `json:&#34;network_chaos,omitempty&#34; binding:&#34;RequiredFieldEqual=Kind:NetworkChaos&#34;`
+<span id="TargetInfo.IOChaos"></span>    IOChaos      *<a href="#IOChaosInfo">IOChaosInfo</a>      `json:&#34;io_chaos,omitempty&#34; binding:&#34;RequiredFieldEqual=Kind:IoChaos&#34;`
+<span id="TargetInfo.KernelChaos"></span>    KernelChaos  *<a href="#KernelChaosInfo">KernelChaosInfo</a>  `json:&#34;kernel_chaos,omitempty&#34; binding:&#34;RequiredFieldEqual=Kind:KernelChaos&#34;`
+<span id="TargetInfo.TimeChaos"></span>    TimeChaos    *<a href="#TimeChaosInfo">TimeChaosInfo</a>    `json:&#34;time_chaos,omitempty&#34; binding:&#34;RequiredFieldEqual=Kind:TimeChaos&#34;`
+<span id="TargetInfo.StressChaos"></span>    StressChaos  *<a href="#StressChaosInfo">StressChaosInfo</a>  `json:&#34;stress_chaos,omitempty&#34; binding:&#34;RequiredFieldEqual=Kind:StressChaos&#34;`
+<span id="TargetInfo.DNSChaos"></span>    DNSChaos     *<a href="#DNSChaosInfo">DNSChaosInfo</a>     `json:&#34;dns_chaos,omitempty&#34; binding:&#34;RequiredFieldEqual=Kind:DNSChaos&#34;`
+<span id="TargetInfo.AwsChaos"></span>    AwsChaos     *<a href="#AwsChaosInfo">AwsChaosInfo</a>     `json:&#34;aws_chaos,omitempty&#34; binding:&#34;RequiredFieldEqual=Kind:AwsChaos&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TimeChaosInfo">type <a href="./https:/chaos-mesh.dev/godoc/v1.2.3/src/github.com/chaos-mesh/chaos-mesh/pkg/core/experiment.go#L220">TimeChaosInfo</a>
+				<a class="permalink" href="#TimeChaosInfo">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+TimeChaosInfo defines the basic information of time chaos for creating a new TimeChaos.
+</p>
+
+			<pre>type TimeChaosInfo struct {
+<span id="TimeChaosInfo.TimeOffset"></span>    TimeOffset     <a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a>   `json:&#34;time_offset&#34;`
+<span id="TimeChaosInfo.ClockIDs"></span>    ClockIDs       []<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;clock_ids&#34;`
+<span id="TimeChaosInfo.ContainerNames"></span>    ContainerNames []<a href="https:/chaos-mesh.dev/godoc/v1.2.3/pkg/builtin/#string">string</a> `json:&#34;container_names&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

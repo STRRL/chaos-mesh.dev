@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>errors - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/v2.1.4/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.4/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/v2.1.4/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit 7ef267c. Generated at Mon Apr 25 14:57:50 UTC 2022.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package errors
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+			
+				
+				<dd><a href="#NoMoreTemplateInSerialTemplateError">type NoMoreTemplateInSerialTemplateError</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewNoMoreTemplateInSerialTemplateError">func NewNoMoreTemplateInSerialTemplateError(op, workflowName, templateName, nodeName string) *NoMoreTemplateInSerialTemplateError</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NoMoreTemplateInSerialTemplateError.Error">func (e *NoMoreTemplateInSerialTemplateError) Error() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NoMoreTemplateInSerialTemplateError.Unwrap">func (e *NoMoreTemplateInSerialTemplateError) Unwrap() error</a></dd>
+				
+			
+				
+				<dd><a href="#NoSuchTemplateError">type NoSuchTemplateError</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewNoSuchTemplateError">func NewNoSuchTemplateError(op, workflowName, templateName string) *NoSuchTemplateError</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewNoSuchTemplateErrorInTemplates">func NewNoSuchTemplateErrorInTemplates(op, templateName string, allAvailableTemplates []string) *NoSuchTemplateError</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NoSuchTemplateError.Error">func (e *NoSuchTemplateError) Error() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NoSuchTemplateError.Unwrap">func (e *NoSuchTemplateError) Unwrap() error</a></dd>
+				
+			
+				
+				<dd><a href="#NoSuchTreeNodeError">type NoSuchTreeNodeError</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewNoSuchTreeNodeError">func NewNoSuchTreeNodeError(op string, parentNodeName string, workflowName string) *NoSuchTreeNodeError</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NoSuchTreeNodeError.Error">func (e *NoSuchTreeNodeError) Error() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NoSuchTreeNodeError.Unwrap">func (e *NoSuchTreeNodeError) Unwrap() error</a></dd>
+				
+			
+				
+				<dd><a href="#ParseTemplateFailedError">type ParseTemplateFailedError</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewParseSerialTemplateFailedError">func NewParseSerialTemplateFailedError(op string, raw interface{}) *ParseTemplateFailedError</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParseTemplateFailedError.Error">func (e *ParseTemplateFailedError) Error() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParseTemplateFailedError.Unwrap">func (e *ParseTemplateFailedError) Unwrap() error</a></dd>
+				
+			
+				
+				<dd><a href="#WorkflowError">type WorkflowError</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#New">func New(message string) *WorkflowError</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WorkflowError.Error">func (it *WorkflowError) Error() string</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/errors.go">errors.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/jsonify_error.go">jsonify_error.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/no_more_template_in_serial_template.go">no_more_template_in_serial_template.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/no_such_template.go">no_such_template.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/no_such_tree_node.go">no_such_tree_node.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/parse_template_failed.go">parse_template_failed.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				<p>
+FIXME: use thaterror
+</p>
+
+				<pre>var (
+    <span id="ErrNoSuchNode">ErrNoSuchNode</span>                     = <a href="#New">New</a>(&#34;no such node&#34;)
+    <span id="ErrNoSuchTemplate">ErrNoSuchTemplate</span>                 = <a href="#New">New</a>(&#34;no such template&#34;)
+    <span id="ErrParseTemplateFailed">ErrParseTemplateFailed</span>            = <a href="#New">New</a>(&#34;failed to parse certain type of template&#34;)
+    <span id="ErrNoMoreTemplateInSerialTemplate">ErrNoMoreTemplateInSerialTemplate</span> = <a href="#New">New</a>(&#34;no more template could schedule in serial template&#34;)
+)</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="NoMoreTemplateInSerialTemplateError">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/no_more_template_in_serial_template.go#L18">NoMoreTemplateInSerialTemplateError</a>
+				<a class="permalink" href="#NoMoreTemplateInSerialTemplateError">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type NoMoreTemplateInSerialTemplateError struct {
+<span id="NoMoreTemplateInSerialTemplateError.Op"></span>    Op  <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>
+<span id="NoMoreTemplateInSerialTemplateError.Err"></span>    Err <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#error">error</a>
+
+<span id="NoMoreTemplateInSerialTemplateError.WorkflowName"></span>    WorkflowName <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>
+<span id="NoMoreTemplateInSerialTemplateError.TemplateName"></span>    TemplateName <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>
+<span id="NoMoreTemplateInSerialTemplateError.NodeName"></span>    NodeName     <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewNoMoreTemplateInSerialTemplateError">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/no_more_template_in_serial_template.go#L35">NewNoMoreTemplateInSerialTemplateError</a>
+					<a class="permalink" href="#NewNoMoreTemplateInSerialTemplateError">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewNoMoreTemplateInSerialTemplateError(op, workflowName, templateName, nodeName <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>) *<a href="#NoMoreTemplateInSerialTemplateError">NoMoreTemplateInSerialTemplateError</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="NoMoreTemplateInSerialTemplateError.Error">func (*NoMoreTemplateInSerialTemplateError) <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/no_more_template_in_serial_template.go#L27">Error</a>
+					<a class="permalink" href="#NoMoreTemplateInSerialTemplateError.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#NoMoreTemplateInSerialTemplateError">NoMoreTemplateInSerialTemplateError</a>) Error() <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="NoMoreTemplateInSerialTemplateError.Unwrap">func (*NoMoreTemplateInSerialTemplateError) <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/no_more_template_in_serial_template.go#L31">Unwrap</a>
+					<a class="permalink" href="#NoMoreTemplateInSerialTemplateError.Unwrap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#NoMoreTemplateInSerialTemplateError">NoMoreTemplateInSerialTemplateError</a>) Unwrap() <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="NoSuchTemplateError">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/no_such_template.go#L18">NoSuchTemplateError</a>
+				<a class="permalink" href="#NoSuchTemplateError">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type NoSuchTemplateError struct {
+<span id="NoSuchTemplateError.Op"></span>    Op  <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>
+<span id="NoSuchTemplateError.Err"></span>    Err <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#error">error</a>
+
+<span id="NoSuchTemplateError.WorkflowName"></span>    WorkflowName          <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>
+<span id="NoSuchTemplateError.TemplateName"></span>    TemplateName          <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>
+<span id="NoSuchTemplateError.AllAvailableTemplates"></span>    AllAvailableTemplates []<a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewNoSuchTemplateError">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/no_such_template.go#L35">NewNoSuchTemplateError</a>
+					<a class="permalink" href="#NewNoSuchTemplateError">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewNoSuchTemplateError(op, workflowName, templateName <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>) *<a href="#NoSuchTemplateError">NoSuchTemplateError</a></pre>
+				
+				
+				
+			
+				
+				<h3 id="NewNoSuchTemplateErrorInTemplates">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/no_such_template.go#L44">NewNoSuchTemplateErrorInTemplates</a>
+					<a class="permalink" href="#NewNoSuchTemplateErrorInTemplates">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewNoSuchTemplateErrorInTemplates(op, templateName <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>, allAvailableTemplates []<a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>) *<a href="#NoSuchTemplateError">NoSuchTemplateError</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="NoSuchTemplateError.Error">func (*NoSuchTemplateError) <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/no_such_template.go#L27">Error</a>
+					<a class="permalink" href="#NoSuchTemplateError.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#NoSuchTemplateError">NoSuchTemplateError</a>) Error() <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="NoSuchTemplateError.Unwrap">func (*NoSuchTemplateError) <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/no_such_template.go#L31">Unwrap</a>
+					<a class="permalink" href="#NoSuchTemplateError.Unwrap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#NoSuchTemplateError">NoSuchTemplateError</a>) Unwrap() <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="NoSuchTreeNodeError">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/no_such_tree_node.go#L18">NoSuchTreeNodeError</a>
+				<a class="permalink" href="#NoSuchTreeNodeError">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type NoSuchTreeNodeError struct {
+<span id="NoSuchTreeNodeError.Op"></span>    Op  <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>
+<span id="NoSuchTreeNodeError.Err"></span>    Err <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#error">error</a>
+
+<span id="NoSuchTreeNodeError.WorkflowName"></span>    WorkflowName   <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>
+<span id="NoSuchTreeNodeError.ParentNodeName"></span>    ParentNodeName <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewNoSuchTreeNodeError">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/no_such_tree_node.go#L34">NewNoSuchTreeNodeError</a>
+					<a class="permalink" href="#NewNoSuchTreeNodeError">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewNoSuchTreeNodeError(op <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>, parentNodeName <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>, workflowName <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>) *<a href="#NoSuchTreeNodeError">NoSuchTreeNodeError</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="NoSuchTreeNodeError.Error">func (*NoSuchTreeNodeError) <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/no_such_tree_node.go#L26">Error</a>
+					<a class="permalink" href="#NoSuchTreeNodeError.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#NoSuchTreeNodeError">NoSuchTreeNodeError</a>) Error() <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="NoSuchTreeNodeError.Unwrap">func (*NoSuchTreeNodeError) <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/no_such_tree_node.go#L30">Unwrap</a>
+					<a class="permalink" href="#NoSuchTreeNodeError.Unwrap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#NoSuchTreeNodeError">NoSuchTreeNodeError</a>) Unwrap() <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ParseTemplateFailedError">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/parse_template_failed.go#L20">ParseTemplateFailedError</a>
+				<a class="permalink" href="#ParseTemplateFailedError">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ParseTemplateFailedError struct {
+<span id="ParseTemplateFailedError.Op"></span>    Op  <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>
+<span id="ParseTemplateFailedError.Err"></span>    Err <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#error">error</a>
+
+<span id="ParseTemplateFailedError.Target"></span>    Target  <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>
+<span id="ParseTemplateFailedError.RawType"></span>    RawType <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewParseSerialTemplateFailedError">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/parse_template_failed.go#L36">NewParseSerialTemplateFailedError</a>
+					<a class="permalink" href="#NewParseSerialTemplateFailedError">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewParseSerialTemplateFailedError(op <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>, raw interface{}) *<a href="#ParseTemplateFailedError">ParseTemplateFailedError</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="ParseTemplateFailedError.Error">func (*ParseTemplateFailedError) <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/parse_template_failed.go#L28">Error</a>
+					<a class="permalink" href="#ParseTemplateFailedError.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#ParseTemplateFailedError">ParseTemplateFailedError</a>) Error() <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ParseTemplateFailedError.Unwrap">func (*ParseTemplateFailedError) <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/parse_template_failed.go#L32">Unwrap</a>
+					<a class="permalink" href="#ParseTemplateFailedError.Unwrap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#ParseTemplateFailedError">ParseTemplateFailedError</a>) Unwrap() <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="WorkflowError">type <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/errors.go#L26">WorkflowError</a>
+				<a class="permalink" href="#WorkflowError">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type WorkflowError struct {
+<span id="WorkflowError.Message"></span>    Message <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="New">func <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/errors.go#L34">New</a>
+					<a class="permalink" href="#New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func New(message <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a>) *<a href="#WorkflowError">WorkflowError</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="WorkflowError.Error">func (*WorkflowError) <a href="./https:/chaos-mesh.dev/godoc/v2.1.4/src/github.com/chaos-mesh/chaos-mesh/pkg/workflow/errors/errors.go#L30">Error</a>
+					<a class="permalink" href="#WorkflowError.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#WorkflowError">WorkflowError</a>) Error() <a href="https:/chaos-mesh.dev/godoc/v2.1.4/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.18.1.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

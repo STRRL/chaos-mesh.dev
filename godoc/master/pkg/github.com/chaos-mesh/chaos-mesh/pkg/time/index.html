@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>time - Chaos Mesh</title>
+
+<link type="text/css" rel="stylesheet" href="https://chaos-mesh.dev/godoc/master/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="https://chaos-mesh.dev/godoc/master/lib/godoc/godocs.js" defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DESCBGPBX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DESCBGPBX');
+</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh | Commit f3d3540. Generated at Fri Feb  7 10:01:31 UTC 2025.</a></div>
+<div class="top-heading" id="heading-narrow"><a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/">Chaos Mesh</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package time
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/chaos-mesh/chaos-mesh/pkg/time"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#AssetLD">func AssetLD(rela elf.Rela64, imageOffset map[string]int, imageContent *[]byte, sym elf.Symbol, byteorder binary.ByteOrder)</a></dd>
+			
+				
+				<dd><a href="#FindVDSOEntry">func FindVDSOEntry(program *ptrace.TracedProgram) (*mapreader.Entry, error)</a></dd>
+			
+			
+				
+				<dd><a href="#Config">type Config</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewConfig">func NewConfig(deltaSeconds int64, deltaNanoSeconds int64, clockIDsMask uint64) Config</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Config.Assign">func (c *Config) Assign(injectable tasks.Injectable) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Config.DeepCopy">func (c *Config) DeepCopy() tasks.Object</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Config.Merge">func (c *Config) Merge(a tasks.Mergeable) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Config.New">func (c *Config) New(values interface{}) (tasks.Injectable, error)</a></dd>
+				
+			
+				
+				<dd><a href="#ConfigCreatorParas">type ConfigCreatorParas</a></dd>
+				
+				
+			
+				
+				<dd><a href="#FakeImage">type FakeImage</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#LoadFakeImageFromEmbedFs">func LoadFakeImageFromEmbedFs(filename string, symbolName string, logger logr.Logger) (*FakeImage, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewFakeImage">func NewFakeImage(symbolName string, content []byte, offset map[string]int, logger logr.Logger) *FakeImage</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FakeImage.AttachToProcess">func (it *FakeImage) AttachToProcess(pid int, variables map[string]uint64) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FakeImage.FindInjectedImage">func (it *FakeImage) FindInjectedImage(program *ptrace.TracedProgram, varNum int) (*mapreader.Entry, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FakeImage.InjectFakeImage">func (it *FakeImage) InjectFakeImage(program *ptrace.TracedProgram, vdsoEntry *mapreader.Entry) (*mapreader.Entry, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FakeImage.Recover">func (it *FakeImage) Recover(pid int, vars map[string]uint64) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FakeImage.SetVarUint64">func (it *FakeImage) SetVarUint64(program *ptrace.TracedProgram, entry *mapreader.Entry, symbol string, value uint64) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FakeImage.TryReWriteFakeImage">func (it *FakeImage) TryReWriteFakeImage(program *ptrace.TracedProgram) error</a></dd>
+				
+			
+				
+				<dd><a href="#Skew">type Skew</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GetSkew">func GetSkew(logger logr.Logger, c Config) (Skew, error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Skew.Assign">func (s *Skew) Assign(injectable tasks.Injectable) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Skew.Fork">func (s *Skew) Fork() (tasks.ChaosOnProcessGroup, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Skew.Inject">func (s *Skew) Inject(pid tasks.IsID) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Skew.Recover">func (s *Skew) Recover(pid tasks.IsID) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/asset_linux.go">asset_linux.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/asset_linux_amd64.go">asset_linux_amd64.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go">fake_image_linux.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux_amd64.go">fake_image_linux_amd64.go</a>
+			
+				<a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_linux.go">time_skew_linux.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="AssetLD">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/asset_linux_amd64.go#L23">AssetLD</a>
+				<a class="permalink" href="#AssetLD">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func AssetLD(rela <a href="https:/chaos-mesh.dev/godoc/master/pkg/debug/elf/">elf</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/debug/elf/#Rela64">Rela64</a>, imageOffset map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, imageContent *[]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#byte">byte</a>, sym <a href="https:/chaos-mesh.dev/godoc/master/pkg/debug/elf/">elf</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/debug/elf/#Symbol">Symbol</a>, byteorder <a href="https:/chaos-mesh.dev/godoc/master/pkg/encoding/binary/">binary</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/encoding/binary/#ByteOrder">ByteOrder</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="FindVDSOEntry">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go#L118">FindVDSOEntry</a>
+				<a class="permalink" href="#FindVDSOEntry">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func FindVDSOEntry(program *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/">ptrace</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/#TracedProgram">TracedProgram</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/">mapreader</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/#Entry">Entry</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Config">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_linux.go#L53">Config</a>
+				<a class="permalink" href="#Config">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Config is the summary config of get_time_of_day and clock_get_time.
+Config here is only for injector of k8s pod.
+We divide group injector on linux process , pod injector for k8s and
+the base injector , so we can simply create another config struct just
+for linux process for chaos-mesh/chaosd or watchmaker.
+</p>
+
+			<pre>type Config struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewConfig">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_linux.go#L59">NewConfig</a>
+					<a class="permalink" href="#NewConfig">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewConfig(deltaSeconds <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>, deltaNanoSeconds <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int64">int64</a>, clockIDsMask <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint64">uint64</a>) <a href="#Config">Config</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="Config.Assign">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_linux.go#L117">Assign</a>
+					<a class="permalink" href="#Config.Assign">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Config">Config</a>) Assign(injectable <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/">tasks</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/#Injectable">Injectable</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<p>
+Assign assumes the input injectable is *tasks.PodHandler.
+We also assume the SubProcess of podHandler is *tasks.ProcessGroupHandler
+and the LeaderProcess of ProcessGroupHandler is *Skew.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Config.DeepCopy">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_linux.go#L67">DeepCopy</a>
+					<a class="permalink" href="#Config.DeepCopy">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Config">Config</a>) DeepCopy() <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/">tasks</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/#Object">Object</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Config.Merge">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_linux.go#L76">Merge</a>
+					<a class="permalink" href="#Config.Merge">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Config">Config</a>) Merge(a <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/">tasks</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/#Mergeable">Mergeable</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<p>
+Merge implement how to merge time skew tasks.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Config.New">func (*Config) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_linux.go#L96">New</a>
+					<a class="permalink" href="#Config.New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Config">Config</a>) New(values interface{}) (<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/">tasks</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/#Injectable">Injectable</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<p>
+New assumes we get ConfigCreatorParas from values.
+New will init a struct just like PodHandler(ProcessGroupHandler(Skew))
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ConfigCreatorParas">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_linux.go#L88">ConfigCreatorParas</a>
+				<a class="permalink" href="#ConfigCreatorParas">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ConfigCreatorParas struct {
+<span id="ConfigCreatorParas.Logger"></span>    Logger        <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>
+<span id="ConfigCreatorParas.Config"></span>    Config        <a href="#Config">Config</a>
+<span id="ConfigCreatorParas.PodProcessMap"></span>    PodProcessMap *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/">tasks</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/#PodContainerNameProcessMap">PodContainerNameProcessMap</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="FakeImage">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go#L35">FakeImage</a>
+				<a class="permalink" href="#FakeImage">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+FakeImage introduce the replacement of VDSO ELF entry and customizable variables.
+FakeImage could be constructed by LoadFakeImageFromEmbedFs(), and then used by FakeClockInjector.
+</p>
+
+			<pre>type FakeImage struct {
+
+<span id="FakeImage.OriginFuncCode"></span>    <span class="comment">// OriginFuncCode stores the raw func code like getTimeOfDay &amp; ClockGetTime.</span>
+    OriginFuncCode []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#byte">byte</a>
+<span id="FakeImage.OriginAddress"></span>    <span class="comment">// OriginAddress stores the origin address of OriginFuncCode.</span>
+    OriginAddress <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint64">uint64</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="LoadFakeImageFromEmbedFs">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/asset_linux.go#L35">LoadFakeImageFromEmbedFs</a>
+					<a class="permalink" href="#LoadFakeImageFromEmbedFs">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func LoadFakeImageFromEmbedFs(filename <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, symbolName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) (*<a href="#FakeImage">FakeImage</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<p>
+LoadFakeImageFromEmbedFs builds FakeImage from the embed filesystem. It parses the ELF file and extract the variables from the relocation section, reserves the space for them at the end of content, then calculates and saves offsets as &#34;manually relocation&#34;
+</p>
+
+				
+				
+			
+				
+				<h3 id="NewFakeImage">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go#L53">NewFakeImage</a>
+					<a class="permalink" href="#NewFakeImage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewFakeImage(symbolName <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, content []<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#byte">byte</a>, offset map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>) *<a href="#FakeImage">FakeImage</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="FakeImage.AttachToProcess">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go#L59">AttachToProcess</a>
+					<a class="permalink" href="#FakeImage.AttachToProcess">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#FakeImage">FakeImage</a>) AttachToProcess(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, variables map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint64">uint64</a>) (err <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<p>
+AttachToProcess would use ptrace to replace the VDSO ELF entry with FakeImage.
+Each item in parameter &#34;variables&#34; needs a corresponding entry in FakeImage.offset.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="FakeImage.FindInjectedImage">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go#L135">FindInjectedImage</a>
+					<a class="permalink" href="#FakeImage.FindInjectedImage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#FakeImage">FakeImage</a>) FindInjectedImage(program *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/">ptrace</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/#TracedProgram">TracedProgram</a>, varNum <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/">mapreader</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/#Entry">Entry</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<p>
+FindInjectedImage find injected image to avoid redundant inject.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="FakeImage.InjectFakeImage">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go#L164">InjectFakeImage</a>
+					<a class="permalink" href="#FakeImage.InjectFakeImage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#FakeImage">FakeImage</a>) InjectFakeImage(program *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/">ptrace</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/#TracedProgram">TracedProgram</a>,
+    vdsoEntry *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/">mapreader</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/#Entry">Entry</a>) (*<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/">mapreader</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/#Entry">Entry</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				<p>
+InjectFakeImage Usage CheckList:
+When error : TryReWriteFakeImage after InjectFakeImage.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="FakeImage.Recover">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go#L207">Recover</a>
+					<a class="permalink" href="#FakeImage.Recover">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#FakeImage">FakeImage</a>) Recover(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#int">int</a>, vars map[<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>]<a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint64">uint64</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<p>
+Recover the injected image. If injected image not found ,
+Recover will not return error.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="FakeImage.SetVarUint64">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux_amd64.go#L27">SetVarUint64</a>
+					<a class="permalink" href="#FakeImage.SetVarUint64">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#FakeImage">FakeImage</a>) SetVarUint64(program *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/">ptrace</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/#TracedProgram">TracedProgram</a>, entry *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/">mapreader</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/mapreader/#Entry">Entry</a>, symbol <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#string">string</a>, value <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#uint64">uint64</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FakeImage.TryReWriteFakeImage">func (*FakeImage) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/fake_image_linux.go#L193">TryReWriteFakeImage</a>
+					<a class="permalink" href="#FakeImage.TryReWriteFakeImage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (it *<a href="#FakeImage">FakeImage</a>) TryReWriteFakeImage(program *<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/">ptrace</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/ptrace/#TracedProgram">TracedProgram</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Skew">type <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_linux.go#L137">Skew</a>
+				<a class="permalink" href="#Skew">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Skew implements ChaosOnProcessGroup.
+We locked Skew injecting and recovering to avoid conflict.
+</p>
+
+			<pre>type Skew struct {
+<span id="Skew.SkewConfig"></span>    SkewConfig <a href="#Config">Config</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="GetSkew">func <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_linux.go#L146">GetSkew</a>
+					<a class="permalink" href="#GetSkew">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func GetSkew(logger <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/">logr</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/go-logr/logr/#Logger">Logger</a>, c <a href="#Config">Config</a>) (<a href="#Skew">Skew</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="Skew.Assign">func (*Skew) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_linux.go#L176">Assign</a>
+					<a class="permalink" href="#Skew.Assign">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#Skew">Skew</a>) Assign(injectable <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/">tasks</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/#Injectable">Injectable</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Skew.Fork">func (*Skew) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_linux.go#L166">Fork</a>
+					<a class="permalink" href="#Skew.Fork">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#Skew">Skew</a>) Fork() (<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/">tasks</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/#ChaosOnProcessGroup">ChaosOnProcessGroup</a>, <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Skew.Inject">func (*Skew) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_linux.go#L185">Inject</a>
+					<a class="permalink" href="#Skew.Inject">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#Skew">Skew</a>) Inject(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/">tasks</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/#IsID">IsID</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Skew.Recover">func (*Skew) <a href="./https:/chaos-mesh.dev/godoc/master/src/github.com/chaos-mesh/chaos-mesh/pkg/time/time_skew_linux.go#L217">Recover</a>
+					<a class="permalink" href="#Skew.Recover">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="#Skew">Skew</a>) Recover(pid <a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/">tasks</a>.<a href="https:/chaos-mesh.dev/godoc/master/pkg/github.com/chaos-mesh/chaos-mesh/pkg/chaosdaemon/tasks/#IsID">IsID</a>) <a href="https:/chaos-mesh.dev/godoc/master/pkg/builtin/#error">error</a></pre>
+				<p>
+Recover clock_get_time &amp; get_time_of_day one by one ,
+if error comes from clock_get_time.Recover we will continue recover another fake image
+and merge errors.
+</p>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="utils/">utils</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.18.1.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
